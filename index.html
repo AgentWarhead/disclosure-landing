@@ -806,14 +806,14 @@ async function handleAccess(e) {
 
   if (sb) {
     try {
-      const { data, error } = await sb.from('waitlist').insert([{
+      const { error } = await sb.from('waitlist').insert([{
         email,
         readiness_score: savedReadinessScore,
         readiness_label: savedReadinessScore !== null
           ? (savedReadinessScore >= 66 ? 'CONDITION YELLOW' : savedReadinessScore >= 33 ? 'CONDITION ORANGE' : 'CONDITION RED')
           : null
-      }]).select();
-      if (!error && data?.[0]) {
+      }]);
+      if (!error) {
         // Get count for civilian number
         const { data: cnt } = await sb.rpc('get_waitlist_count');
         civilianNum = cnt ? cnt + 1247 : null;
