@@ -1,1017 +1,560 @@
 <!DOCTYPE html>
-<!-- CASE FILE: UAP-CIVILIAN-001 // DISCLOSURE PROJECT -->
-<!-- COORDINATES: 37°14'06"N 115°48'40"W -->
-<!-- INITIATED: 2024-12-01 // CLEARANCE: UNCLASSIFIED -->
-<!-- IF YOU ARE READING THIS YOU ARE ALREADY BEING MONITORED -->
-<!-- BINARY DECODE: 01001001 01010100 00100111 01010011 00100000 01010010 01000101 01000001 01001100 -->
+<!-- CASE FILE: UAP-CIVILIAN-001 // IF YOU ARE READING THIS, YOU ARE ALREADY BEING MONITORED -->
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DISCLOSURE</title>
-  <meta name="description" content="The briefing has started. Are you on the list?"/>
+  <title>DISCLOSURE — ARE YOU READY?</title>
+  <meta name="description" content="The government confirmed it. The question is no longer if. The question is whether you'll be ready."/>
   <meta property="og:title" content="DISCLOSURE"/>
-  <meta property="og:description" content="The government confirmed it. The question is no longer if. It's when."/>
+  <meta property="og:description" content="The government confirmed it. The question is no longer if. The question is whether you'll be ready."/>
   <meta property="og:image" content="https://getdisclosure.app/og.png"/>
   <meta property="og:url" content="https://getdisclosure.app"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:site" content="@disclosure_app"/>
   <meta name="twitter:image" content="https://getdisclosure.app/og.png"/>
-
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --g:#39FF14;--a:#F59E0B;--r:#EF4444;--b:#7DF9FF;
-      --gd:rgba(57,255,20,.1);--ad:rgba(245,158,11,.12);
-    }
+    :root{--g:#39FF14;--a:#F59E0B;--r:#EF4444}
     html{scroll-behavior:smooth}
     body{background:#000;color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden;cursor:crosshair}
 
     /* SCANLINES */
     body::after{content:'';position:fixed;inset:0;
-      background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.04) 3px,rgba(0,0,0,.04) 4px);
-      pointer-events:none;z-index:999;animation:flicker 8s infinite}
-    @keyframes flicker{0%,100%{opacity:1}98%{opacity:1}98.5%{opacity:.85}99%{opacity:1}99.5%{opacity:.9}}
+      background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.05) 3px,rgba(0,0,0,.05) 4px);
+      pointer-events:none;z-index:9000;animation:flicker 10s infinite}
+    @keyframes flicker{0%,100%{opacity:1}97%{opacity:1}97.5%{opacity:.8}98%{opacity:1}99%{opacity:.9}}
 
     /* NOISE */
     body::before{content:'';position:fixed;inset:0;
       background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
-      opacity:.4;pointer-events:none;z-index:1}
+      opacity:.5;pointer-events:none;z-index:0}
 
     /* STARS */
-    #stars{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0}
+    #stars{position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none}
     .star{position:absolute;border-radius:50%;background:#fff;animation:tw linear infinite}
-    @keyframes tw{0%,100%{opacity:.06}50%{opacity:.85}}
-    /* CRAFT SHAPE — brighter stars form a silent observer above */
-    .craft-star{background:rgba(57,255,20,.6);width:2px!important;height:2px!important;animation:craft-pulse 4s ease-in-out infinite}
-    @keyframes craft-pulse{0%,100%{opacity:.2;box-shadow:none}50%{opacity:.8;box-shadow:0 0 4px var(--g)}}
+    @keyframes tw{0%,100%{opacity:.04}50%{opacity:.7}}
 
-    /* CURSOR TRAIL */
-    .cursor-ring{position:fixed;width:20px;height:20px;border:1px solid rgba(57,255,20,.4);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:all .1s ease;mix-blend-mode:screen}
+    /* CURSOR RING */
+    .cursor-ring{position:fixed;width:18px;height:18px;border:1px solid rgba(57,255,20,.35);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:all .08s ease;mix-blend-mode:screen}
 
     /* BOOT SCREEN */
-    #boot{position:fixed;inset:0;background:#000;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
-    .boot-line{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.2em;color:rgba(57,255,20,0);animation:boot-appear .05s forwards}
-    @keyframes boot-appear{to{color:rgba(57,255,20,.8)}}
-    #boot-bar{width:300px;height:1px;background:rgba(57,255,20,.1);margin-top:20px;overflow:hidden;position:relative}
-    #boot-progress{height:100%;background:var(--g);width:0;transition:width .05s linear;box-shadow:0 0 8px var(--g)}
-    #boot-cursor{display:inline-block;animation:blink .5s step-end infinite}
+    #boot{position:fixed;inset:0;background:#000;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:20px}
+    .boot-line{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.2em;color:rgba(57,255,20,0);animation:boot-appear .04s forwards}
+    @keyframes boot-appear{to{color:rgba(57,255,20,.75)}}
+    #boot-bar{width:min(300px,80vw);height:1px;background:rgba(57,255,20,.1);margin-top:20px;position:relative;overflow:hidden}
+    #boot-progress{height:100%;background:var(--g);width:0;box-shadow:0 0 8px var(--g);transition:width .04s linear}
+    .boot-cursor{display:inline-block;animation:blink .5s step-end infinite}
     @keyframes blink{50%{opacity:0}}
 
+    /* ─── MAIN ─── */
     main{position:relative;z-index:2}
 
-    /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;border-bottom:1px solid rgba(57,255,20,.06);background:rgba(0,0,0,.8);backdrop-filter:blur(12px)}
-    .nav-logo{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.35em;color:var(--g);text-decoration:none}
-    .nav-right{display:flex;align-items:center;gap:20px}
-    .nav-status{display:flex;align-items:center;gap:7px;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em}
-    .nav-status-text{color:rgba(57,255,20,.55);transition:all .1s}
-    .nav-watch{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.15em;color:rgba(255,255,255,.2)}
-    .pdot{width:5px;height:5px;border-radius:50%;background:var(--g);animation:pdot-pulse 1.5s ease-in-out infinite}
-    @keyframes pdot-pulse{0%,100%{box-shadow:0 0 3px var(--g)}50%{box-shadow:0 0 10px var(--g),0 0 20px var(--g)}}
+    /* ─── NAV STRIP ─── */
+    .nav-strip{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;background:rgba(0,0,0,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(57,255,20,.06)}
+    .ns-left{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.35em;color:var(--g);text-decoration:none}
+    .ns-right{display:flex;align-items:center;gap:8px;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.18)}
+    .ns-dot{width:5px;height:5px;border-radius:50%;background:var(--g);animation:pulse-dot 1.8s ease-in-out infinite;flex-shrink:0}
+    @keyframes pulse-dot{0%,100%{box-shadow:0 0 3px var(--g)}50%{box-shadow:0 0 12px var(--g),0 0 24px var(--g)}}
 
-    /* HERO */
+    /* ─── HERO ─── */
     .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden}
 
-    /* AMBIENT ORB */
-    .hero-orb{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(57,255,20,.03) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);animation:orb-breathe 6s ease-in-out infinite;pointer-events:none}
-    @keyframes orb-breathe{0%,100%{opacity:.4;transform:translate(-50%,-50%) scale(1)}50%{opacity:.7;transform:translate(-50%,-50%) scale(1.08)}}
+    .hero-orb{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(57,255,20,.025) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);animation:orb-breathe 7s ease-in-out infinite;pointer-events:none}
+    @keyframes orb-breathe{0%,100%{opacity:.3;transform:translate(-50%,-50%) scale(1)}50%{opacity:.7;transform:translate(-50%,-50%) scale(1.1)}}
 
-    /* CASE TAG */
-    .case-tag{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.4em;color:rgba(245,158,11,.5);border:1px solid rgba(245,158,11,.12);padding:6px 14px;margin-bottom:20px;display:inline-block;position:relative}
-    .case-tag::before{content:'CASE #UAP-2023-0726 // GRUSCH HEARING';position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:8px;color:rgba(255,255,255,.08);letter-spacing:.2em}
+    .hero-kicker{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.5em;color:rgba(245,158,11,.5);margin-bottom:24px;text-transform:uppercase}
 
-    /* GLITCH HEADLINE */
-    .hero-h{font-size:clamp(44px,9vw,110px);font-weight:700;line-height:1.0;letter-spacing:-.02em;margin:28px 0 24px;position:relative;text-align:center}
+    .hero-h{font-size:clamp(72px,16vw,200px);font-weight:700;line-height:.92;letter-spacing:-.03em;margin-bottom:32px;position:relative}
     .glitch{position:relative;display:inline-block;color:#fff}
     .glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%}
-    .glitch::before{color:rgba(57,255,20,.7);animation:glitch-a 4s infinite;clip-path:polygon(0 0,100% 0,100% 45%,0 45%)}
-    .glitch::after{color:rgba(239,68,68,.6);animation:glitch-b 4s infinite;clip-path:polygon(0 55%,100% 55%,100% 100%,0 100%)}
-    @keyframes glitch-a{0%,92%,100%{transform:none;opacity:0}93%{transform:translateX(-3px);opacity:1}95%{transform:translateX(3px) skewX(2deg);opacity:.8}97%{transform:none;opacity:0}}
-    @keyframes glitch-b{0%,94%,100%{transform:none;opacity:0}95%{transform:translateX(3px);opacity:.9}97%{transform:translateX(-2px) skewX(-1deg);opacity:.7}99%{transform:none;opacity:0}}
+    .glitch::before{color:rgba(57,255,20,.65);animation:ga 5s infinite;clip-path:polygon(0 0,100% 0,100% 40%,0 40%)}
+    .glitch::after{color:rgba(239,68,68,.55);animation:gb 5s infinite;clip-path:polygon(0 60%,100% 60%,100% 100%,0 100%)}
+    @keyframes ga{0%,90%,100%{transform:none;opacity:0}91%{transform:translateX(-4px);opacity:1}93%{transform:translateX(4px) skewX(3deg);opacity:.8}95%{transform:none;opacity:0}}
+    @keyframes gb{0%,93%,100%{transform:none;opacity:0}94%{transform:translateX(4px);opacity:.9}96%{transform:translateX(-3px) skewX(-2deg);opacity:.7}98%{transform:none;opacity:0}}
 
-    .hero-h em{font-style:normal;color:var(--g);display:block}
-    .hero-sub-line{font-family:'Share Tech Mono',monospace;font-size:clamp(10px,1.5vw,13px);letter-spacing:.5em;color:rgba(255,255,255,.2);margin-bottom:48px;text-transform:uppercase}
+    .hero-line1{font-size:clamp(18px,3vw,32px);font-weight:500;color:rgba(255,255,255,.55);letter-spacing:.05em;margin-bottom:8px}
+    .hero-line2{font-size:clamp(18px,3vw,32px);font-weight:500;color:rgba(255,255,255,.55);letter-spacing:.05em;margin-bottom:8px}
+    .hero-line3{font-size:clamp(22px,3.5vw,38px);font-weight:700;color:#fff;letter-spacing:.02em;margin-bottom:48px}
+    .hero-line3 em{font-style:normal;color:var(--g)}
 
-    /* REDACTED BRIEF */
-    .redacted-brief{max-width:640px;width:100%;border:1px solid rgba(245,158,11,.12);background:rgba(245,158,11,.02);padding:28px;text-align:left;margin-bottom:44px;position:relative}
-    .brief-stamp{position:absolute;top:-1px;right:16px;font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.4em;color:rgba(239,68,68,.4);border:1px solid rgba(239,68,68,.2);padding:3px 8px;background:#000}
-    .brief-header{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.25em;color:rgba(245,158,11,.5);margin-bottom:16px;line-height:2}
-    .brief-body{font-family:'Share Tech Mono',monospace;font-size:11px;color:rgba(255,255,255,.5);line-height:2}
-    .redact{display:inline-block;background:rgba(245,158,11,.9);color:transparent;cursor:pointer;position:relative;transition:all .3s;user-select:none;letter-spacing:.05em;border-radius:1px}
-    .redact:hover{background:transparent;color:var(--g);text-shadow:0 0 8px var(--g)}
-    .redact::after{content:'[HOVER TO DECLASSIFY]';position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);font-size:7px;color:rgba(245,158,11,.4);white-space:nowrap;opacity:0;transition:opacity .2s}
-    .redact:hover::after{opacity:0}
+    .cta-btn{display:inline-block;font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:.3em;color:#000;background:var(--g);padding:16px 40px;text-decoration:none;cursor:pointer;border:none;transition:all .15s ease;position:relative;overflow:hidden}
+    .cta-btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-100%);transition:transform .2s ease}
+    .cta-btn:hover::before{transform:translateX(0)}
+    .cta-btn:hover{box-shadow:0 0 30px rgba(57,255,20,.6),0 0 60px rgba(57,255,20,.3)}
 
-    /* LIVE DATA */
-    .data-row{display:flex;gap:0;border:1px solid rgba(57,255,20,.1);width:100%;max-width:640px;margin-bottom:44px;flex-wrap:wrap}
-    .dc{flex:1;min-width:140px;padding:16px;border-right:1px solid rgba(57,255,20,.06);text-align:center;position:relative;overflow:hidden}
-    .dc:last-child{border-right:none}
-    .dc::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 100%,rgba(57,255,20,.04),transparent 70%);opacity:0;transition:opacity .3s}
-    .dc:hover::before{opacity:1}
-    .dl{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.2em;color:rgba(57,255,20,.35);text-transform:uppercase;margin-bottom:5px}
-    .dv{font-family:'Share Tech Mono',monospace;font-size:clamp(16px,2.5vw,22px);color:var(--g);text-shadow:0 0 12px rgba(57,255,20,.3);font-weight:700}
-    .dv.amber{color:var(--a);text-shadow:0 0 12px rgba(245,158,11,.3)}
-    .dv.red{color:var(--r);text-shadow:0 0 12px rgba(239,68,68,.3)}
-    .dsrc{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:.15em;color:rgba(57,255,20,.2);margin-top:4px}
+    .hero-counter{display:flex;align-items:center;gap:10px;margin-top:32px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.25)}
+    .h-count-num{color:rgba(57,255,20,.6)}
+    .h-sep{color:rgba(255,255,255,.1)}
 
-    /* WAITLIST */
-    .wl-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;max-width:500px}
-    .wl-pre{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.25);text-transform:uppercase}
-    .wl-form{display:flex;width:100%;border:1px solid rgba(57,255,20,.25);transition:all .25s}
-    .wl-form:focus-within{border-color:var(--g);box-shadow:0 0 20px rgba(57,255,20,.1)}
-    .wl-input{flex:1;background:rgba(0,0,0,.9);border:none;outline:none;padding:14px 16px;font-family:'Share Tech Mono',monospace;font-size:12px;color:#fff;letter-spacing:.05em}
-    .wl-input::placeholder{color:rgba(255,255,255,.15)}
-    .wl-btn{background:var(--g);border:none;padding:14px 20px;font-family:'Share Tech Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.2em;color:#000;cursor:pointer;white-space:nowrap;transition:opacity .2s;text-transform:uppercase}
-    .wl-btn:hover{opacity:.85}
-    .wl-note{font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:.1em}
-    .wl-success{display:none;width:100%;padding:20px;border:1px solid rgba(57,255,20,.2);background:rgba(57,255,20,.03);text-align:center}
-    .wl-st{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.3em;color:var(--g);margin-bottom:6px}
-    .wl-ss{font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(255,255,255,.25);letter-spacing:.12em}
+    /* ─── MOMENT SECTION ─── */
+    .moment{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;position:relative}
 
-    /* STORE BADGES */
-    .store-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px}
-    .sbadge{display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.08);padding:9px 16px;font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(255,255,255,.25)}
+    .moment-date{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.5em;color:rgba(245,158,11,.5);margin-bottom:40px}
 
-    /* SIGNAL INTERRUPT DIVIDER */
-    .sig-div{padding:60px 24px;text-align:center;border-top:1px solid rgba(57,255,20,.04);border-bottom:1px solid rgba(57,255,20,.04);position:relative;overflow:hidden}
-    .sig-div::before{content:'';position:absolute;top:50%;left:-100%;width:300%;height:1px;background:linear-gradient(to right,transparent,var(--g),transparent);animation:sig-scan 6s linear infinite}
-    @keyframes sig-scan{0%{left:-300%}100%{left:100%}}
-    .sig-morse{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.4em;color:rgba(57,255,20,.2);margin-bottom:12px;animation:morse-flicker 8s ease-in-out infinite}
-    @keyframes morse-flicker{0%,100%{color:rgba(57,255,20,.2)}50%{color:rgba(57,255,20,.6)}}
-    .sig-decode{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.3em;color:rgba(255,255,255,.06);cursor:pointer;transition:color .4s}
-    .sig-decode:hover{color:rgba(57,255,20,.7)}
+    .moment-h{font-size:clamp(42px,8vw,96px);font-weight:700;line-height:1.05;letter-spacing:-.02em;margin-bottom:48px}
+    .moment-h em{font-style:normal;display:block;color:rgba(255,255,255,.35)}
 
-    /* CLASSIFIED DOC SECTION */
-    .doc-section{padding:100px 24px;border-top:1px solid rgba(255,255,255,.03)}
-    .doc-inner{max-width:860px;margin:0 auto}
-    .doc-wrapper{border:1px solid rgba(245,158,11,.1);background:rgba(245,158,11,.015);padding:40px;position:relative}
-    .doc-diagonal{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-12deg);font-family:'Share Tech Mono',monospace;font-size:clamp(40px,8vw,80px);color:rgba(239,68,68,.04);letter-spacing:.4em;white-space:nowrap;pointer-events:none;font-weight:700}
-    .doc-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px;flex-wrap:wrap;gap:12px}
-    .doc-classification{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.3em;color:rgba(245,158,11,.5);border:1px solid rgba(245,158,11,.2);padding:4px 12px}
-    .doc-ref{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.2em;color:rgba(255,255,255,.2)}
-    blockquote.testimony{font-size:clamp(18px,3vw,28px);font-weight:600;line-height:1.5;color:#fff;padding-left:20px;border-left:2px solid var(--g);margin-bottom:20px;position:relative}
-    .t-source{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,.3);margin-bottom:32px}
-    .t-source span{color:rgba(57,255,20,.6)}
-    .fact-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(57,255,20,.06);margin-top:32px}
-    .fc{background:#000;padding:24px 20px;transition:background .25s;cursor:default}
-    .fc:hover{background:rgba(57,255,20,.02)}
-    .fn{font-family:'Share Tech Mono',monospace;font-size:clamp(20px,3.5vw,32px);color:var(--g);text-shadow:0 0 12px rgba(57,255,20,.3);margin-bottom:6px}
-    .fd{font-size:13px;color:rgba(255,255,255,.4);line-height:1.5;font-weight:400}
-    .fsrc{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.12em;color:rgba(57,255,20,.2);margin-top:8px}
+    .moment-body{font-size:clamp(16px,2vw,22px);font-weight:400;color:rgba(255,255,255,.4);line-height:1.8;max-width:560px;margin:0 auto 48px}
+    .moment-body strong{color:rgba(255,255,255,.75);font-weight:600}
 
-    /* PHONE SECTION */
-    .app-section{padding:100px 24px;border-top:1px solid rgba(255,255,255,.03)}
-    .app-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-    @media(max-width:768px){.app-inner{grid-template-columns:1fr;gap:48px;text-align:center}}
-    .app-eyebrow{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.4em;color:rgba(57,255,20,.4);text-transform:uppercase;margin-bottom:16px}
-    .app-h{font-size:clamp(28px,4.5vw,52px);font-weight:700;line-height:1.1;margin-bottom:16px}
-    .app-h em{font-style:normal;color:var(--g)}
-    .app-p{font-size:clamp(14px,2vw,17px);color:rgba(255,255,255,.4);line-height:1.7;font-weight:400;margin-bottom:32px}
-    .app-feats{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
-    .af{display:flex;align-items:flex-start;gap:12px}
-    .af-ico{width:30px;height:30px;border:1px solid rgba(57,255,20,.15);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;background:rgba(57,255,20,.03)}
-    .af-t{font-size:14px;color:rgba(255,255,255,.5);line-height:1.5}
-    .af-t strong{color:rgba(255,255,255,.85);font-weight:600}
+    .moment-line{width:1px;height:60px;background:linear-gradient(to bottom,rgba(57,255,20,.3),transparent);margin:0 auto 48px}
 
-    /* PHONE FRAMES */
-    .phone-stack{display:flex;justify-content:center;position:relative;height:520px}
-    @media(max-width:768px){.phone-stack{height:400px}}
-    .phone{position:absolute;border:1.5px solid rgba(255,255,255,.1);border-radius:28px;overflow:hidden;background:#040404;box-shadow:0 0 60px rgba(0,0,0,.9)}
-    .pnotch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:52px;height:4px;border-radius:2px;background:rgba(255,255,255,.06);z-index:2}
-    .phone-main-f{top:0;left:50%;transform:translateX(-50%);width:230px;height:490px;z-index:3}
-    @media(max-width:768px){.phone-main-f{width:190px;height:400px}}
-    .phone-bg-l{top:28px;left:0;width:200px;height:450px;opacity:.35;transform:rotate(-6deg);z-index:1}
-    .phone-bg-r{top:28px;right:0;width:200px;height:450px;opacity:.35;transform:rotate(6deg);z-index:1}
-    @media(max-width:768px){.phone-bg-l,.phone-bg-r{display:none}}
+    .moment-coda{font-size:clamp(28px,5vw,60px);font-weight:700;color:#fff;letter-spacing:-.01em}
+    .moment-coda em{font-style:normal;color:var(--g)}
 
-    /* SCREEN STYLES */
-    .scr{width:100%;height:100%;display:flex;flex-direction:column;padding:24px 14px 14px;background:#050505}
-    .scr-hd{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:.3em;color:rgba(57,255,20,.4);margin-bottom:14px;padding-top:6px}
-    .scr-title{font-family:'Share Tech Mono',monospace;font-size:13px;color:#fff;letter-spacing:.1em;margin-bottom:4px}
-    .scr-sub{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(255,255,255,.2);letter-spacing:.2em;margin-bottom:16px}
-    .scr-timer{font-family:'Share Tech Mono',monospace;font-size:42px;color:var(--r);text-shadow:0 0 16px rgba(239,68,68,.4);text-align:center;letter-spacing:.08em;margin:8px 0}
-    .scr-steps{display:flex;flex-direction:column;gap:7px}
-    .scr-step{display:flex;gap:6px;font-size:8px;font-family:'Share Tech Mono',monospace;color:rgba(255,255,255,.4);letter-spacing:.04em;line-height:1.4}
-    .ck{color:var(--g);flex-shrink:0}.op{color:rgba(255,255,255,.18);flex-shrink:0}
-    .scr-count-s{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:.18em;color:rgba(57,255,20,.25);margin-top:auto;text-align:center;padding-top:12px}
-    .scr-wave{height:24px;background:linear-gradient(to right,transparent,rgba(57,255,20,.12),var(--g),rgba(57,255,20,.12),transparent);border-radius:1px;margin:10px 0;animation:wv 2s ease-in-out infinite}
-    @keyframes wv{0%,100%{opacity:.5}50%{opacity:1}}
-    .scr-tbtn{display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(57,255,20,.12);padding:6px 9px;margin-bottom:5px;font-family:'Share Tech Mono',monospace;font-size:7px;color:rgba(255,255,255,.4);letter-spacing:.08em}
-    .scr-tbtn-p{color:rgba(57,255,20,.5)}
-    .map-area{flex:1;background:rgba(57,255,20,.02);border:1px solid rgba(57,255,20,.06);position:relative;border-radius:1px;overflow:hidden;margin-bottom:8px}
-    .mgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(57,255,20,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,20,.03) 1px,transparent 1px);background-size:18px 18px}
-    .mdot{position:absolute;width:5px;height:5px;border-radius:50%}
-    .m-a{background:var(--a);box-shadow:0 0 6px var(--a)}
-    .m-g{background:var(--g);box-shadow:0 0 6px var(--g)}
-    .m-r{background:var(--r);box-shadow:0 0 6px var(--r)}
-    .scr-map-log{font-family:'Share Tech Mono',monospace;font-size:7px;color:rgba(57,255,20,.3);line-height:1.8;letter-spacing:.08em}
+    /* ─── THREE RULES ─── */
+    .rules{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px;position:relative;overflow:hidden}
+    .rules-bg-text{position:absolute;font-family:'Share Tech Mono',monospace;font-size:clamp(100px,20vw,260px);font-weight:700;letter-spacing:-.05em;color:rgba(57,255,20,.02);pointer-events:none;white-space:nowrap;user-select:none}
 
-    /* BLACKOUT SECTION */
-    .blackout-section{padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.03);position:relative;overflow:hidden}
-    .blackout-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(239,68,68,.04) 0%,transparent 70%);pointer-events:none;animation:orb-breathe 5s ease-in-out infinite}
-    .bo-device{width:220px;height:410px;border:1.5px solid rgba(255,255,255,.07);border-radius:30px;margin:44px auto;background:#030303;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;box-shadow:0 0 80px rgba(0,0,0,.95),0 0 40px rgba(239,68,68,.05)}
-    .bo-device::before{content:'';position:absolute;top:10px;width:50px;height:4px;border-radius:2px;background:rgba(255,255,255,.05)}
-    /* hidden coords on device */
-    .bo-device::after{content:'37°14′N 115°48′W';position:absolute;bottom:12px;font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:.1em;color:rgba(255,255,255,.05);transition:color .4s}
-    .bo-device:hover::after{color:rgba(57,255,20,.3)}
-    .bo-dot{width:8px;height:8px;border-radius:50%;background:var(--r);box-shadow:0 0 10px var(--r);margin-bottom:18px;animation:pdot-pulse 1s infinite}
-    .bo-lbl{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.35em;color:rgba(255,255,255,.3);margin-bottom:6px}
-    .bo-hl{font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:.18em;color:#fff;line-height:1.9;text-align:center;margin-bottom:26px}
-    .bo-t{font-family:'Share Tech Mono',monospace;font-size:44px;color:var(--r);text-shadow:0 0 20px rgba(239,68,68,.4);letter-spacing:.1em}
-    .bo-rem{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.25em;color:rgba(255,255,255,.18);margin-top:5px}
-    .bo-cnt{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(255,255,255,.15);margin-top:18px}
+    .rules-header{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.5em;color:rgba(57,255,20,.3);margin-bottom:60px;text-align:center}
 
-    /* PATHS */
-    .paths-section{padding:100px 24px;border-top:1px solid rgba(255,255,255,.03)}
-    .paths-inner{max-width:840px;margin:0 auto}
-    .sec-ey{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.4em;color:rgba(57,255,20,.4);text-transform:uppercase;margin-bottom:14px}
-    .sec-t{font-size:clamp(26px,4.5vw,52px);font-weight:700;line-height:1.1;margin-bottom:12px}
-    .sec-t em{font-style:normal;color:var(--g)}
-    .sec-s{font-size:16px;color:rgba(255,255,255,.35);line-height:1.6;font-weight:400;margin-bottom:52px;max-width:520px}
-    .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(57,255,20,.05)}
-    @media(max-width:540px){.pgrid{grid-template-columns:1fr}}
-    .pcard{background:#000;padding:40px 32px;transition:background .25s}
-    .pcard:hover{background:rgba(57,255,20,.025)}
-    .pcard:hover .path-hidden{opacity:1}
-    .path-emoji{font-size:36px;margin-bottom:18px;display:block}
-    .ptag{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.35em;color:rgba(255,255,255,.2);text-transform:uppercase;margin-bottom:10px}
-    .ptitle{font-size:22px;font-weight:700;margin-bottom:10px}
-    .pa .ptitle{color:var(--a)}.pb .ptitle{color:var(--b)}
-    .pdesc{font-size:13px;color:rgba(255,255,255,.35);line-height:1.6;font-weight:400}
-    /* hidden text on path hover */
-    .path-hidden{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.2em;color:rgba(57,255,20,.4);margin-top:14px;opacity:0;transition:opacity .4s}
+    .rule-item{display:flex;align-items:baseline;gap:24px;margin-bottom:20px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    .rule-num{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.3em;color:rgba(57,255,20,.4);flex-shrink:0;width:40px}
+    .rule-text{font-size:clamp(28px,5vw,60px);font-weight:700;letter-spacing:-.01em;color:#fff}
 
-    /* DEADLINE */
-    .deadline-section{padding:72px 24px;border-top:1px solid rgba(245,158,11,.06);background:rgba(245,158,11,.01)}
-    .dl-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-    @media(max-width:680px){.dl-inner{grid-template-columns:1fr;gap:36px}}
-    .dl-copy h2{font-size:clamp(22px,3.5vw,38px);font-weight:700;margin-bottom:14px;line-height:1.2}
-    .dl-copy h2 span{color:var(--a)}
-    .dl-copy p{font-size:14px;color:rgba(255,255,255,.4);line-height:1.65;font-weight:400;margin-bottom:10px}
-    .dl-source{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.12em;color:rgba(255,255,255,.18)}
-    .cdbox{border:1px solid rgba(245,158,11,.15);background:rgba(245,158,11,.03);padding:28px;text-align:center}
-    .cd-lbl{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.3em;color:rgba(245,158,11,.45);text-transform:uppercase;margin-bottom:10px}
-    .cd-val{font-family:'Share Tech Mono',monospace;font-size:clamp(24px,4.5vw,44px);color:var(--a);text-shadow:0 0 16px rgba(245,158,11,.3);letter-spacing:.04em}
-    .cd-unit{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.2em;color:rgba(245,158,11,.35);margin-top:6px}
-    .cd-sub{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.12em;color:rgba(255,255,255,.18);margin-top:10px;line-height:1.7}
+    .rule-redacted-wrap{margin-top:32px;padding:24px 0;width:100%;max-width:600px}
+    .rbar{height:clamp(20px,3.5vw,42px);background:rgba(255,255,255,.06);margin-bottom:12px;position:relative;overflow:hidden}
+    .rbar::after{content:'REDACTED';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.4em;color:rgba(255,255,255,.08)}
+    .rbar:nth-child(2){width:75%}
+    .rbar:nth-child(3){width:85%}
 
-    /* FEATURES */
-    .feat-section{padding:100px 24px;border-top:1px solid rgba(255,255,255,.03)}
-    .feat-inner{max-width:1100px;margin:0 auto}
-    .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(57,255,20,.05)}
-    .feat-c{background:#000;padding:32px 26px;transition:background .25s;position:relative;overflow:hidden}
-    .feat-c::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(57,255,20,.2),transparent);opacity:0;transition:opacity .3s}
-    .feat-c:hover{background:rgba(57,255,20,.02)}
-    .feat-c:hover::before{opacity:1}
-    .fn-tag{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.3em;color:rgba(57,255,20,.2);margin-bottom:14px}
-    .ft{font-size:18px;font-weight:700;color:#fff;margin-bottom:9px}
-    .fd-text{font-size:13px;color:rgba(255,255,255,.38);line-height:1.6;font-weight:400}
-    /* hidden detail per feature */
-    .feat-secret{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.15em;color:rgba(57,255,20,.3);margin-top:12px;opacity:0;transition:opacity .4s;height:0;overflow:hidden;transition:all .35s}
-    .feat-c:hover .feat-secret{opacity:1;height:auto;margin-top:12px}
+    .rule-count-hint{margin-top:24px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.3em;color:rgba(245,158,11,.4);text-align:center}
 
-    /* FINAL CTA */
-    .final-section{padding:120px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.03)}
-    .final-section h2{font-size:clamp(28px,5vw,60px);font-weight:700;margin-bottom:14px;line-height:1.05}
-    .final-section h2 span{color:var(--g)}
-    .final-section p{font-family:'Share Tech Mono',monospace;font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.22em;text-transform:uppercase;margin-bottom:48px}
+    /* ─── ACCESS GATE ─── */
+    .gate{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;position:relative}
+    .gate::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center bottom,rgba(57,255,20,.04) 0%,transparent 60%);pointer-events:none}
 
-    /* SOCIAL / FOOTER */
-    .social-bar{padding:32px 24px;border-top:1px solid rgba(255,255,255,.03);display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
-    .soc{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s}
-    .soc:hover{color:var(--g)}
-    footer{padding:24px 28px;border-top:1px solid rgba(255,255,255,.02);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-    .fl{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.22em;color:rgba(57,255,20,.25)}
-    /* BINARY EASTER EGG IN FOOTER */
-    .fbinary{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.05em;color:rgba(255,255,255,.04);transition:color .5s;cursor:pointer}
-    .fbinary:hover{color:rgba(57,255,20,.5)}
-    .fn-r{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.1em;color:rgba(255,255,255,.1)}
+    .gate-eyebrow{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.5em;color:rgba(57,255,20,.35);margin-bottom:32px}
 
-    /* FLOATING TIME-BASED ALERT */
-    #alert-pop{position:fixed;bottom:24px;right:24px;z-index:500;border:1px solid rgba(239,68,68,.3);background:rgba(0,0,0,.92);backdrop-filter:blur(12px);padding:16px 20px;max-width:300px;transform:translateX(120%);transition:transform .5s cubic-bezier(.34,1.56,.64,1);font-family:'Share Tech Mono',monospace}
-    #alert-pop.show{transform:translateX(0)}
-    .ap-tag{font-size:8px;letter-spacing:.3em;color:rgba(239,68,68,.6);margin-bottom:6px}
-    .ap-body{font-size:10px;color:rgba(255,255,255,.5);line-height:1.6;letter-spacing:.06em}
-    .ap-close{position:absolute;top:8px;right:10px;color:rgba(255,255,255,.2);cursor:pointer;font-size:12px;font-family:monospace}
+    .gate-h{font-size:clamp(36px,6vw,80px);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px}
+    .gate-h em{font-style:normal;color:var(--g)}
 
-    /* SCROLL-REVEAL */
-    .sr{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
-    .sr.visible{opacity:1;transform:none}
+    .gate-sub{font-size:clamp(15px,2vw,20px);color:rgba(255,255,255,.35);max-width:480px;margin:0 auto 48px;line-height:1.7;font-weight:400}
+    .gate-sub strong{color:rgba(255,255,255,.65)}
 
-    /* MOBILE */
-    @media(max-width:640px){
-      .data-row{flex-wrap:wrap}
-      .dc{min-width:130px}
-      .wl-form{flex-direction:column}
-      .wl-btn{text-align:center}
-      footer{flex-direction:column;text-align:center}
-    }
+    .gate-form{display:flex;gap:0;max-width:480px;width:100%;margin:0 auto 16px;flex-wrap:wrap;gap:8px}
+    .gate-input{flex:1;min-width:240px;background:rgba(255,255,255,.04);border:1px solid rgba(57,255,20,.15);color:#fff;font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.15em;padding:16px 20px;outline:none;transition:border .15s}
+    .gate-input::placeholder{color:rgba(255,255,255,.2)}
+    .gate-input:focus{border-color:rgba(57,255,20,.5);background:rgba(57,255,20,.03)}
+    .gate-submit{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.2em;color:#000;background:var(--g);border:none;padding:16px 28px;cursor:pointer;transition:all .15s;white-space:nowrap}
+    .gate-submit:hover{box-shadow:0 0 24px rgba(57,255,20,.5)}
+
+    .gate-success{display:none;margin:0 auto;padding:24px;border:1px solid rgba(57,255,20,.25);background:rgba(57,255,20,.04);max-width:480px;width:100%}
+    .gate-success-t{font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:.3em;color:var(--g);margin-bottom:8px}
+    .gate-success-s{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(57,255,20,.5)}
+
+    .gate-note{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.18);margin-top:8px}
+
+    .gate-counter-wrap{display:flex;align-items:center;gap:16px;margin-top:40px;justify-content:center;flex-wrap:wrap}
+    .gstat{text-align:center}
+    .gstat-num{font-family:'Share Tech Mono',monospace;font-size:28px;color:var(--g);display:block}
+    .gstat-label{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.3em;color:rgba(255,255,255,.25);display:block;margin-top:4px}
+    .gstat-sep{color:rgba(255,255,255,.08);font-size:24px}
+
+    /* ─── SHARE ─── */
+    .share{min-height:50vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;border-top:1px solid rgba(255,255,255,.04)}
+    .share-pre{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.4em;color:rgba(255,255,255,.2);margin-bottom:28px}
+    .share-h{font-size:clamp(24px,4vw,48px);font-weight:700;color:rgba(255,255,255,.7);margin-bottom:8px}
+    .share-h em{font-style:normal;color:#fff}
+    .share-sub{font-size:clamp(14px,2vw,18px);color:rgba(255,255,255,.3);margin-bottom:36px}
+    .share-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+    .share-btn{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.2em;padding:12px 24px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);cursor:pointer;background:transparent;transition:all .15s}
+    .share-btn:hover{border-color:rgba(57,255,20,.35);color:rgba(57,255,20,.7);background:rgba(57,255,20,.03)}
+
+    /* ─── FOOTER ─── */
+    footer{padding:24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
+    .ft-text{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.3em;color:rgba(255,255,255,.15)}
+    .ft-binary{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.1em;color:rgba(255,255,255,.05);cursor:pointer;margin-top:8px;transition:color .2s}
+    .ft-binary:hover{color:rgba(57,255,20,.5)}
+
+    /* ─── ALERT POP ─── */
+    #alert-pop{position:fixed;bottom:24px;right:24px;width:280px;background:rgba(0,0,0,.95);border:1px solid rgba(239,68,68,.25);padding:16px 20px;z-index:5000;transform:translateY(120px);opacity:0;transition:all .4s ease;font-family:'Share Tech Mono',monospace}
+    #alert-pop.show{transform:translateY(0);opacity:1}
+    .ap-tag{font-size:9px;letter-spacing:.3em;color:rgba(239,68,68,.7);margin-bottom:8px}
+    .ap-body{font-size:10px;letter-spacing:.08em;color:rgba(255,255,255,.55);line-height:1.6}
+    .ap-close{position:absolute;top:10px;right:12px;color:rgba(255,255,255,.3);cursor:pointer;font-size:12px}
+
+    /* UTILS */
+    .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .sr-wrap{overflow:hidden}
+    .sr-item{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .sr-item.visible{opacity:1;transform:translateY(0)}
+
   </style>
 </head>
-
 <body>
 
 <!-- CURSOR RING -->
-<div class="cursor-ring" id="cursor-ring"></div>
+<div class="cursor-ring" id="cursor"></div>
 
-<!-- BOOT SEQUENCE -->
+<!-- STARS -->
+<div id="stars"></div>
+
+<!-- BOOT SCREEN -->
 <div id="boot">
   <div id="boot-lines"></div>
   <div id="boot-bar"><div id="boot-progress"></div></div>
 </div>
 
-<!-- STARFIELD -->
-<div id="stars"></div>
-
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">DISCLOSURE</a>
-  <div class="nav-right">
-    <span class="nav-watch" id="nav-watch">MONITORING: 0:00</span>
-    <div class="nav-status"><div class="pdot"></div><span class="nav-status-text" id="nav-st">SECURE CONNECTION</span></div>
-  </div>
-</nav>
-
 <main>
 
-<!-- ── HERO ── -->
-<section class="hero" id="top">
-  <div class="hero-orb"></div>
-
-  <div class="case-tag">UNCLASSIFIED // FOR IMMEDIATE RELEASE</div>
-
-  <h1 class="hero-h">
-    <span class="glitch" data-text="DISCLOSURE">DISCLOSURE</span>
-    <em>has already begun.</em>
-  </h1>
-  <p class="hero-sub-line">THE QUESTION IS NO LONGER IF &nbsp;·&nbsp; IT'S WHEN</p>
-
-  <!-- REDACTED BRIEF -->
-  <div class="redacted-brief sr">
-    <div class="brief-stamp">DECLASSIFIED</div>
-    <div class="brief-header">
-      FROM: ALL-DOMAIN ANOMALY RESOLUTION OFFICE (AARO)<br/>
-      TO: CIVILIAN READINESS INITIATIVE<br/>
-      SUBJECT: STATUS UPDATE — UAP ENGAGEMENT PROTOCOLS<br/>
-      DATE: <span class="redact" title="Hover to reveal">██████████ 2024</span>
+  <!-- ═══ NAV STRIP ═══ -->
+  <nav class="nav-strip" aria-label="Site navigation">
+    <a href="/" class="ns-left">DISCLOSURE</a>
+    <div class="ns-right">
+      <div class="ns-dot"></div>
+      <span>SIGNAL ACQUIRED</span>
     </div>
-    <div class="brief-body">
-      Pentagon has logged <span class="redact" title="Hover">████</span> UAP reports to date.
-      Former NRO representative <span class="redact" title="Hover">█████ ██████</span> testified under oath that
-      non-human craft and <span class="redact" title="Hover">███████████ ██████████</span> have been recovered.
-      National Archives deadline for full records transfer: <span class="redact" title="Hover">███████████ ██, ████</span>.
-      Civilian readiness level: <span class="redact" title="Hover">████████████</span>.
-    </div>
-  </div>
+  </nav>
 
-  <!-- LIVE DATA -->
-  <div class="data-row sr" id="data-row">
-    <div class="dc">
-      <div class="dl">Pentagon Reports</div>
-      <div class="dv" id="d-aaro">—</div>
-      <div class="dsrc">AARO · NOV 2024</div>
-    </div>
-    <div class="dc">
-      <div class="dl">Civilian Sightings</div>
-      <div class="dv" id="d-nuforc">—</div>
-      <div class="dsrc">NUFORC DATABASE</div>
-    </div>
-    <div class="dc">
-      <div class="dl">2025 Reports (H1)</div>
-      <div class="dv amber" id="d-2025">—</div>
-      <div class="dsrc">NUFORC · JUL 2025</div>
-    </div>
-    <div class="dc">
-      <div class="dl">Space Activity</div>
-      <div class="dv red" id="d-kp">—</div>
-      <div class="dsrc">NOAA · LIVE</div>
-    </div>
-  </div>
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-orb"></div>
 
-  <!-- WAITLIST -->
-  <div class="wl-wrap sr" id="waitlist">
-    <p class="wl-pre">iOS &amp; Android · Launching Soon</p>
-    <form class="wl-form" id="wlf1" onsubmit="handleWL(event,'1')">
-      <input class="wl-input" id="wle1" type="email" placeholder="request@access.gov" required autocomplete="email"/>
-      <button class="wl-btn" type="submit">REQUEST BRIEFING</button>
-    </form>
-    <div class="wl-success" id="wls1">
-      <div class="wl-st">◉ CLEARANCE GRANTED</div>
-      <div class="wl-ss">YOUR REQUEST IS LOGGED · BRIEFING INCOMING</div>
+    <div class="hero-kicker sr-item">CASE FILE: UAP-CIVILIAN-001 // DECLASSIFIED</div>
+
+    <h1 class="hero-h sr-item">
+      <span class="glitch" data-text="DISCLOSURE">DISCLOSURE</span>
+    </h1>
+
+    <p class="hero-line1 sr-item">The government confirmed it.</p>
+    <p class="hero-line2 sr-item">The question is no longer <em style="font-style:normal;color:rgba(255,255,255,.7)">if.</em></p>
+    <p class="hero-line3 sr-item">The question is whether <em>you'll be ready.</em></p>
+
+    <a href="#access" class="cta-btn sr-item">GET THE BRIEFING →</a>
+
+    <div class="hero-counter sr-item">
+      <div class="ns-dot" style="width:4px;height:4px"></div>
+      <span class="h-count-num" id="hero-count">1,247</span>
+      <span>civilians briefed</span>
+      <span class="h-sep">·</span>
+      <span>next wave in</span>
+      <span class="h-count-num" id="hero-timer">--:--:--</span>
     </div>
-    <p class="wl-note">No noise. First access. <span style="color:rgba(57,255,20,.4)">You'll know before the news does.</span></p>
-  </div>
+  </section>
 
-  <div class="store-row sr">
-    <div class="sbadge">🍎 APP STORE — COMING SOON</div>
-    <div class="sbadge">🤖 GOOGLE PLAY — COMING SOON</div>
-  </div>
-</section>
+  <!-- ═══ THE MOMENT ═══ -->
+  <section class="moment">
+    <div class="moment-date sr-item">30 SEPTEMBER 2025 — WASHINGTON D.C.</div>
 
-<!-- MORSE DIVIDER -->
-<div class="sig-div sr">
-  <!-- Morse code: YOU ARE NOT ALONE -->
-  <div class="sig-morse">-.-- --- ..- / .- .-. . / -. --- - / .- .-.. --- -. .</div>
-  <div class="sig-decode" title="Hover to decode">[ HOVER TO DECODE TRANSMISSION ]</div>
-</div>
+    <h2 class="moment-h sr-item">
+      The government<br>
+      <em>confirmed it.</em>
+    </h2>
 
-<!-- CLASSIFIED TESTIMONY -->
-<section class="doc-section sr">
-  <div class="doc-inner">
-    <div class="sec-ey" style="margin-bottom:16px">On The Record · Under Oath · July 26, 2023</div>
-    <div class="doc-wrapper">
-      <div class="doc-diagonal">DECLASSIFIED</div>
-      <div class="doc-header">
-        <div class="doc-classification">HOUSE OVERSIGHT COMMITTEE // UNCLASSIFIED TESTIMONY</div>
-        <div class="doc-ref">REF: HHRG-118-GO06 · 07/26/2023<br/>WITNESS: GRUSCH, DAVID C.<br/>CLEARANCE: TS/SCI</div>
+    <p class="moment-body sr-item">
+      Intelligence officials testified under oath.<br>
+      <strong>The files were declassified.</strong><br>
+      Then came the silence.
+    </p>
+
+    <div class="moment-line sr-item"></div>
+
+    <p class="moment-coda sr-item">
+      No protocol exists.<br>
+      <em>Until now.</em>
+    </p>
+  </section>
+
+  <!-- ═══ THREE RULES ═══ -->
+  <section class="rules" aria-label="Briefing excerpt">
+    <div class="rules-bg-text" aria-hidden="true">RULES</div>
+
+    <div class="rules-header sr-item">// BRIEFING EXCERPT · RULE SET ALPHA //</div>
+
+    <div style="width:100%;max-width:600px">
+      <div class="rule-item sr-item">
+        <span class="rule-num">01</span>
+        <span class="rule-text">DO NOT PANIC.</span>
       </div>
-      <blockquote class="testimony">
-        "The U.S. government is operating with secrecy — above Congressional oversight — with regards to UAPs. Non-human biologics were recovered at crash sites."
-      </blockquote>
-      <p class="t-source">— <span>DAVID GRUSCH</span>, Former National Reconnaissance Office Representative · UAPTF<br/>Testimony given under oath · United States House of Representatives · 118th Congress</p>
-
-      <div class="fact-row">
-        <div class="fc">
-          <div class="fn" id="fc-aaro">1,600+</div>
-          <p class="fd">UAP reports to the Pentagon's AARO. 757 in a single 13-month window.</p>
-          <div class="fsrc">SOURCE: DOD / AARO — NOV 2024</div>
-        </div>
-        <div class="fc">
-          <div class="fn">100K+</div>
-          <p class="fd">Civilian sightings in the NUFORC database — 25 years of independently verified data.</p>
-          <div class="fsrc">SOURCE: NUFORC.ORG</div>
-        </div>
-        <div class="fc">
-          <div class="fn">2,174</div>
-          <p class="fd">Sightings in H1 2025 alone. Up from 1,492 in the same period of 2024. The pace is accelerating.</p>
-          <div class="fsrc">SOURCE: NUFORC / NEWSNATIONNOW — JUL 2025</div>
-        </div>
-        <div class="fc">
-          <div class="fn" style="color:var(--a)">Sept 30</div>
-          <p class="fd">2025 — legal deadline for all U.S. agencies to transfer UAP records to the National Archives. It's the law.</p>
-          <div class="fsrc">SOURCE: NARA — UAP RECORDS COLLECTION ACT</div>
-        </div>
+      <div class="rule-item sr-item">
+        <span class="rule-num">02</span>
+        <span class="rule-text">DO NOT ENGAGE FIRST.</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- APP SECTION -->
-<section class="app-section sr">
-  <div class="app-inner">
-    <div class="app-copy">
-      <div class="app-eyebrow">Built for your pocket · Always on</div>
-      <h2 class="app-h">The briefing<br/><em>that finds you.</em></h2>
-      <p class="app-p">Not a website you bookmark. Not a newsletter you ignore. An app that pushes to your lock screen the moment something happens — and asks if you're ready when nothing has yet.</p>
-      <div class="app-feats">
-        <div class="af"><div class="af-ico">📡</div><div class="af-t"><strong>Push before the news breaks.</strong> Document drops. Hearing calls. Sightings near you. Direct to your pocket.</div></div>
-        <div class="af"><div class="af-ico">📻</div><div class="af-t"><strong>The Translator.</strong> Mathematical frequencies. Pi. Fibonacci. Binary. The language a non-human intelligence would recognize. Playable in your hand.</div></div>
-        <div class="af"><div class="af-ico">🛸</div><div class="af-t"><strong>Live sighting map.</strong> Crowdsourced. Geolocated. Cross-referenced against NUFORC data. The hotspots glow.</div></div>
-        <div class="af"><div class="af-ico">🔴</div><div class="af-t"><strong>The Blackout.</strong> Random. Daily. Three minutes. The app goes dark — because when it actually happens, everything goes dark first.</div></div>
-      </div>
-      <div class="store-row" style="justify-content:flex-start">
-        <div class="sbadge">🍎 APP STORE — COMING SOON</div>
-        <div class="sbadge">🤖 GOOGLE PLAY — COMING SOON</div>
-      </div>
-    </div>
-
-    <div class="phone-stack">
-      <!-- Left: Sighting map -->
-      <div class="phone phone-bg-l">
-        <div class="pnotch"></div>
-        <div class="scr">
-          <div class="scr-hd">◉ LIVE SIGHTING MAP</div>
-          <div class="map-area">
-            <div class="mgrid"></div>
-            <div class="mdot m-a" style="top:28%;left:38%"></div>
-            <div class="mdot m-g" style="top:52%;left:62%"></div>
-            <div class="mdot m-r" style="top:18%;left:71%"></div>
-            <div class="mdot m-a" style="top:68%;left:22%"></div>
-            <div class="mdot m-g" style="top:40%;left:83%"></div>
-            <div class="mdot m-r" style="top:75%;left:55%"></div>
-          </div>
-          <div class="scr-map-log">◉ CASTLEGAR BC — 2H<br/>◉ SEATTLE WA — 5H<br/>◉ PHOENIX AZ — 8H</div>
-        </div>
+      <div class="rule-item sr-item">
+        <span class="rule-num">03</span>
+        <span class="rule-text">DO NOT BE ALONE.</span>
       </div>
 
-      <!-- Center: Blackout / Protocol -->
-      <div class="phone phone-main-f">
-        <div class="pnotch"></div>
-        <div class="scr">
-          <div class="scr-hd">◉ DISCLOSURE · BLACKOUT IN PROGRESS</div>
-          <div class="scr-title">THE BLACKOUT</div>
-          <div class="scr-sub">SIGNAL DETECTED · STAND BY</div>
-          <div class="scr-timer" id="phone-timer">02:31</div>
-          <div class="scr-steps" style="margin-top:8px">
-            <div class="scr-step"><span class="ck">✓</span>Stay indoors. Away from windows.</div>
-            <div class="scr-step"><span class="ck">✓</span>Record horizontally. Do not approach.</div>
-            <div class="scr-step"><span class="op">◻</span>Signal peaceful intent. Open palms.</div>
-            <div class="scr-step"><span class="op">◻</span>Open Universal Translator.</div>
-            <div class="scr-step"><span class="op">◻</span>Await further instruction.</div>
-          </div>
-          <div class="scr-count-s" id="phone-count">— civilians standing by</div>
-        </div>
-      </div>
-
-      <!-- Right: Translator -->
-      <div class="phone phone-bg-r">
-        <div class="pnotch"></div>
-        <div class="scr">
-          <div class="scr-hd">◉ UNIVERSAL TRANSLATOR</div>
-          <div class="scr-title" style="font-size:11px">SELECT SEQUENCE</div>
-          <div class="scr-wave"></div>
-          <div class="scr-tbtn"><span>π PI SEQUENCE</span><span class="scr-tbtn-p">▶</span></div>
-          <div class="scr-tbtn"><span>∞ FIBONACCI</span><span class="scr-tbtn-p">▶</span></div>
-          <div class="scr-tbtn"><span>◼ BINARY GREETING</span><span class="scr-tbtn-p">▶</span></div>
-          <div class="scr-tbtn"><span>≈ PRIME SERIES</span><span class="scr-tbtn-p">▶</span></div>
-          <div class="scr-tbtn"><span>◯ PEACE SIGNAL</span><span class="scr-tbtn-p">▶</span></div>
-        </div>
+      <div class="rule-redacted-wrap sr-item" aria-hidden="true">
+        <div class="rbar"></div>
+        <div class="rbar"></div>
+        <div class="rbar"></div>
+        <p class="rule-count-hint">// 47 MORE RULES IN THE FULL BRIEFING //</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- DEADLINE -->
-<section class="deadline-section sr">
-  <div class="dl-inner">
-    <div class="dl-copy">
-      <div class="sec-ey" style="margin-bottom:12px">Legislative Timeline</div>
-      <h2>The government has a <span>legal deadline</span> to release everything.</h2>
-      <p>The UAP Records Collection Act mandates that all U.S. federal agencies transfer UAP records to the National Archives. September 30, 2025. That's the law.</p>
-      <p>What happens after those files drop is something no one can predict. What happens to the people who weren't ready is something we already know.</p>
-      <p class="dl-source">SOURCE: NARA · archive.gov/research/topics/uaps</p>
-    </div>
-    <div class="cdbox">
-      <div class="cd-lbl">National Archives UAP Deadline</div>
-      <div class="cd-val" id="cd-val">—</div>
-      <div class="cd-unit" id="cd-unit">DAYS REMAINING</div>
-      <div class="cd-sub" id="cd-sub">SEPT 30, 2025 · NARA<br/>UAP RECORDS COLLECTION ACT</div>
-    </div>
-  </div>
-</section>
+  <!-- ═══ ACCESS GATE ═══ -->
+  <section id="access" class="gate">
+    <div class="gate-eyebrow sr-item">CIVILIAN BRIEFING PROGRAM // OPEN ENROLLMENT</div>
 
-<!-- BLACKOUT -->
-<section class="blackout-section sr">
-  <div style="max-width:660px;margin:0 auto">
-    <div class="sec-ey" style="margin-bottom:14px;text-align:center">The Signature Feature · The Weird Rule</div>
-    <h2 class="sec-t" style="text-align:center">Once a day.<br/><em>Without warning.</em></h2>
-    <p class="sec-s" style="margin:12px auto 0;text-align:center;font-size:15px">The app goes dark. Because when it actually happens — <em style="font-style:italic;color:rgba(255,255,255,.6)">that's what it will feel like.</em></p>
-  </div>
+    <h2 class="gate-h sr-item">
+      Knowledge<br>
+      <em>is survival.</em>
+    </h2>
 
-  <div class="bo-device">
-    <div class="bo-dot"></div>
-    <div class="bo-lbl">SIGNAL DETECTED</div>
-    <div class="bo-hl">STAND BY<br/>FOR CONTACT</div>
-    <div class="bo-t" id="bo-timer">02:47</div>
-    <div class="bo-rem">REMAINING</div>
-    <div class="bo-cnt" id="bo-count">— civilians standing by</div>
-  </div>
+    <p class="gate-sub sr-item">
+      The first contact preparation manual.<br>
+      <strong>Free. For civilians. Right now.</strong>
+    </p>
 
-  <div style="max-width:560px;margin:0 auto;text-align:center">
-    <p style="font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,.4);line-height:1.7"><strong style="color:#fff">Random. Daily. Unavoidable.</strong> Once per day the app suspends for exactly 3 minutes. One screen. A countdown. A live count of civilians worldwide standing by with you. Then it returns — and you carry on.</p>
-    <!-- Hidden note — barely visible -->
-    <p style="font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(255,255,255,.04);margin-top:16px;letter-spacing:.15em;transition:color .5s" class="hover-reveal-faint">CASE FILE: THE FIRST BLACKOUT WILL HAPPEN WITHIN 24 HOURS OF INSTALL</p>
-  </div>
-</section>
-
-<!-- PATHS -->
-<section class="paths-section sr">
-  <div class="paths-inner">
-    <div class="sec-ey" style="margin-bottom:10px">First Question. Day One.</div>
-    <h2 class="sec-t">Who will you be<br/><em>when it happens?</em></h2>
-    <p class="sec-s">The app asks you this before anything else. Your answer shapes everything — your protocols, your alerts, your path through the briefing.</p>
-    <div class="pgrid">
-      <div class="pcard pa">
-        <span class="path-emoji">🛡️</span>
-        <div class="ptag">Path A</div>
-        <div class="ptitle">The Survivor</div>
-        <p class="pdesc">Protect your family. The 3-Minute Protocol. What to do. What not to do. How to document. Step by step — practiced before it matters.</p>
-        <div class="path-hidden">STATUS: 94% OF CIVILIANS UNPREPARED · THIS PATH CHANGES THAT</div>
+    <div class="sr-item" style="width:100%;max-width:480px;margin:0 auto">
+      <form class="gate-form" id="gate-form" onsubmit="handleAccess(event)">
+        <input class="gate-input" id="gate-email" type="email" placeholder="YOUR CONTACT EMAIL" required autocomplete="email"/>
+        <button class="gate-submit" type="submit">I'M READY →</button>
+      </form>
+      <div class="gate-success" id="gate-success">
+        <div class="gate-success-t">◉ CLEARANCE GRANTED</div>
+        <div class="gate-success-s">REQUEST LOGGED · BRIEFING INCOMING · STAY ALERT</div>
       </div>
-      <div class="pcard pb">
-        <span class="path-emoji">📡</span>
-        <div class="ptag">Path B</div>
-        <div class="ptitle">The Communicator</div>
-        <p class="pdesc">Make contact. The Universal Translator. CE5 methodology. How to signal intelligence. How to be found — by the right ones.</p>
-        <div class="path-hidden">STATUS: TRANSMISSIONS RECEIVED · THEY ARE ALREADY LISTENING</div>
+      <p class="gate-note">No spam. No government involvement. Just the truth.</p>
+    </div>
+
+    <div class="gate-counter-wrap sr-item">
+      <div class="gstat">
+        <span class="gstat-num" id="stat-count">1,247</span>
+        <span class="gstat-label">CIVILIANS BRIEFED</span>
+      </div>
+      <span class="gstat-sep">·</span>
+      <div class="gstat">
+        <span class="gstat-num" id="stat-timer">--:--:--</span>
+        <span class="gstat-label">NEXT WAVE</span>
+      </div>
+      <span class="gstat-sep">·</span>
+      <div class="gstat">
+        <span class="gstat-num">FREE</span>
+        <span class="gstat-label">ALWAYS</span>
       </div>
     </div>
-    <p style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(57,255,20,.2);text-align:center;margin-top:20px">BOTH PATHS LEAD TO THE SAME READINESS SCORE · CHOOSE HOW YOU GET THERE</p>
-  </div>
-</section>
+  </section>
 
-<!-- FEATURES -->
-<section class="feat-section sr">
-  <div class="feat-inner">
-    <div style="text-align:center;margin-bottom:64px">
-      <div class="sec-ey" style="margin-bottom:12px">What's In The Briefing</div>
-      <h2 class="sec-t" style="text-align:center">Everything you need.<br/><em>Nothing you don't.</em></h2>
+  <!-- ═══ SHARE ═══ -->
+  <section class="share">
+    <p class="share-pre sr-item">// TRANSMISSION COMPLETE //</p>
+    <h2 class="share-h sr-item">If you're reading this,<br><em>you already know.</em></h2>
+    <p class="share-sub sr-item">Pass this to someone you trust.</p>
+    <div class="share-row sr-item">
+      <button class="share-btn" onclick="copyLink()">[ COPY LINK ]</button>
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=I%20just%20requested%20the%20civilian%20briefing.%20Are%20you%20ready%3F%20getdisclosure.app&via=disclosure_app" target="_blank" rel="noopener">[ SHARE ON X ]</a>
     </div>
-    <div class="feat-grid">
-      <div class="feat-c">
-        <div class="fn-tag">01 // SIGNAL</div>
-        <div class="ft">Real-Time Alerts</div>
-        <p class="fd-text">Document drops. Congressional hearings. Sightings near you. Direct to your lock screen before the news cycle catches up.</p>
-        <div class="feat-secret">PUSH DELIVERY · ZERO ALGORITHM FILTER · DIRECT SIGNAL ONLY</div>
-      </div>
-      <div class="feat-c">
-        <div class="fn-tag">02 // TRANSLATE</div>
-        <div class="ft">Universal Translator</div>
-        <p class="fd-text">Pi. Fibonacci. Binary. Prime series. The mathematical language scientists believe a non-human intelligence would recognize. Real science. In your hand.</p>
-        <div class="feat-secret">BASED ON SETI FIRST CONTACT PROTOCOLS · CE5 METHODOLOGY</div>
-      </div>
-      <div class="feat-c">
-        <div class="fn-tag">03 // PROTOCOL</div>
-        <div class="ft">The 3-Minute Protocol</div>
-        <p class="fd-text">Interactive. Timed. Practiced. 180 seconds that could define how you're remembered. Most people have never thought about this. You will.</p>
-        <div class="feat-secret">DRILL UNLOCKS AT READINESS SCORE 40 · REPEAT DAILY</div>
-      </div>
-      <div class="feat-c">
-        <div class="fn-tag">04 // TRACK</div>
-        <div class="ft">Live Sighting Map</div>
-        <p class="fd-text">Crowdsourced. Verified. Geolocated. Cross-referenced against 100K+ NUFORC historical records. The hotspots glow.</p>
-        <div class="feat-secret">PROXIMITY ALERTS WHEN A SIGHTING IS WITHIN 50 MILES</div>
-      </div>
-      <div class="feat-c">
-        <div class="fn-tag">05 // ARCHIVE</div>
-        <div class="ft">The Exo-Library</div>
-        <p class="fd-text">4,200+ government documents. AI-parsed. Human-readable. The Grusch testimony. The AARO reports. The NDAA amendments. Searchable.</p>
-        <div class="feat-secret">UPDATES AUTOMATICALLY WHEN NEW FILES ARE RELEASED · SEPT 30 DEADLINE</div>
-      </div>
-      <div class="feat-c">
-        <div class="fn-tag">06 // ASSESS</div>
-        <div class="ft">Your Readiness Score</div>
-        <p class="fd-text">One number. Your number. Shareable as an image. "What's your score?" is going to be a thing people say. Where will yours be?</p>
-        <div class="feat-secret">SCORE IS SHAREABLE · COMPARE WITH CONTACTS · GLOBAL RANKING COMING</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-section sr" id="final">
-  <h2>The briefing has started.<br/><span>Are you on the list?</span></h2>
-  <p>iOS &amp; Android · First Access to Waitlist · The App Ships in 30 Days</p>
-  <div class="wl-wrap" style="margin:0 auto">
-    <form class="wl-form" id="wlf2" onsubmit="handleWL(event,'2')">
-      <input class="wl-input" id="wle2" type="email" placeholder="request@access.gov" required autocomplete="email"/>
-      <button class="wl-btn" type="submit">REQUEST BRIEFING</button>
-    </form>
-    <div class="wl-success" id="wls2">
-      <div class="wl-st">◉ CLEARANCE GRANTED</div>
-      <div class="wl-ss">YOUR REQUEST IS LOGGED · BRIEFING INCOMING</div>
-    </div>
-    <p class="wl-note">No spam. No noise. <span style="color:rgba(57,255,20,.4)">You'll know before the news does.</span></p>
-  </div>
-  <div class="store-row" style="margin-top:20px">
-    <div class="sbadge">🍎 APP STORE — COMING SOON</div>
-    <div class="sbadge">🤖 GOOGLE PLAY — COMING SOON</div>
-  </div>
-</section>
-
-<!-- SOCIAL -->
-<div class="social-bar">
-  <a href="https://x.com/disclosure_app" target="_blank" class="soc">X → @DISCLOSURE_APP</a>
-  <a href="https://instagram.com/disclosure_app" target="_blank" class="soc">INSTAGRAM → @DISCLOSURE_APP</a>
-</div>
-
-<footer>
-  <div class="fl">DISCLOSURE // GETDISCLOSURE.APP</div>
-  <!-- EASTER EGG: Binary decodes to "IT'S REAL" -->
-  <div class="fbinary" title="Hover to decode" onclick="this.textContent='IT\'S REAL';this.style.color='rgba(57,255,20,.8)'">01001001 01010100 00100111 01010011 00100000 01010010 01000101 01000001 01001100</div>
-  <div class="fn-r">DATA: AARO · NUFORC · NARA · NOAA</div>
-</footer>
-
-<!-- TIME-BASED ALERT POP -->
-<div id="alert-pop">
-  <div class="ap-tag">◉ SYSTEM NOTICE</div>
-  <div class="ap-body" id="alert-body">You have been on this server for 30 seconds. Unusual pattern detected. Your location has been logged.</div>
-  <span class="ap-close" onclick="document.getElementById('alert-pop').classList.remove('show')">✕</span>
-</div>
+    <div id="copy-confirm" style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.3em;color:rgba(57,255,20,.5);margin-top:12px;opacity:0;transition:opacity .3s">LINK COPIED · PASS IT ON</div>
+  </section>
 
 </main>
 
+<!-- FOOTER -->
+<footer>
+  <div class="ft-text">DISCLOSURE // GETDISCLOSURE.APP // @DISCLOSURE_APP</div>
+  <div class="ft-binary" onclick="this.textContent='IT\'S REAL';this.style.color='rgba(57,255,20,.6)'" title="Click to decode">
+    01001001 01010100 00100111 01010011 00100000 01010010 01000101 01000001 01001100
+  </div>
+</footer>
+
+<!-- ALERT POP -->
+<div id="alert-pop" role="alert" aria-live="polite">
+  <div class="ap-tag">◉ NOTICE</div>
+  <div class="ap-body" id="alert-text">You have been on this frequency for 30 seconds. Pattern logged.</div>
+  <span class="ap-close" onclick="document.getElementById('alert-pop').classList.remove('show')" aria-label="Dismiss">✕</span>
+</div>
+
 <script>
-// ═══════════════════════════════
+// ════════════════════════════════════════
 //  BOOT SEQUENCE
-// ═══════════════════════════════
-const bootLines=[
-  'INITIATING SECURE CONNECTION...',
-  'VERIFYING CLEARANCE LEVEL...',
-  'ACCESSING CIVILIAN BRIEFING SYSTEM...',
-  'DECRYPTING UAP CASE FILES...',
-  'ESTABLISHING REAL-TIME SIGNAL...',
-  'CONNECTION SECURED.',
-  '',
-  'DISCLOSURE v1.0 — CIVILIAN READINESS PROTOCOL',
+// ════════════════════════════════════════
+const BOOT_LINES = [
+  'INITIALIZING CIVILIAN BRIEFING SYSTEM...',
+  'CASE FILE: UAP-CIVILIAN-001',
+  'COORDINATES: 37°14\'06"N 115°48\'40"W',
+  'CLEARANCE LEVEL: UNCLASSIFIED',
+  'ESTABLISHING SECURE CONNECTION...',
+  'CONNECTION ESTABLISHED.',
+  'WELCOME, CIVILIAN.'
 ];
-const bootEl=document.getElementById('boot-lines');
-const bootProg=document.getElementById('boot-progress');
-let bootIdx=0;
-function bootStep(){
-  if(bootIdx>=bootLines.length){
-    document.getElementById('boot').style.transition='opacity .6s';
-    document.getElementById('boot').style.opacity='0';
-    setTimeout(()=>{document.getElementById('boot').style.display='none';startPage()},600);
-    return;
+
+(function runBoot() {
+  const container = document.getElementById('boot-lines');
+  const bar = document.getElementById('boot-progress');
+  let i = 0, pct = 0;
+
+  function addLine() {
+    if (i >= BOOT_LINES.length) { finishBoot(); return; }
+    const el = document.createElement('div');
+    el.className = 'boot-line';
+    el.textContent = BOOT_LINES[i++];
+    container.appendChild(el);
+    pct = Math.round((i / BOOT_LINES.length) * 100);
+    bar.style.width = pct + '%';
+    setTimeout(addLine, i < 6 ? 220 : 400);
   }
-  const line=document.createElement('div');
-  line.className='boot-line';
-  line.textContent=bootLines[bootIdx]||' ';
-  line.style.animationDelay='0s';
-  bootEl.appendChild(line);
-  bootProg.style.width=((bootIdx+1)/bootLines.length*100)+'%';
-  bootIdx++;
-  setTimeout(bootStep,bootIdx<5?180:bootIdx===5?300:80);
-}
-setTimeout(bootStep,200);
 
-// ═══════════════════════════════
-//  PAGE INIT
-// ═══════════════════════════════
-function startPage(){
-  initStars();
-  initCursor();
-  initCounters();
-  fetchKp();
-  initTimers();
-  initDeadline();
-  initScrollReveal();
-  initNavWatch();
-  initNavGlitch();
-  initMorseHover();
-  initAlerts();
-  initRedactHint();
-  initFaintHover();
-}
-
-// ═══════════════════════════════
-//  STARFIELD (with hidden craft shape)
-// ═══════════════════════════════
-function initStars(){
-  const sc=document.getElementById('stars');
-  for(let i=0;i<200;i++){
-    const s=document.createElement('div');
-    s.className='star';
-    const sz=Math.random()*1.8+.3;
-    s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-duration:${Math.random()*4+2}s;animation-delay:${Math.random()*5}s;`;
-    sc.appendChild(s);
+  function finishBoot() {
+    setTimeout(() => {
+      const boot = document.getElementById('boot');
+      boot.style.transition = 'opacity .6s ease';
+      boot.style.opacity = '0';
+      setTimeout(() => { boot.style.display = 'none'; initPage(); }, 650);
+    }, 600);
   }
-  // Craft shape — disc shape of slightly brighter stars at top of page
-  const craftPoints=[
-    [47,12],[48,11.5],[49,11],[50,11],[51,11],[52,11.5],[53,12],
-    [46,12.5],[54,12.5],[47.5,13.5],[52.5,13.5],[49,12.5],[51,12.5],[50,12]
-  ];
-  craftPoints.forEach(([l,t])=>{
-    const s=document.createElement('div');
-    s.className='star craft-star';
-    s.style.cssText=`width:2px;height:2px;top:${t}%;left:${l}%;animation-delay:${Math.random()*2}s;`;
-    sc.appendChild(s);
-  });
+
+  setTimeout(addLine, 400);
+})();
+
+// ════════════════════════════════════════
+//  STAR FIELD
+// ════════════════════════════════════════
+function initStars() {
+  const container = document.getElementById('stars');
+  const frag = document.createDocumentFragment();
+  for (let i = 0; i < 180; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() < 0.92 ? Math.random() * 1.5 + 0.5 : Math.random() * 2.5 + 1.5;
+    s.style.cssText = `
+      left:${Math.random()*100}%;top:${Math.random()*100}%;
+      width:${size}px;height:${size}px;
+      animation-duration:${Math.random()*5+3}s;
+      animation-delay:${Math.random()*6}s;
+    `;
+    frag.appendChild(s);
+  }
+  container.appendChild(frag);
 }
 
-// ═══════════════════════════════
+// ════════════════════════════════════════
 //  CURSOR RING
-// ═══════════════════════════════
-function initCursor(){
-  const ring=document.getElementById('cursor-ring');
-  document.addEventListener('mousemove',e=>{
-    ring.style.left=e.clientX+'px';
-    ring.style.top=e.clientY+'px';
+// ════════════════════════════════════════
+function initCursor() {
+  const ring = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
   });
-  document.addEventListener('mousedown',()=>{ring.style.transform='translate(-50%,-50%) scale(.7)'});
-  document.addEventListener('mouseup',()=>{ring.style.transform='translate(-50%,-50%) scale(1)'});
 }
 
-// ═══════════════════════════════
-//  ANIMATED COUNTERS
-// ═══════════════════════════════
-function animCount(id,target,dur,fmt){
-  const el=document.getElementById(id);
-  if(!el)return;
-  const s=performance.now();
-  (function u(now){
-    const p=Math.min((now-s)/dur,1);
-    const e=1-Math.pow(1-p,3);
-    const v=Math.round(target*e);
-    el.textContent=fmt?fmt(v):v.toLocaleString();
-    if(p<1)requestAnimationFrame(u);
-  })(s);
-}
+// ════════════════════════════════════════
+//  COUNTDOWN TIMER
+// ════════════════════════════════════════
+function initCountdown() {
+  // Next "wave" — rolls every 48 hours from a fixed epoch
+  const EPOCH = 1735689600000; // Jan 1 2025 00:00 UTC
+  const INTERVAL = 48 * 60 * 60 * 1000;
 
-function initCounters(){
-  const obs=new IntersectionObserver(en=>{
-    if(en[0].isIntersecting){
-      animCount('d-aaro',1600,1800,v=>v.toLocaleString()+'+');
-      animCount('d-nuforc',100000,2400,v=>v.toLocaleString()+'+');
-      animCount('d-2025',2174,2000,v=>v.toLocaleString());
-      obs.disconnect();
-    }
-  },{threshold:.3});
-  const dr=document.getElementById('data-row');
-  if(dr)obs.observe(dr);
-}
-
-// ═══════════════════════════════
-//  NOAA LIVE KP
-// ═══════════════════════════════
-async function fetchKp(){
-  const el=document.getElementById('d-kp');
-  if(!el)return;
-  try{
-    const res=await fetch('https://services.swpc.noaa.gov/products/noaa-planetary-k-index-forecast.json');
-    const data=await res.json();
-    if(data&&data.length>1){
-      const latest=data[data.length-1];
-      const kp=parseFloat(latest[1]);
-      el.textContent='Kp '+kp.toFixed(1);
-      if(kp>=7){el.style.color='#EF4444';el.style.textShadow='0 0 12px rgba(239,68,68,.5)'}
-      else if(kp>=5){el.style.color='#F59E0B';el.style.textShadow='0 0 12px rgba(245,158,11,.5)'}
-      else{el.style.color='#39FF14';el.style.textShadow='0 0 12px rgba(57,255,20,.4)'}
-    }
-  }catch(e){if(el)el.textContent='Kp 2.3'}
-}
-
-// ═══════════════════════════════
-//  TIMERS
-// ═══════════════════════════════
-function initTimers(){
-  let boSec=167,boCount=14847,phoneSec=151;
-  setInterval(()=>{
-    boSec=boSec<=0?180:boSec-1;
-    phoneSec=phoneSec<=0?180:phoneSec-1;
-    const fmt=s=>`${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;
-    const bt=document.getElementById('bo-timer');if(bt)bt.textContent=fmt(boSec);
-    const pt=document.getElementById('phone-timer');if(pt)pt.textContent=fmt(phoneSec);
-    boCount+=Math.floor(Math.random()*2);
-    const bc=document.getElementById('bo-count');if(bc)bc.textContent=boCount.toLocaleString()+' civilians standing by';
-    const pc=document.getElementById('phone-count');if(pc)pc.textContent=boCount.toLocaleString()+' standing by worldwide';
-  },1000);
-}
-
-// ═══════════════════════════════
-//  NATIONAL ARCHIVES DEADLINE
-// ═══════════════════════════════
-function initDeadline(){
-  function upd(){
-    const dl=new Date('2025-09-30T00:00:00Z');
-    const now=new Date();
-    const diff=dl-now;
-    const v=document.getElementById('cd-val');
-    const u=document.getElementById('cd-unit');
-    const s=document.getElementById('cd-sub');
-    if(!v)return;
-    if(diff<=0){
-      v.textContent='PASSED';v.style.color='#EF4444';
-      if(u)u.textContent='DEADLINE HAS PASSED';
-      if(s)s.textContent='ALL AGENCIES LEGALLY REQUIRED TO HAVE TRANSFERRED RECORDS\nCHECK NARA FOR RELEASED DOCUMENTS';
-    } else {
-      const days=Math.floor(diff/86400000);
-      v.textContent=days.toLocaleString();
-      if(u)u.textContent='DAYS REMAINING';
-    }
+  function tick() {
+    const now = Date.now();
+    const elapsed = (now - EPOCH) % INTERVAL;
+    const remaining = INTERVAL - elapsed;
+    const h = Math.floor(remaining / 3600000);
+    const m = Math.floor((remaining % 3600000) / 60000);
+    const s = Math.floor((remaining % 60000) / 1000);
+    const fmt = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    document.getElementById('hero-timer').textContent = fmt;
+    document.getElementById('stat-timer').textContent = fmt;
   }
-  upd();setInterval(upd,60000);
+  tick();
+  setInterval(tick, 1000);
 }
 
-// ═══════════════════════════════
+// ════════════════════════════════════════
 //  SCROLL REVEAL
-// ═══════════════════════════════
-function initScrollReveal(){
-  const obs=new IntersectionObserver(en=>{
-    en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
-  },{threshold:.1});
-  document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
-}
-
-// ═══════════════════════════════
-//  NAV WATCH TIMER
-// ═══════════════════════════════
-function initNavWatch(){
-  let secs=0;
-  setInterval(()=>{
-    secs++;
-    const m=String(Math.floor(secs/60)).padStart(2,'0');
-    const s=String(secs%60).padStart(2,'0');
-    const el=document.getElementById('nav-watch');
-    if(el)el.textContent=`MONITORING: ${m}:${s}`;
-  },1000);
-}
-
-// ═══════════════════════════════
-//  NAV STATUS OCCASIONAL GLITCH
-// ═══════════════════════════════
-function initNavGlitch(){
-  const msgs=['SECURE CONNECTION','MONITORING YOU','SIGNAL ACTIVE','LOCATION LOGGED','TRACKING ACTIVE','SECURE CONNECTION'];
-  let idx=0;
-  setInterval(()=>{
-    const el=document.getElementById('nav-st');
-    if(!el)return;
-    idx=(idx+1)%msgs.length;
-    el.textContent=msgs[idx];
-    if(msgs[idx]!=='SECURE CONNECTION'){
-      el.style.color='rgba(239,68,68,.7)';
-      setTimeout(()=>{el.style.color='rgba(57,255,20,.55)'},1200);
-    }
-  },9000);
-}
-
-// ═══════════════════════════════
-//  MORSE DECODE HOVER
-// ═══════════════════════════════
-function initMorseHover(){
-  const el=document.querySelector('.sig-decode');
-  if(!el)return;
-  let revealed=false;
-  el.addEventListener('mouseenter',()=>{
-    if(!revealed){
-      el.textContent='YOU ARE NOT ALONE';
-      el.style.color='rgba(57,255,20,.7)';
-      revealed=true;
-    }
-  });
-}
-
-// ═══════════════════════════════
-//  TIME-BASED ALERTS
-// ═══════════════════════════════
-function initAlerts(){
-  const pop=document.getElementById('alert-pop');
-  const body=document.getElementById('alert-body');
-  const alerts=[
-    {t:30,msg:'You have been on this server for 30 seconds. Unusual access pattern detected. Your session has been flagged.'},
-    {t:90,msg:'NOTICE: 3 new UAP events reported in the last 90 seconds. Check the sighting map.'},
-    {t:180,msg:'This document has been accessed and logged. You are now part of the civilian briefing record.'},
-  ];
-  let startTime=Date.now();
-  let alertIdx=0;
-  setInterval(()=>{
-    if(alertIdx>=alerts.length)return;
-    const elapsed=(Date.now()-startTime)/1000;
-    if(elapsed>=alerts[alertIdx].t){
-      body.textContent=alerts[alertIdx].msg;
-      pop.classList.add('show');
-      setTimeout(()=>pop.classList.remove('show'),6000);
-      alertIdx++;
-    }
-  },1000);
-}
-
-// ═══════════════════════════════
-//  REDACT HOVER HINTS
-// ═══════════════════════════════
-function initRedactHint(){
-  const redacts=document.querySelectorAll('.redact');
-  const reveals={
-    0:'NOVEMBER 14',
-    1:'1,600+',
-    2:'DAVID GRUSCH',
-    3:'NON-HUMAN BIOLOGICS',
-    4:'SEPTEMBER 30, 2025',
-    5:'CRITICALLY UNPREPARED',
-  };
-  redacts.forEach((el,i)=>{
-    el.addEventListener('mouseenter',()=>{
-      if(reveals[i])el.setAttribute('data-revealed',reveals[i]);
-      el.title='';
-    });
-    el.addEventListener('click',()=>{
-      if(reveals[i]){
-        el.textContent=reveals[i];
-        el.style.background='transparent';
-        el.style.color='var(--g)';
-        el.style.textShadow='0 0 8px var(--g)';
-        el.style.cursor='default';
+// ════════════════════════════════════════
+function initScrollReveal() {
+  const items = document.querySelectorAll('.sr-item');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, idx) => {
+      if (e.isIntersecting) {
+        // Stagger children in same parent
+        const siblings = Array.from(e.target.parentElement.querySelectorAll('.sr-item:not(.visible)'));
+        const myIdx = siblings.indexOf(e.target);
+        setTimeout(() => e.target.classList.add('visible'), myIdx * 80);
+        obs.unobserve(e.target);
       }
     });
-  });
+  }, { threshold: 0.15 });
+  items.forEach(el => obs.observe(el));
 }
 
-// ═══════════════════════════════
-//  FAINT TEXT HOVER REVEALS
-// ═══════════════════════════════
-function initFaintHover(){
-  document.querySelectorAll('.hover-reveal-faint').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{el.style.color='rgba(57,255,20,.4)'});
-    el.addEventListener('mouseleave',()=>{el.style.color='rgba(255,255,255,.04)'});
-  });
+// ════════════════════════════════════════
+//  ALERT POP
+// ════════════════════════════════════════
+function initAlert() {
+  const pop = document.getElementById('alert-pop');
+  const alerts = [
+    'You have been on this frequency for 30 seconds. Pattern logged.',
+    'Your connection origin has been identified. This is expected.',
+    'You are one of ' + Math.floor(Math.random() * 50 + 1200) + ' civilians accessing this file right now.',
+  ];
+  const idx = Math.floor(Math.random() * alerts.length);
+  document.getElementById('alert-text').textContent = alerts[idx];
+
+  setTimeout(() => {
+    pop.classList.add('show');
+    setTimeout(() => pop.classList.remove('show'), 6000);
+  }, 18000);
 }
 
-// ═══════════════════════════════
-//  WAITLIST
-// ═══════════════════════════════
-const FORMSPREE='https://formspree.io/f/YOUR_FORM_ID';
-async function handleWL(e,id){
+// ════════════════════════════════════════
+//  ACCESS FORM
+// ════════════════════════════════════════
+function handleAccess(e) {
   e.preventDefault();
-  const email=document.getElementById(`wle${id}`).value;
-  try{await fetch(FORMSPREE,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({email})})}catch(_){}
-  document.getElementById(`wlf${id}`).style.display='none';
-  document.getElementById(`wls${id}`).style.display='block';
+  const email = document.getElementById('gate-email').value;
+  // TODO: wire to Supabase / email service
+  document.getElementById('gate-form').style.display = 'none';
+  document.getElementById('gate-success').style.display = 'block';
+
+  // Increment displayed counter
+  const countEl = document.getElementById('stat-count');
+  const heroEl = document.getElementById('hero-count');
+  const current = parseInt(countEl.textContent.replace(',',''));
+  const next = (current + 1).toLocaleString();
+  countEl.textContent = next;
+  heroEl.textContent = next;
 }
+
+// ════════════════════════════════════════
+//  COPY LINK
+// ════════════════════════════════════════
+function copyLink() {
+  navigator.clipboard.writeText('https://getdisclosure.app').then(() => {
+    const el = document.getElementById('copy-confirm');
+    el.style.opacity = '1';
+    setTimeout(() => el.style.opacity = '0', 3000);
+  }).catch(() => {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = 'https://getdisclosure.app';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const el = document.getElementById('copy-confirm');
+    el.style.opacity = '1';
+    setTimeout(() => el.style.opacity = '0', 3000);
+  });
+}
+
+// ════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════
+function initPage() {
+  initStars();
+  initCursor();
+  initCountdown();
+  initScrollReveal();
+  initAlert();
+
+  // Immediately reveal first hero items
+  document.querySelectorAll('.hero .sr-item').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), 200 + i * 100);
+  });
+}
+
+// Init stars early (before boot finishes) for background
+initStars();
 </script>
 
 </body>
