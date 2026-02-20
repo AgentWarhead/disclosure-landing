@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISCLOSURE — Are You Ready?</title>
+  <meta name="description" content="The government confirmed it. The question is no longer if. It's when. Disclosure is the official civilian readiness app for first contact." />
+  <meta property="og:title" content="DISCLOSURE — Are You Ready?" />
+  <meta property="og:description" content="The government confirmed it. The question is no longer if. It's when." />
+  <meta property="og:image" content="https://getdisclosure.app/og.png" />
+  <meta property="og:url" content="https://getdisclosure.app" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@disclosure_app" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #39FF14;
+      --amber: #F59E0B;
+      --red: #EF4444;
+      --dim: rgba(57,255,20,0.15);
+      --bg: #000;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Rajdhani', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ── STARFIELD ── */
+    #stars {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: #fff;
+      animation: twinkle linear infinite;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.1; }
+      50%       { opacity: 0.9; }
+    }
+
+    /* ── SCANLINE OVERLAY ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── NOISE VIGNETTE ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    main { position: relative; z-index: 2; }
+
+    /* ── NAV BAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      border-bottom: 1px solid rgba(57,255,20,0.1);
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      color: var(--green);
+      text-decoration: none;
+    }
+    .nav-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: rgba(57,255,20,0.7);
+      letter-spacing: 0.15em;
+    }
+    .pulse-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse-glow 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 4px var(--green); opacity: 1; }
+      50%       { box-shadow: 0 0 12px var(--green), 0 0 24px var(--green); opacity: 0.7; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+    }
+
+    .classification-tag {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      color: rgba(57,255,20,0.6);
+      border: 1px solid rgba(57,255,20,0.2);
+      padding: 6px 16px;
+      margin-bottom: 48px;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+
+    .hero-logo {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(52px, 12vw, 120px);
+      letter-spacing: 0.25em;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 8px;
+      text-shadow: 0 0 40px rgba(255,255,255,0.1);
+    }
+
+    .hero-sub {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(10px, 2vw, 14px);
+      letter-spacing: 0.6em;
+      color: rgba(57,255,20,0.5);
+      margin-bottom: 48px;
+      text-transform: uppercase;
+    }
+
+    .hero-divider {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--green), transparent);
+      margin: 0 auto 48px;
+    }
+
+    .hero-statement {
+      font-size: clamp(20px, 4vw, 36px);
+      font-weight: 600;
+      line-height: 1.3;
+      max-width: 680px;
+      margin: 0 auto 16px;
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-statement em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .hero-byline {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+      margin-bottom: 64px;
+      max-width: 500px;
+    }
+
+    /* ── LIVE DATA STRIP ── */
+    .data-strip {
+      display: flex;
+      gap: 0;
+      border: 1px solid rgba(57,255,20,0.2);
+      background: rgba(57,255,20,0.03);
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+      max-width: 800px;
+      width: 100%;
+    }
+    .data-cell {
+      flex: 1;
+      min-width: 160px;
+      padding: 20px 24px;
+      border-right: 1px solid rgba(57,255,20,0.1);
+      text-align: center;
+    }
+    .data-cell:last-child { border-right: none; }
+    .data-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: rgba(57,255,20,0.5);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .data-value {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(20px, 4vw, 28px);
+      color: var(--green);
+      font-weight: 700;
+      text-shadow: 0 0 20px rgba(57,255,20,0.4);
+    }
+    .data-value.amber { color: var(--amber); text-shadow: 0 0 20px rgba(245,158,11,0.4); }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .cta-prompt {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .waitlist-form {
+      display: flex;
+      width: 100%;
+      gap: 0;
+      border: 1px solid rgba(57,255,20,0.4);
+    }
+    .waitlist-form:focus-within {
+      border-color: var(--green);
+      box-shadow: 0 0 20px rgba(57,255,20,0.15);
+    }
+
+    .waitlist-input {
+      flex: 1;
+      background: rgba(0,0,0,0.8);
+      border: none;
+      outline: none;
+      padding: 16px 20px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 14px;
+      color: #fff;
+      letter-spacing: 0.05em;
+    }
+    .waitlist-input::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+
+    .waitlist-btn {
+      background: var(--green);
+      border: none;
+      padding: 16px 24px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: #000;
+      cursor: pointer;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .waitlist-btn:hover { opacity: 0.85; }
+
+    .waitlist-note {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.1em;
+    }
+    .waitlist-note span { color: rgba(57,255,20,0.5); }
+
+    /* ── SUCCESS STATE ── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 24px;
+      border: 1px solid rgba(57,255,20,0.4);
+      background: rgba(57,255,20,0.05);
+      width: 100%;
+    }
+    .form-success .success-title {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .form-success .success-sub {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── FEATURES ── */
+    .features-section {
+      padding: 100px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .section-tag {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      color: rgba(57,255,20,0.5);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+    .section-title em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: rgba(57,255,20,0.08);
+      border: 1px solid rgba(57,255,20,0.08);
+    }
+
+    .feature-card {
+      background: #000;
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(57,255,20,0.3), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .feature-card:hover { background: rgba(57,255,20,0.03); }
+    .feature-card:hover::before { opacity: 1; }
+
+    .feature-number {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: rgba(57,255,20,0.3);
+      margin-bottom: 20px;
+    }
+    .feature-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+    .feature-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    /* ── BLACKOUT SECTION ── */
+    .blackout-section {
+      padding: 100px 24px;
+      text-align: center;
+      position: relative;
+      border-top: 1px solid rgba(57,255,20,0.08);
+      border-bottom: 1px solid rgba(57,255,20,0.08);
+    }
+
+    .blackout-device {
+      width: 220px;
+      height: 380px;
+      border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 32px;
+      margin: 48px auto;
+      background: #060606;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,0,0,0.5);
+    }
+    .blackout-device::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      width: 60px; height: 5px;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.08);
+    }
+    .blackout-icon {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 16px var(--red), 0 0 32px rgba(239,68,68,0.4);
+      margin-bottom: 24px;
+      animation: pulse-red 1s ease-in-out infinite;
+    }
+    @keyframes pulse-red {
+      0%, 100% { box-shadow: 0 0 8px var(--red); }
+      50%       { box-shadow: 0 0 24px var(--red), 0 0 48px rgba(239,68,68,0.3); }
+    }
+    .blackout-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 8px;
+    }
+    .blackout-title-screen {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 15px;
+      letter-spacing: 0.2em;
+      color: #fff;
+      margin-bottom: 32px;
+      text-align: center;
+      line-height: 1.8;
+    }
+    .blackout-timer {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 42px;
+      color: var(--red);
+      text-shadow: 0 0 20px rgba(239,68,68,0.5);
+      letter-spacing: 0.1em;
+    }
+    .blackout-remain {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.25);
+      margin-top: 8px;
+    }
+    .blackout-count {
+      margin-top: 24px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.2);
+    }
+
+    .blackout-copy {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .blackout-copy p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      font-weight: 400;
+    }
+    .blackout-copy strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* ── PATHS SECTION ── */
+    .paths-section {
+      padding: 100px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .paths-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: rgba(57,255,20,0.08);
+      margin-top: 64px;
+    }
+    @media (max-width: 600px) {
+      .paths-grid { grid-template-columns: 1fr; }
+    }
+
+    .path-card {
+      background: #000;
+      padding: 48px 40px;
+      text-align: center;
+      cursor: default;
+    }
+    .path-icon {
+      font-size: 48px;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .path-name {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.4em;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .path-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .path-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+    }
+    .path-card-a .path-title { color: var(--amber); }
+    .path-card-b .path-title { color: #7DF9FF; }
+
+    /* ── SOCIAL PROOF BAR ── */
+    .social-bar {
+      padding: 48px 24px;
+      border-top: 1px solid rgba(57,255,20,0.08);
+      text-align: center;
+    }
+    .social-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .social-link {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .social-link:hover { color: var(--green); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 32px 24px;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: gap;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      color: rgba(57,255,20,0.4);
+    }
+    .footer-note {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.15);
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      padding: 120px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(57,255,20,0.08);
+    }
+    .final-cta h2 {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .final-cta h2 span { color: var(--green); }
+    .final-cta p {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.15em;
+      margin-bottom: 48px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      .data-cell { min-width: 130px; }
+      .waitlist-form { flex-direction: column; }
+      .waitlist-btn { text-align: center; }
+      footer { flex-direction: column; text-align: center; }
+      .feature-card { padding: 32px 24px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- STARFIELD -->
+  <div id="stars"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">DISCLOSURE</a>
+    <div class="nav-status">
+      <div class="pulse-dot"></div>
+      MONITORING ACTIVE
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="classification-tag">UNCLASSIFIED // FOR IMMEDIATE RELEASE</div>
+
+      <div class="hero-logo">DISCLOSURE</div>
+      <div class="hero-sub">Civilian Readiness Protocol</div>
+
+      <div class="hero-divider"></div>
+
+      <p class="hero-statement">
+        The government confirmed it.<br/>
+        The question is no longer <em>if</em>.<br/>
+        It's <em>when</em>.
+      </p>
+      <p class="hero-byline">
+        David Grusch testified under oath. 4,200+ documents released.<br/>
+        Most people have no plan.
+      </p>
+
+      <!-- LIVE DATA -->
+      <div class="data-strip">
+        <div class="data-cell">
+          <div class="data-label">UAP Events This Week</div>
+          <div class="data-value" id="counter-events">—</div>
+        </div>
+        <div class="data-cell">
+          <div class="data-label">Gov. Docs Released</div>
+          <div class="data-value" id="counter-docs">—</div>
+        </div>
+        <div class="data-cell">
+          <div class="data-label">Hours Since Last Sighting</div>
+          <div class="data-value amber" id="counter-hours">—</div>
+        </div>
+      </div>
+
+      <!-- WAITLIST -->
+      <div class="cta-section">
+        <p class="cta-prompt">Get early access — iOS & Android</p>
+        <form class="waitlist-form" id="waitlist-form" onsubmit="handleSubmit(event)">
+          <input
+            class="waitlist-input"
+            id="email-input"
+            type="email"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+          />
+          <button class="waitlist-btn" type="submit">SECURE ACCESS</button>
+        </form>
+        <div class="form-success" id="form-success">
+          <div class="success-title">◉ ACCESS GRANTED</div>
+          <div class="success-sub">TRANSMISSION RECEIVED // YOU WILL BE BRIEFED</div>
+        </div>
+        <p class="waitlist-note">
+          <span>No spam.</span> No politics. Just the briefing you deserve.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── FEATURES ── -->
+    <section class="features-section">
+      <div class="section-header">
+        <div class="section-tag">Core Protocols</div>
+        <h2 class="section-title">Everything you need.<br/><em>Nothing you don't.</em></h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-number">01 // SIGNAL</div>
+          <div class="feature-title">Real-Time Alerts</div>
+          <p class="feature-desc">When documents drop, when hearings happen, when something is confirmed — you know first. No algorithm. No filter. Direct signal.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">02 // TRANSLATE</div>
+          <div class="feature-title">Universal Translator</div>
+          <p class="feature-desc">Mathematical constants. Binary sequences. Fibonacci patterns. The frequencies scientists believe a non-human intelligence would recognize.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">03 // PROTOCOL</div>
+          <div class="feature-title">The 3-Minute Protocol</div>
+          <p class="feature-desc">The interactive civilian readiness drill. Step-by-step. What to do, what not to do, and how to signal peaceful intent. 94% of people don't know this.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">04 // TRACK</div>
+          <div class="feature-title">Sighting Map</div>
+          <p class="feature-desc">Crowdsourced. Real-time. Submit and view UAP sightings worldwide. The hotspots glow. You'll know if something is happening near you.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">05 // ARCHIVE</div>
+          <div class="feature-title">The Exo-Library</div>
+          <p class="feature-desc">4,200+ declassified government documents, parsed by AI and summarized for normal humans. No jargon. No spin. Just what's actually in the files.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">06 // ASSESS</div>
+          <div class="feature-title">Readiness Score</div>
+          <p class="feature-desc">Complete protocols. Learn translator sequences. Study the documents. Your score reflects how ready you actually are. Share it. Compare it. Improve it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── THE BLACKOUT ── -->
+    <section class="blackout-section">
+      <div class="section-header">
+        <div class="section-tag">The Blackout</div>
+        <h2 class="section-title">Once a day.<br/>You won't know when.</h2>
+      </div>
+
+      <div class="blackout-device">
+        <div class="blackout-icon"></div>
+        <div class="blackout-label">SIGNAL DETECTED</div>
+        <div class="blackout-title-screen">STAND BY<br/>FOR CONTACT</div>
+        <div class="blackout-timer" id="blackout-timer">02:47</div>
+        <div class="blackout-remain">REMAINING</div>
+        <div class="blackout-count" id="blackout-count">— civilians standing by</div>
+      </div>
+
+      <div class="blackout-copy">
+        <p>
+          <strong>Every day, at a random time, Disclosure goes dark.</strong>
+          The app suspends for exactly three minutes. One screen. A countdown. A community count.
+          Then it returns — and you carry on with your day, knowing you stood by.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── THE TWO PATHS ── -->
+    <section class="paths-section">
+      <div class="section-header">
+        <div class="section-tag">Your First Question</div>
+        <h2 class="section-title">Who will you be<br/><em>when the moment comes?</em></h2>
+      </div>
+
+      <div class="paths-grid">
+        <div class="path-card path-card-a">
+          <span class="path-icon">🛡️</span>
+          <div class="path-name">Path A</div>
+          <div class="path-title">The Survivor</div>
+          <p class="path-desc">You focus on preparation. The 3-Minute Protocol. Survival scenarios. How to keep your family safe. How to document what you see.</p>
+        </div>
+        <div class="path-card path-card-b">
+          <span class="path-icon">📡</span>
+          <div class="path-name">Path B</div>
+          <div class="path-title">The Communicator</div>
+          <p class="path-desc">You want to make contact. The Universal Translator. CE5 methodology. How to signal peaceful intent. How to be found by the right ones.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FINAL CTA ── -->
+    <section class="final-cta">
+      <h2>Join the <span>civilian briefing.</span></h2>
+      <p>LAUNCHING ON IOS & ANDROID — JOIN THE WAITLIST BELOW</p>
+
+      <div class="cta-section" style="margin: 0 auto;">
+        <form class="waitlist-form" id="waitlist-form-2" onsubmit="handleSubmit2(event)">
+          <input
+            class="waitlist-input"
+            id="email-input-2"
+            type="email"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+          />
+          <button class="waitlist-btn" type="submit">SECURE ACCESS</button>
+        </form>
+        <div class="form-success" id="form-success-2">
+          <div class="success-title">◉ ACCESS GRANTED</div>
+          <div class="success-sub">TRANSMISSION RECEIVED // YOU WILL BE BRIEFED</div>
+        </div>
+        <p class="waitlist-note">
+          <span>Free to join.</span> Early access. First to know.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── SOCIAL ── -->
+    <div class="social-bar">
+      <div class="social-links">
+        <a href="https://x.com/disclosure_app" target="_blank" class="social-link">X → @DISCLOSURE_APP</a>
+        <a href="https://instagram.com/disclosure_app" target="_blank" class="social-link">INSTAGRAM → @DISCLOSURE_APP</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">DISCLOSURE // GETDISCLOSURE.APP</div>
+    <div class="footer-note">THE BRIEFING HAS BEGUN</div>
+  </footer>
+
+  <script>
+    // ── STARFIELD ──
+    const starContainer = document.getElementById('stars');
+    for (let i = 0; i < 200; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      const size = Math.random() * 2 + 0.5;
+      star.style.cssText = `
+        width:${size}px; height:${size}px;
+        top:${Math.random()*100}%;
+        left:${Math.random()*100}%;
+        animation-duration:${Math.random()*4+2}s;
+        animation-delay:${Math.random()*4}s;
+      `;
+      starContainer.appendChild(star);
+    }
+
+    // ── ANIMATED COUNTERS ──
+    function animateCounter(id, target, duration, prefix='', suffix='') {
+      const el = document.getElementById(id);
+      const start = performance.now();
+      const startVal = 0;
+      function update(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(startVal + (target - startVal) * eased);
+        el.textContent = prefix + current.toLocaleString() + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+
+    // Trigger on scroll into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          animateCounter('counter-events', 312, 2000);
+          animateCounter('counter-docs', 4247, 2500);
+          animateCounter('counter-hours', 14, 1500);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(document.querySelector('.data-strip'));
+
+    // ── BLACKOUT TIMER ──
+    let blackoutSeconds = 167;
+    let blackoutCount = 14847;
+    setInterval(() => {
+      blackoutSeconds = Math.max(0, blackoutSeconds - 1);
+      if (blackoutSeconds === 0) blackoutSeconds = 180;
+      const m = String(Math.floor(blackoutSeconds / 60)).padStart(2, '0');
+      const s = String(blackoutSeconds % 60).padStart(2, '0');
+      document.getElementById('blackout-timer').textContent = `${m}:${s}`;
+      blackoutCount += Math.floor(Math.random() * 3);
+      document.getElementById('blackout-count').textContent =
+        blackoutCount.toLocaleString() + ' civilians standing by';
+    }, 1000);
+
+    // ── WAITLIST FORMS ──
+    // Replace YOUR_FORM_ID with actual Formspree form ID
+    const FORMSPREE_URL = 'https://formspree.io/f/YOUR_FORM_ID';
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      await submitEmail(email);
+      document.getElementById('waitlist-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
+
+    async function handleSubmit2(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input-2').value;
+      await submitEmail(email);
+      document.getElementById('waitlist-form-2').style.display = 'none';
+      document.getElementById('form-success-2').style.display = 'block';
+    }
+
+    async function submitEmail(email) {
+      try {
+        await fetch(FORMSPREE_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ email })
+        });
+      } catch (err) {
+        // Fail silently — success state still shown
+      }
+    }
+  </script>
+
+</body>
+</html>
