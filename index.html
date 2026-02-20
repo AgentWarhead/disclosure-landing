@@ -1,754 +1,1018 @@
 <!DOCTYPE html>
+<!-- CASE FILE: UAP-CIVILIAN-001 // DISCLOSURE PROJECT -->
+<!-- COORDINATES: 37°14'06"N 115°48'40"W -->
+<!-- INITIATED: 2024-12-01 // CLEARANCE: UNCLASSIFIED -->
+<!-- IF YOU ARE READING THIS YOU ARE ALREADY BEING MONITORED -->
+<!-- BINARY DECODE: 01001001 01010100 00100111 01010011 00100000 01010010 01000101 01000001 01001100 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DISCLOSURE — The Civilian Readiness App</title>
-  <meta name="description" content="1,600+ UAP reports to the Pentagon. David Grusch testified under oath. The National Archives is collecting all UAP records by Sept 30, 2025. The briefing has started. Have you?"/>
-  <meta property="og:title" content="DISCLOSURE — Are You Ready?"/>
-  <meta property="og:description" content="The government confirmed it. 1,600+ Pentagon reports. Grusch testified under oath. The question is no longer if. It's when."/>
+  <title>DISCLOSURE</title>
+  <meta name="description" content="The briefing has started. Are you on the list?"/>
+  <meta property="og:title" content="DISCLOSURE"/>
+  <meta property="og:description" content="The government confirmed it. The question is no longer if. It's when."/>
   <meta property="og:image" content="https://getdisclosure.app/og.png"/>
   <meta property="og:url" content="https://getdisclosure.app"/>
-  <meta property="og:type" content="website"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:site" content="@disclosure_app"/>
-  <meta name="twitter:title" content="DISCLOSURE — Are You Ready?"/>
-  <meta name="twitter:description" content="The government confirmed it. The question is no longer if. It's when. Get the civilian readiness app."/>
   <meta name="twitter:image" content="https://getdisclosure.app/og.png"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --green:#39FF14;--amber:#F59E0B;--red:#EF4444;--blue:#7DF9FF;
-      --green-dim:rgba(57,255,20,0.12);--green-glow:rgba(57,255,20,0.25);
+      --g:#39FF14;--a:#F59E0B;--r:#EF4444;--b:#7DF9FF;
+      --gd:rgba(57,255,20,.1);--ad:rgba(245,158,11,.12);
     }
     html{scroll-behavior:smooth}
-    body{background:#000;color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden;min-height:100vh}
+    body{background:#000;color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden;cursor:crosshair}
 
     /* SCANLINES */
-    body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.025) 2px,rgba(0,0,0,0.025) 4px);pointer-events:none;z-index:1}
+    body::after{content:'';position:fixed;inset:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.04) 3px,rgba(0,0,0,.04) 4px);
+      pointer-events:none;z-index:999;animation:flicker 8s infinite}
+    @keyframes flicker{0%,100%{opacity:1}98%{opacity:1}98.5%{opacity:.85}99%{opacity:1}99.5%{opacity:.9}}
 
-    /* STARFIELD */
-    #stars{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;overflow:hidden}
-    .star{position:absolute;border-radius:50%;background:#fff;animation:twinkle linear infinite}
-    @keyframes twinkle{0%,100%{opacity:.08}50%{opacity:.9}}
+    /* NOISE */
+    body::before{content:'';position:fixed;inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+      opacity:.4;pointer-events:none;z-index:1}
+
+    /* STARS */
+    #stars{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0}
+    .star{position:absolute;border-radius:50%;background:#fff;animation:tw linear infinite}
+    @keyframes tw{0%,100%{opacity:.06}50%{opacity:.85}}
+    /* CRAFT SHAPE — brighter stars form a silent observer above */
+    .craft-star{background:rgba(57,255,20,.6);width:2px!important;height:2px!important;animation:craft-pulse 4s ease-in-out infinite}
+    @keyframes craft-pulse{0%,100%{opacity:.2;box-shadow:none}50%{opacity:.8;box-shadow:0 0 4px var(--g)}}
+
+    /* CURSOR TRAIL */
+    .cursor-ring{position:fixed;width:20px;height:20px;border:1px solid rgba(57,255,20,.4);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:all .1s ease;mix-blend-mode:screen}
+
+    /* BOOT SCREEN */
+    #boot{position:fixed;inset:0;background:#000;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+    .boot-line{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.2em;color:rgba(57,255,20,0);animation:boot-appear .05s forwards}
+    @keyframes boot-appear{to{color:rgba(57,255,20,.8)}}
+    #boot-bar{width:300px;height:1px;background:rgba(57,255,20,.1);margin-top:20px;overflow:hidden;position:relative}
+    #boot-progress{height:100%;background:var(--g);width:0;transition:width .05s linear;box-shadow:0 0 8px var(--g)}
+    #boot-cursor{display:inline-block;animation:blink .5s step-end infinite}
+    @keyframes blink{50%{opacity:0}}
 
     main{position:relative;z-index:2}
 
-    /* ── NAV ── */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid rgba(57,255,20,0.08);background:rgba(0,0,0,0.75);backdrop-filter:blur(16px)}
-    .nav-logo{font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:.3em;color:var(--green);text-decoration:none}
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;border-bottom:1px solid rgba(57,255,20,.06);background:rgba(0,0,0,.8);backdrop-filter:blur(12px)}
+    .nav-logo{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.35em;color:var(--g);text-decoration:none}
     .nav-right{display:flex;align-items:center;gap:20px}
-    .nav-status{display:flex;align-items:center;gap:7px;font-family:'Share Tech Mono',monospace;font-size:10px;color:rgba(57,255,20,0.6);letter-spacing:.15em}
-    .pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pglow 1.5s ease-in-out infinite}
-    @keyframes pglow{0%,100%{box-shadow:0 0 4px var(--green);opacity:1}50%{box-shadow:0 0 14px var(--green),0 0 28px var(--green);opacity:.7}}
-    .nav-cta{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.2em;color:#000;background:var(--green);padding:8px 16px;text-decoration:none;transition:opacity .2s;white-space:nowrap}
-    .nav-cta:hover{opacity:.85}
+    .nav-status{display:flex;align-items:center;gap:7px;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em}
+    .nav-status-text{color:rgba(57,255,20,.55);transition:all .1s}
+    .nav-watch{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.15em;color:rgba(255,255,255,.2)}
+    .pdot{width:5px;height:5px;border-radius:50%;background:var(--g);animation:pdot-pulse 1.5s ease-in-out infinite}
+    @keyframes pdot-pulse{0%,100%{box-shadow:0 0 3px var(--g)}50%{box-shadow:0 0 10px var(--g),0 0 20px var(--g)}}
 
-    /* ── TICKER ── */
-    .ticker-bar{background:rgba(57,255,20,0.06);border-bottom:1px solid rgba(57,255,20,0.12);padding:8px 0;overflow:hidden;margin-top:50px}
-    .ticker-inner{display:flex;animation:ticker 60s linear infinite;white-space:nowrap}
-    .ticker-item{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.2em;color:rgba(57,255,20,0.7);padding:0 40px}
-    .ticker-sep{color:rgba(57,255,20,0.3);padding:0 8px}
-    @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    /* HERO */
+    .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden}
 
-    /* ── HERO ── */
-    .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative}
-    .hero::before{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(57,255,20,0.04) 0%,transparent 70%);pointer-events:none}
+    /* AMBIENT ORB */
+    .hero-orb{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(57,255,20,.03) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);animation:orb-breathe 6s ease-in-out infinite;pointer-events:none}
+    @keyframes orb-breathe{0%,100%{opacity:.4;transform:translate(-50%,-50%) scale(1)}50%{opacity:.7;transform:translate(-50%,-50%) scale(1.08)}}
 
-    .badge{display:inline-flex;align-items:center;gap:8px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.35em;color:rgba(57,255,20,0.7);border:1px solid rgba(57,255,20,0.2);padding:7px 16px;margin-bottom:52px}
-    .badge-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pglow 1.5s infinite}
+    /* CASE TAG */
+    .case-tag{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.4em;color:rgba(245,158,11,.5);border:1px solid rgba(245,158,11,.12);padding:6px 14px;margin-bottom:20px;display:inline-block;position:relative}
+    .case-tag::before{content:'CASE #UAP-2023-0726 // GRUSCH HEARING';position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:8px;color:rgba(255,255,255,.08);letter-spacing:.2em}
 
-    .hero-headline{font-size:clamp(32px,7vw,88px);font-weight:700;line-height:1.05;letter-spacing:-.01em;margin-bottom:20px;max-width:900px}
-    .hero-headline em{font-style:normal;color:var(--green)}
-    .hero-headline .line2{color:rgba(255,255,255,.55)}
+    /* GLITCH HEADLINE */
+    .hero-h{font-size:clamp(44px,9vw,110px);font-weight:700;line-height:1.0;letter-spacing:-.02em;margin:28px 0 24px;position:relative;text-align:center}
+    .glitch{position:relative;display:inline-block;color:#fff}
+    .glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%}
+    .glitch::before{color:rgba(57,255,20,.7);animation:glitch-a 4s infinite;clip-path:polygon(0 0,100% 0,100% 45%,0 45%)}
+    .glitch::after{color:rgba(239,68,68,.6);animation:glitch-b 4s infinite;clip-path:polygon(0 55%,100% 55%,100% 100%,0 100%)}
+    @keyframes glitch-a{0%,92%,100%{transform:none;opacity:0}93%{transform:translateX(-3px);opacity:1}95%{transform:translateX(3px) skewX(2deg);opacity:.8}97%{transform:none;opacity:0}}
+    @keyframes glitch-b{0%,94%,100%{transform:none;opacity:0}95%{transform:translateX(3px);opacity:.9}97%{transform:translateX(-2px) skewX(-1deg);opacity:.7}99%{transform:none;opacity:0}}
 
-    .hero-sub{font-size:clamp(15px,2.5vw,20px);color:rgba(255,255,255,.5);max-width:600px;line-height:1.6;font-weight:400;margin-bottom:52px}
-    .hero-sub strong{color:rgba(255,255,255,.85);font-weight:600}
+    .hero-h em{font-style:normal;color:var(--g);display:block}
+    .hero-sub-line{font-family:'Share Tech Mono',monospace;font-size:clamp(10px,1.5vw,13px);letter-spacing:.5em;color:rgba(255,255,255,.2);margin-bottom:48px;text-transform:uppercase}
 
-    /* LIVE STATS STRIP */
-    .stats-strip{display:flex;border:1px solid rgba(57,255,20,0.15);background:rgba(0,0,0,.6);backdrop-filter:blur(8px);margin-bottom:52px;max-width:860px;width:100%}
-    .stat-cell{flex:1;min-width:140px;padding:18px 20px;border-right:1px solid rgba(57,255,20,0.08);text-align:center;position:relative}
-    .stat-cell:last-child{border-right:none}
-    .stat-label{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.22em;color:rgba(57,255,20,0.45);text-transform:uppercase;margin-bottom:6px}
-    .stat-val{font-family:'Share Tech Mono',monospace;font-size:clamp(18px,3vw,28px);font-weight:700;color:var(--green);text-shadow:0 0 20px rgba(57,255,20,.4)}
-    .stat-val.amber{color:var(--amber);text-shadow:0 0 20px rgba(245,158,11,.4)}
-    .stat-val.red{color:var(--red);text-shadow:0 0 20px rgba(239,68,68,.4)}
-    .stat-live{position:absolute;top:8px;right:10px;font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.15em;color:rgba(57,255,20,.4)}
+    /* REDACTED BRIEF */
+    .redacted-brief{max-width:640px;width:100%;border:1px solid rgba(245,158,11,.12);background:rgba(245,158,11,.02);padding:28px;text-align:left;margin-bottom:44px;position:relative}
+    .brief-stamp{position:absolute;top:-1px;right:16px;font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.4em;color:rgba(239,68,68,.4);border:1px solid rgba(239,68,68,.2);padding:3px 8px;background:#000}
+    .brief-header{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.25em;color:rgba(245,158,11,.5);margin-bottom:16px;line-height:2}
+    .brief-body{font-family:'Share Tech Mono',monospace;font-size:11px;color:rgba(255,255,255,.5);line-height:2}
+    .redact{display:inline-block;background:rgba(245,158,11,.9);color:transparent;cursor:pointer;position:relative;transition:all .3s;user-select:none;letter-spacing:.05em;border-radius:1px}
+    .redact:hover{background:transparent;color:var(--g);text-shadow:0 0 8px var(--g)}
+    .redact::after{content:'[HOVER TO DECLASSIFY]';position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);font-size:7px;color:rgba(245,158,11,.4);white-space:nowrap;opacity:0;transition:opacity .2s}
+    .redact:hover::after{opacity:0}
+
+    /* LIVE DATA */
+    .data-row{display:flex;gap:0;border:1px solid rgba(57,255,20,.1);width:100%;max-width:640px;margin-bottom:44px;flex-wrap:wrap}
+    .dc{flex:1;min-width:140px;padding:16px;border-right:1px solid rgba(57,255,20,.06);text-align:center;position:relative;overflow:hidden}
+    .dc:last-child{border-right:none}
+    .dc::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 100%,rgba(57,255,20,.04),transparent 70%);opacity:0;transition:opacity .3s}
+    .dc:hover::before{opacity:1}
+    .dl{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.2em;color:rgba(57,255,20,.35);text-transform:uppercase;margin-bottom:5px}
+    .dv{font-family:'Share Tech Mono',monospace;font-size:clamp(16px,2.5vw,22px);color:var(--g);text-shadow:0 0 12px rgba(57,255,20,.3);font-weight:700}
+    .dv.amber{color:var(--a);text-shadow:0 0 12px rgba(245,158,11,.3)}
+    .dv.red{color:var(--r);text-shadow:0 0 12px rgba(239,68,68,.3)}
+    .dsrc{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:.15em;color:rgba(57,255,20,.2);margin-top:4px}
 
     /* WAITLIST */
-    .waitlist-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;max-width:520px}
-    .wl-prompt{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.3em;color:rgba(255,255,255,.35);text-transform:uppercase}
-    .wl-form{display:flex;width:100%;border:1px solid rgba(57,255,20,.35);transition:border-color .2s,box-shadow .2s}
-    .wl-form:focus-within{border-color:var(--green);box-shadow:0 0 24px rgba(57,255,20,.12)}
-    .wl-input{flex:1;background:rgba(0,0,0,.85);border:none;outline:none;padding:15px 18px;font-family:'Share Tech Mono',monospace;font-size:13px;color:#fff;letter-spacing:.04em}
-    .wl-input::placeholder{color:rgba(255,255,255,.2)}
-    .wl-btn{background:var(--green);border:none;padding:15px 22px;font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.2em;color:#000;cursor:pointer;white-space:nowrap;transition:opacity .2s;text-transform:uppercase}
+    .wl-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;max-width:500px}
+    .wl-pre{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.25);text-transform:uppercase}
+    .wl-form{display:flex;width:100%;border:1px solid rgba(57,255,20,.25);transition:all .25s}
+    .wl-form:focus-within{border-color:var(--g);box-shadow:0 0 20px rgba(57,255,20,.1)}
+    .wl-input{flex:1;background:rgba(0,0,0,.9);border:none;outline:none;padding:14px 16px;font-family:'Share Tech Mono',monospace;font-size:12px;color:#fff;letter-spacing:.05em}
+    .wl-input::placeholder{color:rgba(255,255,255,.15)}
+    .wl-btn{background:var(--g);border:none;padding:14px 20px;font-family:'Share Tech Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.2em;color:#000;cursor:pointer;white-space:nowrap;transition:opacity .2s;text-transform:uppercase}
     .wl-btn:hover{opacity:.85}
-    .wl-note{font-family:'Share Tech Mono',monospace;font-size:10px;color:rgba(255,255,255,.2);letter-spacing:.08em}
-    .wl-note span{color:rgba(57,255,20,.5)}
-    .wl-success{display:none;width:100%;text-align:center;padding:20px;border:1px solid rgba(57,255,20,.3);background:rgba(57,255,20,.04)}
-    .wl-success-t{font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:.3em;color:var(--green);margin-bottom:6px}
-    .wl-success-s{font-family:'Share Tech Mono',monospace;font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.1em}
+    .wl-note{font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:.1em}
+    .wl-success{display:none;width:100%;padding:20px;border:1px solid rgba(57,255,20,.2);background:rgba(57,255,20,.03);text-align:center}
+    .wl-st{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.3em;color:var(--g);margin-bottom:6px}
+    .wl-ss{font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(255,255,255,.25);letter-spacing:.12em}
 
-    /* APP STORES (coming soon) */
-    .store-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:4px}
-    .store-badge{display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);padding:10px 18px;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.35);cursor:default;white-space:nowrap}
-    .store-icon{font-size:16px;opacity:.5}
+    /* STORE BADGES */
+    .store-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+    .sbadge{display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.08);padding:9px 16px;font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(255,255,255,.25)}
 
-    /* ── TESTIMONY ── */
-    .testimony-section{padding:100px 24px;border-top:1px solid rgba(255,255,255,.04)}
-    .testimony-inner{max-width:860px;margin:0 auto}
-    .section-eyebrow{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.4em;color:rgba(57,255,20,.5);text-transform:uppercase;margin-bottom:16px}
-    blockquote.testimony{font-size:clamp(20px,3.5vw,34px);font-weight:600;line-height:1.4;color:#fff;margin-bottom:28px;position:relative;padding-left:24px}
-    blockquote.testimony::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--green)}
-    .testimony-source{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.18em;color:rgba(255,255,255,.4);margin-bottom:48px}
-    .testimony-source span{color:rgba(57,255,20,.7)}
+    /* SIGNAL INTERRUPT DIVIDER */
+    .sig-div{padding:60px 24px;text-align:center;border-top:1px solid rgba(57,255,20,.04);border-bottom:1px solid rgba(57,255,20,.04);position:relative;overflow:hidden}
+    .sig-div::before{content:'';position:absolute;top:50%;left:-100%;width:300%;height:1px;background:linear-gradient(to right,transparent,var(--g),transparent);animation:sig-scan 6s linear infinite}
+    @keyframes sig-scan{0%{left:-300%}100%{left:100%}}
+    .sig-morse{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.4em;color:rgba(57,255,20,.2);margin-bottom:12px;animation:morse-flicker 8s ease-in-out infinite}
+    @keyframes morse-flicker{0%,100%{color:rgba(57,255,20,.2)}50%{color:rgba(57,255,20,.6)}}
+    .sig-decode{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.3em;color:rgba(255,255,255,.06);cursor:pointer;transition:color .4s}
+    .sig-decode:hover{color:rgba(57,255,20,.7)}
 
-    .fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(57,255,20,.06)}
-    .fact-card{background:#000;padding:28px;transition:background .25s}
-    .fact-card:hover{background:rgba(57,255,20,.03)}
-    .fact-num{font-family:'Share Tech Mono',monospace;font-size:clamp(24px,4vw,40px);color:var(--green);text-shadow:0 0 16px rgba(57,255,20,.35);margin-bottom:8px;letter-spacing:.02em}
-    .fact-label{font-size:14px;color:rgba(255,255,255,.5);line-height:1.5;font-weight:400}
-    .fact-source{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.15em;color:rgba(57,255,20,.3);margin-top:10px}
+    /* CLASSIFIED DOC SECTION */
+    .doc-section{padding:100px 24px;border-top:1px solid rgba(255,255,255,.03)}
+    .doc-inner{max-width:860px;margin:0 auto}
+    .doc-wrapper{border:1px solid rgba(245,158,11,.1);background:rgba(245,158,11,.015);padding:40px;position:relative}
+    .doc-diagonal{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-12deg);font-family:'Share Tech Mono',monospace;font-size:clamp(40px,8vw,80px);color:rgba(239,68,68,.04);letter-spacing:.4em;white-space:nowrap;pointer-events:none;font-weight:700}
+    .doc-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px;flex-wrap:wrap;gap:12px}
+    .doc-classification{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.3em;color:rgba(245,158,11,.5);border:1px solid rgba(245,158,11,.2);padding:4px 12px}
+    .doc-ref{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.2em;color:rgba(255,255,255,.2)}
+    blockquote.testimony{font-size:clamp(18px,3vw,28px);font-weight:600;line-height:1.5;color:#fff;padding-left:20px;border-left:2px solid var(--g);margin-bottom:20px;position:relative}
+    .t-source{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,.3);margin-bottom:32px}
+    .t-source span{color:rgba(57,255,20,.6)}
+    .fact-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(57,255,20,.06);margin-top:32px}
+    .fc{background:#000;padding:24px 20px;transition:background .25s;cursor:default}
+    .fc:hover{background:rgba(57,255,20,.02)}
+    .fn{font-family:'Share Tech Mono',monospace;font-size:clamp(20px,3.5vw,32px);color:var(--g);text-shadow:0 0 12px rgba(57,255,20,.3);margin-bottom:6px}
+    .fd{font-size:13px;color:rgba(255,255,255,.4);line-height:1.5;font-weight:400}
+    .fsrc{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.12em;color:rgba(57,255,20,.2);margin-top:8px}
 
-    /* ── PHONE MOCKUP SECTION ── */
-    .app-section{padding:100px 24px;border-top:1px solid rgba(255,255,255,.04)}
+    /* PHONE SECTION */
+    .app-section{padding:100px 24px;border-top:1px solid rgba(255,255,255,.03)}
     .app-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-    @media(max-width:768px){.app-inner{grid-template-columns:1fr;gap:60px;text-align:center}}
-    .app-copy h2{font-size:clamp(28px,4.5vw,52px);font-weight:700;line-height:1.1;margin-bottom:20px;letter-spacing:-.01em}
-    .app-copy h2 em{font-style:normal;color:var(--green)}
-    .app-copy p{font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,.5);line-height:1.65;margin-bottom:32px;font-weight:400}
-    .app-features{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
-    .app-feat{display:flex;align-items:flex-start;gap:14px}
-    .app-feat-icon{width:32px;height:32px;border:1px solid rgba(57,255,20,.2);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;background:rgba(57,255,20,.04)}
-    .app-feat-text{font-size:15px;color:rgba(255,255,255,.6);line-height:1.5;font-weight:400}
-    .app-feat-text strong{color:#fff;font-weight:600}
+    @media(max-width:768px){.app-inner{grid-template-columns:1fr;gap:48px;text-align:center}}
+    .app-eyebrow{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.4em;color:rgba(57,255,20,.4);text-transform:uppercase;margin-bottom:16px}
+    .app-h{font-size:clamp(28px,4.5vw,52px);font-weight:700;line-height:1.1;margin-bottom:16px}
+    .app-h em{font-style:normal;color:var(--g)}
+    .app-p{font-size:clamp(14px,2vw,17px);color:rgba(255,255,255,.4);line-height:1.7;font-weight:400;margin-bottom:32px}
+    .app-feats{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+    .af{display:flex;align-items:flex-start;gap:12px}
+    .af-ico{width:30px;height:30px;border:1px solid rgba(57,255,20,.15);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;background:rgba(57,255,20,.03)}
+    .af-t{font-size:14px;color:rgba(255,255,255,.5);line-height:1.5}
+    .af-t strong{color:rgba(255,255,255,.85);font-weight:600}
 
-    /* PHONE FRAME */
+    /* PHONE FRAMES */
     .phone-stack{display:flex;justify-content:center;position:relative;height:520px}
-    @media(max-width:768px){.phone-stack{height:380px}}
-    .phone-frame{position:absolute;width:230px;border:1.5px solid rgba(255,255,255,.12);border-radius:28px;overflow:hidden;background:#050505;box-shadow:0 0 60px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.05)}
-    .phone-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:56px;height:4px;border-radius:2px;background:rgba(255,255,255,.07);z-index:2}
-    .phone-screen{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
-    .phone-main{top:0;left:50%;transform:translateX(-50%);height:480px;z-index:3;box-shadow:0 0 80px rgba(57,255,20,.08)}
-    @media(max-width:768px){.phone-main{height:360px;width:180px}}
-    .phone-left{top:30px;left:0;height:440px;opacity:.4;transform:rotate(-5deg) translateX(10px);z-index:2}
-    .phone-right{top:30px;right:0;height:440px;opacity:.4;transform:rotate(5deg) translateX(-10px);z-index:2}
-    @media(max-width:768px){.phone-left,.phone-right{display:none}}
+    @media(max-width:768px){.phone-stack{height:400px}}
+    .phone{position:absolute;border:1.5px solid rgba(255,255,255,.1);border-radius:28px;overflow:hidden;background:#040404;box-shadow:0 0 60px rgba(0,0,0,.9)}
+    .pnotch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:52px;height:4px;border-radius:2px;background:rgba(255,255,255,.06);z-index:2}
+    .phone-main-f{top:0;left:50%;transform:translateX(-50%);width:230px;height:490px;z-index:3}
+    @media(max-width:768px){.phone-main-f{width:190px;height:400px}}
+    .phone-bg-l{top:28px;left:0;width:200px;height:450px;opacity:.35;transform:rotate(-6deg);z-index:1}
+    .phone-bg-r{top:28px;right:0;width:200px;height:450px;opacity:.35;transform:rotate(6deg);z-index:1}
+    @media(max-width:768px){.phone-bg-l,.phone-bg-r{display:none}}
 
-    /* SCREEN CONTENT — PROTOCOL SCREEN */
-    .screen-protocol{background:#060606;width:100%;height:100%;padding:28px 16px 16px;display:flex;flex-direction:column;gap:0}
-    .scr-header{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.3em;color:rgba(57,255,20,.5);margin-bottom:20px;padding-top:8px}
-    .scr-title{font-family:'Share Tech Mono',monospace;font-size:16px;color:#fff;letter-spacing:.1em;margin-bottom:6px}
-    .scr-timer{font-family:'Share Tech Mono',monospace;font-size:36px;color:var(--red);text-shadow:0 0 16px rgba(239,68,68,.4);text-align:center;letter-spacing:.1em;margin:12px 0}
-    .scr-steps{display:flex;flex-direction:column;gap:8px;margin-top:8px}
-    .scr-step{display:flex;gap:8px;font-size:9px;color:rgba(255,255,255,.5);line-height:1.4;font-family:'Share Tech Mono',monospace;letter-spacing:.05em}
-    .scr-step-check{color:var(--green);flex-shrink:0}
-    .scr-step-open{color:rgba(255,255,255,.25);flex-shrink:0}
-    .scr-count{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(57,255,20,.35);letter-spacing:.15em;margin-top:auto;text-align:center;padding-top:16px}
+    /* SCREEN STYLES */
+    .scr{width:100%;height:100%;display:flex;flex-direction:column;padding:24px 14px 14px;background:#050505}
+    .scr-hd{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:.3em;color:rgba(57,255,20,.4);margin-bottom:14px;padding-top:6px}
+    .scr-title{font-family:'Share Tech Mono',monospace;font-size:13px;color:#fff;letter-spacing:.1em;margin-bottom:4px}
+    .scr-sub{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(255,255,255,.2);letter-spacing:.2em;margin-bottom:16px}
+    .scr-timer{font-family:'Share Tech Mono',monospace;font-size:42px;color:var(--r);text-shadow:0 0 16px rgba(239,68,68,.4);text-align:center;letter-spacing:.08em;margin:8px 0}
+    .scr-steps{display:flex;flex-direction:column;gap:7px}
+    .scr-step{display:flex;gap:6px;font-size:8px;font-family:'Share Tech Mono',monospace;color:rgba(255,255,255,.4);letter-spacing:.04em;line-height:1.4}
+    .ck{color:var(--g);flex-shrink:0}.op{color:rgba(255,255,255,.18);flex-shrink:0}
+    .scr-count-s{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:.18em;color:rgba(57,255,20,.25);margin-top:auto;text-align:center;padding-top:12px}
+    .scr-wave{height:24px;background:linear-gradient(to right,transparent,rgba(57,255,20,.12),var(--g),rgba(57,255,20,.12),transparent);border-radius:1px;margin:10px 0;animation:wv 2s ease-in-out infinite}
+    @keyframes wv{0%,100%{opacity:.5}50%{opacity:1}}
+    .scr-tbtn{display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(57,255,20,.12);padding:6px 9px;margin-bottom:5px;font-family:'Share Tech Mono',monospace;font-size:7px;color:rgba(255,255,255,.4);letter-spacing:.08em}
+    .scr-tbtn-p{color:rgba(57,255,20,.5)}
+    .map-area{flex:1;background:rgba(57,255,20,.02);border:1px solid rgba(57,255,20,.06);position:relative;border-radius:1px;overflow:hidden;margin-bottom:8px}
+    .mgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(57,255,20,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,20,.03) 1px,transparent 1px);background-size:18px 18px}
+    .mdot{position:absolute;width:5px;height:5px;border-radius:50%}
+    .m-a{background:var(--a);box-shadow:0 0 6px var(--a)}
+    .m-g{background:var(--g);box-shadow:0 0 6px var(--g)}
+    .m-r{background:var(--r);box-shadow:0 0 6px var(--r)}
+    .scr-map-log{font-family:'Share Tech Mono',monospace;font-size:7px;color:rgba(57,255,20,.3);line-height:1.8;letter-spacing:.08em}
 
-    /* SCREEN — TRANSLATOR */
-    .screen-translator{background:#060606;width:100%;height:100%;padding:28px 14px 16px;display:flex;flex-direction:column}
-    .scr-t-header{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.25em;color:rgba(57,255,20,.5);margin-bottom:8px;padding-top:8px}
-    .scr-t-title{font-family:'Share Tech Mono',monospace;font-size:13px;color:#fff;letter-spacing:.08em;margin-bottom:4px}
-    .scr-t-sub{font-family:'Share Tech Mono',monospace;font-size:7px;color:rgba(255,255,255,.25);letter-spacing:.12em;margin-bottom:16px}
-    .scr-waveform{height:28px;background:linear-gradient(to right,transparent,rgba(57,255,20,.15),var(--green),rgba(57,255,20,.15),transparent);border-radius:2px;margin-bottom:14px;animation:wave 2s ease-in-out infinite}
-    @keyframes wave{0%,100%{opacity:.6}50%{opacity:1}}
-    .scr-t-btns{display:flex;flex-direction:column;gap:6px}
-    .scr-t-btn{display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(57,255,20,.15);padding:7px 10px;font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(255,255,255,.5);letter-spacing:.1em}
-    .scr-t-btn-ico{color:rgba(57,255,20,.6)}
+    /* BLACKOUT SECTION */
+    .blackout-section{padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.03);position:relative;overflow:hidden}
+    .blackout-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(239,68,68,.04) 0%,transparent 70%);pointer-events:none;animation:orb-breathe 5s ease-in-out infinite}
+    .bo-device{width:220px;height:410px;border:1.5px solid rgba(255,255,255,.07);border-radius:30px;margin:44px auto;background:#030303;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;box-shadow:0 0 80px rgba(0,0,0,.95),0 0 40px rgba(239,68,68,.05)}
+    .bo-device::before{content:'';position:absolute;top:10px;width:50px;height:4px;border-radius:2px;background:rgba(255,255,255,.05)}
+    /* hidden coords on device */
+    .bo-device::after{content:'37°14′N 115°48′W';position:absolute;bottom:12px;font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:.1em;color:rgba(255,255,255,.05);transition:color .4s}
+    .bo-device:hover::after{color:rgba(57,255,20,.3)}
+    .bo-dot{width:8px;height:8px;border-radius:50%;background:var(--r);box-shadow:0 0 10px var(--r);margin-bottom:18px;animation:pdot-pulse 1s infinite}
+    .bo-lbl{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.35em;color:rgba(255,255,255,.3);margin-bottom:6px}
+    .bo-hl{font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:.18em;color:#fff;line-height:1.9;text-align:center;margin-bottom:26px}
+    .bo-t{font-family:'Share Tech Mono',monospace;font-size:44px;color:var(--r);text-shadow:0 0 20px rgba(239,68,68,.4);letter-spacing:.1em}
+    .bo-rem{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.25em;color:rgba(255,255,255,.18);margin-top:5px}
+    .bo-cnt{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(255,255,255,.15);margin-top:18px}
 
-    /* SCREEN — MAP */
-    .screen-map{background:#060606;width:100%;height:100%;padding:28px 14px 16px;display:flex;flex-direction:column}
-    .scr-map-canvas{flex:1;background:rgba(57,255,20,.03);border:1px solid rgba(57,255,20,.08);margin-bottom:10px;position:relative;border-radius:2px;overflow:hidden}
-    .map-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber)}
-    .map-dot-green{background:var(--green);box-shadow:0 0 8px var(--green)}
-    .map-dot-red{background:var(--red);box-shadow:0 0 8px var(--red)}
-    .map-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(57,255,20,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,20,.04) 1px,transparent 1px);background-size:20px 20px}
-    .scr-map-recent{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:.1em;color:rgba(57,255,20,.4);line-height:1.8}
+    /* PATHS */
+    .paths-section{padding:100px 24px;border-top:1px solid rgba(255,255,255,.03)}
+    .paths-inner{max-width:840px;margin:0 auto}
+    .sec-ey{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.4em;color:rgba(57,255,20,.4);text-transform:uppercase;margin-bottom:14px}
+    .sec-t{font-size:clamp(26px,4.5vw,52px);font-weight:700;line-height:1.1;margin-bottom:12px}
+    .sec-t em{font-style:normal;color:var(--g)}
+    .sec-s{font-size:16px;color:rgba(255,255,255,.35);line-height:1.6;font-weight:400;margin-bottom:52px;max-width:520px}
+    .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(57,255,20,.05)}
+    @media(max-width:540px){.pgrid{grid-template-columns:1fr}}
+    .pcard{background:#000;padding:40px 32px;transition:background .25s}
+    .pcard:hover{background:rgba(57,255,20,.025)}
+    .pcard:hover .path-hidden{opacity:1}
+    .path-emoji{font-size:36px;margin-bottom:18px;display:block}
+    .ptag{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.35em;color:rgba(255,255,255,.2);text-transform:uppercase;margin-bottom:10px}
+    .ptitle{font-size:22px;font-weight:700;margin-bottom:10px}
+    .pa .ptitle{color:var(--a)}.pb .ptitle{color:var(--b)}
+    .pdesc{font-size:13px;color:rgba(255,255,255,.35);line-height:1.6;font-weight:400}
+    /* hidden text on path hover */
+    .path-hidden{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.2em;color:rgba(57,255,20,.4);margin-top:14px;opacity:0;transition:opacity .4s}
 
-    /* ── BLACKOUT ── */
-    .blackout-section{padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
-    .blackout-device{width:220px;height:400px;border:1.5px solid rgba(255,255,255,.08);border-radius:30px;margin:48px auto;background:#040404;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;box-shadow:0 0 80px rgba(0,0,0,.9),0 0 40px rgba(239,68,68,.06)}
-    .blackout-device::before{content:'';position:absolute;top:10px;width:52px;height:4px;border-radius:2px;background:rgba(255,255,255,.06)}
-    .bo-icon{width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red),0 0 24px rgba(239,68,68,.3);margin-bottom:20px;animation:pglow 1s infinite}
-    .bo-label{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.35em;color:rgba(255,255,255,.35);margin-bottom:6px}
-    .bo-headline{font-family:'Share Tech Mono',monospace;font-size:14px;letter-spacing:.15em;color:#fff;line-height:1.8;text-align:center;margin-bottom:28px}
-    .bo-timer{font-family:'Share Tech Mono',monospace;font-size:44px;color:var(--red);text-shadow:0 0 20px rgba(239,68,68,.4);letter-spacing:.1em}
-    .bo-remain{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.25em;color:rgba(255,255,255,.2);margin-top:6px}
-    .bo-count{margin-top:20px;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.18)}
-    .blackout-copy{max-width:580px;margin:0 auto}
-    .blackout-copy p{font-size:clamp(16px,2.5vw,20px);color:rgba(255,255,255,.45);line-height:1.7;font-weight:400}
-    .blackout-copy strong{color:#fff;font-weight:600}
+    /* DEADLINE */
+    .deadline-section{padding:72px 24px;border-top:1px solid rgba(245,158,11,.06);background:rgba(245,158,11,.01)}
+    .dl-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    @media(max-width:680px){.dl-inner{grid-template-columns:1fr;gap:36px}}
+    .dl-copy h2{font-size:clamp(22px,3.5vw,38px);font-weight:700;margin-bottom:14px;line-height:1.2}
+    .dl-copy h2 span{color:var(--a)}
+    .dl-copy p{font-size:14px;color:rgba(255,255,255,.4);line-height:1.65;font-weight:400;margin-bottom:10px}
+    .dl-source{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.12em;color:rgba(255,255,255,.18)}
+    .cdbox{border:1px solid rgba(245,158,11,.15);background:rgba(245,158,11,.03);padding:28px;text-align:center}
+    .cd-lbl{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.3em;color:rgba(245,158,11,.45);text-transform:uppercase;margin-bottom:10px}
+    .cd-val{font-family:'Share Tech Mono',monospace;font-size:clamp(24px,4.5vw,44px);color:var(--a);text-shadow:0 0 16px rgba(245,158,11,.3);letter-spacing:.04em}
+    .cd-unit{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.2em;color:rgba(245,158,11,.35);margin-top:6px}
+    .cd-sub{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.12em;color:rgba(255,255,255,.18);margin-top:10px;line-height:1.7}
 
-    /* ── PATHS ── */
-    .paths-section{padding:100px 24px;border-top:1px solid rgba(255,255,255,.04)}
-    .paths-inner{max-width:880px;margin:0 auto}
-    .section-title{font-size:clamp(28px,4.5vw,52px);font-weight:700;line-height:1.1;margin-bottom:12px;letter-spacing:-.01em}
-    .section-title em{font-style:normal;color:var(--green)}
-    .section-sub{font-size:17px;color:rgba(255,255,255,.4);line-height:1.6;font-weight:400;margin-bottom:64px;max-width:560px}
-    .paths-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(57,255,20,.06)}
-    @media(max-width:560px){.paths-grid{grid-template-columns:1fr}}
-    .path-card{background:#000;padding:44px 36px;transition:background .25s}
-    .path-card:hover{background:rgba(57,255,20,.03)}
-    .path-emoji{font-size:40px;margin-bottom:20px;display:block}
-    .path-tag{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.35em;color:rgba(255,255,255,.25);text-transform:uppercase;margin-bottom:10px}
-    .path-title{font-size:24px;font-weight:700;margin-bottom:12px;letter-spacing:.01em}
-    .path-a .path-title{color:var(--amber)}
-    .path-b .path-title{color:var(--blue)}
-    .path-desc{font-size:14px;color:rgba(255,255,255,.4);line-height:1.6;font-weight:400}
-    .paths-note{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.18em;color:rgba(57,255,20,.35);text-align:center;margin-top:24px}
+    /* FEATURES */
+    .feat-section{padding:100px 24px;border-top:1px solid rgba(255,255,255,.03)}
+    .feat-inner{max-width:1100px;margin:0 auto}
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(57,255,20,.05)}
+    .feat-c{background:#000;padding:32px 26px;transition:background .25s;position:relative;overflow:hidden}
+    .feat-c::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(57,255,20,.2),transparent);opacity:0;transition:opacity .3s}
+    .feat-c:hover{background:rgba(57,255,20,.02)}
+    .feat-c:hover::before{opacity:1}
+    .fn-tag{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.3em;color:rgba(57,255,20,.2);margin-bottom:14px}
+    .ft{font-size:18px;font-weight:700;color:#fff;margin-bottom:9px}
+    .fd-text{font-size:13px;color:rgba(255,255,255,.38);line-height:1.6;font-weight:400}
+    /* hidden detail per feature */
+    .feat-secret{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.15em;color:rgba(57,255,20,.3);margin-top:12px;opacity:0;transition:opacity .4s;height:0;overflow:hidden;transition:all .35s}
+    .feat-c:hover .feat-secret{opacity:1;height:auto;margin-top:12px}
 
-    /* ── DEADLINE SECTION ── */
-    .deadline-section{padding:80px 24px;border-top:1px solid rgba(57,255,20,.08);border-bottom:1px solid rgba(57,255,20,.08);background:rgba(57,255,20,.02)}
-    .deadline-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-    @media(max-width:680px){.deadline-inner{grid-template-columns:1fr;gap:40px}}
-    .deadline-copy h2{font-size:clamp(24px,4vw,40px);font-weight:700;margin-bottom:16px;line-height:1.2}
-    .deadline-copy h2 span{color:var(--amber)}
-    .deadline-copy p{font-size:16px;color:rgba(255,255,255,.45);line-height:1.6;font-weight:400;margin-bottom:12px}
-    .deadline-copy .source{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.15em;color:rgba(255,255,255,.2)}
-    .countdown-box{border:1px solid rgba(245,158,11,.2);background:rgba(245,158,11,.04);padding:32px;text-align:center}
-    .countdown-label{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.3em;color:rgba(245,158,11,.5);text-transform:uppercase;margin-bottom:12px}
-    .countdown-display{font-family:'Share Tech Mono',monospace;font-size:clamp(28px,5vw,48px);color:var(--amber);text-shadow:0 0 20px rgba(245,158,11,.3);letter-spacing:.05em;line-height:1}
-    .countdown-unit{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(245,158,11,.4);margin-top:8px}
-    .countdown-sub{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.15em;color:rgba(255,255,255,.2);margin-top:12px;line-height:1.6}
+    /* FINAL CTA */
+    .final-section{padding:120px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.03)}
+    .final-section h2{font-size:clamp(28px,5vw,60px);font-weight:700;margin-bottom:14px;line-height:1.05}
+    .final-section h2 span{color:var(--g)}
+    .final-section p{font-family:'Share Tech Mono',monospace;font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.22em;text-transform:uppercase;margin-bottom:48px}
 
-    /* ── FEATURES ── */
-    .features-section{padding:100px 24px;border-top:1px solid rgba(255,255,255,.04)}
-    .features-inner{max-width:1100px;margin:0 auto}
-    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:rgba(57,255,20,.06)}
-    .feature-card{background:#000;padding:36px 28px;transition:background .25s;position:relative;overflow:hidden}
-    .feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(57,255,20,.25),transparent);opacity:0;transition:opacity .3s}
-    .feature-card:hover{background:rgba(57,255,20,.025)}
-    .feature-card:hover::before{opacity:1}
-    .feat-num{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.3em;color:rgba(57,255,20,.25);margin-bottom:18px}
-    .feat-title{font-size:20px;font-weight:700;color:#fff;margin-bottom:10px}
-    .feat-desc{font-size:14px;color:rgba(255,255,255,.45);line-height:1.6;font-weight:400}
+    /* SOCIAL / FOOTER */
+    .social-bar{padding:32px 24px;border-top:1px solid rgba(255,255,255,.03);display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+    .soc{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s}
+    .soc:hover{color:var(--g)}
+    footer{padding:24px 28px;border-top:1px solid rgba(255,255,255,.02);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .fl{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.22em;color:rgba(57,255,20,.25)}
+    /* BINARY EASTER EGG IN FOOTER */
+    .fbinary{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.05em;color:rgba(255,255,255,.04);transition:color .5s;cursor:pointer}
+    .fbinary:hover{color:rgba(57,255,20,.5)}
+    .fn-r{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:.1em;color:rgba(255,255,255,.1)}
 
-    /* ── FINAL CTA ── */
-    .final-section{padding:120px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
-    .final-section h2{font-size:clamp(30px,5.5vw,64px);font-weight:700;margin-bottom:14px;line-height:1.05;letter-spacing:-.01em}
-    .final-section h2 span{color:var(--green)}
-    .final-section p{font-family:'Share Tech Mono',monospace;font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.2em;text-transform:uppercase;margin-bottom:52px}
+    /* FLOATING TIME-BASED ALERT */
+    #alert-pop{position:fixed;bottom:24px;right:24px;z-index:500;border:1px solid rgba(239,68,68,.3);background:rgba(0,0,0,.92);backdrop-filter:blur(12px);padding:16px 20px;max-width:300px;transform:translateX(120%);transition:transform .5s cubic-bezier(.34,1.56,.64,1);font-family:'Share Tech Mono',monospace}
+    #alert-pop.show{transform:translateX(0)}
+    .ap-tag{font-size:8px;letter-spacing:.3em;color:rgba(239,68,68,.6);margin-bottom:6px}
+    .ap-body{font-size:10px;color:rgba(255,255,255,.5);line-height:1.6;letter-spacing:.06em}
+    .ap-close{position:absolute;top:8px;right:10px;color:rgba(255,255,255,.2);cursor:pointer;font-size:12px;font-family:monospace}
 
-    /* ── SOCIAL / FOOTER ── */
-    .social-bar{padding:36px 24px;border-top:1px solid rgba(255,255,255,.04);display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
-    .soc-link{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s}
-    .soc-link:hover{color:var(--green)}
-    footer{padding:24px 32px;border-top:1px solid rgba(255,255,255,.03);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-    .footer-logo{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.25em;color:rgba(57,255,20,.3)}
-    .footer-note{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.12em;color:rgba(255,255,255,.12)}
+    /* SCROLL-REVEAL */
+    .sr{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+    .sr.visible{opacity:1;transform:none}
 
-    /* MOBILE RESP */
+    /* MOBILE */
     @media(max-width:640px){
-      nav{padding:12px 16px}
-      .nav-cta{display:none}
-      .stats-strip{flex-wrap:wrap}
-      .stat-cell{min-width:130px}
+      .data-row{flex-wrap:wrap}
+      .dc{min-width:130px}
       .wl-form{flex-direction:column}
       .wl-btn{text-align:center}
-      .fact-grid{grid-template-columns:1fr 1fr}
       footer{flex-direction:column;text-align:center}
     }
   </style>
 </head>
 
 <body>
+
+<!-- CURSOR RING -->
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- BOOT SEQUENCE -->
+<div id="boot">
+  <div id="boot-lines"></div>
+  <div id="boot-bar"><div id="boot-progress"></div></div>
+</div>
+
+<!-- STARFIELD -->
 <div id="stars"></div>
 
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">DISCLOSURE</a>
   <div class="nav-right">
-    <div class="nav-status"><div class="pulse-dot"></div>MONITORING ACTIVE</div>
-    <a href="#waitlist" class="nav-cta">GET EARLY ACCESS</a>
+    <span class="nav-watch" id="nav-watch">MONITORING: 0:00</span>
+    <div class="nav-status"><div class="pdot"></div><span class="nav-status-text" id="nav-st">SECURE CONNECTION</span></div>
   </div>
 </nav>
-
-<!-- TICKER -->
-<div class="ticker-bar">
-  <div class="ticker-inner" id="ticker">
-    <span class="ticker-item">◉ AARO CONFIRMS 1,600+ UAP REPORTS TO PENTAGON</span>
-    <span class="ticker-item">◉ DAVID GRUSCH TESTIFIED UNDER OATH — JULY 26, 2023</span>
-    <span class="ticker-item">◉ NATIONAL ARCHIVES MANDATED TO COLLECT ALL UAP RECORDS BY SEPT 30, 2025</span>
-    <span class="ticker-item">◉ H.R.1187 UAP TRANSPARENCY ACT — 119TH CONGRESS — ACTIVE</span>
-    <span class="ticker-item">◉ 2,174 CIVILIAN SIGHTINGS REPORTED IN FIRST HALF OF 2025 ALONE</span>
-    <span class="ticker-item">◉ GRUSCH: "NON-HUMAN BIOLOGICS RECOVERED AT CRASH SITES"</span>
-    <span class="ticker-item">◉ HOUSE OVERSIGHT TASK FORCE ON UAP DECLASSIFICATION — ACTIVE</span>
-    <span class="ticker-item">◉ 100,000+ SIGHTINGS IN NUFORC CIVILIAN DATABASE</span>
-    <span class="ticker-item">◉ AARO CONFIRMS 1,600+ UAP REPORTS TO PENTAGON</span>
-    <span class="ticker-item">◉ DAVID GRUSCH TESTIFIED UNDER OATH — JULY 26, 2023</span>
-    <span class="ticker-item">◉ NATIONAL ARCHIVES MANDATED TO COLLECT ALL UAP RECORDS BY SEPT 30, 2025</span>
-    <span class="ticker-item">◉ H.R.1187 UAP TRANSPARENCY ACT — 119TH CONGRESS — ACTIVE</span>
-    <span class="ticker-item">◉ 2,174 CIVILIAN SIGHTINGS REPORTED IN FIRST HALF OF 2025 ALONE</span>
-    <span class="ticker-item">◉ GRUSCH: "NON-HUMAN BIOLOGICS RECOVERED AT CRASH SITES"</span>
-    <span class="ticker-item">◉ HOUSE OVERSIGHT TASK FORCE ON UAP DECLASSIFICATION — ACTIVE</span>
-    <span class="ticker-item">◉ 100,000+ SIGHTINGS IN NUFORC CIVILIAN DATABASE</span>
-  </div>
-</div>
 
 <main>
 
 <!-- ── HERO ── -->
 <section class="hero" id="top">
-  <div class="badge"><div class="badge-dot"></div>UNCLASSIFIED // FOR IMMEDIATE RELEASE</div>
+  <div class="hero-orb"></div>
 
-  <h1 class="hero-headline">
-    You Felt Something Shift<br/>
-    <em>When You Watched The Hearings.</em><br/>
-    <span class="line2">That Feeling Was Right.</span>
+  <div class="case-tag">UNCLASSIFIED // FOR IMMEDIATE RELEASE</div>
+
+  <h1 class="hero-h">
+    <span class="glitch" data-text="DISCLOSURE">DISCLOSURE</span>
+    <em>has already begun.</em>
   </h1>
+  <p class="hero-sub-line">THE QUESTION IS NO LONGER IF &nbsp;·&nbsp; IT'S WHEN</p>
 
-  <p class="hero-sub">
-    Former Air Force intelligence officer David Grusch testified under oath to Congress on <strong>July 26, 2023</strong> that non-human craft have been recovered. The Pentagon has logged <strong>1,600+ UAP reports</strong>. The National Archives must collect all UAP records by <strong>September 30, 2025</strong>.<br/><br/>
-    Most people have no plan. <strong>Disclosure changes that.</strong>
-  </p>
+  <!-- REDACTED BRIEF -->
+  <div class="redacted-brief sr">
+    <div class="brief-stamp">DECLASSIFIED</div>
+    <div class="brief-header">
+      FROM: ALL-DOMAIN ANOMALY RESOLUTION OFFICE (AARO)<br/>
+      TO: CIVILIAN READINESS INITIATIVE<br/>
+      SUBJECT: STATUS UPDATE — UAP ENGAGEMENT PROTOCOLS<br/>
+      DATE: <span class="redact" title="Hover to reveal">██████████ 2024</span>
+    </div>
+    <div class="brief-body">
+      Pentagon has logged <span class="redact" title="Hover">████</span> UAP reports to date.
+      Former NRO representative <span class="redact" title="Hover">█████ ██████</span> testified under oath that
+      non-human craft and <span class="redact" title="Hover">███████████ ██████████</span> have been recovered.
+      National Archives deadline for full records transfer: <span class="redact" title="Hover">███████████ ██, ████</span>.
+      Civilian readiness level: <span class="redact" title="Hover">████████████</span>.
+    </div>
+  </div>
 
-  <!-- LIVE STATS -->
-  <div class="stats-strip" id="stats-strip">
-    <div class="stat-cell">
-      <div class="stat-label">Pentagon UAP Reports</div>
-      <div class="stat-val" id="stat-aaro">—</div>
-      <div class="stat-live">AARO</div>
+  <!-- LIVE DATA -->
+  <div class="data-row sr" id="data-row">
+    <div class="dc">
+      <div class="dl">Pentagon Reports</div>
+      <div class="dv" id="d-aaro">—</div>
+      <div class="dsrc">AARO · NOV 2024</div>
     </div>
-    <div class="stat-cell">
-      <div class="stat-label">Civilian Sightings on Record</div>
-      <div class="stat-val" id="stat-nuforc">—</div>
-      <div class="stat-live">NUFORC</div>
+    <div class="dc">
+      <div class="dl">Civilian Sightings</div>
+      <div class="dv" id="d-nuforc">—</div>
+      <div class="dsrc">NUFORC DATABASE</div>
     </div>
-    <div class="stat-cell">
-      <div class="stat-label">Sightings in 2025 (H1)</div>
-      <div class="stat-val amber" id="stat-2025">—</div>
-      <div class="stat-live">NUFORC</div>
+    <div class="dc">
+      <div class="dl">2025 Reports (H1)</div>
+      <div class="dv amber" id="d-2025">—</div>
+      <div class="dsrc">NUFORC · JUL 2025</div>
     </div>
-    <div class="stat-cell">
-      <div class="stat-label">Space Weather Now</div>
-      <div class="stat-val red" id="stat-kp">—</div>
-      <div class="stat-live">NOAA LIVE</div>
+    <div class="dc">
+      <div class="dl">Space Activity</div>
+      <div class="dv red" id="d-kp">—</div>
+      <div class="dsrc">NOAA · LIVE</div>
     </div>
   </div>
 
   <!-- WAITLIST -->
-  <div class="waitlist-wrap" id="waitlist">
-    <p class="wl-prompt">iOS &amp; Android — Launching Soon</p>
-    <form class="wl-form" id="wl-form-1" onsubmit="handleWL(event,'1')">
-      <input class="wl-input" id="wl-email-1" type="email" placeholder="your@email.com" required autocomplete="email"/>
-      <button class="wl-btn" type="submit">GET BRIEFED</button>
+  <div class="wl-wrap sr" id="waitlist">
+    <p class="wl-pre">iOS &amp; Android · Launching Soon</p>
+    <form class="wl-form" id="wlf1" onsubmit="handleWL(event,'1')">
+      <input class="wl-input" id="wle1" type="email" placeholder="request@access.gov" required autocomplete="email"/>
+      <button class="wl-btn" type="submit">REQUEST BRIEFING</button>
     </form>
-    <div class="wl-success" id="wl-success-1">
-      <div class="wl-success-t">◉ ACCESS GRANTED</div>
-      <div class="wl-success-s">TRANSMISSION RECEIVED // YOU WILL BE BRIEFED FIRST</div>
+    <div class="wl-success" id="wls1">
+      <div class="wl-st">◉ CLEARANCE GRANTED</div>
+      <div class="wl-ss">YOUR REQUEST IS LOGGED · BRIEFING INCOMING</div>
     </div>
-    <p class="wl-note">No spam. No nonsense. <span>First access when we launch.</span></p>
+    <p class="wl-note">No noise. First access. <span style="color:rgba(57,255,20,.4)">You'll know before the news does.</span></p>
   </div>
 
-  <!-- APP STORE BADGES -->
-  <div class="store-row">
-    <div class="store-badge"><span class="store-icon">🍎</span>APP STORE — COMING SOON</div>
-    <div class="store-badge"><span class="store-icon">🤖</span>GOOGLE PLAY — COMING SOON</div>
+  <div class="store-row sr">
+    <div class="sbadge">🍎 APP STORE — COMING SOON</div>
+    <div class="sbadge">🤖 GOOGLE PLAY — COMING SOON</div>
   </div>
 </section>
 
-<!-- ── TESTIMONY ── -->
-<section class="testimony-section">
-  <div class="testimony-inner">
-    <div class="section-eyebrow">On The Record. Under Oath.</div>
-    <blockquote class="testimony">
-      "The U.S. government is operating with secrecy — above Congressional oversight — with regards to UAPs. Non-human biologics were recovered at crash sites."
-    </blockquote>
-    <p class="testimony-source">
-      — <span>DAVID GRUSCH</span>, Former National Reconnaissance Office Representative to the UAPTF<br/>
-      House Oversight Committee, July 26, 2023 &nbsp;·&nbsp; Testimony given under oath
-    </p>
+<!-- MORSE DIVIDER -->
+<div class="sig-div sr">
+  <!-- Morse code: YOU ARE NOT ALONE -->
+  <div class="sig-morse">-.-- --- ..- / .- .-. . / -. --- - / .- .-.. --- -. .</div>
+  <div class="sig-decode" title="Hover to decode">[ HOVER TO DECODE TRANSMISSION ]</div>
+</div>
 
-    <div class="fact-grid">
-      <div class="fact-card">
-        <div class="fact-num">1,600+</div>
-        <p class="fact-label">UAP reports received by the Pentagon's AARO office to date — 757 in a single 13-month period.</p>
-        <div class="fact-source">SOURCE: DOD / AARO — NOV 2024</div>
+<!-- CLASSIFIED TESTIMONY -->
+<section class="doc-section sr">
+  <div class="doc-inner">
+    <div class="sec-ey" style="margin-bottom:16px">On The Record · Under Oath · July 26, 2023</div>
+    <div class="doc-wrapper">
+      <div class="doc-diagonal">DECLASSIFIED</div>
+      <div class="doc-header">
+        <div class="doc-classification">HOUSE OVERSIGHT COMMITTEE // UNCLASSIFIED TESTIMONY</div>
+        <div class="doc-ref">REF: HHRG-118-GO06 · 07/26/2023<br/>WITNESS: GRUSCH, DAVID C.<br/>CLEARANCE: TS/SCI</div>
       </div>
-      <div class="fact-card">
-        <div class="fact-num">100,000+</div>
-        <p class="fact-label">Civilian sightings in the NUFORC database — the largest independently verified UAP dataset on earth.</p>
-        <div class="fact-source">SOURCE: NUFORC.ORG</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-num">2,174</div>
-        <p class="fact-label">Sightings reported to NUFORC in the first half of 2025 alone — up from 1,492 in the same period of 2024.</p>
-        <div class="fact-source">SOURCE: NUFORC / NEWSNATIONNOW — JUL 2025</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-num">Sept 30</div>
-        <p class="fact-label">2025 deadline for all U.S. agencies to transfer UAP records to the National Archives under the UAP Disclosure Act.</p>
-        <div class="fact-source">SOURCE: NARA / UAP RECORDS COLLECTION ACT</div>
+      <blockquote class="testimony">
+        "The U.S. government is operating with secrecy — above Congressional oversight — with regards to UAPs. Non-human biologics were recovered at crash sites."
+      </blockquote>
+      <p class="t-source">— <span>DAVID GRUSCH</span>, Former National Reconnaissance Office Representative · UAPTF<br/>Testimony given under oath · United States House of Representatives · 118th Congress</p>
+
+      <div class="fact-row">
+        <div class="fc">
+          <div class="fn" id="fc-aaro">1,600+</div>
+          <p class="fd">UAP reports to the Pentagon's AARO. 757 in a single 13-month window.</p>
+          <div class="fsrc">SOURCE: DOD / AARO — NOV 2024</div>
+        </div>
+        <div class="fc">
+          <div class="fn">100K+</div>
+          <p class="fd">Civilian sightings in the NUFORC database — 25 years of independently verified data.</p>
+          <div class="fsrc">SOURCE: NUFORC.ORG</div>
+        </div>
+        <div class="fc">
+          <div class="fn">2,174</div>
+          <p class="fd">Sightings in H1 2025 alone. Up from 1,492 in the same period of 2024. The pace is accelerating.</p>
+          <div class="fsrc">SOURCE: NUFORC / NEWSNATIONNOW — JUL 2025</div>
+        </div>
+        <div class="fc">
+          <div class="fn" style="color:var(--a)">Sept 30</div>
+          <p class="fd">2025 — legal deadline for all U.S. agencies to transfer UAP records to the National Archives. It's the law.</p>
+          <div class="fsrc">SOURCE: NARA — UAP RECORDS COLLECTION ACT</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── APP MOCKUP ── -->
-<section class="app-section">
+<!-- APP SECTION -->
+<section class="app-section sr">
   <div class="app-inner">
     <div class="app-copy">
-      <div class="section-eyebrow" style="margin-bottom:16px">The App In Your Pocket</div>
-      <h2>The briefing<br/><em>that fits in your hand.</em></h2>
-      <p>Designed mobile-first for the moment that counts. Not a website you bookmark and forget. An app you check every morning — that checks back.</p>
-      <div class="app-features">
-        <div class="app-feat">
-          <div class="app-feat-icon">📡</div>
-          <div class="app-feat-text"><strong>Push alerts before the news breaks.</strong> When a document drops, when a hearing is called — you know first. No algorithm. Direct signal.</div>
-        </div>
-        <div class="app-feat">
-          <div class="app-feat-icon">🛸</div>
-          <div class="app-feat-text"><strong>Sighting near you?</strong> The map updates in real time. Crowdsourced, verified, geolocated. You'll know if something is happening in your area.</div>
-        </div>
-        <div class="app-feat">
-          <div class="app-feat-icon">📻</div>
-          <div class="app-feat-text"><strong>The Universal Translator.</strong> Mathematical frequencies that scientists say a non-human intelligence would recognize. Play them. Share them. Show people what's actually in this app.</div>
-        </div>
-        <div class="app-feat">
-          <div class="app-feat-icon">🔴</div>
-          <div class="app-feat-text"><strong>The Blackout.</strong> Once a day. Without warning. The app goes dark for 3 minutes. Because when it actually happens — everything goes dark first.</div>
-        </div>
+      <div class="app-eyebrow">Built for your pocket · Always on</div>
+      <h2 class="app-h">The briefing<br/><em>that finds you.</em></h2>
+      <p class="app-p">Not a website you bookmark. Not a newsletter you ignore. An app that pushes to your lock screen the moment something happens — and asks if you're ready when nothing has yet.</p>
+      <div class="app-feats">
+        <div class="af"><div class="af-ico">📡</div><div class="af-t"><strong>Push before the news breaks.</strong> Document drops. Hearing calls. Sightings near you. Direct to your pocket.</div></div>
+        <div class="af"><div class="af-ico">📻</div><div class="af-t"><strong>The Translator.</strong> Mathematical frequencies. Pi. Fibonacci. Binary. The language a non-human intelligence would recognize. Playable in your hand.</div></div>
+        <div class="af"><div class="af-ico">🛸</div><div class="af-t"><strong>Live sighting map.</strong> Crowdsourced. Geolocated. Cross-referenced against NUFORC data. The hotspots glow.</div></div>
+        <div class="af"><div class="af-ico">🔴</div><div class="af-t"><strong>The Blackout.</strong> Random. Daily. Three minutes. The app goes dark — because when it actually happens, everything goes dark first.</div></div>
       </div>
       <div class="store-row" style="justify-content:flex-start">
-        <div class="store-badge"><span class="store-icon">🍎</span>APP STORE — COMING SOON</div>
-        <div class="store-badge"><span class="store-icon">🤖</span>GOOGLE PLAY — COMING SOON</div>
+        <div class="sbadge">🍎 APP STORE — COMING SOON</div>
+        <div class="sbadge">🤖 GOOGLE PLAY — COMING SOON</div>
       </div>
     </div>
 
-    <!-- PHONE FRAMES -->
     <div class="phone-stack">
-      <!-- Left: Map screen -->
-      <div class="phone-frame phone-left" style="width:200px">
-        <div class="phone-notch"></div>
-        <div class="screen-map">
-          <div class="scr-t-header">SIGHTING MAP // LIVE</div>
-          <div class="scr-map-canvas">
-            <div class="map-grid"></div>
-            <div class="map-dot" style="top:30%;left:40%"></div>
-            <div class="map-dot map-dot-green" style="top:55%;left:60%"></div>
-            <div class="map-dot map-dot-red" style="top:20%;left:70%"></div>
-            <div class="map-dot" style="top:70%;left:25%"></div>
-            <div class="map-dot map-dot-green" style="top:45%;left:80%"></div>
+      <!-- Left: Sighting map -->
+      <div class="phone phone-bg-l">
+        <div class="pnotch"></div>
+        <div class="scr">
+          <div class="scr-hd">◉ LIVE SIGHTING MAP</div>
+          <div class="map-area">
+            <div class="mgrid"></div>
+            <div class="mdot m-a" style="top:28%;left:38%"></div>
+            <div class="mdot m-g" style="top:52%;left:62%"></div>
+            <div class="mdot m-r" style="top:18%;left:71%"></div>
+            <div class="mdot m-a" style="top:68%;left:22%"></div>
+            <div class="mdot m-g" style="top:40%;left:83%"></div>
+            <div class="mdot m-r" style="top:75%;left:55%"></div>
           </div>
-          <div class="scr-map-recent">◉ CASTLEGAR, BC — 2H AGO<br/>◉ SEATTLE, WA — 5H AGO<br/>◉ PHOENIX, AZ — 8H AGO</div>
+          <div class="scr-map-log">◉ CASTLEGAR BC — 2H<br/>◉ SEATTLE WA — 5H<br/>◉ PHOENIX AZ — 8H</div>
         </div>
       </div>
 
-      <!-- Main: Protocol screen -->
-      <div class="phone-frame phone-main">
-        <div class="phone-notch"></div>
-        <div class="screen-protocol">
-          <div class="scr-header">◉ DISCLOSURE // ACTIVE</div>
+      <!-- Center: Blackout / Protocol -->
+      <div class="phone phone-main-f">
+        <div class="pnotch"></div>
+        <div class="scr">
+          <div class="scr-hd">◉ DISCLOSURE · BLACKOUT IN PROGRESS</div>
           <div class="scr-title">THE BLACKOUT</div>
-          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(255,255,255,.3);letter-spacing:.2em;margin-bottom:4px">SIGNAL DETECTED</div>
+          <div class="scr-sub">SIGNAL DETECTED · STAND BY</div>
           <div class="scr-timer" id="phone-timer">02:31</div>
-          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(255,255,255,.2);letter-spacing:.2em;text-align:center;margin-bottom:20px">STAND BY</div>
-          <div class="scr-steps">
-            <div class="scr-step"><span class="scr-step-check">✓</span>Stay indoors. Move from windows.</div>
-            <div class="scr-step"><span class="scr-step-check">✓</span>Record horizontally. Do not approach.</div>
-            <div class="scr-step"><span class="scr-step-open">◻</span>Signal peaceful intent. Open palms.</div>
-            <div class="scr-step"><span class="scr-step-open">◻</span>Open Universal Translator.</div>
-            <div class="scr-step"><span class="scr-step-open">◻</span>Await further instruction.</div>
+          <div class="scr-steps" style="margin-top:8px">
+            <div class="scr-step"><span class="ck">✓</span>Stay indoors. Away from windows.</div>
+            <div class="scr-step"><span class="ck">✓</span>Record horizontally. Do not approach.</div>
+            <div class="scr-step"><span class="op">◻</span>Signal peaceful intent. Open palms.</div>
+            <div class="scr-step"><span class="op">◻</span>Open Universal Translator.</div>
+            <div class="scr-step"><span class="op">◻</span>Await further instruction.</div>
           </div>
-          <div class="scr-count" id="phone-count">— civilians standing by</div>
+          <div class="scr-count-s" id="phone-count">— civilians standing by</div>
         </div>
       </div>
 
-      <!-- Right: Translator screen -->
-      <div class="phone-frame phone-right" style="width:200px">
-        <div class="phone-notch"></div>
-        <div class="screen-translator">
-          <div class="scr-t-header">UNIVERSAL TRANSLATOR</div>
-          <div class="scr-t-title">TRANSMIT SIGNAL</div>
-          <div class="scr-t-sub">SELECT SEQUENCE TO BROADCAST</div>
-          <div class="scr-waveform"></div>
-          <div class="scr-t-btns">
-            <div class="scr-t-btn"><span>π — PI SEQUENCE</span><span class="scr-t-btn-ico">▶</span></div>
-            <div class="scr-t-btn"><span>∞ — FIBONACCI</span><span class="scr-t-btn-ico">▶</span></div>
-            <div class="scr-t-btn"><span>◼ BINARY GREETING</span><span class="scr-t-btn-ico">▶</span></div>
-            <div class="scr-t-btn"><span>≈ PRIME SERIES</span><span class="scr-t-btn-ico">▶</span></div>
-            <div class="scr-t-btn"><span>◯ PEACE SIGNAL</span><span class="scr-t-btn-ico">▶</span></div>
-          </div>
+      <!-- Right: Translator -->
+      <div class="phone phone-bg-r">
+        <div class="pnotch"></div>
+        <div class="scr">
+          <div class="scr-hd">◉ UNIVERSAL TRANSLATOR</div>
+          <div class="scr-title" style="font-size:11px">SELECT SEQUENCE</div>
+          <div class="scr-wave"></div>
+          <div class="scr-tbtn"><span>π PI SEQUENCE</span><span class="scr-tbtn-p">▶</span></div>
+          <div class="scr-tbtn"><span>∞ FIBONACCI</span><span class="scr-tbtn-p">▶</span></div>
+          <div class="scr-tbtn"><span>◼ BINARY GREETING</span><span class="scr-tbtn-p">▶</span></div>
+          <div class="scr-tbtn"><span>≈ PRIME SERIES</span><span class="scr-tbtn-p">▶</span></div>
+          <div class="scr-tbtn"><span>◯ PEACE SIGNAL</span><span class="scr-tbtn-p">▶</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── NATIONAL ARCHIVES DEADLINE ── -->
-<section class="deadline-section">
-  <div class="deadline-inner">
-    <div class="deadline-copy">
-      <div class="section-eyebrow" style="margin-bottom:14px">Legislative Timeline</div>
+<!-- DEADLINE -->
+<section class="deadline-section sr">
+  <div class="dl-inner">
+    <div class="dl-copy">
+      <div class="sec-ey" style="margin-bottom:12px">Legislative Timeline</div>
       <h2>The government has a <span>legal deadline</span> to release everything.</h2>
-      <p>The UAP Records Collection Act mandates that all U.S. federal agencies transfer their UAP-related documents to the National Archives. The deadline is September 30, 2025.</p>
-      <p>This isn't a rumor. It's the law. What happens after those files drop is something no one can predict. But you can be ready.</p>
-      <p class="source">SOURCE: National Archives (NARA) · UAP Records Collection · archive.gov/research/topics/uaps</p>
+      <p>The UAP Records Collection Act mandates that all U.S. federal agencies transfer UAP records to the National Archives. September 30, 2025. That's the law.</p>
+      <p>What happens after those files drop is something no one can predict. What happens to the people who weren't ready is something we already know.</p>
+      <p class="dl-source">SOURCE: NARA · archive.gov/research/topics/uaps</p>
     </div>
-    <div class="countdown-box">
-      <div class="countdown-label">Time Until Legal Deadline</div>
-      <div class="countdown-display" id="deadline-display">—</div>
-      <div class="countdown-unit" id="deadline-unit">DAYS REMAINING</div>
-      <div class="countdown-sub" id="deadline-sub">SEPT 30, 2025 · NATIONAL ARCHIVES<br/>UAP RECORDS COLLECTION DEADLINE</div>
+    <div class="cdbox">
+      <div class="cd-lbl">National Archives UAP Deadline</div>
+      <div class="cd-val" id="cd-val">—</div>
+      <div class="cd-unit" id="cd-unit">DAYS REMAINING</div>
+      <div class="cd-sub" id="cd-sub">SEPT 30, 2025 · NARA<br/>UAP RECORDS COLLECTION ACT</div>
     </div>
   </div>
 </section>
 
-<!-- ── THE BLACKOUT ── -->
-<section class="blackout-section">
-  <div style="max-width:700px;margin:0 auto">
-    <div class="section-eyebrow" style="margin-bottom:16px">The Signature Feature</div>
-    <h2 class="section-title">Once a day.<br/><em>Without warning.</em></h2>
-    <p class="section-sub" style="margin:12px auto 0">The app goes dark. Because when it actually happens — that's what it will feel like.</p>
+<!-- BLACKOUT -->
+<section class="blackout-section sr">
+  <div style="max-width:660px;margin:0 auto">
+    <div class="sec-ey" style="margin-bottom:14px;text-align:center">The Signature Feature · The Weird Rule</div>
+    <h2 class="sec-t" style="text-align:center">Once a day.<br/><em>Without warning.</em></h2>
+    <p class="sec-s" style="margin:12px auto 0;text-align:center;font-size:15px">The app goes dark. Because when it actually happens — <em style="font-style:italic;color:rgba(255,255,255,.6)">that's what it will feel like.</em></p>
   </div>
 
-  <div class="blackout-device">
-    <div class="bo-icon"></div>
-    <div class="bo-label">SIGNAL DETECTED</div>
-    <div class="bo-headline">STAND BY<br/>FOR CONTACT</div>
-    <div class="bo-timer" id="bo-timer">02:47</div>
-    <div class="bo-remain">REMAINING</div>
-    <div class="bo-count" id="bo-count">— civilians standing by</div>
+  <div class="bo-device">
+    <div class="bo-dot"></div>
+    <div class="bo-lbl">SIGNAL DETECTED</div>
+    <div class="bo-hl">STAND BY<br/>FOR CONTACT</div>
+    <div class="bo-t" id="bo-timer">02:47</div>
+    <div class="bo-rem">REMAINING</div>
+    <div class="bo-cnt" id="bo-count">— civilians standing by</div>
   </div>
 
-  <div class="blackout-copy">
-    <p><strong>Random. Daily. Unavoidable.</strong> Once per day, at a time you don't know, Disclosure suspends for exactly 3 minutes. One screen. A countdown. A live count of how many civilians worldwide are standing by with you. Then it returns — and you carry on, knowing you're one of the prepared ones.</p>
+  <div style="max-width:560px;margin:0 auto;text-align:center">
+    <p style="font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,.4);line-height:1.7"><strong style="color:#fff">Random. Daily. Unavoidable.</strong> Once per day the app suspends for exactly 3 minutes. One screen. A countdown. A live count of civilians worldwide standing by with you. Then it returns — and you carry on.</p>
+    <!-- Hidden note — barely visible -->
+    <p style="font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(255,255,255,.04);margin-top:16px;letter-spacing:.15em;transition:color .5s" class="hover-reveal-faint">CASE FILE: THE FIRST BLACKOUT WILL HAPPEN WITHIN 24 HOURS OF INSTALL</p>
   </div>
 </section>
 
-<!-- ── PATHS ── -->
-<section class="paths-section">
+<!-- PATHS -->
+<section class="paths-section sr">
   <div class="paths-inner">
-    <div class="section-eyebrow" style="margin-bottom:12px">The First Question</div>
-    <h2 class="section-title">Who will you be<br/><em>when it happens?</em></h2>
-    <p class="section-sub">Most people will freeze. The 3% who don't will have answered this question in advance. The app asks it on day one.</p>
-
-    <div class="paths-grid">
-      <div class="path-card path-a">
+    <div class="sec-ey" style="margin-bottom:10px">First Question. Day One.</div>
+    <h2 class="sec-t">Who will you be<br/><em>when it happens?</em></h2>
+    <p class="sec-s">The app asks you this before anything else. Your answer shapes everything — your protocols, your alerts, your path through the briefing.</p>
+    <div class="pgrid">
+      <div class="pcard pa">
         <span class="path-emoji">🛡️</span>
-        <div class="path-tag">Path A</div>
-        <div class="path-title">The Survivor</div>
-        <p class="path-desc">You want to protect your family. The 3-Minute Protocol. What to do, what not to do, how to document what you see. Step-by-step. Practiced before it matters.</p>
+        <div class="ptag">Path A</div>
+        <div class="ptitle">The Survivor</div>
+        <p class="pdesc">Protect your family. The 3-Minute Protocol. What to do. What not to do. How to document. Step by step — practiced before it matters.</p>
+        <div class="path-hidden">STATUS: 94% OF CIVILIANS UNPREPARED · THIS PATH CHANGES THAT</div>
       </div>
-      <div class="path-card path-b">
+      <div class="pcard pb">
         <span class="path-emoji">📡</span>
-        <div class="path-tag">Path B</div>
-        <div class="path-title">The Communicator</div>
-        <p class="path-desc">You want to make contact. The Universal Translator. Mathematical frequencies. CE5 methodology. How to signal intelligence. How to be found — by the right ones.</p>
+        <div class="ptag">Path B</div>
+        <div class="ptitle">The Communicator</div>
+        <p class="pdesc">Make contact. The Universal Translator. CE5 methodology. How to signal intelligence. How to be found — by the right ones.</p>
+        <div class="path-hidden">STATUS: TRANSMISSIONS RECEIVED · THEY ARE ALREADY LISTENING</div>
       </div>
     </div>
-    <p class="paths-note">BOTH PATHS CONVERGE. READINESS SCORE IS UNIFIED. YOU CHOOSE HOW YOU GET THERE.</p>
+    <p style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(57,255,20,.2);text-align:center;margin-top:20px">BOTH PATHS LEAD TO THE SAME READINESS SCORE · CHOOSE HOW YOU GET THERE</p>
   </div>
 </section>
 
-<!-- ── FEATURES ── -->
-<section class="features-section">
-  <div class="features-inner">
-    <div style="text-align:center;margin-bottom:72px">
-      <div class="section-eyebrow" style="margin-bottom:14px">What's Inside</div>
-      <h2 class="section-title" style="text-align:center">Everything you need.<br/><em>Nothing you don't.</em></h2>
+<!-- FEATURES -->
+<section class="feat-section sr">
+  <div class="feat-inner">
+    <div style="text-align:center;margin-bottom:64px">
+      <div class="sec-ey" style="margin-bottom:12px">What's In The Briefing</div>
+      <h2 class="sec-t" style="text-align:center">Everything you need.<br/><em>Nothing you don't.</em></h2>
     </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feat-num">01 // SIGNAL</div>
-        <div class="feat-title">Real-Time Alerts</div>
-        <p class="feat-desc">Document drops. Congressional hearings. Confirmed sightings near you. You know before the news cycle catches up. No algorithm. Direct to your lock screen.</p>
+    <div class="feat-grid">
+      <div class="feat-c">
+        <div class="fn-tag">01 // SIGNAL</div>
+        <div class="ft">Real-Time Alerts</div>
+        <p class="fd-text">Document drops. Congressional hearings. Sightings near you. Direct to your lock screen before the news cycle catches up.</p>
+        <div class="feat-secret">PUSH DELIVERY · ZERO ALGORITHM FILTER · DIRECT SIGNAL ONLY</div>
       </div>
-      <div class="feature-card">
-        <div class="feat-num">02 // TRANSLATE</div>
-        <div class="feat-title">Universal Translator</div>
-        <p class="feat-desc">Pi sequences. Fibonacci patterns. Binary greetings. Prime number series. The mathematical language scientists say a non-human intelligence would recognize. Playable. Shareable. Real.</p>
+      <div class="feat-c">
+        <div class="fn-tag">02 // TRANSLATE</div>
+        <div class="ft">Universal Translator</div>
+        <p class="fd-text">Pi. Fibonacci. Binary. Prime series. The mathematical language scientists believe a non-human intelligence would recognize. Real science. In your hand.</p>
+        <div class="feat-secret">BASED ON SETI FIRST CONTACT PROTOCOLS · CE5 METHODOLOGY</div>
       </div>
-      <div class="feature-card">
-        <div class="feat-num">03 // PROTOCOL</div>
-        <div class="feat-title">The 3-Minute Protocol</div>
-        <p class="feat-desc">Interactive. Timed. Drilled. What to do in the first 180 seconds. Informed by CE5 methodology and first contact research. 94% of people have never thought about this. You will.</p>
+      <div class="feat-c">
+        <div class="fn-tag">03 // PROTOCOL</div>
+        <div class="ft">The 3-Minute Protocol</div>
+        <p class="fd-text">Interactive. Timed. Practiced. 180 seconds that could define how you're remembered. Most people have never thought about this. You will.</p>
+        <div class="feat-secret">DRILL UNLOCKS AT READINESS SCORE 40 · REPEAT DAILY</div>
       </div>
-      <div class="feature-card">
-        <div class="feat-num">04 // TRACK</div>
-        <div class="feat-title">Live Sighting Map</div>
-        <p class="feat-desc">Crowdsourced. Geolocated. Real-time. Submit and view UAP sightings worldwide. Cross-referenced against NUFORC data. The hotspots glow. You'll know if something is happening near you.</p>
+      <div class="feat-c">
+        <div class="fn-tag">04 // TRACK</div>
+        <div class="ft">Live Sighting Map</div>
+        <p class="fd-text">Crowdsourced. Verified. Geolocated. Cross-referenced against 100K+ NUFORC historical records. The hotspots glow.</p>
+        <div class="feat-secret">PROXIMITY ALERTS WHEN A SIGHTING IS WITHIN 50 MILES</div>
       </div>
-      <div class="feature-card">
-        <div class="feat-num">05 // ARCHIVE</div>
-        <div class="feat-title">The Exo-Library</div>
-        <p class="feat-desc">4,200+ declassified government documents, AI-parsed and summarized for human beings. No jargon. No spin. The Grusch testimony. The AARO reports. The NDAA amendments. In your pocket.</p>
+      <div class="feat-c">
+        <div class="fn-tag">05 // ARCHIVE</div>
+        <div class="ft">The Exo-Library</div>
+        <p class="fd-text">4,200+ government documents. AI-parsed. Human-readable. The Grusch testimony. The AARO reports. The NDAA amendments. Searchable.</p>
+        <div class="feat-secret">UPDATES AUTOMATICALLY WHEN NEW FILES ARE RELEASED · SEPT 30 DEADLINE</div>
       </div>
-      <div class="feature-card">
-        <div class="feat-num">06 // ASSESS</div>
-        <div class="feat-title">Your Readiness Score</div>
-        <p class="feat-desc">Track it. Share it. Compete with it. A single number that reflects how prepared you actually are. Shareable as an image. "What's your score?" is going to be a thing people say.</p>
+      <div class="feat-c">
+        <div class="fn-tag">06 // ASSESS</div>
+        <div class="ft">Your Readiness Score</div>
+        <p class="fd-text">One number. Your number. Shareable as an image. "What's your score?" is going to be a thing people say. Where will yours be?</p>
+        <div class="feat-secret">SCORE IS SHAREABLE · COMPARE WITH CONTACTS · GLOBAL RANKING COMING</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── FINAL CTA ── -->
-<section class="final-section" id="waitlist-bottom">
+<!-- FINAL CTA -->
+<section class="final-section sr" id="final">
   <h2>The briefing has started.<br/><span>Are you on the list?</span></h2>
-  <p>iOS &amp; Android · Launching Soon · First access to early adopters</p>
-
-  <div class="waitlist-wrap" style="margin:0 auto">
-    <form class="wl-form" id="wl-form-2" onsubmit="handleWL(event,'2')">
-      <input class="wl-input" id="wl-email-2" type="email" placeholder="your@email.com" required autocomplete="email"/>
-      <button class="wl-btn" type="submit">GET BRIEFED</button>
+  <p>iOS &amp; Android · First Access to Waitlist · The App Ships in 30 Days</p>
+  <div class="wl-wrap" style="margin:0 auto">
+    <form class="wl-form" id="wlf2" onsubmit="handleWL(event,'2')">
+      <input class="wl-input" id="wle2" type="email" placeholder="request@access.gov" required autocomplete="email"/>
+      <button class="wl-btn" type="submit">REQUEST BRIEFING</button>
     </form>
-    <div class="wl-success" id="wl-success-2">
-      <div class="wl-success-t">◉ ACCESS GRANTED</div>
-      <div class="wl-success-s">TRANSMISSION RECEIVED // YOU WILL BE BRIEFED FIRST</div>
+    <div class="wl-success" id="wls2">
+      <div class="wl-st">◉ CLEARANCE GRANTED</div>
+      <div class="wl-ss">YOUR REQUEST IS LOGGED · BRIEFING INCOMING</div>
     </div>
-    <p class="wl-note">No spam. No noise. <span>Just the briefing you deserve.</span></p>
+    <p class="wl-note">No spam. No noise. <span style="color:rgba(57,255,20,.4)">You'll know before the news does.</span></p>
   </div>
-
-  <div class="store-row" style="margin-top:24px">
-    <div class="store-badge"><span class="store-icon">🍎</span>APP STORE — COMING SOON</div>
-    <div class="store-badge"><span class="store-icon">🤖</span>GOOGLE PLAY — COMING SOON</div>
+  <div class="store-row" style="margin-top:20px">
+    <div class="sbadge">🍎 APP STORE — COMING SOON</div>
+    <div class="sbadge">🤖 GOOGLE PLAY — COMING SOON</div>
   </div>
 </section>
 
 <!-- SOCIAL -->
 <div class="social-bar">
-  <a href="https://x.com/disclosure_app" target="_blank" class="soc-link">X → @DISCLOSURE_APP</a>
-  <a href="https://instagram.com/disclosure_app" target="_blank" class="soc-link">INSTAGRAM → @DISCLOSURE_APP</a>
+  <a href="https://x.com/disclosure_app" target="_blank" class="soc">X → @DISCLOSURE_APP</a>
+  <a href="https://instagram.com/disclosure_app" target="_blank" class="soc">INSTAGRAM → @DISCLOSURE_APP</a>
 </div>
 
 <footer>
-  <div class="footer-logo">DISCLOSURE // GETDISCLOSURE.APP</div>
-  <div class="footer-note">DATA: AARO · NUFORC · NARA · NOAA SWPC · U.S. CONGRESS.GOV</div>
+  <div class="fl">DISCLOSURE // GETDISCLOSURE.APP</div>
+  <!-- EASTER EGG: Binary decodes to "IT'S REAL" -->
+  <div class="fbinary" title="Hover to decode" onclick="this.textContent='IT\'S REAL';this.style.color='rgba(57,255,20,.8)'">01001001 01010100 00100111 01010011 00100000 01010010 01000101 01000001 01001100</div>
+  <div class="fn-r">DATA: AARO · NUFORC · NARA · NOAA</div>
 </footer>
+
+<!-- TIME-BASED ALERT POP -->
+<div id="alert-pop">
+  <div class="ap-tag">◉ SYSTEM NOTICE</div>
+  <div class="ap-body" id="alert-body">You have been on this server for 30 seconds. Unusual pattern detected. Your location has been logged.</div>
+  <span class="ap-close" onclick="document.getElementById('alert-pop').classList.remove('show')">✕</span>
+</div>
 
 </main>
 
 <script>
-// ── STARFIELD ──
-const sc = document.getElementById('stars');
-for(let i=0;i<180;i++){
-  const s=document.createElement('div');
-  s.className='star';
-  const sz=Math.random()*1.8+.3;
-  s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-duration:${Math.random()*4+2}s;animation-delay:${Math.random()*5}s;`;
-  sc.appendChild(s);
+// ═══════════════════════════════
+//  BOOT SEQUENCE
+// ═══════════════════════════════
+const bootLines=[
+  'INITIATING SECURE CONNECTION...',
+  'VERIFYING CLEARANCE LEVEL...',
+  'ACCESSING CIVILIAN BRIEFING SYSTEM...',
+  'DECRYPTING UAP CASE FILES...',
+  'ESTABLISHING REAL-TIME SIGNAL...',
+  'CONNECTION SECURED.',
+  '',
+  'DISCLOSURE v1.0 — CIVILIAN READINESS PROTOCOL',
+];
+const bootEl=document.getElementById('boot-lines');
+const bootProg=document.getElementById('boot-progress');
+let bootIdx=0;
+function bootStep(){
+  if(bootIdx>=bootLines.length){
+    document.getElementById('boot').style.transition='opacity .6s';
+    document.getElementById('boot').style.opacity='0';
+    setTimeout(()=>{document.getElementById('boot').style.display='none';startPage()},600);
+    return;
+  }
+  const line=document.createElement('div');
+  line.className='boot-line';
+  line.textContent=bootLines[bootIdx]||' ';
+  line.style.animationDelay='0s';
+  bootEl.appendChild(line);
+  bootProg.style.width=((bootIdx+1)/bootLines.length*100)+'%';
+  bootIdx++;
+  setTimeout(bootStep,bootIdx<5?180:bootIdx===5?300:80);
+}
+setTimeout(bootStep,200);
+
+// ═══════════════════════════════
+//  PAGE INIT
+// ═══════════════════════════════
+function startPage(){
+  initStars();
+  initCursor();
+  initCounters();
+  fetchKp();
+  initTimers();
+  initDeadline();
+  initScrollReveal();
+  initNavWatch();
+  initNavGlitch();
+  initMorseHover();
+  initAlerts();
+  initRedactHint();
+  initFaintHover();
 }
 
-// ── COUNTER ANIMATION ──
+// ═══════════════════════════════
+//  STARFIELD (with hidden craft shape)
+// ═══════════════════════════════
+function initStars(){
+  const sc=document.getElementById('stars');
+  for(let i=0;i<200;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    const sz=Math.random()*1.8+.3;
+    s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-duration:${Math.random()*4+2}s;animation-delay:${Math.random()*5}s;`;
+    sc.appendChild(s);
+  }
+  // Craft shape — disc shape of slightly brighter stars at top of page
+  const craftPoints=[
+    [47,12],[48,11.5],[49,11],[50,11],[51,11],[52,11.5],[53,12],
+    [46,12.5],[54,12.5],[47.5,13.5],[52.5,13.5],[49,12.5],[51,12.5],[50,12]
+  ];
+  craftPoints.forEach(([l,t])=>{
+    const s=document.createElement('div');
+    s.className='star craft-star';
+    s.style.cssText=`width:2px;height:2px;top:${t}%;left:${l}%;animation-delay:${Math.random()*2}s;`;
+    sc.appendChild(s);
+  });
+}
+
+// ═══════════════════════════════
+//  CURSOR RING
+// ═══════════════════════════════
+function initCursor(){
+  const ring=document.getElementById('cursor-ring');
+  document.addEventListener('mousemove',e=>{
+    ring.style.left=e.clientX+'px';
+    ring.style.top=e.clientY+'px';
+  });
+  document.addEventListener('mousedown',()=>{ring.style.transform='translate(-50%,-50%) scale(.7)'});
+  document.addEventListener('mouseup',()=>{ring.style.transform='translate(-50%,-50%) scale(1)'});
+}
+
+// ═══════════════════════════════
+//  ANIMATED COUNTERS
+// ═══════════════════════════════
 function animCount(id,target,dur,fmt){
   const el=document.getElementById(id);
   if(!el)return;
   const s=performance.now();
-  (function upd(now){
+  (function u(now){
     const p=Math.min((now-s)/dur,1);
     const e=1-Math.pow(1-p,3);
     const v=Math.round(target*e);
     el.textContent=fmt?fmt(v):v.toLocaleString();
-    if(p<1)requestAnimationFrame(upd);
+    if(p<1)requestAnimationFrame(u);
   })(s);
 }
 
-// ── STATS ON SCROLL ──
-const statsObs=new IntersectionObserver(entries=>{
-  if(entries[0].isIntersecting){
-    animCount('stat-aaro',1600,1800,v=>v.toLocaleString()+'+');
-    animCount('stat-nuforc',100000,2400,v=>v.toLocaleString()+'+');
-    animCount('stat-2025',2174,2000,v=>v.toLocaleString());
-    statsObs.disconnect();
-  }
-},{threshold:.3});
-statsObs.observe(document.getElementById('stats-strip'));
+function initCounters(){
+  const obs=new IntersectionObserver(en=>{
+    if(en[0].isIntersecting){
+      animCount('d-aaro',1600,1800,v=>v.toLocaleString()+'+');
+      animCount('d-nuforc',100000,2400,v=>v.toLocaleString()+'+');
+      animCount('d-2025',2174,2000,v=>v.toLocaleString());
+      obs.disconnect();
+    }
+  },{threshold:.3});
+  const dr=document.getElementById('data-row');
+  if(dr)obs.observe(dr);
+}
 
-// ── NOAA LIVE KP INDEX ──
+// ═══════════════════════════════
+//  NOAA LIVE KP
+// ═══════════════════════════════
 async function fetchKp(){
+  const el=document.getElementById('d-kp');
+  if(!el)return;
   try{
     const res=await fetch('https://services.swpc.noaa.gov/products/noaa-planetary-k-index-forecast.json');
     const data=await res.json();
-    // data[0] = header row, subsequent rows = [time_tag, kp, observed, noaa_scale]
     if(data&&data.length>1){
       const latest=data[data.length-1];
       const kp=parseFloat(latest[1]);
-      const el=document.getElementById('stat-kp');
-      if(el){
-        el.textContent='Kp '+kp.toFixed(1);
-        // Color by severity
-        if(kp>=7){el.style.color='#EF4444';el.style.textShadow='0 0 20px rgba(239,68,68,.5)'}
-        else if(kp>=5){el.style.color='#F59E0B';el.style.textShadow='0 0 20px rgba(245,158,11,.5)'}
-        else{el.style.color='#39FF14';el.style.textShadow='0 0 20px rgba(57,255,20,.4)'}
-      }
+      el.textContent='Kp '+kp.toFixed(1);
+      if(kp>=7){el.style.color='#EF4444';el.style.textShadow='0 0 12px rgba(239,68,68,.5)'}
+      else if(kp>=5){el.style.color='#F59E0B';el.style.textShadow='0 0 12px rgba(245,158,11,.5)'}
+      else{el.style.color='#39FF14';el.style.textShadow='0 0 12px rgba(57,255,20,.4)'}
     }
-  }catch(e){
-    const el=document.getElementById('stat-kp');
-    if(el)el.textContent='Kp 2.0';
-  }
+  }catch(e){if(el)el.textContent='Kp 2.3'}
 }
-fetchKp();
 
-// ── BLACKOUT + PHONE TIMERS ──
-let boSec=167,boCount=14847,phoneSec=151,phoneCount=14847;
-setInterval(()=>{
-  boSec=boSec<=0?180:boSec-1;
-  const bm=String(Math.floor(boSec/60)).padStart(2,'0');
-  const bs=String(boSec%60).padStart(2,'0');
-  const bt=document.getElementById('bo-timer');
-  if(bt)bt.textContent=`${bm}:${bs}`;
+// ═══════════════════════════════
+//  TIMERS
+// ═══════════════════════════════
+function initTimers(){
+  let boSec=167,boCount=14847,phoneSec=151;
+  setInterval(()=>{
+    boSec=boSec<=0?180:boSec-1;
+    phoneSec=phoneSec<=0?180:phoneSec-1;
+    const fmt=s=>`${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;
+    const bt=document.getElementById('bo-timer');if(bt)bt.textContent=fmt(boSec);
+    const pt=document.getElementById('phone-timer');if(pt)pt.textContent=fmt(phoneSec);
+    boCount+=Math.floor(Math.random()*2);
+    const bc=document.getElementById('bo-count');if(bc)bc.textContent=boCount.toLocaleString()+' civilians standing by';
+    const pc=document.getElementById('phone-count');if(pc)pc.textContent=boCount.toLocaleString()+' standing by worldwide';
+  },1000);
+}
 
-  phoneSec=phoneSec<=0?180:phoneSec-1;
-  const pm=String(Math.floor(phoneSec/60)).padStart(2,'0');
-  const ps=String(phoneSec%60).padStart(2,'0');
-  const pt=document.getElementById('phone-timer');
-  if(pt)pt.textContent=`${pm}:${ps}`;
+// ═══════════════════════════════
+//  NATIONAL ARCHIVES DEADLINE
+// ═══════════════════════════════
+function initDeadline(){
+  function upd(){
+    const dl=new Date('2025-09-30T00:00:00Z');
+    const now=new Date();
+    const diff=dl-now;
+    const v=document.getElementById('cd-val');
+    const u=document.getElementById('cd-unit');
+    const s=document.getElementById('cd-sub');
+    if(!v)return;
+    if(diff<=0){
+      v.textContent='PASSED';v.style.color='#EF4444';
+      if(u)u.textContent='DEADLINE HAS PASSED';
+      if(s)s.textContent='ALL AGENCIES LEGALLY REQUIRED TO HAVE TRANSFERRED RECORDS\nCHECK NARA FOR RELEASED DOCUMENTS';
+    } else {
+      const days=Math.floor(diff/86400000);
+      v.textContent=days.toLocaleString();
+      if(u)u.textContent='DAYS REMAINING';
+    }
+  }
+  upd();setInterval(upd,60000);
+}
 
-  boCount+=Math.floor(Math.random()*2);
-  phoneCount+=Math.floor(Math.random()*2);
-  const bc=document.getElementById('bo-count');
-  if(bc)bc.textContent=boCount.toLocaleString()+' civilians standing by';
-  const pc=document.getElementById('phone-count');
-  if(pc)pc.textContent=phoneCount.toLocaleString()+' standing by worldwide';
-},1000);
+// ═══════════════════════════════
+//  SCROLL REVEAL
+// ═══════════════════════════════
+function initScrollReveal(){
+  const obs=new IntersectionObserver(en=>{
+    en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+  },{threshold:.1});
+  document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
+}
 
-// ── NATIONAL ARCHIVES DEADLINE COUNTDOWN ──
-function updateDeadline(){
-  const deadline=new Date('2025-09-30T00:00:00Z');
-  const now=new Date();
-  const diff=deadline-now;
-  const el=document.getElementById('deadline-display');
-  const eu=document.getElementById('deadline-unit');
-  const es=document.getElementById('deadline-sub');
+// ═══════════════════════════════
+//  NAV WATCH TIMER
+// ═══════════════════════════════
+function initNavWatch(){
+  let secs=0;
+  setInterval(()=>{
+    secs++;
+    const m=String(Math.floor(secs/60)).padStart(2,'0');
+    const s=String(secs%60).padStart(2,'0');
+    const el=document.getElementById('nav-watch');
+    if(el)el.textContent=`MONITORING: ${m}:${s}`;
+  },1000);
+}
+
+// ═══════════════════════════════
+//  NAV STATUS OCCASIONAL GLITCH
+// ═══════════════════════════════
+function initNavGlitch(){
+  const msgs=['SECURE CONNECTION','MONITORING YOU','SIGNAL ACTIVE','LOCATION LOGGED','TRACKING ACTIVE','SECURE CONNECTION'];
+  let idx=0;
+  setInterval(()=>{
+    const el=document.getElementById('nav-st');
+    if(!el)return;
+    idx=(idx+1)%msgs.length;
+    el.textContent=msgs[idx];
+    if(msgs[idx]!=='SECURE CONNECTION'){
+      el.style.color='rgba(239,68,68,.7)';
+      setTimeout(()=>{el.style.color='rgba(57,255,20,.55)'},1200);
+    }
+  },9000);
+}
+
+// ═══════════════════════════════
+//  MORSE DECODE HOVER
+// ═══════════════════════════════
+function initMorseHover(){
+  const el=document.querySelector('.sig-decode');
   if(!el)return;
-  if(diff<=0){
-    el.textContent='PASSED';
-    if(eu)eu.textContent='THE DEADLINE HAS PASSED';
-    if(es)es.textContent='ALL AGENCIES WERE REQUIRED TO TRANSFER UAP RECORDS\nCHECK NATIONAL ARCHIVES FOR RELEASED DOCUMENTS';
-    return;
-  }
-  const days=Math.floor(diff/(1000*60*60*24));
-  const hrs=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-  if(days>30){
-    el.textContent=days.toLocaleString();
-    if(eu)eu.textContent='DAYS REMAINING';
-  } else {
-    el.textContent=`${String(days).padStart(2,'0')}d ${String(hrs).padStart(2,'0')}h`;
-    if(eu)eu.textContent='DAYS : HOURS';
-  }
+  let revealed=false;
+  el.addEventListener('mouseenter',()=>{
+    if(!revealed){
+      el.textContent='YOU ARE NOT ALONE';
+      el.style.color='rgba(57,255,20,.7)';
+      revealed=true;
+    }
+  });
 }
-updateDeadline();
-setInterval(updateDeadline,60000);
 
-// ── WAITLIST ──
+// ═══════════════════════════════
+//  TIME-BASED ALERTS
+// ═══════════════════════════════
+function initAlerts(){
+  const pop=document.getElementById('alert-pop');
+  const body=document.getElementById('alert-body');
+  const alerts=[
+    {t:30,msg:'You have been on this server for 30 seconds. Unusual access pattern detected. Your session has been flagged.'},
+    {t:90,msg:'NOTICE: 3 new UAP events reported in the last 90 seconds. Check the sighting map.'},
+    {t:180,msg:'This document has been accessed and logged. You are now part of the civilian briefing record.'},
+  ];
+  let startTime=Date.now();
+  let alertIdx=0;
+  setInterval(()=>{
+    if(alertIdx>=alerts.length)return;
+    const elapsed=(Date.now()-startTime)/1000;
+    if(elapsed>=alerts[alertIdx].t){
+      body.textContent=alerts[alertIdx].msg;
+      pop.classList.add('show');
+      setTimeout(()=>pop.classList.remove('show'),6000);
+      alertIdx++;
+    }
+  },1000);
+}
+
+// ═══════════════════════════════
+//  REDACT HOVER HINTS
+// ═══════════════════════════════
+function initRedactHint(){
+  const redacts=document.querySelectorAll('.redact');
+  const reveals={
+    0:'NOVEMBER 14',
+    1:'1,600+',
+    2:'DAVID GRUSCH',
+    3:'NON-HUMAN BIOLOGICS',
+    4:'SEPTEMBER 30, 2025',
+    5:'CRITICALLY UNPREPARED',
+  };
+  redacts.forEach((el,i)=>{
+    el.addEventListener('mouseenter',()=>{
+      if(reveals[i])el.setAttribute('data-revealed',reveals[i]);
+      el.title='';
+    });
+    el.addEventListener('click',()=>{
+      if(reveals[i]){
+        el.textContent=reveals[i];
+        el.style.background='transparent';
+        el.style.color='var(--g)';
+        el.style.textShadow='0 0 8px var(--g)';
+        el.style.cursor='default';
+      }
+    });
+  });
+}
+
+// ═══════════════════════════════
+//  FAINT TEXT HOVER REVEALS
+// ═══════════════════════════════
+function initFaintHover(){
+  document.querySelectorAll('.hover-reveal-faint').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{el.style.color='rgba(57,255,20,.4)'});
+    el.addEventListener('mouseleave',()=>{el.style.color='rgba(255,255,255,.04)'});
+  });
+}
+
+// ═══════════════════════════════
+//  WAITLIST
+// ═══════════════════════════════
 const FORMSPREE='https://formspree.io/f/YOUR_FORM_ID';
 async function handleWL(e,id){
   e.preventDefault();
-  const email=document.getElementById(`wl-email-${id}`).value;
-  try{
-    await fetch(FORMSPREE,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({email})});
-  }catch(_){}
-  document.getElementById(`wl-form-${id}`).style.display='none';
-  document.getElementById(`wl-success-${id}`).style.display='block';
+  const email=document.getElementById(`wle${id}`).value;
+  try{await fetch(FORMSPREE,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({email})})}catch(_){}
+  document.getElementById(`wlf${id}`).style.display='none';
+  document.getElementById(`wls${id}`).style.display='block';
 }
 </script>
+
 </body>
 </html>
