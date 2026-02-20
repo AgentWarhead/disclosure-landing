@@ -177,6 +177,9 @@
     .ap-body{font-size:10px;letter-spacing:.08em;color:rgba(255,255,255,.55);line-height:1.6}
     .ap-close{position:absolute;top:10px;right:12px;color:rgba(255,255,255,.3);cursor:pointer;font-size:12px}
 
+    /* CRAFT CANVAS */
+    #craft-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+
     /* UTILS */
     .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
     .sr-wrap{overflow:hidden}
@@ -212,6 +215,7 @@
 
   <!-- ═══ HERO ═══ -->
   <section class="hero">
+    <canvas id="craft-canvas" aria-hidden="true"></canvas>
     <div class="hero-orb"></div>
 
     <div class="hero-kicker sr-item">CASE FILE: UAP-CIVILIAN-001 // DECLASSIFIED</div>
@@ -538,9 +542,158 @@ function copyLink() {
 }
 
 // ════════════════════════════════════════
+//  APPROACHING CRAFT CANVAS
+// ════════════════════════════════════════
+function initCraftCanvas() {
+  const canvas = document.getElementById('craft-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let W, H, CX, CY;
+  let beamActive = false, beamAlpha = 0, beamHoldStart = 0;
+  let nextBeamDelay = Math.random() * 14000 + 10000;
+  let lastBeamTime = 0;
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    CX = W / 2;
+    CY = H * 0.44;   // craft center sits just above mid-hero
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function draw(ts) {
+    ctx.clearRect(0, 0, W, H);
+
+    // Very slow approach: scale 0.88 → 1.06 over ~110 seconds
+    const approach = 1.0 + 0.09 * Math.sin(ts * 0.0000585);
+
+    // Barely-there rotation
+    const rot = ts * 0.000055;
+
+    // Craft size: about 64% of the narrower viewport dimension
+    const base = Math.min(W, H) * 0.64 * approach;
+
+    // Three vertices of an equilateral-ish triangle (flat bottom)
+    const V = [
+      [0,            -base * 0.52],   // apex (top)
+      [-base * 0.70,  base * 0.38],   // bottom-left
+      [ base * 0.70,  base * 0.38],   // bottom-right
+    ];
+
+    // ── EARTH ARC (horizon glow at very bottom) ──
+    const ER = W * 1.3;
+    const EY = H + ER * 0.79;
+    const arcGrad = ctx.createRadialGradient(CX, EY, ER * 0.975, CX, EY, ER);
+    arcGrad.addColorStop(0, 'rgba(57,255,20,0.025)');
+    arcGrad.addColorStop(1, 'rgba(57,255,20,0)');
+    ctx.beginPath();
+    ctx.arc(CX, EY, ER, 0, Math.PI * 2);
+    ctx.fillStyle = arcGrad;
+    ctx.fill();
+
+    ctx.save();
+    ctx.translate(CX, CY);
+    ctx.rotate(rot);
+
+    // ── CRAFT BODY (very dark, blocks stars) ──
+    ctx.beginPath();
+    ctx.moveTo(V[0][0], V[0][1]);
+    ctx.lineTo(V[1][0], V[1][1]);
+    ctx.lineTo(V[2][0], V[2][1]);
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(2,4,2,0.82)';
+    ctx.fill();
+
+    // ── EDGE GLOW (barely visible) ──
+    const edgeA = 0.03 + 0.025 * Math.sin(ts * 0.0009);
+    ctx.strokeStyle = `rgba(57,255,20,${edgeA})`;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // ── INTERIOR PANEL LINES (ghost-faint) ──
+    const panelA = 0.018 + 0.012 * Math.sin(ts * 0.0007);
+    ctx.strokeStyle = `rgba(57,255,20,${panelA})`;
+    ctx.lineWidth = 0.5;
+    // Spine: apex to base mid
+    ctx.beginPath(); ctx.moveTo(0, V[0][1]); ctx.lineTo(0, V[2][1]); ctx.stroke();
+    // Cross-panel at 30% down
+    const py = V[0][1] + (V[2][1] - V[0][1]) * 0.38;
+    const pxL = -base * 0.32, pxR = base * 0.32;
+    ctx.beginPath(); ctx.moveTo(pxL, py); ctx.lineTo(pxR, py); ctx.stroke();
+
+    // ── THREE VERTEX LIGHTS ──
+    const phases = [0, 2.09, 4.19];
+    V.forEach((v, i) => {
+      const pulse = 0.25 + 0.55 * (0.5 + 0.5 * Math.sin(ts * 0.0022 + phases[i]));
+      const r = 1.8 + pulse * 1.4;
+      // Outer glow
+      const g = ctx.createRadialGradient(v[0], v[1], 0, v[0], v[1], r * 5);
+      g.addColorStop(0, `rgba(57,255,20,${pulse * 0.45})`);
+      g.addColorStop(1, 'rgba(57,255,20,0)');
+      ctx.beginPath(); ctx.arc(v[0], v[1], r * 5, 0, Math.PI * 2);
+      ctx.fillStyle = g; ctx.fill();
+      // Core dot
+      ctx.beginPath(); ctx.arc(v[0], v[1], r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(57,255,20,${pulse * 0.85})`; ctx.fill();
+    });
+
+    // ── UNDERSIDE GLOW (central) ──
+    const ugPulse = 0.5 + 0.5 * Math.sin(ts * 0.0013 + 1.2);
+    const ugY = base * 0.18;
+    const ug = ctx.createRadialGradient(0, ugY, 0, 0, ugY, base * 0.18);
+    ug.addColorStop(0, `rgba(57,255,20,${0.07 * ugPulse})`);
+    ug.addColorStop(1, 'rgba(57,255,20,0)');
+    ctx.beginPath(); ctx.ellipse(0, ugY, base * 0.18, base * 0.09, 0, 0, Math.PI * 2);
+    ctx.fillStyle = ug; ctx.fill();
+
+    ctx.restore();
+
+    // ── LIGHT BEAM ──
+    const now = performance.now();
+    if (!beamActive && (now - lastBeamTime) > nextBeamDelay) {
+      beamActive = true; beamAlpha = 0; beamHoldStart = 0;
+      lastBeamTime = now;
+      nextBeamDelay = Math.random() * 22000 + 14000;
+    }
+    if (beamActive) {
+      if (beamAlpha < 1 && beamHoldStart === 0) {
+        beamAlpha = Math.min(1, beamAlpha + 0.018);
+      } else {
+        if (beamHoldStart === 0) beamHoldStart = now;
+        if (now - beamHoldStart > 2200) {
+          beamAlpha -= 0.012;
+          if (beamAlpha <= 0) { beamActive = false; beamAlpha = 0; beamHoldStart = 0; }
+        }
+      }
+      const bw = 38 * approach;
+      const beamTop = CY + base * 0.32 * approach;
+      const bg = ctx.createLinearGradient(CX, beamTop, CX, H);
+      bg.addColorStop(0,   `rgba(57,255,20,${0.13 * beamAlpha})`);
+      bg.addColorStop(0.25,`rgba(57,255,20,${0.06 * beamAlpha})`);
+      bg.addColorStop(0.7, `rgba(57,255,20,${0.02 * beamAlpha})`);
+      bg.addColorStop(1,   'rgba(57,255,20,0)');
+      ctx.beginPath(); ctx.rect(CX - bw/2, beamTop, bw, H - beamTop);
+      ctx.fillStyle = bg; ctx.fill();
+      // Beam edge lines
+      ctx.strokeStyle = `rgba(57,255,20,${0.08 * beamAlpha})`;
+      ctx.lineWidth = 0.5;
+      ctx.beginPath(); ctx.moveTo(CX - bw/2, beamTop); ctx.lineTo(CX - bw * 2, H); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(CX + bw/2, beamTop); ctx.lineTo(CX + bw * 2, H); ctx.stroke();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  requestAnimationFrame(draw);
+}
+
+// ════════════════════════════════════════
 //  INIT
 // ════════════════════════════════════════
 function initPage() {
+  initCraftCanvas();
   initStars();
   initCursor();
   initCountdown();
