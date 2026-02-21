@@ -998,28 +998,24 @@
         <div class="gs-cleared" id="gs-cleared-text">◉ CLEARANCE GRANTED</div>
         <span class="gs-num" id="gs-num">YOU ARE CIVILIAN #— · ACCESS LOGGED · CARD INCOMING</span>
 
-        <!-- Rendered First Contact Card -->
-        <div class="fcc-card" id="gs-card" style="margin-top:24px">
-          <span class="fcc-logo">◉ DISCLOSURE PROTOCOL</span>
-          <span class="fcc-title">FIRST CONTACT CARD — ISSUED</span>
-          <div class="fcc-row">
-            <span class="fcc-label">ARCHETYPE</span>
-            <span class="fcc-val" id="gs-archetype-val">SENTINEL</span>
+        <!-- Rendered First Contact Card — archetype-styled -->
+        <div class="arch-card" id="gs-card" style="margin-top:24px;max-width:300px;margin-left:auto;margin-right:auto">
+          <div class="ac-header">
+            <span class="ac-logo-txt" id="gs-logo">◉ DISCLOSURE PROTOCOL</span>
+            <span class="ac-serial-txt" id="gs-serial">DS-2026-00000</span>
           </div>
-          <div class="fcc-row">
-            <span class="fcc-label">SERIAL</span>
-            <span class="fcc-val green" id="gs-serial">DS-2026-00000</span>
+          <span class="ac-icon" id="gs-icon">🛡️</span>
+          <div class="ac-name" id="gs-archetype-name" style="color:#EF4444">SENTINEL</div>
+          <div class="ac-role" id="gs-archetype-role">PRIMARY PROTECTOR</div>
+          <div class="ac-stat"><span class="ac-sl" id="gs-s1-lbl">THREAT READ</span><span class="ac-sv" id="gs-s1-val">ACTIVE</span></div>
+          <div class="ac-stat"><span class="ac-sl" id="gs-s2-lbl">ROLE ONSET</span><span class="ac-sv" id="gs-s2-val">IMMEDIATE</span></div>
+          <div class="ac-bar-wrap">
+            <div class="ac-bar-lbl"><span id="gs-bar-lbl">READINESS</span><span id="gs-bar-pct" style="color:#EF4444">84%</span></div>
+            <div class="ac-bar-bg"><div class="ac-bar-fg" id="gs-bar-fg" style="width:84%;background:#EF4444;box-shadow:0 0 8px rgba(239,68,68,.6)"></div></div>
           </div>
-          <div class="fcc-row">
-            <span class="fcc-label">STATUS</span>
-            <span class="fcc-val amber" id="gs-status">CLEARANCE GRANTED</span>
-          </div>
-          <div class="fcc-row">
-            <span class="fcc-label">ISSUED</span>
-            <span class="fcc-val green" id="gs-issued">UPON LAUNCH</span>
-          </div>
-          <div class="fcc-wallet" id="gs-note">Your card will be issued when the app launches.</div>
-          <div class="fcc-watermark">DISCLOSURE PROTOCOL</div>
+          <div class="ac-status-line" id="gs-status" style="color:#EF4444;border-color:rgba(239,68,68,.2)">🔴 FIELD DEPLOYMENT: READY</div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:rgba(255,255,255,.28);text-align:center;margin-top:14px">Your card is issued on launch day.</div>
+          <div class="ac-wm">DISCLOSURE PROTOCOL</div>
         </div>
 
         <!-- Archetype share — Change 7 -->
@@ -1365,25 +1361,43 @@ async function handleAccess(e) {
   }
   numEl.className = 'gs-num' + (archetype === 'first-contact' ? ' fc-num' : '');
 
-  // Render card
+  // Render card — archetype-styled
+  const CARD_RENDER = {
+    sentinel:      { cls:'ac-s',  color:'#EF4444', glow:'rgba(239,68,68,.6)',  role:'PRIMARY PROTECTOR',      s1:['THREAT READ','ACTIVE'],        s2:['ROLE ONSET','IMMEDIATE'],      bar:['READINESS','84%','84%'],      status:'🔴 FIELD DEPLOYMENT: READY',   sBorder:'rgba(239,68,68,.2)'  },
+    diplomat:      { cls:'ac-d',  color:'#39FF14', glow:'rgba(57,255,20,.6)',  role:'DE-ESCALATION LEAD',     s1:['CONTACT IDX','11.4 kHz'],      s2:['PROTOCOL','ALPHA-7'],          bar:['CALM RATING','96%','96%'],    status:'🟢 FIRST CONTACT: AUTHORIZED', sBorder:'rgba(57,255,20,.2)'  },
+    scholar:       { cls:'ac-sc', color:'#60A5FA', glow:'rgba(96,165,250,.6)', role:'FIELD ANALYST',          s1:['OBS CLASS','ALPHA'],           s2:['FIELD MODE','PASSIVE RECORD'], bar:['DATA INTEGRITY','91%','91%'], status:'🔵 DOCUMENTATION: ACTIVE',     sBorder:'rgba(96,165,250,.2)' },
+    'first-contact':{ cls:'ac-fc', color:'#FFD700', glow:'rgba(255,215,0,.8)',  role:'CLASSIFICATION UNKNOWN', s1:['ARCHETYPE','████████████'],    s2:['CLEARANCE','████████'],        bar:['UNLOCK STATUS','<0.1%','0.1%'], status:'⭐ NO CONFIRMED FIELD CONTACT', sBorder:'rgba(255,215,0,.2)'  }
+  };
+
+  const cr = CARD_RENDER[archetype] || CARD_RENDER.diplomat;
   const card = document.getElementById('gs-card');
-  if (archetype === 'first-contact') {
-    card.className = 'fcc-card fc-gold';
-  } else {
-    card.className = 'fcc-card';
-  }
+  card.className = 'arch-card ' + cr.cls;
 
-  const archetypeVal = document.getElementById('gs-archetype-val');
-  archetypeVal.textContent = archetypeData.icon + ' ' + archetypeData.name;
-  archetypeVal.className = 'fcc-val ' + archetypeData.card_color;
-
-  const serialEl = document.getElementById('gs-serial');
-  serialEl.textContent = serial;
-  serialEl.className = 'fcc-val ' + (archetype === 'first-contact' ? 'gold' : 'green');
-
+  // Populate card fields
+  document.getElementById('gs-serial').textContent = serial;
+  document.getElementById('gs-icon').textContent = archetypeData.icon;
+  const nameEl2 = document.getElementById('gs-archetype-name');
+  nameEl2.textContent = archetypeData.name;
+  nameEl2.style.color = cr.color;
+  document.getElementById('gs-archetype-role').textContent = cr.role;
+  document.getElementById('gs-s1-lbl').textContent = cr.s1[0];
+  document.getElementById('gs-s1-val').textContent = cr.s1[1];
+  document.getElementById('gs-s1-val').style.color = cr.color;
+  document.getElementById('gs-s2-lbl').textContent = cr.s2[0];
+  document.getElementById('gs-s2-val').textContent = cr.s2[1];
+  document.getElementById('gs-bar-lbl').textContent = cr.bar[0];
+  const barPct = document.getElementById('gs-bar-pct');
+  barPct.textContent = cr.bar[1]; barPct.style.color = cr.color;
+  const barFg = document.getElementById('gs-bar-fg');
+  barFg.style.width = cr.bar[2]; barFg.style.background = cr.color;
+  barFg.style.boxShadow = '0 0 8px ' + cr.glow;
   const statusEl = document.getElementById('gs-status');
-  statusEl.textContent = archetype === 'first-contact' ? 'NO CONFIRMED FIELD CONTACT' : 'CLEARANCE GRANTED';
-  statusEl.className = 'fcc-val ' + (archetype === 'first-contact' ? 'gold' : 'amber');
+  statusEl.textContent = cr.status;
+  statusEl.style.color = cr.color;
+  statusEl.style.borderColor = cr.sBorder;
+  if (archetype === 'first-contact' && document.getElementById('gs-logo')) {
+    document.getElementById('gs-logo').style.color = cr.color;
+  }
 
   // Share text with archetype (Change 7)
   const pct = archetype === 'first-contact' ? '<0.1%' : archetypeData.pct.split('%')[0].trim() + '%';
