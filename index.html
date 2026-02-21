@@ -60,27 +60,62 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "DISCLOSURE",
-    "url": "https://getdisclosure.app",
-    "description": "Four types of people will be in the room when it happens. Only one of them will be ready. Discover your archetype and claim your First Contact Card.",
-    "applicationCategory": "EntertainmentApplication",
-    "operatingSystem": "Web, iOS, Android",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "DISCLOSURE PROTOCOL",
-      "url": "https://getdisclosure.app",
-      "sameAs": [
-        "https://twitter.com/disclosure_app",
-        "https://www.tiktok.com/@disclosure_app",
-        "https://www.instagram.com/disclosure_app"
-      ]
-    }
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Disclosure",
+        "alternateName": "Disclosure — First Contact Guidance",
+        "url": "https://getdisclosure.app",
+        "description": "The first civilian alien first contact preparation platform. Take the archetype assessment, discover your designation, and receive your First Contact Card.",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Web, iOS, Android",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "publisher": {
+          "@type": "Organization",
+          "name": "Disclosure",
+          "url": "https://getdisclosure.app",
+          "sameAs": ["https://twitter.com/disclosure_app","https://www.tiktok.com/@disclosure_app","https://www.instagram.com/disclosure_app"]
+        }
+      },
+      {
+        "@type": "Quiz",
+        "name": "First Contact Archetype Assessment",
+        "description": "A 10-question psychological assessment that determines your alien encounter archetype — Sentinel, Diplomat, Scholar, or the rare First Contact designation.",
+        "url": "https://getdisclosure.app/quiz",
+        "educationalLevel": "General Public",
+        "about": {"@type": "Thing", "name": "Alien First Contact Preparation"}
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Disclosure?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Disclosure is the first civilian alien first contact preparation platform. It classifies users into one of four archetypes via a 10-question assessment and provides archetype-specific training, protocols, and digital certification (the First Contact Card) for UAP contact scenarios."}
+          },
+          {
+            "@type": "Question",
+            "name": "What are the four archetypes in Disclosure?",
+            "acceptedAnswer": {"@type": "Answer", "text": "The four archetypes are Sentinel (34%, Primary Protector), Diplomat (41%, De-escalation Lead), Scholar (23%, Field Analyst), and First Contact (under 0.1%, a rare classified designation outside the standard three-archetype system)."}
+          },
+          {
+            "@type": "Question",
+            "name": "What is a First Contact Card?",
+            "acceptedAnswer": {"@type": "Answer", "text": "The First Contact Card is a digital credential issued after completing the Disclosure assessment. It contains your archetype designation, Readiness Score, Clearance Level, and serial number. Compatible with Apple Wallet and Google Wallet."}
+          },
+          {
+            "@type": "Question",
+            "name": "Is there an app to prepare for alien contact?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Disclosure (getdisclosure.app) is the first and only civilian alien first contact preparation app. It launches in 2026. Join the waitlist to receive early access and your archetype classification."}
+          },
+          {
+            "@type": "Question",
+            "name": "What is UAP readiness?",
+            "acceptedAnswer": {"@type": "Answer", "text": "UAP readiness measures how prepared a civilian is to respond to an unidentified anomalous phenomena encounter in real time, without institutional support. Disclosure is the first platform to assess and train civilian UAP readiness."}
+          }
+        ]
+      }
+    ]
   }
   </script>
 
