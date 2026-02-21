@@ -96,7 +96,7 @@
           {
             "@type": "Question",
             "name": "What are the four archetypes in Disclosure?",
-            "acceptedAnswer": {"@type": "Answer", "text": "The four archetypes are Sentinel (34%, Primary Protector), Diplomat (41%, De-escalation Lead), Scholar (23%, Field Analyst), and First Contact (under 0.1%, a rare classified designation outside the standard three-archetype system)."}
+            "acceptedAnswer": {"@type": "Answer", "text": "The four archetypes are Sentinel (Primary Protector), Diplomat (De-escalation Lead), Scholar (Field Analyst), and First Contact (a rare classified designation outside the standard three-archetype system)."}
           },
           {
             "@type": "Question",
@@ -523,8 +523,7 @@
       <span class="hc-sep">·</span>
       <span class="hc-live" id="hero-live">+— this hour</span>
       <span class="hc-sep">·</span>
-      <span>clearance batch closes</span>
-      <span class="hc-num" id="hero-timer">--:--:--</span>
+      <span>waitlist open</span>
     </div>
   </section>
 
@@ -1072,11 +1071,6 @@
       </div>
       <span class="gst-sep">·</span>
       <div class="gst">
-        <span class="gst-n" id="stat-timer">--:--:--</span>
-        <span class="gst-l">CLEARANCE BATCH CLOSES</span>
-      </div>
-      <span class="gst-sep">·</span>
-      <div class="gst">
         <span class="gst-n">FREE</span>
         <span class="gst-l">ALWAYS</span>
       </div>
@@ -1168,7 +1162,7 @@ const ARCHETYPES = {
     name: 'SENTINEL',
     icon: '🛡️',
     color: 'sentinel',
-    pct: '34% of civilians share this archetype.',
+    pct: 'Primary Protector designation.',
     desc: 'You are the protector. You move first. You assess the threat before anyone else does. When it happens, people will look to you.',
     serial_prefix: 'DS',
     card_color: 'green'
@@ -1177,7 +1171,7 @@ const ARCHETYPES = {
     name: 'DIPLOMAT',
     icon: '🤝',
     color: 'diplomat',
-    pct: '41% of civilians share this archetype.',
+    pct: 'De-escalation Lead designation.',
     desc: 'You are the de-escalator. Calm under pressure. You will be the one who prevents a first contact from becoming a last contact.',
     serial_prefix: 'DS',
     card_color: 'green'
@@ -1186,7 +1180,7 @@ const ARCHETYPES = {
     name: 'SCHOLAR',
     icon: '🔬',
     color: 'scholar',
-    pct: '23% of civilians share this archetype.',
+    pct: 'Field Analyst designation.',
     desc: 'You are the observer. You document. You analyze. Your records will be the only verifiable account that survives.',
     serial_prefix: 'DS',
     card_color: 'green'
@@ -1195,7 +1189,7 @@ const ARCHETYPES = {
     name: 'FIRST CONTACT',
     icon: '⭐',
     color: 'first-contact',
-    pct: '<0.1% — you have never been confirmed in the field.',
+    pct: 'Unclassified designation — no confirmed field contact.',
     desc: 'This archetype has no confirmed field contact. You were not supposed to find this path. Welcome.',
     serial_prefix: 'FC',
     card_color: 'gold'
@@ -1300,13 +1294,11 @@ function showArchetypeResult() {
   // Update bottom share section with archetype-specific text
   var fwdEl = document.getElementById('share-forward-text');
   if (fwdEl) {
-    var pct = archetype === 'first-contact' ? '<0.1%' : data.pct.split('%')[0].trim() + '%';
-    fwdEl.textContent = '"I just got classified as a ' + data.name + ' ' + data.icon + ' by @disclosure_app. Only ' + pct + ' of people get this. Find out yours: getdisclosure.app"';
+    fwdEl.textContent = '"I just got classified as a ' + data.name + ' ' + data.icon + ' by @disclosure_app. What\'s your designation? Find out: getdisclosure.app"';
   }
   var shareXBottom = document.getElementById('share-x-bottom');
   if (shareXBottom) {
-    var pctVal = archetype === 'first-contact' ? '<0.1%' : data.pct.split('%')[0].trim() + '%';
-    var xTxt = 'I just got classified as a ' + data.name + ' ' + data.icon + ' by @disclosure_app. Only ' + pctVal + ' of people get this archetype. Find out yours: getdisclosure.app #FirstContact #Disclosure';
+    var xTxt = 'I just got classified as a ' + data.name + ' ' + data.icon + ' by @disclosure_app. What\'s your designation? Find out: getdisclosure.app #FirstContact #Disclosure';
     shareXBottom.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(xTxt);
   }
 
@@ -1368,7 +1360,7 @@ async function handleAccess(e) {
       }]);
       if (!error) {
         const { data: cnt } = await sb.rpc('get_waitlist_count');
-        civilianNum = cnt ? (cnt + 1247) : null;
+        civilianNum = cnt ? cnt : null;
       }
     } catch(_) {}
   }
@@ -1444,8 +1436,7 @@ async function handleAccess(e) {
   }
 
   // Share text with archetype (Change 7)
-  const pct = archetype === 'first-contact' ? '<0.1%' : archetypeData.pct.split('%')[0].trim() + '%';
-  const shareMsg = 'I just got classified as a ' + archetypeData.name + ' ' + archetypeData.icon + ' by @disclosure_app. Only ' + pct + ' of people get this archetype. Find out what you are: getdisclosure.app #FirstContact #Disclosure';
+  const shareMsg = 'I just got classified as a ' + archetypeData.name + ' ' + archetypeData.icon + ' by @disclosure_app. What\'s your designation? Find out: getdisclosure.app #FirstContact #Disclosure';
   const shareEl = document.getElementById('gs-share-text');
   shareEl.textContent = shareMsg;
 
@@ -1688,35 +1679,17 @@ function initCursor() {
   document.addEventListener('mousemove', function(e) { r.style.left=e.clientX+'px'; r.style.top=e.clientY+'px'; });
 }
 
-// ── Countdown ─────────────────────────────────
-function initCountdown() {
-  const EPOCH=1735689600000, INT=48*3600000;
-  function tick() {
-    const rem = INT - ((Date.now()-EPOCH) % INT);
-    const h=Math.floor(rem/3600000), m=Math.floor((rem%3600000)/60000), s=Math.floor((rem%60000)/1000);
-    const fmt=String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
-    ['hero-timer','stat-timer'].forEach(function(id) { const el=document.getElementById(id); if(el) el.textContent=fmt; });
-  }
-  tick(); setInterval(tick,1000);
-}
-
 // ── Live Count ────────────────────────────────
 async function loadCount() {
-  const hour = new Date().getUTCHours();
-  const peakMultiplier = hour >= 13 && hour <= 23 ? 1 : 0.5;
-  const hourlyJoins = Math.floor((Math.random() * 8 + 4) * peakMultiplier) + 1;
-
-  let total = 1247;
-  if (sb) {
-    try {
-      const { data } = await sb.rpc('get_waitlist_count');
-      if (data && data > 0) total = data + 1247;
-    } catch(_) {}
-  }
-
-  const totalFmt = total.toLocaleString();
-  ['hero-count','stat-count'].forEach(function(id) { const el=document.getElementById(id); if(el) el.textContent=totalFmt; });
-  ['hero-live','stat-live'].forEach(function(id) { const el=document.getElementById(id); if(el) el.textContent='+'+hourlyJoins+' this hour'; });
+  if (!sb) return;
+  try {
+    const { data } = await sb.rpc('get_waitlist_count');
+    if (data && data > 0) {
+      const totalFmt = data.toLocaleString();
+      ['hero-count','stat-count'].forEach(function(id) { const el=document.getElementById(id); if(el) el.textContent=totalFmt; });
+    }
+    ['hero-live','stat-live'].forEach(function(id) { const el=document.getElementById(id); if(el) el.style.display='none'; });
+  } catch(_) {}
 }
 
 // ── Liaison Map Counter Tick ──────────────────
@@ -1777,7 +1750,6 @@ function copyForward() {
 // ── Init ──────────────────────────────────────
 function initPage() {
   initCursor();
-  initCountdown();
   initScrollReveal();
   initAlert();
   initNavScroll();
