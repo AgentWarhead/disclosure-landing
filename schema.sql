@@ -4,6 +4,8 @@
 CREATE TABLE IF NOT EXISTS waitlist (
   id              uuid        DEFAULT gen_random_uuid() PRIMARY KEY,
   email           text        UNIQUE NOT NULL,
+  archetype       text,
+  serial_number   text,
   readiness_score integer,
   readiness_label text,
   created_at      timestamptz DEFAULT now()
@@ -24,3 +26,7 @@ CREATE OR REPLACE FUNCTION get_waitlist_count()
 RETURNS integer
 LANGUAGE sql SECURITY DEFINER
 AS $$ SELECT COUNT(*)::integer FROM waitlist; $$;
+
+-- MIGRATION (run if table already exists without these columns):
+-- ALTER TABLE waitlist ADD COLUMN IF NOT EXISTS archetype text;
+-- ALTER TABLE waitlist ADD COLUMN IF NOT EXISTS serial_number text;
