@@ -950,25 +950,6 @@
     </div>
   </section>
 
-  <!-- 11. SERIAL SCARCITY — new: FOMO right before gate -->
-    <!-- ══════════════════════════════════════════
-       SERIAL SCARCITY — New: Urgency Before Gate
-  ══════════════════════════════════════════ -->
-  <section id="scarcity" style="padding:80px 24px;text-align:center;border-top:1px solid rgba(57,255,20,.08);background:rgba(57,255,20,.015)">
-    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:24px">// ENROLLMENT STATUS — LIVE //</div>
-    <div class="sr" style="display:inline-block;padding:32px 48px;border:1px solid rgba(57,255,20,.2);border-radius:4px;margin-bottom:32px;min-width:320px">
-      <div style="font-family:var(--mono);font-size:48px;font-weight:700;color:var(--g);line-height:1;margin-bottom:8px" id="scarcity-count">—</div>
-      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.5)">SERIALS CLAIMED</div>
-      <div style="width:100%;height:2px;background:rgba(255,255,255,.06);border-radius:1px;margin:20px 0 8px">
-        <div style="height:2px;background:var(--g);border-radius:1px;transition:width 1s" id="scarcity-bar" class="scarcity-bar-fill"></div>
-      </div>
-      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(57,255,20,.55)" id="scarcity-rate">+— CLAIMED THIS HOUR</div>
-    </div>
-    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.25em;color:rgba(255,255,255,.4);margin-bottom:40px">SERIALS ASSIGNED IN ORDER OF ENROLLMENT · EARLY ENTRY = LOWER NUMBER</div>
-    <p class="sr" style="font-family:var(--mono);font-size:13px;letter-spacing:.15em;color:rgba(255,255,255,.75);max-width:440px;margin:0 auto 8px"><strong style="color:#fff">Low serials board first.</strong></p>
-    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,.45);max-width:440px;margin:0 auto">Early enrollment priority is the only advantage that doesn't require training to earn.</p>
-  </section>
-
   <!-- 12. FC EVENT — moved: ultimate scarcity detonates before CTA -->
   <section id="fc-event" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,215,0,.12);position:relative;overflow:hidden">
     <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,215,0,.04) 0%,transparent 65%);pointer-events:none"></div>
@@ -1697,10 +1678,6 @@ async function loadCount() {
   const totalFmt = total.toLocaleString();
   ['hero-count','stat-count'].forEach(function(id) { const el=document.getElementById(id); if(el) el.textContent=totalFmt; });
   ['hero-live','stat-live'].forEach(function(id) { const el=document.getElementById(id); if(el) el.textContent='+'+hourlyJoins+' this hour'; });
-  // Scarcity strip
-  const sc = document.getElementById('scarcity-count'); if(sc) sc.textContent=totalFmt;
-  const sr = document.getElementById('scarcity-rate'); if(sr) sr.textContent='+'+hourlyJoins+' CLAIMED THIS HOUR';
-  const sb2 = document.getElementById('scarcity-bar'); if(sb2) sb2.style.width=Math.min(100,Math.round(total/50))+'%';
 }
 
 // ── Liaison Map Counter Tick ──────────────────
