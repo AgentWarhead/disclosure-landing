@@ -391,6 +391,10 @@
 
     /* FOOTER */
     footer{padding:24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
+    .ft-nav{margin-bottom:14px;display:flex;justify-content:center;flex-wrap:wrap;gap:6px 0}
+    .ft-nav a{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.3);text-decoration:none;padding:0 10px;border-right:1px solid rgba(255,255,255,.1);transition:color .2s;white-space:nowrap}
+    .ft-nav a:last-child{border-right:none}
+    .ft-nav a:hover{color:rgba(57,255,20,.7)}
     .ft-t{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.65)}
     .ft-b{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:rgba(255,255,255,.05);cursor:pointer;margin-top:8px;transition:color .3s}
     .ft-b:hover{color:rgba(57,255,20,.5)}
@@ -1045,6 +1049,16 @@
 </main>
 
 <footer>
+  <nav class="ft-nav">
+    <a href="/quiz">ARCHETYPE QUIZ</a>
+    <a href="/first-contact">FIRST CONTACT</a>
+    <a href="/readiness">READINESS</a>
+    <a href="/archetype/sentinel">SENTINEL</a>
+    <a href="/archetype/diplomat">DIPLOMAT</a>
+    <a href="/archetype/scholar">SCHOLAR</a>
+    <a href="/archetype/first-contact">FIRST CONTACT ⭐</a>
+    <a href="/faq">FAQ</a>
+  </nav>
   <div class="ft-t">DISCLOSURE // GETDISCLOSURE.APP // @DISCLOSURE_APP</div>
   <div class="ft-b" onclick="this.textContent='IT\'S REAL';this.style.color='rgba(57,255,20,.55)'" title="Decode">
     01001001 01010100 00100111 01010011 00100000 01010010 01000101 01000001 01001100
