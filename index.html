@@ -862,7 +862,7 @@
     <div class="quiz-card sr">
       <!-- Q1 -->
       <div class="q-step active" id="q1">
-        <div class="q-num">QUESTION 01 OF 04</div>
+        <div class="q-num">QUESTION 01 OF 10</div>
         <p class="q-text">A craft makes landfall 100 meters from you. Your first move?</p>
         <div class="q-opts">
           <button class="q-opt" onclick="answer(1,1,'sentinel')">I move to shield the people behind me.</button>
@@ -873,7 +873,7 @@
       </div>
       <!-- Q2 -->
       <div class="q-step" id="q2">
-        <div class="q-num">QUESTION 02 OF 04</div>
+        <div class="q-num">QUESTION 02 OF 10</div>
         <p class="q-text">One of them makes direct eye contact with you. What do you do?</p>
         <div class="q-opts">
           <button class="q-opt" onclick="answer(2,1,'sentinel')">Hold it. I do not look away first.</button>
@@ -884,7 +884,7 @@
       </div>
       <!-- Q3 -->
       <div class="q-step" id="q3">
-        <div class="q-num">QUESTION 03 OF 04</div>
+        <div class="q-num">QUESTION 03 OF 10</div>
         <p class="q-text">One of them extends something toward you. What do you assume it is?</p>
         <div class="q-opts">
           <button class="q-opt" onclick="answer(3,1,'sentinel')">A weapon. I brace.</button>
@@ -895,13 +895,80 @@
       </div>
       <!-- Q4 -->
       <div class="q-step" id="q4">
-        <div class="q-num">QUESTION 04 OF 04</div>
+        <div class="q-num">QUESTION 04 OF 10</div>
         <p class="q-text">The encounter ends. They leave. What do you do first?</p>
         <div class="q-opts">
           <button class="q-opt" onclick="answer(4,1,'sentinel')">Secure the perimeter. Establish what's safe.</button>
           <button class="q-opt" onclick="answer(4,2,'diplomat')">Brief the people around me. Calm the crowd.</button>
           <button class="q-opt" onclick="answer(4,3,'scholar')">Document everything, in exact sequence.</button>
           <button class="q-opt" onclick="answer(4,4,'diplomat')">Stand completely still. Process what just happened.</button>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="q-step" id="q5">
+        <div class="q-num">QUESTION 05 OF 10</div>
+        <p class="q-text">A light from the craft sweeps slowly across the ground toward you. It stops at your feet.</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(5,1,'sentinel')">I hold position. Whatever comes next, I'm not moving first.</button>
+          <button class="q-opt" onclick="answer(5,2,'diplomat')">I step aside slowly. I don't want to be seen as blocking it.</button>
+          <button class="q-opt" onclick="answer(5,3,'scholar')">I watch where the edges of the light fall. There's data in that.</button>
+          <button class="q-opt" onclick="answer(5,4,'first-contact')">I step into it.</button>
+        </div>
+      </div>
+      <!-- Q6 -->
+      <div class="q-step" id="q6">
+        <div class="q-num">QUESTION 06 OF 10</div>
+        <p class="q-text">Someone near you breaks and runs. The craft tracks the movement immediately.</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(6,1,'sentinel')">I call after them. Running is the worst thing they can do.</button>
+          <button class="q-opt" onclick="answer(6,2,'diplomat')">I stay completely still. My calm might anchor what happens next.</button>
+          <button class="q-opt" onclick="answer(6,3,'scholar')">I watch the craft's reaction. The response pattern tells me something.</button>
+          <button class="q-opt" onclick="answer(6,4,'first-contact')">I take one step forward. Draw the attention back to me.</button>
+        </div>
+      </div>
+      <!-- Q7 -->
+      <div class="q-step" id="q7">
+        <div class="q-num">QUESTION 07 OF 10</div>
+        <p class="q-text">They haven't moved in three minutes. Neither have you. You realize they are studying you.</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(7,1,'sentinel')">I stand taller. I want them to understand I'm not prey.</button>
+          <button class="q-opt" onclick="answer(7,2,'diplomat')">I lower myself slowly. I want them to see I'm not a threat.</button>
+          <button class="q-opt" onclick="answer(7,3,'scholar')">I mirror their stillness deliberately. Show them I understand patience.</button>
+          <button class="q-opt" onclick="answer(7,4,'first-contact')">I speak. One word. My name.</button>
+        </div>
+      </div>
+      <!-- Q8 -->
+      <div class="q-step" id="q8">
+        <div class="q-num">QUESTION 08 OF 10</div>
+        <p class="q-text">A sound comes from the craft. Not language. You feel it in your chest before you hear it.</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(8,1,'sentinel')">Threat. My body knows before my mind does.</button>
+          <button class="q-opt" onclick="answer(8,2,'diplomat')">Communication. If it's a sound, it's trying to reach us.</button>
+          <button class="q-opt" onclick="answer(8,3,'scholar')">I want to record it. Every frequency is information.</button>
+          <button class="q-opt" onclick="answer(8,4,'first-contact')">Recognition. Like something you've heard before but couldn't place.</button>
+        </div>
+      </div>
+      <!-- Q9 -->
+      <div class="q-step" id="q9">
+        <div class="q-num">QUESTION 09 OF 10</div>
+        <p class="q-text">It's over. They're gone. Others saw it too. What do you say first?</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(9,1,'sentinel')">Everyone stay together. Don't move yet.</button>
+          <button class="q-opt" onclick="answer(9,2,'diplomat')">Is everyone okay?</button>
+          <button class="q-opt" onclick="answer(9,3,'scholar')">Did anyone else see the way the light changed at the end?</button>
+          <button class="q-opt" onclick="answer(9,4,'first-contact')">Nothing. You're not ready to speak yet.</button>
+        </div>
+      </div>
+      <!-- Q10 -->
+      <div class="q-step" id="q10">
+        <div class="q-num">QUESTION 10 OF 10</div>
+        <p class="q-text">The next morning, the government confirms it happened. They are asking for civilian witnesses.</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(10,1,'sentinel')">I come forward. My account is accurate and I'll stand behind it.</button>
+          <button class="q-opt" onclick="answer(10,2,'diplomat')">I come forward. Someone has to speak calmly about what we saw.</button>
+          <button class="q-opt" onclick="answer(10,3,'scholar')">I submit everything. Every timestamp, detail, and observation I recorded.</button>
+          <button class="q-opt" onclick="answer(10,4,'first-contact')">I don't. Not yet. Some things aren't ready to be explained.</button>
         </div>
       </div>
 
@@ -1137,7 +1204,7 @@ const ARCHETYPES = {
 
 // ── Quiz State ────────────────────────────────
 const scores = { sentinel: 0, diplomat: 0, scholar: 0, 'first-contact': 0 };
-const answers = [0, 0, 0, 0]; // stores option index (1-4) per question
+const answers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // stores option index (1-4) per question
 let currentArchetype = null;
 let savedSerial = null;
 
@@ -1150,11 +1217,11 @@ function answer(qNum, optIdx, archetype) {
   scores[archetype]++;
 
   // Update progress bar
-  document.getElementById('quiz-bar').style.width = (qNum / 4 * 100) + '%';
+  document.getElementById('quiz-bar').style.width = (qNum / 10 * 100) + '%';
 
   const isMobile = window.innerWidth < 768;
   const currentStep = document.getElementById('q' + qNum);
-  const nextStep = qNum < 4 ? document.getElementById('q' + (qNum + 1)) : null;
+  const nextStep = qNum < 10 ? document.getElementById('q' + (qNum + 1)) : null;
 
   if (isMobile) {
     // Mobile: slide animation (Change 12)
