@@ -298,19 +298,6 @@
     .ft-locked-overlay .lock-label{font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:rgba(239,68,68,.7)}
 
     /* LIAISON MAP */
-    #liaison-map{padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
-    .lm-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:16px}
-    .lm-h{font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
-    .lm-count{font-family:var(--mono);font-size:13px;letter-spacing:.2em;color:var(--g);margin-bottom:40px}
-    .lm-map{max-width:800px;margin:0 auto;position:relative;background:rgba(255,255,255,.012);border:1px solid rgba(57,255,20,.08);overflow:hidden}
-    .lm-map svg{width:100%;height:auto;display:block}
-    .lm-dot{fill:var(--g)}
-    .lm-dot.pulse-slow{animation:mapPulse 3s infinite}
-    .lm-dot.pulse-med{animation:mapPulse 2.2s infinite .5s}
-    .lm-dot.pulse-fast{animation:mapPulse 1.6s infinite .2s}
-    @keyframes mapPulse{0%,100%{opacity:.7;r:3}50%{opacity:.3;r:5.5}}
-    .lm-sector{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.65);margin-top:24px}
-    .lm-sector span{color:var(--g)}
 
     /* GATE */
     .gate{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;position:relative;border-top:1px solid rgba(255,255,255,.04)}
@@ -905,70 +892,6 @@
   <!-- ══════════════════════════════════════════
        LIAISON MAP — Change 9
   ══════════════════════════════════════════ -->
-  <section id="liaison-map">
-    <div class="lm-eyebrow sr">// ACTIVE LIAISONS — GLOBAL DISTRIBUTION //</div>
-    <h2 class="lm-h sr">847 Liaisons in Position</h2>
-    <p class="lm-count sr" id="lm-counter">LIVE NETWORK · MONITORING ACTIVE</p>
-    <div class="lm-map sr">
-      <!-- Simple equirectangular dot map — dots at major city coordinates -->
-      <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" style="opacity:.85">
-        <!-- Grid lines -->
-        <line x1="0" y1="200" x2="800" y2="200" stroke="rgba(57,255,20,.06)" stroke-width="1"/>
-        <line x1="400" y1="0" x2="400" y2="400" stroke="rgba(57,255,20,.06)" stroke-width="1"/>
-        <line x1="0" y1="100" x2="800" y2="100" stroke="rgba(57,255,20,.03)" stroke-width=".5"/>
-        <line x1="0" y1="300" x2="800" y2="300" stroke="rgba(57,255,20,.03)" stroke-width=".5"/>
-        <!-- Major city liaison dots -->
-        <!-- New York: 74°W, 41°N -->
-        <circle class="lm-dot pulse-med" cx="189" cy="145" r="3.5"/>
-        <!-- Los Angeles: 118°W, 34°N -->
-        <circle class="lm-dot pulse-slow" cx="138" cy="162" r="3"/>
-        <!-- Chicago: 87°W, 42°N -->
-        <circle class="lm-dot pulse-fast" cx="203" cy="142" r="2.5"/>
-        <!-- London: 0°W, 51°N -->
-        <circle class="lm-dot pulse-slow" cx="398" cy="128" r="3"/>
-        <!-- Paris: 2°E, 49°N -->
-        <circle class="lm-dot pulse-med" cx="404" cy="133" r="2.5"/>
-        <!-- Berlin: 13°E, 52°N -->
-        <circle class="lm-dot pulse-fast" cx="429" cy="124" r="2"/>
-        <!-- Moscow: 37°E, 56°N -->
-        <circle class="lm-dot pulse-slow" cx="474" cy="112" r="3"/>
-        <!-- Dubai: 55°E, 25°N -->
-        <circle class="lm-dot pulse-med" cx="511" cy="178" r="2.5"/>
-        <!-- Mumbai: 73°E, 19°N -->
-        <circle class="lm-dot pulse-slow" cx="546" cy="195" r="2.5"/>
-        <!-- Beijing: 116°E, 40°N -->
-        <circle class="lm-dot pulse-fast" cx="632" cy="148" r="3"/>
-        <!-- Tokyo: 140°E, 36°N -->
-        <circle class="lm-dot pulse-med" cx="678" cy="158" r="3"/>
-        <!-- Seoul: 127°E, 37°N -->
-        <circle class="lm-dot pulse-slow" cx="654" cy="155" r="2"/>
-        <!-- Sydney: 151°E, 34°S -->
-        <circle class="lm-dot pulse-fast" cx="708" cy="268" r="3"/>
-        <!-- São Paulo: 47°W, 24°S -->
-        <circle class="lm-dot pulse-med" cx="295" cy="248" r="3"/>
-        <!-- Buenos Aires: 58°W, 34°S -->
-        <circle class="lm-dot pulse-slow" cx="272" cy="268" r="2.5"/>
-        <!-- Cairo: 31°E, 30°N -->
-        <circle class="lm-dot pulse-fast" cx="462" cy="172" r="2.5"/>
-        <!-- Nairobi: 37°E, 1°S -->
-        <circle class="lm-dot pulse-slow" cx="474" cy="202" r="2"/>
-        <!-- Mexico City: 99°W, 19°N -->
-        <circle class="lm-dot pulse-med" cx="178" cy="195" r="2.5"/>
-        <!-- Toronto: 79°W, 44°N -->
-        <circle class="lm-dot pulse-fast" cx="199" cy="138" r="2"/>
-        <!-- Singapore: 104°E, 1°N -->
-        <circle class="lm-dot pulse-slow" cx="620" cy="200" r="2.5"/>
-        <!-- Tactical overlay lines -->
-        <line x1="189" y1="145" x2="398" y2="128" stroke="rgba(57,255,20,.04)" stroke-width=".5"/>
-        <line x1="398" y1="128" x2="474" y2="112" stroke="rgba(57,255,20,.04)" stroke-width=".5"/>
-        <line x1="474" y1="112" x2="632" y2="148" stroke="rgba(57,255,20,.04)" stroke-width=".5"/>
-        <line x1="189" y1="145" x2="295" y2="248" stroke="rgba(57,255,20,.03)" stroke-width=".5"/>
-        <!-- Map label -->
-        <text x="10" y="390" fill="rgba(57,255,20,.2)" font-family="'Share Tech Mono',monospace" font-size="9" letter-spacing="2">DISCLOSURE · LIAISON NETWORK · LIVE</text>
-      </svg>
-    </div>
-    <p class="lm-sector sr">YOUR SECTOR: <span id="lm-city">UNKNOWN</span> — STATUS: UNVERIFIED</p>
-  </section>
 
   <!-- ══════════════════════════════════════════
        FIRST CONTACT UNLOCK EVENT
@@ -1122,9 +1045,6 @@ let userCity = 'UNKNOWN', userRegion = '';
         if (navText && currentNavState === 0) {
           navText.textContent = 'SIGNAL ACQUIRED · ' + userCity + ', ' + userRegion + ' · DISCLOSURE PROTOCOL';
         }
-        // Update liaison map sector
-        const lmCity = document.getElementById('lm-city');
-        if (lmCity) lmCity.textContent = userCity;
         // Update gate hint
         updateGateHint();
       }
@@ -1697,17 +1617,6 @@ async function loadCount() {
 }
 
 // ── Liaison Map Counter Tick ──────────────────
-function initLiaisonCounter() {
-  let count = 847;
-  setInterval(function() {
-    if (Math.random() > 0.7) {
-      count += Math.floor(Math.random() * 3) + 1;
-      const el = document.querySelector('.lm-h');
-      if (el) el.textContent = count.toLocaleString() + ' Liaisons in Position';
-    }
-  }, 8000);
-}
-
 // ── Scroll Reveal ─────────────────────────────
 function initScrollReveal() {
   const obs = new IntersectionObserver(function(entries) {
@@ -1769,7 +1678,6 @@ function initPage() {
   initScrollReveal();
   initAlert();
   initNavScroll();
-  initLiaisonCounter();
   loadCount();
 
   document.querySelectorAll('.hero .sr').forEach(function(el,i) {
