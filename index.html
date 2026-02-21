@@ -133,7 +133,7 @@
     /* NAV */
     .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;background:rgba(0,0,0,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(57,255,20,.06)}
     .nav-logo{font-family:var(--mono);font-size:10px;letter-spacing:.35em;color:var(--g);text-decoration:none}
-    .nav-sig{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.18);transition:color .4s}
+    .nav-sig{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.42);transition:color .4s}
     .live-dot{width:5px;height:5px;border-radius:50%;background:var(--g);animation:live 1.8s ease-in-out infinite;flex-shrink:0}
     @keyframes live{0%,100%{box-shadow:0 0 3px var(--g)}50%{box-shadow:0 0 12px var(--g),0 0 24px var(--g)}}
 
@@ -168,7 +168,7 @@
     .as-grid{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;max-width:900px;margin:0 auto}
     .as-item{text-align:center;min-width:120px}
     .as-icon{font-size:28px;display:block;margin-bottom:10px}
-    .as-label{font-family:var(--mono);font-size:10px;letter-spacing:.25em;color:rgba(255,255,255,.45);display:block;margin-bottom:6px;text-transform:uppercase}
+    .as-label{font-family:var(--mono);font-size:10px;letter-spacing:.25em;color:rgba(255,255,255,.65);display:block;margin-bottom:6px;text-transform:uppercase}
     .as-pct{font-family:var(--mono);font-size:32px;color:var(--g);font-weight:700;display:block;line-height:1}
     .as-item.mythic .as-pct{color:var(--gold);animation:fcPulse 2.5s infinite}
     .as-mythic-note{font-family:var(--mono);font-size:8px;letter-spacing:.3em;color:var(--gold);display:block;margin-top:6px;opacity:.8}
@@ -195,7 +195,7 @@
     .rule-row{display:flex;align-items:baseline;gap:24px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.07)}
     .rule-n{font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:rgba(57,255,20,.7);flex-shrink:0;width:36px}
     .rule-t{font-size:clamp(20px,3.8vw,48px);font-weight:700;letter-spacing:-.01em;color:#fff;line-height:1.05}
-    .rule-sub{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,.45);margin-top:6px;line-height:1.7;display:block}
+    .rule-sub{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,.68);margin-top:6px;line-height:1.7;display:block}
     .rule-row.rule-zero{border-bottom:1px solid rgba(57,255,20,.25);margin-bottom:4px}
     .rule-row.rule-zero .rule-n{color:var(--g)}
     .rule-row.rule-zero .rule-t{color:var(--g);font-size:clamp(18px,3.2vw,40px)}
@@ -214,7 +214,7 @@
     #card-preview{padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
     .cp-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:16px}
     .cp-h{font-size:clamp(28px,5vw,60px);font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
-    .cp-sub{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.45);margin-bottom:48px}
+    .cp-sub{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.68);margin-bottom:48px}
     .fcc-card{background:#050a05;border:1px solid rgba(57,255,20,.3);box-shadow:0 0 40px rgba(57,255,20,.08),inset 0 0 40px rgba(57,255,20,.02);padding:32px;max-width:360px;margin:0 auto;text-align:left;font-family:var(--mono);position:relative;overflow:hidden}
     .fcc-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(57,255,20,.03) 1px,rgba(57,255,20,.03) 2px);pointer-events:none}
     .fcc-card.fc-gold{border-color:rgba(255,215,0,.5);box-shadow:0 0 60px rgba(255,215,0,.15),inset 0 0 40px rgba(255,215,0,.04);background:#080700;animation:fcShimmer 3s ease-in-out infinite}
@@ -224,7 +224,7 @@
     .fcc-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:16px;display:block;border-bottom:1px solid rgba(57,255,20,.2);padding-bottom:12px}
     .fcc-card.fc-gold .fcc-title{border-color:rgba(255,215,0,.2)}
     .fcc-row{display:flex;justify-content:space-between;margin-bottom:10px;font-size:12px}
-    .fcc-label{color:rgba(255,255,255,.4);letter-spacing:.1em}
+    .fcc-label{color:rgba(255,255,255,.62);letter-spacing:.1em}
     .fcc-val{color:rgba(255,255,255,.8)}
     .fcc-val.redacted{background:rgba(255,255,255,.12);color:rgba(255,255,255,.1);padding:0 6px}
     .fcc-val.amber{color:var(--a)}
@@ -233,7 +233,7 @@
     .fcc-watermark{position:absolute;bottom:12px;right:14px;font-size:8px;letter-spacing:.3em;color:rgba(57,255,20,.06);transform:rotate(-15deg);pointer-events:none;user-select:none}
     .fcc-card.fc-gold .fcc-watermark{color:rgba(255,215,0,.08)}
     .fcc-wallet{margin-top:24px;font-size:9px;color:rgba(255,255,255,.2);text-align:center;letter-spacing:.2em;border-top:1px solid rgba(255,255,255,.05);padding-top:16px}
-    .fcc-caption{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:rgba(255,255,255,.35);margin-top:28px;max-width:360px;margin-left:auto;margin-right:auto}
+    .fcc-caption{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:rgba(255,255,255,.6);margin-top:28px;max-width:360px;margin-left:auto;margin-right:auto}
 
     /* QUIZ */
     .quiz{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px;position:relative;border-top:1px solid rgba(255,255,255,.04)}
@@ -268,7 +268,7 @@
     .qr-archetype-name.diplomat{color:var(--g)}
     .qr-archetype-name.scholar{color:#60A5FA}
     .qr-archetype-name.first-contact{color:var(--gold);animation:fcPulse 2s infinite;text-shadow:0 0 40px rgba(255,215,0,.3)}
-    .qr-pct{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:rgba(255,255,255,.4);margin-top:8px;display:block}
+    .qr-pct{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:rgba(255,255,255,.62);margin-top:8px;display:block}
     .qr-pct.fc-pct{color:var(--gold)}
     .qr-desc{font-size:clamp(15px,2vw,20px);font-weight:500;color:rgba(255,255,255,.7);max-width:440px;margin:20px auto 32px;line-height:1.7}
     .qr-cta-wrap{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -328,7 +328,7 @@
     .gate-input:focus{border-color:rgba(57,255,20,.5);background:rgba(57,255,20,.03)}
     .gate-submit{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:#000;background:var(--g);border:none;padding:15px 26px;cursor:pointer;transition:box-shadow .15s;white-space:nowrap;font-weight:700}
     .gate-submit:hover{box-shadow:0 0 28px rgba(57,255,20,.6)}
-    .gate-note{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:rgba(255,255,255,.45)}
+    .gate-note{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:rgba(255,255,255,.65)}
 
     /* POST-SIGNUP CARD */
     .gate-success{display:none;text-align:left}
@@ -355,7 +355,7 @@
 
     /* SHARE */
     .share{padding:80px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
-    .share-pre{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(255,255,255,.45);margin-bottom:28px}
+    .share-pre{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(255,255,255,.65);margin-bottom:28px}
     .share-h{font-size:clamp(24px,4vw,48px);font-weight:700;color:rgba(255,255,255,.9);margin-bottom:8px}
     .share-h em{font-style:normal;color:#fff}
     .share-sub{font-size:clamp(15px,2vw,20px);color:rgba(255,255,255,.65);margin-bottom:20px;font-weight:500}
@@ -369,7 +369,7 @@
 
     /* FOOTER */
     footer{padding:24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
-    .ft-t{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.35)}
+    .ft-t{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.55)}
     .ft-b{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:rgba(255,255,255,.05);cursor:pointer;margin-top:8px;transition:color .3s}
     .ft-b:hover{color:rgba(57,255,20,.5)}
 
@@ -645,7 +645,7 @@
   <section id="social-proof" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)">
     <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:16px">// ARCHETYPE CLASSIFICATION — ACTIVE PROFILES //</div>
     <h2 class="sr" style="font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Four archetypes.<br>One determines everything.</h2>
-    <p class="sr" style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.4);margin-bottom:56px">When it happens, your role is already assigned. Most people won't know theirs.</p>
+    <p class="sr" style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.68);margin-bottom:56px">When it happens, your role is already assigned. Most people won't know theirs.</p>
 
     <div class="arch-cards-wrap sr">
 
@@ -731,7 +731,7 @@
 
     </div>
 
-    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.3);margin-top:44px">// Most people will discover their archetype too late. //</p>
+    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.62);margin-top:44px">// Most people will discover their archetype too late. //</p>
   </section>
 
   <!-- ══════════════════════════════════════════
@@ -840,8 +840,8 @@
         </div>
       </div>
       <div class="ft-tile" style="opacity:.6">
-        <span class="ft-tile-icon">📡</span>
-        <span class="ft-tile-name">ENCOUNTER PROTOCOL <span class="rx2">██</span></span>
+        <span class="ft-tile-icon">🔲</span>
+        <span class="ft-tile-name">BLACKOUT MODE</span>
         <span class="ft-tile-status locked">🔒 CLASSIFIED</span>
         <div class="ft-locked-overlay">
           <span class="lock-icon">🔒</span>
@@ -849,8 +849,8 @@
         </div>
       </div>
       <div class="ft-tile" style="opacity:.6">
-        <span class="ft-tile-icon">🗺</span>
-        <span class="ft-tile-name"><span class="rx2">██████</span> PLAYBOOK</span>
+        <span class="ft-tile-icon">✍️</span>
+        <span class="ft-tile-name">THE LIAISON'S CREED</span>
         <span class="ft-tile-status locked">🔒 CLASSIFIED</span>
         <div class="ft-locked-overlay">
           <span class="lock-icon">🔒</span>
@@ -858,8 +858,8 @@
         </div>
       </div>
       <div class="ft-tile" style="opacity:.6">
-        <span class="ft-tile-icon">💀</span>
-        <span class="ft-tile-name">DEAD DROP NETWORK</span>
+        <span class="ft-tile-icon">📄</span>
+        <span class="ft-tile-name">INCIDENT REPORTS</span>
         <span class="ft-tile-status locked">🔒 CLASSIFIED</span>
         <div class="ft-locked-overlay">
           <span class="lock-icon">🔒</span>
@@ -899,7 +899,7 @@
       </div>
       <div style="margin-top:24px;border-top:1px solid rgba(57,255,20,.1);padding-top:20px;font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:rgba(255,255,255,.3)">🔒 FULL PROTOCOL UNLOCKED IN-APP ONLY</div>
     </div>
-    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.35);margin-top:28px">// What happens when you point it at the sky is classified. //</p>
+    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.58);margin-top:28px">// What happens when you point it at the sky is classified. //</p>
   </section>
 
   <!-- ══════════════════════════════════════════
@@ -988,7 +988,7 @@
       <div style="font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(255,215,0,.55);margin-top:14px">NEVER BEEN UNLOCKED · 0 CONFIRMED</div>
       <div style="position:absolute;top:8px;right:12px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:rgba(255,215,0,.25)">SERIAL: FC-0000-00001</div>
     </div>
-    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.4);margin-bottom:32px">Enroll now to be in position when it opens.</p>
+    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.65);margin-bottom:32px">Enroll now to be in position when it opens.</p>
     <a href="#access" class="cta-btn sr" style="background:var(--gold);color:#000">ENROLL BEFORE LAUNCH →</a>
   </section>
 
@@ -1028,7 +1028,7 @@
             <div class="ac-bar-bg"><div class="ac-bar-fg" id="gs-bar-fg" style="width:84%;background:#EF4444;box-shadow:0 0 8px rgba(239,68,68,.6)"></div></div>
           </div>
           <div class="ac-status-line" id="gs-status" style="color:#EF4444;border-color:rgba(239,68,68,.2)">🔴 FIELD DEPLOYMENT: READY</div>
-          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:rgba(255,255,255,.28);text-align:center;margin-top:14px">Your card is issued on launch day.</div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:rgba(255,255,255,.55);text-align:center;margin-top:14px">Your card is issued on launch day.</div>
           <div class="ac-wm">DISCLOSURE PROTOCOL</div>
         </div>
 
