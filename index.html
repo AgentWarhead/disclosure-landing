@@ -388,9 +388,50 @@
     .ap-body{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.8);line-height:1.65}
     .ap-close{position:absolute;top:10px;right:12px;color:rgba(255,255,255,.25);cursor:pointer;font-size:12px}
 
+    /* ARCHETYPE IDENTITY CARDS */
+    .arch-cards-wrap{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;max-width:1100px;margin:0 auto}
+    .arch-card{flex:1;min-width:220px;max-width:260px;font-family:var(--mono);padding:24px 20px;position:relative;overflow:hidden;border:1px solid;cursor:default;transition:transform .25s ease,box-shadow .25s ease}
+    .arch-card:hover{transform:translateY(-6px)}
+    .arch-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(255,255,255,.018) 1px,rgba(255,255,255,.018) 2px);pointer-events:none}
+    /* sentinel — red */
+    .arch-card.ac-s{border-color:rgba(239,68,68,.35);background:rgba(10,2,2,.95);box-shadow:0 0 20px rgba(239,68,68,.06),inset 0 0 20px rgba(239,68,68,.02)}
+    .arch-card.ac-s:hover{box-shadow:0 0 44px rgba(239,68,68,.2),inset 0 0 28px rgba(239,68,68,.06)}
+    /* diplomat — green */
+    .arch-card.ac-d{border-color:rgba(57,255,20,.35);background:rgba(2,8,2,.95);box-shadow:0 0 20px rgba(57,255,20,.06),inset 0 0 20px rgba(57,255,20,.02)}
+    .arch-card.ac-d:hover{box-shadow:0 0 44px rgba(57,255,20,.2),inset 0 0 28px rgba(57,255,20,.06)}
+    /* scholar — blue */
+    .arch-card.ac-sc{border-color:rgba(96,165,250,.35);background:rgba(2,4,10,.95);box-shadow:0 0 20px rgba(96,165,250,.06),inset 0 0 20px rgba(96,165,250,.02)}
+    .arch-card.ac-sc:hover{box-shadow:0 0 44px rgba(96,165,250,.2),inset 0 0 28px rgba(96,165,250,.06)}
+    /* first contact — gold */
+    .arch-card.ac-fc{border-color:rgba(255,215,0,.4);background:rgba(8,7,0,.95);box-shadow:0 0 28px rgba(255,215,0,.1),inset 0 0 28px rgba(255,215,0,.03);animation:fcShimmer 3.5s ease-in-out infinite}
+    .arch-card.ac-fc:hover{box-shadow:0 0 60px rgba(255,215,0,.25),inset 0 0 40px rgba(255,215,0,.08)}
+    /* card internals */
+    .ac-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;margin-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .ac-logo-txt{font-size:8px;letter-spacing:.3em;opacity:.4;text-transform:uppercase}
+    .ac-serial-txt{font-size:8px;letter-spacing:.12em;opacity:.3}
+    .ac-icon{font-size:44px;display:block;text-align:center;margin:4px 0 12px;line-height:1.1}
+    .ac-name{font-size:15px;font-weight:700;letter-spacing:.25em;text-align:center;margin-bottom:4px;text-transform:uppercase}
+    .ac-role{font-size:9px;letter-spacing:.2em;text-align:center;margin-bottom:18px;opacity:.45;text-transform:uppercase}
+    .ac-stat{display:flex;justify-content:space-between;align-items:center;font-size:9.5px;letter-spacing:.06em;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    .ac-sl{opacity:.38;text-transform:uppercase;letter-spacing:.1em;font-size:9px}
+    .ac-sv{opacity:.9;letter-spacing:.06em}
+    .ac-bar-wrap{margin:14px 0 16px}
+    .ac-bar-lbl{display:flex;justify-content:space-between;font-size:8px;letter-spacing:.12em;opacity:.4;margin-bottom:5px}
+    .ac-bar-bg{height:2px;background:rgba(255,255,255,.07);border-radius:1px;overflow:hidden}
+    .ac-bar-fg{height:100%;border-radius:1px;transition:width 1s ease}
+    .ac-status-line{font-size:9px;letter-spacing:.28em;text-align:center;padding:8px 6px;border:1px solid rgba(255,255,255,.07);text-transform:uppercase}
+    .ac-wm{position:absolute;bottom:9px;right:11px;font-size:7px;letter-spacing:.22em;opacity:.05;transform:rotate(-14deg);pointer-events:none;user-select:none;text-transform:uppercase}
+    /* mystery card preview */
+    .mystery-card{background:#050a05;border:1px solid rgba(57,255,20,.2);padding:24px 28px;max-width:300px;margin:0 auto;text-align:left;font-family:var(--mono);position:relative;overflow:hidden;filter:blur(.8px);opacity:.7}
+    .mystery-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(57,255,20,.03) 1px,rgba(57,255,20,.03) 2px);pointer-events:none}
+    .mystery-card-wrap{position:relative;display:inline-block}
+    .mystery-card-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(0,0,0,.45)}
+    .mystery-pulse{width:10px;height:10px;border-radius:50%;background:var(--g);animation:live 1.4s ease-in-out infinite;box-shadow:0 0 12px var(--g)}
+
     @media(max-width:600px){
       .as-grid{gap:20px}
       .ft-grid{grid-template-columns:1fr 1fr}
+      .arch-card{min-width:160px}
     }
   </style>
 </head>
@@ -557,74 +598,126 @@
   </section>
 
   <!-- ══════════════════════════════════════════
-       FIRST CONTACT CARD PREVIEW — Change 5
+       FIRST CONTACT CARD — Mystery Teaser
   ══════════════════════════════════════════ -->
-  <section id="card-preview">
-    <div class="cp-eyebrow sr">// FIRST CONTACT CARD — CIVILIAN CREDENTIALS //</div>
-    <h2 class="cp-h sr">Your Card. Your Identity. Your Proof.</h2>
-    <p class="cp-sub sr">Every enrolled civilian receives a First Contact Card upon app launch.</p>
+  <section id="card-preview" style="padding:80px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)">
+    <div class="cp-eyebrow sr">// FIRST CONTACT CARD — CLASSIFICATION PENDING //</div>
+    <h2 class="cp-h sr" style="margin-bottom:10px">Your card is waiting.</h2>
+    <p class="cp-sub sr" style="margin-bottom:40px">It already has a serial number. Your archetype isn't on it yet.</p>
 
-    <div class="fcc-card sr">
-      <span class="fcc-logo">◉ DISCLOSURE PROTOCOL</span>
-      <span class="fcc-title">FIRST CONTACT CARD — CLASS: CIVILIAN</span>
-      <div class="fcc-row">
-        <span class="fcc-label">NAME</span>
-        <span class="fcc-val redacted">████████████</span>
+    <!-- Mystery blurred card -->
+    <div class="sr mystery-card-wrap" style="margin-bottom:36px">
+      <div class="mystery-card">
+        <span class="fcc-logo" style="opacity:.4">◉ DISCLOSURE PROTOCOL</span>
+        <span class="fcc-title" style="font-size:13px;display:block;margin:8px 0 14px">FIRST CONTACT CARD — ISSUED</span>
+        <div class="fcc-row"><span class="fcc-label">ARCHETYPE</span><span class="fcc-val" style="letter-spacing:.1em">████████████</span></div>
+        <div class="fcc-row"><span class="fcc-label">SERIAL</span><span class="fcc-val green" style="font-size:11px">DS-2026-?????</span></div>
+        <div class="fcc-row"><span class="fcc-label">STATUS</span><span class="fcc-val amber">PENDING CLEARANCE</span></div>
+        <div class="fcc-wallet" style="margin-top:14px">CLASSIFICATION REQUIRED</div>
       </div>
-      <div class="fcc-row">
-        <span class="fcc-label">ARCHETYPE</span>
-        <span class="fcc-val green">[SENTINEL]</span>
+      <div class="mystery-card-overlay">
+        <div class="mystery-pulse"></div>
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.35em;color:rgba(57,255,20,.85)">UNCLASSIFIED</div>
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.45)">ARCHETYPE REQUIRED</div>
       </div>
-      <div class="fcc-row">
-        <span class="fcc-label">SERIAL</span>
-        <span class="fcc-val redacted">████-████-████</span>
-      </div>
-      <div class="fcc-row">
-        <span class="fcc-label">ISSUED</span>
-        <span class="fcc-val">PENDING LAUNCH</span>
-      </div>
-      <div class="fcc-row">
-        <span class="fcc-label">STATUS</span>
-        <span class="fcc-val amber">PENDING CLEARANCE</span>
-      </div>
-      <div class="fcc-wallet">TAKE THE QUIZ → CLAIM YOUR CARD</div>
-      <div class="fcc-watermark">DISCLOSURE PROTOCOL</div>
     </div>
+
+    <a href="#quiz" class="cta-btn sr" style="font-size:12px;padding:14px 36px">CLASSIFY YOURSELF →</a>
   </section>
 
   <!-- ══════════════════════════════════════════
-       SOCIAL PROOF — Cards In The Field
+       ARCHETYPE CARDS — Four Types, One Is Yours
   ══════════════════════════════════════════ -->
   <section id="social-proof" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)">
-    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:16px">// CARDS ALREADY IN THE FIELD //</div>
-    <h2 class="sr" style="font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:8px">Already enrolled.<br>Already classified.</h2>
-    <p class="sr" style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.45);margin-bottom:48px">The first wave received their cards. You're next.</p>
-    <div class="sr" style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;max-width:1000px;margin:0 auto 40px">
-      <div style="flex:1;min-width:180px;max-width:240px;text-align:center">
-        <img src="card-sentinel.png" alt="Sentinel First Contact Card" loading="lazy" style="width:100%;border:1px solid rgba(57,255,20,.2);display:block"/>
-        <div style="margin-top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(57,255,20,.7)">🛡️ SENTINEL · ENROLLED</div>
-      </div>
-      <div style="flex:1;min-width:180px;max-width:240px;text-align:center">
-        <img src="card-diplomat.png" alt="Diplomat First Contact Card" loading="lazy" style="width:100%;border:1px solid rgba(57,255,20,.2);display:block"/>
-        <div style="margin-top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(57,255,20,.7)">🤝 DIPLOMAT · ENROLLED</div>
-      </div>
-      <div style="flex:1;min-width:180px;max-width:240px;text-align:center">
-        <img src="card-scholar.png" alt="Scholar First Contact Card" loading="lazy" style="width:100%;border:1px solid rgba(60,165,250,.2);display:block"/>
-        <div style="margin-top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(60,165,250,.7)">🔬 SCHOLAR · ENROLLED</div>
-      </div>
-      <div style="flex:1;min-width:180px;max-width:240px;text-align:center;position:relative">
-        <div style="position:relative">
-          <img src="card-first-contact.png" alt="First Contact Card — Classified" loading="lazy" style="width:100%;border:1px solid rgba(255,215,0,.2);display:block;filter:brightness(0.35)"/>
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
-            <div style="font-size:20px">🔒</div>
-            <div style="font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:rgba(255,215,0,.8)">CLASSIFIED</div>
-            <div style="font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:rgba(255,215,0,.5)">NEVER UNLOCKED</div>
-          </div>
+    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:16px">// ARCHETYPE CLASSIFICATION — ACTIVE PROFILES //</div>
+    <h2 class="sr" style="font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Four archetypes.<br>One determines everything.</h2>
+    <p class="sr" style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.4);margin-bottom:56px">When it happens, your role is already assigned. Most people won't know theirs.</p>
+
+    <div class="arch-cards-wrap sr">
+
+      <!-- SENTINEL -->
+      <div class="arch-card ac-s">
+        <div class="ac-header">
+          <span class="ac-logo-txt">◉ DISCLOSURE PROTOCOL</span>
+          <span class="ac-serial-txt">DS-2026-08847</span>
         </div>
-        <div style="margin-top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,215,0,.6)">⭐ FIRST CONTACT · NEVER CONFIRMED</div>
+        <span class="ac-icon">🛡️</span>
+        <div class="ac-name" style="color:#EF4444">SENTINEL</div>
+        <div class="ac-role">PRIMARY PROTECTOR</div>
+        <div class="ac-stat"><span class="ac-sl">THREAT READ</span><span class="ac-sv" style="color:#EF4444">ACTIVE</span></div>
+        <div class="ac-stat"><span class="ac-sl">ROLE ONSET</span><span class="ac-sv">IMMEDIATE</span></div>
+        <div class="ac-stat"><span class="ac-sl">SECTOR</span><span class="ac-sv" style="background:rgba(255,255,255,.1);color:transparent;padding:0 8px;font-size:8px">██████</span></div>
+        <div class="ac-bar-wrap">
+          <div class="ac-bar-lbl"><span>READINESS</span><span style="color:#EF4444">84%</span></div>
+          <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:84%;background:#EF4444;box-shadow:0 0 8px rgba(239,68,68,.6)"></div></div>
+        </div>
+        <div class="ac-status-line" style="color:#EF4444;border-color:rgba(239,68,68,.2)">🔴 FIELD DEPLOYMENT: READY</div>
+        <div class="ac-wm">DISCLOSURE PROTOCOL</div>
       </div>
+
+      <!-- DIPLOMAT -->
+      <div class="arch-card ac-d">
+        <div class="ac-header">
+          <span class="ac-logo-txt">◉ DISCLOSURE PROTOCOL</span>
+          <span class="ac-serial-txt">DS-2026-03291</span>
+        </div>
+        <span class="ac-icon">🤝</span>
+        <div class="ac-name" style="color:#39FF14">DIPLOMAT</div>
+        <div class="ac-role">DE-ESCALATION LEAD</div>
+        <div class="ac-stat"><span class="ac-sl">CONTACT IDX</span><span class="ac-sv" style="color:var(--g)">11.4 kHz</span></div>
+        <div class="ac-stat"><span class="ac-sl">LANGUAGE</span><span class="ac-sv">UNIVERSAL</span></div>
+        <div class="ac-stat"><span class="ac-sl">PROTOCOL</span><span class="ac-sv" style="color:var(--g)">ALPHA-7</span></div>
+        <div class="ac-bar-wrap">
+          <div class="ac-bar-lbl"><span>CALM RATING</span><span style="color:var(--g)">96%</span></div>
+          <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:96%;background:var(--g);box-shadow:0 0 8px rgba(57,255,20,.6)"></div></div>
+        </div>
+        <div class="ac-status-line" style="color:var(--g);border-color:rgba(57,255,20,.2)">🟢 FIRST CONTACT: AUTHORIZED</div>
+        <div class="ac-wm">DISCLOSURE PROTOCOL</div>
+      </div>
+
+      <!-- SCHOLAR -->
+      <div class="arch-card ac-sc">
+        <div class="ac-header">
+          <span class="ac-logo-txt">◉ DISCLOSURE PROTOCOL</span>
+          <span class="ac-serial-txt">DS-2026-15503</span>
+        </div>
+        <span class="ac-icon">🔬</span>
+        <div class="ac-name" style="color:#60A5FA">SCHOLAR</div>
+        <div class="ac-role">FIELD ANALYST</div>
+        <div class="ac-stat"><span class="ac-sl">OBS CLASS</span><span class="ac-sv" style="color:#60A5FA">ALPHA</span></div>
+        <div class="ac-stat"><span class="ac-sl">FIELD MODE</span><span class="ac-sv">PASSIVE RECORD</span></div>
+        <div class="ac-stat"><span class="ac-sl">ARCHIVE</span><span class="ac-sv" style="color:#60A5FA">PRIORITY-1</span></div>
+        <div class="ac-bar-wrap">
+          <div class="ac-bar-lbl"><span>DATA INTEGRITY</span><span style="color:#60A5FA">91%</span></div>
+          <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:91%;background:#60A5FA;box-shadow:0 0 8px rgba(96,165,250,.6)"></div></div>
+        </div>
+        <div class="ac-status-line" style="color:#60A5FA;border-color:rgba(96,165,250,.2)">🔵 DOCUMENTATION: ACTIVE</div>
+        <div class="ac-wm">DISCLOSURE PROTOCOL</div>
+      </div>
+
+      <!-- FIRST CONTACT -->
+      <div class="arch-card ac-fc">
+        <div class="ac-header">
+          <span class="ac-logo-txt" style="color:var(--gold);opacity:.5">◉ DISCLOSURE PROTOCOL</span>
+          <span class="ac-serial-txt" style="color:var(--gold)">FC-0000-00001</span>
+        </div>
+        <span class="ac-icon" style="animation:fcPulse 2s infinite">⭐</span>
+        <div class="ac-name" style="color:var(--gold);font-size:12px;letter-spacing:.18em">FIRST CONTACT</div>
+        <div class="ac-role" style="color:rgba(255,215,0,.5)">CLASSIFICATION UNKNOWN</div>
+        <div class="ac-stat"><span class="ac-sl">ARCHETYPE</span><span class="ac-sv" style="background:rgba(255,215,0,.1);color:transparent;padding:0 8px;font-size:8px">████████████</span></div>
+        <div class="ac-stat"><span class="ac-sl">FIELD CONF</span><span class="ac-sv" style="color:var(--gold)">NEVER</span></div>
+        <div class="ac-stat"><span class="ac-sl">CLEARANCE</span><span class="ac-sv" style="background:rgba(255,215,0,.1);color:transparent;padding:0 8px;font-size:8px">████████</span></div>
+        <div class="ac-bar-wrap">
+          <div class="ac-bar-lbl"><span style="color:rgba(255,215,0,.45)">UNLOCK STATUS</span><span style="color:var(--gold)">&lt;0.1%</span></div>
+          <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:0.1%;background:var(--gold);box-shadow:0 0 8px rgba(255,215,0,.8)"></div></div>
+        </div>
+        <div class="ac-status-line" style="color:var(--gold);border-color:rgba(255,215,0,.2)">⭐ NO CONFIRMED FIELD CONTACT</div>
+        <div class="ac-wm" style="color:var(--gold)">DISCLOSURE PROTOCOL</div>
+      </div>
+
     </div>
-    <p class="sr" style="font-family:var(--mono);font-size:12px;letter-spacing:.15em;color:rgba(255,255,255,.35);font-style:italic">// These people don't all believe the same things. They all know their type. //</p>
+
+    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.3);margin-top:44px">// Most people will discover their archetype too late. //</p>
   </section>
 
   <!-- ══════════════════════════════════════════
