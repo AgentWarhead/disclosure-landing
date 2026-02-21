@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <!-- CASE FILE: UAP-CIVILIAN-001 // IF YOU ARE READING THIS, YOU ARE ALREADY BEING MONITORED -->
 <!-- COORDINATES: 37°14'06"N 115°48'40"W -->
+<!-- TRANSMISSION: 01000011 01001001 01010100 01001001 01011010 01000101 01001110 00100000 01000100 01001001 01010000 01001100 01001111 01001101 01000001 01010100 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DISCLOSURE — ARE YOU READY?</title>
-  <meta name="description" content="The government confirmed it. The question is no longer if. The question is whether you'll be ready."/>
-  <meta property="og:title" content="DISCLOSURE — ARE YOU READY?"/>
-  <meta property="og:description" content="The government confirmed it. They gave you one date. They gave you nothing else."/>
+  <title>DISCLOSURE — WHICH ONE ARE YOU?</title>
+  <meta name="description" content="Four types of people will be in the room when it happens. Only one of them will be ready. Discover your archetype."/>
+  <meta property="og:title" content="DISCLOSURE — WHICH ONE ARE YOU?"/>
+  <meta property="og:description" content="Four types of people will be in the room when it happens. Only one of them will be ready."/>
   <meta property="og:image" content="https://getdisclosure.app/og.png"/>
   <meta property="og:url" content="https://getdisclosure.app"/>
   <meta name="twitter:card" content="summary_large_image"/>
@@ -16,13 +17,10 @@
   <meta name="twitter:image" content="https://getdisclosure.app/og.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet"/>
-  <!-- TRANSMISSION: 01000011 01001001 01010100 01001001 01011010 01000101 01001110 00100000 01000100 01001001 01010000 01001100 01001111 01001101 01000001 01010100 -->
-  <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--g:#39FF14;--a:#F59E0B;--r:#EF4444;--mono:'Share Tech Mono',monospace}
+    :root{--g:#39FF14;--a:#F59E0B;--r:#EF4444;--gold:#FFD700;--mono:'Share Tech Mono',monospace}
     html{scroll-behavior:smooth}
     body{background:#000;color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden;cursor:crosshair}
 
@@ -45,127 +43,68 @@
     /* CURSOR */
     .cursor-ring{position:fixed;width:18px;height:18px;border:1px solid rgba(57,255,20,.35);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:all .08s ease;mix-blend-mode:screen}
 
-    /* CRAFT CANVAS */
+    /* CRAFT */
     #craft-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 
-    /* ── BOOT ── */
+    /* BOOT */
     #boot{position:fixed;inset:0;background:#000;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:20px}
     .boot-line{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(57,255,20,0);animation:boot-in .04s forwards}
     @keyframes boot-in{to{color:rgba(57,255,20,.75)}}
     #boot-bar{width:min(300px,80vw);height:1px;background:rgba(57,255,20,.1);margin-top:20px;overflow:hidden}
     #boot-progress{height:100%;background:var(--g);width:0;box-shadow:0 0 8px var(--g);transition:width .04s linear}
-    .b-cursor{display:inline-block;animation:blink .5s step-end infinite}
-    @keyframes blink{50%{opacity:0}}
 
-    /* ── SCROLL REVEAL ── */
+    /* SCROLL REVEAL */
     .sr{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
     .sr.vis{opacity:1;transform:translateY(0)}
 
     main{position:relative;z-index:2}
 
-    /* ── NAV ── */
+    /* NAV */
     .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;background:rgba(0,0,0,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(57,255,20,.06)}
     .nav-logo{font-family:var(--mono);font-size:10px;letter-spacing:.35em;color:var(--g);text-decoration:none}
-    .nav-sig{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.18)}
+    .nav-sig{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.18);transition:color .4s}
     .live-dot{width:5px;height:5px;border-radius:50%;background:var(--g);animation:live 1.8s ease-in-out infinite;flex-shrink:0}
     @keyframes live{0%,100%{box-shadow:0 0 3px var(--g)}50%{box-shadow:0 0 12px var(--g),0 0 24px var(--g)}}
 
-    /* ── HERO ── */
+    /* HERO */
     .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden}
     .hero-orb{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(57,255,20,.025) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);animation:orb 7s ease-in-out infinite;pointer-events:none}
     @keyframes orb{0%,100%{opacity:.3;transform:translate(-50%,-50%) scale(1)}50%{opacity:.65;transform:translate(-50%,-50%) scale(1.1)}}
-
     .hero-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(245,158,11,.85);margin-bottom:24px}
-    .hero-h{font-size:clamp(72px,16vw,200px);font-weight:700;line-height:.9;letter-spacing:-.03em;margin-bottom:20px;position:relative}
-
-    /* Glitch */
+    .hero-intercept{font-family:var(--mono);font-size:clamp(10px,1.3vw,13px);letter-spacing:.4em;color:rgba(57,255,20,.55);margin-bottom:28px;text-transform:uppercase}
+    .hero-h{font-size:clamp(72px,16vw,200px);font-weight:700;line-height:.9;letter-spacing:-.03em;margin-bottom:24px;position:relative}
     .glitch{position:relative;display:inline-block;color:#fff}
     .glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%}
     .glitch::before{color:rgba(57,255,20,.65);animation:ga 5s infinite;clip-path:polygon(0 0,100% 0,100% 40%,0 40%)}
     .glitch::after{color:rgba(239,68,68,.55);animation:gb 5s infinite;clip-path:polygon(0 60%,100% 60%,100% 100%,0 100%)}
     @keyframes ga{0%,90%,100%{transform:none;opacity:0}91%{transform:translateX(-4px);opacity:1}93%{transform:translateX(4px) skewX(3deg);opacity:.8}95%{transform:none;opacity:0}}
     @keyframes gb{0%,93%,100%{transform:none;opacity:0}94%{transform:translateX(4px);opacity:.9}96%{transform:translateX(-3px) skewX(-2deg);opacity:.7}98%{transform:none;opacity:0}}
-
-    /* Change 8: screenshottable sub-line */
-    .hero-intercept{font-family:var(--mono);font-size:clamp(10px,1.3vw,13px);letter-spacing:.4em;color:rgba(57,255,20,.55);margin-bottom:28px;text-transform:uppercase}
-
-    .hero-l1,.hero-l2{font-size:clamp(20px,3.2vw,36px);font-weight:600;color:rgba(255,255,255,.82);letter-spacing:.04em;margin-bottom:8px}
-    /* Change 4: personal hook */
-    .hero-l3{font-size:clamp(22px,3.5vw,38px);font-weight:700;color:#fff;letter-spacing:.02em;margin-bottom:8px}
-    .hero-l3 em{font-style:normal;color:var(--g)}
-    .hero-l4{font-size:clamp(18px,2.5vw,26px);font-weight:600;color:rgba(255,255,255,.72);letter-spacing:.03em;margin-bottom:44px}
-    .hero-l4 em{font-style:normal;color:var(--g)}
-
+    .hero-identity{font-size:clamp(22px,3.5vw,42px);font-weight:700;color:#fff;letter-spacing:-.01em;margin-bottom:12px;line-height:1.1}
+    .hero-sub{font-size:clamp(16px,2.2vw,24px);font-weight:500;color:rgba(255,255,255,.65);max-width:560px;margin:0 auto 40px;line-height:1.7}
+    .hero-sub em{font-style:normal;color:var(--g)}
     .cta-btn{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.3em;color:#000;background:var(--g);padding:16px 40px;text-decoration:none;cursor:pointer;border:none;position:relative;overflow:hidden;transition:box-shadow .2s}
     .cta-btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-100%);transition:transform .2s}
     .cta-btn:hover::before{transform:translateX(0)}
     .cta-btn:hover{box-shadow:0 0 32px rgba(57,255,20,.6),0 0 64px rgba(57,255,20,.25)}
-
-    /* Change 9: live counter */
     .hero-counter{display:flex;align-items:center;gap:10px;margin-top:28px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.55);flex-wrap:wrap;justify-content:center}
     .hc-num{color:rgba(57,255,20,.95)}
     .hc-live{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(57,255,20,.85);border:1px solid rgba(57,255,20,.3);padding:3px 10px}
     .hc-sep{color:rgba(255,255,255,.2)}
 
-    /* ── ARCHETYPE STRIP ── */
-    #archetype-strip{padding:60px 24px;background:#000;text-align:center;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
-    .as-hdr{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(57,255,20,.65);margin-bottom:32px}
-    .as-grid{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;max-width:900px;margin:0 auto}
-    .as-item{text-align:center}
-    .as-label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.4);display:block;margin-bottom:8px}
-    .as-val{font-family:var(--mono);font-size:24px;color:var(--g);font-weight:700}
-    .as-item.mythic .as-val{color:var(--a);animation:fcPulse 2s infinite}
-    .as-mythic-note{font-family:var(--mono);font-size:8px;letter-spacing:.3em;color:var(--a);display:block;margin-top:4px}
-    @keyframes fcPulse{0%,100%{opacity:.8}50%{opacity:1;text-shadow:0 0 12px var(--a)}}
-    .as-footer{font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:var(--a);font-style:italic;margin-top:32px}
+    /* ARCHETYPE STRIP */
+    #archetype-strip{padding:60px 24px;background:rgba(255,255,255,.015);text-align:center;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+    .as-hdr{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(57,255,20,.65);margin-bottom:36px}
+    .as-grid{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;max-width:900px;margin:0 auto}
+    .as-item{text-align:center;min-width:120px}
+    .as-icon{font-size:28px;display:block;margin-bottom:10px}
+    .as-label{font-family:var(--mono);font-size:10px;letter-spacing:.25em;color:rgba(255,255,255,.45);display:block;margin-bottom:6px;text-transform:uppercase}
+    .as-pct{font-family:var(--mono);font-size:32px;color:var(--g);font-weight:700;display:block;line-height:1}
+    .as-item.mythic .as-pct{color:var(--gold);animation:fcPulse 2.5s infinite}
+    .as-mythic-note{font-family:var(--mono);font-size:8px;letter-spacing:.3em;color:var(--gold);display:block;margin-top:6px;opacity:.8}
+    @keyframes fcPulse{0%,100%{opacity:.7}50%{opacity:1;text-shadow:0 0 16px var(--gold)}}
+    .as-footer{font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:rgba(245,158,11,.7);font-style:italic;margin-top:32px}
 
-    /* ── LIAISON MAP ── */
-    #liaison-map{padding:80px 24px;text-align:center;position:relative}
-    .map-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(57,255,20,.65);margin-bottom:16px}
-    .map-h{font-size:clamp(32px,5vw,60px);font-weight:700;margin-bottom:48px;letter-spacing:-.02em}
-    .map-svg-wrap{width:100%;max-width:800px;margin:0 auto;position:relative;background:#000;border:1px solid rgba(255,255,255,.05);padding:20px}
-    .map-dot{fill:var(--g);opacity:.8}
-    .map-dot.pulse{animation:mapPulse 2.5s infinite}
-    @keyframes mapPulse{0%{r:3;opacity:.8}50%{r:6;opacity:.4}100%{r:3;opacity:.8}}
-    .map-overlay-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--mono);font-size:13px;letter-spacing:.4em;color:var(--g);pointer-events:none;background:rgba(0,0,0,.6);padding:8px 16px;border:1px solid rgba(57,255,20,.2);backdrop-filter:blur(4px)}
-    .map-footer{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.45);margin-top:24px}
-
-    /* ── CARD PREVIEW ── */
-    #card-preview{padding:100px 24px;text-align:center}
-    .fcc-preview-h{font-size:clamp(32px,5vw,60px);font-weight:700;margin-bottom:48px;letter-spacing:-.02em}
-    .fcc-card{background:#050a05;border:1px solid rgba(57,255,20,.3);box-shadow:0 0 40px rgba(57,255,20,.08),inset 0 0 40px rgba(57,255,20,.02);padding:32px;max-width:360px;margin:0 auto;text-align:left;font-family:var(--mono);position:relative;overflow:hidden}
-    .fcc-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(57,255,20,.03) 1px,rgba(57,255,20,.03) 2px);pointer-events:none}
-    .fcc-logo{color:var(--g);font-size:9px;letter-spacing:.3em;margin-bottom:12px;display:block}
-    .fcc-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:16px;display:block;border-bottom:1px solid rgba(57,255,20,.2);padding-bottom:12px}
-    .fcc-row{display:flex;justify-content:space-between;margin-bottom:10px;font-size:12px}
-    .fcc-label{color:rgba(255,255,255,.4);letter-spacing:.1em}
-    .fcc-val{color:rgba(255,255,255,.8)}
-    .fcc-val.redacted{background:var(--a);color:#000;padding:0 6px}
-    .fcc-val.amber{color:var(--a)}
-    .fcc-val.green{color:var(--g)}
-    .fcc-creed{color:rgba(239,68,68,.5);margin-top:16px;font-size:11px}
-    .fcc-wallet{margin-top:24px;font-size:9px;color:rgba(255,255,255,.2);text-align:center;letter-spacing:.2em;border-top:1px solid rgba(255,255,255,.05);padding-top:16px}
-    .fcc-caption{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:rgba(255,255,255,.4);margin-top:24px;max-width:400px;margin-left:auto;margin-right:auto}
-
-    /* ── TEASER STRIP ── */
-    #feature-teaser{padding:100px 24px;text-align:center}
-    .ft-hdr{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:48px}
-    .ft-grid{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;max-width:1000px;margin:0 auto}
-    .ft-card{flex:1;min-width:280px;background:#0d0d0d;border:1px solid rgba(57,255,20,.12);padding:32px;text-align:left;position:relative;overflow:hidden;transition:all .3s ease}
-    .ft-card:hover{border-color:rgba(57,255,20,.4);box-shadow:0 0 32px rgba(57,255,20,.1)}
-    .ft-icon{font-size:24px;margin-bottom:20px;display:block}
-    .ft-t{font-size:18px;font-weight:700;letter-spacing:.05em;margin-bottom:12px}
-    .ft-d{font-family:var(--mono);font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:24px;position:relative}
-    .ft-blur{position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(transparent, #0d0d0d);backdrop-filter:blur(2px);pointer-events:none}
-    .ft-status{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:var(--a);border:1px solid var(--a);padding:4px 10px}
-
-    /* Quiz Transitions */
-    .q-step.slide-out{animation:slideOutLeft 0.2s forwards}
-    .q-step.slide-in{display:block;animation:slideInRight 0.25s forwards}
-    @keyframes slideOutLeft{from{transform:translateX(0);opacity:1}to{transform:translateX(-60px);opacity:0}}
-    @keyframes slideInRight{from{transform:translateX(60px);opacity:0}to{transform:translateX(0);opacity:1}}
-
-    /* ── MOMENT ── */
+    /* MOMENT */
     .moment{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;position:relative}
     .moment-date{font-family:var(--mono);font-size:12px;letter-spacing:.45em;color:rgba(245,158,11,.8);margin-bottom:40px}
     .moment-h{font-size:clamp(40px,7.5vw,90px);font-weight:700;line-height:1.05;letter-spacing:-.02em;margin-bottom:44px}
@@ -173,25 +112,24 @@
     .moment-body{font-size:clamp(17px,2.2vw,23px);font-weight:500;color:rgba(255,255,255,.75);line-height:1.85;max-width:540px;margin:0 auto 44px}
     .moment-body strong{color:#fff;font-weight:700}
     .moment-line{width:1px;height:56px;background:linear-gradient(to bottom,rgba(57,255,20,.4),transparent);margin:0 auto 44px}
-    /* Change 5: "one date" gut punch */
     .moment-punch{font-size:clamp(16px,2.4vw,24px);color:rgba(255,255,255,.75);max-width:480px;margin:0 auto;line-height:2;font-family:var(--mono);letter-spacing:.08em}
     .moment-punch strong{color:#fff;font-weight:700;display:block;font-size:clamp(20px,3vw,32px);margin:10px 0}
     .moment-punch em{font-style:normal;color:var(--g)}
 
-    /* ── RULES ── */
+    /* RULES */
     .rules{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px;position:relative;overflow:hidden}
     .rules-bg{position:absolute;font-family:var(--mono);font-size:clamp(80px,18vw,220px);font-weight:700;color:rgba(57,255,20,.018);pointer-events:none;white-space:nowrap;user-select:none;letter-spacing:-.05em}
     .rules-hdr{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:56px;text-align:center}
     .rules-inner{width:100%;max-width:620px}
-
     .rule-row{display:flex;align-items:baseline;gap:24px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.07)}
     .rule-n{font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:rgba(57,255,20,.7);flex-shrink:0;width:36px}
-    .rule-t{font-size:clamp(26px,4.8vw,56px);font-weight:700;letter-spacing:-.01em;color:#fff;line-height:1.05}
-    /* Change 2: alarming rule 04 */
+    .rule-t{font-size:clamp(20px,3.8vw,48px);font-weight:700;letter-spacing:-.01em;color:#fff;line-height:1.05}
+    .rule-sub{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,.45);margin-top:6px;line-height:1.7;display:block}
+    .rule-row.rule-zero{border-bottom:1px solid rgba(57,255,20,.25);margin-bottom:4px}
+    .rule-row.rule-zero .rule-n{color:var(--g)}
+    .rule-row.rule-zero .rule-t{color:var(--g);font-size:clamp(18px,3.2vw,40px)}
     .rule-row.alarm .rule-t{color:var(--g)}
     .rule-row.alarm .rule-n{color:rgba(57,255,20,.8)}
-
-    /* Change 3: partially redacted rule 07 */
     .rule-partial{padding:24px 0 0;border-top:1px solid rgba(245,158,11,.15);margin-top:8px}
     .rule-partial .rule-n{color:rgba(245,158,11,.8)}
     .rule-partial-text{font-family:var(--mono);font-size:clamp(12px,1.5vw,15px);letter-spacing:.08em;color:rgba(255,255,255,.75);line-height:2.2;max-width:580px}
@@ -199,55 +137,119 @@
     .rx:hover{background:rgba(245,158,11,.3);color:rgba(245,158,11,.9)}
     .rx::after{content:'REDACTED';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:8px;letter-spacing:.2em;color:rgba(255,255,255,.35);pointer-events:none}
     .rx:hover::after{content:'CLASSIFIED'}
-
     .rule-count{margin-top:32px;font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:rgba(245,158,11,.8);text-align:center}
 
-    /* ── QUIZ ── */
-    .quiz{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px;position:relative}
+    /* CARD PREVIEW SECTION */
+    #card-preview{padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
+    .cp-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:16px}
+    .cp-h{font-size:clamp(28px,5vw,60px);font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+    .cp-sub{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.45);margin-bottom:48px}
+    .fcc-card{background:#050a05;border:1px solid rgba(57,255,20,.3);box-shadow:0 0 40px rgba(57,255,20,.08),inset 0 0 40px rgba(57,255,20,.02);padding:32px;max-width:360px;margin:0 auto;text-align:left;font-family:var(--mono);position:relative;overflow:hidden}
+    .fcc-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(57,255,20,.03) 1px,rgba(57,255,20,.03) 2px);pointer-events:none}
+    .fcc-card.fc-gold{border-color:rgba(255,215,0,.5);box-shadow:0 0 60px rgba(255,215,0,.15),inset 0 0 40px rgba(255,215,0,.04);background:#080700;animation:fcShimmer 3s ease-in-out infinite}
+    @keyframes fcShimmer{0%,100%{box-shadow:0 0 60px rgba(255,215,0,.15),inset 0 0 40px rgba(255,215,0,.04)}50%{box-shadow:0 0 100px rgba(255,215,0,.3),inset 0 0 60px rgba(255,215,0,.08)}}
+    .fcc-logo{color:var(--g);font-size:9px;letter-spacing:.3em;margin-bottom:12px;display:block}
+    .fcc-card.fc-gold .fcc-logo{color:var(--gold)}
+    .fcc-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:16px;display:block;border-bottom:1px solid rgba(57,255,20,.2);padding-bottom:12px}
+    .fcc-card.fc-gold .fcc-title{border-color:rgba(255,215,0,.2)}
+    .fcc-row{display:flex;justify-content:space-between;margin-bottom:10px;font-size:12px}
+    .fcc-label{color:rgba(255,255,255,.4);letter-spacing:.1em}
+    .fcc-val{color:rgba(255,255,255,.8)}
+    .fcc-val.redacted{background:rgba(255,255,255,.12);color:rgba(255,255,255,.1);padding:0 6px}
+    .fcc-val.amber{color:var(--a)}
+    .fcc-val.green{color:var(--g)}
+    .fcc-val.gold{color:var(--gold)}
+    .fcc-watermark{position:absolute;bottom:12px;right:14px;font-size:8px;letter-spacing:.3em;color:rgba(57,255,20,.06);transform:rotate(-15deg);pointer-events:none;user-select:none}
+    .fcc-card.fc-gold .fcc-watermark{color:rgba(255,215,0,.08)}
+    .fcc-wallet{margin-top:24px;font-size:9px;color:rgba(255,255,255,.2);text-align:center;letter-spacing:.2em;border-top:1px solid rgba(255,255,255,.05);padding-top:16px}
+    .fcc-caption{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:rgba(255,255,255,.35);margin-top:28px;max-width:360px;margin-left:auto;margin-right:auto}
+
+    /* QUIZ */
+    .quiz{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px;position:relative;border-top:1px solid rgba(255,255,255,.04)}
     .quiz-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.75);margin-bottom:40px;text-align:center}
     .quiz-h{font-size:clamp(30px,5vw,60px);font-weight:700;line-height:1.1;letter-spacing:-.02em;text-align:center;margin-bottom:48px}
     .quiz-h em{font-style:normal;color:var(--g)}
-
-    .quiz-card{width:100%;max-width:580px;margin:0 auto}
+    .quiz-progress{width:100%;max-width:580px;margin:0 auto 32px;height:2px;background:rgba(255,255,255,.08)}
+    .quiz-progress-bar{height:100%;background:var(--g);transition:width .3s ease;box-shadow:0 0 8px var(--g)}
+    .quiz-card{width:100%;max-width:580px;margin:0 auto;overflow:hidden;position:relative}
     .q-step{display:none}
     .q-step.active{display:block}
-
+    .q-step.slide-out{animation:slideOutLeft .2s forwards}
+    .q-step.slide-in{display:block!important;animation:slideInRight .25s forwards}
+    @keyframes slideOutLeft{from{transform:translateX(0);opacity:1}to{transform:translateX(-60px);opacity:0}}
+    @keyframes slideInRight{from{transform:translateX(60px);opacity:0}to{transform:translateX(0);opacity:1}}
     .q-num{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(255,255,255,.5);margin-bottom:16px}
-    .q-text{font-size:clamp(22px,3.2vw,36px);font-weight:700;color:#fff;line-height:1.3;margin-bottom:32px;letter-spacing:-.01em}
-
+    .q-text{font-size:clamp(20px,3.2vw,34px);font-weight:700;color:#fff;line-height:1.3;margin-bottom:32px;letter-spacing:-.01em}
     .q-opts{display:flex;flex-direction:column;gap:10px}
-    .q-opt{font-family:var(--mono);font-size:13px;letter-spacing:.12em;color:rgba(255,255,255,.8);background:transparent;border:1px solid rgba(255,255,255,.18);padding:18px 22px;cursor:pointer;text-align:left;transition:all .15s;position:relative;overflow:hidden}
+    .q-opt{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.8);background:transparent;border:1px solid rgba(255,255,255,.18);padding:18px 22px;cursor:pointer;text-align:left;transition:all .15s;position:relative;overflow:hidden}
     .q-opt::before{content:'';position:absolute;inset:0;background:rgba(57,255,20,.06);transform:translateX(-100%);transition:transform .2s}
     .q-opt:hover{border-color:rgba(57,255,20,.5);color:#fff}
     .q-opt:hover::before{transform:translateX(0)}
 
-    /* Score reveal */
+    /* ARCHETYPE RESULT */
     .quiz-result{display:none;text-align:center}
-    .qr-condition{font-family:var(--mono);font-size:11px;letter-spacing:.45em;margin-bottom:16px;padding:6px 16px;display:inline-block;border:1px solid}
-    .qr-condition.red{color:rgba(239,68,68,.8);border-color:rgba(239,68,68,.25)}
-    .qr-condition.orange{color:rgba(245,158,11,.8);border-color:rgba(245,158,11,.25)}
-    .qr-condition.yellow{color:rgba(57,255,20,.8);border-color:rgba(57,255,20,.25)}
-    .qr-score-wrap{margin:16px 0 24px;position:relative;display:inline-block}
-    .qr-score{font-size:clamp(72px,16vw,140px);font-weight:700;line-height:1;letter-spacing:-.04em}
-    .qr-score-suffix{font-family:var(--mono);font-size:20px;color:rgba(255,255,255,.6);vertical-align:super;letter-spacing:.1em}
-    .qr-label{font-size:clamp(17px,2.5vw,24px);font-weight:600;color:rgba(255,255,255,.88);max-width:440px;margin:0 auto 32px;line-height:1.55}
+    .qr-reveal-wrap{margin-bottom:28px}
+    .qr-archetype-icon{font-size:64px;display:block;margin-bottom:12px;animation:iconReveal .6s ease-out}
+    @keyframes iconReveal{from{transform:scale(0) rotate(-20deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+    .qr-archetype-label{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(255,255,255,.5);margin-bottom:8px;display:block}
+    .qr-archetype-name{font-size:clamp(40px,8vw,80px);font-weight:700;letter-spacing:-.03em;line-height:1}
+    .qr-archetype-name.sentinel{color:var(--r)}
+    .qr-archetype-name.diplomat{color:var(--g)}
+    .qr-archetype-name.scholar{color:#60A5FA}
+    .qr-archetype-name.first-contact{color:var(--gold);animation:fcPulse 2s infinite;text-shadow:0 0 40px rgba(255,215,0,.3)}
+    .qr-pct{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:rgba(255,255,255,.4);margin-top:8px;display:block}
+    .qr-pct.fc-pct{color:var(--gold)}
+    .qr-desc{font-size:clamp(15px,2vw,20px);font-weight:500;color:rgba(255,255,255,.7);max-width:440px;margin:20px auto 32px;line-height:1.7}
     .qr-cta-wrap{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
     .qr-cta{font-family:var(--mono);font-size:12px;letter-spacing:.2em;padding:15px 30px;cursor:pointer;border:none;transition:all .15s}
     .qr-cta.primary{background:var(--g);color:#000;font-weight:700}
     .qr-cta.primary:hover{box-shadow:0 0 28px rgba(57,255,20,.6)}
+    .qr-cta.fc-primary{background:var(--gold);color:#000}
+    .qr-cta.fc-primary:hover{box-shadow:0 0 28px rgba(255,215,0,.6)}
     .qr-cta.secondary{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.25)}
     .qr-cta.secondary:hover{border-color:rgba(57,255,20,.5);color:var(--g)}
-    .qr-share-note{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.45);margin-top:16px}
 
-    /* ── ACCESS GATE ── */
-    .gate{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;position:relative}
+    /* FEATURE TEASER */
+    #feature-teaser{padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
+    .ft-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:16px}
+    .ft-h{font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:48px}
+    .ft-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:960px;margin:0 auto}
+    .ft-tile{background:#0a0a0a;border:1px solid rgba(255,255,255,.08);padding:28px 24px;text-align:left;position:relative;overflow:hidden}
+    .ft-tile.unlocked{border-color:rgba(57,255,20,.2)}
+    .ft-tile-icon{font-size:22px;display:block;margin-bottom:14px}
+    .ft-tile-name{font-family:var(--mono);font-size:12px;letter-spacing:.15em;color:rgba(255,255,255,.9);margin-bottom:8px;display:block}
+    .ft-tile-name .rx2{background:rgba(255,255,255,.1);color:transparent;padding:0 4px;border-radius:2px;font-size:10px}
+    .ft-tile-status{font-family:var(--mono);font-size:9px;letter-spacing:.3em}
+    .ft-tile-status.live{color:var(--g)}
+    .ft-tile-status.locked{color:var(--r)}
+    .ft-locked-overlay{position:absolute;inset:0;background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+    .ft-locked-overlay .lock-icon{font-size:20px;opacity:.6}
+    .ft-locked-overlay .lock-label{font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:rgba(239,68,68,.7)}
+
+    /* LIAISON MAP */
+    #liaison-map{padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
+    .lm-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:16px}
+    .lm-h{font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
+    .lm-count{font-family:var(--mono);font-size:13px;letter-spacing:.2em;color:var(--g);margin-bottom:40px}
+    .lm-map{max-width:800px;margin:0 auto;position:relative;background:rgba(255,255,255,.012);border:1px solid rgba(57,255,20,.08);overflow:hidden}
+    .lm-map svg{width:100%;height:auto;display:block}
+    .lm-dot{fill:var(--g)}
+    .lm-dot.pulse-slow{animation:mapPulse 3s infinite}
+    .lm-dot.pulse-med{animation:mapPulse 2.2s infinite .5s}
+    .lm-dot.pulse-fast{animation:mapPulse 1.6s infinite .2s}
+    @keyframes mapPulse{0%,100%{opacity:.7;r:3}50%{opacity:.3;r:5.5}}
+    .lm-sector{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.5);margin-top:24px}
+    .lm-sector span{color:var(--g)}
+
+    /* GATE */
+    .gate{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;position:relative;border-top:1px solid rgba(255,255,255,.04)}
     .gate::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center bottom,rgba(57,255,20,.04) 0%,transparent 60%);pointer-events:none}
     .gate-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.75);margin-bottom:32px}
     .gate-h{font-size:clamp(34px,6vw,78px);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px}
     .gate-h em{font-style:normal;color:var(--g)}
     .gate-sub{font-size:clamp(17px,2.2vw,22px);color:rgba(255,255,255,.78);max-width:460px;margin:0 auto 44px;line-height:1.75;font-weight:500}
     .gate-sub strong{color:#fff;font-weight:700}
-
+    .gate-archetype-hint{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(57,255,20,.6);margin-bottom:24px}
     .gate-form-wrap{width:100%;max-width:480px;margin:0 auto}
     .gate-form{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
     .gate-input{flex:1;min-width:220px;background:rgba(255,255,255,.04);border:1px solid rgba(57,255,20,.15);color:#fff;font-family:var(--mono);font-size:12px;letter-spacing:.15em;padding:15px 18px;outline:none;transition:border .15s}
@@ -257,15 +259,22 @@
     .gate-submit:hover{box-shadow:0 0 28px rgba(57,255,20,.6)}
     .gate-note{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:rgba(255,255,255,.45)}
 
-    /* Change 7: meaningful after-signup moment */
-    .gate-success{display:none;text-align:left;border:1px solid rgba(57,255,20,.2);background:rgba(57,255,20,.03);padding:24px 28px}
-    .gs-t{font-family:var(--mono);font-size:14px;letter-spacing:.3em;color:var(--g);margin-bottom:6px;font-weight:700}
-    .gs-num{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:rgba(57,255,20,.8);margin-bottom:16px}
-    .gs-rule{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:rgba(255,255,255,.78);line-height:1.9;border-top:1px solid rgba(57,255,20,.12);padding-top:16px;margin-top:4px}
-    .gs-rule strong{color:rgba(245,158,11,.95);display:block;font-size:11px;letter-spacing:.28em;margin-bottom:8px}
-    .gs-rule em{font-style:normal;color:rgba(255,255,255,.5)}
+    /* POST-SIGNUP CARD */
+    .gate-success{display:none;text-align:left}
+    .gs-cleared{font-family:var(--mono);font-size:14px;letter-spacing:.3em;color:var(--g);margin-bottom:6px;font-weight:700;text-align:center}
+    .gs-cleared.fc-cleared{color:var(--gold)}
+    .gs-num{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:rgba(57,255,20,.8);margin-bottom:24px;text-align:center;display:block}
+    .gs-num.fc-num{color:rgba(255,215,0,.8)}
+    .gs-share-wrap{margin-top:24px;text-align:center}
+    .gs-share-text{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.6);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:14px 18px;display:block;margin-bottom:12px;line-height:1.8;text-align:left;cursor:pointer;transition:border .15s}
+    .gs-share-text:hover{border-color:rgba(57,255,20,.3)}
+    .gs-share-label{font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:rgba(57,255,20,.6);display:block;margin-bottom:8px}
+    .gs-share-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+    .gs-share-btn{font-family:var(--mono);font-size:10px;letter-spacing:.2em;padding:10px 20px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);cursor:pointer;background:transparent;transition:all .15s;text-decoration:none;display:inline-block}
+    .gs-share-btn:hover{border-color:rgba(57,255,20,.5);color:var(--g)}
+    .gs-copied{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(57,255,20,.8);margin-top:8px;opacity:0;transition:opacity .3s;text-align:center;display:block}
 
-    /* Change 9: live stats */
+    /* STATS */
     .gate-stats{display:flex;gap:24px;margin-top:40px;justify-content:center;flex-wrap:wrap}
     .gst{text-align:center}
     .gst-n{font-family:var(--mono);font-size:28px;color:var(--g);display:block;line-height:1}
@@ -273,39 +282,57 @@
     .gst-live{font-family:var(--mono);font-size:10px;color:rgba(57,255,20,.8);display:block;margin-top:3px}
     .gst-sep{color:rgba(255,255,255,.2);font-size:28px;line-height:1}
 
-    /* ── SHARE ── */
+    /* SHARE */
     .share{padding:80px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
     .share-pre{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(255,255,255,.45);margin-bottom:28px}
     .share-h{font-size:clamp(24px,4vw,48px);font-weight:700;color:rgba(255,255,255,.9);margin-bottom:8px}
     .share-h em{font-style:normal;color:#fff}
-    /* Change 6: pre-written forward text */
-    .share-sub{font-size:clamp(15px,2vw,20px);color:rgba(255,255,255,.65);margin-bottom:16px;font-weight:500}
+    .share-sub{font-size:clamp(15px,2vw,20px);color:rgba(255,255,255,.65);margin-bottom:20px;font-weight:500}
     .share-forward{font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:rgba(255,255,255,.8);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.15);padding:20px 24px;max-width:520px;margin:0 auto 28px;line-height:1.8;cursor:pointer;transition:border .15s;text-align:left}
     .share-forward:hover{border-color:rgba(57,255,20,.4);color:#fff}
     .share-forward-label{font-size:9px;letter-spacing:.3em;color:rgba(57,255,20,.6);margin-bottom:10px;display:block}
     .share-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-    .share-btn{font-family:var(--mono);font-size:11px;letter-spacing:.2em;padding:13px 24px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.72);cursor:pointer;background:transparent;transition:all .15s}
+    .share-btn{font-family:var(--mono);font-size:11px;letter-spacing:.2em;padding:13px 24px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.72);cursor:pointer;background:transparent;transition:all .15s;text-decoration:none;display:inline-block}
     .share-btn:hover{border-color:rgba(57,255,20,.5);color:var(--g)}
     #copy-confirm,#fwd-confirm{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(57,255,20,.8);margin-top:12px;opacity:0;transition:opacity .3s;text-align:center}
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer{padding:24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
     .ft-t{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.35)}
     .ft-b{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:rgba(255,255,255,.05);cursor:pointer;margin-top:8px;transition:color .3s}
     .ft-b:hover{color:rgba(57,255,20,.5)}
 
-    /* ── ALERT ── */
+    /* FLAGGED OVERLAY */
+    #flagged-overlay{position:fixed;inset:0;background:rgba(0,30,0,.97);z-index:99999;display:none;align-items:center;justify-content:center;flex-direction:column;gap:24px}
+    #flagged-overlay.show{display:flex;animation:flaggedFlash .1s ease}
+    @keyframes flaggedFlash{from{opacity:0}to{opacity:1}}
+    .flagged-text{font-family:var(--mono);font-size:clamp(24px,6vw,64px);letter-spacing:.4em;color:var(--g);text-shadow:0 0 40px var(--g),0 0 80px var(--g);animation:flaggedPulse .4s ease-in-out infinite alternate}
+    .flagged-sub{font-family:var(--mono);font-size:12px;letter-spacing:.4em;color:rgba(57,255,20,.5)}
+    @keyframes flaggedPulse{from{opacity:.8}to{opacity:1}}
+
+    /* ALERT */
     #alert-pop{position:fixed;bottom:24px;right:24px;width:272px;background:rgba(0,0,0,.95);border:1px solid rgba(239,68,68,.22);padding:16px 20px;z-index:5000;transform:translateY(120px);opacity:0;transition:all .4s;font-family:var(--mono)}
     #alert-pop.show{transform:translateY(0);opacity:1}
     .ap-tag{font-size:10px;letter-spacing:.3em;color:rgba(239,68,68,.9);margin-bottom:8px;font-weight:700}
     .ap-body{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.8);line-height:1.65}
     .ap-close{position:absolute;top:10px;right:12px;color:rgba(255,255,255,.25);cursor:pointer;font-size:12px}
+
+    @media(max-width:600px){
+      .as-grid{gap:20px}
+      .ft-grid{grid-template-columns:1fr 1fr}
+    }
   </style>
 </head>
 <body>
 
 <div class="cursor-ring" id="cursor"></div>
 <div id="stars"></div>
+
+<!-- FLAGGED OVERLAY -->
+<div id="flagged-overlay">
+  <div class="flagged-text">YOU HAVE BEEN FLAGGED.</div>
+  <div class="flagged-sub">IDENTITY CONFIRMED · RECORD CREATED</div>
+</div>
 
 <!-- BOOT -->
 <div id="boot">
@@ -316,32 +343,28 @@
 <main>
   <nav class="nav">
     <a href="/" class="nav-logo">DISCLOSURE</a>
-    <div class="nav-sig"><div class="live-dot"></div><span>SIGNAL ACQUIRED</span></div>
+    <div class="nav-sig" id="nav-sig"><div class="live-dot"></div><span id="nav-status-text">SIGNAL ACQUIRED · DISCLOSURE PROTOCOL ACTIVE</span></div>
   </nav>
 
   <!-- ══════════════════════════════════════════
-       HERO
+       HERO — Change 2: Identity Hook
   ══════════════════════════════════════════ -->
   <section class="hero">
     <canvas id="craft-canvas" aria-hidden="true"></canvas>
     <div class="hero-orb"></div>
 
     <div class="hero-kicker sr">CASE FILE: UAP-CIVILIAN-001 // DECLASSIFIED</div>
-
-    <!-- Change 8 -->
     <p class="hero-intercept sr">// IF YOU ARE READING THIS, SOMETHING FOUND YOU FIRST //</p>
 
     <h1 class="hero-h sr">
       <span class="glitch" data-text="DISCLOSURE">DISCLOSURE</span>
     </h1>
 
-    <p class="hero-l1 sr">When it happens, the world splits into four types of people.</p>
-    <p class="hero-l2 sr">Sentinels. Diplomats. Scholars. And the First Contact.</p>
-    <p class="hero-l3 sr"><em>Which one are you?</em></p>
+    <h2 class="hero-identity sr">Which one are you?</h2>
+    <p class="hero-sub sr">Four types of people will be in the room when it happens.<br><em>Only one of them will be ready.</em></p>
 
     <a href="#quiz" class="cta-btn sr">DISCOVER YOUR ARCHETYPE →</a>
 
-    <!-- Change 9: live counter -->
     <div class="hero-counter sr">
       <div class="live-dot" style="width:4px;height:4px"></div>
       <span class="hc-num" id="hero-count">—</span>
@@ -355,25 +378,48 @@
   </section>
 
   <!-- ══════════════════════════════════════════
+       ARCHETYPE STRIP — Change 3
+  ══════════════════════════════════════════ -->
+  <section id="archetype-strip">
+    <div class="as-hdr sr">// GLOBAL ARCHETYPE DISTRIBUTION · ACTIVE ENROLLEES //</div>
+    <div class="as-grid sr">
+      <div class="as-item">
+        <span class="as-icon">🛡️</span>
+        <span class="as-label">Sentinel</span>
+        <span class="as-pct">34%</span>
+      </div>
+      <div class="as-item">
+        <span class="as-icon">🤝</span>
+        <span class="as-label">Diplomat</span>
+        <span class="as-pct">41%</span>
+      </div>
+      <div class="as-item">
+        <span class="as-icon">🔬</span>
+        <span class="as-label">Scholar</span>
+        <span class="as-pct">23%</span>
+      </div>
+      <div class="as-item mythic">
+        <span class="as-icon">⭐</span>
+        <span class="as-label">First Contact</span>
+        <span class="as-pct">&lt;0.1%</span>
+        <span class="as-mythic-note">NEVER BEEN UNLOCKED</span>
+      </div>
+    </div>
+    <p class="as-footer sr">// Most people don't know which one they are. That's the problem. //</p>
+  </section>
+
+  <!-- ══════════════════════════════════════════
        THE MOMENT
   ══════════════════════════════════════════ -->
   <section class="moment">
     <div class="moment-date sr">30 SEPTEMBER 2025 — WASHINGTON D.C.</div>
-
-    <h2 class="moment-h sr">
-      The government<br>
-      <em>confirmed it.</em>
-    </h2>
-
+    <h2 class="moment-h sr">The government<br><em>confirmed it.</em></h2>
     <p class="moment-body sr">
       Intelligence officials testified <strong>under oath.</strong><br>
       Over 40 witnesses signed NDAs.<br>
       A task force was formed. Then <strong>went silent.</strong>
     </p>
-
     <div class="moment-line sr"></div>
-
-    <!-- Change 5 -->
     <div class="moment-punch sr">
       They gave you one date.<br>
       <strong>September 30, 2025.</strong>
@@ -382,32 +428,48 @@
   </section>
 
   <!-- ══════════════════════════════════════════
-       THE RULES
+       THE RULES — Change 4: Rule 00
   ══════════════════════════════════════════ -->
   <section class="rules">
     <div class="rules-bg" aria-hidden="true">RULES</div>
     <div class="rules-hdr sr">// BRIEFING EXCERPT · RULE SET ALPHA //</div>
-
     <div class="rules-inner">
+
+      <!-- Rule 00 — THE archetype rule -->
+      <div class="rule-row rule-zero sr">
+        <span class="rule-n">00</span>
+        <div>
+          <span class="rule-t">KNOW YOUR ARCHETYPE BEFORE CONTACT.</span>
+          <span class="rule-sub">Your archetype determines your role. Your role determines your survival.</span>
+        </div>
+      </div>
+
       <div class="rule-row sr">
         <span class="rule-n">01</span>
-        <span class="rule-t">DO NOT PANIC.</span>
+        <div>
+          <span class="rule-t">MAINTAIN EYE CONTACT.</span>
+          <span class="rule-sub">Do not look away first.</span>
+        </div>
       </div>
       <div class="rule-row sr">
         <span class="rule-n">02</span>
-        <span class="rule-t">DO NOT ENGAGE FIRST.</span>
+        <div>
+          <span class="rule-t">DO NOT REACH.</span>
+          <span class="rule-sub">Let them initiate physical interaction.</span>
+        </div>
       </div>
       <div class="rule-row sr">
         <span class="rule-n">03</span>
-        <span class="rule-t">DO NOT BE ALONE.</span>
+        <div>
+          <span class="rule-t">STATE YOUR ROLE.</span>
+          <span class="rule-sub">They understand hierarchy.</span>
+        </div>
       </div>
-      <!-- Change 2: the alarming one -->
       <div class="rule-row alarm sr">
         <span class="rule-n">04</span>
         <span class="rule-t">DO NOT APPROACH THE LIGHT.</span>
       </div>
 
-      <!-- Change 3: partial redaction -->
       <div class="rule-partial sr">
         <div style="display:flex;align-items:baseline;gap:24px">
           <span class="rule-n">07</span>
@@ -424,95 +486,314 @@
   </section>
 
   <!-- ══════════════════════════════════════════
-       READINESS QUIZ  (Change 1)
+       FIRST CONTACT CARD PREVIEW — Change 5
+  ══════════════════════════════════════════ -->
+  <section id="card-preview">
+    <div class="cp-eyebrow sr">// FIRST CONTACT CARD — CIVILIAN CREDENTIALS //</div>
+    <h2 class="cp-h sr">Your Card. Your Identity. Your Proof.</h2>
+    <p class="cp-sub sr">Every enrolled civilian receives a First Contact Card upon app launch.</p>
+
+    <div class="fcc-card sr">
+      <span class="fcc-logo">◉ DISCLOSURE PROTOCOL</span>
+      <span class="fcc-title">FIRST CONTACT CARD — CLASS: CIVILIAN</span>
+      <div class="fcc-row">
+        <span class="fcc-label">NAME</span>
+        <span class="fcc-val redacted">████████████</span>
+      </div>
+      <div class="fcc-row">
+        <span class="fcc-label">ARCHETYPE</span>
+        <span class="fcc-val green">[SENTINEL]</span>
+      </div>
+      <div class="fcc-row">
+        <span class="fcc-label">SERIAL</span>
+        <span class="fcc-val redacted">████-████-████</span>
+      </div>
+      <div class="fcc-row">
+        <span class="fcc-label">ISSUED</span>
+        <span class="fcc-val">PENDING LAUNCH</span>
+      </div>
+      <div class="fcc-row">
+        <span class="fcc-label">STATUS</span>
+        <span class="fcc-val amber">PENDING CLEARANCE</span>
+      </div>
+      <div class="fcc-wallet">TAKE THE QUIZ → CLAIM YOUR CARD</div>
+      <div class="fcc-watermark">DISCLOSURE PROTOCOL</div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       READINESS QUIZ — Change 1: Archetype Quiz
   ══════════════════════════════════════════ -->
   <section id="quiz" class="quiz">
-    <div class="quiz-eyebrow sr">CIVILIAN READINESS ASSESSMENT // REAL-TIME ANALYSIS</div>
-    <h2 class="quiz-h sr">What's your<br><em>readiness score?</em></h2>
+    <div class="quiz-eyebrow sr">ARCHETYPE CLASSIFICATION // REAL-TIME ANALYSIS</div>
+    <h2 class="quiz-h sr">Four types of people.<br><em>Which one are you?</em></h2>
+
+    <div class="quiz-progress sr"><div class="quiz-progress-bar" id="quiz-bar" style="width:0%"></div></div>
 
     <div class="quiz-card sr">
       <!-- Q1 -->
       <div class="q-step active" id="q1">
-        <div class="q-num">QUESTION 01 OF 03</div>
-        <p class="q-text">Have you ever seen something in the sky you couldn't explain?</p>
+        <div class="q-num">QUESTION 01 OF 04</div>
+        <p class="q-text">A craft makes landfall 100 meters from you. Your first move?</p>
         <div class="q-opts">
-          <button class="q-opt" onclick="answer(1,30)">Yes. I never reported it.</button>
-          <button class="q-opt" onclick="answer(1,20)">Once. I convinced myself it was nothing.</button>
-          <button class="q-opt" onclick="answer(1,0)">No. I don't look up.</button>
+          <button class="q-opt" onclick="answer(1,1,'sentinel')">I move to shield the people behind me.</button>
+          <button class="q-opt" onclick="answer(1,2,'diplomat')">I go completely still. Non-threatening posture.</button>
+          <button class="q-opt" onclick="answer(1,3,'scholar')">I raise both hands. I want them to see my intentions.</button>
+          <button class="q-opt" onclick="answer(1,4,'sentinel')">I back away slowly, eyes forward.</button>
         </div>
       </div>
       <!-- Q2 -->
       <div class="q-step" id="q2">
-        <div class="q-num">QUESTION 02 OF 03</div>
-        <p class="q-text">Do you know what to do in the first 3 minutes of contact?</p>
+        <div class="q-num">QUESTION 02 OF 04</div>
+        <p class="q-text">One of them makes direct eye contact with you. What do you do?</p>
         <div class="q-opts">
-          <button class="q-opt" onclick="answer(2,30)">I've thought about this seriously.</button>
-          <button class="q-opt" onclick="answer(2,10)">I assumed there would be instructions.</button>
-          <button class="q-opt" onclick="answer(2,0)">I assumed it would never happen.</button>
+          <button class="q-opt" onclick="answer(2,1,'sentinel')">Hold it. I do not look away first.</button>
+          <button class="q-opt" onclick="answer(2,2,'diplomat')">Blink slowly. Reduce the perceived threat.</button>
+          <button class="q-opt" onclick="answer(2,3,'scholar')">Look slightly away — direct gaze may be hostile in their culture.</button>
+          <button class="q-opt" onclick="answer(2,4,'diplomat')">Drop to one knee. Show submission. Survive.</button>
         </div>
       </div>
       <!-- Q3 -->
       <div class="q-step" id="q3">
-        <div class="q-num">QUESTION 03 OF 03</div>
-        <p class="q-text">If it happened tonight — who would you call first?</p>
+        <div class="q-num">QUESTION 03 OF 04</div>
+        <p class="q-text">One of them extends something toward you. What do you assume it is?</p>
         <div class="q-opts">
-          <button class="q-opt" onclick="answer(3,30)">Someone I've already talked to about this.</button>
-          <button class="q-opt" onclick="answer(3,15)">Whoever answered. I'd figure it out.</button>
-          <button class="q-opt" onclick="answer(3,0)">I don't know. I'd be alone in this.</button>
+          <button class="q-opt" onclick="answer(3,1,'sentinel')">A weapon. I brace.</button>
+          <button class="q-opt" onclick="answer(3,2,'diplomat')">An offering. I nod.</button>
+          <button class="q-opt" onclick="answer(3,3,'scholar')">A device. I observe.</button>
+          <button class="q-opt" onclick="answer(3,4,'first-contact')">Their hand.</button>
         </div>
       </div>
-      <!-- Result -->
+      <!-- Q4 -->
+      <div class="q-step" id="q4">
+        <div class="q-num">QUESTION 04 OF 04</div>
+        <p class="q-text">The encounter ends. They leave. What do you do first?</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(4,1,'sentinel')">Secure the perimeter. Establish what's safe.</button>
+          <button class="q-opt" onclick="answer(4,2,'diplomat')">Brief the people around me. Calm the crowd.</button>
+          <button class="q-opt" onclick="answer(4,3,'scholar')">Document everything, in exact sequence.</button>
+          <button class="q-opt" onclick="answer(4,4,'diplomat')">Stand completely still. Process what just happened.</button>
+        </div>
+      </div>
+
+      <!-- Archetype Result -->
       <div class="quiz-result" id="quiz-result">
-        <div class="qr-condition" id="qr-cond">CONDITION RED</div>
-        <div class="qr-score-wrap">
-          <span class="qr-score" id="qr-score">17</span><span class="qr-score-suffix">/100</span>
+        <div class="qr-reveal-wrap">
+          <span class="qr-archetype-icon" id="qr-icon">🛡️</span>
+          <span class="qr-archetype-label">YOUR ARCHETYPE</span>
+          <div class="qr-archetype-name" id="qr-name">SENTINEL</div>
+          <span class="qr-pct" id="qr-pct">34% of civilians share this archetype</span>
         </div>
-        <p class="qr-label" id="qr-label">You are not ready. Most civilians aren't. That's exactly why this briefing exists.</p>
+        <p class="qr-desc" id="qr-desc">You are the protector. You move first. You read the room before anyone else does.</p>
         <div class="qr-cta-wrap">
-          <button class="qr-cta primary" onclick="document.getElementById('access').scrollIntoView({behavior:'smooth'})">GET THE BRIEFING →</button>
-          <button class="qr-cta secondary" onclick="shareScore()">SHARE MY SCORE</button>
+          <button class="qr-cta primary" id="qr-cta-primary" onclick="document.getElementById('access').scrollIntoView({behavior:'smooth'})">CLAIM YOUR CARD →</button>
+          <button class="qr-cta secondary" onclick="shareArchetype()">SHARE MY ARCHETYPE</button>
         </div>
-        <p class="qr-share-note">Results are automatically saved to your briefing profile.</p>
       </div>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════
-       ACCESS GATE
+       APP FEATURE TEASER — Change 10
+  ══════════════════════════════════════════ -->
+  <section id="feature-teaser">
+    <div class="ft-eyebrow sr">// DISCLOSURE APP //</div>
+    <h2 class="ft-h sr">What you unlock when you land</h2>
+    <div class="ft-grid sr">
+      <!-- UNLOCKED -->
+      <div class="ft-tile unlocked">
+        <span class="ft-tile-icon">🧬</span>
+        <span class="ft-tile-name">ARCHETYPE QUIZ</span>
+        <span class="ft-tile-status live">◉ UNLOCKED</span>
+      </div>
+      <div class="ft-tile unlocked">
+        <span class="ft-tile-icon">🪪</span>
+        <span class="ft-tile-name">FIRST CONTACT CARD</span>
+        <span class="ft-tile-status live">◉ UNLOCKED</span>
+      </div>
+      <div class="ft-tile unlocked">
+        <span class="ft-tile-icon">📋</span>
+        <span class="ft-tile-name">LIAISON STANDARD</span>
+        <span class="ft-tile-status live">◉ UNLOCKED</span>
+      </div>
+      <!-- LOCKED -->
+      <div class="ft-tile" style="opacity:.6">
+        <span class="ft-tile-icon">🧊</span>
+        <span class="ft-tile-name">STONE COLD <span class="rx2">████████</span></span>
+        <span class="ft-tile-status locked">🔒 CLASSIFIED</span>
+        <div class="ft-locked-overlay">
+          <span class="lock-icon">🔒</span>
+          <span class="lock-label">CLASSIFIED</span>
+        </div>
+      </div>
+      <div class="ft-tile" style="opacity:.6">
+        <span class="ft-tile-icon">📡</span>
+        <span class="ft-tile-name">ENCOUNTER PROTOCOL <span class="rx2">██</span></span>
+        <span class="ft-tile-status locked">🔒 CLASSIFIED</span>
+        <div class="ft-locked-overlay">
+          <span class="lock-icon">🔒</span>
+          <span class="lock-label">CLASSIFIED</span>
+        </div>
+      </div>
+      <div class="ft-tile" style="opacity:.6">
+        <span class="ft-tile-icon">🗺</span>
+        <span class="ft-tile-name"><span class="rx2">██████</span> PLAYBOOK</span>
+        <span class="ft-tile-status locked">🔒 CLASSIFIED</span>
+        <div class="ft-locked-overlay">
+          <span class="lock-icon">🔒</span>
+          <span class="lock-label">CLASSIFIED</span>
+        </div>
+      </div>
+      <div class="ft-tile" style="opacity:.6">
+        <span class="ft-tile-icon">💀</span>
+        <span class="ft-tile-name">DEAD DROP NETWORK</span>
+        <span class="ft-tile-status locked">🔒 CLASSIFIED</span>
+        <div class="ft-locked-overlay">
+          <span class="lock-icon">🔒</span>
+          <span class="lock-label">CLASSIFIED</span>
+        </div>
+      </div>
+      <div class="ft-tile" style="opacity:.6">
+        <span class="ft-tile-icon">🧪</span>
+        <span class="ft-tile-name"><span class="rx2">████</span> SIMULATION MODE</span>
+        <span class="ft-tile-status locked">🔒 CLASSIFIED</span>
+        <div class="ft-locked-overlay">
+          <span class="lock-icon">🔒</span>
+          <span class="lock-label">CLASSIFIED</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       LIAISON MAP — Change 9
+  ══════════════════════════════════════════ -->
+  <section id="liaison-map">
+    <div class="lm-eyebrow sr">// ACTIVE LIAISONS — GLOBAL DISTRIBUTION //</div>
+    <h2 class="lm-h sr">847 Liaisons in Position</h2>
+    <p class="lm-count sr" id="lm-counter">LIVE NETWORK · MONITORING ACTIVE</p>
+    <div class="lm-map sr">
+      <!-- Simple equirectangular dot map — dots at major city coordinates -->
+      <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" style="opacity:.85">
+        <!-- Grid lines -->
+        <line x1="0" y1="200" x2="800" y2="200" stroke="rgba(57,255,20,.06)" stroke-width="1"/>
+        <line x1="400" y1="0" x2="400" y2="400" stroke="rgba(57,255,20,.06)" stroke-width="1"/>
+        <line x1="0" y1="100" x2="800" y2="100" stroke="rgba(57,255,20,.03)" stroke-width=".5"/>
+        <line x1="0" y1="300" x2="800" y2="300" stroke="rgba(57,255,20,.03)" stroke-width=".5"/>
+        <!-- Major city liaison dots -->
+        <!-- New York: 74°W, 41°N -->
+        <circle class="lm-dot pulse-med" cx="189" cy="145" r="3.5"/>
+        <!-- Los Angeles: 118°W, 34°N -->
+        <circle class="lm-dot pulse-slow" cx="138" cy="162" r="3"/>
+        <!-- Chicago: 87°W, 42°N -->
+        <circle class="lm-dot pulse-fast" cx="203" cy="142" r="2.5"/>
+        <!-- London: 0°W, 51°N -->
+        <circle class="lm-dot pulse-slow" cx="398" cy="128" r="3"/>
+        <!-- Paris: 2°E, 49°N -->
+        <circle class="lm-dot pulse-med" cx="404" cy="133" r="2.5"/>
+        <!-- Berlin: 13°E, 52°N -->
+        <circle class="lm-dot pulse-fast" cx="429" cy="124" r="2"/>
+        <!-- Moscow: 37°E, 56°N -->
+        <circle class="lm-dot pulse-slow" cx="474" cy="112" r="3"/>
+        <!-- Dubai: 55°E, 25°N -->
+        <circle class="lm-dot pulse-med" cx="511" cy="178" r="2.5"/>
+        <!-- Mumbai: 73°E, 19°N -->
+        <circle class="lm-dot pulse-slow" cx="546" cy="195" r="2.5"/>
+        <!-- Beijing: 116°E, 40°N -->
+        <circle class="lm-dot pulse-fast" cx="632" cy="148" r="3"/>
+        <!-- Tokyo: 140°E, 36°N -->
+        <circle class="lm-dot pulse-med" cx="678" cy="158" r="3"/>
+        <!-- Seoul: 127°E, 37°N -->
+        <circle class="lm-dot pulse-slow" cx="654" cy="155" r="2"/>
+        <!-- Sydney: 151°E, 34°S -->
+        <circle class="lm-dot pulse-fast" cx="708" cy="268" r="3"/>
+        <!-- São Paulo: 47°W, 24°S -->
+        <circle class="lm-dot pulse-med" cx="295" cy="248" r="3"/>
+        <!-- Buenos Aires: 58°W, 34°S -->
+        <circle class="lm-dot pulse-slow" cx="272" cy="268" r="2.5"/>
+        <!-- Cairo: 31°E, 30°N -->
+        <circle class="lm-dot pulse-fast" cx="462" cy="172" r="2.5"/>
+        <!-- Nairobi: 37°E, 1°S -->
+        <circle class="lm-dot pulse-slow" cx="474" cy="202" r="2"/>
+        <!-- Mexico City: 99°W, 19°N -->
+        <circle class="lm-dot pulse-med" cx="178" cy="195" r="2.5"/>
+        <!-- Toronto: 79°W, 44°N -->
+        <circle class="lm-dot pulse-fast" cx="199" cy="138" r="2"/>
+        <!-- Singapore: 104°E, 1°N -->
+        <circle class="lm-dot pulse-slow" cx="620" cy="200" r="2.5"/>
+        <!-- Tactical overlay lines -->
+        <line x1="189" y1="145" x2="398" y2="128" stroke="rgba(57,255,20,.04)" stroke-width=".5"/>
+        <line x1="398" y1="128" x2="474" y2="112" stroke="rgba(57,255,20,.04)" stroke-width=".5"/>
+        <line x1="474" y1="112" x2="632" y2="148" stroke="rgba(57,255,20,.04)" stroke-width=".5"/>
+        <line x1="189" y1="145" x2="295" y2="248" stroke="rgba(57,255,20,.03)" stroke-width=".5"/>
+        <!-- Map label -->
+        <text x="10" y="390" fill="rgba(57,255,20,.2)" font-family="'Share Tech Mono',monospace" font-size="9" letter-spacing="2">DISCLOSURE · LIAISON NETWORK · LIVE</text>
+      </svg>
+    </div>
+    <p class="lm-sector sr">YOUR SECTOR: <span id="lm-city">UNKNOWN</span> — STATUS: UNVERIFIED</p>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ACCESS GATE — Changes 6, 7, 8
   ══════════════════════════════════════════ -->
   <section id="access" class="gate">
     <div class="gate-eyebrow sr">CIVILIAN BRIEFING PROGRAM // OPEN ENROLLMENT</div>
-
-    <h2 class="gate-h sr">
-      Knowledge<br>
-      <em>is survival.</em>
-    </h2>
-
-    <p class="gate-sub sr">
-      The first contact preparation manual.<br>
-      <strong>Free. For civilians. Right now.</strong>
-    </p>
+    <h2 class="gate-h sr">Claim your<br><em>First Contact Card.</em></h2>
+    <p class="gate-sub sr">Enter your contact email to receive your archetype card,<br><strong>serial number, and full briefing.</strong></p>
+    <div class="gate-archetype-hint sr" id="gate-archetype-hint"></div>
 
     <div class="gate-form-wrap sr">
       <form class="gate-form" id="gate-form" onsubmit="handleAccess(event)">
         <input class="gate-input" id="gate-email" type="email" placeholder="YOUR CONTACT EMAIL" required autocomplete="email"/>
-        <button class="gate-submit" type="submit" id="gate-submit-btn">I'M READY →</button>
+        <button class="gate-submit" type="submit" id="gate-submit-btn">CLAIM CARD →</button>
       </form>
-      <!-- Change 7: meaningful success moment -->
+
+      <!-- Post-signup card — Change 6 -->
       <div class="gate-success" id="gate-success">
-        <div class="gs-t">◉ CLEARANCE GRANTED</div>
-        <div class="gs-num" id="gs-num">YOU ARE CIVILIAN #— · ACCESS LOGGED · BRIEFING INCOMING</div>
-        <div class="gs-rule">
-          <strong>// RULE 04 — FIRST TRANSMISSION //</strong>
-          You will receive this in your first briefing email.<br>
-          This rule is never posted publicly.<br>
-          <em>The full context changes everything.</em>
+        <div class="gs-cleared" id="gs-cleared-text">◉ CLEARANCE GRANTED</div>
+        <span class="gs-num" id="gs-num">YOU ARE CIVILIAN #— · ACCESS LOGGED · CARD INCOMING</span>
+
+        <!-- Rendered First Contact Card -->
+        <div class="fcc-card" id="gs-card" style="margin-top:24px">
+          <span class="fcc-logo">◉ DISCLOSURE PROTOCOL</span>
+          <span class="fcc-title">FIRST CONTACT CARD — ISSUED</span>
+          <div class="fcc-row">
+            <span class="fcc-label">ARCHETYPE</span>
+            <span class="fcc-val" id="gs-archetype-val">SENTINEL</span>
+          </div>
+          <div class="fcc-row">
+            <span class="fcc-label">SERIAL</span>
+            <span class="fcc-val green" id="gs-serial">DS-2026-00000</span>
+          </div>
+          <div class="fcc-row">
+            <span class="fcc-label">STATUS</span>
+            <span class="fcc-val amber" id="gs-status">CLEARANCE GRANTED</span>
+          </div>
+          <div class="fcc-row">
+            <span class="fcc-label">ISSUED</span>
+            <span class="fcc-val green" id="gs-issued">UPON LAUNCH</span>
+          </div>
+          <div class="fcc-wallet" id="gs-note">Your card will be issued when the app launches.</div>
+          <div class="fcc-watermark">DISCLOSURE PROTOCOL</div>
+        </div>
+
+        <!-- Archetype share — Change 7 -->
+        <div class="gs-share-wrap">
+          <span class="gs-share-label">// SHARE YOUR ARCHETYPE //</span>
+          <div class="gs-share-text" id="gs-share-text" onclick="copyShareText()">
+            Loading share text...
+          </div>
+          <div class="gs-share-btns">
+            <span class="gs-share-btn" onclick="copyShareText()" style="cursor:pointer">[ COPY ]</span>
+            <a class="gs-share-btn" id="gs-share-x" href="#" target="_blank" rel="noopener">[ POST ON X ]</a>
+          </div>
+          <span class="gs-copied" id="gs-copied">COPIED · SEND IT</span>
         </div>
       </div>
+
       <p class="gate-note" id="gate-note">No spam. No government involvement. Just the truth.</p>
     </div>
 
-    <!-- Change 9 -->
     <div class="gate-stats sr">
       <div class="gst">
         <span class="gst-n" id="stat-count">—</span>
@@ -532,21 +813,16 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       SHARE  (Change 6)
-  ══════════════════════════════════════════ -->
+  <!-- SHARE -->
   <section class="share">
     <p class="share-pre sr">// TRANSMISSION COMPLETE //</p>
     <h2 class="share-h sr">If you're reading this,<br><em>you already know.</em></h2>
     <p class="share-sub sr">Pass the briefing to someone who isn't ready yet.</p>
-
-    <!-- Pre-written forward text -->
     <div class="share-forward sr" onclick="copyForward()" title="Click to copy">
       <span class="share-forward-label">// COPY THIS EXACT MESSAGE //</span>
       "I just found something you should see. Don't Google it first. Just read it: getdisclosure.app"
     </div>
     <div id="fwd-confirm">MESSAGE COPIED · SEND IT</div>
-
     <div class="share-row sr">
       <button class="share-btn" onclick="copyLink()">[ COPY LINK ]</button>
       <a class="share-btn" href="https://twitter.com/intent/tweet?text=I%20just%20found%20something%20you%20should%20see.%20Don%27t%20Google%20it%20first.%20Just%20read%20it.%20getdisclosure.app%20%40disclosure_app" target="_blank" rel="noopener">[ POST ON X ]</a>
@@ -573,67 +849,384 @@
 ══════════════════════════════════════════ -->
 <script>
 // ── Supabase ──────────────────────────────────
-const SUPA_URL  = 'https://bexjbozbrhijtjombxkm.supabase.co';
-const SUPA_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJleGpib3picmhpanRqb21ieGttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1NzEyNTQsImV4cCI6MjA4NzE0NzI1NH0.h3TJJ599oOoKv3RA8QfELmwzvsYi1hhuxGau842P6hs';
-const sb = window.supabase?.createClient(SUPA_URL, SUPA_KEY);
+const SUPA_URL = 'https://bexjbozbrhijtjombxkm.supabase.co';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJleGpib3picmhpanRqb21ieGttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1NzEyNTQsImV4cCI6MjA4NzE0NzI1NH0.h3TJJ599oOoKv3RA8QfELmwzvsYi1hhuxGau842P6hs';
+const sb = window.supabase && window.supabase.createClient(SUPA_URL, SUPA_KEY);
 
-// ── Quiz state ────────────────────────────────
-let quizScore = 0;
-let savedReadinessScore = null;
+// ── Location (Change 8) ───────────────────────
+let userCity = 'UNKNOWN', userRegion = '';
+(function fetchLocation() {
+  fetch('https://ipapi.co/json/')
+    .then(r => r.json())
+    .then(d => {
+      if (d && d.city) {
+        userCity = d.city.toUpperCase();
+        userRegion = (d.region_code || d.country_code || '').toUpperCase();
+        // Update nav sig
+        const navText = document.getElementById('nav-status-text');
+        if (navText && currentNavState === 0) {
+          navText.textContent = 'SIGNAL ACQUIRED · ' + userCity + ', ' + userRegion + ' · DISCLOSURE PROTOCOL';
+        }
+        // Update liaison map sector
+        const lmCity = document.getElementById('lm-city');
+        if (lmCity) lmCity.textContent = userCity;
+        // Update gate hint
+        updateGateHint();
+      }
+    })
+    .catch(() => {});
+})();
 
-function answer(q, pts) {
-  quizScore += pts;
-  document.getElementById('q' + q).classList.remove('active');
-  if (q < 3) {
-    document.getElementById('q' + (q + 1)).classList.add('active');
-  } else {
-    showResult();
+function updateGateHint() {
+  const hint = document.getElementById('gate-archetype-hint');
+  if (hint && userCity !== 'UNKNOWN') {
+    hint.textContent = 'OPERATIVE LOCATION: ' + userCity + ' DETECTED';
   }
 }
 
-function showResult() {
-  const el = document.getElementById('quiz-result');
-  const steps = document.querySelectorAll('.q-step');
-  steps.forEach(s => s.style.display = 'none');
-
-  const pct = Math.round((quizScore / 90) * 100);
-  savedReadinessScore = pct;
-
-  let cond, cls, label;
-  if (pct >= 66) {
-    cond = 'CONDITION YELLOW'; cls = 'yellow';
-    label = 'Above average readiness. You\'ve been paying attention. The briefing will fill the critical gaps.';
-  } else if (pct >= 33) {
-    cond = 'CONDITION ORANGE'; cls = 'orange';
-    label = 'Partial awareness. You know something is happening. You\'re not ready for what it means.';
-  } else {
-    cond = 'CONDITION RED'; cls = 'red';
-    label = 'Critical readiness gap. You\'re part of the unprepared majority. That can change today.';
+// ── Archetype Definitions ─────────────────────
+const ARCHETYPES = {
+  sentinel: {
+    name: 'SENTINEL',
+    icon: '🛡️',
+    color: 'sentinel',
+    pct: '34% of civilians share this archetype.',
+    desc: 'You are the protector. You move first. You assess the threat before anyone else does. When it happens, people will look to you.',
+    serial_prefix: 'DS',
+    card_color: 'green'
+  },
+  diplomat: {
+    name: 'DIPLOMAT',
+    icon: '🤝',
+    color: 'diplomat',
+    pct: '41% of civilians share this archetype.',
+    desc: 'You are the de-escalator. Calm under pressure. You will be the one who prevents a first contact from becoming a last contact.',
+    serial_prefix: 'DS',
+    card_color: 'green'
+  },
+  scholar: {
+    name: 'SCHOLAR',
+    icon: '🔬',
+    color: 'scholar',
+    pct: '23% of civilians share this archetype.',
+    desc: 'You are the observer. You document. You analyze. Your records will be the only verifiable account that survives.',
+    serial_prefix: 'DS',
+    card_color: 'green'
+  },
+  'first-contact': {
+    name: 'FIRST CONTACT',
+    icon: '⭐',
+    color: 'first-contact',
+    pct: '<0.1% — you have never been confirmed in the field.',
+    desc: 'This archetype has no confirmed field contact. You were not supposed to find this path. Welcome.',
+    serial_prefix: 'FC',
+    card_color: 'gold'
   }
+};
 
-  document.getElementById('qr-cond').textContent = cond;
-  document.getElementById('qr-cond').className = 'qr-condition ' + cls;
-  document.getElementById('qr-score').textContent = pct;
-  document.getElementById('qr-score').style.color = cls === 'red' ? '#EF4444' : cls === 'orange' ? '#F59E0B' : '#39FF14';
-  document.getElementById('qr-label').textContent = label;
+// ── Quiz State ────────────────────────────────
+const scores = { sentinel: 0, diplomat: 0, scholar: 0, 'first-contact': 0 };
+const answers = [0, 0, 0, 0]; // stores option index (1-4) per question
+let currentArchetype = null;
+let savedSerial = null;
 
-  el.style.display = 'block';
-  el.classList.add('sr');
-  setTimeout(() => el.classList.add('vis'), 50);
+// The First Contact secret sequence: Q1=3, Q2=1, Q3=4, Q4=2
+const FC_SEQUENCE = [3, 1, 4, 2];
+
+// ── Quiz Logic (Change 1, 12) ─────────────────
+function answer(qNum, optIdx, archetype) {
+  answers[qNum - 1] = optIdx;
+  scores[archetype]++;
+
+  // Update progress bar
+  document.getElementById('quiz-bar').style.width = (qNum / 4 * 100) + '%';
+
+  const isMobile = window.innerWidth < 768;
+  const currentStep = document.getElementById('q' + qNum);
+  const nextStep = qNum < 4 ? document.getElementById('q' + (qNum + 1)) : null;
+
+  if (isMobile) {
+    // Mobile: slide animation (Change 12)
+    currentStep.classList.add('slide-out');
+    setTimeout(function() {
+      currentStep.classList.remove('active', 'slide-out');
+      if (nextStep) {
+        nextStep.classList.add('active', 'slide-in');
+        setTimeout(function() { nextStep.classList.remove('slide-in'); }, 260);
+      } else {
+        showArchetypeResult();
+      }
+    }, 210);
+  } else {
+    currentStep.classList.remove('active');
+    if (nextStep) {
+      nextStep.classList.add('active');
+    } else {
+      showArchetypeResult();
+    }
+  }
 }
 
-function shareScore() {
-  const pct = savedReadinessScore ?? 0;
-  const url = `https://twitter.com/intent/tweet?text=My%20civilian%20readiness%20score%20is%20${pct}%2F100.%20What%27s%20yours%3F%20getdisclosure.app`;
+function showArchetypeResult() {
+  document.getElementById('quiz-bar').style.width = '100%';
+
+  // All steps hidden
+  document.querySelectorAll('.q-step').forEach(function(s) { s.style.display = 'none'; });
+
+  // Check First Contact secret sequence (Change 14)
+  const isFC = answers[0] === FC_SEQUENCE[0] &&
+               answers[1] === FC_SEQUENCE[1] &&
+               answers[2] === FC_SEQUENCE[2] &&
+               answers[3] === FC_SEQUENCE[3];
+
+  let archetype;
+  if (isFC) {
+    archetype = 'first-contact';
+  } else {
+    // Tally — highest score wins; ties go to diplomat
+    let top = 'diplomat', topScore = -1;
+    ['sentinel', 'diplomat', 'scholar'].forEach(function(a) {
+      if (scores[a] > topScore) { topScore = scores[a]; top = a; }
+    });
+    archetype = top;
+  }
+
+  currentArchetype = archetype;
+  const data = ARCHETYPES[archetype];
+
+  // Populate result
+  document.getElementById('qr-icon').textContent = data.icon;
+  const nameEl = document.getElementById('qr-name');
+  nameEl.textContent = data.name;
+  nameEl.className = 'qr-archetype-name ' + data.color;
+
+  const pctEl = document.getElementById('qr-pct');
+  pctEl.textContent = data.pct;
+  pctEl.className = 'qr-pct' + (archetype === 'first-contact' ? ' fc-pct' : '');
+
+  document.getElementById('qr-desc').textContent = data.desc;
+
+  // First Contact CTA styling (Change 14)
+  const ctaBtn = document.getElementById('qr-cta-primary');
+  if (archetype === 'first-contact') {
+    ctaBtn.className = 'qr-cta fc-primary';
+    ctaBtn.textContent = 'CLAIM YOUR CARD ⭐';
+  } else {
+    ctaBtn.className = 'qr-cta primary';
+    ctaBtn.textContent = 'CLAIM YOUR CARD →';
+  }
+
+  // Update gate hint
+  updateGateHintWithArchetype(data);
+
+  const resultEl = document.getElementById('quiz-result');
+  resultEl.style.display = 'block';
+  resultEl.classList.add('sr');
+  setTimeout(function() { resultEl.classList.add('vis'); }, 50);
+}
+
+function updateGateHintWithArchetype(data) {
+  const hint = document.getElementById('gate-archetype-hint');
+  if (hint) {
+    hint.textContent = 'ARCHETYPE DETECTED: ' + data.name + ' ' + data.icon + (userCity !== 'UNKNOWN' ? ' · OPERATIVE LOCATION: ' + userCity : '');
+  }
+}
+
+// ── Archetype Share (Change 7) ────────────────
+function shareArchetype() {
+  if (!currentArchetype) return;
+  const data = ARCHETYPES[currentArchetype];
+  const pct = currentArchetype === 'first-contact' ? '<0.1%' : data.pct.split('%')[0].trim() + '%';
+  const text = 'I just got classified as a ' + data.name + ' by @disclosure_app. Only ' + pct + ' of people get this archetype. Find out what you are: getdisclosure.app #FirstContact #Disclosure';
+  const url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
   window.open(url, '_blank');
 }
 
-// ── Boot sequence ─────────────────────────────
+// ── Generate Serial Number ─────────────────────
+function generateSerial(archetype) {
+  const data = ARCHETYPES[archetype];
+  if (archetype === 'first-contact') {
+    return 'FC-0000-00001';
+  }
+  const rand = String(Math.floor(Math.random() * 99999)).padStart(5, '0');
+  return 'DS-2026-' + rand;
+}
+
+// ── Access Form + Card Render (Changes 6, 7) ──
+async function handleAccess(e) {
+  e.preventDefault();
+  const email = document.getElementById('gate-email').value.trim();
+  const btn = document.getElementById('gate-submit-btn');
+  btn.textContent = 'PROCESSING...';
+  btn.disabled = true;
+
+  const archetype = currentArchetype || 'sentinel';
+  const archetypeData = ARCHETYPES[archetype];
+  const serial = generateSerial(archetype);
+  savedSerial = serial;
+
+  let civilianNum = null;
+
+  if (sb) {
+    try {
+      const { error } = await sb.from('waitlist').insert([{
+        email: email,
+        archetype: archetype,
+        serial_number: serial,
+        readiness_score: null
+      }]);
+      if (!error) {
+        const { data: cnt } = await sb.rpc('get_waitlist_count');
+        civilianNum = cnt ? (cnt + 1247) : null;
+      }
+    } catch(_) {}
+  }
+
+  // Hide form
+  document.getElementById('gate-form').style.display = 'none';
+  document.getElementById('gate-note').style.display = 'none';
+
+  // Populate and show success
+  const success = document.getElementById('gate-success');
+
+  // Cleared text
+  const clearedEl = document.getElementById('gs-cleared-text');
+  clearedEl.textContent = archetype === 'first-contact' ? '⭐ FIRST CONTACT CONFIRMED' : '◉ CLEARANCE GRANTED';
+  clearedEl.className = 'gs-cleared' + (archetype === 'first-contact' ? ' fc-cleared' : '');
+
+  // Civilian number
+  const numEl = document.getElementById('gs-num');
+  if (civilianNum) {
+    numEl.textContent = 'YOU ARE CIVILIAN #' + civilianNum.toLocaleString() + ' · ' + archetypeData.name + ' · CARD INCOMING';
+    ['hero-count', 'stat-count'].forEach(function(id) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = civilianNum.toLocaleString();
+    });
+  } else {
+    numEl.textContent = 'ACCESS LOGGED · ' + archetypeData.name + ' · CARD INCOMING';
+  }
+  numEl.className = 'gs-num' + (archetype === 'first-contact' ? ' fc-num' : '');
+
+  // Render card
+  const card = document.getElementById('gs-card');
+  if (archetype === 'first-contact') {
+    card.className = 'fcc-card fc-gold';
+  } else {
+    card.className = 'fcc-card';
+  }
+
+  const archetypeVal = document.getElementById('gs-archetype-val');
+  archetypeVal.textContent = archetypeData.icon + ' ' + archetypeData.name;
+  archetypeVal.className = 'fcc-val ' + archetypeData.card_color;
+
+  const serialEl = document.getElementById('gs-serial');
+  serialEl.textContent = serial;
+  serialEl.className = 'fcc-val ' + (archetype === 'first-contact' ? 'gold' : 'green');
+
+  const statusEl = document.getElementById('gs-status');
+  statusEl.textContent = archetype === 'first-contact' ? 'NO CONFIRMED FIELD CONTACT' : 'CLEARANCE GRANTED';
+  statusEl.className = 'fcc-val ' + (archetype === 'first-contact' ? 'gold' : 'amber');
+
+  // Share text with archetype (Change 7)
+  const pct = archetype === 'first-contact' ? '<0.1%' : archetypeData.pct.split('%')[0].trim() + '%';
+  const shareMsg = 'I just got classified as a ' + archetypeData.name + ' ' + archetypeData.icon + ' by @disclosure_app. Only ' + pct + ' of people get this archetype. Find out what you are: getdisclosure.app #FirstContact #Disclosure';
+  const shareEl = document.getElementById('gs-share-text');
+  shareEl.textContent = shareMsg;
+
+  const shareXEl = document.getElementById('gs-share-x');
+  if (shareXEl) {
+    shareXEl.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareMsg);
+  }
+
+  success.style.display = 'block';
+  success.classList.add('sr');
+  setTimeout(function() { success.classList.add('vis'); }, 50);
+}
+
+function copyShareText() {
+  const text = document.getElementById('gs-share-text').textContent;
+  navigator.clipboard.writeText(text).catch(function() {
+    const t = document.createElement('textarea');
+    t.value = text;
+    document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t);
+  });
+  const el = document.getElementById('gs-copied');
+  if (el) { el.style.opacity = '1'; setTimeout(function() { el.style.opacity = '0'; }, 3200); }
+}
+
+// ── Nav Scroll Awareness (Change 11) ─────────
+let currentNavState = 0;
+const NAV_STATES = [
+  'SIGNAL ACQUIRED · DISCLOSURE PROTOCOL ACTIVE',
+  'IDENTITY SCAN IN PROGRESS...',
+  'ARCHETYPE CLASSIFICATION PENDING',
+  'OPERATIVE LOCATION — CLEARANCE PENDING'
+];
+
+function initNavScroll() {
+  const navText = document.getElementById('nav-status-text');
+  if (!navText) return;
+
+  window.addEventListener('scroll', function() {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    let state;
+    if (pct < 20) state = 0;
+    else if (pct < 50) state = 1;
+    else if (pct < 80) state = 2;
+    else state = 3;
+
+    if (state !== currentNavState) {
+      currentNavState = state;
+      let txt = NAV_STATES[state];
+      if (state === 3 && userCity !== 'UNKNOWN') {
+        txt = 'OPERATIVE ' + userCity + ' — CLEARANCE PENDING';
+      } else if (state === 0 && userCity !== 'UNKNOWN') {
+        txt = 'SIGNAL ACQUIRED · ' + userCity + ', ' + userRegion;
+      }
+      navText.textContent = txt;
+    }
+  }, { passive: true });
+}
+
+// ── First Contact Keyboard Easter Egg (Change 13) ──
+(function initFCDetect() {
+  const TARGET = 'FIRST CONTACT';
+  let buffer = '';
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    const key = e.key.toUpperCase();
+    if (key.length === 1) {
+      buffer += key;
+      if (buffer.length > TARGET.length) buffer = buffer.slice(-TARGET.length);
+      if (buffer === TARGET) {
+        buffer = '';
+        triggerFlagged();
+      }
+    }
+  });
+})();
+
+function triggerFlagged() {
+  const overlay = document.getElementById('flagged-overlay');
+  overlay.classList.add('show');
+  setTimeout(function() {
+    overlay.style.transition = 'opacity .5s';
+    overlay.style.opacity = '0';
+    setTimeout(function() {
+      overlay.classList.remove('show');
+      overlay.style.opacity = '';
+      overlay.style.transition = '';
+    }, 550);
+  }, 2000);
+}
+
+// ── Boot Sequence ─────────────────────────────
 const BOOT = [
   'INITIALIZING CIVILIAN BRIEFING SYSTEM...',
   'CASE FILE: UAP-CIVILIAN-001',
   'COORDINATES: 37°14\'06"N 115°48\'40"W',
   'CLEARANCE LEVEL: UNCLASSIFIED',
+  'ARCHETYPE DATABASE: ONLINE',
   'ESTABLISHING SECURE CONNECTION...',
   'CONNECTION ESTABLISHED.',
   'WELCOME, CIVILIAN.'
@@ -645,11 +1238,11 @@ const BOOT = [
   let i = 0;
   function next() {
     if (i >= BOOT.length) {
-      setTimeout(() => {
+      setTimeout(function() {
         const b = document.getElementById('boot');
         b.style.transition = 'opacity .6s';
         b.style.opacity = '0';
-        setTimeout(() => { b.style.display = 'none'; initPage(); }, 660);
+        setTimeout(function() { b.style.display = 'none'; initPage(); }, 660);
       }, 550);
       return;
     }
@@ -657,7 +1250,7 @@ const BOOT = [
     d.className = 'boot-line'; d.textContent = BOOT[i++];
     el.appendChild(d);
     bar.style.width = Math.round((i / BOOT.length) * 100) + '%';
-    setTimeout(next, i < 6 ? 210 : 380);
+    setTimeout(next, i < 7 ? 210 : 380);
   }
   setTimeout(next, 380);
 })();
@@ -669,14 +1262,14 @@ function initStars() {
     const s = document.createElement('div');
     const sz = Math.random() < .9 ? Math.random() * 1.5 + .5 : Math.random() * 2.5 + 1.5;
     s.className = 'star';
-    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${sz}px;height:${sz}px;animation-duration:${Math.random()*5+3}s;animation-delay:${Math.random()*6}s`;
+    s.style.cssText = 'left:' + (Math.random()*100) + '%;top:' + (Math.random()*100) + '%;width:' + sz + 'px;height:' + sz + 'px;animation-duration:' + (Math.random()*5+3) + 's;animation-delay:' + (Math.random()*6) + 's';
     f.appendChild(s);
   }
   c.appendChild(f);
 }
 initStars();
 
-// ── Craft canvas ──────────────────────────────
+// ── Craft Canvas ──────────────────────────────
 (function craftCanvas() {
   const canvas = document.getElementById('craft-canvas');
   if (!canvas) return;
@@ -697,69 +1290,58 @@ initStars();
     const base = Math.min(W,H)*.68*scale;
     const V = [[0,-base*.52],[-base*.70,base*.38],[base*.70,base*.38]];
 
-    // Earth arc
     const ER=W*1.3, EY=H+ER*.79;
     const ag=ctx.createRadialGradient(CX,EY,ER*.975,CX,EY,ER);
     ag.addColorStop(0,'rgba(57,255,20,0.06)'); ag.addColorStop(1,'rgba(57,255,20,0)');
     ctx.beginPath(); ctx.arc(CX,EY,ER,0,Math.PI*2); ctx.fillStyle=ag; ctx.fill();
 
-    // Ambient craft halo — makes the ship's presence felt before you see the edges
     const haloA = 0.07 + 0.04*Math.sin(ts*.0009);
     const hg = ctx.createRadialGradient(CX,CY,0,CX,CY,base*.9);
-    hg.addColorStop(0,`rgba(57,255,20,${haloA})`);
-    hg.addColorStop(0.35,`rgba(57,255,20,${haloA*.35})`);
+    hg.addColorStop(0,'rgba(57,255,20,'+haloA+')');
+    hg.addColorStop(0.35,'rgba(57,255,20,'+(haloA*.35)+')');
     hg.addColorStop(1,'rgba(57,255,20,0)');
     ctx.beginPath(); ctx.arc(CX,CY,base*.9,0,Math.PI*2); ctx.fillStyle=hg; ctx.fill();
 
     ctx.save(); ctx.translate(CX,CY); ctx.rotate(rot);
 
-    // Body — dark green tint so it reads against pure black
     ctx.beginPath(); ctx.moveTo(V[0][0],V[0][1]); ctx.lineTo(V[1][0],V[1][1]); ctx.lineTo(V[2][0],V[2][1]); ctx.closePath();
     ctx.fillStyle='rgba(6,18,6,.82)'; ctx.fill();
 
-    // Edge glow — with canvas shadow for bloom effect
     const edgeA = .20 + .12*Math.sin(ts*.0009);
-    ctx.shadowBlur = 18;
-    ctx.shadowColor = 'rgba(57,255,20,0.65)';
-    ctx.strokeStyle=`rgba(57,255,20,${edgeA})`; ctx.lineWidth=2; ctx.stroke();
+    ctx.shadowBlur = 18; ctx.shadowColor = 'rgba(57,255,20,0.65)';
+    ctx.strokeStyle='rgba(57,255,20,'+edgeA+')'; ctx.lineWidth=2; ctx.stroke();
     ctx.shadowBlur = 0;
 
-    // Panel lines — now visible with subtle glow
     const panelA = .10 + .06*Math.sin(ts*.0007);
     ctx.shadowBlur = 6; ctx.shadowColor = 'rgba(57,255,20,0.5)';
-    ctx.strokeStyle=`rgba(57,255,20,${panelA})`; ctx.lineWidth=1;
+    ctx.strokeStyle='rgba(57,255,20,'+panelA+')'; ctx.lineWidth=1;
     ctx.beginPath(); ctx.moveTo(0,V[0][1]); ctx.lineTo(0,V[2][1]); ctx.stroke();
     const py=V[0][1]+(V[2][1]-V[0][1])*.38;
     ctx.beginPath(); ctx.moveTo(-base*.32,py); ctx.lineTo(base*.32,py); ctx.stroke();
     ctx.shadowBlur = 0;
 
-    // Vertex lights — larger, brighter, more corona
-    [0,2.09,4.19].forEach((ph,i) => {
+    [0,2.09,4.19].forEach(function(ph,i) {
       const p=.4+.6*(.5+.5*Math.sin(ts*.0022+ph)), r=3+p*3;
-      // Wide corona glow
       const g=ctx.createRadialGradient(V[i][0],V[i][1],0,V[i][0],V[i][1],r*8);
-      g.addColorStop(0,`rgba(57,255,20,${p*.75})`);
-      g.addColorStop(0.25,`rgba(57,255,20,${p*.3})`);
+      g.addColorStop(0,'rgba(57,255,20,'+(p*.75)+')');
+      g.addColorStop(0.25,'rgba(57,255,20,'+(p*.3)+')');
       g.addColorStop(1,'rgba(57,255,20,0)');
       ctx.beginPath(); ctx.arc(V[i][0],V[i][1],r*8,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
-      // Bright core
       ctx.shadowBlur=10; ctx.shadowColor='rgba(57,255,20,1)';
       ctx.beginPath(); ctx.arc(V[i][0],V[i][1],r,0,Math.PI*2);
-      ctx.fillStyle=`rgba(57,255,20,${p})`; ctx.fill();
+      ctx.fillStyle='rgba(57,255,20,'+p+')'; ctx.fill();
       ctx.shadowBlur=0;
     });
 
-    // Underside glow — much bigger and brighter
     const up=.5+.5*Math.sin(ts*.0013+1.2), uy=base*.14;
     const ug=ctx.createRadialGradient(0,uy,0,0,uy,base*.3);
-    ug.addColorStop(0,`rgba(57,255,20,${.28*up})`);
-    ug.addColorStop(0.4,`rgba(57,255,20,${.10*up})`);
+    ug.addColorStop(0,'rgba(57,255,20,'+(.28*up)+')');
+    ug.addColorStop(0.4,'rgba(57,255,20,'+(.10*up)+')');
     ug.addColorStop(1,'rgba(57,255,20,0)');
     ctx.beginPath(); ctx.ellipse(0,uy,base*.28,base*.13,0,0,Math.PI*2); ctx.fillStyle=ug; ctx.fill();
 
     ctx.restore();
 
-    // Beam — brighter and fires more often
     const now=performance.now();
     if (!beamOn && (now-lastBeam)>nextBeam) { beamOn=true; beamA=0; beamHold=0; lastBeam=now; nextBeam=Math.random()*16000+8000; }
     if (beamOn) {
@@ -770,12 +1352,12 @@ initStars();
       }
       const bw=52*scale, bt=CY+base*.32*scale;
       const bg=ctx.createLinearGradient(CX,bt,CX,H);
-      bg.addColorStop(0,`rgba(57,255,20,${.25*beamA})`);
-      bg.addColorStop(.2,`rgba(57,255,20,${.12*beamA})`);
-      bg.addColorStop(.6,`rgba(57,255,20,${.04*beamA})`);
+      bg.addColorStop(0,'rgba(57,255,20,'+(.25*beamA)+')');
+      bg.addColorStop(.2,'rgba(57,255,20,'+(.12*beamA)+')');
+      bg.addColorStop(.6,'rgba(57,255,20,'+(.04*beamA)+')');
       bg.addColorStop(1,'rgba(57,255,20,0)');
       ctx.beginPath(); ctx.rect(CX-bw/2,bt,bw,H-bt); ctx.fillStyle=bg; ctx.fill();
-      ctx.strokeStyle=`rgba(57,255,20,${.18*beamA})`; ctx.lineWidth=.5;
+      ctx.strokeStyle='rgba(57,255,20,'+(.18*beamA)+')'; ctx.lineWidth=.5;
       ctx.beginPath(); ctx.moveTo(CX-bw/2,bt); ctx.lineTo(CX-bw*2.2,H); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(CX+bw/2,bt); ctx.lineTo(CX+bw*2.2,H); ctx.stroke();
     }
@@ -787,7 +1369,7 @@ initStars();
 // ── Cursor ────────────────────────────────────
 function initCursor() {
   const r = document.getElementById('cursor');
-  document.addEventListener('mousemove', e => { r.style.left=e.clientX+'px'; r.style.top=e.clientY+'px'; });
+  document.addEventListener('mousemove', function(e) { r.style.left=e.clientX+'px'; r.style.top=e.clientY+'px'; });
 }
 
 // ── Countdown ─────────────────────────────────
@@ -796,121 +1378,89 @@ function initCountdown() {
   function tick() {
     const rem = INT - ((Date.now()-EPOCH) % INT);
     const h=Math.floor(rem/3600000), m=Math.floor((rem%3600000)/60000), s=Math.floor((rem%60000)/1000);
-    const fmt=`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-    ['hero-timer','stat-timer'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=fmt; });
+    const fmt=String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+    ['hero-timer','stat-timer'].forEach(function(id) { const el=document.getElementById(id); if(el) el.textContent=fmt; });
   }
   tick(); setInterval(tick,1000);
 }
 
-// ── Live count from Supabase ──────────────────
+// ── Live Count ────────────────────────────────
 async function loadCount() {
-  // Deterministic hourly join estimate (creates believability without fake data)
   const hour = new Date().getUTCHours();
-  const peakMultiplier = hour >= 13 && hour <= 23 ? 1 : 0.5; // peak: 6am-4pm Pacific
+  const peakMultiplier = hour >= 13 && hour <= 23 ? 1 : 0.5;
   const hourlyJoins = Math.floor((Math.random() * 8 + 4) * peakMultiplier) + 1;
 
-  // Try to get real count from Supabase
-  let total = 1247; // Seed count
+  let total = 1247;
   if (sb) {
     try {
       const { data } = await sb.rpc('get_waitlist_count');
-      if (data && data > 0) total = data + 1247; // Add seed offset
+      if (data && data > 0) total = data + 1247;
     } catch(_) {}
   }
 
   const totalFmt = total.toLocaleString();
-  ['hero-count','stat-count'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=totalFmt; });
-  ['hero-live','stat-live'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent='+'+hourlyJoins+' this hour'; });
+  ['hero-count','stat-count'].forEach(function(id) { const el=document.getElementById(id); if(el) el.textContent=totalFmt; });
+  ['hero-live','stat-live'].forEach(function(id) { const el=document.getElementById(id); if(el) el.textContent='+'+hourlyJoins+' this hour'; });
 }
 
-// ── Scroll reveal ─────────────────────────────
+// ── Liaison Map Counter Tick ──────────────────
+function initLiaisonCounter() {
+  let count = 847;
+  setInterval(function() {
+    if (Math.random() > 0.7) {
+      count += Math.floor(Math.random() * 3) + 1;
+      const el = document.querySelector('.lm-h');
+      if (el) el.textContent = count.toLocaleString() + ' Liaisons in Position';
+    }
+  }, 8000);
+}
+
+// ── Scroll Reveal ─────────────────────────────
 function initScrollReveal() {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
       if (e.isIntersecting) {
         const siblings = Array.from(e.target.parentElement.querySelectorAll('.sr:not(.vis)'));
         const idx = siblings.indexOf(e.target);
-        setTimeout(() => e.target.classList.add('vis'), idx * 90);
+        setTimeout(function() { e.target.classList.add('vis'); }, idx * 90);
         obs.unobserve(e.target);
       }
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll('.sr').forEach(el => obs.observe(el));
+  document.querySelectorAll('.sr').forEach(function(el) { obs.observe(el); });
 }
 
-// ── Alert pop ─────────────────────────────────
+// ── Alert Pop ─────────────────────────────────
 function initAlert() {
-  const total = document.getElementById('hero-count')?.textContent || '1,247';
   const count = Math.floor(Math.random()*80+1180);
   const alerts = [
-    `You have been on this frequency for 30 seconds. Pattern logged.`,
-    `Your connection origin has been identified. This is normal.`,
-    `You are one of ${count.toLocaleString()} civilians accessing this file right now.`,
+    'You have been on this frequency for 30 seconds. Pattern logged.',
+    'Your connection origin has been identified. This is normal.',
+    'You are one of ' + count.toLocaleString() + ' civilians accessing this file right now.'
   ];
   document.getElementById('alert-text').textContent = alerts[Math.floor(Math.random()*3)];
   const pop = document.getElementById('alert-pop');
-  setTimeout(() => { pop.classList.add('show'); setTimeout(() => pop.classList.remove('show'), 7000); }, 20000);
+  setTimeout(function() { pop.classList.add('show'); setTimeout(function() { pop.classList.remove('show'); }, 7000); }, 20000);
 }
 
-// ── Access form ───────────────────────────────
-async function handleAccess(e) {
-  e.preventDefault();
-  const email = document.getElementById('gate-email').value.trim();
-  const btn = document.getElementById('gate-submit-btn');
-  btn.textContent = 'PROCESSING...'; btn.disabled = true;
-
-  let civilianNum = null;
-
-  if (sb) {
-    try {
-      const { error } = await sb.from('waitlist').insert([{
-        email,
-        readiness_score: savedReadinessScore,
-        readiness_label: savedReadinessScore !== null
-          ? (savedReadinessScore >= 66 ? 'CONDITION YELLOW' : savedReadinessScore >= 33 ? 'CONDITION ORANGE' : 'CONDITION RED')
-          : null
-      }]);
-      if (!error) {
-        // Get count for civilian number
-        const { data: cnt } = await sb.rpc('get_waitlist_count');
-        civilianNum = cnt ? cnt + 1247 : null;
-      }
-    } catch(_) {}
-  }
-
-  // Show success
-  document.getElementById('gate-form').style.display = 'none';
-  document.getElementById('gate-note').style.display = 'none';
-  const success = document.getElementById('gate-success');
-  success.style.display = 'block';
-
-  if (civilianNum) {
-    document.getElementById('gs-num').textContent =
-      `YOU ARE CIVILIAN #${civilianNum.toLocaleString()} · ACCESS LOGGED · BRIEFING INCOMING`;
-    // Update counters
-    const fmt = civilianNum.toLocaleString();
-    ['hero-count','stat-count'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=fmt; });
-  }
-}
-
-// ── Share functions ───────────────────────────
+// ── Share ─────────────────────────────────────
 function copyLink() {
-  navigator.clipboard.writeText('https://getdisclosure.app').catch(() => {
+  navigator.clipboard.writeText('https://getdisclosure.app').catch(function() {
     const t = document.createElement('textarea'); t.value='https://getdisclosure.app';
     document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t);
   });
   const el = document.getElementById('copy-confirm');
-  el.style.opacity='1'; setTimeout(()=>el.style.opacity='0',3200);
+  el.style.opacity='1'; setTimeout(function(){el.style.opacity='0';},3200);
 }
 
 function copyForward() {
-  const msg = 'I just found something you should see. Don\'t Google it first. Just read it: getdisclosure.app';
-  navigator.clipboard.writeText(msg).catch(() => {
+  const msg = "I just found something you should see. Don't Google it first. Just read it: getdisclosure.app";
+  navigator.clipboard.writeText(msg).catch(function() {
     const t=document.createElement('textarea'); t.value=msg;
     document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t);
   });
   const el=document.getElementById('fwd-confirm');
-  el.style.opacity='1'; setTimeout(()=>el.style.opacity='0',3200);
+  el.style.opacity='1'; setTimeout(function(){el.style.opacity='0';},3200);
 }
 
 // ── Init ──────────────────────────────────────
@@ -919,11 +1469,12 @@ function initPage() {
   initCountdown();
   initScrollReveal();
   initAlert();
+  initNavScroll();
+  initLiaisonCounter();
   loadCount();
 
-  // Hero items reveal on load
-  document.querySelectorAll('.hero .sr').forEach((el,i) => {
-    setTimeout(()=>el.classList.add('vis'), 200+i*110);
+  document.querySelectorAll('.hero .sr').forEach(function(el,i) {
+    setTimeout(function(){el.classList.add('vis');}, 200+i*110);
   });
 }
 </script>
