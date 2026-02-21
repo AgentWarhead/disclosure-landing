@@ -16,6 +16,7 @@
   <meta name="twitter:image" content="https://getdisclosure.app/og.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <!-- TRANSMISSION: 01000011 01001001 01010100 01001001 01011010 01000101 01001110 00100000 01000100 01001001 01010000 01001100 01001111 01001101 01000001 01010100 -->
   <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 
@@ -105,6 +106,64 @@
     .hc-num{color:rgba(57,255,20,.95)}
     .hc-live{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(57,255,20,.85);border:1px solid rgba(57,255,20,.3);padding:3px 10px}
     .hc-sep{color:rgba(255,255,255,.2)}
+
+    /* ── ARCHETYPE STRIP ── */
+    #archetype-strip{padding:60px 24px;background:#000;text-align:center;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+    .as-hdr{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(57,255,20,.65);margin-bottom:32px}
+    .as-grid{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;max-width:900px;margin:0 auto}
+    .as-item{text-align:center}
+    .as-label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.4);display:block;margin-bottom:8px}
+    .as-val{font-family:var(--mono);font-size:24px;color:var(--g);font-weight:700}
+    .as-item.mythic .as-val{color:var(--a);animation:fcPulse 2s infinite}
+    .as-mythic-note{font-family:var(--mono);font-size:8px;letter-spacing:.3em;color:var(--a);display:block;margin-top:4px}
+    @keyframes fcPulse{0%,100%{opacity:.8}50%{opacity:1;text-shadow:0 0 12px var(--a)}}
+    .as-footer{font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:var(--a);font-style:italic;margin-top:32px}
+
+    /* ── LIAISON MAP ── */
+    #liaison-map{padding:80px 24px;text-align:center;position:relative}
+    .map-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(57,255,20,.65);margin-bottom:16px}
+    .map-h{font-size:clamp(32px,5vw,60px);font-weight:700;margin-bottom:48px;letter-spacing:-.02em}
+    .map-svg-wrap{width:100%;max-width:800px;margin:0 auto;position:relative;background:#000;border:1px solid rgba(255,255,255,.05);padding:20px}
+    .map-dot{fill:var(--g);opacity:.8}
+    .map-dot.pulse{animation:mapPulse 2.5s infinite}
+    @keyframes mapPulse{0%{r:3;opacity:.8}50%{r:6;opacity:.4}100%{r:3;opacity:.8}}
+    .map-overlay-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--mono);font-size:13px;letter-spacing:.4em;color:var(--g);pointer-events:none;background:rgba(0,0,0,.6);padding:8px 16px;border:1px solid rgba(57,255,20,.2);backdrop-filter:blur(4px)}
+    .map-footer{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.45);margin-top:24px}
+
+    /* ── CARD PREVIEW ── */
+    #card-preview{padding:100px 24px;text-align:center}
+    .fcc-preview-h{font-size:clamp(32px,5vw,60px);font-weight:700;margin-bottom:48px;letter-spacing:-.02em}
+    .fcc-card{background:#050a05;border:1px solid rgba(57,255,20,.3);box-shadow:0 0 40px rgba(57,255,20,.08),inset 0 0 40px rgba(57,255,20,.02);padding:32px;max-width:360px;margin:0 auto;text-align:left;font-family:var(--mono);position:relative;overflow:hidden}
+    .fcc-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(57,255,20,.03) 1px,rgba(57,255,20,.03) 2px);pointer-events:none}
+    .fcc-logo{color:var(--g);font-size:9px;letter-spacing:.3em;margin-bottom:12px;display:block}
+    .fcc-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:16px;display:block;border-bottom:1px solid rgba(57,255,20,.2);padding-bottom:12px}
+    .fcc-row{display:flex;justify-content:space-between;margin-bottom:10px;font-size:12px}
+    .fcc-label{color:rgba(255,255,255,.4);letter-spacing:.1em}
+    .fcc-val{color:rgba(255,255,255,.8)}
+    .fcc-val.redacted{background:var(--a);color:#000;padding:0 6px}
+    .fcc-val.amber{color:var(--a)}
+    .fcc-val.green{color:var(--g)}
+    .fcc-creed{color:rgba(239,68,68,.5);margin-top:16px;font-size:11px}
+    .fcc-wallet{margin-top:24px;font-size:9px;color:rgba(255,255,255,.2);text-align:center;letter-spacing:.2em;border-top:1px solid rgba(255,255,255,.05);padding-top:16px}
+    .fcc-caption{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:rgba(255,255,255,.4);margin-top:24px;max-width:400px;margin-left:auto;margin-right:auto}
+
+    /* ── TEASER STRIP ── */
+    #feature-teaser{padding:100px 24px;text-align:center}
+    .ft-hdr{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:48px}
+    .ft-grid{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;max-width:1000px;margin:0 auto}
+    .ft-card{flex:1;min-width:280px;background:#0d0d0d;border:1px solid rgba(57,255,20,.12);padding:32px;text-align:left;position:relative;overflow:hidden;transition:all .3s ease}
+    .ft-card:hover{border-color:rgba(57,255,20,.4);box-shadow:0 0 32px rgba(57,255,20,.1)}
+    .ft-icon{font-size:24px;margin-bottom:20px;display:block}
+    .ft-t{font-size:18px;font-weight:700;letter-spacing:.05em;margin-bottom:12px}
+    .ft-d{font-family:var(--mono);font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:24px;position:relative}
+    .ft-blur{position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(transparent, #0d0d0d);backdrop-filter:blur(2px);pointer-events:none}
+    .ft-status{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:var(--a);border:1px solid var(--a);padding:4px 10px}
+
+    /* Quiz Transitions */
+    .q-step.slide-out{animation:slideOutLeft 0.2s forwards}
+    .q-step.slide-in{display:block;animation:slideInRight 0.25s forwards}
+    @keyframes slideOutLeft{from{transform:translateX(0);opacity:1}to{transform:translateX(-60px);opacity:0}}
+    @keyframes slideInRight{from{transform:translateX(60px);opacity:0}to{transform:translateX(0);opacity:1}}
 
     /* ── MOMENT ── */
     .moment{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;position:relative}
@@ -276,13 +335,11 @@
       <span class="glitch" data-text="DISCLOSURE">DISCLOSURE</span>
     </h1>
 
-    <p class="hero-l1 sr">The government confirmed it.</p>
-    <p class="hero-l2 sr">The question is no longer <em style="font-style:normal;color:rgba(255,255,255,.72)">if.</em></p>
-    <!-- Change 4 -->
-    <p class="hero-l3 sr">Most people will not be ready.</p>
-    <p class="hero-l4 sr">You <em>still can be.</em></p>
+    <p class="hero-l1 sr">When it happens, the world splits into four types of people.</p>
+    <p class="hero-l2 sr">Sentinels. Diplomats. Scholars. And the First Contact.</p>
+    <p class="hero-l3 sr"><em>Which one are you?</em></p>
 
-    <a href="#quiz" class="cta-btn sr">TAKE THE READINESS TEST →</a>
+    <a href="#quiz" class="cta-btn sr">DISCOVER YOUR ARCHETYPE →</a>
 
     <!-- Change 9: live counter -->
     <div class="hero-counter sr">
