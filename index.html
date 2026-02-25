@@ -147,7 +147,7 @@
     @keyframes tw{0%,100%{opacity:.04}50%{opacity:.65}}
 
     /* CURSOR */
-    .cursor-ring{position:fixed;width:18px;height:18px;border:1px solid rgba(57,255,20,.35);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:all .08s ease;mix-blend-mode:screen}
+    .cursor-ring{position:fixed;width:18px;height:18px;border:1px solid rgba(57,255,20,.35);border-radius:50%;pointer-events:none;z-index:9999;left:0;top:0;will-change:transform;mix-blend-mode:screen;transition:width .15s,height .15s,border-color .15s}
 
     /* CRAFT */
     /* craft-canvas removed — replaced by eye-canvas scroll animation */
@@ -2106,7 +2106,7 @@ initStars();
 // ── Cursor ────────────────────────────────────
 function initCursor() {
   const r = document.getElementById('cursor');
-  document.addEventListener('mousemove', function(e) { r.style.left=e.clientX+'px'; r.style.top=e.clientY+'px'; });
+  document.addEventListener('mousemove', function(e) { r.style.transform='translate('+(e.clientX-9)+'px,'+(e.clientY-9)+'px)'; });
 }
 
 // ── Live Count ────────────────────────────────
