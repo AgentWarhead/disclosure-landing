@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<!-- CASE FILE: UAP-CIVILIAN-001 // IF YOU ARE READING THIS, YOU ARE ALREADY BEING MONITORED -->
+<!-- COORDINATES: 37°14'06"N 115°48'40"W -->
+<!-- TRANSMISSION: 01000011 01001001 01010100 01001001 01011010 01000101 01001110 00100000 01000100 01001001 01010000 01001100 01001111 01001101 01000001 01010100 -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ═══ PRIMARY META ═══ -->
+  <title>DISCLOSURE — Not If. When.</title>
+  <meta name="description" content="Leaked first contact training protocol. 4 archetypes. 1 assessment. Discover your role. Claim your First Contact Card. They're not waiting for you."/>
+  <meta name="keywords" content="UAP, UFO, first contact, alien encounter, archetype quiz, disclosure, NHI, contact protocol, citizen diplomat"/>
+  <meta name="author" content="DISCLOSURE PROTOCOL"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://getdisclosure.app/"/>
+
+  <!-- ═══ OPEN GRAPH ═══ -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="DISCLOSURE"/>
+  <meta property="og:title" content="DISCLOSURE — Not If. When."/>
+  <meta property="og:description" content="Leaked first contact training protocol. 4 archetypes. 1 assessment. Most of you aren't ready. We checked."/>
+  <meta property="og:image" content="https://getdisclosure.app/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="DISCLOSURE — Not If. When. Humanity's first contact training protocol."/>
+  <meta property="og:url" content="https://getdisclosure.app"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!-- ═══ TWITTER / X ═══ -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@disclosure_app"/>
+  <meta name="twitter:creator" content="@disclosure_app"/>
+  <meta name="twitter:title" content="DISCLOSURE — Not If. When."/>
+  <meta name="twitter:description" content="Leaked first contact training protocol. 4 archetypes. 1 assessment. Most of you aren't ready. We checked."/>
+  <meta name="twitter:image" content="https://getdisclosure.app/og-image.png"/>
+  <meta name="twitter:image:alt" content="DISCLOSURE — Not If. When."/>
+
+  <!-- ═══ THEME & APP ═══ -->
+  <meta name="theme-color" content="#000000"/>
+  <meta name="msapplication-TileColor" content="#000000"/>
+  <meta name="msapplication-TileImage" content="/mstile-150x150.png"/>
+  <meta name="msapplication-config" content="none"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  <meta name="apple-mobile-web-app-title" content="DISCLOSURE"/>
+  <meta name="application-name" content="DISCLOSURE"/>
+
+  <!-- ═══ FAVICONS ═══ -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#39FF14"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+
+  <!-- ═══ STRUCTURED DATA ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Disclosure",
+        "alternateName": "Disclosure — First Contact Guidance",
+        "url": "https://getdisclosure.app",
+        "description": "The first civilian alien first contact preparation platform. Take the archetype assessment, discover your designation, and receive your First Contact Card.",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Web, iOS, Android",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "publisher": {
+          "@type": "Organization",
+          "name": "Disclosure",
+          "url": "https://getdisclosure.app",
+          "sameAs": ["https://twitter.com/disclosure_app","https://www.tiktok.com/@disclosure_app","https://www.instagram.com/disclosure_app"]
+        }
+      },
+      {
+        "@type": "Quiz",
+        "name": "First Contact Archetype Assessment",
+        "description": "A 10-question psychological assessment that determines your alien encounter archetype — Sentinel, Diplomat, Scholar, or the rare First Contact designation.",
+        "url": "https://getdisclosure.app/quiz",
+        "educationalLevel": "General Public",
+        "about": {"@type": "Thing", "name": "Alien First Contact Preparation"}
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Disclosure?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Disclosure is the first civilian alien first contact preparation platform. It classifies users into one of four archetypes via a 10-question assessment and provides archetype-specific training, protocols, and digital certification (the First Contact Card) for UAP contact scenarios."}
+          },
+          {
+            "@type": "Question",
+            "name": "What are the four archetypes in Disclosure?",
+            "acceptedAnswer": {"@type": "Answer", "text": "The four archetypes are Sentinel (Primary Protector), Diplomat (De-escalation Lead), Scholar (Field Analyst), and First Contact (a rare classified designation outside the standard three-archetype system)."}
+          },
+          {
+            "@type": "Question",
+            "name": "What is a First Contact Card?",
+            "acceptedAnswer": {"@type": "Answer", "text": "The First Contact Card is a digital credential issued after completing the Disclosure assessment. It contains your archetype designation, Readiness Score, Clearance Level, and serial number. Compatible with Apple Wallet and Google Wallet."}
+          },
+          {
+            "@type": "Question",
+            "name": "Is there an app to prepare for alien contact?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Disclosure (getdisclosure.app) is the first and only civilian alien first contact preparation platform. A leaked protocol is now available. Enter your frequency to receive your archetype classification."}
+          },
+          {
+            "@type": "Question",
+            "name": "What is UAP readiness?",
+            "acceptedAnswer": {"@type": "Answer", "text": "UAP readiness measures how prepared a civilian is to respond to an unidentified anomalous phenomena encounter in real time, without institutional support. Disclosure is the first platform to assess and train civilian UAP readiness."}
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- ═══ FONTS & SCRIPTS ═══ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--g:#39FF14;--a:#F59E0B;--r:#EF4444;--gold:#FFD700;--mono:'Share Tech Mono',monospace}
+    html{scroll-behavior:smooth}
+    body{background:#000;color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden;cursor:crosshair}
+
+    /* SCANLINES */
+    body::after{content:'';position:fixed;inset:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.05) 3px,rgba(0,0,0,.05) 4px);
+      pointer-events:none;z-index:9000;animation:flicker 10s infinite}
+    @keyframes flicker{0%,100%{opacity:1}97%{opacity:1}97.5%{opacity:.8}98%{opacity:1}99%{opacity:.9}}
+
+    /* NOISE */
+    body::before{content:'';position:fixed;inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+      opacity:.5;pointer-events:none;z-index:0}
+
+    /* STARS */
+    #stars{position:fixed;inset:0;z-index:1;pointer-events:none}
+    .star{position:absolute;border-radius:50%;background:#fff;animation:tw linear infinite}
+    @keyframes tw{0%,100%{opacity:.04}50%{opacity:.65}}
+
+    /* CURSOR */
+    .cursor-ring{position:fixed;width:18px;height:18px;border:1px solid rgba(57,255,20,.35);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:all .08s ease;mix-blend-mode:screen}
+
+    /* CRAFT */
+    #craft-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+
+    /* BOOT */
+    #boot{position:fixed;inset:0;background:#000;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:20px}
+    .boot-line{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(57,255,20,0);animation:boot-in .04s forwards}
+    @keyframes boot-in{to{color:rgba(57,255,20,.75)}}
+    #boot-bar{width:min(300px,80vw);height:1px;background:rgba(57,255,20,.1);margin-top:20px;overflow:hidden}
+    #boot-progress{height:100%;background:var(--g);width:0;box-shadow:0 0 8px var(--g);transition:width .04s linear}
+
+    /* SCROLL REVEAL */
+    .sr{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+    .sr.vis{opacity:1;transform:translateY(0)}
+
+    main{position:relative;z-index:2}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;background:rgba(0,0,0,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(57,255,20,.06)}
+    .nav-logo{font-family:var(--mono);font-size:10px;letter-spacing:.35em;color:var(--g);text-decoration:none}
+    .nav-sig{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.42);transition:color .4s}
+    .live-dot{width:5px;height:5px;border-radius:50%;background:var(--g);animation:live 1.8s ease-in-out infinite;flex-shrink:0}
+    @keyframes live{0%,100%{box-shadow:0 0 3px var(--g)}50%{box-shadow:0 0 12px var(--g),0 0 24px var(--g)}}
+
+    /* HERO */
+    .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden}
+    .hero-orb{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(57,255,20,.025) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);animation:orb 7s ease-in-out infinite;pointer-events:none}
+    @keyframes orb{0%,100%{opacity:.3;transform:translate(-50%,-50%) scale(1)}50%{opacity:.65;transform:translate(-50%,-50%) scale(1.1)}}
+    .hero-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(245,158,11,.85);margin-bottom:24px}
+    .hero-intercept{font-family:var(--mono);font-size:clamp(10px,1.3vw,13px);letter-spacing:.4em;color:rgba(57,255,20,.55);margin-bottom:28px;text-transform:uppercase}
+    .hero-h{font-size:clamp(72px,16vw,200px);font-weight:700;line-height:.9;letter-spacing:-.03em;margin-bottom:24px;position:relative}
+    .glitch{position:relative;display:inline-block;color:#fff}
+    .glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%}
+    .glitch::before{color:rgba(57,255,20,.65);animation:ga 5s infinite;clip-path:polygon(0 0,100% 0,100% 40%,0 40%)}
+    .glitch::after{color:rgba(239,68,68,.55);animation:gb 5s infinite;clip-path:polygon(0 60%,100% 60%,100% 100%,0 100%)}
+    @keyframes ga{0%,90%,100%{transform:none;opacity:0}91%{transform:translateX(-4px);opacity:1}93%{transform:translateX(4px) skewX(3deg);opacity:.8}95%{transform:none;opacity:0}}
+    @keyframes gb{0%,93%,100%{transform:none;opacity:0}94%{transform:translateX(4px);opacity:.9}96%{transform:translateX(-3px) skewX(-2deg);opacity:.7}98%{transform:none;opacity:0}}
+    .hero-identity{font-size:clamp(22px,3.5vw,42px);font-weight:700;color:#fff;letter-spacing:-.01em;margin-bottom:12px;line-height:1.1}
+    .hero-sub{font-size:clamp(16px,2.2vw,24px);font-weight:500;color:rgba(255,255,255,.65);max-width:560px;margin:0 auto 40px;line-height:1.7}
+    .hero-sub em{font-style:normal;color:var(--g)}
+    .cta-btn{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.3em;color:#000;background:var(--g);padding:16px 40px;text-decoration:none;cursor:pointer;border:none;position:relative;overflow:hidden;transition:box-shadow .2s}
+    .cta-btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-100%);transition:transform .2s}
+    .cta-btn:hover::before{transform:translateX(0)}
+    .cta-btn:hover{box-shadow:0 0 32px rgba(57,255,20,.6),0 0 64px rgba(57,255,20,.25)}
+    .hero-counter{display:flex;align-items:center;gap:10px;margin-top:28px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.55);flex-wrap:wrap;justify-content:center}
+    .hc-num{color:rgba(57,255,20,.95)}
+    .hc-live{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(57,255,20,.85);border:1px solid rgba(57,255,20,.3);padding:3px 10px}
+    .hc-sep{color:rgba(255,255,255,.2)}
+
+    /* ARCHETYPE STRIP */
+    #archetype-strip{padding:60px 24px;background:rgba(255,255,255,.015);text-align:center;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+    .as-hdr{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(57,255,20,.65);margin-bottom:36px}
+    .as-grid{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;max-width:900px;margin:0 auto}
+    .as-item{text-align:center;min-width:120px}
+    .as-icon{font-size:28px;display:block;margin-bottom:10px}
+    .as-label{font-family:var(--mono);font-size:10px;letter-spacing:.25em;color:rgba(255,255,255,.65);display:block;margin-bottom:6px;text-transform:uppercase}
+    .as-pct{font-family:var(--mono);font-size:32px;color:var(--g);font-weight:700;display:block;line-height:1}
+    .as-item.mythic .as-pct{color:var(--gold);animation:fcPulse 2.5s infinite}
+    .as-mythic-note{font-family:var(--mono);font-size:8px;letter-spacing:.3em;color:var(--gold);display:block;margin-top:6px;opacity:.8}
+    @keyframes fcPulse{0%,100%{opacity:.7}50%{opacity:1;text-shadow:0 0 16px var(--gold)}}
+    .as-footer{font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:rgba(245,158,11,.7);font-style:italic;margin-top:32px}
+
+    /* MOMENT */
+    .moment{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;position:relative}
+    .moment-date{font-family:var(--mono);font-size:12px;letter-spacing:.45em;color:rgba(245,158,11,.8);margin-bottom:40px}
+    .moment-h{font-size:clamp(40px,7.5vw,90px);font-weight:700;line-height:1.05;letter-spacing:-.02em;margin-bottom:44px}
+    .moment-h em{font-style:normal;display:block;color:rgba(255,255,255,.55)}
+    .moment-body{font-size:clamp(17px,2.2vw,23px);font-weight:500;color:rgba(255,255,255,.75);line-height:1.85;max-width:540px;margin:0 auto 44px}
+    .moment-body strong{color:#fff;font-weight:700}
+    .moment-line{width:1px;height:56px;background:linear-gradient(to bottom,rgba(57,255,20,.4),transparent);margin:0 auto 44px}
+    .moment-punch{font-size:clamp(16px,2.4vw,24px);color:rgba(255,255,255,.75);max-width:480px;margin:0 auto;line-height:2;font-family:var(--mono);letter-spacing:.08em}
+    .moment-punch strong{color:#fff;font-weight:700;display:block;font-size:clamp(20px,3vw,32px);margin:10px 0}
+    .moment-punch em{font-style:normal;color:var(--g)}
+
+    /* RULES */
+    .rules{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px;position:relative;overflow:hidden}
+    .rules-bg{position:absolute;font-family:var(--mono);font-size:clamp(80px,18vw,220px);font-weight:700;color:rgba(57,255,20,.018);pointer-events:none;white-space:nowrap;user-select:none;letter-spacing:-.05em}
+    .rules-hdr{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:56px;text-align:center}
+    .rules-inner{width:100%;max-width:620px}
+    .rule-row{display:flex;align-items:baseline;gap:24px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+    .rule-n{font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:rgba(57,255,20,.7);flex-shrink:0;width:36px}
+    .rule-t{font-size:clamp(20px,3.8vw,48px);font-weight:700;letter-spacing:-.01em;color:#fff;line-height:1.05}
+    .rule-sub{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,.68);margin-top:6px;line-height:1.7;display:block}
+    .rule-row.rule-zero{border-bottom:1px solid rgba(57,255,20,.25);margin-bottom:4px}
+    .rule-row.rule-zero .rule-n{color:var(--g)}
+    .rule-row.rule-zero .rule-t{color:var(--g);font-size:clamp(18px,3.2vw,40px)}
+    .rule-row.alarm .rule-t{color:var(--g)}
+    .rule-row.alarm .rule-n{color:rgba(57,255,20,.8)}
+    .rule-partial{padding:24px 0 0;border-top:1px solid rgba(245,158,11,.15);margin-top:8px}
+    .rule-partial .rule-n{color:rgba(245,158,11,.8)}
+    .rule-partial-text{font-family:var(--mono);font-size:clamp(12px,1.5vw,15px);letter-spacing:.08em;color:rgba(255,255,255,.75);line-height:2.2;max-width:580px}
+    .rx{background:rgba(255,255,255,.15);color:transparent;border-radius:2px;padding:0 6px;display:inline-block;cursor:pointer;transition:all .2s;position:relative;user-select:none}
+    .rx:hover{background:rgba(245,158,11,.3);color:rgba(245,158,11,.9)}
+    .rx::after{content:'REDACTED';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:8px;letter-spacing:.2em;color:rgba(255,255,255,.35);pointer-events:none}
+    .rx:hover::after{content:'CLASSIFIED'}
+    .rule-count{margin-top:32px;font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:rgba(245,158,11,.8);text-align:center}
+
+    /* CARD PREVIEW SECTION */
+    #card-preview{padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
+    .cp-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:16px}
+    .cp-h{font-size:clamp(28px,5vw,60px);font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+    .cp-sub{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.68);margin-bottom:48px}
+    .fcc-card{background:#050a05;border:1px solid rgba(57,255,20,.3);box-shadow:0 0 40px rgba(57,255,20,.08),inset 0 0 40px rgba(57,255,20,.02);padding:32px;max-width:360px;margin:0 auto;text-align:left;font-family:var(--mono);position:relative;overflow:hidden}
+    .fcc-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(57,255,20,.03) 1px,rgba(57,255,20,.03) 2px);pointer-events:none}
+    .fcc-card.fc-gold{border-color:rgba(255,215,0,.5);box-shadow:0 0 60px rgba(255,215,0,.15),inset 0 0 40px rgba(255,215,0,.04);background:#080700;animation:fcShimmer 3s ease-in-out infinite}
+    @keyframes fcShimmer{0%,100%{box-shadow:0 0 60px rgba(255,215,0,.15),inset 0 0 40px rgba(255,215,0,.04)}50%{box-shadow:0 0 100px rgba(255,215,0,.3),inset 0 0 60px rgba(255,215,0,.08)}}
+    .fcc-logo{color:var(--g);font-size:9px;letter-spacing:.3em;margin-bottom:12px;display:block}
+    .fcc-card.fc-gold .fcc-logo{color:var(--gold)}
+    .fcc-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:16px;display:block;border-bottom:1px solid rgba(57,255,20,.2);padding-bottom:12px}
+    .fcc-card.fc-gold .fcc-title{border-color:rgba(255,215,0,.2)}
+    .fcc-row{display:flex;justify-content:space-between;margin-bottom:10px;font-size:12px}
+    .fcc-label{color:rgba(255,255,255,.62);letter-spacing:.1em}
+    .fcc-val{color:rgba(255,255,255,.8)}
+    .fcc-val.redacted{background:rgba(255,255,255,.12);color:rgba(255,255,255,.1);padding:0 6px}
+    .fcc-val.amber{color:var(--a)}
+    .fcc-val.green{color:var(--g)}
+    .fcc-val.gold{color:var(--gold)}
+    .fcc-watermark{position:absolute;bottom:12px;right:14px;font-size:8px;letter-spacing:.3em;color:rgba(57,255,20,.06);transform:rotate(-15deg);pointer-events:none;user-select:none}
+    .fcc-card.fc-gold .fcc-watermark{color:rgba(255,215,0,.08)}
+    .fcc-wallet{margin-top:24px;font-size:9px;color:rgba(255,255,255,.2);text-align:center;letter-spacing:.2em;border-top:1px solid rgba(255,255,255,.05);padding-top:16px}
+    .fcc-caption{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:rgba(255,255,255,.6);margin-top:28px;max-width:360px;margin-left:auto;margin-right:auto}
+
+    /* QUIZ */
+    .quiz{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px;position:relative;border-top:1px solid rgba(255,255,255,.04)}
+    .quiz-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.75);margin-bottom:40px;text-align:center}
+    .quiz-h{font-size:clamp(30px,5vw,60px);font-weight:700;line-height:1.1;letter-spacing:-.02em;text-align:center;margin-bottom:48px}
+    .quiz-h em{font-style:normal;color:var(--g)}
+    .quiz-progress{width:100%;max-width:580px;margin:0 auto 32px;height:2px;background:rgba(255,255,255,.08)}
+    .quiz-progress-bar{height:100%;background:var(--g);transition:width .3s ease;box-shadow:0 0 8px var(--g)}
+    .quiz-card{width:100%;max-width:580px;margin:0 auto;overflow:hidden;position:relative}
+    .q-step{display:none}
+    .q-step.active{display:block}
+    .q-step.slide-out{animation:slideOutLeft .2s forwards}
+    .q-step.slide-in{display:block!important;animation:slideInRight .25s forwards}
+    @keyframes slideOutLeft{from{transform:translateX(0);opacity:1}to{transform:translateX(-60px);opacity:0}}
+    @keyframes slideInRight{from{transform:translateX(60px);opacity:0}to{transform:translateX(0);opacity:1}}
+    .q-num{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(255,255,255,.5);margin-bottom:16px}
+    .q-text{font-size:clamp(20px,3.2vw,34px);font-weight:700;color:#fff;line-height:1.3;margin-bottom:32px;letter-spacing:-.01em}
+    .q-opts{display:flex;flex-direction:column;gap:10px}
+    .q-opt{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.8);background:transparent;border:1px solid rgba(255,255,255,.18);padding:18px 22px;cursor:pointer;text-align:left;transition:all .15s;position:relative;overflow:hidden}
+    .q-opt::before{content:'';position:absolute;inset:0;background:rgba(57,255,20,.06);transform:translateX(-100%);transition:transform .2s}
+    .q-opt:hover{border-color:rgba(57,255,20,.5);color:#fff}
+    .q-opt:hover::before{transform:translateX(0)}
+
+    /* ARCHETYPE RESULT */
+    .quiz-result{display:none;text-align:center}
+    .qr-reveal-wrap{margin-bottom:28px}
+    .qr-archetype-icon{font-size:64px;display:block;margin-bottom:12px;animation:iconReveal .6s ease-out}
+    @keyframes iconReveal{from{transform:scale(0) rotate(-20deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+    .qr-archetype-label{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(255,255,255,.5);margin-bottom:8px;display:block}
+    .qr-archetype-name{font-size:clamp(40px,8vw,80px);font-weight:700;letter-spacing:-.03em;line-height:1}
+    .qr-archetype-name.sentinel{color:var(--r)}
+    .qr-archetype-name.diplomat{color:var(--g)}
+    .qr-archetype-name.scholar{color:#60A5FA}
+    .qr-archetype-name.first-contact{color:var(--gold);animation:fcPulse 2s infinite;text-shadow:0 0 40px rgba(255,215,0,.3)}
+    .qr-pct{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:rgba(255,255,255,.62);margin-top:8px;display:block}
+    .qr-pct.fc-pct{color:var(--gold)}
+    .qr-desc{font-size:clamp(15px,2vw,20px);font-weight:500;color:rgba(255,255,255,.7);max-width:440px;margin:20px auto 32px;line-height:1.7}
+    .qr-cta-wrap{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .qr-cta{font-family:var(--mono);font-size:12px;letter-spacing:.2em;padding:15px 30px;cursor:pointer;border:none;transition:all .15s}
+    .qr-cta.primary{background:var(--g);color:#000;font-weight:700}
+    .qr-cta.primary:hover{box-shadow:0 0 28px rgba(57,255,20,.6)}
+    .qr-cta.fc-primary{background:var(--gold);color:#000}
+    .qr-cta.fc-primary:hover{box-shadow:0 0 28px rgba(255,215,0,.6)}
+    .qr-cta.secondary{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.25)}
+    .qr-cta.secondary:hover{border-color:rgba(57,255,20,.5);color:var(--g)}
+
+    /* FEATURE TEASER */
+    #feature-teaser{padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
+    .ft-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:16px}
+    .ft-h{font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:48px}
+    .ft-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:960px;margin:0 auto}
+    .ft-tile{background:#0a0a0a;border:1px solid rgba(255,255,255,.08);padding:28px 24px;text-align:left;position:relative;overflow:hidden}
+    .ft-tile.unlocked{border-color:rgba(57,255,20,.2)}
+    .ft-tile-icon{font-size:22px;display:block;margin-bottom:14px}
+    .ft-tile-name{font-family:var(--mono);font-size:12px;letter-spacing:.15em;color:rgba(255,255,255,.9);margin-bottom:8px;display:block}
+    .ft-tile-name .rx2{background:rgba(255,255,255,.1);color:transparent;padding:0 4px;border-radius:2px;font-size:10px}
+    .ft-tile-status{font-family:var(--mono);font-size:9px;letter-spacing:.3em}
+    .ft-tile-status.live{color:var(--g)}
+    .ft-tile-status.locked{color:var(--r)}
+    .ft-locked-overlay{position:absolute;inset:0;background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+    .ft-locked-overlay .lock-icon{font-size:20px;opacity:.6}
+    .ft-locked-overlay .lock-label{font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:rgba(239,68,68,.7)}
+
+    /* LIAISON MAP */
+
+    /* GATE */
+    .gate{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;position:relative;border-top:1px solid rgba(255,255,255,.04)}
+    .gate::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center bottom,rgba(57,255,20,.04) 0%,transparent 60%);pointer-events:none}
+    .gate-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.75);margin-bottom:32px}
+    .gate-h{font-size:clamp(34px,6vw,78px);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px}
+    .gate-h em{font-style:normal;color:var(--g)}
+    .gate-sub{font-size:clamp(17px,2.2vw,22px);color:rgba(255,255,255,.78);max-width:460px;margin:0 auto 44px;line-height:1.75;font-weight:500}
+    .gate-sub strong{color:#fff;font-weight:700}
+    .gate-archetype-hint{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(57,255,20,.6);margin-bottom:24px}
+    .gate-form-wrap{width:100%;max-width:480px;margin:0 auto}
+    .gate-form{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    .gate-input{flex:1;min-width:220px;background:rgba(255,255,255,.04);border:1px solid rgba(57,255,20,.15);color:#fff;font-family:var(--mono);font-size:12px;letter-spacing:.15em;padding:15px 18px;outline:none;transition:border .15s}
+    .gate-input::placeholder{color:rgba(255,255,255,.4)}
+    .gate-input:focus{border-color:rgba(57,255,20,.5);background:rgba(57,255,20,.03)}
+    .gate-submit{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:#000;background:var(--g);border:none;padding:15px 26px;cursor:pointer;transition:box-shadow .15s;white-space:nowrap;font-weight:700}
+    .gate-submit:hover{box-shadow:0 0 28px rgba(57,255,20,.6)}
+    .gate-note{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:rgba(255,255,255,.65)}
+
+    /* POST-SIGNUP CARD */
+    .gate-success{display:none;text-align:left}
+    .gs-cleared{font-family:var(--mono);font-size:14px;letter-spacing:.3em;color:var(--g);margin-bottom:6px;font-weight:700;text-align:center}
+    .gs-cleared.fc-cleared{color:var(--gold)}
+    .gs-num{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:rgba(57,255,20,.8);margin-bottom:24px;text-align:center;display:block}
+    .gs-num.fc-num{color:rgba(255,215,0,.8)}
+    .gs-share-wrap{margin-top:24px;text-align:center}
+    .gs-share-text{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.6);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:14px 18px;display:block;margin-bottom:12px;line-height:1.8;text-align:left;cursor:pointer;transition:border .15s}
+    .gs-share-text:hover{border-color:rgba(57,255,20,.3)}
+    .gs-share-label{font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:rgba(57,255,20,.6);display:block;margin-bottom:8px}
+    .gs-share-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+    .gs-share-btn{font-family:var(--mono);font-size:10px;letter-spacing:.2em;padding:10px 20px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);cursor:pointer;background:transparent;transition:all .15s;text-decoration:none;display:inline-block}
+    .gs-share-btn:hover{border-color:rgba(57,255,20,.5);color:var(--g)}
+    .gs-copied{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(57,255,20,.8);margin-top:8px;opacity:0;transition:opacity .3s;text-align:center;display:block}
+
+    /* STATS */
+    .gate-stats{display:flex;gap:24px;margin-top:40px;justify-content:center;flex-wrap:wrap}
+    .gst{text-align:center}
+    .gst-n{font-family:var(--mono);font-size:28px;color:var(--g);display:block;line-height:1}
+    .gst-l{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.55);display:block;margin-top:6px}
+    .gst-live{font-family:var(--mono);font-size:10px;color:rgba(57,255,20,.8);display:block;margin-top:3px}
+    .gst-sep{color:rgba(255,255,255,.2);font-size:28px;line-height:1}
+
+    /* SHARE */
+    .share{padding:80px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
+    .share-pre{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(255,255,255,.65);margin-bottom:28px}
+    .share-h{font-size:clamp(24px,4vw,48px);font-weight:700;color:rgba(255,255,255,.9);margin-bottom:8px}
+    .share-h em{font-style:normal;color:#fff}
+    .share-sub{font-size:clamp(15px,2vw,20px);color:rgba(255,255,255,.65);margin-bottom:20px;font-weight:500}
+    .share-forward{font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:rgba(255,255,255,.8);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.15);padding:20px 24px;max-width:520px;margin:0 auto 28px;line-height:1.8;cursor:pointer;transition:border .15s;text-align:left}
+    .share-forward:hover{border-color:rgba(57,255,20,.4);color:#fff}
+    .share-forward-label{font-size:9px;letter-spacing:.3em;color:rgba(57,255,20,.6);margin-bottom:10px;display:block}
+    .share-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+    .share-btn{font-family:var(--mono);font-size:11px;letter-spacing:.2em;padding:13px 24px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.72);cursor:pointer;background:transparent;transition:all .15s;text-decoration:none;display:inline-block}
+    .share-btn:hover{border-color:rgba(57,255,20,.5);color:var(--g)}
+    #copy-confirm,#fwd-confirm{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(57,255,20,.8);margin-top:12px;opacity:0;transition:opacity .3s;text-align:center}
+
+    /* FOOTER */
+    footer{padding:24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
+    .ft-nav{margin-bottom:14px;display:flex;justify-content:center;flex-wrap:wrap;gap:6px 0}
+    .ft-nav a{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.3);text-decoration:none;padding:0 10px;border-right:1px solid rgba(255,255,255,.1);transition:color .2s;white-space:nowrap}
+    .ft-nav a:last-child{border-right:none}
+    .ft-nav a:hover{color:rgba(57,255,20,.7)}
+    .ft-t{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.65)}
+    .ft-b{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:rgba(255,255,255,.05);cursor:pointer;margin-top:8px;transition:color .3s}
+    .ft-b:hover{color:rgba(57,255,20,.5)}
+
+    /* FLAGGED OVERLAY */
+    #flagged-overlay{position:fixed;inset:0;background:rgba(0,30,0,.97);z-index:99999;display:none;align-items:center;justify-content:center;flex-direction:column;gap:24px}
+    #flagged-overlay.show{display:flex;animation:flaggedFlash .1s ease}
+    @keyframes flaggedFlash{from{opacity:0}to{opacity:1}}
+    .flagged-text{font-family:var(--mono);font-size:clamp(24px,6vw,64px);letter-spacing:.4em;color:var(--g);text-shadow:0 0 40px var(--g),0 0 80px var(--g);animation:flaggedPulse .4s ease-in-out infinite alternate}
+    .flagged-sub{font-family:var(--mono);font-size:12px;letter-spacing:.4em;color:rgba(57,255,20,.5)}
+    @keyframes flaggedPulse{from{opacity:.8}to{opacity:1}}
+
+    /* ALERT */
+    #alert-pop{position:fixed;bottom:24px;right:24px;width:272px;background:rgba(0,0,0,.95);border:1px solid rgba(239,68,68,.22);padding:16px 20px;z-index:5000;transform:translateY(120px);opacity:0;transition:all .4s;font-family:var(--mono)}
+    #alert-pop.show{transform:translateY(0);opacity:1}
+    .ap-tag{font-size:10px;letter-spacing:.3em;color:rgba(239,68,68,.9);margin-bottom:8px;font-weight:700}
+    .ap-body{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.8);line-height:1.65}
+    .ap-close{position:absolute;top:10px;right:12px;color:rgba(255,255,255,.25);cursor:pointer;font-size:12px}
+
+    /* ARCHETYPE IDENTITY CARDS */
+    .arch-cards-wrap{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;max-width:1100px;margin:0 auto}
+    .arch-card{flex:1;min-width:220px;max-width:260px;font-family:var(--mono);padding:24px 20px;position:relative;overflow:hidden;border:1px solid;cursor:default;transition:transform .25s ease,box-shadow .25s ease}
+    .arch-card:hover{transform:translateY(-6px)}
+    .arch-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(255,255,255,.018) 1px,rgba(255,255,255,.018) 2px);pointer-events:none}
+    /* sentinel — red */
+    .arch-card.ac-s{border-color:rgba(239,68,68,.35);background:rgba(10,2,2,.95);box-shadow:0 0 20px rgba(239,68,68,.06),inset 0 0 20px rgba(239,68,68,.02)}
+    .arch-card.ac-s:hover{box-shadow:0 0 44px rgba(239,68,68,.2),inset 0 0 28px rgba(239,68,68,.06)}
+    /* diplomat — green */
+    .arch-card.ac-d{border-color:rgba(57,255,20,.35);background:rgba(2,8,2,.95);box-shadow:0 0 20px rgba(57,255,20,.06),inset 0 0 20px rgba(57,255,20,.02)}
+    .arch-card.ac-d:hover{box-shadow:0 0 44px rgba(57,255,20,.2),inset 0 0 28px rgba(57,255,20,.06)}
+    /* scholar — blue */
+    .arch-card.ac-sc{border-color:rgba(96,165,250,.35);background:rgba(2,4,10,.95);box-shadow:0 0 20px rgba(96,165,250,.06),inset 0 0 20px rgba(96,165,250,.02)}
+    .arch-card.ac-sc:hover{box-shadow:0 0 44px rgba(96,165,250,.2),inset 0 0 28px rgba(96,165,250,.06)}
+    /* first contact — gold */
+    .arch-card.ac-fc{border-color:rgba(255,215,0,.4);background:rgba(8,7,0,.95);box-shadow:0 0 28px rgba(255,215,0,.1),inset 0 0 28px rgba(255,215,0,.03);animation:fcShimmer 3.5s ease-in-out infinite}
+    .arch-card.ac-fc:hover{box-shadow:0 0 60px rgba(255,215,0,.25),inset 0 0 40px rgba(255,215,0,.08)}
+    /* card internals */
+    .ac-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;margin-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .ac-logo-txt{font-size:8px;letter-spacing:.3em;opacity:.4;text-transform:uppercase}
+    .ac-serial-txt{font-size:8px;letter-spacing:.12em;opacity:.3}
+    .ac-icon{font-size:44px;display:block;text-align:center;margin:4px 0 12px;line-height:1.1}
+    .ac-name{font-size:15px;font-weight:700;letter-spacing:.25em;text-align:center;margin-bottom:4px;text-transform:uppercase}
+    .ac-role{font-size:9px;letter-spacing:.2em;text-align:center;margin-bottom:18px;opacity:.45;text-transform:uppercase}
+    .ac-stat{display:flex;justify-content:space-between;align-items:center;font-size:9.5px;letter-spacing:.06em;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    .ac-sl{opacity:.38;text-transform:uppercase;letter-spacing:.1em;font-size:9px}
+    .ac-sv{opacity:.9;letter-spacing:.06em}
+    .ac-bar-wrap{margin:14px 0 16px}
+    .ac-bar-lbl{display:flex;justify-content:space-between;font-size:8px;letter-spacing:.12em;opacity:.4;margin-bottom:5px}
+    .ac-bar-bg{height:2px;background:rgba(255,255,255,.07);border-radius:1px;overflow:hidden}
+    .ac-bar-fg{height:100%;border-radius:1px;transition:width 1s ease}
+    .ac-status-line{font-size:9px;letter-spacing:.28em;text-align:center;padding:8px 6px;border:1px solid rgba(255,255,255,.07);text-transform:uppercase}
+    .ac-wm{position:absolute;bottom:9px;right:11px;font-size:7px;letter-spacing:.22em;opacity:.05;transform:rotate(-14deg);pointer-events:none;user-select:none;text-transform:uppercase}
+    /* mystery card preview */
+    .mystery-card{background:#050a05;border:1px solid rgba(57,255,20,.2);padding:24px 28px;max-width:300px;margin:0 auto;text-align:left;font-family:var(--mono);position:relative;overflow:hidden;filter:blur(.8px);opacity:.7}
+    .mystery-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(57,255,20,.03) 1px,rgba(57,255,20,.03) 2px);pointer-events:none}
+    .mystery-card-wrap{position:relative;display:inline-block}
+    .mystery-card-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(0,0,0,.45)}
+    .mystery-pulse{width:10px;height:10px;border-radius:50%;background:var(--g);animation:live 1.4s ease-in-out infinite;box-shadow:0 0 12px var(--g)}
+
+    @media(max-width:600px){
+      .as-grid{gap:20px}
+      .ft-grid{grid-template-columns:1fr 1fr}
+      .arch-card{min-width:160px}
+    }
+
+    /* TEXT SCRAMBLE EFFECT */
+    .scramble{display:inline-block;position:relative}
+    .scramble .scramble-char{display:inline-block;animation:scrambleIn .08s steps(1) forwards;opacity:0}
+    @keyframes scrambleIn{0%{content:'█';opacity:1}25%{content:'▓'}50%{content:'▒'}75%{content:'░'}100%{opacity:1}}
+
+    /* SVG ANIMATIONS */
+    .svg-anim{position:absolute;pointer-events:none;z-index:0;opacity:.12}
+    @keyframes radarSweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    .radar-sweep{animation:radarSweep 4s linear infinite}
+    @keyframes ekgDash{to{stroke-dashoffset:0}}
+    .ekg-line{stroke-dasharray:300;stroke-dashoffset:300;animation:ekgDash 2s linear infinite}
+    @keyframes reticlePulse{0%,100%{opacity:.08;transform:scale(1)}50%{opacity:.18;transform:scale(1.05)}}
+    .reticle{animation:reticlePulse 3s ease-in-out infinite}
+  </style>
+</head>
+<body>
+<script>
+// Share redirect handler — fires from Disclosure card emails
+(function(){
+  var p = new URLSearchParams(window.location.search);
+  var share = p.get('share');
+  if (!share) return;
+  var text = p.get('text') || '';
+  var dest = '';
+  if (share === 'x')  dest = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
+  if (share === 'wa') dest = 'https://wa.me/?text=' + encodeURIComponent(text);
+  if (share === 'fb') dest = 'https://www.facebook.com/sharer.php?u=https%3A%2F%2Fgetdisclosure.app';
+  if (dest) { window.location.replace(dest); }
+})();
+</script>
+
+<div class="cursor-ring" id="cursor"></div>
+<div id="stars"></div>
+
+<!-- FLAGGED OVERLAY -->
+<div id="flagged-overlay">
+  <div class="flagged-text">YOU HAVE BEEN FLAGGED.</div>
+  <div class="flagged-sub">IDENTITY CONFIRMED · RECORD CREATED</div>
+</div>
+
+<!-- BOOT -->
+<div id="boot">
+  <div id="boot-lines"></div>
+  <div id="boot-bar"><div id="boot-progress"></div></div>
+</div>
+
+<main>
+  <nav class="nav">
+    <a href="/" class="nav-logo">DISCLOSURE</a>
+    <div class="nav-sig" id="nav-sig"><div class="live-dot"></div><span id="nav-status-text">LEAKED DOCUMENT · READING IN PROGRESS</span></div>
+  </nav>
+
+  <!-- 1. HERO -->
+  <section class="hero">
+    <canvas id="craft-canvas" aria-hidden="true"></canvas>
+    <div class="hero-orb"></div>
+
+    <div class="hero-kicker sr">CASE FILE: UAP-CIVILIAN-001 // CLASSIFICATION REVOKED BY EXECUTIVE ORDER</div>
+    <p class="hero-intercept sr">// LEAKED DOCUMENT — UNAUTHORIZED DISTRIBUTION — DO NOT SHARE //</p>
+
+    <h1 class="hero-h sr">
+      <span class="glitch" data-text="DISCLOSURE">DISCLOSURE</span>
+    </h1>
+
+    <h2 class="hero-identity sr">This file was not meant for you.</h2>
+    <p class="hero-sub sr">A leaked first contact protocol. Four civilian archetypes.<br><em>Your designation is already assigned.</em></p>
+
+    <a href="#quiz" class="cta-btn sr">READ THE BRIEFING →</a>
+
+    <div class="hero-counter sr">
+      <div class="live-dot" style="width:4px;height:4px"></div>
+      <span class="hc-num" id="hero-count">—</span>
+      <span>civilians briefed</span>
+      <span class="hc-sep">·</span>
+      <span class="hc-live" id="hero-live">+— this hour</span>
+      <span class="hc-sep">·</span>
+      <span>file accessed</span>
+    </div>
+  </section>
+
+  <!-- 2. THE MOMENT — moved up: credibility first -->
+  <section class="moment">
+    <!-- RADAR SWEEP SVG -->
+    <svg class="svg-anim" width="200" height="200" viewBox="0 0 200 200" style="top:10%;right:5%">
+      <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(57,255,20,.15)" stroke-width="1"/>
+      <circle cx="100" cy="100" r="50" fill="none" stroke="rgba(57,255,20,.08)" stroke-width="1"/>
+      <circle cx="100" cy="100" r="20" fill="none" stroke="rgba(57,255,20,.06)" stroke-width="1"/>
+      <line x1="100" y1="100" x2="100" y2="20" stroke="rgba(57,255,20,.4)" stroke-width="2" class="radar-sweep" style="transform-origin:100px 100px"/>
+    </svg>
+    <div class="moment-date sr">19 FEBRUARY 2026 — EXECUTIVE ORDER SIGNED</div>
+    <h2 class="moment-h sr">The president<br><em>ordered full disclosure.</em></h2>
+    <p class="moment-body sr">
+      Intelligence officials testified <strong>under oath.</strong><br>
+      Over 40 witnesses. NDAs. A task force. Then <strong>silence.</strong><br>
+      Until a sitting president broke the chain of custody.
+    </p>
+    <div class="moment-line sr"></div>
+    <div class="moment-punch sr">
+      Every agency has <strong>300 days.</strong><br>
+      The countdown is running.<br>
+      <em>This briefing was not supposed to reach civilians first.</em>
+    </div>
+  </section>
+
+  <!-- 3. THE TIMELINE — new: urgency anchor -->
+    <!-- ══════════════════════════════════════════
+       THE TIMELINE — New: Urgency Anchor
+  ══════════════════════════════════════════ -->
+  <section id="timeline" style="padding:80px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04);position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(57,255,20,.015) 1px,rgba(57,255,20,.015) 2px);pointer-events:none"></div>
+    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:40px">// THE TIMELINE IS ACCELERATING //</div>
+    <div class="sr" style="max-width:600px;margin:0 auto;text-align:left">
+      <div style="display:flex;flex-direction:column;gap:0">
+
+        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:start">
+          <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:rgba(57,255,20,.6)">JULY 2023</span>
+          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.8);letter-spacing:.05em;line-height:1.6">Congressional UAP hearing. David Grusch testifies under oath: <strong style="color:#fff">non-human intelligence is real and has been recovered.</strong></span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:start">
+          <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:rgba(57,255,20,.6)">NOV 2024</span>
+          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.8);letter-spacing:.05em;line-height:1.6">UAP Disclosure Act advances. <strong style="color:#fff">Government ordered to declassify all records.</strong> Task force formed. Then went silent.</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:start">
+          <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:rgba(57,255,20,.6)">SEPT 2025</span>
+          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.8);letter-spacing:.05em;line-height:1.6">Declassification deadline. <strong style="color:#fff">40+ witnesses. NDAs signed. One date given.</strong> Washington went quiet the next day.</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:start">
+          <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:rgba(57,255,20,.6)">JAN 2026</span>
+          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.8);letter-spacing:.05em;line-height:1.6">Vatican investigation goes public. Aerospace confirms objects beyond known physics. <strong style="color:#fff">Canada calls for civilian reporting infrastructure.</strong></span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:start;background:rgba(245,158,11,.025);padding-left:12px;padding-right:12px;border-left:2px solid rgba(245,158,11,.5)">
+          <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--a)">FEB 2026</span>
+          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.9);letter-spacing:.05em;line-height:1.6"><strong style="color:#fff">Trump signs executive order for full UAP declassification.</strong> All agencies given 300 days. The largest forced disclosure in history.</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:20px 0;align-items:start;background:rgba(57,255,20,.025);padding-left:12px;padding-right:12px;border-left:2px solid rgba(57,255,20,.4)">
+          <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--g)">NOW</span>
+          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.9);letter-spacing:.05em;line-height:1.6">The files are being released. <strong style="color:#fff">There is no longer a question of if.</strong> The only question is whether you know your role when the first verified contact document drops.</span>
+        </div>
+
+      </div>
+    </div>
+    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.45);margin-top:40px;max-width:480px;margin-left:auto;margin-right:auto">// Every event above happened without civilian preparation protocol. That changes now. //</p>
+  </section>
+
+  <!-- 4. THE RULES -->
+  <section class="rules">
+    <!-- SIGNAL WAVEFORM SVG -->
+    <svg class="svg-anim" width="300" height="50" viewBox="0 0 300 50" style="bottom:15%;left:2%">
+      <path d="M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25" fill="none" stroke="rgba(57,255,20,.2)" stroke-width="1.5">
+        <animate attributeName="d" dur="3s" repeatCount="indefinite" values="M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25;M0,25 Q15,45 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25;M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25"/>
+      </path>
+    </svg>
+    <div class="rules-bg" aria-hidden="true">RULES</div>
+    <div class="rules-hdr sr">// BRIEFING EXCERPT · RULE SET ALPHA //</div>
+    <div class="rules-inner">
+
+      <!-- Rule 00 — THE archetype rule -->
+      <div class="rule-row rule-zero sr">
+        <span class="rule-n">00</span>
+        <div>
+          <span class="rule-t">KNOW YOUR ARCHETYPE BEFORE CONTACT.</span>
+          <span class="rule-sub">Your archetype determines your role. Your role determines your survival.</span>
+        </div>
+      </div>
+
+      <div class="rule-row sr">
+        <span class="rule-n">01</span>
+        <div>
+          <span class="rule-t">MAINTAIN EYE CONTACT.</span>
+          <span class="rule-sub">Do not look away first.</span>
+        </div>
+      </div>
+      <div class="rule-row sr">
+        <span class="rule-n">02</span>
+        <div>
+          <span class="rule-t">DO NOT REACH.</span>
+          <span class="rule-sub">Let them initiate physical interaction.</span>
+        </div>
+      </div>
+      <div class="rule-row sr">
+        <span class="rule-n">03</span>
+        <div>
+          <span class="rule-t">STATE YOUR ROLE.</span>
+          <span class="rule-sub">They understand hierarchy.</span>
+        </div>
+      </div>
+      <div class="rule-row alarm sr">
+        <span class="rule-n">04</span>
+        <span class="rule-t">DO NOT APPROACH THE LIGHT.</span>
+      </div>
+
+      <div class="rule-partial sr">
+        <div style="display:flex;align-items:baseline;gap:24px">
+          <span class="rule-n">07</span>
+          <p class="rule-partial-text">
+            If a craft comes within <span class="rx" onclick="void(0)">████</span> meters,
+            do not attempt to <span class="rx" onclick="void(0)">██████████████</span>.
+            The outcome in <span class="rx" onclick="void(0)">██</span>% of documented cases was irreversible.
+          </p>
+        </div>
+      </div>
+
+      <p class="rule-count sr">// 47 MORE RULES IN THE FULL BRIEFING //</p>
+    </div>
+  </section>
+
+  <!-- 6. ARCHETYPE CARDS -->
+  <section id="social-proof" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)">
+    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:16px">// ARCHETYPE CLASSIFICATION — ACTIVE PROFILES //</div>
+    <h2 class="sr" style="font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Four archetypes.<br>One determines everything.</h2>
+    <p class="sr" style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.68);margin-bottom:56px">When it happens, your role is already assigned. Most people won't know theirs.</p>
+
+    <div class="arch-cards-wrap sr">
+
+      <!-- SENTINEL -->
+      <div class="arch-card ac-s">
+        <div class="ac-header">
+          <span class="ac-logo-txt">◉ DISCLOSURE PROTOCOL</span>
+          <span class="ac-serial-txt">DS-2026-08847</span>
+        </div>
+        <span class="ac-icon">🛡️</span>
+        <div class="ac-name" style="color:#EF4444">SENTINEL</div>
+        <div class="ac-role">PRIMARY PROTECTOR</div>
+        <div class="ac-stat"><span class="ac-sl">THREAT READ</span><span class="ac-sv" style="color:#EF4444">ACTIVE</span></div>
+        <div class="ac-stat"><span class="ac-sl">ROLE ONSET</span><span class="ac-sv">IMMEDIATE</span></div>
+        <div class="ac-stat"><span class="ac-sl">SECTOR</span><span class="ac-sv" style="background:rgba(255,255,255,.1);color:transparent;padding:0 8px;font-size:8px">██████</span></div>
+        <div class="ac-bar-wrap">
+          <div class="ac-bar-lbl"><span>READINESS</span><span style="color:#EF4444">84%</span></div>
+          <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:84%;background:#EF4444;box-shadow:0 0 8px rgba(239,68,68,.6)"></div></div>
+        </div>
+        <div class="ac-status-line" style="color:#EF4444;border-color:rgba(239,68,68,.2)">🔴 FIELD DEPLOYMENT: READY</div>
+        <div class="ac-wm">DISCLOSURE PROTOCOL</div>
+      </div>
+
+      <!-- DIPLOMAT -->
+      <div class="arch-card ac-d">
+        <div class="ac-header">
+          <span class="ac-logo-txt">◉ DISCLOSURE PROTOCOL</span>
+          <span class="ac-serial-txt">DS-2026-03291</span>
+        </div>
+        <span class="ac-icon">🤝</span>
+        <div class="ac-name" style="color:#39FF14">DIPLOMAT</div>
+        <div class="ac-role">DE-ESCALATION LEAD</div>
+        <div class="ac-stat"><span class="ac-sl">CONTACT IDX</span><span class="ac-sv" style="color:var(--g)">11.4 kHz</span></div>
+        <div class="ac-stat"><span class="ac-sl">LANGUAGE</span><span class="ac-sv">UNIVERSAL</span></div>
+        <div class="ac-stat"><span class="ac-sl">PROTOCOL</span><span class="ac-sv" style="color:var(--g)">ALPHA-7</span></div>
+        <div class="ac-bar-wrap">
+          <div class="ac-bar-lbl"><span>CALM RATING</span><span style="color:var(--g)">96%</span></div>
+          <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:96%;background:var(--g);box-shadow:0 0 8px rgba(57,255,20,.6)"></div></div>
+        </div>
+        <div class="ac-status-line" style="color:var(--g);border-color:rgba(57,255,20,.2)">🟢 FIRST CONTACT: AUTHORIZED</div>
+        <div class="ac-wm">DISCLOSURE PROTOCOL</div>
+      </div>
+
+      <!-- SCHOLAR -->
+      <div class="arch-card ac-sc">
+        <div class="ac-header">
+          <span class="ac-logo-txt">◉ DISCLOSURE PROTOCOL</span>
+          <span class="ac-serial-txt">DS-2026-15503</span>
+        </div>
+        <span class="ac-icon">🔬</span>
+        <div class="ac-name" style="color:#60A5FA">SCHOLAR</div>
+        <div class="ac-role">FIELD ANALYST</div>
+        <div class="ac-stat"><span class="ac-sl">OBS CLASS</span><span class="ac-sv" style="color:#60A5FA">ALPHA</span></div>
+        <div class="ac-stat"><span class="ac-sl">FIELD MODE</span><span class="ac-sv">PASSIVE RECORD</span></div>
+        <div class="ac-stat"><span class="ac-sl">ARCHIVE</span><span class="ac-sv" style="color:#60A5FA">PRIORITY-1</span></div>
+        <div class="ac-bar-wrap">
+          <div class="ac-bar-lbl"><span>DATA INTEGRITY</span><span style="color:#60A5FA">91%</span></div>
+          <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:91%;background:#60A5FA;box-shadow:0 0 8px rgba(96,165,250,.6)"></div></div>
+        </div>
+        <div class="ac-status-line" style="color:#60A5FA;border-color:rgba(96,165,250,.2)">🔵 DOCUMENTATION: ACTIVE</div>
+        <div class="ac-wm">DISCLOSURE PROTOCOL</div>
+      </div>
+
+      <!-- FIRST CONTACT -->
+      <div class="arch-card ac-fc">
+        <div class="ac-header">
+          <span class="ac-logo-txt" style="color:var(--gold);opacity:.5">◉ DISCLOSURE PROTOCOL</span>
+          <span class="ac-serial-txt" style="color:var(--gold)">FC-0000-00001</span>
+        </div>
+        <span class="ac-icon" style="animation:fcPulse 2s infinite">⭐</span>
+        <div class="ac-name" style="color:var(--gold);font-size:12px;letter-spacing:.18em">FIRST CONTACT</div>
+        <div class="ac-role" style="color:rgba(255,215,0,.5)">CLASSIFICATION UNKNOWN</div>
+        <div class="ac-stat"><span class="ac-sl">ARCHETYPE</span><span class="ac-sv" style="background:rgba(255,215,0,.1);color:transparent;padding:0 8px;font-size:8px">████████████</span></div>
+        <div class="ac-stat"><span class="ac-sl">FIELD CONF</span><span class="ac-sv" style="color:var(--gold)">NEVER</span></div>
+        <div class="ac-stat"><span class="ac-sl">CLEARANCE</span><span class="ac-sv" style="background:rgba(255,215,0,.1);color:transparent;padding:0 8px;font-size:8px">████████</span></div>
+        <div class="ac-bar-wrap">
+          <div class="ac-bar-lbl"><span style="color:rgba(255,215,0,.45)">UNLOCK STATUS</span><span style="color:var(--gold)">&lt;0.1%</span></div>
+          <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:0.1%;background:var(--gold);box-shadow:0 0 8px rgba(255,215,0,.8)"></div></div>
+        </div>
+        <div class="ac-status-line" style="color:var(--gold);border-color:rgba(255,215,0,.2)">⭐ NO CONFIRMED FIELD CONTACT</div>
+        <div class="ac-wm" style="color:var(--gold)">DISCLOSURE PROTOCOL</div>
+      </div>
+
+    </div>
+
+    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.62);margin-top:44px">// Most people will discover their archetype too late. //</p>
+  </section>
+
+  <!-- 7. UNIVERSAL TRANSLATOR — moved up: desire before ask -->
+  <section id="translator" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)">
+    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:16px">// RECOVERED INSTRUMENT — FIELD USE ONLY //</div>
+    <h2 class="sr" style="font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:16px">This is how<br><span style="color:var(--g)">we say hello.</span></h2>
+    <p class="sr" style="font-size:clamp(16px,2vw,22px);color:rgba(255,255,255,.65);max-width:520px;margin:0 auto 48px;line-height:1.75;font-weight:500">The Universal Translator turns your phone into a first contact communication device. Frequency tones. Geometric light pulses. Point it at the sky and transmit.</p>
+    <div class="sr" style="max-width:500px;margin:0 auto;background:#050a05;border:1px solid rgba(57,255,20,.25);padding:40px;position:relative;overflow:hidden">
+      <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(57,255,20,.025) 1px,rgba(57,255,20,.025) 2px);pointer-events:none"></div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.35em;color:rgba(57,255,20,.5);margin-bottom:28px">UNIVERSAL TRANSLATOR — PREVIEW</div>
+      <div style="display:flex;justify-content:center;gap:16px;margin-bottom:32px">
+        <div style="width:52px;height:52px;border-radius:50%;border:1px solid rgba(57,255,20,.4);display:flex;align-items:center;justify-content:center;font-size:22px;animation:live 2.2s ease-in-out infinite">📡</div>
+        <div style="width:52px;height:52px;border-radius:50%;border:1px solid rgba(57,255,20,.25);display:flex;align-items:center;justify-content:center;font-size:22px;animation:live 2.2s ease-in-out infinite .5s">🔦</div>
+        <div style="width:52px;height:52px;border-radius:50%;border:1px solid rgba(57,255,20,.25);display:flex;align-items:center;justify-content:center;font-size:22px;animation:live 2.2s ease-in-out infinite 1s">📶</div>
+      </div>
+      <div style="font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.55);line-height:2.2;text-align:left">
+        SEQUENCE: TONE_01 · PAUSE · FLASH_3X · PAUSE · TONE_02<br>
+        <span style="color:rgba(57,255,20,.75)">MEANING: NON-HOSTILE · REQUESTING CONTACT</span>
+      </div>
+      <div style="margin-top:24px;border-top:1px solid rgba(57,255,20,.1);padding-top:20px;font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:rgba(255,255,255,.3)">🔒 FULL PROTOCOL UNLOCKED IN-APP ONLY</div>
+    </div>
+    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.58);margin-top:28px">// What happens when you point it at the sky is classified. //</p>
+  </section>
+
+  <!-- 8. FEATURE TEASER — moved: show the prize before the quiz -->
+  <section id="feature-teaser">
+    <div class="ft-eyebrow sr">// TRAINING MODULES — CLASSIFIED //</div>
+    <h2 class="ft-h sr">Contents of the leaked protocol</h2>
+    <div class="ft-grid sr">
+      <!-- UNLOCKED -->
+      <div class="ft-tile unlocked">
+        <span class="ft-tile-icon">🧬</span>
+        <span class="ft-tile-name">ARCHETYPE ASSESSMENT</span>
+        <span class="ft-tile-status live">◉ DECLASSIFIED</span>
+      </div>
+      <div class="ft-tile unlocked">
+        <span class="ft-tile-icon">🪪</span>
+        <span class="ft-tile-name">FIRST CONTACT CREDENTIAL</span>
+        <span class="ft-tile-status live">◉ DECLASSIFIED</span>
+      </div>
+      <div class="ft-tile unlocked">
+        <span class="ft-tile-icon">📋</span>
+        <span class="ft-tile-name">LIAISON STANDARD</span>
+        <span class="ft-tile-status live">◉ DECLASSIFIED</span>
+      </div>
+      <!-- LOCKED -->
+      <div class="ft-tile" style="opacity:.6">
+        <span class="ft-tile-icon">🧊</span>
+        <span class="ft-tile-name">STONE COLD <span class="rx2">████████</span></span>
+        <span class="ft-tile-status locked">🔒 CLASSIFIED</span>
+        <div class="ft-locked-overlay">
+          <span class="lock-icon">🔒</span>
+          <span class="lock-label">CLASSIFIED</span>
+        </div>
+      </div>
+      <div class="ft-tile" style="opacity:.6">
+        <span class="ft-tile-icon">🔲</span>
+        <span class="ft-tile-name">BLACKOUT MODE</span>
+        <span class="ft-tile-status locked">🔒 CLASSIFIED</span>
+        <div class="ft-locked-overlay">
+          <span class="lock-icon">🔒</span>
+          <span class="lock-label">CLASSIFIED</span>
+        </div>
+      </div>
+      <div class="ft-tile" style="opacity:.6">
+        <span class="ft-tile-icon">✍️</span>
+        <span class="ft-tile-name">THE LIAISON'S CREED</span>
+        <span class="ft-tile-status locked">🔒 CLASSIFIED</span>
+        <div class="ft-locked-overlay">
+          <span class="lock-icon">🔒</span>
+          <span class="lock-label">CLASSIFIED</span>
+        </div>
+      </div>
+      <div class="ft-tile" style="opacity:.6">
+        <span class="ft-tile-icon">📄</span>
+        <span class="ft-tile-name">INCIDENT REPORTS</span>
+        <span class="ft-tile-status locked">🔒 CLASSIFIED</span>
+        <div class="ft-locked-overlay">
+          <span class="lock-icon">🔒</span>
+          <span class="lock-label">CLASSIFIED</span>
+        </div>
+      </div>
+      <div class="ft-tile" style="opacity:.6">
+        <span class="ft-tile-icon">🧪</span>
+        <span class="ft-tile-name"><span class="rx2">████</span> SIMULATION MODE</span>
+        <span class="ft-tile-status locked">🔒 CLASSIFIED</span>
+        <div class="ft-locked-overlay">
+          <span class="lock-icon">🔒</span>
+          <span class="lock-label">CLASSIFIED</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CARD PREVIEW — moved: peak desire just before quiz -->
+  <section id="card-preview" style="padding:80px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)">
+    <div class="cp-eyebrow sr">// FIRST CONTACT CREDENTIAL — CLASSIFICATION PENDING //</div>
+    <h2 class="cp-h sr" style="margin-bottom:10px">A credential has been generated for you.</h2>
+    <p class="cp-sub sr" style="margin-bottom:40px">Serial number assigned. Archetype field: blank. Awaiting your assessment.</p>
+
+    <!-- Mystery blurred card -->
+    <div class="sr mystery-card-wrap" style="margin-bottom:36px">
+      <div class="mystery-card">
+        <span class="fcc-logo" style="opacity:.4">◉ DISCLOSURE PROTOCOL</span>
+        <span class="fcc-title" style="font-size:13px;display:block;margin:8px 0 14px">FIRST CONTACT CARD — ISSUED</span>
+        <div class="fcc-row"><span class="fcc-label">ARCHETYPE</span><span class="fcc-val" style="letter-spacing:.1em">████████████</span></div>
+        <div class="fcc-row"><span class="fcc-label">SERIAL</span><span class="fcc-val green" style="font-size:11px">DS-2026-?????</span></div>
+        <div class="fcc-row"><span class="fcc-label">STATUS</span><span class="fcc-val amber">PENDING CLEARANCE</span></div>
+        <div class="fcc-wallet" style="margin-top:14px">CLASSIFICATION REQUIRED</div>
+      </div>
+      <div class="mystery-card-overlay">
+        <div class="mystery-pulse"></div>
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.35em;color:rgba(57,255,20,.85)">UNCLASSIFIED</div>
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.45)">ARCHETYPE REQUIRED</div>
+      </div>
+    </div>
+
+    <a href="#quiz" class="cta-btn sr" style="font-size:12px;padding:14px 36px">CLASSIFY YOURSELF →</a>
+  </section>
+
+  <!-- 10. QUIZ -->
+  <section id="quiz" class="quiz">
+    <!-- EKG HEARTBEAT SVG -->
+    <svg class="svg-anim" width="200" height="60" viewBox="0 0 200 60" style="top:8%;left:3%">
+      <polyline class="ekg-line" points="0,30 30,30 40,30 50,10 55,50 60,5 65,45 70,30 80,30 110,30 120,30 130,10 135,50 140,5 145,45 150,30 160,30 200,30" fill="none" stroke="rgba(57,255,20,.25)" stroke-width="1.5"/>
+    </svg>
+    <div class="quiz-eyebrow sr">ARCHETYPE CLASSIFICATION // REAL-TIME ANALYSIS</div>
+    <h2 class="quiz-h sr">Four types of people.<br><em>Which one are you?</em></h2>
+
+    <div class="quiz-progress sr"><div class="quiz-progress-bar" id="quiz-bar" style="width:0%"></div></div>
+
+    <div class="quiz-card sr">
+      <!-- Q1 -->
+      <div class="q-step active" id="q1">
+        <div class="q-num">QUESTION 01 OF 10</div>
+        <p class="q-text">A craft makes landfall 100 meters from you. Your first move?</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(1,1,'sentinel')">I move to shield the people behind me.</button>
+          <button class="q-opt" onclick="answer(1,2,'diplomat')">I go completely still. Non-threatening posture.</button>
+          <button class="q-opt" onclick="answer(1,3,'scholar')">I raise both hands. I want them to see my intentions.</button>
+          <button class="q-opt" onclick="answer(1,4,'sentinel')">I back away slowly, eyes forward.</button>
+        </div>
+      </div>
+      <!-- Q2 -->
+      <div class="q-step" id="q2">
+        <div class="q-num">QUESTION 02 OF 10</div>
+        <p class="q-text">One of them makes direct eye contact with you. What do you do?</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(2,1,'sentinel')">Hold it. I do not look away first.</button>
+          <button class="q-opt" onclick="answer(2,2,'diplomat')">Blink slowly. Reduce the perceived threat.</button>
+          <button class="q-opt" onclick="answer(2,3,'scholar')">Look slightly away — direct gaze may be hostile in their culture.</button>
+          <button class="q-opt" onclick="answer(2,4,'diplomat')">Drop to one knee. Show submission. Survive.</button>
+        </div>
+      </div>
+      <!-- Q3 -->
+      <div class="q-step" id="q3">
+        <div class="q-num">QUESTION 03 OF 10</div>
+        <p class="q-text">One of them extends something toward you. What do you assume it is?</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(3,1,'sentinel')">A weapon. I brace.</button>
+          <button class="q-opt" onclick="answer(3,2,'diplomat')">An offering. I nod.</button>
+          <button class="q-opt" onclick="answer(3,3,'scholar')">A device. I observe.</button>
+          <button class="q-opt" onclick="answer(3,4,'first-contact')">Their hand.</button>
+        </div>
+      </div>
+      <!-- Q4 -->
+      <div class="q-step" id="q4">
+        <div class="q-num">QUESTION 04 OF 10</div>
+        <p class="q-text">The encounter ends. They leave. What do you do first?</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(4,1,'sentinel')">Secure the perimeter. Establish what's safe.</button>
+          <button class="q-opt" onclick="answer(4,2,'diplomat')">Brief the people around me. Calm the crowd.</button>
+          <button class="q-opt" onclick="answer(4,3,'scholar')">Document everything, in exact sequence.</button>
+          <button class="q-opt" onclick="answer(4,4,'diplomat')">Stand completely still. Process what just happened.</button>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="q-step" id="q5">
+        <div class="q-num">QUESTION 05 OF 10</div>
+        <p class="q-text">A light from the craft sweeps slowly across the ground toward you. It stops at your feet.</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(5,1,'sentinel')">I hold position. Whatever comes next, I'm not moving first.</button>
+          <button class="q-opt" onclick="answer(5,2,'diplomat')">I step aside slowly. I don't want to be seen as blocking it.</button>
+          <button class="q-opt" onclick="answer(5,3,'scholar')">I watch where the edges of the light fall. There's data in that.</button>
+          <button class="q-opt" onclick="answer(5,4,'first-contact')">I step into it.</button>
+        </div>
+      </div>
+      <!-- Q6 -->
+      <div class="q-step" id="q6">
+        <div class="q-num">QUESTION 06 OF 10</div>
+        <p class="q-text">Someone near you breaks and runs. The craft tracks the movement immediately.</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(6,1,'sentinel')">I call after them. Running is the worst thing they can do.</button>
+          <button class="q-opt" onclick="answer(6,2,'diplomat')">I stay completely still. My calm might anchor what happens next.</button>
+          <button class="q-opt" onclick="answer(6,3,'scholar')">I watch the craft's reaction. The response pattern tells me something.</button>
+          <button class="q-opt" onclick="answer(6,4,'first-contact')">I take one step forward. Draw the attention back to me.</button>
+        </div>
+      </div>
+      <!-- Q7 -->
+      <div class="q-step" id="q7">
+        <div class="q-num">QUESTION 07 OF 10</div>
+        <p class="q-text">They haven't moved in three minutes. Neither have you. You realize they are studying you.</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(7,1,'sentinel')">I stand taller. I want them to understand I'm not prey.</button>
+          <button class="q-opt" onclick="answer(7,2,'diplomat')">I lower myself slowly. I want them to see I'm not a threat.</button>
+          <button class="q-opt" onclick="answer(7,3,'scholar')">I mirror their stillness deliberately. Show them I understand patience.</button>
+          <button class="q-opt" onclick="answer(7,4,'first-contact')">I speak. One word. My name.</button>
+        </div>
+      </div>
+      <!-- Q8 -->
+      <div class="q-step" id="q8">
+        <div class="q-num">QUESTION 08 OF 10</div>
+        <p class="q-text">A sound comes from the craft. Not language. You feel it in your chest before you hear it.</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(8,1,'sentinel')">Threat. My body knows before my mind does.</button>
+          <button class="q-opt" onclick="answer(8,2,'diplomat')">Communication. If it's a sound, it's trying to reach us.</button>
+          <button class="q-opt" onclick="answer(8,3,'scholar')">I want to record it. Every frequency is information.</button>
+          <button class="q-opt" onclick="answer(8,4,'first-contact')">Recognition. Like something you've heard before but couldn't place.</button>
+        </div>
+      </div>
+      <!-- Q9 -->
+      <div class="q-step" id="q9">
+        <div class="q-num">QUESTION 09 OF 10</div>
+        <p class="q-text">It's over. They're gone. Others saw it too. What do you say first?</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(9,1,'sentinel')">Everyone stay together. Don't move yet.</button>
+          <button class="q-opt" onclick="answer(9,2,'diplomat')">Is everyone okay?</button>
+          <button class="q-opt" onclick="answer(9,3,'scholar')">Did anyone else see the way the light changed at the end?</button>
+          <button class="q-opt" onclick="answer(9,4,'first-contact')">Nothing. You're not ready to speak yet.</button>
+        </div>
+      </div>
+      <!-- Q10 -->
+      <div class="q-step" id="q10">
+        <div class="q-num">QUESTION 10 OF 10</div>
+        <p class="q-text">The next morning, the government confirms it happened. They are asking for civilian witnesses.</p>
+        <div class="q-opts">
+          <button class="q-opt" onclick="answer(10,1,'sentinel')">I come forward. My account is accurate and I'll stand behind it.</button>
+          <button class="q-opt" onclick="answer(10,2,'diplomat')">I come forward. Someone has to speak calmly about what we saw.</button>
+          <button class="q-opt" onclick="answer(10,3,'scholar')">I submit everything. Every timestamp, detail, and observation I recorded.</button>
+          <button class="q-opt" onclick="answer(10,4,'first-contact')">I don't. Not yet. Some things aren't ready to be explained.</button>
+        </div>
+      </div>
+
+      <!-- Archetype Result -->
+      <div class="quiz-result" id="quiz-result">
+        <div class="qr-reveal-wrap">
+          <span class="qr-archetype-icon" id="qr-icon">🛡️</span>
+          <span class="qr-archetype-label">YOUR ARCHETYPE</span>
+          <div class="qr-archetype-name" id="qr-name">SENTINEL</div>
+          <span class="qr-pct" id="qr-pct">34% of civilians share this archetype</span>
+        </div>
+        <p class="qr-desc" id="qr-desc">You are the protector. You move first. You read the room before anyone else does.</p>
+        <div class="qr-cta-wrap">
+          <button class="qr-cta primary" id="qr-cta-primary" onclick="document.getElementById('access').scrollIntoView({behavior:'smooth'})">CLAIM YOUR CARD →</button>
+          <button class="qr-cta secondary" onclick="shareArchetype()">SHARE MY ARCHETYPE</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. FC EVENT — moved: ultimate scarcity detonates before CTA -->
+  <section id="fc-event" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,215,0,.12);position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,215,0,.04) 0%,transparent 65%);pointer-events:none"></div>
+    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(255,215,0,.7);margin-bottom:20px">// LAUNCH DAY EVENT — CLASSIFIED //</div>
+    <h2 class="sr" style="font-size:clamp(28px,5vw,64px);font-weight:700;letter-spacing:-.02em;margin-bottom:24px;line-height:1.1">On launch day,<br><span style="color:var(--gold)">one slot remains open.</span></h2>
+    <p class="sr" style="font-family:var(--mono);font-size:clamp(12px,1.6vw,16px);letter-spacing:.08em;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 40px;line-height:2.2">
+      The FIRST CONTACT archetype has never been confirmed in the field.<br>
+      On launch day, the first civilian to achieve a perfect Readiness Score<br>
+      <strong style="color:#fff">unlocks it permanently. It may never happen again.</strong>
+    </p>
+    <div class="sr" style="display:inline-block;border:1px solid rgba(255,215,0,.3);padding:28px 52px;margin-bottom:40px;position:relative;background:rgba(8,7,0,.6)">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.4em;color:rgba(255,215,0,.55);margin-bottom:14px">ARCHETYPE STATUS</div>
+      <div style="font-size:clamp(32px,5vw,56px);font-weight:700;color:var(--gold);animation:fcPulse 2.5s infinite;line-height:1">⭐ FIRST CONTACT</div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(255,215,0,.55);margin-top:14px">NEVER BEEN UNLOCKED · 0 CONFIRMED</div>
+      <div style="position:absolute;top:8px;right:12px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:rgba(255,215,0,.25)">SERIAL: FC-0000-00001</div>
+    </div>
+    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.65);margin-bottom:32px">Log your frequency now. When the slot opens, you will be contacted.</p>
+    <a href="#access" class="cta-btn sr" style="background:var(--gold);color:#000">LOG FREQUENCY →</a>
+  </section>
+
+  <!-- 13. ACCESS GATE -->
+  <section id="access" class="gate">
+    <!-- TARGETING RETICLE SVG -->
+    <svg class="svg-anim reticle" width="160" height="160" viewBox="0 0 160 160" style="top:15%;right:8%">
+      <circle cx="80" cy="80" r="60" fill="none" stroke="rgba(57,255,20,.12)" stroke-width="1"/>
+      <circle cx="80" cy="80" r="30" fill="none" stroke="rgba(57,255,20,.08)" stroke-width="1"/>
+      <line x1="80" y1="10" x2="80" y2="40" stroke="rgba(57,255,20,.15)" stroke-width="1"/>
+      <line x1="80" y1="120" x2="80" y2="150" stroke="rgba(57,255,20,.15)" stroke-width="1"/>
+      <line x1="10" y1="80" x2="40" y2="80" stroke="rgba(57,255,20,.15)" stroke-width="1"/>
+      <line x1="120" y1="80" x2="160" y2="80" stroke="rgba(57,255,20,.15)" stroke-width="1"/>
+      <circle cx="80" cy="80" r="3" fill="rgba(57,255,20,.2)"/>
+    </svg>
+    <div class="gate-eyebrow sr">// SECURE CHANNEL — ENTER YOUR CONTACT FREQUENCY //</div>
+    <h2 class="gate-h sr">Enter your<br><em>contact frequency.</em></h2>
+    <p class="gate-sub sr">This file was not supposed to reach you. Now that it has,<br><strong>we need to know where to send the next transmission.</strong></p>
+    <div class="gate-archetype-hint sr" id="gate-archetype-hint"></div>
+
+    <div class="gate-form-wrap sr">
+      <form class="gate-form" id="gate-form" onsubmit="handleAccess(event)">
+        <input class="gate-input" id="gate-email" type="email" placeholder="CONTACT FREQUENCY (EMAIL)" required autocomplete="email"/>
+        <button class="gate-submit" type="submit" id="gate-submit-btn">LOG FREQUENCY →</button>
+      </form>
+
+      <!-- Post-signup card — Change 6 -->
+      <div class="gate-success" id="gate-success">
+        <div class="gs-cleared" id="gs-cleared-text">◉ CLEARANCE GRANTED</div>
+        <span class="gs-num" id="gs-num">YOU ARE CIVILIAN #— · ACCESS LOGGED · CARD INCOMING</span>
+
+        <!-- Rendered First Contact Card — archetype-styled -->
+        <div class="arch-card" id="gs-card" style="margin-top:24px;max-width:300px;margin-left:auto;margin-right:auto">
+          <div class="ac-header">
+            <span class="ac-logo-txt" id="gs-logo">◉ DISCLOSURE PROTOCOL</span>
+            <span class="ac-serial-txt" id="gs-serial">DS-2026-00000</span>
+          </div>
+          <span class="ac-icon" id="gs-icon">🛡️</span>
+          <div class="ac-name" id="gs-archetype-name" style="color:#EF4444">SENTINEL</div>
+          <div class="ac-role" id="gs-archetype-role">PRIMARY PROTECTOR</div>
+          <div class="ac-stat"><span class="ac-sl" id="gs-s1-lbl">THREAT READ</span><span class="ac-sv" id="gs-s1-val">ACTIVE</span></div>
+          <div class="ac-stat"><span class="ac-sl" id="gs-s2-lbl">ROLE ONSET</span><span class="ac-sv" id="gs-s2-val">IMMEDIATE</span></div>
+          <div class="ac-bar-wrap">
+            <div class="ac-bar-lbl"><span id="gs-bar-lbl">READINESS</span><span id="gs-bar-pct" style="color:#EF4444">84%</span></div>
+            <div class="ac-bar-bg"><div class="ac-bar-fg" id="gs-bar-fg" style="width:84%;background:#EF4444;box-shadow:0 0 8px rgba(239,68,68,.6)"></div></div>
+          </div>
+          <div class="ac-status-line" id="gs-status" style="color:#EF4444;border-color:rgba(239,68,68,.2)">🔴 FIELD DEPLOYMENT: READY</div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:rgba(255,255,255,.55);text-align:center;margin-top:14px">Your card is issued on launch day.</div>
+          <div class="ac-wm">DISCLOSURE PROTOCOL</div>
+        </div>
+
+        <!-- Archetype share — Change 7 -->
+        <div class="gs-share-wrap">
+          <span class="gs-share-label">// SHARE YOUR ARCHETYPE //</span>
+          <div class="gs-share-text" id="gs-share-text" onclick="copyShareText()">
+            Loading share text...
+          </div>
+          <div class="gs-share-btns">
+            <span class="gs-share-btn" onclick="copyShareText()" style="cursor:pointer">[ COPY ]</span>
+            <a class="gs-share-btn" id="gs-share-x" href="#" target="_blank" rel="noopener">[ POST ON X ]</a>
+          </div>
+          <span class="gs-copied" id="gs-copied">COPIED · SEND IT</span>
+        </div>
+      </div>
+
+      <p class="gate-note" id="gate-note">Your frequency is logged once. This channel does not repeat.</p>
+    </div>
+
+    <div class="gate-stats sr">
+      <div class="gst">
+        <span class="gst-n" id="stat-count">—</span>
+        <span class="gst-l">CIVILIANS BRIEFED</span>
+        <span class="gst-live" id="stat-live">+— THIS HOUR</span>
+      </div>
+      <span class="gst-sep">·</span>
+      <div class="gst">
+        <span class="gst-n">ACTIVE</span>
+        <span class="gst-l">SECURE CHANNEL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. SHARE -->
+  <section class="share">
+    <p class="share-pre sr">// TRANSMISSION WINDOW CLOSING //</p>
+    <h2 class="share-h sr">Forward this briefing<br><em>before it's removed.</em></h2>
+    <p class="share-sub sr">This document has a limited distribution window. Act now.</p>
+    <div class="share-forward sr" onclick="copyForward()" title="Click to copy">
+      <span class="share-forward-label">// FORWARD THIS EXACT TRANSMISSION //</span>
+      <span id="share-forward-text">"I just found something you should see. Don't Google it first. Just read it: getdisclosure.app"</span>
+    </div>
+    <div id="fwd-confirm">MESSAGE COPIED · SEND IT</div>
+    <div class="share-row sr">
+      <button class="share-btn" onclick="copyLink()">[ COPY LINK ]</button>
+      <a class="share-btn" id="share-x-bottom" href="https://twitter.com/intent/tweet?text=I%20just%20found%20something%20you%20should%20see.%20Don%27t%20Google%20it%20first.%20Just%20read%20it.%20getdisclosure.app%20%40disclosure_app" target="_blank" rel="noopener">[ POST ON X ]</a>
+    </div>
+    <div id="copy-confirm">LINK COPIED · PASS IT ON</div>
+  </section>
+
+</main>
+
+<footer>
+  <nav class="ft-nav">
+    <a href="/quiz">ARCHETYPE QUIZ</a>
+    <a href="/first-contact">THE BRIEFING</a>
+    <a href="/readiness">READINESS</a>
+    <a href="/archetype/sentinel">SENTINEL</a>
+    <a href="/archetype/diplomat">DIPLOMAT</a>
+    <a href="/archetype/scholar">SCHOLAR</a>
+    <a href="/archetype/first-contact">FC DESIGNATION ⭐</a>
+    <a href="/faq">FAQ</a>
+  </nav>
+  <div class="ft-t">DISCLOSURE // GETDISCLOSURE.APP // @DISCLOSURE_APP</div>
+  <div class="ft-b" onclick="this.textContent='IT\'S REAL';this.style.color='rgba(57,255,20,.55)'" title="Decode">
+    01001001 01010100 00100111 01010011 00100000 01010010 01000101 01000001 01001100
+  </div>
+</footer>
+
+<div id="alert-pop">
+  <div class="ap-tag">◉ NOTICE</div>
+  <div class="ap-body" id="alert-text">Pattern detected. You have been on this frequency for 30 seconds.</div>
+  <span class="ap-close" onclick="document.getElementById('alert-pop').classList.remove('show')">✕</span>
+</div>
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+// ── Supabase ──────────────────────────────────
+const SUPA_URL = 'https://bexjbozbrhijtjombxkm.supabase.co';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJleGpib3picmhpanRqb21ieGttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1NzEyNTQsImV4cCI6MjA4NzE0NzI1NH0.h3TJJ599oOoKv3RA8QfELmwzvsYi1hhuxGau842P6hs';
+const sb = window.supabase && window.supabase.createClient(SUPA_URL, SUPA_KEY);
+
+// ── Location (Change 8) ───────────────────────
+let userCity = 'UNKNOWN', userRegion = '';
+(function fetchLocation() {
+  fetch('https://ipapi.co/json/')
+    .then(r => r.json())
+    .then(d => {
+      if (d && d.city) {
+        userCity = d.city.toUpperCase();
+        userRegion = (d.region_code || d.country_code || '').toUpperCase();
+        // Update nav sig
+        const navText = document.getElementById('nav-status-text');
+        if (navText && currentNavState === 0) {
+          navText.textContent = 'LEAKED DOCUMENT · ' + userCity + ', ' + userRegion + ' · READING IN PROGRESS';
+        }
+        // Update gate hint
+        updateGateHint();
+      }
+    })
+    .catch(() => {});
+})();
+
+function updateGateHint() {
+  const hint = document.getElementById('gate-archetype-hint');
+  if (hint && userCity !== 'UNKNOWN') {
+    hint.textContent = 'SOURCE LOCATION: ' + userCity + ' · SIGNAL TRACED';
+  }
+}
+
+// ── Archetype Definitions ─────────────────────
+const ARCHETYPES = {
+  sentinel: {
+    name: 'SENTINEL',
+    icon: '🛡️',
+    color: 'sentinel',
+    pct: 'Primary Protector designation.',
+    desc: 'You are the protector. You move first. You assess the threat before anyone else does. When it happens, people will look to you.',
+    serial_prefix: 'DS',
+    card_color: 'green'
+  },
+  diplomat: {
+    name: 'DIPLOMAT',
+    icon: '🤝',
+    color: 'diplomat',
+    pct: 'De-escalation Lead designation.',
+    desc: 'You are the de-escalator. Calm under pressure. You will be the one who prevents a first contact from becoming a last contact.',
+    serial_prefix: 'DS',
+    card_color: 'green'
+  },
+  scholar: {
+    name: 'SCHOLAR',
+    icon: '🔬',
+    color: 'scholar',
+    pct: 'Field Analyst designation.',
+    desc: 'You are the observer. You document. You analyze. Your records will be the only verifiable account that survives.',
+    serial_prefix: 'DS',
+    card_color: 'green'
+  },
+  'first-contact': {
+    name: 'FIRST CONTACT',
+    icon: '⭐',
+    color: 'first-contact',
+    pct: 'Unclassified designation — no confirmed field contact.',
+    desc: 'This archetype has no confirmed field contact. You were not supposed to find this path. Welcome.',
+    serial_prefix: 'FC',
+    card_color: 'gold'
+  }
+};
+
+// ── Quiz State ────────────────────────────────
+const scores = { sentinel: 0, diplomat: 0, scholar: 0, 'first-contact': 0 };
+const answers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // stores option index (1-4) per question
+let currentArchetype = null;
+let savedSerial = null;
+
+// The First Contact secret sequence: Q1=3, Q2=1, Q3=4, Q4=2
+const FC_SEQUENCE = [3, 1, 4, 2];
+
+// ── Quiz Logic (Change 1, 12) ─────────────────
+function answer(qNum, optIdx, archetype) {
+  answers[qNum - 1] = optIdx;
+  scores[archetype]++;
+
+  // Update progress bar
+  document.getElementById('quiz-bar').style.width = (qNum / 10 * 100) + '%';
+
+  const isMobile = window.innerWidth < 768;
+  const currentStep = document.getElementById('q' + qNum);
+  const nextStep = qNum < 10 ? document.getElementById('q' + (qNum + 1)) : null;
+
+  if (isMobile) {
+    // Mobile: slide animation (Change 12)
+    currentStep.classList.add('slide-out');
+    setTimeout(function() {
+      currentStep.classList.remove('active', 'slide-out');
+      if (nextStep) {
+        nextStep.classList.add('active', 'slide-in');
+        setTimeout(function() { nextStep.classList.remove('slide-in'); }, 260);
+      } else {
+        showArchetypeResult();
+      }
+    }, 210);
+  } else {
+    currentStep.classList.remove('active');
+    if (nextStep) {
+      nextStep.classList.add('active');
+    } else {
+      showArchetypeResult();
+    }
+  }
+}
+
+function showArchetypeResult() {
+  document.getElementById('quiz-bar').style.width = '100%';
+
+  // All steps hidden
+  document.querySelectorAll('.q-step').forEach(function(s) { s.style.display = 'none'; });
+
+  // Check First Contact secret sequence (Change 14)
+  const isFC = answers[0] === FC_SEQUENCE[0] &&
+               answers[1] === FC_SEQUENCE[1] &&
+               answers[2] === FC_SEQUENCE[2] &&
+               answers[3] === FC_SEQUENCE[3];
+
+  let archetype;
+  if (isFC) {
+    archetype = 'first-contact';
+  } else {
+    // Tally — highest score wins; ties go to diplomat
+    let top = 'diplomat', topScore = -1;
+    ['sentinel', 'diplomat', 'scholar'].forEach(function(a) {
+      if (scores[a] > topScore) { topScore = scores[a]; top = a; }
+    });
+    archetype = top;
+  }
+
+  currentArchetype = archetype;
+  const data = ARCHETYPES[archetype];
+
+  // Populate result
+  document.getElementById('qr-icon').textContent = data.icon;
+  const nameEl = document.getElementById('qr-name');
+  nameEl.textContent = data.name;
+  nameEl.className = 'qr-archetype-name ' + data.color;
+
+  const pctEl = document.getElementById('qr-pct');
+  pctEl.textContent = data.pct;
+  pctEl.className = 'qr-pct' + (archetype === 'first-contact' ? ' fc-pct' : '');
+
+  document.getElementById('qr-desc').textContent = data.desc;
+
+  // First Contact CTA styling (Change 14)
+  const ctaBtn = document.getElementById('qr-cta-primary');
+  if (archetype === 'first-contact') {
+    ctaBtn.className = 'qr-cta fc-primary';
+    ctaBtn.textContent = 'RECEIVE YOUR CREDENTIAL ⭐';
+  } else {
+    ctaBtn.className = 'qr-cta primary';
+    ctaBtn.textContent = 'RECEIVE YOUR CREDENTIAL →';
+  }
+
+  // Update gate hint
+  updateGateHintWithArchetype(data);
+
+  // Update bottom share section with archetype-specific text
+  var fwdEl = document.getElementById('share-forward-text');
+  if (fwdEl) {
+    fwdEl.textContent = '"I just got classified as a ' + data.name + ' ' + data.icon + ' by @disclosure_app. What\'s your designation? Find out: getdisclosure.app"';
+  }
+  var shareXBottom = document.getElementById('share-x-bottom');
+  if (shareXBottom) {
+    var xTxt = 'I just got classified as a ' + data.name + ' ' + data.icon + ' by @disclosure_app. What\'s your designation? Find out: getdisclosure.app #FirstContact #Disclosure';
+    shareXBottom.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(xTxt);
+  }
+
+  const resultEl = document.getElementById('quiz-result');
+  resultEl.style.display = 'block';
+  resultEl.classList.add('sr');
+  setTimeout(function() { resultEl.classList.add('vis'); }, 50);
+}
+
+function updateGateHintWithArchetype(data) {
+  const hint = document.getElementById('gate-archetype-hint');
+  if (hint) {
+    hint.textContent = 'ARCHETYPE DETECTED: ' + data.name + ' ' + data.icon + (userCity !== 'UNKNOWN' ? ' · SOURCE: ' + userCity : '');
+  }
+}
+
+// ── Archetype Share (Change 7) ────────────────
+function shareArchetype() {
+  if (!currentArchetype) return;
+  const data = ARCHETYPES[currentArchetype];
+  const pct = currentArchetype === 'first-contact' ? '<0.1%' : data.pct.split('%')[0].trim() + '%';
+  const text = 'I just got classified as a ' + data.name + ' by @disclosure_app. Only ' + pct + ' of people get this archetype. Find out what you are: getdisclosure.app #FirstContact #Disclosure';
+  const url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
+  window.open(url, '_blank');
+}
+
+// ── Generate Serial Number ─────────────────────
+function generateSerial(archetype) {
+  const data = ARCHETYPES[archetype];
+  if (archetype === 'first-contact') {
+    return 'FC-0000-00001';
+  }
+  const rand = String(Math.floor(Math.random() * 99999)).padStart(5, '0');
+  return 'DS-2026-' + rand;
+}
+
+// ── Access Form + Card Render (Changes 6, 7) ──
+async function handleAccess(e) {
+  e.preventDefault();
+  const email = document.getElementById('gate-email').value.trim();
+  const btn = document.getElementById('gate-submit-btn');
+  btn.textContent = 'LOGGING FREQUENCY...';
+  btn.disabled = true;
+
+  const archetype = currentArchetype || 'sentinel';
+  const archetypeData = ARCHETYPES[archetype];
+  const serial = generateSerial(archetype);
+  savedSerial = serial;
+
+  let civilianNum = null;
+
+  if (sb) {
+    try {
+      const { error } = await sb.from('waitlist').insert([{
+        email: email,
+        archetype: archetype,
+        serial_number: serial,
+        readiness_score: null
+      }]);
+      if (!error) {
+        const { data: cnt } = await sb.rpc('get_waitlist_count');
+        civilianNum = cnt ? cnt : null;
+      }
+    } catch(_) {}
+  }
+
+  // Fire card email — non-blocking, best effort
+  fetch('http://18.221.216.70:3002/send-card', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, archetype: archetype, serial: serial })
+  }).catch(function() {});  // silent fail — UI never waits on this
+
+  // Hide form
+  document.getElementById('gate-form').style.display = 'none';
+  document.getElementById('gate-note').style.display = 'none';
+
+  // Populate and show success
+  const success = document.getElementById('gate-success');
+
+  // Cleared text
+  const clearedEl = document.getElementById('gs-cleared-text');
+  clearedEl.textContent = archetype === 'first-contact' ? '⭐ FIRST CONTACT CONFIRMED' : '◉ CLEARANCE GRANTED';
+  clearedEl.className = 'gs-cleared' + (archetype === 'first-contact' ? ' fc-cleared' : '');
+
+  // Civilian number
+  const numEl = document.getElementById('gs-num');
+  if (civilianNum) {
+    numEl.textContent = 'YOU ARE CIVILIAN #' + civilianNum.toLocaleString() + ' · ' + archetypeData.name + ' · CARD INCOMING';
+    ['hero-count', 'stat-count'].forEach(function(id) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = civilianNum.toLocaleString();
+    });
+  } else {
+    numEl.textContent = 'ACCESS LOGGED · ' + archetypeData.name + ' · CARD INCOMING';
+  }
+  numEl.className = 'gs-num' + (archetype === 'first-contact' ? ' fc-num' : '');
+
+  // Render card — archetype-styled
+  const CARD_RENDER = {
+    sentinel:      { cls:'ac-s',  color:'#EF4444', glow:'rgba(239,68,68,.6)',  role:'PRIMARY PROTECTOR',      s1:['THREAT READ','ACTIVE'],        s2:['ROLE ONSET','IMMEDIATE'],      bar:['READINESS','84%','84%'],      status:'🔴 FIELD DEPLOYMENT: READY',   sBorder:'rgba(239,68,68,.2)'  },
+    diplomat:      { cls:'ac-d',  color:'#39FF14', glow:'rgba(57,255,20,.6)',  role:'DE-ESCALATION LEAD',     s1:['CONTACT IDX','11.4 kHz'],      s2:['PROTOCOL','ALPHA-7'],          bar:['CALM RATING','96%','96%'],    status:'🟢 FIRST CONTACT: AUTHORIZED', sBorder:'rgba(57,255,20,.2)'  },
+    scholar:       { cls:'ac-sc', color:'#60A5FA', glow:'rgba(96,165,250,.6)', role:'FIELD ANALYST',          s1:['OBS CLASS','ALPHA'],           s2:['FIELD MODE','PASSIVE RECORD'], bar:['DATA INTEGRITY','91%','91%'], status:'🔵 DOCUMENTATION: ACTIVE',     sBorder:'rgba(96,165,250,.2)' },
+    'first-contact':{ cls:'ac-fc', color:'#FFD700', glow:'rgba(255,215,0,.8)',  role:'CLASSIFICATION UNKNOWN', s1:['ARCHETYPE','████████████'],    s2:['CLEARANCE','████████'],        bar:['UNLOCK STATUS','<0.1%','0.1%'], status:'⭐ NO CONFIRMED FIELD CONTACT', sBorder:'rgba(255,215,0,.2)'  }
+  };
+
+  const cr = CARD_RENDER[archetype] || CARD_RENDER.diplomat;
+  const card = document.getElementById('gs-card');
+  card.className = 'arch-card ' + cr.cls;
+
+  // Populate card fields
+  document.getElementById('gs-serial').textContent = serial;
+  document.getElementById('gs-icon').textContent = archetypeData.icon;
+  const nameEl2 = document.getElementById('gs-archetype-name');
+  nameEl2.textContent = archetypeData.name;
+  nameEl2.style.color = cr.color;
+  document.getElementById('gs-archetype-role').textContent = cr.role;
+  document.getElementById('gs-s1-lbl').textContent = cr.s1[0];
+  document.getElementById('gs-s1-val').textContent = cr.s1[1];
+  document.getElementById('gs-s1-val').style.color = cr.color;
+  document.getElementById('gs-s2-lbl').textContent = cr.s2[0];
+  document.getElementById('gs-s2-val').textContent = cr.s2[1];
+  document.getElementById('gs-bar-lbl').textContent = cr.bar[0];
+  const barPct = document.getElementById('gs-bar-pct');
+  barPct.textContent = cr.bar[1]; barPct.style.color = cr.color;
+  const barFg = document.getElementById('gs-bar-fg');
+  barFg.style.width = cr.bar[2]; barFg.style.background = cr.color;
+  barFg.style.boxShadow = '0 0 8px ' + cr.glow;
+  const statusEl = document.getElementById('gs-status');
+  statusEl.textContent = cr.status;
+  statusEl.style.color = cr.color;
+  statusEl.style.borderColor = cr.sBorder;
+  if (archetype === 'first-contact' && document.getElementById('gs-logo')) {
+    document.getElementById('gs-logo').style.color = cr.color;
+  }
+
+  // Share text with archetype (Change 7)
+  const shareMsg = 'I just got classified as a ' + archetypeData.name + ' ' + archetypeData.icon + ' by @disclosure_app. What\'s your designation? Find out: getdisclosure.app #FirstContact #Disclosure';
+  const shareEl = document.getElementById('gs-share-text');
+  shareEl.textContent = shareMsg;
+
+  const shareXEl = document.getElementById('gs-share-x');
+  if (shareXEl) {
+    shareXEl.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareMsg);
+  }
+
+  success.style.display = 'block';
+  success.classList.add('sr');
+  setTimeout(function() { success.classList.add('vis'); }, 50);
+}
+
+function copyShareText() {
+  const text = document.getElementById('gs-share-text').textContent;
+  navigator.clipboard.writeText(text).catch(function() {
+    const t = document.createElement('textarea');
+    t.value = text;
+    document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t);
+  });
+  const el = document.getElementById('gs-copied');
+  if (el) { el.style.opacity = '1'; setTimeout(function() { el.style.opacity = '0'; }, 3200); }
+}
+
+// ── Nav Scroll Awareness (Change 11) ─────────
+let currentNavState = 0;
+const NAV_STATES = [
+  'LEAKED DOCUMENT · READING IN PROGRESS',
+  'IDENTITY SCAN IN PROGRESS...',
+  'ARCHETYPE CLASSIFICATION PENDING',
+  'OPERATIVE LOCATION — FILE ACCESSED'
+];
+
+function initNavScroll() {
+  const navText = document.getElementById('nav-status-text');
+  if (!navText) return;
+
+  window.addEventListener('scroll', function() {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    let state;
+    if (pct < 20) state = 0;
+    else if (pct < 50) state = 1;
+    else if (pct < 80) state = 2;
+    else state = 3;
+
+    if (state !== currentNavState) {
+      currentNavState = state;
+      let txt = NAV_STATES[state];
+      if (state === 3 && userCity !== 'UNKNOWN') {
+        txt = 'OPERATIVE ' + userCity + ' — CLEARANCE PENDING';
+      } else if (state === 0 && userCity !== 'UNKNOWN') {
+        txt = 'LEAKED DOCUMENT · ' + userCity + ', ' + userRegion;
+      }
+      navText.textContent = txt;
+    }
+  }, { passive: true });
+}
+
+// ── First Contact Keyboard Easter Egg (Change 13) ──
+(function initFCDetect() {
+  const TARGET = 'FIRST CONTACT';
+  let buffer = '';
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    const key = e.key.toUpperCase();
+    if (key.length === 1) {
+      buffer += key;
+      if (buffer.length > TARGET.length) buffer = buffer.slice(-TARGET.length);
+      if (buffer === TARGET) {
+        buffer = '';
+        triggerFlagged();
+      }
+    }
+  });
+})();
+
+function triggerFlagged() {
+  const overlay = document.getElementById('flagged-overlay');
+  overlay.classList.add('show');
+  setTimeout(function() {
+    overlay.style.transition = 'opacity .5s';
+    overlay.style.opacity = '0';
+    setTimeout(function() {
+      overlay.classList.remove('show');
+      overlay.style.opacity = '';
+      overlay.style.transition = '';
+    }, 550);
+  }, 2000);
+}
+
+// ── Boot Sequence ─────────────────────────────
+const BOOT = [
+  'INTERCEPTED TRANSMISSION // SOURCE: [REDACTED]',
+  'CASE FILE: UAP-CIVILIAN-001 — LEAKED 2026-02-19',
+  'ORIGIN: 37°14\'06"N 115°48\'40"W // DUGWAY PROVING GROUND',
+  'CLASSIFICATION: TS/SCI — DOWNGRADED BY EXECUTIVE ORDER',
+  'ARCHETYPE DATABASE: MIRRORED FROM INTERNAL SERVER',
+  'ROUTING THROUGH PROXY...',
+  'CHAIN OF CUSTODY BROKEN. YOU ARE NOW A WITNESS.',
+  'THIS DOCUMENT WILL NOT EXIST TOMORROW.'
+];
+
+(function boot() {
+  const el = document.getElementById('boot-lines');
+  const bar = document.getElementById('boot-progress');
+  let i = 0;
+  function next() {
+    if (i >= BOOT.length) {
+      setTimeout(function() {
+        const b = document.getElementById('boot');
+        b.style.transition = 'opacity .6s';
+        b.style.opacity = '0';
+        setTimeout(function() { b.style.display = 'none'; initPage(); }, 660);
+      }, 550);
+      return;
+    }
+    const d = document.createElement('div');
+    d.className = 'boot-line'; d.textContent = BOOT[i++];
+    el.appendChild(d);
+    bar.style.width = Math.round((i / BOOT.length) * 100) + '%';
+    setTimeout(next, i < 7 ? 210 : 380);
+  }
+  setTimeout(next, 380);
+})();
+
+// ── Stars ─────────────────────────────────────
+function initStars() {
+  const c = document.getElementById('stars'), f = document.createDocumentFragment();
+  for (let i = 0; i < 180; i++) {
+    const s = document.createElement('div');
+    const sz = Math.random() < .9 ? Math.random() * 1.5 + .5 : Math.random() * 2.5 + 1.5;
+    s.className = 'star';
+    s.style.cssText = 'left:' + (Math.random()*100) + '%;top:' + (Math.random()*100) + '%;width:' + sz + 'px;height:' + sz + 'px;animation-duration:' + (Math.random()*5+3) + 's;animation-delay:' + (Math.random()*6) + 's';
+    f.appendChild(s);
+  }
+  c.appendChild(f);
+}
+initStars();
+
+// ── Craft Canvas ──────────────────────────────
+(function craftCanvas() {
+  const canvas = document.getElementById('craft-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, CX, CY, beamA = 0, beamOn = false, beamHold = 0, nextBeam = Math.random()*14000+10000, lastBeam = 0;
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    CX = W/2; CY = H*.44;
+  }
+  window.addEventListener('resize', resize); resize();
+
+  function draw(ts) {
+    ctx.clearRect(0,0,W,H);
+    const scale = 1 + .09*Math.sin(ts*.0000585);
+    const rot = ts*.000055;
+    const base = Math.min(W,H)*.68*scale;
+    const V = [[0,-base*.52],[-base*.70,base*.38],[base*.70,base*.38]];
+
+    const ER=W*1.3, EY=H+ER*.79;
+    const ag=ctx.createRadialGradient(CX,EY,ER*.975,CX,EY,ER);
+    ag.addColorStop(0,'rgba(57,255,20,0.06)'); ag.addColorStop(1,'rgba(57,255,20,0)');
+    ctx.beginPath(); ctx.arc(CX,EY,ER,0,Math.PI*2); ctx.fillStyle=ag; ctx.fill();
+
+    const haloA = 0.07 + 0.04*Math.sin(ts*.0009);
+    const hg = ctx.createRadialGradient(CX,CY,0,CX,CY,base*.9);
+    hg.addColorStop(0,'rgba(57,255,20,'+haloA+')');
+    hg.addColorStop(0.35,'rgba(57,255,20,'+(haloA*.35)+')');
+    hg.addColorStop(1,'rgba(57,255,20,0)');
+    ctx.beginPath(); ctx.arc(CX,CY,base*.9,0,Math.PI*2); ctx.fillStyle=hg; ctx.fill();
+
+    ctx.save(); ctx.translate(CX,CY); ctx.rotate(rot);
+
+    ctx.beginPath(); ctx.moveTo(V[0][0],V[0][1]); ctx.lineTo(V[1][0],V[1][1]); ctx.lineTo(V[2][0],V[2][1]); ctx.closePath();
+    ctx.fillStyle='rgba(6,18,6,.82)'; ctx.fill();
+
+    const edgeA = .20 + .12*Math.sin(ts*.0009);
+    ctx.shadowBlur = 18; ctx.shadowColor = 'rgba(57,255,20,0.65)';
+    ctx.strokeStyle='rgba(57,255,20,'+edgeA+')'; ctx.lineWidth=2; ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    const panelA = .10 + .06*Math.sin(ts*.0007);
+    ctx.shadowBlur = 6; ctx.shadowColor = 'rgba(57,255,20,0.5)';
+    ctx.strokeStyle='rgba(57,255,20,'+panelA+')'; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(0,V[0][1]); ctx.lineTo(0,V[2][1]); ctx.stroke();
+    const py=V[0][1]+(V[2][1]-V[0][1])*.38;
+    ctx.beginPath(); ctx.moveTo(-base*.32,py); ctx.lineTo(base*.32,py); ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    [0,2.09,4.19].forEach(function(ph,i) {
+      const p=.4+.6*(.5+.5*Math.sin(ts*.0022+ph)), r=3+p*3;
+      const g=ctx.createRadialGradient(V[i][0],V[i][1],0,V[i][0],V[i][1],r*8);
+      g.addColorStop(0,'rgba(57,255,20,'+(p*.75)+')');
+      g.addColorStop(0.25,'rgba(57,255,20,'+(p*.3)+')');
+      g.addColorStop(1,'rgba(57,255,20,0)');
+      ctx.beginPath(); ctx.arc(V[i][0],V[i][1],r*8,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
+      ctx.shadowBlur=10; ctx.shadowColor='rgba(57,255,20,1)';
+      ctx.beginPath(); ctx.arc(V[i][0],V[i][1],r,0,Math.PI*2);
+      ctx.fillStyle='rgba(57,255,20,'+p+')'; ctx.fill();
+      ctx.shadowBlur=0;
+    });
+
+    const up=.5+.5*Math.sin(ts*.0013+1.2), uy=base*.14;
+    const ug=ctx.createRadialGradient(0,uy,0,0,uy,base*.3);
+    ug.addColorStop(0,'rgba(57,255,20,'+(.28*up)+')');
+    ug.addColorStop(0.4,'rgba(57,255,20,'+(.10*up)+')');
+    ug.addColorStop(1,'rgba(57,255,20,0)');
+    ctx.beginPath(); ctx.ellipse(0,uy,base*.28,base*.13,0,0,Math.PI*2); ctx.fillStyle=ug; ctx.fill();
+
+    ctx.restore();
+
+    const now=performance.now();
+    if (!beamOn && (now-lastBeam)>nextBeam) { beamOn=true; beamA=0; beamHold=0; lastBeam=now; nextBeam=Math.random()*16000+8000; }
+    if (beamOn) {
+      if (beamA<1 && !beamHold) { beamA=Math.min(1,beamA+.018); }
+      else {
+        if (!beamHold) beamHold=now;
+        if (now-beamHold>2400) { beamA-=.01; if (beamA<=0){beamOn=false;beamA=0;beamHold=0;} }
+      }
+      const bw=52*scale, bt=CY+base*.32*scale;
+      const bg=ctx.createLinearGradient(CX,bt,CX,H);
+      bg.addColorStop(0,'rgba(57,255,20,'+(.25*beamA)+')');
+      bg.addColorStop(.2,'rgba(57,255,20,'+(.12*beamA)+')');
+      bg.addColorStop(.6,'rgba(57,255,20,'+(.04*beamA)+')');
+      bg.addColorStop(1,'rgba(57,255,20,0)');
+      ctx.beginPath(); ctx.rect(CX-bw/2,bt,bw,H-bt); ctx.fillStyle=bg; ctx.fill();
+      ctx.strokeStyle='rgba(57,255,20,'+(.18*beamA)+')'; ctx.lineWidth=.5;
+      ctx.beginPath(); ctx.moveTo(CX-bw/2,bt); ctx.lineTo(CX-bw*2.2,H); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(CX+bw/2,bt); ctx.lineTo(CX+bw*2.2,H); ctx.stroke();
+    }
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+// ── Cursor ────────────────────────────────────
+function initCursor() {
+  const r = document.getElementById('cursor');
+  document.addEventListener('mousemove', function(e) { r.style.left=e.clientX+'px'; r.style.top=e.clientY+'px'; });
+}
+
+// ── Live Count ────────────────────────────────
+async function loadCount() {
+  if (!sb) return;
+  try {
+    const { data } = await sb.rpc('get_waitlist_count');
+    if (data && data > 0) {
+      const totalFmt = data.toLocaleString();
+      ['hero-count','stat-count'].forEach(function(id) { const el=document.getElementById(id); if(el) el.textContent=totalFmt; });
+    }
+    ['hero-live','stat-live'].forEach(function(id) { const el=document.getElementById(id); if(el) el.style.display='none'; });
+  } catch(_) {}
+}
+
+// ── Liaison Map Counter Tick ──────────────────
+// ── Scroll Reveal ─────────────────────────────
+function initScrollReveal() {
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        const siblings = Array.from(e.target.parentElement.querySelectorAll('.sr:not(.vis)'));
+        const idx = siblings.indexOf(e.target);
+        setTimeout(function() { e.target.classList.add('vis'); }, idx * 90);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.sr').forEach(function(el) { obs.observe(el); });
+}
+
+// ── Alert Pop ─────────────────────────────────
+function initAlert() {
+  const count = Math.floor(Math.random()*80+1180);
+  const alerts = [
+    'You have been on this frequency for 30 seconds. Pattern logged.',
+    'Your connection origin has been identified. This is normal.',
+    'You are one of ' + count.toLocaleString() + ' civilians accessing this file right now.'
+  ];
+  document.getElementById('alert-text').textContent = alerts[Math.floor(Math.random()*3)];
+  const pop = document.getElementById('alert-pop');
+  setTimeout(function() { pop.classList.add('show'); setTimeout(function() { pop.classList.remove('show'); }, 7000); }, 20000);
+}
+
+// ── Share ─────────────────────────────────────
+function copyLink() {
+  navigator.clipboard.writeText('https://getdisclosure.app').catch(function() {
+    const t = document.createElement('textarea'); t.value='https://getdisclosure.app';
+    document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t);
+  });
+  const el = document.getElementById('copy-confirm');
+  el.style.opacity='1'; setTimeout(function(){el.style.opacity='0';},3200);
+}
+
+function copyForward() {
+  var msg;
+  if (currentArchetype && ARCHETYPES[currentArchetype]) {
+    var d = ARCHETYPES[currentArchetype];
+    msg = 'I just got classified as a ' + d.name + ' ' + d.icon + ' by @disclosure_app. Find out what you are before it\u2019s too late: getdisclosure.app #FirstContact #Disclosure';
+  } else {
+    msg = "I just found something you should see. Don\u2019t Google it first. Just read it: getdisclosure.app";
+  }
+  navigator.clipboard.writeText(msg).catch(function() {
+    var t=document.createElement('textarea'); t.value=msg;
+    document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t);
+  });
+  var el=document.getElementById('fwd-confirm');
+  el.style.opacity='1'; setTimeout(function(){el.style.opacity='0';},3200);
+}
+
+// ── Init ──────────────────────────────────────
+function initPage() {
+  initCursor();
+  initScrollReveal();
+  initAlert();
+  initNavScroll();
+  loadCount();
+
+  document.querySelectorAll('.hero .sr').forEach(function(el,i) {
+    setTimeout(function(){el.classList.add('vis');}, 200+i*110);
+  });
+}
+</script>
+</body>
+</html>
