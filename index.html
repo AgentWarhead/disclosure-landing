@@ -285,7 +285,48 @@
     .fcc-caption{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:rgba(255,255,255,.6);margin-top:28px;max-width:360px;margin-left:auto;margin-right:auto}
 
     /* QUIZ */
-    .quiz{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px;position:relative;border-top:1px solid rgba(255,255,255,.04)}
+    .quiz{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px;position:relative;border-top:1px solid rgba(255,255,255,.04);overflow:hidden}
+
+    /* QUIZ CONTAINMENT FIELD — the wow factor */
+    .quiz-containment{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+
+    /* Animated corner brackets */
+    .quiz-corner{position:absolute;width:60px;height:60px;z-index:2}
+    .quiz-corner::before,.quiz-corner::after{content:'';position:absolute;background:var(--g);box-shadow:0 0 12px var(--g),0 0 30px rgba(57,255,20,.3)}
+    .quiz-corner::before{width:30px;height:1px}
+    .quiz-corner::after{width:1px;height:30px}
+    .quiz-corner.tl{top:20px;left:20px}.quiz-corner.tl::before{top:0;left:0}.quiz-corner.tl::after{top:0;left:0}
+    .quiz-corner.tr{top:20px;right:20px}.quiz-corner.tr::before{top:0;right:0}.quiz-corner.tr::after{top:0;right:0}
+    .quiz-corner.bl{bottom:20px;left:20px}.quiz-corner.bl::before{bottom:0;left:0}.quiz-corner.bl::after{bottom:0;left:0}
+    .quiz-corner.br{bottom:20px;right:20px}.quiz-corner.br::before{bottom:0;right:0}.quiz-corner.br::after{bottom:0;right:0}
+    .quiz-corner{opacity:0;transition:opacity .8s}.quiz.quiz-activated .quiz-corner{opacity:1}
+
+    /* Radar ping — rings pulsing outward from center */
+    .quiz-radar{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;pointer-events:none;opacity:0;transition:opacity 1s}
+    .quiz.quiz-activated .quiz-radar{opacity:1}
+    .radar-ring{position:absolute;inset:0;border:1px solid rgba(57,255,20,.12);border-radius:50%;animation:radarPing 4s ease-out infinite}
+    .radar-ring:nth-child(2){animation-delay:1s}
+    .radar-ring:nth-child(3){animation-delay:2s}
+    @keyframes radarPing{0%{transform:scale(.1);opacity:.6}100%{transform:scale(1.8);opacity:0}}
+
+    /* Vertical scan line sweeping left to right */
+    .quiz-scanbeam{position:absolute;top:0;left:0;width:2px;height:100%;background:linear-gradient(180deg,transparent 0%,rgba(57,255,20,.4) 50%,transparent 100%);box-shadow:0 0 20px rgba(57,255,20,.3);opacity:0;transition:opacity .5s}
+    .quiz.quiz-activated .quiz-scanbeam{opacity:1;animation:scanBeam 6s linear infinite}
+    @keyframes scanBeam{0%{left:-2px}100%{left:100%}}
+
+    /* Perimeter glow — green ambient border */
+    .quiz-perimeter{position:absolute;inset:0;border:1px solid rgba(57,255,20,.08);box-shadow:inset 0 0 80px rgba(57,255,20,.04),0 0 80px rgba(57,255,20,.03);opacity:0;transition:opacity 1.2s}
+    .quiz.quiz-activated .quiz-perimeter{opacity:1}
+
+    /* Floating data fragments — classified text in background */
+    .quiz-data-frag{position:absolute;font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(57,255,20,.07);white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 2s}
+    .quiz.quiz-activated .quiz-data-frag{opacity:1}
+    .qdf-1{top:15%;left:5%;animation:dataFloat 20s linear infinite}
+    .qdf-2{top:35%;right:3%;animation:dataFloat 25s linear infinite reverse}
+    .qdf-3{bottom:25%;left:8%;animation:dataFloat 22s linear infinite}
+    .qdf-4{bottom:15%;right:6%;animation:dataFloat 18s linear infinite reverse}
+    .qdf-5{top:55%;left:2%;animation:dataFloat 24s linear infinite}
+    @keyframes dataFloat{0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}
     .quiz-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.75);margin-bottom:40px;text-align:center}
     .quiz-h{font-size:clamp(30px,5vw,60px);font-weight:700;line-height:1.1;letter-spacing:-.02em;text-align:center;margin-bottom:48px}
     .quiz-h em{font-style:normal;color:var(--g)}
@@ -571,8 +612,7 @@
     .scan-sweep.active{animation:scanSweep .4s ease-out forwards}
 
     /* 3. CLASSIFICATION CONFIDENCE METER */
-    .confidence-meter{width:100%;max-width:580px;margin:-16px auto 24px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s}
-    .confidence-meter.visible{opacity:1;transform:translateY(0)}
+    .confidence-meter{display:none}
     .cm-item{display:flex;align-items:center;gap:6px}
     .cm-label{color:rgba(255,255,255,.5);white-space:nowrap}
     .cm-bar-wrap{width:60px;height:8px;background:rgba(255,255,255,.06);overflow:hidden;display:flex}
@@ -1081,6 +1121,18 @@
 
   <!-- 10. QUIZ -->
   <section id="quiz" class="quiz quiz-content-hidden">
+    <!-- CONTAINMENT FIELD — visual wow frame -->
+    <div class="quiz-containment">
+      <div class="quiz-corner tl"></div><div class="quiz-corner tr"></div><div class="quiz-corner bl"></div><div class="quiz-corner br"></div>
+      <div class="quiz-radar"><div class="radar-ring"></div><div class="radar-ring"></div><div class="radar-ring"></div></div>
+      <div class="quiz-scanbeam"></div>
+      <div class="quiz-perimeter"></div>
+      <div class="quiz-data-frag qdf-1">CONTACT PROTOCOL 7.2 // RESPONSE VECTOR ANALYSIS</div>
+      <div class="quiz-data-frag qdf-2">CIVILIAN ARCHETYPE MATRIX // DEEP-COLD ASSESSMENT</div>
+      <div class="quiz-data-frag qdf-3">BEHAVIORAL CLASSIFICATION // PSYCH-EVAL SUBNET 04</div>
+      <div class="quiz-data-frag qdf-4">NHI ENCOUNTER READINESS // INSTINCT CALIBRATION</div>
+      <div class="quiz-data-frag qdf-5">SUBJECT RESPONSE INDEX // REAL-TIME DESIGNATION</div>
+    </div>
     <!-- CINEMATIC: Vignette overlay for escalating intensity -->
     <div class="quiz-vignette" id="quiz-vignette"></div>
     <!-- EKG HEARTBEAT SVG -->
@@ -1490,6 +1542,7 @@ function initQuizEntrance() {
             overlay.classList.remove('active');
             quizSection.classList.remove('quiz-content-hidden');
             quizSection.classList.add('quiz-content-reveal');
+            quizSection.classList.add('quiz-activated');
           }, 1700);
         }, 300);
       }
