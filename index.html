@@ -487,6 +487,37 @@
     .ekg-line{stroke-dasharray:300;stroke-dashoffset:300;animation:ekgDash 2s linear infinite}
     @keyframes reticlePulse{0%,100%{opacity:.08;transform:scale(1)}50%{opacity:.18;transform:scale(1.05)}}
     .reticle{animation:reticlePulse 3s ease-in-out infinite}
+
+    /* ENHANCEMENT: CTA Electromagnetic Pulse (#8) */
+    @keyframes ctaPulse{0%,100%{box-shadow:0 0 0 rgba(57,255,20,0)}40%{box-shadow:0 0 18px rgba(57,255,20,.4),0 0 40px rgba(57,255,20,.15)}60%{box-shadow:0 0 8px rgba(57,255,20,.2)}80%{box-shadow:0 0 0 rgba(57,255,20,0)}}
+    .cta-btn.cta-pulse{animation:ctaPulse 2s ease-in-out infinite}
+
+    /* ENHANCEMENT: Corner HUD Elements (#5) */
+    .hero-hud{position:absolute;z-index:2;pointer-events:none;font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:rgba(57,255,20,.25);transition:opacity .4s;line-height:1.8}
+    .hero-hud-tl{top:80px;left:20px}
+    .hero-hud-br{bottom:60px;right:20px;text-align:right}
+
+    /* ENHANCEMENT: Green Scan Line (#6) */
+    .hero-scan-line{position:absolute;left:0;right:0;height:1px;z-index:1;pointer-events:none;background:rgba(57,255,20,.15);box-shadow:0 0 8px rgba(57,255,20,.1),0 0 20px rgba(57,255,20,.05);opacity:0;transition:opacity .3s}
+
+    /* ENHANCEMENT: Section Transition Flash (#7) */
+    .hero-flash{position:fixed;inset:0;z-index:9998;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0;transition:opacity .3s}
+    .hero-flash.show{opacity:1}
+    .hero-flash-text{font-family:var(--mono);font-size:clamp(14px,2.5vw,22px);letter-spacing:.5em;color:var(--g);text-shadow:0 0 20px var(--g),0 0 40px rgba(57,255,20,.3)}
+
+    /* ENHANCEMENT: CTA Reticle (#4) */
+    @keyframes reticleConverge{0%{transform:translate(var(--rx),var(--ry));opacity:0}30%{opacity:1}100%{transform:translate(0,0);opacity:1}}
+    .cta-reticle{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0}
+    .cta-reticle.active{opacity:1}
+    .cta-reticle-bracket{position:absolute;width:20px;height:20px;border-color:var(--g);border-style:solid;border-width:0}
+    .cta-rb-tl{border-top-width:2px;border-left-width:2px;--rx:-30px;--ry:-30px;top:calc(50% - 20px);left:calc(50% - 20px)}
+    .cta-rb-tr{border-top-width:2px;border-right-width:2px;--rx:30px;--ry:-30px;top:calc(50% - 20px);right:calc(50% - 20px)}
+    .cta-rb-bl{border-bottom-width:2px;border-left-width:2px;--rx:-30px;--ry:30px;bottom:calc(50% - 20px);left:calc(50% - 20px)}
+    .cta-rb-br{border-bottom-width:2px;border-right-width:2px;--rx:30px;--ry:30px;bottom:calc(50% - 20px);right:calc(50% - 20px)}
+    .cta-reticle.active .cta-reticle-bracket{animation:reticleConverge .6s ease-out forwards}
+
+    /* ENHANCEMENT: Cursor Particle Trail (#9) */
+    .cursor-particle{position:fixed;width:2px;height:2px;border-radius:50%;background:var(--g);pointer-events:none;z-index:9998;opacity:0;transition:none}
   </style>
 </head>
 <body>
@@ -534,6 +565,18 @@
       <div class="hero-eye-glow" id="hero-eye-glow"></div>
       <div class="hero-fade-bottom"></div>
 
+      <!-- ENHANCEMENT: Green Scan Line (#6) -->
+      <div class="hero-scan-line" id="hero-scan-line"></div>
+
+      <!-- ENHANCEMENT: Corner HUD Elements (#5) -->
+      <div class="hero-hud hero-hud-tl" id="hud-tl">
+        LAT: 37°14'06"N &nbsp;LONG: 115°48'40"W<br>
+        SIGNAL: <span id="hud-signal">░░░░░░░░░░</span>
+      </div>
+      <div class="hero-hud hero-hud-br" id="hud-br">
+        DECRYPTION: <span id="hud-decrypt">0</span>%
+      </div>
+
       <div class="hero-content">
         <!-- Layer 1: Case file kicker (appears 5-20%) -->
         <div class="hero-layer" id="hl-kicker">
@@ -555,8 +598,15 @@
         </div>
 
         <!-- Layer 4: CTA + counter (appears 60-80%) -->
-        <div class="hero-layer" id="hl-cta">
-          <a href="#quiz" class="cta-btn">READ THE BRIEFING →</a>
+        <div class="hero-layer" id="hl-cta" style="position:relative">
+          <!-- ENHANCEMENT: CTA Reticle (#4) -->
+          <div class="cta-reticle" id="cta-reticle">
+            <div class="cta-reticle-bracket cta-rb-tl"></div>
+            <div class="cta-reticle-bracket cta-rb-tr"></div>
+            <div class="cta-reticle-bracket cta-rb-bl"></div>
+            <div class="cta-reticle-bracket cta-rb-br"></div>
+          </div>
+          <a href="#quiz" class="cta-btn" id="hero-cta-btn">READ THE BRIEFING →</a>
           <div class="hero-counter">
             <div class="live-dot" style="width:4px;height:4px"></div>
             <span class="hc-num" id="hero-count">—</span>
@@ -576,6 +626,11 @@
       </div>
     </div>
   </section>
+
+  <!-- ENHANCEMENT: Section Transition Flash (#7) -->
+  <div class="hero-flash" id="hero-flash">
+    <div class="hero-flash-text">FILE ACCESSED — CLEARANCE PENDING</div>
+  </div>
 
   <!-- 2. THE MOMENT — moved up: credibility first -->
   <section class="moment">
@@ -1842,6 +1897,15 @@ function initEyeScroll() {
   var targetFrame = 0;
   var drawing = false;
 
+  /* ENHANCEMENT: One-time trigger flags */
+  var enhFlags = {
+    typewriterDone: false,
+    titleStaggerDone: false,
+    taglineRevealDone: false,
+    ctaReticleDone: false,
+    transitionFlashDone: false
+  };
+
   // Resize canvas to fill viewport
   function resize() {
     canvas.width = window.innerWidth;
@@ -1922,6 +1986,168 @@ function initEyeScroll() {
   var eyeGlow = document.getElementById('hero-eye-glow');
   var scrollHint = document.getElementById('scroll-hint');
 
+  /* ENHANCEMENT: Typewriter Effect (#1) */
+  function triggerTypewriter() {
+    if (enhFlags.typewriterDone) return;
+    enhFlags.typewriterDone = true;
+    var kickerEl = document.querySelector('#hl-kicker .hero-kicker');
+    var interceptEl = document.querySelector('#hl-kicker .hero-intercept');
+    if (!kickerEl || !interceptEl) return;
+
+    var kickerText = kickerEl.textContent;
+    var interceptText = interceptEl.textContent;
+    kickerEl.textContent = '';
+    interceptEl.textContent = '';
+
+    // Typewriter for kicker
+    var ki = 0;
+    function typeKicker() {
+      if (ki < kickerText.length) {
+        kickerEl.textContent = kickerText.substring(0, ki + 1) + '█';
+        ki++;
+        setTimeout(typeKicker, 30);
+      } else {
+        kickerEl.textContent = kickerText;
+        // Scramble in intercept line
+        scrambleIntercept();
+      }
+    }
+
+    var scrambleChars = '▓█░▒░█▓░▒█';
+    function scrambleIntercept() {
+      var len = interceptText.length;
+      var revealed = 0;
+      var scrambleArr = new Array(len);
+      for (var s = 0; s < len; s++) scrambleArr[s] = interceptText[s] === ' ' ? ' ' : scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+      interceptEl.textContent = scrambleArr.join('');
+
+      var interval = setInterval(function() {
+        if (revealed >= len) { clearInterval(interval); interceptEl.textContent = interceptText; return; }
+        // Reveal 2-3 chars per tick
+        var count = Math.min(len - revealed, Math.floor(Math.random() * 2) + 2);
+        for (var c = 0; c < count; c++) {
+          if (revealed < len) { scrambleArr[revealed] = interceptText[revealed]; revealed++; }
+        }
+        // Randomize unrevealed
+        for (var u = revealed; u < len; u++) {
+          if (interceptText[u] !== ' ') scrambleArr[u] = scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+        }
+        interceptEl.textContent = scrambleArr.join('');
+      }, 25);
+    }
+
+    setTimeout(typeKicker, 100);
+  }
+
+  /* ENHANCEMENT: Title Letter Stagger (#2) */
+  function triggerTitleStagger() {
+    if (enhFlags.titleStaggerDone) return;
+    enhFlags.titleStaggerDone = true;
+    var glitchEl = document.querySelector('#hl-title .glitch');
+    if (!glitchEl) return;
+    var text = 'DISCLOSURE';
+    // Replace text content with spans, keep data-text for glitch pseudo-elements
+    glitchEl.innerHTML = '';
+    var spans = [];
+    for (var i = 0; i < text.length; i++) {
+      var span = document.createElement('span');
+      span.textContent = text[i];
+      span.style.display = 'inline-block';
+      span.style.opacity = '0';
+      span.style.transform = 'translateX(' + (Math.random() * 20 - 10) + 'px)';
+      span.style.transition = 'opacity .15s ease, transform .15s ease';
+      glitchEl.appendChild(span);
+      spans.push(span);
+    }
+    // Stagger reveal
+    spans.forEach(function(sp, idx) {
+      setTimeout(function() {
+        sp.style.opacity = '1';
+        sp.style.transform = 'translateX(' + (Math.random() * 8 - 4) + 'px)';
+        // Settle after brief glitch
+        setTimeout(function() {
+          sp.style.transform = 'translateX(0)';
+        }, 80);
+      }, idx * 50);
+    });
+    // After all letters in, restore innerHTML so glitch pseudo-elements work
+    setTimeout(function() {
+      glitchEl.textContent = text;
+    }, text.length * 50 + 300);
+  }
+
+  /* ENHANCEMENT: Word-by-Word Tagline Reveal (#3) */
+  function triggerTaglineReveal() {
+    if (enhFlags.taglineRevealDone) return;
+    enhFlags.taglineRevealDone = true;
+    var identityEl = document.querySelector('#hl-tagline .hero-identity');
+    var subEl = document.querySelector('#hl-tagline .hero-sub');
+    if (!identityEl || !subEl) return;
+
+    // "This file was not meant for you."
+    var identityWords = identityEl.textContent.trim().split(/\s+/);
+    identityEl.innerHTML = '';
+    identityWords.forEach(function(w, i) {
+      var sp = document.createElement('span');
+      sp.textContent = w + ' ';
+      sp.style.opacity = '0';
+      sp.style.transition = 'opacity .2s ease';
+      sp.style.display = 'inline';
+      identityEl.appendChild(sp);
+      setTimeout(function() { sp.style.opacity = '1'; }, i * 120);
+    });
+
+    // Sub line — reveal with "assigned" green pulse
+    var subDelay = identityWords.length * 120 + 200;
+    subEl.style.opacity = '0';
+    setTimeout(function() {
+      subEl.style.transition = 'opacity .4s ease';
+      subEl.style.opacity = '1';
+      // Find the em with "assigned" and pulse it
+      var emEl = subEl.querySelector('em');
+      if (emEl) {
+        setTimeout(function() {
+          emEl.style.transition = 'text-shadow .3s ease, color .3s ease';
+          emEl.style.textShadow = '0 0 16px rgba(57,255,20,.7)';
+          setTimeout(function() { emEl.style.textShadow = ''; }, 600);
+        }, 300);
+      }
+    }, subDelay);
+  }
+
+  /* ENHANCEMENT: CTA Reticle (#4) */
+  function triggerCTAReticle() {
+    if (enhFlags.ctaReticleDone) return;
+    enhFlags.ctaReticleDone = true;
+    var reticle = document.getElementById('cta-reticle');
+    var ctaBtn = document.getElementById('hero-cta-btn');
+    if (!reticle || !ctaBtn) return;
+
+    ctaBtn.style.opacity = '0';
+    reticle.classList.add('active');
+
+    setTimeout(function() {
+      reticle.classList.remove('active');
+      reticle.style.display = 'none';
+      ctaBtn.style.opacity = '1';
+      ctaBtn.style.transition = 'opacity .3s ease, box-shadow .2s';
+      // Add electromagnetic pulse class
+      ctaBtn.classList.add('cta-pulse');
+    }, 650);
+  }
+
+  /* ENHANCEMENT: HUD elements (#5) */
+  var hudTl = document.getElementById('hud-tl');
+  var hudBr = document.getElementById('hud-br');
+  var hudSignal = document.getElementById('hud-signal');
+  var hudDecrypt = document.getElementById('hud-decrypt');
+
+  /* ENHANCEMENT: Scan line (#6) */
+  var scanLine = document.getElementById('hero-scan-line');
+
+  /* ENHANCEMENT: Transition flash (#7) */
+  var heroFlash = document.getElementById('hero-flash');
+
   // Scroll handler
   function onScroll() {
     var rect = heroScroll.getBoundingClientRect();
@@ -1942,6 +2168,59 @@ function initEyeScroll() {
     if (scrollHint && progress > 0.02) {
       scrollHint.classList.add('hide');
       scrollHint.classList.remove('show');
+    }
+
+    /* ENHANCEMENT: Trigger typewriter (#1) */
+    if (progress >= 0.04 && !enhFlags.typewriterDone) {
+      triggerTypewriter();
+    }
+
+    /* ENHANCEMENT: Trigger title stagger (#2) */
+    if (progress >= 0.15 && !enhFlags.titleStaggerDone) {
+      triggerTitleStagger();
+    }
+
+    /* ENHANCEMENT: Trigger tagline reveal (#3) */
+    if (progress >= 0.35 && !enhFlags.taglineRevealDone) {
+      triggerTaglineReveal();
+    }
+
+    /* ENHANCEMENT: Trigger CTA reticle (#4) */
+    if (progress >= 0.55 && !enhFlags.ctaReticleDone) {
+      triggerCTAReticle();
+    }
+
+    /* ENHANCEMENT: HUD updates (#5) */
+    if (hudTl && hudBr) {
+      var hudOpacity = progress > 0.9 ? Math.max(0, 1 - (progress - 0.9) / 0.1) : (progress < 0.03 ? 0 : 1);
+      hudTl.style.opacity = hudOpacity * 0.25;
+      hudBr.style.opacity = hudOpacity * 0.25;
+    }
+    if (hudSignal) {
+      var filled = Math.round(progress * 10);
+      var bar = '';
+      for (var b = 0; b < 10; b++) bar += b < filled ? '█' : '░';
+      hudSignal.textContent = bar;
+    }
+    if (hudDecrypt) {
+      hudDecrypt.textContent = Math.round(progress * 100);
+    }
+
+    /* ENHANCEMENT: Scan line (#6) */
+    if (scanLine) {
+      scanLine.style.opacity = (progress > 0.01 && progress < 0.95) ? '1' : '0';
+      scanLine.style.top = (progress * 100) + '%';
+    }
+
+    /* ENHANCEMENT: Transition flash (#7) */
+    if (progress > 0.92 && !enhFlags.transitionFlashDone && heroFlash) {
+      enhFlags.transitionFlashDone = true;
+      heroFlash.classList.add('show');
+      setTimeout(function() {
+        heroFlash.style.transition = 'opacity 1s ease';
+        heroFlash.classList.remove('show');
+        setTimeout(function() { heroFlash.style.transition = ''; }, 1100);
+      }, 1500);
     }
 
     // Text choreography — each layer fades in, holds, fades out
@@ -1981,6 +2260,56 @@ function initEyeScroll() {
   onScroll(); // Initial state
 }
 
+/* ENHANCEMENT: Cursor Particle Trail (#9) — Desktop only */
+function initCursorTrail() {
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
+  var MAX = 30;
+  var pool = [];
+  var active = 0;
+
+  // Pre-create particle pool
+  for (var i = 0; i < MAX; i++) {
+    var p = document.createElement('div');
+    p.className = 'cursor-particle';
+    p.style.display = 'none';
+    document.body.appendChild(p);
+    pool.push({ el: p, timer: null });
+  }
+
+  var idx = 0;
+  var lastX = 0, lastY = 0;
+  document.addEventListener('mousemove', function(e) {
+    // Only spawn if moved a bit
+    var dx = e.clientX - lastX, dy = e.clientY - lastY;
+    if (dx * dx + dy * dy < 64) return;
+    lastX = e.clientX; lastY = e.clientY;
+
+    var particle = pool[idx % MAX];
+    idx++;
+    if (particle.timer) clearTimeout(particle.timer);
+
+    var el = particle.el;
+    el.style.display = 'block';
+    el.style.left = e.clientX + 'px';
+    el.style.top = e.clientY + 'px';
+    el.style.opacity = '0.3';
+    el.style.transform = 'translate(-50%,-50%)';
+
+    // Fade and drift
+    requestAnimationFrame(function() {
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
+      el.style.opacity = '0';
+      el.style.transform = 'translate(-50%, 4px)';
+    });
+
+    particle.timer = setTimeout(function() {
+      el.style.display = 'none';
+      el.style.transition = 'none';
+      particle.timer = null;
+    }, 650);
+  }, { passive: true });
+}
+
 // ── Init ──────────────────────────────────────
 function initPage() {
   initCursor();
@@ -1989,6 +2318,7 @@ function initPage() {
   initAlert();
   initNavScroll();
   loadCount();
+  initCursorTrail(); /* ENHANCEMENT: Cursor Particle Trail (#9) */
 }
 </script>
 </body>
