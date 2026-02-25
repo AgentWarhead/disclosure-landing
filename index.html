@@ -518,6 +518,103 @@
 
     /* ENHANCEMENT: Cursor Particle Trail (#9) */
     .cursor-particle{position:fixed;width:2px;height:2px;border-radius:50%;background:var(--g);pointer-events:none;z-index:9998;opacity:0;transition:none}
+
+    /* ═══ CINEMATIC QUIZ OVERHAUL ═══ */
+
+    /* 1. GLITCH ENTRANCE — CRT glitch on body */
+    @keyframes quizGlitchFlicker{
+      0%{opacity:1;filter:none}
+      10%{opacity:.7;filter:hue-rotate(40deg)}
+      15%{opacity:1;filter:none}
+      25%{opacity:.5;filter:hue-rotate(-30deg) saturate(2)}
+      30%{opacity:.9;filter:none}
+      40%{opacity:.6;filter:hue-rotate(60deg)}
+      45%{opacity:1;filter:none}
+      55%{opacity:.4;filter:hue-rotate(-50deg) saturate(3)}
+      60%{opacity:1;filter:none}
+      70%{opacity:.7;filter:hue-rotate(20deg)}
+      75%{opacity:1;filter:none}
+      85%{opacity:.5;filter:hue-rotate(-40deg)}
+      90%{opacity:1;filter:none}
+      100%{opacity:1;filter:none}
+    }
+    body.quiz-glitch{animation:quizGlitchFlicker .6s ease-out}
+    body.quiz-glitch::after{opacity:1!important;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(0,0,0,.15) 1px,rgba(0,0,0,.15) 2px)!important}
+
+    /* Scanning overlay */
+    .quiz-scan-overlay{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+    .quiz-scan-overlay.active{opacity:1;pointer-events:auto}
+    .quiz-scan-text{font-family:var(--mono);font-size:13px;letter-spacing:.5em;color:var(--g);text-transform:uppercase}
+    .quiz-scan-bar-wrap{width:min(400px,70vw);height:2px;background:rgba(57,255,20,.15);overflow:hidden}
+    .quiz-scan-bar{height:100%;width:0;background:var(--g);box-shadow:0 0 12px var(--g);transition:width 1.5s ease-in-out}
+    .quiz-scan-bar.fill{width:100%}
+
+    /* Quiz content initially hidden before cinematic entrance */
+    .quiz-content-hidden .quiz-eyebrow,
+    .quiz-content-hidden .quiz-h,
+    .quiz-content-hidden .quiz-progress,
+    .quiz-content-hidden .quiz-card{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+    .quiz-content-reveal .quiz-eyebrow,
+    .quiz-content-reveal .quiz-h,
+    .quiz-content-reveal .quiz-progress,
+    .quiz-content-reveal .quiz-card{opacity:1;transform:translateY(0)}
+
+    /* 2. RESPONSE LOGGED FLASH */
+    .response-logged{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:10;pointer-events:none;opacity:0}
+    .response-logged.flash{animation:responseFlash .4s ease-out forwards}
+    .response-logged-text{font-family:var(--mono);font-size:15px;letter-spacing:.4em;color:var(--g);text-shadow:0 0 20px rgba(57,255,20,.6)}
+    @keyframes responseFlash{0%{opacity:0}15%{opacity:1}70%{opacity:1}100%{opacity:0}}
+
+    /* Scan-line sweep */
+    @keyframes scanSweep{0%{top:-2px;opacity:1}100%{top:100%;opacity:0}}
+    .scan-sweep{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(57,255,20,.6),transparent);pointer-events:none;z-index:11;opacity:0}
+    .scan-sweep.active{animation:scanSweep .4s ease-out forwards}
+
+    /* 3. CLASSIFICATION CONFIDENCE METER */
+    .confidence-meter{width:100%;max-width:580px;margin:-16px auto 24px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s}
+    .confidence-meter.visible{opacity:1;transform:translateY(0)}
+    .cm-item{display:flex;align-items:center;gap:6px}
+    .cm-label{color:rgba(255,255,255,.5);white-space:nowrap}
+    .cm-bar-wrap{width:60px;height:8px;background:rgba(255,255,255,.06);overflow:hidden;display:flex}
+    .cm-bar-fill{height:100%;transition:width .4s ease;min-width:0}
+    .cm-bar-fill.sentinel-bar{background:var(--r);box-shadow:0 0 6px rgba(239,68,68,.4)}
+    .cm-bar-fill.diplomat-bar{background:var(--g);box-shadow:0 0 6px rgba(57,255,20,.4)}
+    .cm-bar-fill.scholar-bar{background:#60A5FA;box-shadow:0 0 6px rgba(96,165,250,.4)}
+
+    /* 4. ESCALATING INTENSITY — vignette */
+    .quiz-vignette{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity .8s ease;background:radial-gradient(ellipse 60% 50% at 50% 50%,transparent 20%,rgba(0,0,0,.7) 100%)}
+    .quiz-vignette.v7{opacity:.4}
+    .quiz-vignette.v8{opacity:.65}
+    .quiz-vignette.v9{opacity:.85}
+    .quiz-vignette.v10{opacity:1}
+
+    /* Screen shake */
+    @keyframes quizShake{0%{transform:translate(0,0)}20%{transform:translate(-2px,1px)}40%{transform:translate(2px,-1px)}60%{transform:translate(-1px,2px)}80%{transform:translate(1px,-2px)}100%{transform:translate(0,0)}}
+    .quiz-shake .quiz-card{animation:quizShake .1s ease-out}
+
+    /* Progress bar red pulse for Q10 */
+    @keyframes progressPulseRed{0%{box-shadow:0 0 8px var(--g)}30%{background:var(--r);box-shadow:0 0 16px var(--r)}60%{background:var(--r);box-shadow:0 0 8px var(--r)}100%{background:var(--g);box-shadow:0 0 8px var(--g)}}
+    .quiz-progress-bar.pulse-red{animation:progressPulseRed .8s ease-out}
+
+    /* 5. BLACKOUT REVEAL */
+    .blackout-overlay{position:fixed;inset:0;background:#000;z-index:9999;opacity:0;pointer-events:none;transition:opacity .3s ease}
+    .blackout-overlay.active{opacity:1;pointer-events:auto}
+
+    @keyframes resultSlam{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
+    .quiz-result.slam-in .qr-reveal-wrap{animation:resultSlam .4s cubic-bezier(.2,1.4,.4,1) forwards}
+
+    /* Archetype color full-screen flash */
+    .archetype-flash{position:fixed;inset:0;z-index:10000;opacity:0;pointer-events:none}
+    @keyframes archetypeFlash{0%{opacity:.5}100%{opacity:0}}
+    .archetype-flash.fire{animation:archetypeFlash .3s ease-out forwards}
+
+    /* Particle burst */
+    .burst-particle{position:fixed;width:6px;height:6px;z-index:10001;pointer-events:none;opacity:1}
+    @keyframes burstOut{0%{transform:translate(0,0) scale(1);opacity:1}100%{opacity:0}}
+
+    /* FC gold border pulse */
+    @keyframes fcBorderPulse{0%{box-shadow:inset 0 0 0 rgba(255,215,0,0)}30%{box-shadow:inset 0 0 60px rgba(255,215,0,.2)}60%{box-shadow:inset 0 0 30px rgba(255,215,0,.1)}100%{box-shadow:inset 0 0 0 rgba(255,215,0,0)}}
+    body.fc-border-pulse{animation:fcBorderPulse 2s ease-out}
   </style>
 </head>
 <body>
@@ -538,6 +635,14 @@
 
 <div class="cursor-ring" id="cursor"></div>
 <div id="stars"></div>
+
+<!-- CINEMATIC: Quiz scan overlay, blackout, archetype flash -->
+<div class="quiz-scan-overlay" id="quiz-scan-overlay">
+  <div class="quiz-scan-text" id="quiz-scan-text">ANALYZING OPERATIVE...</div>
+  <div class="quiz-scan-bar-wrap"><div class="quiz-scan-bar" id="quiz-scan-bar"></div></div>
+</div>
+<div class="blackout-overlay" id="blackout-overlay"></div>
+<div class="archetype-flash" id="archetype-flash"></div>
 
 <!-- FLAGGED OVERLAY -->
 <div id="flagged-overlay">
@@ -975,7 +1080,9 @@
   </section>
 
   <!-- 10. QUIZ -->
-  <section id="quiz" class="quiz">
+  <section id="quiz" class="quiz quiz-content-hidden">
+    <!-- CINEMATIC: Vignette overlay for escalating intensity -->
+    <div class="quiz-vignette" id="quiz-vignette"></div>
     <!-- EKG HEARTBEAT SVG -->
     <svg class="svg-anim" width="200" height="60" viewBox="0 0 200 60" style="top:8%;left:3%">
       <polyline class="ekg-line" points="0,30 30,30 40,30 50,10 55,50 60,5 65,45 70,30 80,30 110,30 120,30 130,10 135,50 140,5 145,45 150,30 160,30 200,30" fill="none" stroke="rgba(57,255,20,.25)" stroke-width="1.5"/>
@@ -985,7 +1092,17 @@
 
     <div class="quiz-progress sr"><div class="quiz-progress-bar" id="quiz-bar" style="width:0%"></div></div>
 
+    <!-- CINEMATIC: Classification Confidence Meter -->
+    <div class="confidence-meter" id="confidence-meter">
+      <div class="cm-item"><span class="cm-label">SENTINEL:</span><div class="cm-bar-wrap"><div class="cm-bar-fill sentinel-bar" id="cm-sentinel" style="width:0%"></div></div></div>
+      <div class="cm-item"><span class="cm-label">DIPLOMAT:</span><div class="cm-bar-wrap"><div class="cm-bar-fill diplomat-bar" id="cm-diplomat" style="width:0%"></div></div></div>
+      <div class="cm-item"><span class="cm-label">SCHOLAR:</span><div class="cm-bar-wrap"><div class="cm-bar-fill scholar-bar" id="cm-scholar" style="width:0%"></div></div></div>
+    </div>
+
     <div class="quiz-card sr">
+      <!-- CINEMATIC: Response Logged Flash + Scan Sweep -->
+      <div class="response-logged" id="response-logged"><span class="response-logged-text">◉ RESPONSE LOGGED</span></div>
+      <div class="scan-sweep" id="scan-sweep"></div>
       <!-- Q1 -->
       <div class="q-step active" id="q1">
         <div class="q-num">QUESTION 01 OF 10</div>
@@ -1342,7 +1459,79 @@ let savedSerial = null;
 // The First Contact secret sequence: Q1=3, Q2=1, Q3=4, Q4=2
 const FC_SEQUENCE = [3, 1, 4, 2];
 
-// ── Quiz Logic (Change 1, 12) ─────────────────
+// ── Quiz Logic (Change 1, 12) + CINEMATIC OVERHAUL ──
+let quizEntranceDone = false;
+
+// FEATURE 1: Glitch entrance IntersectionObserver
+function initQuizEntrance() {
+  var quizSection = document.getElementById('quiz');
+  if (!quizSection) return;
+  var quizObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting && !quizEntranceDone) {
+        quizEntranceDone = true;
+        quizObs.unobserve(quizSection);
+
+        // CRT glitch on body
+        document.body.classList.add('quiz-glitch');
+        setTimeout(function() { document.body.classList.remove('quiz-glitch'); }, 600);
+
+        // Show scan overlay after glitch starts
+        setTimeout(function() {
+          var overlay = document.getElementById('quiz-scan-overlay');
+          overlay.classList.add('active');
+          // Start scanning bar after a beat
+          setTimeout(function() {
+            document.getElementById('quiz-scan-bar').classList.add('fill');
+          }, 100);
+
+          // After scan completes, fade out overlay and reveal quiz content
+          setTimeout(function() {
+            overlay.classList.remove('active');
+            quizSection.classList.remove('quiz-content-hidden');
+            quizSection.classList.add('quiz-content-reveal');
+          }, 1700);
+        }, 300);
+      }
+    });
+  }, { threshold: 0.15 });
+  quizObs.observe(quizSection);
+}
+
+// FEATURE 3: Update confidence meter
+function updateConfidenceMeter() {
+  var total = scores.sentinel + scores.diplomat + scores.scholar + scores['first-contact'];
+  if (total === 0) return;
+  var meter = document.getElementById('confidence-meter');
+  if (!meter.classList.contains('visible')) meter.classList.add('visible');
+  var maxPossible = 10;
+  document.getElementById('cm-sentinel').style.width = (scores.sentinel / maxPossible * 100) + '%';
+  document.getElementById('cm-diplomat').style.width = ((scores.diplomat + scores['first-contact']) / maxPossible * 100) + '%';
+  document.getElementById('cm-scholar').style.width = (scores.scholar / maxPossible * 100) + '%';
+}
+
+// FEATURE 4: Escalating intensity
+function updateIntensity(qNum) {
+  var vignette = document.getElementById('quiz-vignette');
+  vignette.className = 'quiz-vignette';
+  if (qNum >= 7) vignette.classList.add('v' + Math.min(qNum, 10));
+
+  // Screen shake on Q8+
+  if (qNum >= 8) {
+    var quizSection = document.getElementById('quiz');
+    quizSection.classList.add('quiz-shake');
+    setTimeout(function() { quizSection.classList.remove('quiz-shake'); }, 120);
+  }
+
+  // Q10 progress bar red pulse
+  if (qNum === 10) {
+    var bar = document.getElementById('quiz-bar');
+    bar.classList.add('pulse-red');
+    setTimeout(function() { bar.classList.remove('pulse-red'); }, 800);
+  }
+}
+
+// FEATURE 2 + original answer logic
 function answer(qNum, optIdx, archetype) {
   answers[qNum - 1] = optIdx;
   scores[archetype]++;
@@ -1350,29 +1539,84 @@ function answer(qNum, optIdx, archetype) {
   // Update progress bar
   document.getElementById('quiz-bar').style.width = (qNum / 10 * 100) + '%';
 
-  const isMobile = window.innerWidth < 768;
-  const currentStep = document.getElementById('q' + qNum);
-  const nextStep = qNum < 10 ? document.getElementById('q' + (qNum + 1)) : null;
+  // FEATURE 3: Update confidence meter
+  updateConfidenceMeter();
 
-  if (isMobile) {
-    // Mobile: slide animation (Change 12)
-    currentStep.classList.add('slide-out');
-    setTimeout(function() {
-      currentStep.classList.remove('active', 'slide-out');
+  // FEATURE 4: Escalating intensity
+  if (qNum >= 7) updateIntensity(qNum);
+
+  // FEATURE 2: Response Logged flash + scan sweep
+  var responseEl = document.getElementById('response-logged');
+  var sweepEl = document.getElementById('scan-sweep');
+  responseEl.classList.remove('flash');
+  sweepEl.classList.remove('active');
+  // Force reflow
+  void responseEl.offsetWidth;
+  responseEl.classList.add('flash');
+  sweepEl.classList.add('active');
+
+  var isMobile = window.innerWidth < 768;
+  var currentStep = document.getElementById('q' + qNum);
+  var nextStep = qNum < 10 ? document.getElementById('q' + (qNum + 1)) : null;
+
+  // Delay transition by 400ms for the response-logged flash
+  setTimeout(function() {
+    responseEl.classList.remove('flash');
+    sweepEl.classList.remove('active');
+
+    if (isMobile) {
+      currentStep.classList.add('slide-out');
+      setTimeout(function() {
+        currentStep.classList.remove('active', 'slide-out');
+        if (nextStep) {
+          nextStep.classList.add('active', 'slide-in');
+          setTimeout(function() { nextStep.classList.remove('slide-in'); }, 260);
+        } else {
+          showArchetypeResult();
+        }
+      }, 210);
+    } else {
+      currentStep.classList.remove('active');
       if (nextStep) {
-        nextStep.classList.add('active', 'slide-in');
-        setTimeout(function() { nextStep.classList.remove('slide-in'); }, 260);
+        nextStep.classList.add('active');
       } else {
         showArchetypeResult();
       }
-    }, 210);
-  } else {
-    currentStep.classList.remove('active');
-    if (nextStep) {
-      nextStep.classList.add('active');
-    } else {
-      showArchetypeResult();
     }
+  }, 420);
+}
+
+// FEATURE 5: Particle burst
+function spawnParticleBurst(color, count) {
+  var cx = window.innerWidth / 2;
+  var cy = window.innerHeight / 2;
+  for (var i = 0; i < count; i++) {
+    var p = document.createElement('div');
+    p.className = 'burst-particle';
+    var size = Math.random() * 6 + 3;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.background = color;
+    p.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+    p.style.left = cx + 'px';
+    p.style.top = cy + 'px';
+    p.style.boxShadow = '0 0 6px ' + color;
+    document.body.appendChild(p);
+
+    var angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.5;
+    var dist = 120 + Math.random() * 200;
+    var dx = Math.cos(angle) * dist;
+    var dy = Math.sin(angle) * dist;
+    var dur = 600 + Math.random() * 400;
+
+    (function(el, dx, dy, dur) {
+      el.style.transition = 'transform ' + dur + 'ms cubic-bezier(.2,.8,.3,1), opacity ' + dur + 'ms ease-out';
+      requestAnimationFrame(function() {
+        el.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(0.3)';
+        el.style.opacity = '0';
+      });
+      setTimeout(function() { el.remove(); }, dur + 50);
+    })(p, dx, dy, dur);
   }
 }
 
@@ -1381,6 +1625,10 @@ function showArchetypeResult() {
 
   // All steps hidden
   document.querySelectorAll('.q-step').forEach(function(s) { s.style.display = 'none'; });
+
+  // Hide confidence meter
+  var meter = document.getElementById('confidence-meter');
+  meter.classList.remove('visible');
 
   // Check First Contact secret sequence (Change 14)
   const isFC = answers[0] === FC_SEQUENCE[0] &&
@@ -1403,7 +1651,7 @@ function showArchetypeResult() {
   currentArchetype = archetype;
   const data = ARCHETYPES[archetype];
 
-  // Populate result
+  // Populate result (before showing)
   document.getElementById('qr-icon').textContent = data.icon;
   const nameEl = document.getElementById('qr-name');
   nameEl.textContent = data.name;
@@ -1439,10 +1687,55 @@ function showArchetypeResult() {
     shareXBottom.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(xTxt);
   }
 
-  const resultEl = document.getElementById('quiz-result');
-  resultEl.style.display = 'block';
-  resultEl.classList.add('sr');
-  setTimeout(function() { resultEl.classList.add('vis'); }, 50);
+  // FEATURE 5: BLACKOUT REVEAL
+  var blackout = document.getElementById('blackout-overlay');
+  blackout.classList.add('active');
+
+  // Clear vignette
+  document.getElementById('quiz-vignette').className = 'quiz-vignette';
+
+  // Determine archetype color for flash
+  var archetypeColors = {
+    'sentinel': 'var(--r)',
+    'diplomat': 'var(--g)',
+    'scholar': '#60A5FA',
+    'first-contact': 'var(--gold)'
+  };
+  var rawColors = {
+    'sentinel': '#EF4444',
+    'diplomat': '#39FF14',
+    'scholar': '#60A5FA',
+    'first-contact': '#FFD700'
+  };
+
+  setTimeout(function() {
+    // After 1.8s blackout: archetype flash + result slam
+    var flashEl = document.getElementById('archetype-flash');
+    flashEl.style.background = rawColors[archetype];
+    flashEl.classList.add('fire');
+
+    // Particle burst
+    spawnParticleBurst(rawColors[archetype], archetype === 'first-contact' ? 45 : 35);
+
+    // FC gold border pulse
+    if (archetype === 'first-contact') {
+      document.body.classList.add('fc-border-pulse');
+      setTimeout(function() { document.body.classList.remove('fc-border-pulse'); }, 2000);
+    }
+
+    // Show result with slam
+    var resultEl = document.getElementById('quiz-result');
+    resultEl.style.display = 'block';
+    resultEl.classList.add('slam-in');
+
+    // Fade blackout away
+    setTimeout(function() {
+      blackout.classList.remove('active');
+      flashEl.classList.remove('fire');
+      flashEl.style.background = '';
+      resultEl.classList.add('sr', 'vis');
+    }, 400);
+  }, 1800);
 }
 
 function updateGateHintWithArchetype(data) {
@@ -2319,6 +2612,7 @@ function initPage() {
   initNavScroll();
   loadCount();
   initCursorTrail(); /* ENHANCEMENT: Cursor Particle Trail (#9) */
+  initQuizEntrance(); /* CINEMATIC: Quiz glitch entrance */
 }
 </script>
 </body>
