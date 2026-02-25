@@ -106,7 +106,7 @@
           {
             "@type": "Question",
             "name": "Is there an app to prepare for alien contact?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Disclosure (getdisclosure.app) is the first and only civilian alien first contact preparation app. It launches in 2026. Join the waitlist to receive early access and your archetype classification."}
+            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Disclosure (getdisclosure.app) is the first and only civilian alien first contact preparation platform. A leaked protocol is now available. Enter your frequency to receive your archetype classification."}
           },
           {
             "@type": "Question",
@@ -459,6 +459,20 @@
       .ft-grid{grid-template-columns:1fr 1fr}
       .arch-card{min-width:160px}
     }
+
+    /* TEXT SCRAMBLE EFFECT */
+    .scramble{display:inline-block;position:relative}
+    .scramble .scramble-char{display:inline-block;animation:scrambleIn .08s steps(1) forwards;opacity:0}
+    @keyframes scrambleIn{0%{content:'█';opacity:1}25%{content:'▓'}50%{content:'▒'}75%{content:'░'}100%{opacity:1}}
+
+    /* SVG ANIMATIONS */
+    .svg-anim{position:absolute;pointer-events:none;z-index:0;opacity:.12}
+    @keyframes radarSweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    .radar-sweep{animation:radarSweep 4s linear infinite}
+    @keyframes ekgDash{to{stroke-dashoffset:0}}
+    .ekg-line{stroke-dasharray:300;stroke-dashoffset:300;animation:ekgDash 2s linear infinite}
+    @keyframes reticlePulse{0%,100%{opacity:.08;transform:scale(1)}50%{opacity:.18;transform:scale(1.05)}}
+    .reticle{animation:reticlePulse 3s ease-in-out infinite}
   </style>
 </head>
 <body>
@@ -495,7 +509,7 @@
 <main>
   <nav class="nav">
     <a href="/" class="nav-logo">DISCLOSURE</a>
-    <div class="nav-sig" id="nav-sig"><div class="live-dot"></div><span id="nav-status-text">SIGNAL ACQUIRED · DISCLOSURE PROTOCOL ACTIVE</span></div>
+    <div class="nav-sig" id="nav-sig"><div class="live-dot"></div><span id="nav-status-text">LEAKED DOCUMENT · READING IN PROGRESS</span></div>
   </nav>
 
   <!-- 1. HERO -->
@@ -503,18 +517,17 @@
     <canvas id="craft-canvas" aria-hidden="true"></canvas>
     <div class="hero-orb"></div>
 
-    <div class="hero-kicker sr">CASE FILE: UAP-CIVILIAN-001 // DECLASSIFIED</div>
-    <p class="hero-intercept sr">// IF YOU ARE READING THIS, SOMETHING FOUND YOU FIRST //</p>
+    <div class="hero-kicker sr">CASE FILE: UAP-CIVILIAN-001 // CLASSIFICATION REVOKED BY EXECUTIVE ORDER</div>
+    <p class="hero-intercept sr">// LEAKED DOCUMENT — UNAUTHORIZED DISTRIBUTION — DO NOT SHARE //</p>
 
     <h1 class="hero-h sr">
       <span class="glitch" data-text="DISCLOSURE">DISCLOSURE</span>
     </h1>
 
-    <h2 class="hero-identity sr">Which one are you?</h2>
-    <p class="hero-sub sr">Four types of people will be in the room when it happens.<br><em>Only one of them will be ready.</em></p>
+    <h2 class="hero-identity sr">This file was not meant for you.</h2>
+    <p class="hero-sub sr">A leaked first contact protocol. Four civilian archetypes.<br><em>Your designation is already assigned.</em></p>
 
-    <a href="#quiz" class="cta-btn sr">DISCOVER YOUR ARCHETYPE →</a>
-    <p class="sr" style="font-family:var(--mono);font-size:10px;letter-spacing:.25em;color:rgba(255,255,255,.35);margin-top:14px">📱 MOBILE APP · iOS & ANDROID · LAUNCHING 2026</p>
+    <a href="#quiz" class="cta-btn sr">READ THE BRIEFING →</a>
 
     <div class="hero-counter sr">
       <div class="live-dot" style="width:4px;height:4px"></div>
@@ -523,24 +536,31 @@
       <span class="hc-sep">·</span>
       <span class="hc-live" id="hero-live">+— this hour</span>
       <span class="hc-sep">·</span>
-      <span>waitlist open</span>
+      <span>file accessed</span>
     </div>
   </section>
 
   <!-- 2. THE MOMENT — moved up: credibility first -->
   <section class="moment">
-    <div class="moment-date sr">30 SEPTEMBER 2025 — WASHINGTON D.C.</div>
-    <h2 class="moment-h sr">The government<br><em>confirmed it.</em></h2>
+    <!-- RADAR SWEEP SVG -->
+    <svg class="svg-anim" width="200" height="200" viewBox="0 0 200 200" style="top:10%;right:5%">
+      <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(57,255,20,.15)" stroke-width="1"/>
+      <circle cx="100" cy="100" r="50" fill="none" stroke="rgba(57,255,20,.08)" stroke-width="1"/>
+      <circle cx="100" cy="100" r="20" fill="none" stroke="rgba(57,255,20,.06)" stroke-width="1"/>
+      <line x1="100" y1="100" x2="100" y2="20" stroke="rgba(57,255,20,.4)" stroke-width="2" class="radar-sweep" style="transform-origin:100px 100px"/>
+    </svg>
+    <div class="moment-date sr">19 FEBRUARY 2026 — EXECUTIVE ORDER SIGNED</div>
+    <h2 class="moment-h sr">The president<br><em>ordered full disclosure.</em></h2>
     <p class="moment-body sr">
       Intelligence officials testified <strong>under oath.</strong><br>
-      Over 40 witnesses signed NDAs.<br>
-      A task force was formed. Then <strong>went silent.</strong>
+      Over 40 witnesses. NDAs. A task force. Then <strong>silence.</strong><br>
+      Until a sitting president broke the chain of custody.
     </p>
     <div class="moment-line sr"></div>
     <div class="moment-punch sr">
-      They gave you one date.<br>
-      <strong>September 30, 2025.</strong>
-      They gave you <em>nothing else.</em>
+      Every agency has <strong>300 days.</strong><br>
+      The countdown is running.<br>
+      <em>This briefing was not supposed to reach civilians first.</em>
     </div>
   </section>
 
@@ -571,12 +591,17 @@
 
         <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:start">
           <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:rgba(57,255,20,.6)">JAN 2026</span>
-          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.8);letter-spacing:.05em;line-height:1.6">Vatican investigation goes public. Aerospace industry confirms anomalous objects operating beyond known physics. <strong style="color:#fff">Canada calls for civilian reporting infrastructure.</strong></span>
+          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.8);letter-spacing:.05em;line-height:1.6">Vatican investigation goes public. Aerospace confirms objects beyond known physics. <strong style="color:#fff">Canada calls for civilian reporting infrastructure.</strong></span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:start;background:rgba(245,158,11,.025);padding-left:12px;padding-right:12px;border-left:2px solid rgba(245,158,11,.5)">
+          <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--a)">FEB 2026</span>
+          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.9);letter-spacing:.05em;line-height:1.6"><strong style="color:#fff">Trump signs executive order for full UAP declassification.</strong> All agencies given 300 days. The largest forced disclosure in history.</span>
         </div>
 
         <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:20px 0;align-items:start;background:rgba(57,255,20,.025);padding-left:12px;padding-right:12px;border-left:2px solid rgba(57,255,20,.4)">
           <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--g)">NOW</span>
-          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.9);letter-spacing:.05em;line-height:1.6">The institutions are moving. <strong style="color:#fff">The window for civilians to prepare is open.</strong> It will not stay open. The question is not if. The question is whether you know your role when it closes.</span>
+          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.9);letter-spacing:.05em;line-height:1.6">The files are being released. <strong style="color:#fff">There is no longer a question of if.</strong> The only question is whether you know your role when the first verified contact document drops.</span>
         </div>
 
       </div>
@@ -586,6 +611,12 @@
 
   <!-- 4. THE RULES -->
   <section class="rules">
+    <!-- SIGNAL WAVEFORM SVG -->
+    <svg class="svg-anim" width="300" height="50" viewBox="0 0 300 50" style="bottom:15%;left:2%">
+      <path d="M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25" fill="none" stroke="rgba(57,255,20,.2)" stroke-width="1.5">
+        <animate attributeName="d" dur="3s" repeatCount="indefinite" values="M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25;M0,25 Q15,45 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25;M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25"/>
+      </path>
+    </svg>
     <div class="rules-bg" aria-hidden="true">RULES</div>
     <div class="rules-hdr sr">// BRIEFING EXCERPT · RULE SET ALPHA //</div>
     <div class="rules-inner">
@@ -735,7 +766,7 @@
 
   <!-- 7. UNIVERSAL TRANSLATOR — moved up: desire before ask -->
   <section id="translator" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)">
-    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:16px">// LAUNCH EXCLUSIVE — THE ARSENAL //</div>
+    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:16px">// RECOVERED INSTRUMENT — FIELD USE ONLY //</div>
     <h2 class="sr" style="font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:16px">This is how<br><span style="color:var(--g)">we say hello.</span></h2>
     <p class="sr" style="font-size:clamp(16px,2vw,22px);color:rgba(255,255,255,.65);max-width:520px;margin:0 auto 48px;line-height:1.75;font-weight:500">The Universal Translator turns your phone into a first contact communication device. Frequency tones. Geometric light pulses. Point it at the sky and transmit.</p>
     <div class="sr" style="max-width:500px;margin:0 auto;background:#050a05;border:1px solid rgba(57,255,20,.25);padding:40px;position:relative;overflow:hidden">
@@ -757,24 +788,24 @@
 
   <!-- 8. FEATURE TEASER — moved: show the prize before the quiz -->
   <section id="feature-teaser">
-    <div class="ft-eyebrow sr">// DISCLOSURE — iOS & ANDROID APP //</div>
-    <h2 class="ft-h sr">What's inside the app</h2>
+    <div class="ft-eyebrow sr">// TRAINING MODULES — CLASSIFIED //</div>
+    <h2 class="ft-h sr">Contents of the leaked protocol</h2>
     <div class="ft-grid sr">
       <!-- UNLOCKED -->
       <div class="ft-tile unlocked">
         <span class="ft-tile-icon">🧬</span>
-        <span class="ft-tile-name">ARCHETYPE QUIZ</span>
-        <span class="ft-tile-status live">◉ UNLOCKED</span>
+        <span class="ft-tile-name">ARCHETYPE ASSESSMENT</span>
+        <span class="ft-tile-status live">◉ DECLASSIFIED</span>
       </div>
       <div class="ft-tile unlocked">
         <span class="ft-tile-icon">🪪</span>
-        <span class="ft-tile-name">FIRST CONTACT CARD</span>
-        <span class="ft-tile-status live">◉ UNLOCKED</span>
+        <span class="ft-tile-name">FIRST CONTACT CREDENTIAL</span>
+        <span class="ft-tile-status live">◉ DECLASSIFIED</span>
       </div>
       <div class="ft-tile unlocked">
         <span class="ft-tile-icon">📋</span>
         <span class="ft-tile-name">LIAISON STANDARD</span>
-        <span class="ft-tile-status live">◉ UNLOCKED</span>
+        <span class="ft-tile-status live">◉ DECLASSIFIED</span>
       </div>
       <!-- LOCKED -->
       <div class="ft-tile" style="opacity:.6">
@@ -827,9 +858,9 @@
 
   <!-- 9. CARD PREVIEW — moved: peak desire just before quiz -->
   <section id="card-preview" style="padding:80px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)">
-    <div class="cp-eyebrow sr">// FIRST CONTACT CARD — CLASSIFICATION PENDING //</div>
-    <h2 class="cp-h sr" style="margin-bottom:10px">Your card is waiting.</h2>
-    <p class="cp-sub sr" style="margin-bottom:40px">It already has a serial number. Your archetype isn't on it yet.</p>
+    <div class="cp-eyebrow sr">// FIRST CONTACT CREDENTIAL — CLASSIFICATION PENDING //</div>
+    <h2 class="cp-h sr" style="margin-bottom:10px">A credential has been generated for you.</h2>
+    <p class="cp-sub sr" style="margin-bottom:40px">Serial number assigned. Archetype field: blank. Awaiting your assessment.</p>
 
     <!-- Mystery blurred card -->
     <div class="sr mystery-card-wrap" style="margin-bottom:36px">
@@ -853,6 +884,10 @@
 
   <!-- 10. QUIZ -->
   <section id="quiz" class="quiz">
+    <!-- EKG HEARTBEAT SVG -->
+    <svg class="svg-anim" width="200" height="60" viewBox="0 0 200 60" style="top:8%;left:3%">
+      <polyline class="ekg-line" points="0,30 30,30 40,30 50,10 55,50 60,5 65,45 70,30 80,30 110,30 120,30 130,10 135,50 140,5 145,45 150,30 160,30 200,30" fill="none" stroke="rgba(57,255,20,.25)" stroke-width="1.5"/>
+    </svg>
     <div class="quiz-eyebrow sr">ARCHETYPE CLASSIFICATION // REAL-TIME ANALYSIS</div>
     <h2 class="quiz-h sr">Four types of people.<br><em>Which one are you?</em></h2>
 
@@ -1004,21 +1039,31 @@
       <div style="font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(255,215,0,.55);margin-top:14px">NEVER BEEN UNLOCKED · 0 CONFIRMED</div>
       <div style="position:absolute;top:8px;right:12px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:rgba(255,215,0,.25)">SERIAL: FC-0000-00001</div>
     </div>
-    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.65);margin-bottom:32px">Enroll now to be in position when it opens.</p>
-    <a href="#access" class="cta-btn sr" style="background:var(--gold);color:#000">ENROLL BEFORE LAUNCH →</a>
+    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.65);margin-bottom:32px">Log your frequency now. When the slot opens, you will be contacted.</p>
+    <a href="#access" class="cta-btn sr" style="background:var(--gold);color:#000">LOG FREQUENCY →</a>
   </section>
 
   <!-- 13. ACCESS GATE -->
   <section id="access" class="gate">
-    <div class="gate-eyebrow sr">DISCLOSURE APP // EARLY ACCESS WAITLIST</div>
-    <h2 class="gate-h sr">Claim your<br><em>First Contact Card.</em></h2>
-    <p class="gate-sub sr">Join the waitlist for the Disclosure app. Get your archetype card,<br><strong>serial number, and early access when we launch.</strong></p>
+    <!-- TARGETING RETICLE SVG -->
+    <svg class="svg-anim reticle" width="160" height="160" viewBox="0 0 160 160" style="top:15%;right:8%">
+      <circle cx="80" cy="80" r="60" fill="none" stroke="rgba(57,255,20,.12)" stroke-width="1"/>
+      <circle cx="80" cy="80" r="30" fill="none" stroke="rgba(57,255,20,.08)" stroke-width="1"/>
+      <line x1="80" y1="10" x2="80" y2="40" stroke="rgba(57,255,20,.15)" stroke-width="1"/>
+      <line x1="80" y1="120" x2="80" y2="150" stroke="rgba(57,255,20,.15)" stroke-width="1"/>
+      <line x1="10" y1="80" x2="40" y2="80" stroke="rgba(57,255,20,.15)" stroke-width="1"/>
+      <line x1="120" y1="80" x2="160" y2="80" stroke="rgba(57,255,20,.15)" stroke-width="1"/>
+      <circle cx="80" cy="80" r="3" fill="rgba(57,255,20,.2)"/>
+    </svg>
+    <div class="gate-eyebrow sr">// SECURE CHANNEL — ENTER YOUR CONTACT FREQUENCY //</div>
+    <h2 class="gate-h sr">Enter your<br><em>contact frequency.</em></h2>
+    <p class="gate-sub sr">This file was not supposed to reach you. Now that it has,<br><strong>we need to know where to send the next transmission.</strong></p>
     <div class="gate-archetype-hint sr" id="gate-archetype-hint"></div>
 
     <div class="gate-form-wrap sr">
       <form class="gate-form" id="gate-form" onsubmit="handleAccess(event)">
-        <input class="gate-input" id="gate-email" type="email" placeholder="YOUR CONTACT EMAIL" required autocomplete="email"/>
-        <button class="gate-submit" type="submit" id="gate-submit-btn">CLAIM CARD →</button>
+        <input class="gate-input" id="gate-email" type="email" placeholder="CONTACT FREQUENCY (EMAIL)" required autocomplete="email"/>
+        <button class="gate-submit" type="submit" id="gate-submit-btn">LOG FREQUENCY →</button>
       </form>
 
       <!-- Post-signup card — Change 6 -->
@@ -1060,7 +1105,7 @@
         </div>
       </div>
 
-      <p class="gate-note" id="gate-note">No spam. No government involvement. Just the truth.</p>
+      <p class="gate-note" id="gate-note">Your frequency is logged once. This channel does not repeat.</p>
     </div>
 
     <div class="gate-stats sr">
@@ -1071,19 +1116,19 @@
       </div>
       <span class="gst-sep">·</span>
       <div class="gst">
-        <span class="gst-n">FREE</span>
-        <span class="gst-l">ALWAYS</span>
+        <span class="gst-n">ACTIVE</span>
+        <span class="gst-l">SECURE CHANNEL</span>
       </div>
     </div>
   </section>
 
   <!-- 14. SHARE -->
   <section class="share">
-    <p class="share-pre sr">// TRANSMISSION COMPLETE //</p>
-    <h2 class="share-h sr">If you're reading this,<br><em>you already know.</em></h2>
-    <p class="share-sub sr">Pass the briefing to someone who isn't ready yet.</p>
+    <p class="share-pre sr">// TRANSMISSION WINDOW CLOSING //</p>
+    <h2 class="share-h sr">Forward this briefing<br><em>before it's removed.</em></h2>
+    <p class="share-sub sr">This document has a limited distribution window. Act now.</p>
     <div class="share-forward sr" onclick="copyForward()" title="Click to copy">
-      <span class="share-forward-label">// COPY THIS EXACT MESSAGE //</span>
+      <span class="share-forward-label">// FORWARD THIS EXACT TRANSMISSION //</span>
       <span id="share-forward-text">"I just found something you should see. Don't Google it first. Just read it: getdisclosure.app"</span>
     </div>
     <div id="fwd-confirm">MESSAGE COPIED · SEND IT</div>
@@ -1140,7 +1185,7 @@ let userCity = 'UNKNOWN', userRegion = '';
         // Update nav sig
         const navText = document.getElementById('nav-status-text');
         if (navText && currentNavState === 0) {
-          navText.textContent = 'SIGNAL ACQUIRED · ' + userCity + ', ' + userRegion + ' · DISCLOSURE PROTOCOL';
+          navText.textContent = 'LEAKED DOCUMENT · ' + userCity + ', ' + userRegion + ' · READING IN PROGRESS';
         }
         // Update gate hint
         updateGateHint();
@@ -1152,7 +1197,7 @@ let userCity = 'UNKNOWN', userRegion = '';
 function updateGateHint() {
   const hint = document.getElementById('gate-archetype-hint');
   if (hint && userCity !== 'UNKNOWN') {
-    hint.textContent = 'OPERATIVE LOCATION: ' + userCity + ' DETECTED';
+    hint.textContent = 'SOURCE LOCATION: ' + userCity + ' · SIGNAL TRACED';
   }
 }
 
@@ -1282,10 +1327,10 @@ function showArchetypeResult() {
   const ctaBtn = document.getElementById('qr-cta-primary');
   if (archetype === 'first-contact') {
     ctaBtn.className = 'qr-cta fc-primary';
-    ctaBtn.textContent = 'CLAIM YOUR CARD ⭐';
+    ctaBtn.textContent = 'RECEIVE YOUR CREDENTIAL ⭐';
   } else {
     ctaBtn.className = 'qr-cta primary';
-    ctaBtn.textContent = 'CLAIM YOUR CARD →';
+    ctaBtn.textContent = 'RECEIVE YOUR CREDENTIAL →';
   }
 
   // Update gate hint
@@ -1311,7 +1356,7 @@ function showArchetypeResult() {
 function updateGateHintWithArchetype(data) {
   const hint = document.getElementById('gate-archetype-hint');
   if (hint) {
-    hint.textContent = 'ARCHETYPE DETECTED: ' + data.name + ' ' + data.icon + (userCity !== 'UNKNOWN' ? ' · OPERATIVE LOCATION: ' + userCity : '');
+    hint.textContent = 'ARCHETYPE DETECTED: ' + data.name + ' ' + data.icon + (userCity !== 'UNKNOWN' ? ' · SOURCE: ' + userCity : '');
   }
 }
 
@@ -1340,7 +1385,7 @@ async function handleAccess(e) {
   e.preventDefault();
   const email = document.getElementById('gate-email').value.trim();
   const btn = document.getElementById('gate-submit-btn');
-  btn.textContent = 'PROCESSING...';
+  btn.textContent = 'LOGGING FREQUENCY...';
   btn.disabled = true;
 
   const archetype = currentArchetype || 'sentinel';
@@ -1464,10 +1509,10 @@ function copyShareText() {
 // ── Nav Scroll Awareness (Change 11) ─────────
 let currentNavState = 0;
 const NAV_STATES = [
-  'SIGNAL ACQUIRED · DISCLOSURE PROTOCOL ACTIVE',
+  'LEAKED DOCUMENT · READING IN PROGRESS',
   'IDENTITY SCAN IN PROGRESS...',
   'ARCHETYPE CLASSIFICATION PENDING',
-  'OPERATIVE LOCATION — CLEARANCE PENDING'
+  'OPERATIVE LOCATION — FILE ACCESSED'
 ];
 
 function initNavScroll() {
@@ -1488,7 +1533,7 @@ function initNavScroll() {
       if (state === 3 && userCity !== 'UNKNOWN') {
         txt = 'OPERATIVE ' + userCity + ' — CLEARANCE PENDING';
       } else if (state === 0 && userCity !== 'UNKNOWN') {
-        txt = 'SIGNAL ACQUIRED · ' + userCity + ', ' + userRegion;
+        txt = 'LEAKED DOCUMENT · ' + userCity + ', ' + userRegion;
       }
       navText.textContent = txt;
     }
@@ -1529,14 +1574,14 @@ function triggerFlagged() {
 
 // ── Boot Sequence ─────────────────────────────
 const BOOT = [
-  'INITIALIZING CIVILIAN BRIEFING SYSTEM...',
-  'CASE FILE: UAP-CIVILIAN-001',
-  'COORDINATES: 37°14\'06"N 115°48\'40"W',
-  'CLEARANCE LEVEL: UNCLASSIFIED',
-  'ARCHETYPE DATABASE: ONLINE',
-  'ESTABLISHING SECURE CONNECTION...',
-  'CONNECTION ESTABLISHED.',
-  'WELCOME, CIVILIAN.'
+  'INTERCEPTED TRANSMISSION // SOURCE: [REDACTED]',
+  'CASE FILE: UAP-CIVILIAN-001 — LEAKED 2026-02-19',
+  'ORIGIN: 37°14\'06"N 115°48\'40"W // DUGWAY PROVING GROUND',
+  'CLASSIFICATION: TS/SCI — DOWNGRADED BY EXECUTIVE ORDER',
+  'ARCHETYPE DATABASE: MIRRORED FROM INTERNAL SERVER',
+  'ROUTING THROUGH PROXY...',
+  'CHAIN OF CUSTODY BROKEN. YOU ARE NOW A WITNESS.',
+  'THIS DOCUMENT WILL NOT EXIST TOMORROW.'
 ];
 
 (function boot() {
