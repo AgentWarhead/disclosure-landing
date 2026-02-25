@@ -150,7 +150,7 @@
     .cursor-ring{position:fixed;width:18px;height:18px;border:1px solid rgba(57,255,20,.35);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:all .08s ease;mix-blend-mode:screen}
 
     /* CRAFT */
-    #craft-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+    /* craft-canvas removed — replaced by eye-canvas scroll animation */
 
     /* BOOT */
     #boot{position:fixed;inset:0;background:#000;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:20px}
@@ -172,10 +172,16 @@
     .live-dot{width:5px;height:5px;border-radius:50%;background:var(--g);animation:live 1.8s ease-in-out infinite;flex-shrink:0}
     @keyframes live{0%,100%{box-shadow:0 0 3px var(--g)}50%{box-shadow:0 0 12px var(--g),0 0 24px var(--g)}}
 
-    /* HERO */
-    .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden}
-    .hero-orb{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(57,255,20,.025) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);animation:orb 7s ease-in-out infinite;pointer-events:none}
-    @keyframes orb{0%,100%{opacity:.3;transform:translate(-50%,-50%) scale(1)}50%{opacity:.65;transform:translate(-50%,-50%) scale(1.1)}}
+    /* ═══ SCROLL-DRIVEN HERO (Apple-quality) ═══ */
+    .hero-scroll{position:relative;height:500vh;width:100%}
+    .hero-sticky{position:sticky;top:0;height:100vh;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    #eye-canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+    .hero-vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 50%,transparent 30%,rgba(0,0,0,.4) 60%,rgba(0,0,0,.85) 100%)}
+    .hero-fade-bottom{position:absolute;bottom:0;left:0;right:0;height:30vh;z-index:1;pointer-events:none;background:linear-gradient(to bottom,transparent,#000)}
+    .hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;max-width:900px}
+    .hero-layer{opacity:0;transform:translateY(30px);transition:none;will-change:opacity,transform}
+    .hero-layer.active{opacity:1;transform:translateY(0)}
+
     .hero-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(245,158,11,.85);margin-bottom:24px}
     .hero-intercept{font-family:var(--mono);font-size:clamp(10px,1.3vw,13px);letter-spacing:.4em;color:rgba(57,255,20,.55);margin-bottom:28px;text-transform:uppercase}
     .hero-h{font-size:clamp(72px,16vw,200px);font-weight:700;line-height:.9;letter-spacing:-.03em;margin-bottom:24px;position:relative}
@@ -196,6 +202,14 @@
     .hc-num{color:rgba(57,255,20,.95)}
     .hc-live{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(57,255,20,.85);border:1px solid rgba(57,255,20,.3);padding:3px 10px}
     .hc-sep{color:rgba(255,255,255,.2)}
+    /* Eye glow overlay synced to scroll */
+    .hero-eye-glow{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 40% 40% at 50% 50%,rgba(57,255,20,.06) 0%,transparent 70%);opacity:0;transition:opacity .3s}
+    /* Scroll indicator */
+    .hero-scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:3;opacity:0;transition:opacity 1s .5s;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(57,255,20,.5);display:flex;flex-direction:column;align-items:center;gap:8px}
+    .hero-scroll-hint.show{opacity:1}
+    .hero-scroll-hint.hide{opacity:0;transition:opacity .3s}
+    .scroll-arrow{width:16px;height:16px;border-right:1px solid rgba(57,255,20,.5);border-bottom:1px solid rgba(57,255,20,.5);transform:rotate(45deg);animation:scrollBounce 2s infinite}
+    @keyframes scrollBounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
 
     /* ARCHETYPE STRIP */
     #archetype-strip{padding:60px 24px;background:rgba(255,255,255,.015);text-align:center;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
@@ -512,31 +526,54 @@
     <div class="nav-sig" id="nav-sig"><div class="live-dot"></div><span id="nav-status-text">LEAKED DOCUMENT · READING IN PROGRESS</span></div>
   </nav>
 
-  <!-- 1. HERO -->
-  <section class="hero">
-    <canvas id="craft-canvas" aria-hidden="true"></canvas>
-    <div class="hero-orb"></div>
+  <!-- 1. HERO — Apple-quality scroll-driven eye animation -->
+  <section class="hero-scroll" id="hero-scroll">
+    <div class="hero-sticky">
+      <canvas id="eye-canvas" aria-hidden="true"></canvas>
+      <div class="hero-vignette"></div>
+      <div class="hero-eye-glow" id="hero-eye-glow"></div>
+      <div class="hero-fade-bottom"></div>
 
-    <div class="hero-kicker sr">CASE FILE: UAP-CIVILIAN-001 // CLASSIFICATION REVOKED BY EXECUTIVE ORDER</div>
-    <p class="hero-intercept sr">// LEAKED DOCUMENT — UNAUTHORIZED DISTRIBUTION — DO NOT SHARE //</p>
+      <div class="hero-content">
+        <!-- Layer 1: Case file kicker (appears 5-20%) -->
+        <div class="hero-layer" id="hl-kicker">
+          <div class="hero-kicker">CASE FILE: UAP-CIVILIAN-001 // CLASSIFICATION REVOKED BY EXECUTIVE ORDER</div>
+          <p class="hero-intercept">// LEAKED DOCUMENT — UNAUTHORIZED DISTRIBUTION — DO NOT SHARE //</p>
+        </div>
 
-    <h1 class="hero-h sr">
-      <span class="glitch" data-text="DISCLOSURE">DISCLOSURE</span>
-    </h1>
+        <!-- Layer 2: DISCLOSURE title (appears 20-45%) -->
+        <div class="hero-layer" id="hl-title">
+          <h1 class="hero-h">
+            <span class="glitch" data-text="DISCLOSURE">DISCLOSURE</span>
+          </h1>
+        </div>
 
-    <h2 class="hero-identity sr">This file was not meant for you.</h2>
-    <p class="hero-sub sr">A leaked first contact protocol. Four civilian archetypes.<br><em>Your designation is already assigned.</em></p>
+        <!-- Layer 3: Tagline (appears 40-65%) -->
+        <div class="hero-layer" id="hl-tagline">
+          <h2 class="hero-identity">This file was not meant for you.</h2>
+          <p class="hero-sub">A leaked first contact protocol. Four civilian archetypes.<br><em>Your designation is already assigned.</em></p>
+        </div>
 
-    <a href="#quiz" class="cta-btn sr">READ THE BRIEFING →</a>
+        <!-- Layer 4: CTA + counter (appears 60-80%) -->
+        <div class="hero-layer" id="hl-cta">
+          <a href="#quiz" class="cta-btn">READ THE BRIEFING →</a>
+          <div class="hero-counter">
+            <div class="live-dot" style="width:4px;height:4px"></div>
+            <span class="hc-num" id="hero-count">—</span>
+            <span>civilians briefed</span>
+            <span class="hc-sep">·</span>
+            <span class="hc-live" id="hero-live">+— this hour</span>
+            <span class="hc-sep">·</span>
+            <span>file accessed</span>
+          </div>
+        </div>
+      </div>
 
-    <div class="hero-counter sr">
-      <div class="live-dot" style="width:4px;height:4px"></div>
-      <span class="hc-num" id="hero-count">—</span>
-      <span>civilians briefed</span>
-      <span class="hc-sep">·</span>
-      <span class="hc-live" id="hero-live">+— this hour</span>
-      <span class="hc-sep">·</span>
-      <span>file accessed</span>
+      <!-- Scroll indicator -->
+      <div class="hero-scroll-hint" id="scroll-hint">
+        <span>SCROLL TO OPEN FILE</span>
+        <div class="scroll-arrow"></div>
+      </div>
     </div>
   </section>
 
@@ -1792,17 +1829,166 @@ function copyForward() {
   el.style.opacity='1'; setTimeout(function(){el.style.opacity='0';},3200);
 }
 
+// ── Scroll-Driven Eye Animation (Apple-quality) ──
+function initEyeScroll() {
+  var canvas = document.getElementById('eye-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var heroScroll = document.getElementById('hero-scroll');
+  var TOTAL = 201;
+  var frames = new Array(TOTAL);
+  var loaded = 0;
+  var currentFrame = 0;
+  var targetFrame = 0;
+  var drawing = false;
+
+  // Resize canvas to fill viewport
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    drawFrame(currentFrame);
+  }
+  window.addEventListener('resize', resize);
+
+  // Draw a frame centered/cover-filling the canvas
+  function drawFrame(idx) {
+    var img = frames[idx];
+    if (!img) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Cover-fill like background-size: cover
+    var cw = canvas.width, ch = canvas.height;
+    var iw = img.width, ih = img.height;
+    var scale = Math.max(cw / iw, ch / ih);
+    var dw = iw * scale, dh = ih * scale;
+    var dx = (cw - dw) / 2, dy = (ch - dh) / 2;
+    ctx.drawImage(img, dx, dy, dw, dh);
+  }
+
+  // Progressive frame loader — first 10 immediately, rest in background
+  function loadFrame(i) {
+    return new Promise(function(resolve) {
+      var img = new Image();
+      img.onload = function() {
+        frames[i] = img;
+        loaded++;
+        resolve();
+      };
+      img.onerror = function() { resolve(); };
+      var num = String(i + 1).padStart(3, '0');
+      img.src = 'frames/f' + num + '.webp';
+    });
+  }
+
+  // Load first 10 frames immediately for instant start
+  var firstBatch = [];
+  for (var i = 0; i < Math.min(10, TOTAL); i++) {
+    firstBatch.push(loadFrame(i));
+  }
+  Promise.all(firstBatch).then(function() {
+    resize();
+    drawFrame(0);
+    // Show scroll hint after first frames load
+    var hint = document.getElementById('scroll-hint');
+    if (hint) hint.classList.add('show');
+  });
+
+  // Load remaining frames in background batches
+  (function loadRemaining() {
+    var batch = [];
+    for (var i = 10; i < TOTAL; i++) {
+      batch.push(loadFrame(i));
+    }
+    Promise.all(batch);
+  })();
+
+  // Smooth interpolation loop (lerp toward target frame)
+  function animate() {
+    if (Math.abs(currentFrame - targetFrame) > 0.5) {
+      currentFrame += (targetFrame - currentFrame) * 0.12;
+      var idx = Math.min(TOTAL - 1, Math.max(0, Math.round(currentFrame)));
+      drawFrame(idx);
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+
+  // Text layer choreography
+  var layers = [
+    { el: document.getElementById('hl-kicker'),  fadeIn: 0.04, peak: 0.12, fadeOut: 0.30 },
+    { el: document.getElementById('hl-title'),    fadeIn: 0.15, peak: 0.28, fadeOut: 0.55 },
+    { el: document.getElementById('hl-tagline'),  fadeIn: 0.35, peak: 0.48, fadeOut: 0.70 },
+    { el: document.getElementById('hl-cta'),      fadeIn: 0.55, peak: 0.65, fadeOut: 0.88 }
+  ];
+  var eyeGlow = document.getElementById('hero-eye-glow');
+  var scrollHint = document.getElementById('scroll-hint');
+
+  // Scroll handler
+  function onScroll() {
+    var rect = heroScroll.getBoundingClientRect();
+    var scrollable = heroScroll.offsetHeight - window.innerHeight;
+    if (scrollable <= 0) return;
+    var progress = Math.max(0, Math.min(1, -rect.top / scrollable));
+
+    // Map scroll to frame
+    targetFrame = progress * (TOTAL - 1);
+
+    // Eye glow effect — peaks at mid-scroll
+    if (eyeGlow) {
+      var glowIntensity = Math.sin(progress * Math.PI) * 0.6;
+      eyeGlow.style.opacity = glowIntensity;
+    }
+
+    // Hide scroll hint once user starts scrolling
+    if (scrollHint && progress > 0.02) {
+      scrollHint.classList.add('hide');
+      scrollHint.classList.remove('show');
+    }
+
+    // Text choreography — each layer fades in, holds, fades out
+    layers.forEach(function(layer) {
+      if (!layer.el) return;
+      var opacity = 0;
+      var translateY = 30;
+
+      if (progress < layer.fadeIn) {
+        opacity = 0;
+        translateY = 30;
+      } else if (progress < layer.peak) {
+        // Fading in
+        var t = (progress - layer.fadeIn) / (layer.peak - layer.fadeIn);
+        opacity = t;
+        translateY = 30 * (1 - t);
+      } else if (progress < layer.fadeOut) {
+        // Holding
+        opacity = 1;
+        translateY = 0;
+      } else if (progress < layer.fadeOut + 0.1) {
+        // Fading out
+        var t2 = (progress - layer.fadeOut) / 0.1;
+        opacity = 1 - t2;
+        translateY = -15 * t2;
+      } else {
+        opacity = 0;
+        translateY = -15;
+      }
+
+      layer.el.style.opacity = opacity;
+      layer.el.style.transform = 'translateY(' + translateY + 'px)';
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // Initial state
+}
+
 // ── Init ──────────────────────────────────────
 function initPage() {
   initCursor();
   initScrollReveal();
+  initEyeScroll();
   initAlert();
   initNavScroll();
   loadCount();
-
-  document.querySelectorAll('.hero .sr').forEach(function(el,i) {
-    setTimeout(function(){el.classList.add('vis');}, 200+i*110);
-  });
 }
 </script>
 </body>
