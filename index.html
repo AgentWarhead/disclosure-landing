@@ -564,20 +564,20 @@
 
     /* 1. GLITCH ENTRANCE — CRT glitch on body */
     @keyframes quizGlitchFlicker{
-      0%{opacity:1;filter:none}
-      10%{opacity:.7;filter:hue-rotate(40deg)}
-      15%{opacity:1;filter:none}
-      25%{opacity:.5;filter:hue-rotate(-30deg) saturate(2)}
-      30%{opacity:.9;filter:none}
-      40%{opacity:.6;filter:hue-rotate(60deg)}
-      45%{opacity:1;filter:none}
-      55%{opacity:.4;filter:hue-rotate(-50deg) saturate(3)}
-      60%{opacity:1;filter:none}
-      70%{opacity:.7;filter:hue-rotate(20deg)}
-      75%{opacity:1;filter:none}
-      85%{opacity:.5;filter:hue-rotate(-40deg)}
-      90%{opacity:1;filter:none}
-      100%{opacity:1;filter:none}
+      0%{filter:none}
+      10%{filter:hue-rotate(40deg) brightness(.7)}
+      15%{filter:none}
+      25%{filter:hue-rotate(-30deg) saturate(2) brightness(.5)}
+      30%{filter:none}
+      40%{filter:hue-rotate(60deg) brightness(.6)}
+      45%{filter:none}
+      55%{filter:hue-rotate(-50deg) saturate(3) brightness(.4)}
+      60%{filter:none}
+      70%{filter:hue-rotate(20deg) brightness(.7)}
+      75%{filter:none}
+      85%{filter:hue-rotate(-40deg) brightness(.5)}
+      90%{filter:none}
+      100%{filter:none}
     }
     body.quiz-glitch{animation:quizGlitchFlicker .6s ease-out}
     body.quiz-glitch::after{opacity:1!important;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(0,0,0,.15) 1px,rgba(0,0,0,.15) 2px)!important}
@@ -679,6 +679,7 @@
 <!-- CINEMATIC: Quiz scan overlay, blackout, archetype flash -->
 
 <div class="blackout-overlay" id="blackout-overlay"></div>
+<div id="particle-layer" style="position:fixed;inset:0;pointer-events:none;z-index:9998"></div>
 <div class="archetype-flash" id="archetype-flash"></div>
 
 <!-- FLAGGED OVERLAY -->
@@ -2600,11 +2601,12 @@ function initCursorTrail() {
   var active = 0;
 
   // Pre-create particle pool
+  var layer = document.getElementById('particle-layer');
   for (var i = 0; i < MAX; i++) {
     var p = document.createElement('div');
     p.className = 'cursor-particle';
     p.style.display = 'none';
-    document.body.appendChild(p);
+    layer.appendChild(p);
     pool.push({ el: p, timer: null });
   }
 
