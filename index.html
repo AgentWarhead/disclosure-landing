@@ -677,10 +677,7 @@
 <div id="stars"></div>
 
 <!-- CINEMATIC: Quiz scan overlay, blackout, archetype flash -->
-<div class="quiz-scan-overlay" id="quiz-scan-overlay">
-  <div class="quiz-scan-text" id="quiz-scan-text">ANALYZING OPERATIVE...</div>
-  <div class="quiz-scan-bar-wrap"><div class="quiz-scan-bar" id="quiz-scan-bar"></div></div>
-</div>
+
 <div class="blackout-overlay" id="blackout-overlay"></div>
 <div class="archetype-flash" id="archetype-flash"></div>
 
@@ -1528,23 +1525,12 @@ function initQuizEntrance() {
         document.body.classList.add('quiz-glitch');
         setTimeout(function() { document.body.classList.remove('quiz-glitch'); }, 600);
 
-        // Show scan overlay after glitch starts
+        // Reveal quiz content after glitch
         setTimeout(function() {
-          var overlay = document.getElementById('quiz-scan-overlay');
-          overlay.classList.add('active');
-          // Start scanning bar after a beat
-          setTimeout(function() {
-            document.getElementById('quiz-scan-bar').classList.add('fill');
-          }, 100);
-
-          // After scan completes, fade out overlay and reveal quiz content
-          setTimeout(function() {
-            overlay.classList.remove('active');
-            quizSection.classList.remove('quiz-content-hidden');
-            quizSection.classList.add('quiz-content-reveal');
-            quizSection.classList.add('quiz-activated');
-          }, 1700);
-        }, 300);
+          quizSection.classList.remove('quiz-content-hidden');
+          quizSection.classList.add('quiz-content-reveal');
+          quizSection.classList.add('quiz-activated');
+        }, 600);
       }
     });
   }, { threshold: 0.15 });
