@@ -370,49 +370,34 @@
     .qr-cta.secondary{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.25)}
     .qr-cta.secondary:hover{border-color:rgba(57,255,20,.5);color:var(--g)}
 
-    /* FREQUENCY DIAL V4 — Declassified Section */
-    #freq-dial{position:relative;padding:100px 24px;text-align:center;background-image:url('asset-briefing-bg.png');background-size:cover;background-position:center;border-top:3px solid rgba(57,255,20,.6);border-bottom:3px solid rgba(57,255,20,.6)}
-    #freq-dial::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.85);pointer-events:none}
-    #freq-dial>*{position:relative;z-index:1}
+    /* FREQUENCY DIAL V5 — Contained Dossier Card */
+    #freq-dial{position:relative;padding:60px 24px;text-align:center}
+    .fd-card{max-width:900px;margin:0 auto;background:#f0f0ea;border-radius:8px;border:1px solid rgba(57,255,20,.2);border-top:3px solid rgba(57,255,20,.6);box-shadow:0 4px 40px rgba(0,0,0,.3);padding:60px 40px;position:relative;text-align:center}
     /* Declassified stamp */
-    .fd-stamp{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:#EF4444;transform:rotate(-2deg);display:inline-block;margin-bottom:40px;border:2px solid #EF4444;padding:4px 16px;opacity:.85}
-    /* Dial image container */
-    .fd-dial-wrap{position:relative;width:500px;max-width:100%;margin:0 auto 16px}
-    .fd-dial-img{width:100%;display:block;filter:drop-shadow(0 0 30px rgba(57,255,20,.3))}
-    /* Sweep overlay */
-    .fd-sweep-overlay{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
-    .fd-sweep-line{position:absolute;top:50%;left:50%;width:2px;height:45%;transform-origin:bottom center;background:linear-gradient(to top,rgba(57,255,20,.6),rgba(57,255,20,0));animation:fdSweep 8s linear infinite;border-radius:1px}
-    @keyframes fdSweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-    /* Frequency pills — positioned around dial on desktop */
-    .fd-pills-desktop{position:absolute;inset:0;pointer-events:none}
-    .fd-pill{position:absolute;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:#39FF14;background:rgba(0,0,0,.8);border:1px solid #39FF14;padding:4px 14px;cursor:pointer;border-radius:3px;transition:all .3s;pointer-events:auto;white-space:nowrap}
-    .fd-pill:hover{box-shadow:0 0 12px rgba(57,255,20,.4)}
-    .fd-pill.active{color:#fff;box-shadow:0 0 15px rgba(57,255,20,.5);background:rgba(0,0,0,.9)}
-    .fd-pill[data-freq="0"]{top:-8px;left:50%;transform:translateX(-50%)}
-    .fd-pill[data-freq="1"]{right:-12px;top:50%;transform:translateY(-50%)}
-    .fd-pill[data-freq="2"]{bottom:-8px;left:50%;transform:translateX(-50%)}
-    .fd-pill[data-freq="3"]{left:-12px;top:50%;transform:translateY(-50%)}
-    /* Mobile pills row */
-    .fd-pills-mobile{display:none;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
-    .fd-pills-mobile .fd-pill{position:static;transform:none}
-    /* Hint */
-    .fd-hint{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:#333;margin-top:16px;margin-bottom:40px;animation:fdHintPulse 2.5s ease-in-out infinite}
-    @keyframes fdHintPulse{0%,100%{opacity:.3}50%{opacity:.7}}
+    .fd-stamp{font-family:var(--mono);font-size:9px;letter-spacing:.4em;color:#EF4444;transform:rotate(-2deg);display:inline-block;margin-bottom:24px;border:1.5px solid #EF4444;padding:3px 12px;opacity:.7}
     /* Feature content */
-    .fd-content{max-width:600px;margin:0 auto;position:relative;min-height:400px}
+    .fd-content{max-width:500px;margin:0 auto;position:relative;min-height:280px}
     .fd-feature{position:absolute;inset:0;opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .4s ease;pointer-events:none;display:flex;flex-direction:column;align-items:center}
     .fd-feature.active{opacity:1;transform:translateY(0);pointer-events:auto;position:relative}
-    .fd-feat-hz{font-family:var(--mono);font-size:12px;letter-spacing:.35em;color:#0a6e0a;margin-bottom:12px}
-    .fd-feat-h{font-size:clamp(28px,4.5vw,48px);font-weight:700;color:#111;margin-bottom:14px;line-height:1.2}
-    .fd-feat-p{font-size:clamp(14px,1.8vw,18px);color:#333;line-height:1.6;font-weight:500;max-width:550px}
-    .fd-feat-img{width:100%;max-width:600px;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.15);margin:28px auto 0;display:block;opacity:0;transition:opacity .4s ease}
+    .fd-feat-hz{font-family:var(--mono);font-size:10px;letter-spacing:.35em;color:#0a6e0a;margin-bottom:10px}
+    .fd-feat-h{font-size:clamp(22px,3.5vw,36px);font-weight:700;color:#111;margin-bottom:10px;line-height:1.2}
+    .fd-feat-p{font-size:clamp(13px,1.6vw,16px);color:#333;line-height:1.6;font-weight:500;max-width:460px}
+    .fd-feat-img{width:100%;max-width:400px;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.15);margin:20px auto 0;display:block;opacity:0;transition:opacity .4s ease}
     .fd-feature.active .fd-feat-img{opacity:1}
+    /* Dot nav */
+    .fd-dots{display:flex;gap:12px;justify-content:center;margin-top:24px}
+    .fd-dot{width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,.2);cursor:pointer;transition:all .3s;border:none;padding:0}
+    .fd-dot.active{width:10px;height:10px;background:#39FF14;box-shadow:0 0 8px rgba(57,255,20,.5)}
+    /* Text nav */
+    .fd-nav-labels{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+    .fd-nav-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:#999;cursor:pointer;padding:4px 8px;border:1px solid transparent;border-radius:3px;transition:all .3s;background:none}
+    .fd-nav-label:hover{color:#555}
+    .fd-nav-label.active{color:#0a6e0a;border-color:rgba(57,255,20,.3)}
+    .fd-nav-sep{font-family:var(--mono);font-size:9px;color:#ccc;line-height:26px}
     @media(max-width:600px){
-      #freq-dial{padding:60px 20px}
-      .fd-dial-wrap{width:320px}
-      .fd-pills-desktop{display:none}
-      .fd-pills-mobile{display:flex}
-      .fd-feat-img{padding:0 16px;box-sizing:border-box}
+      #freq-dial{padding:40px 20px}
+      .fd-card{padding:40px 20px}
+      .fd-feat-img{max-width:100%;padding:0 8px;box-sizing:border-box}
     }
 
     /* LIAISON MAP */
@@ -1046,58 +1031,56 @@
     </div>
   </section>
 
-  <!-- 8. FREQUENCY DIAL V4 — Declassified Section -->
+  <!-- 8. FREQUENCY DIAL V5 — Contained Dossier Card -->
   <section id="freq-dial">
-    <div class="fd-stamp sr">DECLASSIFIED</div>
+    <div class="fd-card">
+      <div class="fd-stamp sr">DECLASSIFIED</div>
 
-    <!-- Radar dial image with sweep overlay -->
-    <div class="fd-dial-wrap sr">
-      <img class="fd-dial-img" src="asset-radar-dial.png" alt="Military radar frequency dial" loading="lazy"/>
-      <div class="fd-sweep-overlay"><div class="fd-sweep-line"></div></div>
-      <!-- Desktop frequency pills positioned around dial -->
-      <div class="fd-pills-desktop">
-        <button class="fd-pill active" data-freq="0">47.3 MHz</button>
-        <button class="fd-pill" data-freq="1">112.8 MHz</button>
-        <button class="fd-pill" data-freq="2">224.1 MHz</button>
-        <button class="fd-pill" data-freq="3">339.7 MHz</button>
+      <!-- Feature content panels -->
+      <div class="fd-content" id="fd-content">
+        <div class="fd-feature active" data-freq="0">
+          <div class="fd-feat-hz">SIGNAL LANGUAGE</div>
+          <h3 class="fd-feat-h">The gestures they'll understand.</h3>
+          <p class="fd-feat-p">Learn the hand signals designed for non-hostile first contact. Front camera training. Fill your Communication Meter.</p>
+          <img class="fd-feat-img" src="asset-signal-language.png" alt="Signal Language — hand with alien pulse rings" loading="lazy"/>
+        </div>
+        <div class="fd-feature" data-freq="1">
+          <div class="fd-feat-hz">UNIVERSAL TRANSLATOR</div>
+          <h3 class="fd-feat-h">This is how we say hello.</h3>
+          <p class="fd-feat-p">Your phone becomes a first contact communication device. Frequency tones. Geometric light pulses. Point at the sky and transmit.</p>
+          <img class="fd-feat-img" src="asset-universal-translator.png" alt="Universal Translator — phone emitting frequency waves" loading="lazy"/>
+        </div>
+        <div class="fd-feature" data-freq="2">
+          <div class="fd-feat-hz">STONE COLD DRILLS</div>
+          <h3 class="fd-feat-h">Can you hold still when it matters?</h3>
+          <p class="fd-feat-p">Jarring alien audio. Blinding lights. Your phone's gyroscope tracking every tremor. 10 completions earns your Readiness Badge.</p>
+          <img class="fd-feat-img" src="asset-stone-cold.png" alt="Stone Cold Drills — gyroscope with strobe lights" loading="lazy"/>
+        </div>
+        <div class="fd-feature" data-freq="3">
+          <div class="fd-feat-hz">FIRST CONTACT CARD</div>
+          <h3 class="fd-feat-h">Your clearance has been issued.</h3>
+          <p class="fd-feat-p">Digital credential showing your archetype, Readiness Score, and clearance level. Save to Apple or Google Wallet. Share it — if you dare.</p>
+          <img class="fd-feat-img" src="asset-first-contact-card.png" alt="First Contact Card — holographic digital credential" loading="lazy"/>
+        </div>
       </div>
-    </div>
 
-    <!-- Mobile frequency pills -->
-    <div class="fd-pills-mobile sr" id="fd-pills">
-      <button class="fd-pill active" data-freq="0">47.3 MHz</button>
-      <button class="fd-pill" data-freq="1">112.8 MHz</button>
-      <button class="fd-pill" data-freq="2">224.1 MHz</button>
-      <button class="fd-pill" data-freq="3">339.7 MHz</button>
-    </div>
+      <!-- Dot indicators -->
+      <div class="fd-dots" id="fd-dots">
+        <button class="fd-dot active" data-freq="0" aria-label="Signal Language"></button>
+        <button class="fd-dot" data-freq="1" aria-label="Universal Translator"></button>
+        <button class="fd-dot" data-freq="2" aria-label="Stone Cold Drills"></button>
+        <button class="fd-dot" data-freq="3" aria-label="First Contact Card"></button>
+      </div>
 
-    <div class="fd-hint sr">◉ TUNE FREQUENCY</div>
-
-    <!-- Feature content panels -->
-    <div class="fd-content" id="fd-content">
-      <div class="fd-feature active" data-freq="0">
-        <div class="fd-feat-hz">47.3 MHz — SIGNAL LANGUAGE</div>
-        <h3 class="fd-feat-h">The gestures they'll understand.</h3>
-        <p class="fd-feat-p">Learn the hand signals designed for non-hostile first contact. Front camera training. Fill your Communication Meter.</p>
-        <img class="fd-feat-img" src="asset-signal-language.png" alt="Signal Language — hand with alien pulse rings" loading="lazy"/>
-      </div>
-      <div class="fd-feature" data-freq="1">
-        <div class="fd-feat-hz">112.8 MHz — UNIVERSAL TRANSLATOR</div>
-        <h3 class="fd-feat-h">This is how we say hello.</h3>
-        <p class="fd-feat-p">Your phone becomes a first contact communication device. Frequency tones. Geometric light pulses. Point at the sky and transmit.</p>
-        <img class="fd-feat-img" src="asset-universal-translator.png" alt="Universal Translator — phone emitting frequency waves" loading="lazy"/>
-      </div>
-      <div class="fd-feature" data-freq="2">
-        <div class="fd-feat-hz">224.1 MHz — STONE COLD DRILLS</div>
-        <h3 class="fd-feat-h">Can you hold still when it matters?</h3>
-        <p class="fd-feat-p">Jarring alien audio. Blinding lights. Your phone's gyroscope tracking every tremor. 10 completions earns your Readiness Badge.</p>
-        <img class="fd-feat-img" src="asset-stone-cold.png" alt="Stone Cold Drills — gyroscope with strobe lights" loading="lazy"/>
-      </div>
-      <div class="fd-feature" data-freq="3">
-        <div class="fd-feat-hz">339.7 MHz — FIRST CONTACT CARD</div>
-        <h3 class="fd-feat-h">Your clearance has been issued.</h3>
-        <p class="fd-feat-p">Digital credential showing your archetype, Readiness Score, and clearance level. Save to Apple or Google Wallet. Share it — if you dare.</p>
-        <img class="fd-feat-img" src="asset-first-contact-card.png" alt="First Contact Card — holographic digital credential" loading="lazy"/>
+      <!-- Text nav labels -->
+      <div class="fd-nav-labels" id="fd-nav-labels">
+        <button class="fd-nav-label active" data-freq="0">SIGNAL</button>
+        <span class="fd-nav-sep">|</span>
+        <button class="fd-nav-label" data-freq="1">TRANSLATOR</button>
+        <span class="fd-nav-sep">|</span>
+        <button class="fd-nav-label" data-freq="2">STONE COLD</button>
+        <span class="fd-nav-sep">|</span>
+        <button class="fd-nav-label" data-freq="3">FC CARD</button>
       </div>
     </div>
   </section>
@@ -2674,12 +2657,13 @@ function initPage() {
   initQuizEntrance(); /* CINEMATIC: Quiz glitch entrance */
 }
 
-  /* ── FREQUENCY DIAL V4 ── */
+  /* ── FREQUENCY DIAL V5 ── */
   (function(){
     var content = document.getElementById('fd-content');
     if (!content) return;
     var features = content.querySelectorAll('.fd-feature');
-    var allPills = document.querySelectorAll('.fd-pill');
+    var dots = document.querySelectorAll('#fd-dots .fd-dot');
+    var labels = document.querySelectorAll('#fd-nav-labels .fd-nav-label');
     var current = 0;
     var autoTimer = null;
     var idleTimer = null;
@@ -2687,7 +2671,8 @@ function initPage() {
     function setFreq(idx) {
       current = idx;
       features.forEach(function(f, i) { f.classList.toggle('active', i === idx); });
-      allPills.forEach(function(p) { p.classList.toggle('active', parseInt(p.getAttribute('data-freq')) === idx); });
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+      labels.forEach(function(l, i) { l.classList.toggle('active', i === idx); });
     }
 
     function nextFreq() { setFreq((current + 1) % 4); }
@@ -2708,7 +2693,13 @@ function initPage() {
       idleTimer = setTimeout(startAuto, 8000);
     }
 
-    allPills.forEach(function(btn) {
+    dots.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        userSelect(parseInt(btn.getAttribute('data-freq')));
+      });
+    });
+
+    labels.forEach(function(btn) {
       btn.addEventListener('click', function() {
         userSelect(parseInt(btn.getAttribute('data-freq')));
       });
