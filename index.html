@@ -396,7 +396,7 @@
     .fd-feat-h.visible{opacity:1}
     .fd-feat-p{font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,0.85);max-width:550px;margin:0 auto;line-height:1.7;font-weight:500;opacity:0;transition:opacity .3s ease}
     .fd-feat-p.visible{opacity:1}
-    .fd-feat-img{max-height:280px;max-width:100%;width:auto;object-fit:contain;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.4);display:block;opacity:0;transform:scale(.95);transition:opacity .4s ease,transform .4s ease}
+    .fd-feat-img{width:100%;height:100%;object-fit:contain;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.4);display:block;opacity:0;transform:scale(.95);transition:opacity .4s ease,transform .4s ease}
     .fd-feat-img.visible{opacity:1;transform:scale(1)}
     .fd-feat-tag{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,0.4);margin-top:12px;opacity:0;transition:opacity .3s ease}
     .fd-feat-tag.visible{opacity:1}
@@ -1073,7 +1073,7 @@
           <h3 class="fd-feat-h" id="fd-feat-h"></h3>
           <p class="fd-feat-p" id="fd-feat-p"></p>
           <div class="fd-feat-img-wrap">
-            <img class="fd-feat-img" id="fd-feat-img" src="asset-signal-language-v2.png" alt="" loading="lazy"/>
+            <img class="fd-feat-img" id="fd-feat-img" src="asset-signal-language-v3.png" alt="" loading="lazy"/>
           </div>
         </div>
       </div>
@@ -2759,10 +2759,10 @@ function initPage() {
     var navLabels = document.querySelectorAll('#fd-nav-labels .fd-nav-label');
 
     var features = [
-      { label:"SIGNAL LANGUAGE", headline:"The gestures they\u2019ll understand.", desc:"What if they arrive tomorrow and nobody knows how to say hello? Signal Language is a complete gesture-based communication system designed for first contact scenarios. Practice the sequences until they're muscle memory. Track your fluency. When the moment comes, your hands will know what to do — even if your voice doesn't.", img:"asset-signal-language-v2.png" },
-      { label:"UNIVERSAL TRANSLATOR", headline:"This is how we say hello.", desc:"Your phone already has a speaker and a flashlight. We turned them into a first contact communication device. The Universal Translator generates frequency tones and geometric light pulse sequences designed to signal non-hostile intelligence. Point it at the sky. Press transmit. Whatever's listening — now it knows you're here.", img:"asset-universal-translator-v2.png" },
-      { label:"STONE COLD DRILLS", headline:"Can you hold still when it matters?", desc:"Jarring alien audio. Blinding lights. Your phone\u2019s gyroscope tracks every tremor. Complete 10 drills to earn your Readiness Badge.", img:"asset-stone-cold-v2.png" },
-      { label:"FIRST CONTACT CARD", headline:"Your clearance has been issued.", desc:"A digital credential showing your archetype, Readiness Score, and clearance level. Save to Apple or Google Wallet. Share it \u2014 if you dare.", img:"asset-first-contact-card-v2.png" }
+      { label:"SIGNAL LANGUAGE", headline:"The gestures they\u2019ll understand.", desc:"What if they arrive tomorrow and nobody knows how to say hello? Signal Language is a complete gesture-based communication system designed for first contact scenarios. Practice the sequences until they're muscle memory. Track your fluency. When the moment comes, your hands will know what to do \u2014 even if your voice doesn't.", img:"asset-signal-language-v3.png" },
+      { label:"UNIVERSAL TRANSLATOR", headline:"This is how we say hello.", desc:"Your phone already has a speaker and a flashlight. We turned them into a first contact communication device. The Universal Translator generates frequency tones and geometric light pulse sequences designed to signal non-hostile intelligence. Point it at the sky. Press transmit. Whatever's listening \u2014 now it knows you're here.", img:"asset-universal-translator-v2.png" },
+      { label:"STONE COLD DRILLS", headline:"Can you hold still when it matters?", desc:"Blinding strobes. Jarring alien audio. Vibrations you can feel in your teeth. Stone Cold Drills use your phone\u2019s gyroscope to track every flinch, every tremor, every involuntary reaction. The scenario escalates. You don\u2019t move. Complete all 10 levels and earn your Readiness Badge \u2014 proof that when chaos arrives, you won\u2019t be the one who breaks.", img:"asset-stone-cold-v2.png" },
+      { label:"FIRST CONTACT CARD", headline:"Your clearance has been issued.", desc:"Every operative needs credentials. Your First Contact Card displays your archetype, Readiness Score, and clearance level in a digital ID designed for Apple and Google Wallet. It\u2019s your proof of training. Your signal to others in the network. Share it on Instagram stories, flash it at a party, or keep it locked away \u2014 either way, you\u2019re in the system now.", img:"asset-first-contact-card-v2.png" }
     ];
 
     var current = 0;
