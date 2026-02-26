@@ -285,7 +285,7 @@
     .fcc-caption{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:rgba(255,255,255,.6);margin-top:28px;max-width:360px;margin-left:auto;margin-right:auto}
 
     /* QUIZ */
-    .quiz{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px;position:relative;border-top:1px solid rgba(255,255,255,.04);overflow:hidden}
+    .quiz{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px;position:relative;border-top:1px solid rgba(60,80,255,.15);border-bottom:1px solid rgba(60,80,255,.15);overflow:hidden;background:#080812;background-image:radial-gradient(ellipse at center,rgba(60,80,255,.06) 0%,transparent 70%)}
 
     /* QUIZ CONTAINMENT FIELD — the wow factor */
     .quiz-containment{position:absolute;inset:0;pointer-events:none;overflow:hidden}
@@ -330,22 +330,27 @@
     .quiz-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.75);margin-bottom:40px;text-align:center}
     .quiz-h{font-size:clamp(30px,5vw,60px);font-weight:700;line-height:1.1;letter-spacing:-.02em;text-align:center;margin-bottom:48px}
     .quiz-h em{font-style:normal;color:var(--g)}
-    .quiz-progress{width:100%;max-width:580px;margin:0 auto 32px;height:2px;background:rgba(255,255,255,.08)}
-    .quiz-progress-bar{height:100%;background:var(--g);transition:width .3s ease;box-shadow:0 0 8px var(--g)}
-    .quiz-card{width:100%;max-width:580px;margin:0 auto;overflow:hidden;position:relative}
+    .quiz-progress{width:100%;max-width:700px;margin:0 auto 32px;height:3px;background:rgba(255,255,255,.06);border-radius:2px}
+    .quiz-progress-bar{height:100%;background:var(--g);transition:width .3s ease;box-shadow:0 0 8px rgba(57,255,20,.4);border-radius:2px}
+    .quiz-card{width:100%;max-width:700px;margin:0 auto;overflow:hidden;position:relative;background:rgba(8,8,18,.8);border:1px solid rgba(57,255,20,.15);border-radius:8px;box-shadow:0 0 30px rgba(57,255,20,.05);padding:40px;animation:quizCardPulse 2s ease-in-out infinite}
+    @keyframes quizCardPulse{0%,100%{border-color:rgba(57,255,20,.15)}50%{border-color:rgba(57,255,20,.3)}}
+    .quiz-card::before{content:'';position:absolute;inset:0;border-radius:8px;background:radial-gradient(circle,rgba(57,255,20,.05) 0%,transparent 60%);animation:quizAmbientGlow 3s ease-in-out infinite;pointer-events:none;z-index:0}
+    @keyframes quizAmbientGlow{0%,100%{opacity:.5}50%{opacity:1}}
+    @media(max-width:600px){.quiz-card{padding:24px}}
     .q-step{display:none}
     .q-step.active{display:block}
     .q-step.slide-out{animation:slideOutLeft .2s forwards}
     .q-step.slide-in{display:block!important;animation:slideInRight .25s forwards}
     @keyframes slideOutLeft{from{transform:translateX(0);opacity:1}to{transform:translateX(-60px);opacity:0}}
     @keyframes slideInRight{from{transform:translateX(60px);opacity:0}to{transform:translateX(0);opacity:1}}
-    .q-num{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(255,255,255,.5);margin-bottom:16px}
-    .q-text{font-size:clamp(20px,3.2vw,34px);font-weight:700;color:#fff;line-height:1.3;margin-bottom:32px;letter-spacing:-.01em}
-    .q-opts{display:flex;flex-direction:column;gap:10px}
-    .q-opt{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.8);background:transparent;border:1px solid rgba(255,255,255,.18);padding:18px 22px;cursor:pointer;text-align:left;transition:all .15s;position:relative;overflow:hidden}
-    .q-opt::before{content:'';position:absolute;inset:0;background:rgba(57,255,20,.06);transform:translateX(-100%);transition:transform .2s}
-    .q-opt:hover{border-color:rgba(57,255,20,.5);color:#fff}
-    .q-opt:hover::before{transform:translateX(0)}
+    .q-num{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:#39FF14;margin-bottom:16px;position:relative;z-index:1}
+    .q-text{font-size:clamp(22px,3.5vw,32px);font-weight:700;color:#fff;line-height:1.3;margin-bottom:32px;letter-spacing:-.01em;position:relative;z-index:1}
+    .q-opts{display:flex;flex-direction:column;gap:10px;position:relative;z-index:1}
+    .q-opt{font-family:inherit;font-size:15px;letter-spacing:0;color:rgba(255,255,255,.85);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:16px 20px;cursor:pointer;text-align:left;transition:all .3s ease;position:relative;overflow:hidden;margin-bottom:0}
+    .q-opt:hover{background:rgba(57,255,20,.08);border-color:rgba(57,255,20,.4);color:#fff;box-shadow:0 0 15px rgba(57,255,20,.1);transform:translateX(4px)}
+    .q-opt.q-opt-selected{background:rgba(57,255,20,.15);border-color:#39FF14;color:#fff}
+    .q-opt.q-opt-flash{background:rgba(57,255,20,.3)}
+    @keyframes qOptStaggerIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
 
     /* ARCHETYPE RESULT */
     .quiz-result{display:none;text-align:center}
@@ -627,10 +632,12 @@
     .quiz-content-hidden .quiz-eyebrow,
     .quiz-content-hidden .quiz-h,
     .quiz-content-hidden .quiz-progress,
+    .quiz-content-hidden .confidence-meter,
     .quiz-content-hidden .quiz-card{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
     .quiz-content-reveal .quiz-eyebrow,
     .quiz-content-reveal .quiz-h,
     .quiz-content-reveal .quiz-progress,
+    .quiz-content-reveal .confidence-meter,
     .quiz-content-reveal .quiz-card{opacity:1;transform:translateY(0)}
 
     /* 2. RESPONSE LOGGED FLASH */
@@ -1586,8 +1593,21 @@ function answer(qNum, optIdx, archetype) {
   answers[qNum - 1] = optIdx;
   scores[archetype]++;
 
-  // Update progress bar
-  document.getElementById('quiz-bar').style.width = (qNum / 10 * 100) + '%';
+  // Flash the clicked button
+  var clickedBtn = document.querySelector('#q' + qNum + ' .q-opt:nth-child(' + optIdx + ')');
+  if (clickedBtn) {
+    clickedBtn.classList.add('q-opt-flash');
+    setTimeout(function() {
+      clickedBtn.classList.remove('q-opt-flash');
+      clickedBtn.classList.add('q-opt-selected');
+    }, 200);
+  }
+
+  // Update progress bar — intensify glow near completion
+  var bar = document.getElementById('quiz-bar');
+  bar.style.width = (qNum / 10 * 100) + '%';
+  var glowIntensity = 0.4 + (qNum / 10) * 0.6;
+  bar.style.boxShadow = '0 0 ' + (8 + qNum * 2) + 'px rgba(57,255,20,' + glowIntensity + ')';
 
   // FEATURE 3: Update confidence meter
   updateConfidenceMeter();
@@ -1609,6 +1629,18 @@ function answer(qNum, optIdx, archetype) {
   var currentStep = document.getElementById('q' + qNum);
   var nextStep = qNum < 10 ? document.getElementById('q' + (qNum + 1)) : null;
 
+  // Stagger-in animation for next question's options
+  function staggerOptions(step) {
+    if (!step) return;
+    var opts = step.querySelectorAll('.q-opt');
+    opts.forEach(function(opt, i) {
+      opt.style.opacity = '0';
+      opt.style.transform = 'translateX(-10px)';
+      opt.style.animation = 'qOptStaggerIn .25s ease forwards';
+      opt.style.animationDelay = (i * 50) + 'ms';
+    });
+  }
+
   // Delay transition by 400ms for the response-logged flash
   setTimeout(function() {
     responseEl.classList.remove('flash');
@@ -1620,6 +1652,7 @@ function answer(qNum, optIdx, archetype) {
         currentStep.classList.remove('active', 'slide-out');
         if (nextStep) {
           nextStep.classList.add('active', 'slide-in');
+          staggerOptions(nextStep);
           setTimeout(function() { nextStep.classList.remove('slide-in'); }, 260);
         } else {
           showArchetypeResult();
@@ -1629,6 +1662,7 @@ function answer(qNum, optIdx, archetype) {
       currentStep.classList.remove('active');
       if (nextStep) {
         nextStep.classList.add('active');
+        staggerOptions(nextStep);
       } else {
         showArchetypeResult();
       }
