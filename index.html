@@ -388,14 +388,15 @@
     .fd-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(57,255,20,0.7);margin-bottom:14px}
     .fd-main-h{font-size:clamp(26px,4vw,42px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:12px}
     /* Feature content area */
-    .fd-content{max-width:540px;margin:0 auto;position:relative;min-height:380px}
+    .fd-content{max-width:540px;margin:0 auto;position:relative;min-height:520px}
     .fd-feature-wrap{display:flex;flex-direction:column;align-items:center}
+    .fd-feat-img-wrap{height:280px;display:flex;align-items:center;justify-content:center;margin:20px auto 0;width:100%;max-width:420px}
     .fd-feat-label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:#39FF14;margin-bottom:12px;min-height:16px}
     .fd-feat-h{font-size:clamp(24px,3.5vw,38px);font-weight:700;color:#fff;margin-bottom:12px;line-height:1.2;opacity:0;transition:opacity .3s ease}
     .fd-feat-h.visible{opacity:1}
     .fd-feat-p{font-size:15px;color:rgba(255,255,255,0.7);max-width:500px;margin:0 auto;line-height:1.6;opacity:0;transition:opacity .3s ease}
     .fd-feat-p.visible{opacity:1}
-    .fd-feat-img{width:100%;max-width:420px;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.4);margin:20px auto 0;display:block;opacity:0;transform:scale(.95);transition:opacity .4s ease,transform .4s ease}
+    .fd-feat-img{max-height:280px;max-width:100%;width:auto;object-fit:contain;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.4);display:block;opacity:0;transform:scale(.95);transition:opacity .4s ease,transform .4s ease}
     .fd-feat-img.visible{opacity:1;transform:scale(1)}
     .fd-feat-tag{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,0.4);margin-top:12px;opacity:0;transition:opacity .3s ease}
     .fd-feat-tag.visible{opacity:1}
@@ -418,7 +419,9 @@
     @media(max-width:600px){
       #freq-dial{padding:40px 20px}
       .fd-card{padding:40px 20px}
-      .fd-feat-img{max-width:100%;padding:0 8px;box-sizing:border-box}
+      .fd-content{min-height:450px}
+      .fd-feat-img-wrap{max-width:100%;padding:0 8px;box-sizing:border-box}
+      .fd-feat-img{max-width:100%}
     }
 
     /* LIAISON MAP */
@@ -1069,8 +1072,9 @@
           <div class="fd-feat-label" id="fd-feat-label"></div>
           <h3 class="fd-feat-h" id="fd-feat-h"></h3>
           <p class="fd-feat-p" id="fd-feat-p"></p>
-          <img class="fd-feat-img" id="fd-feat-img" src="asset-signal-language.png" alt="" loading="lazy"/>
-          <div class="fd-feat-tag" id="fd-feat-tag">IN-APP FEATURE</div>
+          <div class="fd-feat-img-wrap">
+            <img class="fd-feat-img" id="fd-feat-img" src="asset-signal-language-v2.png" alt="" loading="lazy"/>
+          </div>
         </div>
       </div>
 
@@ -1095,9 +1099,8 @@
 
       <!-- CTA -->
       <div class="fd-divider"></div>
-      <div class="fd-cta-h">The app launches soon.</div>
-      <a href="#quiz" class="fd-cta-btn">GET EARLY ACCESS</a>
-      <div class="fd-cta-urgency">First 500 sign-ups receive Founder credentials.</div>
+      <div class="fd-cta-h">Launching soon on iOS and Android.</div>
+      <a href="#quiz" class="fd-cta-btn">BEGIN YOUR ASSESSMENT</a>
     </div>
   </section>
 
@@ -2709,15 +2712,15 @@ function initPage() {
     var headEl = document.getElementById('fd-feat-h');
     var descEl = document.getElementById('fd-feat-p');
     var imgEl = document.getElementById('fd-feat-img');
-    var tagEl = document.getElementById('fd-feat-tag');
+    var tagEl = document.getElementById('fd-feat-tag'); /* may be null if removed */
     var dots = document.querySelectorAll('#fd-dots .fd-dot');
     var navLabels = document.querySelectorAll('#fd-nav-labels .fd-nav-label');
 
     var features = [
-      { label:"SIGNAL LANGUAGE", headline:"The gestures they\u2019ll understand.", desc:"Learn the hand signals designed for non-hostile first contact. Your front camera guides you through each gesture. Fill your Communication Meter.", img:"asset-signal-language.png" },
-      { label:"UNIVERSAL TRANSLATOR", headline:"This is how we say hello.", desc:"Your phone becomes a first contact communication device. Frequency tones. Geometric light pulses. Point it at the sky and transmit.", img:"asset-universal-translator.png" },
-      { label:"STONE COLD DRILLS", headline:"Can you hold still when it matters?", desc:"Jarring alien audio. Blinding lights. Your phone\u2019s gyroscope tracks every tremor. Complete 10 drills to earn your Readiness Badge.", img:"asset-stone-cold.png" },
-      { label:"FIRST CONTACT CARD", headline:"Your clearance has been issued.", desc:"A digital credential showing your archetype, Readiness Score, and clearance level. Save to Apple or Google Wallet. Share it \u2014 if you dare.", img:"asset-first-contact-card.png" }
+      { label:"SIGNAL LANGUAGE", headline:"The gestures they\u2019ll understand.", desc:"Learn the hand signals designed for non-hostile first contact. Your front camera guides you through each gesture. Fill your Communication Meter.", img:"asset-signal-language-v2.png" },
+      { label:"UNIVERSAL TRANSLATOR", headline:"This is how we say hello.", desc:"Your phone becomes a first contact communication device. Frequency tones. Geometric light pulses. Point it at the sky and transmit.", img:"asset-universal-translator-v2.png" },
+      { label:"STONE COLD DRILLS", headline:"Can you hold still when it matters?", desc:"Jarring alien audio. Blinding lights. Your phone\u2019s gyroscope tracks every tremor. Complete 10 drills to earn your Readiness Badge.", img:"asset-stone-cold-v2.png" },
+      { label:"FIRST CONTACT CARD", headline:"Your clearance has been issued.", desc:"A digital credential showing your archetype, Readiness Score, and clearance level. Save to Apple or Google Wallet. Share it \u2014 if you dare.", img:"asset-first-contact-card-v2.png" }
     ];
 
     var current = 0;
@@ -2734,7 +2737,7 @@ function initPage() {
       headEl.classList.remove('visible');
       descEl.classList.remove('visible');
       imgEl.classList.remove('visible');
-      tagEl.classList.remove('visible');
+      if(tagEl) tagEl.classList.remove('visible');
       labelEl.textContent = '';
     }
 
@@ -2762,7 +2765,7 @@ function initPage() {
         headEl.classList.add('visible');
         descEl.classList.add('visible');
         imgEl.classList.add('visible');
-        tagEl.classList.add('visible');
+        if(tagEl) tagEl.classList.add('visible');
         return;
       }
 
@@ -2794,7 +2797,7 @@ function initPage() {
               setTimeout(function(){
                 imgEl.classList.add('visible');
                 setTimeout(function(){
-                  tagEl.classList.add('visible');
+                  if(tagEl) tagEl.classList.add('visible');
                   transitioning = false;
                 }, 200);
               }, 300);
@@ -2811,7 +2814,7 @@ function initPage() {
 
     function startAuto() {
       stopAuto();
-      autoTimer = setInterval(nextFeature, 6000);
+      autoTimer = setInterval(nextFeature, 10000);
     }
 
     function stopAuto() {
