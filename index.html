@@ -370,90 +370,49 @@
     .qr-cta.secondary{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.25)}
     .qr-cta.secondary:hover{border-color:rgba(57,255,20,.5);color:var(--g)}
 
-    /* FREQUENCY DIAL V3 — Console Panel */
-    #freq-dial{padding:120px 24px 100px;text-align:center;border-top:none;position:relative;overflow:hidden}
-    /* Section entry divider */
-    .fd-divider{width:200px;height:1px;margin:0 auto 0;background:linear-gradient(90deg,transparent,rgba(57,255,20,.5),transparent)}
-    /* Console panel container */
-    .fd-console{position:relative;max-width:900px;margin:0 auto;padding:60px 40px;background:rgba(0,15,0,.4);border:1px solid rgba(57,255,20,.2);border-radius:4px;box-shadow:0 0 40px rgba(57,255,20,.06),inset 0 0 60px rgba(0,20,0,.5)}
-    .fd-console::before{content:'';position:absolute;inset:0;border-radius:4px;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(57,255,20,.015) 2px,rgba(57,255,20,.015) 4px);pointer-events:none;z-index:1}
-    /* Console corner HUD brackets */
-    .fd-console-corner{position:absolute;width:24px;height:24px;pointer-events:none;z-index:2}
-    .fd-console-corner::before,.fd-console-corner::after{content:'';position:absolute;background:rgba(57,255,20,.35)}
-    .fd-console-corner::before{width:24px;height:2px}
-    .fd-console-corner::after{width:2px;height:24px}
-    .fd-console-corner.ctl{top:-1px;left:-1px}.fd-console-corner.ctl::before{top:0;left:0}.fd-console-corner.ctl::after{top:0;left:0}
-    .fd-console-corner.ctr{top:-1px;right:-1px}.fd-console-corner.ctr::before{top:0;right:0}.fd-console-corner.ctr::after{top:0;right:0}
-    .fd-console-corner.cbl{bottom:-1px;left:-1px}.fd-console-corner.cbl::before{bottom:0;left:0}.fd-console-corner.cbl::after{bottom:0;left:0}
-    .fd-console-corner.cbr{bottom:-1px;right:-1px}.fd-console-corner.cbr::before{bottom:0;right:0}.fd-console-corner.cbr::after{bottom:0;right:0}
-    .fd-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(57,255,20,.65);margin-bottom:40px}
-    .fd-wrap{position:relative;margin:0 auto}
-    /* HUD corner brackets */
-    .fd-hud{position:relative;padding:32px;margin-bottom:50px}
-    .fd-hud-corner{position:absolute;width:20px;height:20px;pointer-events:none}
-    .fd-hud-corner svg{width:100%;height:100%}
-    .fd-hud-corner.tl{top:0;left:0}
-    .fd-hud-corner.tr{top:0;right:0;transform:scaleX(-1)}
-    .fd-hud-corner.bl{bottom:0;left:0;transform:scaleY(-1)}
-    .fd-hud-corner.br{bottom:0;right:0;transform:scale(-1)}
-    /* Dial area layout */
-    .fd-dial-area{display:flex;align-items:center;justify-content:center;gap:32px}
-    .fd-waveform{width:80px;height:250px;flex-shrink:0;opacity:.45}
-    .fd-waveform svg{width:100%;height:100%}
-    .fd-wf-path{transition:d .8s ease}
-    @keyframes fdWfShift1{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-    @keyframes fdWfShift2{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
-    @keyframes fdWfShift3{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-    .fd-wf-line1{animation:fdWfShift1 3s ease-in-out infinite}
-    .fd-wf-line2{animation:fdWfShift2 3.5s ease-in-out infinite}
-    .fd-wf-line3{animation:fdWfShift3 2.8s ease-in-out infinite}
-    /* Dial container — BIGGER */
-    .fd-dial-wrap{position:relative;width:420px;height:420px;flex-shrink:0}
-    .fd-dial-svg{width:100%;height:100%}
-    /* Sweep */
-    .fd-sweep{transform-origin:175px 175px;animation:fdSweep 8s linear infinite}
+    /* FREQUENCY DIAL V4 — Declassified Section */
+    #freq-dial{position:relative;padding:100px 24px;text-align:center;background-image:url('asset-briefing-bg.png');background-size:cover;background-position:center;border-top:3px solid rgba(57,255,20,.6);border-bottom:3px solid rgba(57,255,20,.6)}
+    #freq-dial::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.85);pointer-events:none}
+    #freq-dial>*{position:relative;z-index:1}
+    /* Declassified stamp */
+    .fd-stamp{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:#EF4444;transform:rotate(-2deg);display:inline-block;margin-bottom:40px;border:2px solid #EF4444;padding:4px 16px;opacity:.85}
+    /* Dial image container */
+    .fd-dial-wrap{position:relative;width:500px;max-width:100%;margin:0 auto 16px}
+    .fd-dial-img{width:100%;display:block;filter:drop-shadow(0 0 30px rgba(57,255,20,.3))}
+    /* Sweep overlay */
+    .fd-sweep-overlay{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+    .fd-sweep-line{position:absolute;top:50%;left:50%;width:2px;height:45%;transform-origin:bottom center;background:linear-gradient(to top,rgba(57,255,20,.6),rgba(57,255,20,0));animation:fdSweep 8s linear infinite;border-radius:1px}
     @keyframes fdSweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-    .fd-sweep-trail{transform-origin:175px 175px;animation:fdSweep 8s linear infinite}
-    /* Center dot */
-    .fd-center-dot{animation:fdPulse 2s ease-in-out infinite}
-    @keyframes fdPulse{0%,100%{opacity:.8}50%{opacity:1}}
-    /* Frequency label buttons */
-    .fd-freq-btn{cursor:pointer;transition:opacity .3s}
-    .fd-freq-btn:hover .fd-freq-pill{stroke:rgba(57,255,20,.7);fill:rgba(0,20,0,.95)}
-    .fd-freq-btn:hover text{fill:#39FF14}
-    .fd-freq-btn.active .fd-freq-pill{stroke:#39FF14;stroke-width:1.8;fill:rgba(0,30,0,.9);filter:drop-shadow(0 0 12px rgba(57,255,20,.5))}
-    .fd-freq-btn.active text{fill:#39FF14;font-weight:bold}
-    /* Needle */
-    .fd-needle{transform-origin:175px 175px;transition:transform .8s cubic-bezier(.4,0,.2,1)}
+    /* Frequency pills — positioned around dial on desktop */
+    .fd-pills-desktop{position:absolute;inset:0;pointer-events:none}
+    .fd-pill{position:absolute;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:#39FF14;background:rgba(0,0,0,.8);border:1px solid #39FF14;padding:4px 14px;cursor:pointer;border-radius:3px;transition:all .3s;pointer-events:auto;white-space:nowrap}
+    .fd-pill:hover{box-shadow:0 0 12px rgba(57,255,20,.4)}
+    .fd-pill.active{color:#fff;box-shadow:0 0 15px rgba(57,255,20,.5);background:rgba(0,0,0,.9)}
+    .fd-pill[data-freq="0"]{top:-8px;left:50%;transform:translateX(-50%)}
+    .fd-pill[data-freq="1"]{right:-12px;top:50%;transform:translateY(-50%)}
+    .fd-pill[data-freq="2"]{bottom:-8px;left:50%;transform:translateX(-50%)}
+    .fd-pill[data-freq="3"]{left:-12px;top:50%;transform:translateY(-50%)}
+    /* Mobile pills row */
+    .fd-pills-mobile{display:none;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+    .fd-pills-mobile .fd-pill{position:static;transform:none}
     /* Hint */
-    .fd-hint{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(57,255,20,.45);margin-top:24px;margin-bottom:50px;animation:fdHintPulse 2.5s ease-in-out infinite}
+    .fd-hint{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:#333;margin-top:16px;margin-bottom:40px;animation:fdHintPulse 2.5s ease-in-out infinite}
     @keyframes fdHintPulse{0%,100%{opacity:.3}50%{opacity:.7}}
     /* Feature content */
-    .fd-content{max-width:560px;margin:0 auto;position:relative;min-height:280px}
+    .fd-content{max-width:600px;margin:0 auto;position:relative;min-height:400px}
     .fd-feature{position:absolute;inset:0;opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .4s ease;pointer-events:none;display:flex;flex-direction:column;align-items:center}
     .fd-feature.active{opacity:1;transform:translateY(0);pointer-events:auto;position:relative}
-    .fd-feat-hz{font-family:var(--mono);font-size:12px;letter-spacing:.35em;color:rgba(57,255,20,.7);margin-bottom:12px}
-    .fd-feat-h{font-size:clamp(28px,4vw,44px);font-weight:700;color:#fff;margin-bottom:14px;line-height:1.2}
-    .fd-feat-p{font-size:clamp(14px,1.8vw,18px);color:rgba(255,255,255,.6);line-height:1.85;font-weight:500;max-width:500px}
-    .fd-feat-anim{width:180px;height:110px;margin:28px auto 0}
-    /* Feature SVG animations */
-    @keyframes fdGyroWobble{0%{transform:rotate(-8deg)}25%{transform:rotate(5deg)}50%{transform:rotate(-3deg)}75%{transform:rotate(2deg)}100%{transform:rotate(0deg)}}
-    @keyframes fdCardAssemble{0%{stroke-dashoffset:260;opacity:0}100%{stroke-dashoffset:0;opacity:1}}
-    .fd-gyro{animation:fdGyroWobble 3s ease-in-out infinite;transform-origin:center}
-    .fd-card-outline{stroke-dasharray:260;stroke-dashoffset:260;animation:fdCardAssemble 2s ease forwards}
-    .fd-card-frag{opacity:0;animation:fdCardFrag 2s ease forwards}
-    @keyframes fdCardFrag{0%{opacity:0;transform:translate(var(--fx),var(--fy))}60%{opacity:.8}100%{opacity:1;transform:translate(0,0)}}
-    /* Mobile pills */
-    .fd-pills{display:none;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
-    .fd-pill{font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,.4);background:rgba(0,20,0,.8);border:1px solid rgba(57,255,20,.25);padding:8px 14px;cursor:pointer;transition:all .3s;border-radius:2px}
-    .fd-pill.active{color:#39FF14;border-color:rgba(57,255,20,.5);background:rgba(57,255,20,.08)}
+    .fd-feat-hz{font-family:var(--mono);font-size:12px;letter-spacing:.35em;color:#0a6e0a;margin-bottom:12px}
+    .fd-feat-h{font-size:clamp(28px,4.5vw,48px);font-weight:700;color:#111;margin-bottom:14px;line-height:1.2}
+    .fd-feat-p{font-size:clamp(14px,1.8vw,18px);color:#333;line-height:1.6;font-weight:500;max-width:550px}
+    .fd-feat-img{width:100%;max-width:600px;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.15);margin:28px auto 0;display:block;opacity:0;transition:opacity .4s ease}
+    .fd-feature.active .fd-feat-img{opacity:1}
     @media(max-width:600px){
-      .fd-dial-wrap{width:280px;height:280px}
-      .fd-waveform{display:none}
-      .fd-dial-area{gap:0}
-      .fd-pills{display:flex}
-      .fd-dial-svg .fd-freq-btn{display:none}
-      .fd-console{padding:40px 20px}
+      #freq-dial{padding:60px 20px}
+      .fd-dial-wrap{width:320px}
+      .fd-pills-desktop{display:none}
+      .fd-pills-mobile{display:flex}
+      .fd-feat-img{padding:0 16px;box-sizing:border-box}
     }
 
     /* LIAISON MAP */
@@ -1087,246 +1046,59 @@
     </div>
   </section>
 
-  <!-- 8. FREQUENCY DIAL V3 — Console Panel Feature Showcase -->
-  <div class="fd-divider"></div>
+  <!-- 8. FREQUENCY DIAL V4 — Declassified Section -->
   <section id="freq-dial">
-    <div class="fd-console">
-      <!-- Console corner brackets -->
-      <div class="fd-console-corner ctl"></div>
-      <div class="fd-console-corner ctr"></div>
-      <div class="fd-console-corner cbl"></div>
-      <div class="fd-console-corner cbr"></div>
+    <div class="fd-stamp sr">DECLASSIFIED</div>
 
-      <div class="fd-kicker sr">// CLASSIFIED INSTRUMENT ARRAY — FIELD EQUIPMENT //</div>
-
-      <!-- Mobile pills (shown < 600px) -->
-      <div class="fd-pills sr" id="fd-pills">
+    <!-- Radar dial image with sweep overlay -->
+    <div class="fd-dial-wrap sr">
+      <img class="fd-dial-img" src="asset-radar-dial.png" alt="Military radar frequency dial" loading="lazy"/>
+      <div class="fd-sweep-overlay"><div class="fd-sweep-line"></div></div>
+      <!-- Desktop frequency pills positioned around dial -->
+      <div class="fd-pills-desktop">
         <button class="fd-pill active" data-freq="0">47.3 MHz</button>
         <button class="fd-pill" data-freq="1">112.8 MHz</button>
         <button class="fd-pill" data-freq="2">224.1 MHz</button>
         <button class="fd-pill" data-freq="3">339.7 MHz</button>
       </div>
-
-      <div class="fd-wrap">
-      <!-- HUD Frame -->
-      <div class="fd-hud">
-        <!-- Corner brackets -->
-        <div class="fd-hud-corner tl"><svg viewBox="0 0 20 20"><path d="M0,20 L0,0 L20,0" fill="none" stroke="rgba(57,255,20,.25)" stroke-width="1"/></svg></div>
-        <div class="fd-hud-corner tr"><svg viewBox="0 0 20 20"><path d="M0,20 L0,0 L20,0" fill="none" stroke="rgba(57,255,20,.25)" stroke-width="1"/></svg></div>
-        <div class="fd-hud-corner bl"><svg viewBox="0 0 20 20"><path d="M0,20 L0,0 L20,0" fill="none" stroke="rgba(57,255,20,.25)" stroke-width="1"/></svg></div>
-        <div class="fd-hud-corner br"><svg viewBox="0 0 20 20"><path d="M0,20 L0,0 L20,0" fill="none" stroke="rgba(57,255,20,.25)" stroke-width="1"/></svg></div>
-
-        <div class="fd-dial-area">
-          <!-- Left Waveform -->
-          <div class="fd-waveform" id="fd-wf-left">
-            <svg viewBox="0 0 80 250" xmlns="http://www.w3.org/2000/svg">
-              <path class="fd-wf-line1" d="M40,10 Q10,35 40,60 Q70,85 40,110 Q10,135 40,160 Q70,185 40,210 Q10,235 40,250" fill="none" stroke="rgba(57,255,20,.55)" stroke-width="1.5"/>
-              <path class="fd-wf-line2" d="M40,10 Q18,40 40,60 Q62,80 40,110 Q18,140 40,160 Q62,180 40,210 Q18,235 40,250" fill="none" stroke="rgba(57,255,20,.35)" stroke-width="1"/>
-              <path class="fd-wf-line3" d="M40,10 Q25,30 40,60 Q55,90 40,110 Q25,130 40,160 Q55,190 40,210 Q25,230 40,250" fill="none" stroke="rgba(57,255,20,.25)" stroke-width="1"/>
-            </svg>
-          </div>
-
-          <!-- SVG Dial -->
-          <div class="fd-dial-wrap sr">
-            <svg class="fd-dial-svg" viewBox="-60 -20 470 390" xmlns="http://www.w3.org/2000/svg" overflow="visible">
-              <defs>
-                <!-- Metallic bezel gradient -->
-                <linearGradient id="fdBezelGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#4a4a4a"/>
-                  <stop offset="25%" stop-color="#6a6a6a"/>
-                  <stop offset="50%" stop-color="#3a3a3a"/>
-                  <stop offset="75%" stop-color="#5a5a5a"/>
-                  <stop offset="100%" stop-color="#2a2a2a"/>
-                </linearGradient>
-                <!-- Radar interior gradient -->
-                <radialGradient id="fdRadarBg" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#0a2a0a"/>
-                  <stop offset="60%" stop-color="#051505"/>
-                  <stop offset="100%" stop-color="#010301"/>
-                </radialGradient>
-                <!-- Sweep trail conic gradient -->
-                <linearGradient id="fdSweepTrail" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="rgba(57,255,20,.18)"/>
-                  <stop offset="100%" stop-color="rgba(57,255,20,0)"/>
-                </linearGradient>
-                <!-- Glow filter -->
-                <filter id="fdGlow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="3" result="blur"/>
-                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
-              </defs>
-
-              <!-- Outer metallic bezel -->
-              <circle cx="175" cy="175" r="168" fill="none" stroke="url(#fdBezelGrad)" stroke-width="14" opacity=".8"/>
-              <circle cx="175" cy="175" r="161" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-              <circle cx="175" cy="175" r="175" fill="none" stroke="rgba(0,0,0,.4)" stroke-width="1"/>
-
-              <!-- Radar background fill -->
-              <circle cx="175" cy="175" r="154" fill="url(#fdRadarBg)"/>
-
-              <!-- Concentric radar rings -->
-              <circle cx="175" cy="175" r="130" fill="none" stroke="rgba(57,255,20,.12)" stroke-width=".5"/>
-              <circle cx="175" cy="175" r="100" fill="none" stroke="rgba(57,255,20,.1)" stroke-width=".5"/>
-              <circle cx="175" cy="175" r="70" fill="none" stroke="rgba(57,255,20,.08)" stroke-width=".5"/>
-              <circle cx="175" cy="175" r="40" fill="none" stroke="rgba(57,255,20,.06)" stroke-width=".5"/>
-              <circle cx="175" cy="175" r="15" fill="none" stroke="rgba(57,255,20,.05)" stroke-width=".5"/>
-
-              <!-- Cross hairs -->
-              <line x1="175" y1="21" x2="175" y2="329" stroke="rgba(57,255,20,.06)" stroke-width=".5"/>
-              <line x1="21" y1="175" x2="329" y2="175" stroke="rgba(57,255,20,.06)" stroke-width=".5"/>
-              <line x1="66" y1="66" x2="284" y2="284" stroke="rgba(57,255,20,.03)" stroke-width=".5"/>
-              <line x1="284" y1="66" x2="66" y2="284" stroke="rgba(57,255,20,.03)" stroke-width=".5"/>
-
-              <!-- 72 minor tick marks (every 5 degrees) -->
-              <g stroke="rgba(57,255,20,.15)" stroke-width=".5" id="fd-minor-ticks"></g>
-              <!-- 12 major tick marks (every 30 degrees) -->
-              <g stroke="rgba(57,255,20,.5)" stroke-width="1.5" id="fd-major-ticks"></g>
-
-              <!-- Sweep trailing wedge -->
-              <path class="fd-sweep-trail" d="M175,175 L175,25 A150,150 0 0,0 109,38 Z" fill="rgba(57,255,20,.06)" opacity=".8"/>
-              <path class="fd-sweep-trail" d="M175,175 L175,25 A150,150 0 0,0 140,28 Z" fill="rgba(57,255,20,.04)" opacity=".6" style="animation-delay:-.3s"/>
-              <path class="fd-sweep-trail" d="M175,175 L175,25 A150,150 0 0,0 155,26 Z" fill="rgba(57,255,20,.02)" opacity=".4" style="animation-delay:-.6s"/>
-
-              <!-- Radar sweep line -->
-              <line x1="175" y1="175" x2="175" y2="25" class="fd-sweep" stroke="rgba(57,255,20,.5)" stroke-width="1.5" filter="url(#fdGlow)"/>
-
-              <!-- Center dot with glow -->
-              <circle cx="175" cy="175" r="8" fill="rgba(57,255,20,.1)"/>
-              <circle cx="175" cy="175" r="4" fill="#39FF14" class="fd-center-dot" style="filter:drop-shadow(0 0 6px rgba(57,255,20,.8))"/>
-
-              <!-- Needle -->
-              <line x1="175" y1="175" x2="175" y2="30" class="fd-needle" id="fd-needle" stroke="#39FF14" stroke-width="2" stroke-linecap="round" opacity=".9" filter="url(#fdGlow)"/>
-
-              <!-- Frequency label pills at N/E/S/W — outside the bezel -->
-              <g class="fd-freq-btn active" data-freq="0">
-                <rect class="fd-freq-pill" x="135" y="-8" width="80" height="22" rx="3" fill="rgba(0,20,0,.85)" stroke="rgba(57,255,20,.4)" stroke-width="1"/>
-                <text x="175" y="8" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="10" fill="rgba(57,255,20,.7)" letter-spacing="1.5" dominant-baseline="middle">47.3 MHz</text>
-              </g>
-              <g class="fd-freq-btn" data-freq="1">
-                <rect class="fd-freq-pill" x="320" y="164" width="80" height="22" rx="3" fill="rgba(0,20,0,.85)" stroke="rgba(57,255,20,.3)" stroke-width="1"/>
-                <text x="360" y="175" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="10" fill="rgba(57,255,20,.5)" letter-spacing="1.5" dominant-baseline="middle">112.8 MHz</text>
-              </g>
-              <g class="fd-freq-btn" data-freq="2">
-                <rect class="fd-freq-pill" x="135" y="338" width="80" height="22" rx="3" fill="rgba(0,20,0,.85)" stroke="rgba(57,255,20,.3)" stroke-width="1"/>
-                <text x="175" y="349" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="10" fill="rgba(57,255,20,.5)" letter-spacing="1.5" dominant-baseline="middle">224.1 MHz</text>
-              </g>
-              <g class="fd-freq-btn" data-freq="3">
-                <rect class="fd-freq-pill" x="-50" y="164" width="80" height="22" rx="3" fill="rgba(0,20,0,.85)" stroke="rgba(57,255,20,.3)" stroke-width="1"/>
-                <text x="-10" y="175" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="10" fill="rgba(57,255,20,.5)" letter-spacing="1.5" dominant-baseline="middle">339.7 MHz</text>
-              </g>
-            </svg>
-          </div>
-
-          <!-- Right Waveform -->
-          <div class="fd-waveform" id="fd-wf-right">
-            <svg viewBox="0 0 80 250" xmlns="http://www.w3.org/2000/svg">
-              <path class="fd-wf-line1" d="M40,10 Q70,35 40,60 Q10,85 40,110 Q70,135 40,160 Q10,185 40,210 Q70,235 40,250" fill="none" stroke="rgba(57,255,20,.55)" stroke-width="1.5"/>
-              <path class="fd-wf-line2" d="M40,10 Q62,40 40,60 Q18,80 40,110 Q62,140 40,160 Q18,180 40,210 Q62,235 40,250" fill="none" stroke="rgba(57,255,20,.35)" stroke-width="1"/>
-              <path class="fd-wf-line3" d="M40,10 Q55,30 40,60 Q25,90 40,110 Q55,130 40,160 Q25,190 40,210 Q55,230 40,250" fill="none" stroke="rgba(57,255,20,.25)" stroke-width="1"/>
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <div class="fd-hint sr">◉ TUNE FREQUENCY</div>
-
-      <!-- Feature content panels -->
-      <div class="fd-content" id="fd-content">
-        <!-- 47.3 MHz — Signal Language -->
-        <div class="fd-feature active" data-freq="0">
-          <div class="fd-feat-hz">47.3 MHz — SIGNAL LANGUAGE</div>
-          <h3 class="fd-feat-h">The gestures they'll understand.</h3>
-          <p class="fd-feat-p">Learn the hand signals designed for non-hostile first contact. Front camera training. Fill your Communication Meter.</p>
-          <div class="fd-feat-anim">
-            <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
-              <!-- Hand outline -->
-              <path d="M62,85 L62,55 Q62,50 67,50 Q72,50 72,55 L72,45 Q72,40 77,40 Q82,40 82,45 L82,52 Q82,47 87,47 Q92,47 92,52 L92,64 Q97,61 101,63 Q105,66 102,72 L94,85 Z" fill="none" stroke="rgba(57,255,20,.6)" stroke-width="1.5" stroke-linejoin="round"/>
-              <!-- Pulse rings -->
-              <circle cx="80" cy="65" r="20" fill="none" stroke="rgba(57,255,20,.3)" stroke-width="1">
-                <animate attributeName="r" values="20;35;20" dur="2s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values=".3;0;.3" dur="2s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="80" cy="65" r="20" fill="none" stroke="rgba(57,255,20,.2)" stroke-width="1">
-                <animate attributeName="r" values="20;45;20" dur="2s" begin=".5s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values=".2;0;.2" dur="2s" begin=".5s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="80" cy="65" r="20" fill="none" stroke="rgba(57,255,20,.12)" stroke-width="1">
-                <animate attributeName="r" values="20;55;20" dur="2s" begin="1s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values=".12;0;.12" dur="2s" begin="1s" repeatCount="indefinite"/>
-              </circle>
-            </svg>
-          </div>
-        </div>
-
-        <!-- 112.8 MHz — Universal Translator -->
-        <div class="fd-feature" data-freq="1">
-          <div class="fd-feat-hz">112.8 MHz — UNIVERSAL TRANSLATOR</div>
-          <h3 class="fd-feat-h">This is how we say hello.</h3>
-          <p class="fd-feat-p">Your phone becomes a first contact communication device. Frequency tones. Geometric light pulses. Point at the sky and transmit.</p>
-          <div class="fd-feat-anim">
-            <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
-              <!-- Broadcast cone -->
-              <polygon points="80,55 50,15 110,15" fill="none" stroke="rgba(57,255,20,.2)" stroke-width="1">
-                <animate attributeName="opacity" values=".2;.5;.2" dur="1.5s" repeatCount="indefinite"/>
-              </polygon>
-              <line x1="80" y1="15" x2="80" y2="55" stroke="rgba(57,255,20,.15)" stroke-width=".5">
-                <animate attributeName="opacity" values=".15;.4;.15" dur="1.5s" repeatCount="indefinite"/>
-              </line>
-              <!-- 3 sine waves at different amplitudes -->
-              <path d="M15,70 Q40,40 65,70 Q90,100 115,70 Q130,55 145,70" fill="none" stroke="rgba(57,255,20,.5)" stroke-width="1.5">
-                <animate attributeName="d" values="M15,70 Q40,40 65,70 Q90,100 115,70 Q130,55 145,70;M15,70 Q40,90 65,60 Q90,30 115,70 Q130,85 145,70;M15,70 Q40,40 65,70 Q90,100 115,70 Q130,55 145,70" dur="2s" repeatCount="indefinite"/>
-              </path>
-              <path d="M15,70 Q40,50 65,70 Q90,90 115,70 Q130,60 145,70" fill="none" stroke="rgba(57,255,20,.3)" stroke-width="1">
-                <animate attributeName="d" values="M15,70 Q40,50 65,70 Q90,90 115,70 Q130,60 145,70;M15,70 Q40,85 65,65 Q90,45 115,70 Q130,80 145,70;M15,70 Q40,50 65,70 Q90,90 115,70 Q130,60 145,70" dur="2.5s" repeatCount="indefinite"/>
-              </path>
-              <path d="M15,70 Q40,55 65,70 Q90,85 115,70 Q130,62 145,70" fill="none" stroke="rgba(57,255,20,.15)" stroke-width="1">
-                <animate attributeName="d" values="M15,70 Q40,55 65,70 Q90,85 115,70 Q130,62 145,70;M15,70 Q40,82 65,67 Q90,52 115,70 Q130,77 145,70;M15,70 Q40,55 65,70 Q90,85 115,70 Q130,62 145,70" dur="3s" repeatCount="indefinite"/>
-              </path>
-            </svg>
-          </div>
-        </div>
-
-        <!-- 224.1 MHz — Stone Cold Drills -->
-        <div class="fd-feature" data-freq="2">
-          <div class="fd-feat-hz">224.1 MHz — STONE COLD DRILLS</div>
-          <h3 class="fd-feat-h">Can you hold still when it matters?</h3>
-          <p class="fd-feat-p">Jarring alien audio. Blinding lights. Your phone's gyroscope tracking every tremor. 10 completions earns your Readiness Badge.</p>
-          <div class="fd-feat-anim">
-            <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
-              <!-- Gyroscope rings -->
-              <ellipse cx="80" cy="50" rx="55" ry="22" fill="none" stroke="rgba(57,255,20,.3)" stroke-width="1" class="fd-gyro"/>
-              <ellipse cx="80" cy="50" rx="55" ry="22" fill="none" stroke="rgba(57,255,20,.2)" stroke-width="1" transform="rotate(60,80,50)" class="fd-gyro" style="animation-delay:-.5s"/>
-              <ellipse cx="80" cy="50" rx="55" ry="22" fill="none" stroke="rgba(57,255,20,.2)" stroke-width="1" transform="rotate(120,80,50)" class="fd-gyro" style="animation-delay:-1s"/>
-              <!-- Center -->
-              <circle cx="80" cy="50" r="8" fill="rgba(57,255,20,.1)" stroke="rgba(57,255,20,.4)" stroke-width="1"/>
-              <circle cx="80" cy="50" r="3" fill="#39FF14" opacity=".6"/>
-            </svg>
-          </div>
-        </div>
-
-        <!-- 339.7 MHz — First Contact Card -->
-        <div class="fd-feature" data-freq="3">
-          <div class="fd-feat-hz">339.7 MHz — FIRST CONTACT CARD</div>
-          <h3 class="fd-feat-h">Your clearance has been issued.</h3>
-          <p class="fd-feat-p">Digital credential showing your archetype, Readiness Score, and clearance level. Save to Apple or Google Wallet. Share it — if you dare.</p>
-          <div class="fd-feat-anim">
-            <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
-              <!-- Card outline assembling -->
-              <rect x="35" y="15" width="90" height="70" rx="3" fill="none" stroke="rgba(57,255,20,.5)" stroke-width="1.5" class="fd-card-outline"/>
-              <!-- Card interior lines -->
-              <line x1="48" y1="36" x2="85" y2="36" stroke="rgba(57,255,20,.2)" stroke-width="1" class="fd-card-frag" style="--fx:-20px;--fy:-10px;animation-delay:.3s"/>
-              <line x1="48" y1="46" x2="72" y2="46" stroke="rgba(57,255,20,.15)" stroke-width="1" class="fd-card-frag" style="--fx:15px;--fy:10px;animation-delay:.5s"/>
-              <line x1="48" y1="56" x2="95" y2="56" stroke="rgba(57,255,20,.2)" stroke-width="1" class="fd-card-frag" style="--fx:-10px;--fy:15px;animation-delay:.7s"/>
-              <rect x="90" y="22" width="24" height="24" rx="2" fill="none" stroke="rgba(57,255,20,.25)" stroke-width="1" class="fd-card-frag" style="--fx:20px;--fy:-20px;animation-delay:.4s"/>
-              <!-- Glow -->
-              <rect x="35" y="15" width="90" height="70" rx="3" fill="none" stroke="rgba(57,255,20,.1)" stroke-width="4">
-                <animate attributeName="opacity" values=".1;.3;.1" dur="2s" repeatCount="indefinite"/>
-              </rect>
-            </svg>
-          </div>
-        </div>
-      </div>
     </div>
+
+    <!-- Mobile frequency pills -->
+    <div class="fd-pills-mobile sr" id="fd-pills">
+      <button class="fd-pill active" data-freq="0">47.3 MHz</button>
+      <button class="fd-pill" data-freq="1">112.8 MHz</button>
+      <button class="fd-pill" data-freq="2">224.1 MHz</button>
+      <button class="fd-pill" data-freq="3">339.7 MHz</button>
+    </div>
+
+    <div class="fd-hint sr">◉ TUNE FREQUENCY</div>
+
+    <!-- Feature content panels -->
+    <div class="fd-content" id="fd-content">
+      <div class="fd-feature active" data-freq="0">
+        <div class="fd-feat-hz">47.3 MHz — SIGNAL LANGUAGE</div>
+        <h3 class="fd-feat-h">The gestures they'll understand.</h3>
+        <p class="fd-feat-p">Learn the hand signals designed for non-hostile first contact. Front camera training. Fill your Communication Meter.</p>
+        <img class="fd-feat-img" src="asset-signal-language.png" alt="Signal Language — hand with alien pulse rings" loading="lazy"/>
+      </div>
+      <div class="fd-feature" data-freq="1">
+        <div class="fd-feat-hz">112.8 MHz — UNIVERSAL TRANSLATOR</div>
+        <h3 class="fd-feat-h">This is how we say hello.</h3>
+        <p class="fd-feat-p">Your phone becomes a first contact communication device. Frequency tones. Geometric light pulses. Point at the sky and transmit.</p>
+        <img class="fd-feat-img" src="asset-universal-translator.png" alt="Universal Translator — phone emitting frequency waves" loading="lazy"/>
+      </div>
+      <div class="fd-feature" data-freq="2">
+        <div class="fd-feat-hz">224.1 MHz — STONE COLD DRILLS</div>
+        <h3 class="fd-feat-h">Can you hold still when it matters?</h3>
+        <p class="fd-feat-p">Jarring alien audio. Blinding lights. Your phone's gyroscope tracking every tremor. 10 completions earns your Readiness Badge.</p>
+        <img class="fd-feat-img" src="asset-stone-cold.png" alt="Stone Cold Drills — gyroscope with strobe lights" loading="lazy"/>
+      </div>
+      <div class="fd-feature" data-freq="3">
+        <div class="fd-feat-hz">339.7 MHz — FIRST CONTACT CARD</div>
+        <h3 class="fd-feat-h">Your clearance has been issued.</h3>
+        <p class="fd-feat-p">Digital credential showing your archetype, Readiness Score, and clearance level. Save to Apple or Google Wallet. Share it — if you dare.</p>
+        <img class="fd-feat-img" src="asset-first-contact-card.png" alt="First Contact Card — holographic digital credential" loading="lazy"/>
+      </div>
     </div>
   </section>
 
@@ -2902,80 +2674,20 @@ function initPage() {
   initQuizEntrance(); /* CINEMATIC: Quiz glitch entrance */
 }
 
-  /* ── FREQUENCY DIAL V2 ── */
+  /* ── FREQUENCY DIAL V4 ── */
   (function(){
-    var cx = 175, cy = 175, outerR = 154;
-    var needleAngles = [0, 90, 180, 270];
-    var needle = document.getElementById('fd-needle');
     var content = document.getElementById('fd-content');
-    var pills = document.getElementById('fd-pills');
-    if (!needle || !content) return;
-
-    /* Generate tick marks programmatically */
-    var minorG = document.getElementById('fd-minor-ticks');
-    var majorG = document.getElementById('fd-major-ticks');
-    if (minorG && majorG) {
-      for (var deg = 0; deg < 360; deg += 5) {
-        var rad = deg * Math.PI / 180;
-        var isMajor = (deg % 30 === 0);
-        var innerLen = isMajor ? 12 : 6;
-        var r1 = outerR;
-        var r2 = outerR - innerLen;
-        var x1 = cx + r1 * Math.sin(rad);
-        var y1 = cy - r1 * Math.cos(rad);
-        var x2 = cx + r2 * Math.sin(rad);
-        var y2 = cy - r2 * Math.cos(rad);
-        var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', x1.toFixed(1));
-        line.setAttribute('y1', y1.toFixed(1));
-        line.setAttribute('x2', x2.toFixed(1));
-        line.setAttribute('y2', y2.toFixed(1));
-        if (isMajor) { majorG.appendChild(line); } else { minorG.appendChild(line); }
-      }
-    }
-
-    /* Waveform patterns per feature */
-    var wfPatterns = [
-      /* 0: Signal Language — rhythmic pulse */
-      ['M30,10 Q10,25 30,40 Q50,25 30,55 Q10,70 30,85 Q50,70 30,100 Q10,115 30,130 Q50,115 30,155 Q10,170 30,185 Q50,200 30,200',
-       'M30,10 Q15,30 30,40 Q45,30 30,55 Q15,75 30,85 Q45,75 30,100 Q15,120 30,130 Q45,120 30,155 Q15,175 30,185 Q45,195 30,200'],
-      /* 1: Universal Translator — smooth sine */
-      ['M30,10 Q10,50 30,70 Q50,90 30,120 Q10,150 30,170 Q50,190 30,200',
-       'M30,10 Q50,40 30,60 Q10,80 30,120 Q50,160 30,180 Q10,195 30,200'],
-      /* 2: Stone Cold Drills — jagged spiky */
-      ['M30,10 L15,30 L45,35 L10,55 L50,60 L12,80 L48,88 L14,105 L46,115 L16,135 L44,145 L18,165 L42,175 L22,190 L30,200',
-       'M30,10 L42,25 L12,40 L48,50 L8,65 L46,75 L14,90 L44,100 L16,115 L42,128 L18,140 L40,155 L20,170 L38,185 L30,200'],
-      /* 3: First Contact Card — steady heartbeat */
-      ['M30,100 L30,90 L26,90 L30,70 L34,90 L30,90 L30,100 L30,110 L30,120 L30,130 L30,140 L26,140 L30,120 L34,140 L30,140 L30,160 L30,180 L30,200',
-       'M30,100 L30,88 L24,88 L30,65 L36,88 L30,88 L30,100 L30,112 L30,122 L30,132 L30,142 L24,142 L30,118 L36,142 L30,142 L30,162 L30,182 L30,200']
-    ];
-
+    if (!content) return;
     var features = content.querySelectorAll('.fd-feature');
-    var svgBtns = document.querySelectorAll('.fd-freq-btn');
-    var pillBtns = pills ? pills.querySelectorAll('.fd-pill') : [];
+    var allPills = document.querySelectorAll('.fd-pill');
     var current = 0;
     var autoTimer = null;
     var idleTimer = null;
 
-    function setWaveforms(idx) {
-      var left = document.querySelectorAll('#fd-wf-left path');
-      var right = document.querySelectorAll('#fd-wf-right path');
-      var p = wfPatterns[idx];
-      if (left.length >= 2 && p) {
-        left[0].setAttribute('d', p[0]);
-        left[1].setAttribute('d', p[1]);
-        right[0].setAttribute('d', p[0].replace(/Q(\d+)/g, function(m, n) { return 'Q' + (60 - parseInt(n)); }));
-        right[1].setAttribute('d', p[1].replace(/Q(\d+)/g, function(m, n) { return 'Q' + (60 - parseInt(n)); }));
-      }
-    }
-
     function setFreq(idx) {
       current = idx;
-      needle.style.transform = 'rotate(' + needleAngles[idx] + 'deg)';
       features.forEach(function(f, i) { f.classList.toggle('active', i === idx); });
-      svgBtns.forEach(function(b, i) { b.classList.toggle('active', i === idx); });
-      pillBtns.forEach(function(p, i) { p.classList.toggle('active', i === idx); });
-      setWaveforms(idx);
+      allPills.forEach(function(p) { p.classList.toggle('active', parseInt(p.getAttribute('data-freq')) === idx); });
     }
 
     function nextFreq() { setFreq((current + 1) % 4); }
@@ -2996,19 +2708,12 @@ function initPage() {
       idleTimer = setTimeout(startAuto, 8000);
     }
 
-    svgBtns.forEach(function(btn) {
+    allPills.forEach(function(btn) {
       btn.addEventListener('click', function() {
         userSelect(parseInt(btn.getAttribute('data-freq')));
       });
     });
 
-    pillBtns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        userSelect(parseInt(btn.getAttribute('data-freq')));
-      });
-    });
-
-    setWaveforms(0);
     startAuto();
   })();
 </script>
