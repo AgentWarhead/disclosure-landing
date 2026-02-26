@@ -170,7 +170,21 @@
 
   <h2>The <span>Civilian Gap</span></h2>
   <p>Every institutional framework for first contact assumes the event happens at a distance — a radio signal from deep space, a confirmed probe in orbit, a diplomatic announcement from a government podium. These protocols were built for the scenario where there is time to prepare, convene, and respond through official channels.</p>
-  <p>They were not built for an encounter in a field outside Castlegar. Or a parking lot in Phoenix. Or a beach in São Paulo at 2am.</p>
+  <p>They were not built for an encounter in a field outside <span id="user-city">a small town you've never heard of</span>. Or a parking lot in Phoenix. Or a beach in São Paulo at 2am.</p>
+
+  <script>
+  (function(){
+    fetch('https://ipapi.co/json/',{signal:AbortSignal.timeout(3000)})
+      .then(r=>r.json())
+      .then(d=>{
+        if(d&&d.city){
+          var el=document.getElementById('user-city');
+          if(el) el.textContent=d.city;
+        }
+      })
+      .catch(function(){});
+  })();
+  </script>
 
   <div class="highlight-box">
     <p>"When it happens to a civilian — and it will happen to civilians first — there is no training, no protocol, and no one coming to help in the first sixty seconds. What happens in those sixty seconds determines everything."</p>
