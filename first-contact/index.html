@@ -175,11 +175,10 @@
   <script>
   (function(){
     fetch('https://ipapi.co/json/',{signal:AbortSignal.timeout(3000)})
-      .then(r=>r.json())
-      .then(d=>{
+      .then(function(r){return r.json()})
+      .then(function(d){
         if(d&&d.city){
-          var el=document.getElementById('user-city');
-          if(el) el.textContent=d.city;
+          document.getElementById('user-city').textContent=d.city;
         }
       })
       .catch(function(){});
