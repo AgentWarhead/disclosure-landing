@@ -370,34 +370,59 @@
     .qr-cta.secondary{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.25)}
     .qr-cta.secondary:hover{border-color:rgba(57,255,20,.5);color:var(--g)}
 
-    /* FREQUENCY DIAL V5 — Contained Dossier Card */
+    /* PRODUCT SHOWCASE V6 — Theatrical Slideshow */
     #freq-dial{position:relative;padding:60px 24px;text-align:center}
-    .fd-card{max-width:900px;margin:0 auto;background:#f0f0ea;border-radius:8px;border:1px solid rgba(57,255,20,.2);border-top:3px solid rgba(57,255,20,.6);box-shadow:0 4px 40px rgba(0,0,0,.3);padding:60px 40px;position:relative;text-align:center}
-    /* Declassified stamp */
-    .fd-stamp{font-family:var(--mono);font-size:9px;letter-spacing:.4em;color:#EF4444;transform:rotate(-2deg);display:inline-block;margin-bottom:24px;border:1.5px solid #EF4444;padding:3px 12px;opacity:.7}
-    /* Feature content */
-    .fd-content{max-width:500px;margin:0 auto;position:relative;min-height:280px}
-    .fd-feature{position:absolute;inset:0;opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .4s ease;pointer-events:none;display:flex;flex-direction:column;align-items:center}
-    .fd-feature.active{opacity:1;transform:translateY(0);pointer-events:auto;position:relative}
-    .fd-feat-hz{font-family:var(--mono);font-size:10px;letter-spacing:.35em;color:#0a6e0a;margin-bottom:10px}
-    .fd-feat-h{font-size:clamp(22px,3.5vw,36px);font-weight:700;color:#111;margin-bottom:10px;line-height:1.2}
-    .fd-feat-p{font-size:clamp(13px,1.6vw,16px);color:#333;line-height:1.6;font-weight:500;max-width:460px}
-    .fd-feat-img{width:100%;max-width:400px;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.15);margin:20px auto 0;display:block;opacity:0;transition:opacity .4s ease}
-    .fd-feature.active .fd-feat-img{opacity:1}
+    .fd-card{max-width:900px;margin:0 auto;background-color:#f0f0ea;background-image:url('asset-bg-clean.png');background-size:cover;background-position:center;border-radius:8px;border:1px solid rgba(57,255,20,.15);box-shadow:0 4px 40px rgba(0,0,0,.3);padding:50px 40px;position:relative;text-align:center;overflow:hidden}
+    .fd-card::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.88);pointer-events:none;z-index:0}
+    .fd-card>*{position:relative;z-index:1}
+    /* Glitch flash effect */
+    .fd-card.fd-glitch{filter:brightness(1.3) contrast(1.2)}
+    /* Scan line */
+    .fd-scanline{position:absolute;left:0;right:0;height:1px;background:#39FF14;box-shadow:0 0 8px rgba(57,255,20,.6),0 0 20px rgba(57,255,20,.3);z-index:10;pointer-events:none;opacity:0}
+    .fd-scanline.active{opacity:1;animation:fdScan .4s linear forwards}
+    @keyframes fdScan{from{top:0}to{top:100%}}
+    /* Section header */
+    .fd-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:#0a5e0a;margin-bottom:14px}
+    .fd-main-h{font-size:clamp(26px,4vw,42px);font-weight:700;color:#111;line-height:1.2;margin-bottom:12px}
+    .fd-main-sub{font-size:15px;color:#555;max-width:500px;margin:0 auto 20px;line-height:1.5}
+    /* Readiness index */
+    .fd-readiness{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px;flex-wrap:wrap}
+    .fd-readiness-text{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:#0a5e0a}
+    .fd-readiness-bar{width:120px;height:3px;background:#ccc;border-radius:2px;overflow:hidden}
+    .fd-readiness-fill{width:23%;height:100%;background:#157515;border-radius:2px}
+    /* Feature content area */
+    .fd-content{max-width:540px;margin:0 auto;position:relative;min-height:380px}
+    .fd-feature-wrap{display:flex;flex-direction:column;align-items:center}
+    .fd-feat-label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:#0a5e0a;margin-bottom:12px;min-height:16px}
+    .fd-feat-h{font-size:clamp(24px,3.5vw,38px);font-weight:700;color:#111;margin-bottom:12px;line-height:1.2;opacity:0;transition:opacity .3s ease}
+    .fd-feat-h.visible{opacity:1}
+    .fd-feat-p{font-size:15px;color:#444;max-width:500px;margin:0 auto;line-height:1.6;opacity:0;transition:opacity .3s ease}
+    .fd-feat-p.visible{opacity:1}
+    .fd-feat-img{width:100%;max-width:420px;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.12);margin:20px auto 0;display:block;opacity:0;transform:scale(.95);transition:opacity .4s ease,transform .4s ease}
+    .fd-feat-img.visible{opacity:1;transform:scale(1)}
+    .fd-feat-tag{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:#888;margin-top:12px;opacity:0;transition:opacity .3s ease}
+    .fd-feat-tag.visible{opacity:1}
     /* Dot nav */
-    .fd-dots{display:flex;gap:12px;justify-content:center;margin-top:24px}
-    .fd-dot{width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,.2);cursor:pointer;transition:all .3s;border:none;padding:0}
-    .fd-dot.active{width:10px;height:10px;background:#39FF14;box-shadow:0 0 8px rgba(57,255,20,.5)}
+    .fd-dots{display:flex;gap:12px;justify-content:center;margin-top:28px}
+    .fd-dot{width:7px;height:7px;border-radius:50%;background:#ccc;cursor:pointer;transition:all .3s;border:none;padding:0}
+    .fd-dot.active{width:10px;height:10px;background:#157515;box-shadow:0 0 6px rgba(21,117,21,.4)}
     /* Text nav */
-    .fd-nav-labels{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+    .fd-nav-labels{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:16px}
     .fd-nav-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:#999;cursor:pointer;padding:4px 8px;border:1px solid transparent;border-radius:3px;transition:all .3s;background:none}
     .fd-nav-label:hover{color:#555}
-    .fd-nav-label.active{color:#0a6e0a;border-color:rgba(57,255,20,.3)}
+    .fd-nav-label.active{color:#0a5e0a;font-weight:700;border-color:rgba(57,255,20,.3)}
     .fd-nav-sep{font-family:var(--mono);font-size:9px;color:#ccc;line-height:26px}
+    /* CTA */
+    .fd-divider{width:200px;height:1px;margin:30px auto;background:linear-gradient(90deg,transparent,#39FF14,transparent)}
+    .fd-cta-h{font-size:18px;color:#333;font-weight:600;margin-bottom:16px}
+    .fd-cta-btn{display:inline-block;padding:14px 36px;background:#111;color:#39FF14;border:1px solid #39FF14;font-family:var(--mono);font-size:13px;letter-spacing:.2em;border-radius:4px;cursor:pointer;transition:all .2s;text-decoration:none}
+    .fd-cta-btn:hover{background:#39FF14;color:#111;box-shadow:0 0 20px rgba(57,255,20,.3)}
+    .fd-cta-urgency{font-family:var(--mono);font-size:12px;color:#888;margin-top:12px}
     @media(max-width:600px){
       #freq-dial{padding:40px 20px}
       .fd-card{padding:40px 20px}
       .fd-feat-img{max-width:100%;padding:0 8px;box-sizing:border-box}
+      .fd-readiness{gap:8px}
     }
 
     /* LIAISON MAP */
@@ -1031,36 +1056,30 @@
     </div>
   </section>
 
-  <!-- 8. FREQUENCY DIAL V5 — Contained Dossier Card -->
+  <!-- 8. PRODUCT SHOWCASE V6 — Theatrical Slideshow -->
   <section id="freq-dial">
-    <div class="fd-card">
-      <div class="fd-stamp sr">DECLASSIFIED</div>
+    <div class="fd-card" id="fd-card">
+      <div class="fd-scanline" id="fd-scanline"></div>
 
-      <!-- Feature content panels -->
+      <!-- Section header -->
+      <div class="fd-kicker sr">// INSIDE THE APP //</div>
+      <h2 class="fd-main-h sr">The tools they don't want you to have.</h2>
+      <p class="fd-main-sub sr">Disclosure is a first contact preparation app. These are its core features.</p>
+
+      <!-- Readiness index -->
+      <div class="fd-readiness sr">
+        <span class="fd-readiness-text">READINESS INDEX: 23% OF TARGET — RECRUITMENT ACTIVE</span>
+        <div class="fd-readiness-bar"><div class="fd-readiness-fill"></div></div>
+      </div>
+
+      <!-- Feature content -->
       <div class="fd-content" id="fd-content">
-        <div class="fd-feature active" data-freq="0">
-          <div class="fd-feat-hz">SIGNAL LANGUAGE</div>
-          <h3 class="fd-feat-h">The gestures they'll understand.</h3>
-          <p class="fd-feat-p">Learn the hand signals designed for non-hostile first contact. Front camera training. Fill your Communication Meter.</p>
-          <img class="fd-feat-img" src="asset-signal-language.png" alt="Signal Language — hand with alien pulse rings" loading="lazy"/>
-        </div>
-        <div class="fd-feature" data-freq="1">
-          <div class="fd-feat-hz">UNIVERSAL TRANSLATOR</div>
-          <h3 class="fd-feat-h">This is how we say hello.</h3>
-          <p class="fd-feat-p">Your phone becomes a first contact communication device. Frequency tones. Geometric light pulses. Point at the sky and transmit.</p>
-          <img class="fd-feat-img" src="asset-universal-translator.png" alt="Universal Translator — phone emitting frequency waves" loading="lazy"/>
-        </div>
-        <div class="fd-feature" data-freq="2">
-          <div class="fd-feat-hz">STONE COLD DRILLS</div>
-          <h3 class="fd-feat-h">Can you hold still when it matters?</h3>
-          <p class="fd-feat-p">Jarring alien audio. Blinding lights. Your phone's gyroscope tracking every tremor. 10 completions earns your Readiness Badge.</p>
-          <img class="fd-feat-img" src="asset-stone-cold.png" alt="Stone Cold Drills — gyroscope with strobe lights" loading="lazy"/>
-        </div>
-        <div class="fd-feature" data-freq="3">
-          <div class="fd-feat-hz">FIRST CONTACT CARD</div>
-          <h3 class="fd-feat-h">Your clearance has been issued.</h3>
-          <p class="fd-feat-p">Digital credential showing your archetype, Readiness Score, and clearance level. Save to Apple or Google Wallet. Share it — if you dare.</p>
-          <img class="fd-feat-img" src="asset-first-contact-card.png" alt="First Contact Card — holographic digital credential" loading="lazy"/>
+        <div class="fd-feature-wrap">
+          <div class="fd-feat-label" id="fd-feat-label"></div>
+          <h3 class="fd-feat-h" id="fd-feat-h"></h3>
+          <p class="fd-feat-p" id="fd-feat-p"></p>
+          <img class="fd-feat-img" id="fd-feat-img" src="asset-signal-language.png" alt="" loading="lazy"/>
+          <div class="fd-feat-tag" id="fd-feat-tag">IN-APP FEATURE</div>
         </div>
       </div>
 
@@ -1082,6 +1101,12 @@
         <span class="fd-nav-sep">|</span>
         <button class="fd-nav-label" data-freq="3">FC CARD</button>
       </div>
+
+      <!-- CTA -->
+      <div class="fd-divider"></div>
+      <div class="fd-cta-h">The app launches soon.</div>
+      <a href="#quiz" class="fd-cta-btn">GET EARLY ACCESS</a>
+      <div class="fd-cta-urgency">First 500 sign-ups receive Founder credentials.</div>
     </div>
   </section>
 
@@ -2657,29 +2682,118 @@ function initPage() {
   initQuizEntrance(); /* CINEMATIC: Quiz glitch entrance */
 }
 
-  /* ── FREQUENCY DIAL V5 ── */
+  /* ── PRODUCT SHOWCASE V6 — Theatrical Slideshow ── */
   (function(){
-    var content = document.getElementById('fd-content');
-    if (!content) return;
-    var features = content.querySelectorAll('.fd-feature');
+    var card = document.getElementById('fd-card');
+    if (!card) return;
+    var scanline = document.getElementById('fd-scanline');
+    var labelEl = document.getElementById('fd-feat-label');
+    var headEl = document.getElementById('fd-feat-h');
+    var descEl = document.getElementById('fd-feat-p');
+    var imgEl = document.getElementById('fd-feat-img');
+    var tagEl = document.getElementById('fd-feat-tag');
     var dots = document.querySelectorAll('#fd-dots .fd-dot');
-    var labels = document.querySelectorAll('#fd-nav-labels .fd-nav-label');
+    var navLabels = document.querySelectorAll('#fd-nav-labels .fd-nav-label');
+
+    var features = [
+      { label:"SIGNAL LANGUAGE", headline:"The gestures they\u2019ll understand.", desc:"Learn the hand signals designed for non-hostile first contact. Your front camera guides you through each gesture. Fill your Communication Meter.", img:"asset-signal-language.png" },
+      { label:"UNIVERSAL TRANSLATOR", headline:"This is how we say hello.", desc:"Your phone becomes a first contact communication device. Frequency tones. Geometric light pulses. Point it at the sky and transmit.", img:"asset-universal-translator.png" },
+      { label:"STONE COLD DRILLS", headline:"Can you hold still when it matters?", desc:"Jarring alien audio. Blinding lights. Your phone\u2019s gyroscope tracks every tremor. Complete 10 drills to earn your Readiness Badge.", img:"asset-stone-cold.png" },
+      { label:"FIRST CONTACT CARD", headline:"Your clearance has been issued.", desc:"A digital credential showing your archetype, Readiness Score, and clearance level. Save to Apple or Google Wallet. Share it \u2014 if you dare.", img:"asset-first-contact-card.png" }
+    ];
+
     var current = 0;
     var autoTimer = null;
     var idleTimer = null;
+    var transitioning = false;
 
-    function setFreq(idx) {
-      current = idx;
-      features.forEach(function(f, i) { f.classList.toggle('active', i === idx); });
-      dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
-      labels.forEach(function(l, i) { l.classList.toggle('active', i === idx); });
+    function updateNav(idx) {
+      dots.forEach(function(d,i){ d.classList.toggle('active', i===idx); });
+      navLabels.forEach(function(l,i){ l.classList.toggle('active', i===idx); });
     }
 
-    function nextFreq() { setFreq((current + 1) % 4); }
+    function hideContent() {
+      headEl.classList.remove('visible');
+      descEl.classList.remove('visible');
+      imgEl.classList.remove('visible');
+      tagEl.classList.remove('visible');
+      labelEl.textContent = '';
+    }
+
+    function typeLabel(text, cb) {
+      labelEl.textContent = '';
+      var i = 0;
+      var iv = setInterval(function(){
+        labelEl.textContent = text.substring(0, i+1);
+        i++;
+        if (i >= text.length) { clearInterval(iv); if (cb) cb(); }
+      }, 40);
+    }
+
+    function showFeature(idx, instant) {
+      var f = features[idx];
+      current = idx;
+      updateNav(idx);
+
+      if (instant) {
+        labelEl.textContent = f.label;
+        headEl.textContent = f.headline;
+        descEl.textContent = f.desc;
+        imgEl.src = f.img;
+        imgEl.alt = f.label;
+        headEl.classList.add('visible');
+        descEl.classList.add('visible');
+        imgEl.classList.add('visible');
+        tagEl.classList.add('visible');
+        return;
+      }
+
+      transitioning = true;
+      /* 1. Fade out current */
+      hideContent();
+
+      /* 2. Glitch flash after 200ms */
+      setTimeout(function(){
+        card.classList.add('fd-glitch');
+        setTimeout(function(){ card.classList.remove('fd-glitch'); }, 150);
+
+        /* 3. Scan line */
+        scanline.classList.remove('active');
+        void scanline.offsetWidth;
+        scanline.classList.add('active');
+        setTimeout(function(){ scanline.classList.remove('active'); }, 420);
+
+        /* 4. Type label, then reveal content */
+        setTimeout(function(){
+          imgEl.src = f.img;
+          imgEl.alt = f.label;
+          headEl.textContent = f.headline;
+          descEl.textContent = f.desc;
+          typeLabel(f.label, function(){
+            headEl.classList.add('visible');
+            setTimeout(function(){
+              descEl.classList.add('visible');
+              setTimeout(function(){
+                imgEl.classList.add('visible');
+                setTimeout(function(){
+                  tagEl.classList.add('visible');
+                  transitioning = false;
+                }, 200);
+              }, 300);
+            }, 300);
+          });
+        }, 200);
+      }, 200);
+    }
+
+    function nextFeature() {
+      if (transitioning) return;
+      showFeature((current + 1) % 4, false);
+    }
 
     function startAuto() {
       stopAuto();
-      autoTimer = setInterval(nextFreq, 5000);
+      autoTimer = setInterval(nextFeature, 6000);
     }
 
     function stopAuto() {
@@ -2688,23 +2802,39 @@ function initPage() {
     }
 
     function userSelect(idx) {
+      if (idx === current && !transitioning) return;
       stopAuto();
-      setFreq(idx);
-      idleTimer = setTimeout(startAuto, 8000);
+      transitioning = false;
+      /* Instant show but still do glitch + scan */
+      hideContent();
+      setTimeout(function(){
+        card.classList.add('fd-glitch');
+        setTimeout(function(){ card.classList.remove('fd-glitch'); }, 150);
+        scanline.classList.remove('active');
+        void scanline.offsetWidth;
+        scanline.classList.add('active');
+        setTimeout(function(){ scanline.classList.remove('active'); }, 420);
+        setTimeout(function(){
+          showFeature(idx, true);
+        }, 200);
+      }, 100);
+      idleTimer = setTimeout(startAuto, 10000);
     }
 
-    dots.forEach(function(btn) {
-      btn.addEventListener('click', function() {
+    dots.forEach(function(btn){
+      btn.addEventListener('click', function(){
         userSelect(parseInt(btn.getAttribute('data-freq')));
       });
     });
 
-    labels.forEach(function(btn) {
-      btn.addEventListener('click', function() {
+    navLabels.forEach(function(btn){
+      btn.addEventListener('click', function(){
         userSelect(parseInt(btn.getAttribute('data-freq')));
       });
     });
 
+    /* Initialize first feature instantly */
+    showFeature(0, true);
     startAuto();
   })();
 </script>
