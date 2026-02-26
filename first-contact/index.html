@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://getdisclosure.app/first-contact"/>
 <meta property="og:type" content="article"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="theme-color" content="#000000"/>
+<meta name="theme-color" content="#030403"/>
 <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
@@ -21,7 +21,31 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <link rel="manifest" href="/site.webmanifest"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=JetBrains+Mono:wght@400;700&family=Chakra+Petch:wght@400;500&display=swap" rel="stylesheet"/>
+
+<!-- Schema.org: WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Disclosure",
+  "alternateName": "Disclosure — First Contact Guidance",
+  "url": "https://getdisclosure.app",
+  "description": "The first civilian alien first contact preparation platform. Take the archetype assessment, discover your designation, and receive your First Contact Card.",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web, iOS, Android",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "Disclosure",
+    "url": "https://getdisclosure.app",
+    "sameAs": ["https://x.com/disclosure_app","https://www.youtube.com/@getdisclosure","https://www.tiktok.com/@getdisclosure","https://instagram.com/disclosure_app"]
+  }
+}
+</script>
+
+<!-- Schema.org: Article -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -36,39 +60,94 @@
   "mainEntityOfPage": "https://getdisclosure.app/first-contact"
 }
 </script>
+
+<!-- Schema.org: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the first contact protocol?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "First contact protocols are structured government and scientific frameworks for confirming contact with non-human intelligence. Civilian equivalents — like Disclosure — provide archetype-based training for individuals who encounter contact events outside institutional settings, where no official response will arrive in time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I prepare for alien contact?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Preparation starts with classification. Knowing your archetype — Sentinel, Diplomat, or Scholar — determines your training path. Disclosure provides archetype-specific protocols, drills, and a digital certification card. Take the free assessment at getdisclosure.app to discover your designation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a guide for alien first contact?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Disclosure is the first civilian first contact guidance platform, featuring an archetype assessment, training protocols, rules of engagement, and a digital First Contact Card credential. It addresses the civilian preparedness gap that no government framework currently covers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is UAP disclosure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UAP (Unidentified Anomalous Phenomena) disclosure refers to the ongoing government process of releasing classified information about unexplained aerial phenomena. The UAP Disclosure Act and Congressional hearings are part of this process. The Disclosure app extends this movement to civilian preparation and archetype training."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
-  :root{--g:#39ff14;--mono:'Share Tech Mono',monospace;--gold:#FFD700}
+  :root{
+    --g:#4AF626;--gold:#FBBF24;
+    --font-head:'Teko',sans-serif;
+    --font-mono:'JetBrains Mono',monospace;
+    --font-body:'Chakra Petch',sans-serif;
+    --bg-void:#030403;--bg-surface:#0A0D0A
+  }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#000;color:#fff;font-family:'Rajdhani',sans-serif;line-height:1.6;min-height:100vh}
+  body{background:var(--bg-void);color:#fff;font-family:var(--font-body);line-height:1.6;min-height:100vh}
   a{color:var(--g);text-decoration:none}
   nav{padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;max-width:800px;margin:0 auto}
-  .nav-logo{font-family:var(--mono);font-size:10px;letter-spacing:.35em;color:var(--g)}
-  .nav-back{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.45)}
+  .nav-logo{font-family:var(--font-mono);font-size:10px;letter-spacing:.35em;color:var(--g)}
+  .nav-back{font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.45)}
   .container{max-width:720px;margin:0 auto;padding:64px 24px 100px}
-  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(57,255,20,.7);margin-bottom:20px}
-  h1{font-size:clamp(32px,5.5vw,60px);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:24px}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.4em;color:rgba(74,246,38,.7);margin-bottom:20px}
+  h1{font-family:var(--font-head);font-size:clamp(48px,7vw,80px);font-weight:700;letter-spacing:.01em;line-height:.95;margin-bottom:24px}
   h1 em{font-style:normal;color:var(--g)}
-  .lead{font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:48px;max-width:580px}
-  .divider{width:60px;height:1px;background:rgba(57,255,20,.4);margin:48px 0}
-  h2{font-size:clamp(20px,3vw,28px);font-weight:700;letter-spacing:-.01em;margin-bottom:16px;margin-top:44px}
+  .lead{font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:48px;max-width:580px;font-family:var(--font-body)}
+  .divider{width:60px;height:1px;background:rgba(74,246,38,.4);margin:48px 0}
+  h2{font-family:var(--font-head);font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:.01em;margin-bottom:16px;margin-top:44px;line-height:1}
   h2 span{color:var(--g)}
-  p{color:rgba(255,255,255,.72);line-height:1.85;margin-bottom:20px;font-size:clamp(15px,1.8vw,18px)}
+  p{color:rgba(255,255,255,.72);line-height:1.85;margin-bottom:20px;font-size:clamp(14px,1.6vw,17px)}
   strong{color:#fff}
   .stat-row{display:flex;gap:24px;flex-wrap:wrap;margin:32px 0}
-  .stat{flex:1;min-width:140px;padding:20px;border:1px solid rgba(255,255,255,.08);border-radius:4px}
-  .stat-n{font-family:var(--mono);font-size:28px;color:var(--g);display:block;margin-bottom:6px}
-  .stat-l{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.5)}
-  .highlight-box{border-left:2px solid var(--g);padding:16px 20px;margin:32px 0;background:rgba(57,255,20,.03)}
+  .stat{flex:1;min-width:140px;padding:20px;border:1px solid rgba(255,255,255,.08);border-radius:4px;background:var(--bg-surface)}
+  .stat-n{font-family:var(--font-mono);font-size:28px;color:var(--g);display:block;margin-bottom:6px}
+  .stat-l{font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.5)}
+  .highlight-box{border-left:2px solid var(--g);padding:16px 20px;margin:32px 0;background:rgba(74,246,38,.03)}
   .highlight-box p{margin:0;color:rgba(255,255,255,.8)}
-  .cta-wrap{text-align:center;margin-top:56px;padding:40px 24px;border:1px solid rgba(57,255,20,.2);border-radius:6px;background:rgba(57,255,20,.02)}
-  .cta-label{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(57,255,20,.6);margin-bottom:16px}
-  .cta-btn{display:inline-block;background:var(--g);color:#000;font-family:var(--mono);font-size:12px;letter-spacing:.25em;padding:16px 40px;border-radius:3px;font-weight:700;transition:opacity .2s}
-  .cta-btn:hover{opacity:.85}
+  .cta-wrap{text-align:center;margin-top:56px;padding:40px 24px;border:1px solid rgba(74,246,38,.2);border-radius:6px;background:rgba(74,246,38,.02)}
+  .cta-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.4em;color:rgba(74,246,38,.6);margin-bottom:16px}
+  .cta-btn{display:inline-block;background:var(--g);color:#000;font-family:var(--font-mono);font-size:12px;letter-spacing:.25em;padding:16px 40px;border-radius:3px;font-weight:700;transition:opacity .2s,box-shadow .2s}
+  .cta-btn:hover{opacity:.9;box-shadow:0 0 24px rgba(74,246,38,.4)}
   .faq{margin-top:64px;border-top:1px solid rgba(255,255,255,.06);padding-top:48px}
-  .faq-item{margin-bottom:32px}
-  .faq-q{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:#fff;margin-bottom:10px}
-  .faq-a{color:rgba(255,255,255,.68);font-size:clamp(14px,1.6vw,17px);line-height:1.8}
-  footer{text-align:center;padding:32px 24px;border-top:1px solid rgba(255,255,255,.05);font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.25)}
+  .faq-h{font-family:var(--font-head);font-size:clamp(32px,5vw,52px);font-weight:700;margin-bottom:32px}
+  .faq-h span{color:var(--g)}
+  .faq-item{margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.05)}
+  .faq-item:last-child{border-bottom:none}
+  .faq-q{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:#fff;margin-bottom:10px}
+  .faq-a{color:rgba(255,255,255,.68);font-size:clamp(13px,1.5vw,16px);line-height:1.8}
+  footer{text-align:center;padding:32px 24px;border-top:1px solid rgba(255,255,255,.05);font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.25)}
+
+  /* scanlines */
+  body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.04) 3px,rgba(0,0,0,.04) 4px);pointer-events:none;z-index:9000}
 </style>
 </head>
 <body>
@@ -124,31 +203,39 @@
 
   <div class="cta-wrap">
     <div class="cta-label">// CLASSIFICATION OPEN //</div>
-    <p style="color:rgba(255,255,255,.6);font-size:14px;margin-bottom:24px;font-family:'Share Tech Mono',monospace;letter-spacing:.05em">Join 860+ liaisons already in position.</p>
+    <p style="color:rgba(255,255,255,.6);font-size:14px;margin-bottom:24px;font-family:var(--font-mono);letter-spacing:.05em">Join 860+ liaisons already in position.</p>
     <a href="/" class="cta-btn">DISCOVER YOUR ARCHETYPE</a>
   </div>
 
-  <div class="faq">
-    <h2>Frequently <span>Asked</span></h2>
+  <div class="faq" itemscope itemtype="https://schema.org/FAQPage">
+    <h2 class="faq-h">Frequently <span>Asked</span></h2>
 
-    <div class="faq-item">
-      <div class="faq-q">Q: What is the first contact protocol?</div>
-      <div class="faq-a">First contact protocols are structured frameworks governments and scientific institutions follow when confirming contact with non-human intelligence. Civilian equivalents — like the Disclosure app — provide archetype-based training for individuals who may encounter contact events outside institutional settings.</div>
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" itemprop="name">Q: What is the first contact protocol?</div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <span itemprop="text">First contact protocols are structured frameworks governments and scientific institutions follow when confirming contact with non-human intelligence. Civilian equivalents — like Disclosure — provide archetype-based training for individuals who may encounter contact events outside institutional settings, where no official response will arrive in time.</span>
+      </div>
     </div>
 
-    <div class="faq-item">
-      <div class="faq-q">Q: How do I prepare for alien contact?</div>
-      <div class="faq-a">Preparation starts with classification. Knowing your archetype — whether you are a Sentinel, Diplomat, or Scholar — determines your training path. The Disclosure app provides archetype-specific training protocols, drills, and certification. Join the waitlist at getdisclosure.app.</div>
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" itemprop="name">Q: How do I prepare for alien contact?</div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <span itemprop="text">Preparation starts with classification. Knowing your archetype — Sentinel, Diplomat, or Scholar — determines your training path. Disclosure provides archetype-specific protocols, drills, and a digital certification card. Take the free 10-question assessment at getdisclosure.app to discover your designation.</span>
+      </div>
     </div>
 
-    <div class="faq-item">
-      <div class="faq-q">Q: Is there a guide for alien first contact?</div>
-      <div class="faq-a">Disclosure is the first civilian first contact guidance platform. It includes an archetype assessment, training protocols, rules of engagement, and a digital certification card. The full platform launches in 2026.</div>
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" itemprop="name">Q: Is there a guide for alien first contact?</div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <span itemprop="text">Disclosure is the first civilian first contact guidance platform. It includes an archetype assessment, training protocols, rules of engagement, and a digital First Contact Card credential. It directly addresses the civilian preparedness gap that no government protocol currently covers.</span>
+      </div>
     </div>
 
-    <div class="faq-item">
-      <div class="faq-q">Q: What is UAP disclosure?</div>
-      <div class="faq-a">UAP (Unidentified Anomalous Phenomena) disclosure refers to the ongoing government process of releasing classified information about unexplained aerial phenomena. The UAP Disclosure Act and Congressional hearings are part of this process. The Disclosure app takes its name from this movement and extends it to civilian preparation.</div>
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <div class="faq-q" itemprop="name">Q: What is UAP disclosure?</div>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <span itemprop="text">UAP (Unidentified Anomalous Phenomena) disclosure refers to the ongoing government process of releasing classified information about unexplained aerial phenomena. The UAP Disclosure Act and Congressional hearings are part of this process. The Disclosure app extends this movement to civilian archetype classification and preparation.</span>
+      </div>
     </div>
   </div>
 </div>
