@@ -394,7 +394,7 @@
     .fd-feat-label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:#39FF14;margin-bottom:12px;min-height:16px}
     .fd-feat-h{font-size:clamp(24px,3.5vw,38px);font-weight:700;color:#fff;margin-bottom:12px;line-height:1.2;opacity:0;transition:opacity .3s ease}
     .fd-feat-h.visible{opacity:1}
-    .fd-feat-p{font-size:15px;color:rgba(255,255,255,0.7);max-width:500px;margin:0 auto;line-height:1.6;opacity:0;transition:opacity .3s ease}
+    .fd-feat-p{font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,0.85);max-width:550px;margin:0 auto;line-height:1.7;font-weight:500;opacity:0;transition:opacity .3s ease}
     .fd-feat-p.visible{opacity:1}
     .fd-feat-img{max-height:280px;max-width:100%;width:auto;object-fit:contain;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.4);display:block;opacity:0;transform:scale(.95);transition:opacity .4s ease,transform .4s ease}
     .fd-feat-img.visible{opacity:1;transform:scale(1)}
@@ -406,10 +406,10 @@
     .fd-dot.active{width:10px;height:10px;background:#39FF14;box-shadow:0 0 6px rgba(57,255,20,.4)}
     /* Text nav */
     .fd-nav-labels{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:16px}
-    .fd-nav-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:rgba(255,255,255,0.4);cursor:pointer;padding:4px 8px;border:1px solid transparent;border-radius:3px;transition:all .3s;background:none}
-    .fd-nav-label:hover{color:rgba(255,255,255,0.6)}
+    .fd-nav-label{font-family:var(--mono);font-size:12px;letter-spacing:.15em;color:rgba(255,255,255,0.5);cursor:pointer;padding:4px 8px;border:1px solid transparent;border-radius:3px;transition:all .3s;background:none}
+    .fd-nav-label:hover{color:rgba(255,255,255,0.7)}
     .fd-nav-label.active{color:#39FF14;font-weight:700;border-color:rgba(57,255,20,.3)}
-    .fd-nav-sep{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.2);line-height:26px}
+    .fd-nav-sep{font-family:var(--mono);font-size:12px;color:rgba(255,255,255,0.2);line-height:26px}
     /* CTA */
     .fd-divider{width:200px;height:1px;margin:30px auto;background:linear-gradient(90deg,transparent,#39FF14,transparent)}
     .fd-cta-h{font-size:18px;color:rgba(255,255,255,0.8);font-weight:600;margin-bottom:16px}
@@ -1291,6 +1291,7 @@
           <button class="qr-cta primary" id="qr-cta-primary" onclick="document.getElementById('access').scrollIntoView({behavior:'smooth'})">CLAIM YOUR CARD →</button>
           <button class="qr-cta secondary" onclick="shareArchetype()">SHARE MY ARCHETYPE</button>
         </div>
+        <button onclick="retakeQuiz()" style="color:rgba(255,255,255,0.4);font-family:monospace;font-size:11px;letter-spacing:.15em;cursor:pointer;border:none;background:none;margin-top:16px;text-decoration:underline;transition:color .2s" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">↻ RETAKE ASSESSMENT</button>
       </div>
     </div>
   </section>
@@ -1528,6 +1529,47 @@ let savedSerial = null;
 
 // The First Contact secret sequence: Q1=3, Q2=1, Q3=4, Q4=2
 const FC_SEQUENCE = [3, 1, 4, 2];
+
+// ── Retake Quiz ──
+function retakeQuiz() {
+  // Reset scores
+  scores.sentinel = 0; scores.diplomat = 0; scores.scholar = 0; scores['first-contact'] = 0;
+  // Reset answers
+  for (var i = 0; i < answers.length; i++) answers[i] = 0;
+  currentArchetype = null;
+  // Hide result
+  var resultEl = document.getElementById('quiz-result');
+  resultEl.style.display = 'none';
+  resultEl.classList.remove('slam-in');
+  // Reset progress bar
+  var bar = document.getElementById('quiz-bar');
+  bar.style.width = '0%';
+  bar.style.boxShadow = '';
+  // Reset confidence meter
+  var cm = document.getElementById('confidence-meter');
+  if (cm) cm.classList.remove('visible');
+  // Hide all questions, show Q1
+  for (var q = 1; q <= 10; q++) {
+    var step = document.getElementById('q' + q);
+    if (step) {
+      step.classList.remove('active', 'slide-out', 'slide-in');
+      // Clear selected state on options
+      step.querySelectorAll('.q-opt').forEach(function(opt) {
+        opt.classList.remove('q-opt-selected', 'q-opt-flash');
+        opt.style.opacity = ''; opt.style.transform = ''; opt.style.animation = ''; opt.style.animationDelay = '';
+      });
+    }
+  }
+  var q1 = document.getElementById('q1');
+  if (q1) q1.classList.add('active');
+  // Show quiz card again
+  var card = document.querySelector('.quiz-card');
+  if (card) card.style.display = '';
+  // Reset intensity effects
+  document.body.classList.remove('quiz-glitch');
+  var blackout = document.querySelector('.blackout-overlay');
+  if (blackout) blackout.classList.remove('active');
+}
 
 // ── Quiz Logic (Change 1, 12) + CINEMATIC OVERHAUL ──
 let quizEntranceDone = false;
@@ -2717,7 +2759,7 @@ function initPage() {
     var navLabels = document.querySelectorAll('#fd-nav-labels .fd-nav-label');
 
     var features = [
-      { label:"SIGNAL LANGUAGE", headline:"The gestures they\u2019ll understand.", desc:"Learn the hand signals designed for non-hostile first contact. Your front camera guides you through each gesture. Fill your Communication Meter.", img:"asset-signal-language-v2.png" },
+      { label:"SIGNAL LANGUAGE", headline:"The gestures they\u2019ll understand.", desc:"Learn the hand signals designed for non-hostile first contact. Practice each gesture sequence. Fill your Communication Meter.", img:"asset-signal-language-v2.png" },
       { label:"UNIVERSAL TRANSLATOR", headline:"This is how we say hello.", desc:"Your phone becomes a first contact communication device. Frequency tones. Geometric light pulses. Point it at the sky and transmit.", img:"asset-universal-translator-v2.png" },
       { label:"STONE COLD DRILLS", headline:"Can you hold still when it matters?", desc:"Jarring alien audio. Blinding lights. Your phone\u2019s gyroscope tracks every tremor. Complete 10 drills to earn your Readiness Badge.", img:"asset-stone-cold-v2.png" },
       { label:"FIRST CONTACT CARD", headline:"Your clearance has been issued.", desc:"A digital credential showing your archetype, Readiness Score, and clearance level. Save to Apple or Google Wallet. Share it \u2014 if you dare.", img:"asset-first-contact-card-v2.png" }
