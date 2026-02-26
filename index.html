@@ -681,16 +681,17 @@
     .ac-logo-txt{font-size:7px;letter-spacing:.25em;opacity:.35;text-transform:uppercase}
     .ac-serial-txt{font-size:7px;letter-spacing:.1em;opacity:.25}
     .ac-icon{font-size:36px;display:block;text-align:center;margin:4px 0 6px;line-height:1.1;position:relative;z-index:1}
-    .ac-name{font-family:var(--font-head);font-size:clamp(52px,8vw,72px);font-weight:700;letter-spacing:.02em;text-align:center;margin-bottom:2px;text-transform:uppercase;line-height:.9;position:relative;z-index:1}
-    .ac-role{font-size:8px;letter-spacing:.22em;text-align:center;margin-bottom:16px;opacity:.5;text-transform:uppercase;position:relative;z-index:1}
-    .ac-stat{display:flex;justify-content:space-between;align-items:center;font-size:9px;letter-spacing:.06em;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04);position:relative;z-index:1}
+    .ac-name{font-family:var(--font-head);font-size:clamp(36px,6vw,52px);font-weight:700;letter-spacing:.02em;text-align:center;margin-bottom:4px;text-transform:uppercase;line-height:.9;position:relative;z-index:1}
+    .ac-role{font-size:10px;letter-spacing:.22em;text-align:center;margin-bottom:8px;opacity:.55;text-transform:uppercase;position:relative;z-index:1}
+    .ac-mission{font-size:13px;letter-spacing:.02em;text-align:center;margin-bottom:18px;opacity:.75;line-height:1.4;position:relative;z-index:1;padding:0 8px;font-family:var(--font-body)}
+    .ac-stat{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.06em;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);position:relative;z-index:1}
     .ac-sl{opacity:.35;text-transform:uppercase;letter-spacing:.1em;font-size:8px}
     .ac-sv{opacity:.9;letter-spacing:.06em}
     .ac-bar-wrap{margin:12px 0 14px;position:relative;z-index:1}
     .ac-bar-lbl{display:flex;justify-content:space-between;font-size:8px;letter-spacing:.1em;opacity:.4;margin-bottom:5px}
     .ac-bar-bg{height:2px;background:rgba(255,255,255,.07);border-radius:1px;overflow:hidden}
     .ac-bar-fg{height:100%;border-radius:1px;transition:width 1s ease}
-    .ac-status-line{font-size:8px;letter-spacing:.22em;text-align:center;padding:7px 6px;border:1px solid rgba(255,255,255,.07);text-transform:uppercase;position:relative;z-index:1}
+    .ac-status-line{font-size:10px;letter-spacing:.18em;text-align:center;padding:9px 8px;border:1px solid rgba(255,255,255,.07);text-transform:uppercase;position:relative;z-index:1}
     .ac-wm{position:absolute;bottom:9px;right:11px;font-size:7px;letter-spacing:.22em;opacity:.04;transform:rotate(-14deg);pointer-events:none;user-select:none;text-transform:uppercase}
     /* mystery card preview */
     .mystery-card{background:#050a05;border:1px solid rgba(74,246,38,.2);padding:24px 28px;max-width:300px;margin:0 auto;text-align:left;font-family:var(--mono);position:relative;overflow:hidden;filter:blur(.8px);opacity:.7}
@@ -1226,6 +1227,7 @@
         <span class="ac-icon">🛡️</span>
         <div class="ac-name" style="color:var(--arch-sentinel)">SENTINEL</div>
         <div class="ac-role">PRIMARY PROTECTOR</div>
+        <div class="ac-mission" style="color:rgba(250,62,62,.85)">You hold the line so others can think.</div>
         <div class="ac-stat"><span class="ac-sl">THREAT READ</span><span class="ac-sv" style="color:var(--arch-sentinel)">ACTIVE</span></div>
         <div class="ac-stat"><span class="ac-sl">ROLE ONSET</span><span class="ac-sv">IMMEDIATE</span></div>
         <div class="ac-stat"><span class="ac-sl">SECTOR</span><span class="ac-sv" style="background:rgba(255,255,255,.1);color:transparent;padding:0 8px;font-size:8px">██████</span></div>
@@ -1246,6 +1248,7 @@
         <span class="ac-icon">🤝</span>
         <div class="ac-name" style="color:var(--crt-green)">DIPLOMAT</div>
         <div class="ac-role">DE-ESCALATION LEAD</div>
+        <div class="ac-mission" style="color:rgba(74,246,38,.85)">You speak when no one else can find the words.</div>
         <div class="ac-stat"><span class="ac-sl">CONTACT IDX</span><span class="ac-sv" style="color:var(--g)">11.4 kHz</span></div>
         <div class="ac-stat"><span class="ac-sl">LANGUAGE</span><span class="ac-sv">UNIVERSAL</span></div>
         <div class="ac-stat"><span class="ac-sl">PROTOCOL</span><span class="ac-sv" style="color:var(--g)">ALPHA-7</span></div>
@@ -1266,6 +1269,7 @@
         <span class="ac-icon">🔬</span>
         <div class="ac-name" style="color:#60A5FA">SCHOLAR</div>
         <div class="ac-role">FIELD ANALYST</div>
+        <div class="ac-mission" style="color:rgba(96,165,250,.85)">You see what everyone else is too afraid to document.</div>
         <div class="ac-stat"><span class="ac-sl">OBS CLASS</span><span class="ac-sv" style="color:#60A5FA">ALPHA</span></div>
         <div class="ac-stat"><span class="ac-sl">FIELD MODE</span><span class="ac-sv">PASSIVE RECORD</span></div>
         <div class="ac-stat"><span class="ac-sl">ARCHIVE</span><span class="ac-sv" style="color:#60A5FA">PRIORITY-1</span></div>
@@ -1284,9 +1288,10 @@
           <span class="ac-serial-txt" style="color:var(--gold)">FC-0000-00001</span>
         </div>
         <span class="ac-icon" style="animation:fcPulse 2s infinite">⭐</span>
-        <div class="ac-name" style="color:var(--gold);font-size:12px;letter-spacing:.18em">FIRST CONTACT</div>
+        <div class="ac-name" style="color:var(--gold)">FIRST CONTACT</div>
         <div class="ac-role" style="color:rgba(255,215,0,.5)">CLASSIFICATION UNKNOWN</div>
-        <div class="ac-stat"><span class="ac-sl">ARCHETYPE</span><span class="ac-sv" style="background:rgba(255,215,0,.1);color:transparent;padding:0 8px;font-size:8px">████████████</span></div>
+        <div class="ac-mission" style="color:rgba(251,191,36,.85)">Less than 0.1% carry this designation. You know why.</div>
+        <div class="ac-stat"><span class="ac-sl">ARCHETYPE</span><span class="ac-sv" style="background:rgba(255,215,0,.1);color:transparent;padding:0 8px">████████████</span></div>
         <div class="ac-stat"><span class="ac-sl">FIELD CONF</span><span class="ac-sv" style="color:var(--gold)">NEVER</span></div>
         <div class="ac-stat"><span class="ac-sl">CLEARANCE</span><span class="ac-sv" style="background:rgba(255,215,0,.1);color:transparent;padding:0 8px;font-size:8px">████████</span></div>
         <div class="ac-bar-wrap">
