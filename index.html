@@ -2893,7 +2893,7 @@ function initPage() {
     var navLabels = document.querySelectorAll('#fd-nav-labels .fd-nav-label');
 
     var features = [
-      { label:"SIGNAL LANGUAGE", headline:"The gestures they\u2019ll understand.", desc:"<span class='fd-bullet'>\u2726 Learn the sequences designed for non-human contact</span><span class='fd-bullet'>\u2726 Track your fluency \u2014 muscle memory saves lives</span><span class='fd-bullet'>\u2726 When your voice fails, <strong>your hands won\u2019t</strong></span>", img:"asset-signal-language-v3.webp" },
+      { label:"SIGNAL LANGUAGE", headline:"The gestures they\u2019ll understand.", desc:"<span class='fd-bullet'>\u2726 Learn the sequences designed for non-human contact</span><span class='fd-bullet'>\u2726 Track your fluency \u2014 muscle memory saves lives</span><span class='fd-bullet'>\u2726 When your voice fails, <strong>your hands won\u2019t</strong></span>", img:"asset-signal-language-v3.webp", fit:"contain" },
       { label:"UNIVERSAL TRANSLATOR", headline:"This is how we say hello.", desc:"<span class='fd-bullet'>\u2726 Frequency tones + geometric light pulses from your phone</span><span class='fd-bullet'>\u2726 Point it at the sky. Press transmit</span><span class='fd-bullet'>\u2726 Whatever\u2019s listening \u2014 <strong>now it knows you\u2019re here</strong></span>", img:"asset-universal-translator-v2.webp" },
       { label:"STONE COLD DRILLS", headline:"Can you hold still when it matters?", desc:"<span class='fd-bullet'>\u2726 Strobes. Alien audio. Your phone tracks every flinch</span><span class='fd-bullet'>\u2726 10 escalating levels \u2014 each one breaks more people</span><span class='fd-bullet'>\u2726 Earn your <strong>Readiness Badge</strong> \u2014 or don\u2019t</span>", img:"asset-stone-cold-v2.webp" },
       { label:"FIRST CONTACT CARD", headline:"Your clearance has been issued.", desc:"<span class='fd-bullet'>\u2726 Digital credential \u2014 archetype, score, clearance level</span><span class='fd-bullet'>\u2726 Apple Wallet + Google Wallet compatible</span><span class='fd-bullet'>\u2726 Share it or hide it \u2014 <strong>you\u2019re in the system now</strong></span>", img:"asset-first-contact-card-v2.webp" }
@@ -2938,6 +2938,7 @@ function initPage() {
         descEl.innerHTML = f.desc;
         imgEl.src = f.img;
         imgEl.alt = f.label;
+        imgEl.style.objectFit = f.fit || 'cover';
         headEl.classList.add('visible');
         descEl.classList.add('visible');
         imgEl.classList.add('visible');
@@ -2964,6 +2965,7 @@ function initPage() {
         setTimeout(function(){
           imgEl.src = f.img;
           imgEl.alt = f.label;
+          imgEl.style.objectFit = f.fit || 'cover';
           headEl.textContent = f.headline;
           descEl.innerHTML = f.desc;
           typeLabel(f.label, function(){
