@@ -376,8 +376,8 @@
     .qr-cta.secondary:hover{border-color:rgba(57,255,20,.5);color:var(--g)}
 
     /* PRODUCT SHOWCASE V6 — Theatrical Slideshow */
-    #freq-dial{position:relative;padding:60px 24px;text-align:center}
-    .fd-card{max-width:900px;margin:0 auto;background-color:#0a1a1a;background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('asset-bg-alien.png') center/cover no-repeat;border-radius:8px;border:1px solid rgba(57,255,20,.2);box-shadow:0 4px 40px rgba(0,0,0,.5);padding:50px 40px;position:relative;text-align:center;overflow:hidden}
+    #freq-dial{position:relative;padding:40px 24px;text-align:center}
+    .fd-card{max-width:900px;margin:0 auto;background-color:#0a1a1a;background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('asset-bg-alien.png') center/cover no-repeat;border-radius:8px;border:1px solid rgba(57,255,20,.2);box-shadow:0 4px 40px rgba(0,0,0,.5);padding:36px 40px;position:relative;text-align:center;overflow:hidden}
     /* Glitch flash effect */
     .fd-card.fd-glitch{filter:brightness(1.3) contrast(1.2)}
     /* Scan line */
@@ -388,30 +388,30 @@
     .fd-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(57,255,20,0.7);margin-bottom:14px}
     .fd-main-h{font-size:clamp(26px,4vw,42px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:12px}
     /* Feature content area */
-    .fd-content{max-width:540px;margin:0 auto;position:relative;min-height:520px}
+    .fd-content{max-width:540px;margin:0 auto;position:relative;min-height:420px}
     .fd-feature-wrap{display:flex;flex-direction:column;align-items:center}
-    .fd-feat-img-wrap{height:340px;display:flex;align-items:center;justify-content:center;margin:12px auto 0;width:100%;max-width:580px}
+    .fd-feat-img-wrap{height:280px;display:flex;align-items:center;justify-content:center;margin:12px auto 0;width:100%;max-width:520px}
     .fd-feat-label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:#39FF14;margin-bottom:12px;min-height:16px}
     .fd-feat-h{font-size:clamp(24px,3.5vw,38px);font-weight:700;color:#fff;margin-bottom:12px;line-height:1.2;opacity:0;transition:opacity .3s ease}
     .fd-feat-h.visible{opacity:1}
     .fd-feat-p{font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,0.85);max-width:550px;margin:0 auto;line-height:1.7;font-weight:500;opacity:0;transition:opacity .3s ease}
     .fd-feat-p.visible{opacity:1}
-    .fd-feat-img{max-height:340px;max-width:100%;width:auto;object-fit:contain;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.4);display:block;opacity:0;transform:scale(.95);transition:opacity .4s ease,transform .4s ease}
+    .fd-feat-img{max-height:280px;max-width:100%;width:auto;object-fit:contain;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.4);display:block;opacity:0;transform:scale(.95);transition:opacity .4s ease,transform .4s ease}
     .fd-feat-img.visible{opacity:1;transform:scale(1)}
     .fd-feat-tag{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,0.4);margin-top:12px;opacity:0;transition:opacity .3s ease}
     .fd-feat-tag.visible{opacity:1}
     /* Dot nav */
-    .fd-dots{display:flex;gap:12px;justify-content:center;margin-top:28px}
+    .fd-dots{display:flex;gap:12px;justify-content:center;margin-top:16px}
     .fd-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.3);cursor:pointer;transition:all .3s;border:none;padding:0}
     .fd-dot.active{width:10px;height:10px;background:#39FF14;box-shadow:0 0 6px rgba(57,255,20,.4)}
     /* Text nav */
     .fd-nav-labels{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:16px}
-    .fd-nav-label{font-family:var(--mono);font-size:12px;letter-spacing:.15em;color:rgba(255,255,255,0.5);cursor:pointer;padding:4px 8px;border:1px solid transparent;border-radius:3px;transition:all .3s;background:none}
-    .fd-nav-label:hover{color:rgba(255,255,255,0.7)}
-    .fd-nav-label.active{color:#39FF14;font-weight:700;border-color:rgba(57,255,20,.3)}
+    .fd-nav-label{font-family:var(--mono);font-size:14px;letter-spacing:.15em;color:rgba(255,255,255,0.6);cursor:pointer;padding:8px 16px;border:1px solid rgba(255,255,255,0.15);border-radius:20px;transition:all .3s;background:rgba(255,255,255,0.04)}
+    .fd-nav-label:hover{color:rgba(255,255,255,0.9);border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.08)}
+    .fd-nav-label.active{color:#39FF14;font-weight:700;border-color:rgba(57,255,20,.4);background:rgba(57,255,20,0.08);box-shadow:0 0 12px rgba(57,255,20,.15)}
     .fd-nav-sep{font-family:var(--mono);font-size:12px;color:rgba(255,255,255,0.2);line-height:26px}
     /* CTA */
-    .fd-divider{width:200px;height:1px;margin:30px auto;background:linear-gradient(90deg,transparent,#39FF14,transparent)}
+    .fd-divider{width:200px;height:1px;margin:20px auto;background:linear-gradient(90deg,transparent,#39FF14,transparent)}
     .fd-cta-h{font-size:18px;color:rgba(255,255,255,0.8);font-weight:600;margin-bottom:16px}
     .fd-cta-btn{display:inline-block;padding:14px 36px;background:#111;color:#39FF14;border:1px solid #39FF14;font-family:var(--mono);font-size:13px;letter-spacing:.2em;border-radius:4px;cursor:pointer;transition:all .2s;text-decoration:none}
     .fd-cta-btn:hover{background:#39FF14;color:#111;box-shadow:0 0 20px rgba(57,255,20,.3)}
@@ -419,7 +419,7 @@
     @media(max-width:600px){
       #freq-dial{padding:40px 20px}
       .fd-card{padding:40px 20px}
-      .fd-content{min-height:450px}
+      .fd-content{min-height:380px}
       .fd-feat-img-wrap{max-width:100%;padding:0 8px;box-sizing:border-box}
       .fd-feat-img{max-width:100%}
     }
