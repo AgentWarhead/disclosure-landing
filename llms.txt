@@ -39,7 +39,9 @@ Disclosure classifies all users into one of four designations:
 
 ## Key Pages
 
+- About / What Is Disclosure: https://getdisclosure.app/about
 - Homepage / Quiz Entry: https://getdisclosure.app
+- Intel Briefings (Blog): https://getdisclosure.app/intel
 - Archetype Assessment: https://getdisclosure.app/quiz
 - First Contact Guide: https://getdisclosure.app/first-contact
 - Readiness Check: https://getdisclosure.app/readiness
