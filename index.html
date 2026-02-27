@@ -127,7 +127,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=JetBrains+Mono:wght@400;700&family=Chakra+Petch:wght@400;500&display=swap" rel="stylesheet"/>
   <!-- Preload critical images -->
   <link rel="preload" href="asset-bg-alien.webp" as="image" type="image/webp"/>
-  <link rel="preload" href="asset-signal-language-v6.webp" as="image" type="image/webp"/>
+  <link rel="preload" href="asset-signal-language-v7.webp" as="image" type="image/webp"/>
   <!-- Defer non-critical JS -->
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <style>
@@ -414,7 +414,23 @@
     /* Feature content area */
     .fd-content{max-width:540px;margin:0 auto;position:relative;height:520px;overflow:hidden}
     .fd-feature-wrap{display:flex;flex-direction:column;align-items:center}
-    .fd-feat-img-wrap{height:320px;display:flex;align-items:center;justify-content:center;margin:12px auto 0;width:100%;max-width:520px}
+    .fd-feat-img-wrap{height:320px;display:flex;align-items:center;justify-content:center;margin:12px auto 0;width:100%;max-width:520px;position:relative}
+    /* CRT Monitor Frame */
+    .fd-feat-img-wrap::before{content:'';position:absolute;inset:-2px;border:1px solid rgba(74,246,38,.25);border-radius:10px;pointer-events:none;z-index:2;box-shadow:0 0 20px rgba(74,246,38,.08),inset 0 0 30px rgba(0,0,0,.6)}
+    .fd-feat-img-wrap::after{content:'';position:absolute;inset:0;border-radius:8px;pointer-events:none;z-index:3;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(74,246,38,.03) 2px,rgba(74,246,38,.03) 4px);mix-blend-mode:overlay}
+    /* CRT corner brackets */
+    .crt-corner{position:absolute;width:18px;height:18px;z-index:4;pointer-events:none}
+    .crt-corner::before,.crt-corner::after{content:'';position:absolute;background:rgba(74,246,38,.5)}
+    .crt-corner.tl{top:-1px;left:-1px}.crt-corner.tl::before{top:0;left:0;width:18px;height:1px}.crt-corner.tl::after{top:0;left:0;width:1px;height:18px}
+    .crt-corner.tr{top:-1px;right:-1px}.crt-corner.tr::before{top:0;right:0;width:18px;height:1px}.crt-corner.tr::after{top:0;right:0;width:1px;height:18px}
+    .crt-corner.bl{bottom:-1px;left:-1px}.crt-corner.bl::before{bottom:0;left:0;width:18px;height:1px}.crt-corner.bl::after{bottom:0;left:0;width:1px;height:18px}
+    .crt-corner.br{bottom:-1px;right:-1px}.crt-corner.br::before{bottom:0;right:0;width:18px;height:1px}.crt-corner.br::after{bottom:0;right:0;width:1px;height:18px}
+    /* CRT metadata overlay */
+    .crt-meta{position:absolute;z-index:5;font-family:var(--mono);pointer-events:none}
+    .crt-meta-top{top:10px;left:14px;font-size:8px;letter-spacing:.25em;color:rgba(74,246,38,.4)}
+    .crt-meta-bottom{bottom:10px;right:14px;font-size:7px;letter-spacing:.2em;color:rgba(74,246,38,.3)}
+    /* CRT vignette (barrel distortion feel) */
+    .crt-vignette{position:absolute;inset:0;border-radius:8px;pointer-events:none;z-index:3;background:radial-gradient(ellipse at center,transparent 60%,rgba(0,0,0,.5) 100%)}
     .fd-feat-label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--crt-green);margin-bottom:12px;min-height:16px}
     .fd-feat-h{font-size:clamp(24px,3.5vw,38px);font-weight:700;color:#fff;margin-bottom:12px;line-height:1.2;opacity:0;transition:opacity .3s ease}
     .fd-feat-h.visible{opacity:1}
@@ -451,6 +467,9 @@
       .fd-content{height:auto;overflow:visible}
       .fd-feat-img-wrap{height:200px;max-width:100%;padding:0;box-sizing:border-box}
       .fd-feat-img{max-width:100%;object-fit:contain!important}
+      .crt-meta-top{font-size:6px!important}
+      .crt-meta-bottom{font-size:6px!important}
+      .crt-corner{width:12px!important;height:12px!important}
       .fd-main-h{font-size:clamp(20px,5vw,28px);margin-bottom:8px}
       .fd-feat-h{font-size:clamp(20px,5vw,28px);margin-bottom:8px}
       .fd-feat-p{font-size:13px;line-height:1.5;height:auto;overflow:visible}
@@ -1191,7 +1210,11 @@
           <h3 class="fd-feat-h" id="fd-feat-h"></h3>
           <p class="fd-feat-p" id="fd-feat-p"></p>
           <div class="fd-feat-img-wrap">
-            <img class="fd-feat-img" id="fd-feat-img" src="asset-signal-language-v6.webp" alt="" loading="lazy"/>
+            <div class="crt-corner tl"></div><div class="crt-corner tr"></div><div class="crt-corner bl"></div><div class="crt-corner br"></div>
+            <div class="crt-meta crt-meta-top" id="crt-meta-top">REC ● 03.05.24 // CLASSIFIED</div>
+            <div class="crt-meta crt-meta-bottom" id="crt-meta-bottom">FEED: SURVEILLANCE-07</div>
+            <div class="crt-vignette"></div>
+            <img class="fd-feat-img" id="fd-feat-img" src="asset-signal-language-v7.webp" alt="" loading="lazy"/>
           </div>
         </div>
       </div>
@@ -3046,14 +3069,16 @@ function initPage() {
     var descEl = document.getElementById('fd-feat-p');
     var imgEl = document.getElementById('fd-feat-img');
     var tagEl = document.getElementById('fd-feat-tag'); /* may be null if removed */
+    var crtTopEl = document.getElementById('crt-meta-top');
+    var crtBotEl = document.getElementById('crt-meta-bottom');
     var dots = document.querySelectorAll('#fd-dots .fd-dot');
     var navLabels = document.querySelectorAll('#fd-nav-labels .fd-nav-label');
 
     var features = [
-      { label:"SIGNAL LANGUAGE", headline:"The gestures they\u2019ll understand.", desc:"<span class='fd-bullet'>\u2726 Learn the sequences designed for non-human contact</span><span class='fd-bullet'>\u2726 Track your fluency \u2014 muscle memory saves lives</span><span class='fd-bullet'>\u2726 When your voice fails, <strong>your hands won\u2019t</strong></span>", img:"asset-signal-language-v6.webp" },
-      { label:"UNIVERSAL TRANSLATOR", headline:"This is how we say hello.", desc:"<span class='fd-bullet'>\u2726 Frequency tones + geometric light pulses from your phone</span><span class='fd-bullet'>\u2726 Point it at the sky. Press transmit</span><span class='fd-bullet'>\u2726 Whatever\u2019s listening \u2014 <strong>now it knows you\u2019re here</strong></span>", img:"asset-universal-translator-v2.webp" },
-      { label:"STONE COLD DRILLS", headline:"Can you hold still when it matters?", desc:"<span class='fd-bullet'>\u2726 Strobes. Alien audio. Your phone tracks every flinch</span><span class='fd-bullet'>\u2726 10 escalating levels \u2014 each one breaks more people</span><span class='fd-bullet'>\u2726 Earn your <strong>Readiness Badge</strong> \u2014 or don\u2019t</span>", img:"asset-stone-cold-v2.webp" },
-      { label:"FIRST CONTACT CARD", headline:"Your clearance has been issued.", desc:"<span class='fd-bullet'>\u2726 Digital credential \u2014 archetype, score, clearance level</span><span class='fd-bullet'>\u2726 Apple Wallet + Google Wallet compatible</span><span class='fd-bullet'>\u2726 Share it or hide it \u2014 <strong>you\u2019re in the system now</strong></span>", img:"asset-first-contact-card-v4.webp" }
+      { label:"SIGNAL LANGUAGE", headline:"The gestures they\u2019ll understand.", desc:"<span class='fd-bullet'>\u2726 Learn the sequences designed for non-human contact</span><span class='fd-bullet'>\u2726 Track your fluency \u2014 muscle memory saves lives</span><span class='fd-bullet'>\u2726 When your voice fails, <strong>your hands won\u2019t</strong></span>", img:"asset-signal-language-v7.webp", crtTop:"REC \u25cf 03.05.24 // CLASSIFIED", crtBot:"FEED: SURVEILLANCE-07" },
+      { label:"UNIVERSAL TRANSLATOR", headline:"This is how we say hello.", desc:"<span class='fd-bullet'>\u2726 Frequency tones + geometric light pulses from your phone</span><span class='fd-bullet'>\u2726 Point it at the sky. Press transmit</span><span class='fd-bullet'>\u2726 Whatever\u2019s listening \u2014 <strong>now it knows you\u2019re here</strong></span>", img:"asset-universal-translator-v3.webp", crtTop:"FREQ: 1420.405 MHz // ACTIVE", crtBot:"TX: HYDROGEN LINE BROADCAST" },
+      { label:"STONE COLD DRILLS", headline:"Can you hold still when it matters?", desc:"<span class='fd-bullet'>\u2726 Strobes. Alien audio. Your phone tracks every flinch</span><span class='fd-bullet'>\u2726 Photography training \u2014 learn to <strong>get a clear shot under pressure</strong></span><span class='fd-bullet'>\u2726 10 escalating levels. Earn your <strong>Readiness Badge</strong> \u2014 or don\u2019t</span>", img:"asset-stone-cold-v3.webp", crtTop:"SUBJ: 0041 // BPM: 142 // STRESS: HIGH", crtBot:"PROTOCOL: ENDURANCE LEVEL 07" },
+      { label:"FIRST CONTACT CARD", headline:"Your clearance has been issued.", desc:"<span class='fd-bullet'>\u2726 Digital credential \u2014 archetype, score, clearance level</span><span class='fd-bullet'>\u2726 Apple Wallet + Google Wallet compatible</span><span class='fd-bullet'>\u2726 Share it or hide it \u2014 <strong>you\u2019re in the system now</strong></span>", img:"asset-first-contact-card-v5.webp", crtTop:"CREDENTIAL: VERIFIED // ACTIVE", crtBot:"CLEARANCE: PENDING CLASSIFICATION" }
     ];
 
     var current = 0;
@@ -3096,6 +3121,8 @@ function initPage() {
         imgEl.src = f.img;
         imgEl.alt = f.label;
         imgEl.style.objectFit = f.fit || 'cover';
+        if(crtTopEl) crtTopEl.textContent = f.crtTop || '';
+        if(crtBotEl) crtBotEl.textContent = f.crtBot || '';
         headEl.classList.add('visible');
         descEl.classList.add('visible');
         imgEl.classList.add('visible');
@@ -3123,6 +3150,8 @@ function initPage() {
           imgEl.src = f.img;
           imgEl.alt = f.label;
           imgEl.style.objectFit = f.fit || 'cover';
+          if(crtTopEl) crtTopEl.textContent = f.crtTop || '';
+          if(crtBotEl) crtBotEl.textContent = f.crtBot || '';
           headEl.textContent = f.headline;
           descEl.innerHTML = f.desc;
           typeLabel(f.label, function(){
