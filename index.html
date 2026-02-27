@@ -573,6 +573,12 @@
       body{overflow-x:clip;max-width:100vw}
       /* Hero title safe scaling — keep nowrap, just resize */
       .hero-h{font-size:clamp(58px,15vw,90px)}
+      /* Nav status text — hide on small screens, too cramped */
+      .nav-sig span{display:none}
+      .nav-sig{gap:0}
+      .nav{padding:6px 16px}
+      /* Flash text — reduce letter-spacing so it centers properly */
+      .hero-flash-text{letter-spacing:.2em;font-size:clamp(11px,3vw,16px);text-align:center;padding:0 16px}
       /* Rules watermark — remove to avoid overflow */
       .rules-bg{display:none}
       /* Footer nav links — allow wrap */
