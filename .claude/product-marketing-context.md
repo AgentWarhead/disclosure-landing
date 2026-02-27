@@ -1,6 +1,10 @@
 # Product Marketing Context — Disclosure
 
-*Last updated: Feb 26, 2026*
+> ⚠️ **SINGLE SOURCE OF TRUTH** — This is the canonical context file for this project.
+> Do NOT create competing docs. Update THIS file.
+> Last verified: 2026-02-27
+
+
 
 ## Product Overview
 **One-liner:** The world's first civilian first contact preparation app — part ARG, part survival tool, 100% viral.
