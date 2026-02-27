@@ -5,12 +5,31 @@
 
 ## Core Principles
 
-- **Every video demands attention.** No filler. No hobbyist content. Every release delivers.
-- **Cinematic spectacle, not deception.** Obviously produced, jaw-droppingly cool. Not fake sightings.
-- **First contact is the brand.** Every video lives in the Disclosure universe.
+- **Every video is a WARNING, not entertainment.** This isn't content. It's a transmission. The subtext of every video: "This is what's coming. You're not ready."
+- **Urgency over spectacle.** Cool doesn't go viral. The feeling of "oh god this could happen to me next Tuesday" goes viral. The gap between what's coming and how unprepared humanity is — THAT'S the tension.
+- **First contact is the brand.** Every video is an example of what first contact looks like — and what happens when people aren't prepared for it.
 - **10-15 seconds per clip.** Kling 3.0 and Grok Imagine both max at 15s. Not every video needs 15 — use exactly as many seconds as the moment requires. Shorter = higher completion rate = better algorithm push. Guide: 10s for quick gut-punch, 12s for build + payoff, 15s only when two emotional beats earn it.
-- **Hook in 3 seconds.** Pattern interrupt every 3-5 seconds. Zero fluff.
+- **Hook at FRAME ONE.** Something is already wrong. No establishing shots. No calm-before-storm. The storm is already here.
 - **Shares > Likes.** Algorithm prioritizes watch time, completion, replays, shares, saves — in that order.
+
+## Tone — THE DISCLOSURE MANDATE
+
+Every video answers one question: **"What would you do?"**
+
+We don't make alien content. We make **preparedness scenarios.** Every video is a glimpse of a future that's closer than anyone thinks. The viewer should finish every video feeling:
+
+1. **Unsettled** — "that could actually happen"
+2. **Inadequate** — "I wouldn't know what to do"
+3. **Compelled** — "I need to know more / I need to be ready"
+
+This is what drives them to getdisclosure.app. Not curiosity. URGENCY.
+
+**Caption tone:** Every caption reads like a classified warning or field report. Not a content creator caption. A transmission.
+- ✅ "They're already here. Most people aren't ready."
+- ✅ "02.27.26 // First contact will not wait for permission."
+- ✅ "What's your protocol? You don't have one."
+- ❌ "Like and follow for more alien content! 👽"
+- ❌ "What do you think? Comment below!"
 
 ## Platforms
 
@@ -33,7 +52,7 @@ Cross-post every video to all three simultaneously.
 ### 1. 🌆 ARRIVAL — The Spectacle Drop
 **Length:** 10-12 seconds | **Goal:** Max shares, cold viral
 
-A normal human moment SHATTERED by alien arrival at impossible scale. The human reaction IS the content — their world breaking in real time. The craft/being is the spectacle. Together = scroll-stopper.
+A normal human moment SHATTERED by alien arrival at impossible scale. The message: this person had zero warning, zero protocol, zero preparation. This is what happens to people who aren't ready. And right now — that's everyone.
 
 **Proven model:** AI giant creature/monster videos (#Megalophobia, #GiantCreature) consistently blow up with billions of views. Same formula but elevated: massive alien presence + genuine human shock captured raw.
 
@@ -53,7 +72,7 @@ A normal human moment SHATTERED by alien arrival at impossible scale. The human 
 ### 2. 👽 FIRST WORDS — The Encounter
 **Length:** 13-15 seconds | **Goal:** Emotional depth, saves, rewatches
 
-Intimate, close-range first contact. A human discovers an alien doing something unexpectedly beautiful or compassionate. The alien is PROMINENT — fully visible, detailed, undeniable. The human's emotional breakdown upon realizing what they're witnessing is the payoff.
+Intimate, close-range first contact is ALREADY HAPPENING. The alien is already acting — healing, communicating, intervening. Humanity has no protocol for this. The human's emotional collapse isn't from beauty — it's from realizing every institution, every belief system, everything they were taught just became irrelevant. And nobody prepared them.
 
 **Proven model:** Hollywood micro-movies under 60 seconds are the #1 AI video trend. Emotional content drives saves — the highest-value engagement signal in 2026.
 
@@ -79,7 +98,7 @@ Intimate, close-range first contact. A human discovers an alien doing something 
 ### 3. ⚡ THE SIGNAL — Phone to Sky
 **Length:** 10-12 seconds | **Goal:** Participatory trend, product funnel
 
-A person's phone does something it shouldn't — emits a signal, displays a message, triggers a response from something above. The phone is the bridge between human and alien. Quick, haunting, leaves you wanting to try it yourself.
+They've been trying to reach us. Through our own devices. Through signals we don't recognize. This format shows the terrifying moment someone's phone becomes a conduit to something they can't comprehend — and they have zero training for what to do next.
 
 **Proven model:** Participatory formats create exponential organic reach through duets/stitches. The "phone as alien tool" concept is unique to Disclosure.
 
@@ -100,7 +119,7 @@ A person's phone does something it shouldn't — emits a signal, displays a mess
 ### 4. 💀 STONE COLD — Don't Flinch
 **Length:** 10-12 seconds | **Goal:** Tension, horror-adjacent, duet-friendly
 
-Something alien in an everyday setting being deeply, fundamentally WRONG. Doorbell cameras. Security footage. Hospital corridors. The uncanny valley weaponized. The kind of video that makes you check your own front door.
+They're already here. Your doorbell camera. Your street at 3 AM. Your hospital corridor. This is what contact looks like when nobody's watching — and what happens when an unprepared civilian is the first point of contact. Could you hold it together? Most can't. That's the problem.
 
 **Proven model:** "Don't flinch" challenge format + creepytok horror (#creepytok averages 67.8K views/post — 3-4x higher than standard alien hashtags). Found-footage aesthetic triggers shares.
 
@@ -121,7 +140,7 @@ Something alien in an everyday setting being deeply, fundamentally WRONG. Doorbe
 ### 5. 🧬 SPECIES FILE — The Xeno Catalog
 **Length:** 12-13 seconds | **Goal:** Binge catalog, emotional depth, world-building
 
-An alien species encountered in a deeply human context — interacting with a child, appearing in a home, showing up where they don't belong. Each video reveals a new species through an intimate moment that makes you feel something unexpected about a being that isn't human.
+They're making contact with the most vulnerable among us — children, the sleeping, the unaware — and we didn't even notice. Each video reveals a different species already interacting with humanity in ways we have no framework to understand. The question isn't "are they here." It's "how long have they been here?"
 
 **Proven model:** AI creature design reveals (#CreatureDesign, #AIArt) are high-performing. Combined with emotional human moments = scroll-stopping creature reveals that also make you FEEL.
 
@@ -205,24 +224,33 @@ Video (TikTok/IG/YT)
 
 ## Creative Philosophy — THE SCROLL TEST
 
-Before publishing ANY video, ask: **would I send this to a friend unprompted?** If no, it doesn't ship.
+Before publishing ANY video, ask: **would I send this to a friend at 2 AM saying "dude you need to see this"?** If no, it doesn't ship.
 
 **What makes our videos work:**
-- A HUMAN FACE reacting. The alien is what they see. The face is what WE feel.
-- One moment. One emotion. No plot. No setup. Just the impact.
-- The contrast between normalcy and the impossible — the more mundane the setup, the harder the alien lands.
-- Raw over polished. Shaky phone footage > smooth cinema. Imperfect = believable.
-- Cut BEFORE the resolution. The viewer's imagination finishes the scene. That's what triggers shares.
+- A HUMAN FACE reacting — their unpreparedness IS the message. The alien is what they see. Their helplessness is what WE feel.
+- One moment. One emotion. No plot. No setup. The moment of "oh god this is real and I don't know what to do."
+- The contrast between normalcy and the impossible — the more mundane the setup, the harder the alien lands AND the more the viewer sees THEMSELVES in it.
+- Raw over polished. Shaky phone footage > smooth cinema. Imperfect = believable = "this could be my backyard."
+- Cut BEFORE the resolution. NEVER show the aftermath. The missing ending forces the question: "what would I do?" That question is what drives them to Disclosure.
+
+**The psychology we weaponize (research-backed):**
+- **AWE** drives 30% more shares than any other emotion (Berger & Milkman)
+- **Pattern Interrupt at frame 1** — something already wrong. Breaks scroll autopilot in 1.5 seconds.
+- **Open Loop** — unresolved tension that FORCES completion (watch time = 50% of algorithm score)
+- **Engineered Rewatch** — a hidden detail only visible on 2nd/3rd watch (rewatch rate = 20% of score, and under-15s videos need 100%+ completion to go viral)
+- **Sonic Friction** — real ambient sounds at high fidelity (breathing, glass, gravel, wind). No music. Music = "content." Silence + real sound = "this is happening."
+- **Hard cut at peak tension** — never resolve. The missing ending drives comments, shares, saves.
 
 **What we don't do:**
-- ❌ Fake sighting footage trying to trick people
+- ❌ Entertainment for entertainment's sake — every video must carry the warning
 - ❌ News commentary or reaction content
 - ❌ Voiceover or on-screen text explaining things
 - ❌ "What do you think?" engagement bait
 - ❌ Behind-the-scenes or "how we made this"
-- ❌ Generic sci-fi wallpaper with no human in it
+- ❌ Generic sci-fi spectacle with no human vulnerability
 - ❌ Any video you'd scroll past yourself
 - ❌ Breaking character or the fourth wall
+- ❌ Resolving the scene — ALWAYS cut before the answer
 
 ---
 
