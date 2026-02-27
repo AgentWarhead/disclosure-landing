@@ -8,7 +8,7 @@
 - **Every video demands attention.** No filler. No hobbyist content. Every release delivers.
 - **Cinematic spectacle, not deception.** Obviously produced, jaw-droppingly cool. Not fake sightings.
 - **First contact is the brand.** Every video lives in the Disclosure universe.
-- **11-15 seconds per clip.** Kling 3.0 and Grok Imagine both max at 15s. For anything longer, stitch 2 clips in CapCut. But shorter is stronger — the 11-15s range is the proven viral sweet spot anyway.
+- **10-15 seconds per clip.** Kling 3.0 and Grok Imagine both max at 15s. Not every video needs 15 — use exactly as many seconds as the moment requires. Shorter = higher completion rate = better algorithm push. Guide: 10s for quick gut-punch, 12s for build + payoff, 15s only when two emotional beats earn it.
 - **Hook in 3 seconds.** Pattern interrupt every 3-5 seconds. Zero fluff.
 - **Shares > Likes.** Algorithm prioritizes watch time, completion, replays, shares, saves — in that order.
 
@@ -31,40 +31,42 @@ Cross-post every video to all three simultaneously.
 ## The 5 Formats
 
 ### 1. 🌆 ARRIVAL — The Spectacle Drop
-**Length:** 11-15 seconds | **Goal:** Max shares, cold viral
+**Length:** 10-12 seconds | **Goal:** Max shares, cold viral
 
-Massive-scale first contact moments. A ship emerging over a city. Lights appearing over the ocean. A shadow crossing the moon. Independence Day meets phone footage — cinematic disaster-movie scale framed as if witnessed in real time.
+A normal human moment SHATTERED by alien arrival at impossible scale. The human reaction IS the content — their world breaking in real time. The craft/being is the spectacle. Together = scroll-stopper.
 
-**Proven model:** AI giant creature/monster videos (#Megalophobia, #GiantCreature) consistently blow up with billions of views. Same formula — massive scale entity + real-world location — but aliens. Nobody owns this space yet.
+**Proven model:** AI giant creature/monster videos (#Megalophobia, #GiantCreature) consistently blow up with billions of views. Same formula but elevated: massive alien presence + genuine human shock captured raw.
 
 **Structure:**
-- **0-2 sec:** Calm establishing shot. Real city/landscape. Nothing wrong yet.
-- **3-6 sec:** Something appears. Shadow. Light shift. Scale slowly reveals.
-- **7-12 sec:** Full reveal. Massive. The scale hits you in the chest.
-- **13-15 sec:** Hard cut. DISCLOSURE watermark. Loop point.
+- **0-3 sec:** Normal life. Mundane, happy, relatable. The audience is comfortable.
+- **4-7 sec:** The reveal. Something massive is just THERE. No buildup. No warning.
+- **8-12 sec:** The human reaction. Raw. Breathing, trembling, can't look away. The contrast between normalcy and the impossible is the emotional payload.
 
 **Rules:**
-- No voiceover. No text explanation. Let the footage speak.
-- Must be LOOPABLE — ending feeds back to beginning for involuntary rewatches.
-- Silence/ambient sound only. The quiet makes it feel real and forces attention.
-- Different location every video. Recognizable skylines and landmarks.
+- Always center a HUMAN FACE reacting. The alien is what they see. The face is what WE feel.
+- Raw footage feel — phone camera, shaky, imperfect. Polished = fake. Raw = real.
+- No voiceover. No on-screen text. Minimal or no music. Real ambient sound.
+- The mundane context matters — birthday party, sports game, commute. The more normal the setup, the harder the impact lands.
 
 ---
 
 ### 2. 👽 FIRST WORDS — The Encounter
-**Length:** 11-15 seconds | **Goal:** Emotional depth, saves, rewatches
+**Length:** 13-15 seconds | **Goal:** Emotional depth, saves, rewatches
 
-Intimate, close-range first contact. Human face-to-face with an alien species for the first time. Not horror — wonder. Think the best 15 seconds of Arrival (2016). A hand extended. Eye contact between two completely different beings. A signal understood. Every second earns its place.
+Intimate, close-range first contact. A human discovers an alien doing something unexpectedly beautiful or compassionate. The alien is PROMINENT — fully visible, detailed, undeniable. The human's emotional breakdown upon realizing what they're witnessing is the payoff.
 
-**Proven model:** Hollywood micro-movies under 60 seconds are the #1 AI video trend. Sci-fi loops and alien encounters are a top-performing genre. Emotional content drives saves — the highest-value engagement signal in 2026.
+**Proven model:** Hollywood micro-movies under 60 seconds are the #1 AI video trend. Emotional content drives saves — the highest-value engagement signal in 2026.
 
 **Structure:**
-- **0-3 sec:** Human POV. Darkness or silence. Something is there.
-- **4-8 sec:** First sight. The alien revealed. Design is everything — beautiful or terrifying, never generic.
-- **9-13 sec:** The interaction AND payoff compressed. Hand extended, eyes meet, something unexpected.
-- **14-15 sec:** Hard cut. Species designation. DISCLOSURE.
+- **0-3 sec:** Human stumbles into the encounter. Unexpected. Unprepared.
+- **4-10 sec:** The alien is fully revealed and doing something that reframes everything — healing, communicating, protecting. The alien dominates the frame. Detail matters — anatomy, movement, skin, eyes.
+- **11-15 sec:** The human emotional collapse. Not fear — awe, grief, wonder, revelation. The face that says "everything I knew was wrong." Hard cut at peak emotion.
 
-**If the story needs more time:** Generate 2x Kling clips (8 sec each), stitch in CapCut. Shot 1: discovery. Shot 2: the moment. But try 15 seconds first — the constraint forces tighter storytelling.
+**Rules:**
+- Multi-shot when the story has two distinct emotional beats (discovery + connection). Single shot when one continuous moment is more powerful.
+- The alien must DO something — not just stand there. An action that reveals intelligence, empathy, or power.
+- No on-screen text. No voiceover.
+- Different alien species each video. Push the creature design — never generic greys.
 
 **Rules:**
 - Different alien species each video. Different encounter, different emotion.
@@ -75,69 +77,65 @@ Intimate, close-range first contact. Human face-to-face with an alien species fo
 ---
 
 ### 3. ⚡ THE SIGNAL — Phone to Sky
-**Length:** 11-18 seconds | **Goal:** Participatory trend, product funnel
+**Length:** 10-12 seconds | **Goal:** Participatory trend, product funnel
 
-Someone holds their phone to the sky, activates a signal — light pulses and frequency tones emit — and something in the sky RESPONDS. This IS the Universal Translator feature from the app, shown as spectacle.
+A person's phone does something it shouldn't — emits a signal, displays a message, triggers a response from something above. The phone is the bridge between human and alien. Quick, haunting, leaves you wanting to try it yourself.
 
-**Proven model:** Hand gesture trends are consistently TikTok's most viral formats. Bella Poarch's hand sign video hit 200M views in 24 hours. Participatory formats (viewers try it themselves) create exponential organic reach through duets/stitches.
+**Proven model:** Participatory formats create exponential organic reach through duets/stitches. The "phone as alien tool" concept is unique to Disclosure.
 
 **Structure:**
-- **0-2 sec:** Close-up on phone. App UI subtly visible.
-- **3-7 sec:** Phone points up. Signal transmits. Distinctive frequency tone (must be memorable/recognizable).
-- **8-14 sec:** The sky responds. Light. Movement. Something acknowledges.
-- **15-18 sec:** Person's reaction (no words). Cut. DISCLOSURE.
+- **0-2 sec:** Normal phone use. Something goes wrong — glitch, blackout, unauthorized signal.
+- **3-7 sec:** The phone connects to something. Pulse exchange. The sky/environment responds.
+- **8-10 sec:** The person's face. Realization. One pure expression of "this is real." Hard cut.
 
 **Rules:**
-- The phone-to-sky gesture should become the "Disclosure gesture" people replicate.
-- Each video = different signal, different response. Builds a catalog of transmissions.
-- Caption style: "It works." or "Signal received." — minimal, in-character, never break the fourth wall.
-- The app UI being visible is the product funnel. Not an ad — a tool being used.
-- Every response video/duet from viewers is free marketing.
+- Fastest format. Gut-punch in 10 seconds. No fat.
+- The phone interaction should feel like something viewers could replicate (or want to try).
+- Each video = different scenario, different response. A man in his truck, a teen on a roof, someone at a bus stop.
+- No on-screen text. The person's face at the end tells the whole story.
+- Caption: minimal, in-character. "It responded." or nothing at all.
 
 ---
 
 ### 4. 💀 STONE COLD — Don't Flinch
-**Length:** 11-15 seconds | **Goal:** Challenge format, duet-friendly, competitive
+**Length:** 10-12 seconds | **Goal:** Tension, horror-adjacent, duet-friendly
 
-Alien audio, strobing lights, escalating intensity — and someone trying to hold perfectly still while their phone tracks every micro-movement. This IS the Stone Cold Drills feature, presented as a challenge.
+Something alien in an everyday setting being deeply, fundamentally WRONG. Doorbell cameras. Security footage. Hospital corridors. The uncanny valley weaponized. The kind of video that makes you check your own front door.
 
-**Proven model:** "Don't flinch" challenge format has proven viral mechanics (12.7M+ views on individual videos). The tension of watching someone try NOT to react is inherently watchable — same instinct as horror. You can't look away. Challenge formats drive duets (exponential reach).
+**Proven model:** "Don't flinch" challenge format + creepytok horror (#creepytok averages 67.8K views/post — 3-4x higher than standard alien hashtags). Found-footage aesthetic triggers shares.
 
 **Structure:**
-- **0-2 sec:** "STONE COLD DRILL // INITIATING" CRT text.
-- **3-7 sec:** It starts. Alien sounds. Lights flash. Person stands still.
-- **8-12 sec:** Escalation. Sounds get worse. Something appears in periphery. Face strains.
-- **13-14 sec:** They either hold or break. Score: "CLEARED" or "FAILED."
-- **15 sec:** Hard cut. DISCLOSURE.
+- **0-4 sec:** Found footage. Normal setting. Something is there that shouldn't be. Stillness.
+- **5-9 sec:** It does something. Moves wrong. Gets closer. Reveals a detail that makes your skin crawl.
+- **10-12 sec:** The payoff. A human discovers it, a door opens, a light turns on. Hard cut at the worst possible moment.
 
 **Rules:**
-- The escalation is everything. Must genuinely intensify — not boring static.
-- The scoring mechanic from the app makes it competitive. People want to beat the score.
+- Found-footage aesthetic — doorbell cams, security cameras, dashcams, phone footage. The format IS the horror.
+- The alien should be almost-but-not-quite human, or completely alien in a mundane space. The contrast is the scare.
 - Must feel uncomfortable to watch. If the viewer doesn't tense up, it's too weak.
-- Different difficulty levels across videos. Show people failing AND succeeding.
-- Caption: "Level 7. Most people break at 4."
+- Always cut BEFORE the resolution. Let the viewer's imagination finish the scene.
+- Caption: timestamp format. "02.27.26 // 3:04 AM" — nothing else.
 
 ---
 
 ### 5. 🧬 SPECIES FILE — The Xeno Catalog
-**Length:** 11-15 seconds | **Goal:** Binge catalog, identity/archetype tie-in
+**Length:** 12-13 seconds | **Goal:** Binge catalog, emotional depth, world-building
 
-Short, stylized reveal videos of different alien species. Nature-documentary-meets-classified-briefing. Each video introduces one species — how it moves, communicates, what makes it dangerous or fascinating. Military CRT text overlays with species designation, origin, threat level.
+An alien species encountered in a deeply human context — interacting with a child, appearing in a home, showing up where they don't belong. Each video reveals a new species through an intimate moment that makes you feel something unexpected about a being that isn't human.
 
-**Proven model:** AI creature design reveals (#CreatureDesign, #AIArt, #Lovecraftian, #DarkFantasy) are high-performing. Combined with the MBTI/personality type obsession on TikTok — identity content ("which one are you?") consistently drives massive engagement across every niche.
+**Proven model:** AI creature design reveals (#CreatureDesign, #AIArt) are high-performing. Combined with emotional human moments = scroll-stopping creature reveals that also make you FEEL.
 
 **Structure:**
-- **0-3 sec:** CRT boot screen. "SPECIES DATAFILE // [DESIGNATION]" text. Classification graphics.
-- **4-8 sec:** The reveal. Slow rotation or emergence. Full cinematic detail.
-- **9-12 sec:** Key trait shown — how it moves, communicates, or threatens.
-- **13-15 sec:** "RECOMMENDED LIAISON: [ARCHETYPE]" text. DISCLOSURE. Link.
+- **0-3 sec:** Domestic/intimate setting. Something is already happening.
+- **4-10 sec:** The alien is fully visible, interacting. It dominates the frame. Incredible creature design — unique anatomy, skin textures, movement patterns. It's DOING something that reveals its nature.
+- **11-13 sec:** The emotional beat. The human's face. Or the alien does something that changes everything you assumed. Hard cut.
 
 **Rules:**
-- Every species must be visually distinctive. No generic grey aliens. Push the design.
-- Each species ties to an archetype: "This one requires a Sentinel" or "Only Diplomats survive this encounter."
-- Collectible format — people binge the whole catalog, then take the quiz.
-- Build a consistent visual language for the species files (same CRT frame, same reveal style).
-- New species weekly. Build the universe one file at a time.
+- Every species must be radically different. Push anatomy, scale, texture, movement.
+- The alien must interact with something human — a child, a pet, an object. The interaction reveals character.
+- No on-screen text. No CRT overlays. Let the creature and the moment speak.
+- Collectible format — people binge the whole catalog. New species regularly.
+- The emotional hook is mandatory. Beautiful, eerie, tender, unsettling — but never boring.
 
 ---
 
@@ -189,7 +187,8 @@ Create once, reuse on every video:
 - **Minimum:** 1 video/day across all 3 platforms
 - **Peak days:** Tue/Thu/Sat (highest TikTok engagement)
 - **Best times:** 7-9 AM, 12-3 PM, 7-10 PM (target EST + PST)
-- **Format rotation:** ARRIVAL → FIRST WORDS → SIGNAL → STONE COLD → SPECIES FILE → repeat
+- **Format rotation:** ARRIVAL (12s) → FIRST WORDS (15s) → SIGNAL (10s) → STONE COLD (12s) → SPECIES FILE (13s) → repeat
+- **Average duration per cycle:** 12.4 seconds (vs 15s flat = ~18% cost savings)
 
 ### The Funnel
 ```
@@ -204,14 +203,25 @@ Video (TikTok/IG/YT)
 
 ---
 
-## What We Don't Do
+## Creative Philosophy — THE SCROLL TEST
 
+Before publishing ANY video, ask: **would I send this to a friend unprompted?** If no, it doesn't ship.
+
+**What makes our videos work:**
+- A HUMAN FACE reacting. The alien is what they see. The face is what WE feel.
+- One moment. One emotion. No plot. No setup. Just the impact.
+- The contrast between normalcy and the impossible — the more mundane the setup, the harder the alien lands.
+- Raw over polished. Shaky phone footage > smooth cinema. Imperfect = believable.
+- Cut BEFORE the resolution. The viewer's imagination finishes the scene. That's what triggers shares.
+
+**What we don't do:**
 - ❌ Fake sighting footage trying to trick people
 - ❌ News commentary or reaction content
-- ❌ Voiceover explaining things
+- ❌ Voiceover or on-screen text explaining things
 - ❌ "What do you think?" engagement bait
 - ❌ Behind-the-scenes or "how we made this"
-- ❌ Any video that doesn't deliver spectacle, emotion, or tension
+- ❌ Generic sci-fi wallpaper with no human in it
+- ❌ Any video you'd scroll past yourself
 - ❌ Breaking character or the fourth wall
 
 ---
