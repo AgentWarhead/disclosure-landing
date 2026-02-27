@@ -142,17 +142,37 @@ Short, stylized reveal videos of different alien species. Nature-documentary-mee
 
 ## Production Pipeline
 
-### Tools
+### AI Video Generators — Which to Use Where
+
+**Kling 3.0** — Primary weapon for visual spectacle and creature work.
+- 8.1/10 review score (highest-rated AI video model, Feb 2026)
+- Native 4K @ 60fps, multi-shot sequences (3-15s with scene transitions)
+- Best-in-class image-to-video (design alien stills first, then animate)
+- Motion Brush for targeted movement control
+- ~$0.10/sec (~$1.50 per 15-second clip)
+
+**Grok Imagine** — Speed and audio weapon.
+- Best native audio generation (dialogue, ambient sound, lip-sync baked in)
+- Half the cost: $0.05/sec (~$0.75 per 15-second clip)
+- Fastest iteration speed (generate → tweak → regenerate quickly)
+- Best at following cinematic camera instructions (pans, zooms, transitions)
+
+| Format | Generator | Why |
+|--------|-----------|-----|
+| ARRIVAL | **Kling 3.0** | Need highest visual fidelity for massive-scale spectacle. 4K matters. |
+| FIRST WORDS | **Kling 3.0** | Image-to-video workflow: design the alien species as a still, then animate. Multi-shot for the story arc. |
+| THE SIGNAL | **Grok Imagine** | Speed + audio. The frequency tone and sky response need great sound design. Fast iteration to test variations. |
+| STONE COLD | **Grok Imagine** | Audio is critical — alien sounds, escalating intensity. Grok's native audio is best for this. Fast iteration to dial scare levels. |
+| SPECIES FILE | **Kling 3.0** | Image-to-video. Design the species as a still, then bring to life with precise motion control. |
+
+**Budget:** ~$50-100/month for daily content production across both tools.
+
+### Supporting Tools
 | Tool | Use |
 |------|-----|
-| Runway Gen-3 Alpha | Primary AI video generation (highest quality) |
-| Kling AI | Realistic human/alien scenes |
-| Seedance 2.0 | Quick TikTok-native AI videos |
-| Veo 3 (Google) | Long coherent sequences (if available) |
-| Pika | Quick stylized loops |
-| ElevenLabs (sag) | Voiceover/sound design (already set up) |
-| nano-banana-pro | Thumbnails/stills (already set up) |
-| CapCut/Premiere | CRT overlay template, final editing |
+| ElevenLabs (sag) | Custom voiceover/sound design when needed (already set up) |
+| nano-banana-pro | Alien stills/thumbnails for image-to-video pipeline (already set up) |
+| CapCut/Premiere | CRT overlay template, final editing, looping |
 
 ### CRT Overlay Template
 Create once, reuse on every video:
