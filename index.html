@@ -566,8 +566,17 @@
       body{cursor:auto}
       body::after{display:none}
       .svg-anim{display:none}
-      .quiz-radar{width:300px;height:300px}
+      .quiz-radar{width:260px;height:260px;overflow:hidden}
       .quiz-data-frag{display:none}
+      /* Belt-and-suspenders: no horizontal scroll anywhere */
+      html,body{overflow-x:hidden;max-width:100vw}
+      /* Hero title safe scaling */
+      .hero-h{font-size:clamp(58px,15vw,90px);white-space:normal;word-break:break-word}
+      /* Rules watermark — remove to avoid overflow */
+      .rules-bg{display:none}
+      /* Footer nav links — allow wrap */
+      .ft-nav{flex-wrap:wrap;gap:4px}
+      .ft-nav a{border-right:none;padding:4px 8px}
     }
 
     /* Reduce motion for accessibility */
@@ -671,7 +680,7 @@
     /* ARCHETYPE IDENTITY CARDS — v2 HOLOGRAPHIC */
     .arch-cards-wrap{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;max-width:1200px;margin:0 auto;perspective:1200px}
     @media(max-width:700px){
-      .arch-cards-wrap{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;justify-content:flex-start;-webkit-overflow-scrolling:touch}
+      .arch-cards-wrap{flex-wrap:nowrap;overflow-x:auto;overflow-y:visible;scroll-snap-type:x mandatory;padding-bottom:16px;justify-content:flex-start;-webkit-overflow-scrolling:touch;max-width:100%}
       .arch-cards-wrap::-webkit-scrollbar{height:2px;background:rgba(255,255,255,.05)}
       .arch-cards-wrap::-webkit-scrollbar-thumb{background:rgba(74,246,38,.3);border-radius:1px}
     }
@@ -1250,7 +1259,7 @@
   </section>
 
   <!-- 7. ARCHETYPE CARDS -->
-  <section id="social-proof" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)">
+  <section id="social-proof" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04);overflow:hidden">
     <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(74,246,38,.65);margin-bottom:16px">// ARCHETYPE CLASSIFICATION — ACTIVE PROFILES //</div>
     <h2 class="sr" style="font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Four archetypes.<br>One determines everything.</h2>
     <p class="sr" style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.68);margin-bottom:56px">When it happens, your role is already assigned. Most people won't know theirs.</p>
