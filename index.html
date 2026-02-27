@@ -144,7 +144,8 @@
       --redacted-bg:#111411;--redacted-text:rgba(255,255,255,0.03)
     }
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-    body{background:var(--bg-void);color:#fff;font-family:var(--font-body);overflow-x:hidden;cursor:crosshair;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    html{overflow-x:hidden;width:100%}
+    body{background:var(--bg-void);color:#fff;font-family:var(--font-body);overflow-x:hidden;width:100%;cursor:crosshair;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
     /* SCANLINES */
     body::after{content:'';position:fixed;inset:0;
@@ -202,7 +203,7 @@
     #eye-canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
     .hero-vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 50%,transparent 30%,rgba(0,0,0,.4) 60%,rgba(0,0,0,.85) 100%)}
     .hero-fade-bottom{position:absolute;bottom:0;left:0;right:0;height:30vh;z-index:1;pointer-events:none;background:linear-gradient(to bottom,transparent,#000)}
-    .hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;max-width:900px}
+    .hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;max-width:900px;width:100%;box-sizing:border-box}
     .hero-layer{opacity:0;transform:translateY(30px);transition:none;will-change:opacity,transform}
     .hero-layer.active{opacity:1;transform:translateY(0)}
 
@@ -401,7 +402,7 @@
 
     /* PRODUCT SHOWCASE V6 — Theatrical Slideshow */
     #freq-dial{position:relative;padding:40px 24px;text-align:center}
-    .fd-card{max-width:900px;margin:0 auto;background-color:#0a1a1a;background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('asset-bg-alien.webp') center/cover no-repeat;border-radius:8px;border:1px solid rgba(74,246,38,.2);box-shadow:0 4px 40px rgba(0,0,0,.5);padding:36px 40px;position:relative;text-align:center;overflow:hidden;height:920px}
+    .fd-card{max-width:900px;width:100%;box-sizing:border-box;margin:0 auto;background-color:#0a1a1a;background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('asset-bg-alien.webp') center/cover no-repeat;border-radius:8px;border:1px solid rgba(74,246,38,.2);box-shadow:0 4px 40px rgba(0,0,0,.5);padding:36px 40px;position:relative;text-align:center;overflow:hidden;height:920px}
     /* Glitch flash effect */
     .fd-card.fd-glitch{filter:brightness(1.3) contrast(1.2)}
     /* Scan line */
@@ -463,7 +464,8 @@
     @keyframes ctaPulse{0%,100%{box-shadow:0 0 30px rgba(74,246,38,.25),0 0 60px rgba(74,246,38,.1)}50%{box-shadow:0 0 40px rgba(74,246,38,.35),0 0 80px rgba(74,246,38,.2)}}
     .fd-cta-urgency{font-family:var(--mono);font-size:12px;color:rgba(255,255,255,0.4);margin-top:12px}
     @media(max-width:600px){
-      #freq-dial{padding:20px 8px}
+      #freq-dial{padding:20px 12px}
+      .fd-card{padding:24px 16px!important;height:auto!important;min-height:780px}
       .fd-card{padding:24px 14px;height:auto}
       .fd-content{height:auto;overflow:visible}
       .fd-feat-img-wrap{height:200px;max-width:100%;padding:0;box-sizing:border-box}
