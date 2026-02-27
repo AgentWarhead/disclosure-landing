@@ -144,8 +144,7 @@
       --redacted-bg:#111411;--redacted-text:rgba(255,255,255,0.03)
     }
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-    html{overflow-x:hidden;width:100%}
-    body{background:var(--bg-void);color:#fff;font-family:var(--font-body);overflow-x:hidden;width:100%;cursor:crosshair;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    body{background:var(--bg-void);color:#fff;font-family:var(--font-body);overflow-x:hidden;cursor:crosshair;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
     /* SCANLINES */
     body::after{content:'';position:fixed;inset:0;
@@ -203,7 +202,7 @@
     #eye-canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
     .hero-vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 50%,transparent 30%,rgba(0,0,0,.4) 60%,rgba(0,0,0,.85) 100%)}
     .hero-fade-bottom{position:absolute;bottom:0;left:0;right:0;height:30vh;z-index:1;pointer-events:none;background:linear-gradient(to bottom,transparent,#000)}
-    .hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;max-width:900px;width:100%;box-sizing:border-box}
+    .hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;max-width:900px}
     .hero-layer{opacity:0;transform:translateY(30px);transition:none;will-change:opacity,transform}
     .hero-layer.active{opacity:1;transform:translateY(0)}
 
