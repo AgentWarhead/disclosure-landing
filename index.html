@@ -1321,31 +1321,61 @@
 
 
 
-  <!-- 9. CARD PREVIEW — moved: peak desire just before quiz -->
-  <section id="card-preview" style="padding:80px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)">
-    <div class="cp-eyebrow sr">// FIRST CONTACT CREDENTIAL — CLASSIFICATION PENDING //</div>
-    <h2 class="cp-h sr" style="margin-bottom:10px">A credential has been generated for you.</h2>
-    <p class="cp-sub sr" style="margin-bottom:40px">Serial number assigned. Archetype field: blank. Awaiting your assessment.</p>
+  <!-- 9. CARD PREVIEW — peak desire just before quiz -->
+  <section id="card-preview" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(74,246,38,.06);position:relative;overflow:hidden">
+    <!-- Background glow -->
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(74,246,38,.06) 0%,transparent 70%);pointer-events:none"></div>
 
-    <!-- Mystery blurred card -->
-    <div class="sr mystery-card-wrap" style="margin-bottom:36px">
-      <div class="mystery-card">
-        <div class="ac-laser"></div>
-        <span class="fcc-logo" style="opacity:.4">◉ DISCLOSURE PROTOCOL</span>
-        <span class="fcc-title" style="font-size:13px;display:block;margin:8px 0 14px">FIRST CONTACT CARD — ISSUED</span>
-        <div class="fcc-row"><span class="fcc-label">ARCHETYPE</span><span class="fcc-val" style="letter-spacing:.1em">████████████</span></div>
-        <div class="fcc-row"><span class="fcc-label">SERIAL</span><span class="fcc-val green" style="font-size:11px">DS-2026-?????</span></div>
-        <div class="fcc-row"><span class="fcc-label">STATUS</span><span class="fcc-val amber">PENDING CLEARANCE</span></div>
-        <div class="fcc-wallet" style="margin-top:14px">CLASSIFICATION REQUIRED</div>
-      </div>
-      <div class="mystery-card-overlay">
-        <div class="mystery-pulse"></div>
-        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.35em;color:rgba(74,246,38,.85)">UNCLASSIFIED</div>
-        <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.45)">ARCHETYPE REQUIRED</div>
+    <div class="cp-eyebrow sr">// FIRST CONTACT CREDENTIAL — CLASSIFICATION PENDING //</div>
+    <h2 class="cp-h sr" style="margin-bottom:12px">Your card has already been generated.</h2>
+    <p class="cp-sub sr" style="margin-bottom:48px;max-width:480px;margin-left:auto;margin-right:auto">A serial number was assigned the moment you opened this page. The only field still blank is the one that matters most.</p>
+
+    <!-- Centered card with dramatic presentation -->
+    <div class="sr" style="display:flex;justify-content:center;align-items:center;margin-bottom:48px">
+      <div style="position:relative">
+        <!-- The card itself -->
+        <div style="background:#050a05;border:1px solid rgba(74,246,38,.25);padding:32px 36px;width:380px;max-width:90vw;text-align:left;font-family:var(--mono);position:relative;overflow:hidden;box-shadow:0 0 60px rgba(74,246,38,.08),0 20px 60px rgba(0,0,0,.5)">
+          <!-- Scanline overlay -->
+          <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(74,246,38,.02) 1px,rgba(74,246,38,.02) 2px);pointer-events:none"></div>
+          <!-- Laser scan -->
+          <div class="ac-laser"></div>
+
+          <span style="color:var(--crt-green);font-size:9px;letter-spacing:.3em;display:block;margin-bottom:14px;opacity:.5">◉ DISCLOSURE PROTOCOL</span>
+          <span style="font-size:15px;font-weight:700;color:#fff;display:block;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(74,246,38,.15)">FIRST CONTACT CARD — ISSUED</span>
+
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px">
+            <span style="color:rgba(255,255,255,.5);letter-spacing:.1em">ARCHETYPE</span>
+            <span style="color:rgba(255,255,255,.15);letter-spacing:.15em;font-size:14px">██████████</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px">
+            <span style="color:rgba(255,255,255,.5);letter-spacing:.1em">READINESS</span>
+            <span style="color:rgba(251,191,36,.8);font-size:11px">UNVERIFIED</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px">
+            <span style="color:rgba(255,255,255,.5);letter-spacing:.1em">SERIAL</span>
+            <span style="color:var(--crt-green);font-size:11px">DS-2026-?????</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:0;font-size:12px">
+            <span style="color:rgba(255,255,255,.5);letter-spacing:.1em">STATUS</span>
+            <span style="color:#ef4444;font-weight:700;font-size:11px;letter-spacing:.05em">⊘ INCOMPLETE</span>
+          </div>
+
+          <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.05);text-align:center;font-size:9px;letter-spacing:.25em;color:rgba(255,255,255,.15)">COMPLETE ASSESSMENT TO ACTIVATE</div>
+        </div>
+
+        <!-- Blurred overlay with pulsing lock -->
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(0,0,0,.35);backdrop-filter:blur(1.5px)">
+          <div style="width:48px;height:48px;border:2px solid rgba(74,246,38,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;animation:pulse 2s ease-in-out infinite;box-shadow:0 0 20px rgba(74,246,38,.15)">
+            <span style="font-size:20px">🔒</span>
+          </div>
+          <div style="font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(74,246,38,.9);font-weight:700">LOCKED</div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.4)">ARCHETYPE ASSESSMENT REQUIRED</div>
+        </div>
       </div>
     </div>
 
-    <span class="reticle-wrap sr"><a href="#quiz" class="cta-btn" style="font-size:12px;padding:14px 36px">CLASSIFY YOURSELF →</a><span class="rt tl"></span><span class="rt tr"></span><span class="rt bl"></span><span class="rt br"></span></span>
+    <span class="reticle-wrap sr"><a href="#quiz" class="cta-btn" style="font-size:13px;padding:16px 44px">UNLOCK YOUR CARD →</a><span class="rt tl"></span><span class="rt tr"></span><span class="rt bl"></span><span class="rt br"></span></span>
+    <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.2);margin-top:20px">CARDS ARE NON-TRANSFERABLE. ONE PER CIVILIAN.</div>
   </section>
 
   <!-- 10. QUIZ -->
