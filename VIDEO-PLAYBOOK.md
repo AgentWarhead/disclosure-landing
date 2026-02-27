@@ -8,7 +8,7 @@
 - **Every video demands attention.** No filler. No hobbyist content. Every release delivers.
 - **Cinematic spectacle, not deception.** Obviously produced, jaw-droppingly cool. Not fake sightings.
 - **First contact is the brand.** Every video lives in the Disclosure universe.
-- **11-30 seconds max.** Optimized for 70%+ completion rate (the 2026 viral threshold).
+- **11-15 seconds per clip.** Kling 3.0 and Grok Imagine both max at 15s. For anything longer, stitch 2 clips in CapCut. But shorter is stronger — the 11-15s range is the proven viral sweet spot anyway.
 - **Hook in 3 seconds.** Pattern interrupt every 3-5 seconds. Zero fluff.
 - **Shares > Likes.** Algorithm prioritizes watch time, completion, replays, shares, saves — in that order.
 
@@ -52,18 +52,19 @@ Massive-scale first contact moments. A ship emerging over a city. Lights appeari
 ---
 
 ### 2. 👽 FIRST WORDS — The Encounter
-**Length:** 21-30 seconds | **Goal:** Emotional depth, saves, rewatches
+**Length:** 11-15 seconds | **Goal:** Emotional depth, saves, rewatches
 
-Intimate, close-range first contact. Human face-to-face with an alien species for the first time. Not horror — wonder. Think Arrival (2016) compressed into 25 seconds. A hand extended. Eye contact between two completely different beings. A signal understood.
+Intimate, close-range first contact. Human face-to-face with an alien species for the first time. Not horror — wonder. Think the best 15 seconds of Arrival (2016). A hand extended. Eye contact between two completely different beings. A signal understood. Every second earns its place.
 
 **Proven model:** Hollywood micro-movies under 60 seconds are the #1 AI video trend. Sci-fi loops and alien encounters are a top-performing genre. Emotional content drives saves — the highest-value engagement signal in 2026.
 
 **Structure:**
 - **0-3 sec:** Human POV. Darkness or silence. Something is there.
-- **4-10 sec:** First sight. The alien revealed. Design is everything — beautiful or terrifying, never generic.
-- **11-20 sec:** The interaction. Hand extended. Eyes meet. A sound exchanged. The moment.
-- **21-28 sec:** Emotional payoff. Something unexpected — it reaches back, it speaks, it leaves.
-- **Last 2 sec:** Cut to classified briefing text. Species designation. DISCLOSURE.
+- **4-8 sec:** First sight. The alien revealed. Design is everything — beautiful or terrifying, never generic.
+- **9-13 sec:** The interaction AND payoff compressed. Hand extended, eyes meet, something unexpected.
+- **14-15 sec:** Hard cut. Species designation. DISCLOSURE.
+
+**If the story needs more time:** Generate 2x Kling clips (8 sec each), stitch in CapCut. Shot 1: discovery. Shot 2: the moment. But try 15 seconds first — the constraint forces tighter storytelling.
 
 **Rules:**
 - Different alien species each video. Different encounter, different emotion.
@@ -96,7 +97,7 @@ Someone holds their phone to the sky, activates a signal — light pulses and fr
 ---
 
 ### 4. 💀 STONE COLD — Don't Flinch
-**Length:** 15-25 seconds | **Goal:** Challenge format, duet-friendly, competitive
+**Length:** 11-15 seconds | **Goal:** Challenge format, duet-friendly, competitive
 
 Alien audio, strobing lights, escalating intensity — and someone trying to hold perfectly still while their phone tracks every micro-movement. This IS the Stone Cold Drills feature, presented as a challenge.
 
@@ -104,10 +105,10 @@ Alien audio, strobing lights, escalating intensity — and someone trying to hol
 
 **Structure:**
 - **0-2 sec:** "STONE COLD DRILL // INITIATING" CRT text.
-- **3-8 sec:** It starts. Alien sounds. Lights flash. Person stands still.
-- **9-18 sec:** Escalation. Sounds get worse. Something appears in periphery. Face strains.
-- **19-22 sec:** They either hold or break. Score appears. "CLEARED" or "FAILED."
-- **23-25 sec:** "Can you beat this?" DISCLOSURE.
+- **3-7 sec:** It starts. Alien sounds. Lights flash. Person stands still.
+- **8-12 sec:** Escalation. Sounds get worse. Something appears in periphery. Face strains.
+- **13-14 sec:** They either hold or break. Score: "CLEARED" or "FAILED."
+- **15 sec:** Hard cut. DISCLOSURE.
 
 **Rules:**
 - The escalation is everything. Must genuinely intensify — not boring static.
@@ -146,14 +147,16 @@ Short, stylized reveal videos of different alien species. Nature-documentary-mee
 
 **Kling 3.0** — Primary weapon for visual spectacle and creature work.
 - 8.1/10 review score (highest-rated AI video model, Feb 2026)
-- Native 4K @ 60fps, multi-shot sequences (3-15s with scene transitions)
+- Native 4K @ 60fps, multi-shot sequences (up to 15s max per generation)
 - Best-in-class image-to-video (design alien stills first, then animate)
 - Motion Brush for targeted movement control
 - ~$0.10/sec (~$1.50 per 15-second clip)
+- **15 second max per clip.** For longer videos, generate multiple clips and stitch in CapCut.
 
 **Grok Imagine** — Speed and audio weapon.
 - Best native audio generation (dialogue, ambient sound, lip-sync baked in)
 - Half the cost: $0.05/sec (~$0.75 per 15-second clip)
+- **15 second max per clip.** Same as Kling — stitch in CapCut if needed.
 - Fastest iteration speed (generate → tweak → regenerate quickly)
 - Best at following cinematic camera instructions (pans, zooms, transitions)
 
