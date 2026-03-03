@@ -1,1 +1,5 @@
 deploy.sh
+
+.env
+.env.*
+.env.local
