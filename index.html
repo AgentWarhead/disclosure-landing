@@ -1211,6 +1211,230 @@
     <div style="font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.2);margin-top:20px" class="sr">CLEARANCE: PUBLIC // REDACTIONS PENDING</div>
   </section>
 
+  <!-- SPECIES THREAT MATRIX -->
+  <section id="species-threat-matrix">
+  <style>
+    #species-threat-matrix{background:#000;border-top:1px solid rgba(74,246,38,0.12);padding:100px 24px;font-family:var(--mono)}
+    .stm-inner{max-width:1100px;margin:0 auto;text-align:center}
+    .stm-kicker{font-size:11px;letter-spacing:.3em;color:rgba(74,246,38,0.6);margin-bottom:20px;display:block}
+    .stm-h2{font-size:clamp(36px,6vw,72px);font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.05;margin-bottom:24px;font-family:var(--mono)}
+    .stm-subtext{font-size:16px;color:rgba(255,255,255,0.55);max-width:600px;margin:0 auto 70px;line-height:1.75;text-align:center}
+    .stm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px;margin:0 auto 40px;text-align:left}
+    @media(max-width:640px){.stm-grid{grid-template-columns:1fr}}
+    .stm-card{background:rgba(255,255,255,0.02);border:1px solid rgba(74,246,38,0.15);overflow:hidden;position:relative;transition:transform .3s,border-color .3s,box-shadow .3s;cursor:default}
+    .stm-card:hover{transform:scale(1.02);border-color:rgba(74,246,38,0.4);box-shadow:0 0 40px rgba(74,246,38,0.08)}
+    .stm-portrait-wrap{position:relative;height:220px;overflow:hidden;background:#000}
+    .stm-portrait{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+    .stm-scanlines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.15) 2px,rgba(0,0,0,0.15) 4px);pointer-events:none}
+    .stm-glitch{position:absolute;inset:0;background:rgba(74,246,38,0.03);pointer-events:none;mix-blend-mode:screen;animation:stmGlitchFlicker 4s infinite}
+    @keyframes stmGlitchFlicker{0%,95%,100%{opacity:0;transform:translateX(0)}96%{opacity:1;transform:translateX(-3px)}97%{opacity:0;transform:translateX(3px)}98%{opacity:1;transform:translateX(-2px)}}
+    .stm-threat-badge{position:absolute;top:12px;right:12px;font-size:9px;letter-spacing:.2em;font-weight:700;font-family:var(--mono);padding:4px 10px;border:1px solid}
+    .stm-badge-high{color:#FFD700;border-color:#FFD700;background:rgba(255,215,0,0.08)}
+    .stm-badge-critical{color:#FF4444;border-color:#FF4444;background:rgba(255,68,68,0.1);animation:stmPulse 2s infinite}
+    .stm-badge-conditional{color:#4AF626;border-color:#4AF626;background:rgba(74,246,38,0.08)}
+    @keyframes stmPulse{0%,100%{box-shadow:0 0 8px rgba(255,68,68,0.4)}50%{box-shadow:0 0 20px rgba(255,68,68,0.8)}}
+    .stm-card-body{padding:20px}
+    .stm-designation{font-size:9px;letter-spacing:.25em;color:rgba(255,255,255,0.35);margin-bottom:6px;display:block}
+    .stm-name{font-size:22px;font-weight:800;color:#fff;letter-spacing:.05em;margin:0 0 10px;display:block}
+    .stm-personality{font-size:13px;color:rgba(74,246,38,0.8);line-height:1.5;margin-bottom:16px;font-style:italic}
+    .stm-survival-rule{border-left:2px solid rgba(255,215,0,0.4);padding-left:12px;margin-bottom:14px}
+    .stm-sr-label{font-size:9px;letter-spacing:.2em;color:rgba(255,215,0,0.6);display:block;margin-bottom:6px}
+    .stm-sr-text{font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;margin:0}
+    .stm-redacted{color:#FF4444;font-weight:700}
+    .stm-unlock-bar{font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,0.3);border-top:1px solid rgba(255,255,255,0.06);padding-top:12px;display:flex;align-items:center;gap:8px}
+    .stm-anunnaki{max-width:900px;margin:0 auto 60px;border:1px solid rgba(255,68,68,0.35);background:rgba(255,68,68,0.03);position:relative;overflow:hidden;animation:stmAnunnakiBorder 3s ease-in-out infinite}
+    @keyframes stmAnunnakiBorder{0%,100%{box-shadow:0 0 20px rgba(255,68,68,0.15),inset 0 0 20px rgba(255,68,68,0.02)}50%{box-shadow:0 0 50px rgba(255,68,68,0.35),inset 0 0 40px rgba(255,68,68,0.06)}}
+    .stm-anunnaki-inner{display:flex;align-items:stretch}
+    @media(max-width:640px){.stm-anunnaki-inner{flex-direction:column}}
+    .stm-anunnaki-portrait{width:35%;flex-shrink:0;position:relative;overflow:hidden;background:#000;min-height:320px}
+    @media(max-width:640px){.stm-anunnaki-portrait{width:100%;min-height:220px}}
+    .stm-anunnaki-portrait img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+    .stm-anunnaki-content{flex:1;padding:36px 32px;text-align:left;position:relative}
+    @media(max-width:640px){.stm-anunnaki-content{padding:24px 20px}}
+    .stm-classified-watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-25deg);font-size:clamp(60px,10vw,120px);font-weight:900;letter-spacing:.2em;color:rgba(255,68,68,0.06);pointer-events:none;white-space:nowrap;font-family:var(--mono)}
+    .stm-clearance-btn{display:inline-block;margin-top:20px;padding:12px 32px;border:1px solid #FFD700;color:#FFD700;background:transparent;font-family:var(--mono);font-size:10px;letter-spacing:.2em;font-weight:700;text-decoration:none;transition:background .2s,color .2s;cursor:pointer}
+    .stm-clearance-btn:hover{background:#FFD700;color:#000}
+    .stm-red-scanlines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,68,68,0.08) 2px,rgba(255,68,68,0.08) 4px);pointer-events:none}
+    .stm-glitch-red{position:absolute;inset:0;background:rgba(255,68,68,0.03);pointer-events:none;mix-blend-mode:screen;animation:stmGlitchFlicker 3s infinite}
+    .stm-glitch-red2{position:absolute;inset:0;background:rgba(255,68,68,0.02);pointer-events:none;mix-blend-mode:screen;animation:stmGlitchFlicker 5s 1s infinite}
+  </style>
+
+  <div class="stm-inner">
+    <span class="stm-kicker">[ DECLASSIFIED INTELLIGENCE REPORT — NHI CONTACT REGISTRY ]</span>
+    <h2 class="stm-h2">6 Confirmed Alien Species.<br>Ranked By Threat.</h2>
+    <p class="stm-subtext">The government has spent 80 years deciding what you're allowed to know. Six non-human intelligences have been documented in contact events worldwide — each with distinct intent, distinct psychology, and a distinct threat profile. This is the alien survival intelligence you were never given. Your readiness score determines what gets declassified.</p>
+
+    <!-- 5-card grid -->
+    <div class="stm-grid">
+
+      <!-- 1. THE GREY -->
+      <div class="stm-card">
+        <div class="stm-portrait-wrap">
+          <img class="stm-portrait" src="species-01-grey.png" alt="Grey alien species threat classification" style="filter:grayscale(30%) brightness(0.65) contrast(1.2);opacity:0.75">
+          <div class="stm-scanlines"></div>
+          <div class="stm-glitch"></div>
+          <span class="stm-threat-badge stm-badge-high">THREAT: HIGH</span>
+        </div>
+        <div class="stm-card-body">
+          <span class="stm-designation">TYPE-II RETRIEVAL CLASS</span>
+          <span class="stm-name">THE GREY</span>
+          <p class="stm-personality">"Collectors. Methodical. Emotionless. Your memories are the inventory."</p>
+          <div class="stm-survival-rule">
+            <span class="stm-sr-label">SURVIVAL PROTOCOL — PARTIAL DECLASSIFICATION</span>
+            <p class="stm-sr-text">Do not resist. Do not make sudden movements. If you feel your memories beginning to— <span class="stm-redacted">[SIGNAL LOST]</span></p>
+          </div>
+          <div class="stm-unlock-bar">🔒 FULL DOSSIER — READINESS SCORE: 20 REQUIRED</div>
+        </div>
+      </div>
+
+      <!-- 2. THE NORDIC -->
+      <div class="stm-card">
+        <div class="stm-portrait-wrap">
+          <img class="stm-portrait" src="species-02-nordic.png" alt="Nordic alien species threat classification" style="filter:grayscale(10%) brightness(0.8);opacity:0.85">
+          <div class="stm-scanlines"></div>
+          <div class="stm-glitch"></div>
+          <span class="stm-threat-badge stm-badge-conditional">THREAT: CONDITIONAL</span>
+        </div>
+        <div class="stm-card-body">
+          <span class="stm-designation">TYPE-I OBSERVER CLASS</span>
+          <span class="stm-name">THE NORDIC</span>
+          <p class="stm-personality">"Watchers. They have studied us for millennia. If they appear, something has changed."</p>
+          <div class="stm-survival-rule">
+            <span class="stm-sr-label">SURVIVAL PROTOCOL — PARTIAL DECLASSIFICATION</span>
+            <p class="stm-sr-text">They will not initiate contact unprompted. If they approach you directly, it means you have already been— <span class="stm-redacted">[SIGNAL LOST]</span></p>
+          </div>
+          <div class="stm-unlock-bar">🔒 FULL DOSSIER — READINESS SCORE: 40 REQUIRED</div>
+        </div>
+      </div>
+
+      <!-- 3. THE REPTILIAN -->
+      <div class="stm-card">
+        <div class="stm-portrait-wrap">
+          <img class="stm-portrait" src="species-03-reptilian.png" alt="Reptilian alien species threat classification" style="filter:grayscale(60%) brightness(0.55) contrast(1.4);opacity:0.65">
+          <div class="stm-scanlines"></div>
+          <div class="stm-glitch"></div>
+          <span class="stm-threat-badge stm-badge-critical">THREAT: CRITICAL</span>
+        </div>
+        <div class="stm-card-body">
+          <span class="stm-designation">TYPE-III APEX PREDATOR</span>
+          <span class="stm-name">THE REPTILIAN</span>
+          <p class="stm-personality">"Predator. Hierarchical. Ancient. They were here before us. They intend to remain after."</p>
+          <div class="stm-survival-rule">
+            <span class="stm-sr-label">SURVIVAL PROTOCOL — PARTIAL DECLASSIFICATION</span>
+            <p class="stm-sr-text">Submit immediately or be classified as prey. Hierarchy is the only language they respect. Show— <span class="stm-redacted">[SIGNAL LOST]</span></p>
+          </div>
+          <div class="stm-unlock-bar">🔒 FULL DOSSIER — READINESS SCORE: 60 REQUIRED</div>
+        </div>
+      </div>
+
+      <!-- 4. THE MANTID -->
+      <div class="stm-card">
+        <div class="stm-portrait-wrap">
+          <img class="stm-portrait" src="species-04-mantid.png" alt="Mantid alien species threat classification" style="filter:grayscale(30%) brightness(0.65) contrast(1.2);opacity:0.75">
+          <div class="stm-scanlines"></div>
+          <div class="stm-glitch"></div>
+          <span class="stm-threat-badge stm-badge-high">THREAT: HIGH</span>
+        </div>
+        <div class="stm-card-body">
+          <span class="stm-designation">TYPE-II SURGICAL CLASS</span>
+          <span class="stm-name">THE MANTID</span>
+          <p class="stm-personality">"Scientists. Cold precision. You are not a person to them. You are a specimen."</p>
+          <div class="stm-survival-rule">
+            <span class="stm-sr-label">SURVIVAL PROTOCOL — PARTIAL DECLASSIFICATION</span>
+            <p class="stm-sr-text">Do not interrupt their process. Any defensive movement will be interpreted as— <span class="stm-redacted">[SIGNAL LOST]</span></p>
+          </div>
+          <div class="stm-unlock-bar">🔒 FULL DOSSIER — READINESS SCORE: 60 REQUIRED</div>
+        </div>
+      </div>
+
+      <!-- 5. THE TALL WHITE -->
+      <div class="stm-card">
+        <div class="stm-portrait-wrap">
+          <img class="stm-portrait" src="species-05-tall-white.png" alt="Tall White alien species threat classification" style="filter:grayscale(10%) brightness(0.8);opacity:0.85">
+          <div class="stm-scanlines"></div>
+          <div class="stm-glitch"></div>
+          <span class="stm-threat-badge stm-badge-conditional">THREAT: CONDITIONAL</span>
+        </div>
+        <div class="stm-card-body">
+          <span class="stm-designation">TYPE-I TEACHER CLASS</span>
+          <span class="stm-name">THE TALL WHITE</span>
+          <p class="stm-personality">"Educators. Transactional. They respect only competence. Pass their test or—"</p>
+          <div class="stm-survival-rule">
+            <span class="stm-sr-label">SURVIVAL PROTOCOL — PARTIAL DECLASSIFICATION</span>
+            <p class="stm-sr-text">You have approximately 90 seconds to demonstrate value before they lose interest in keeping you— <span class="stm-redacted">[SIGNAL LOST]</span></p>
+          </div>
+          <div class="stm-unlock-bar">🔒 FULL DOSSIER — READINESS SCORE: 80 REQUIRED</div>
+        </div>
+      </div>
+
+    </div><!-- /stm-grid -->
+
+    <!-- ANUNNAKI BOMBSHELL CARD -->
+    <div class="stm-anunnaki">
+      <span class="stm-classified-watermark">CLASSIFIED</span>
+      <div class="stm-anunnaki-inner">
+        <div class="stm-anunnaki-portrait">
+          <img src="species-06-anunnaki.png" alt="Anunnaki progenitor species classified dossier" style="filter:grayscale(40%) brightness(0.5) contrast(1.3) sepia(30%);opacity:0.45;width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+          <div class="stm-red-scanlines"></div>
+          <div class="stm-glitch-red"></div>
+          <div class="stm-glitch-red2"></div>
+        </div>
+        <div class="stm-anunnaki-content">
+          <p style="font-size:10px;letter-spacing:.25em;color:rgba(255,68,68,0.7);margin-bottom:16px;font-family:var(--mono)">[ CLASSIFICATION: TYPE-V PROGENITOR CLASS ]</p>
+          <p style="font-size:clamp(28px,4vw,52px);font-weight:800;color:#fff;letter-spacing:.08em;margin-bottom:12px;line-height:1;font-family:var(--mono)">THE ANUNNAKI</p>
+          <p style="font-size:16px;font-weight:700;color:#FFD700;letter-spacing:.1em;margin-bottom:20px;font-family:var(--mono)">⚠ CREATOR SPECIES — HOMO SAPIENS</p>
+          <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.7;margin-bottom:20px;font-family:var(--mono)">This entry pertains to the origin of the human species.<br>Full dossier access requires Clearance Level 5.</p>
+          <p style="color:rgba(255,255,255,0.2);font-family:var(--mono);font-size:12px;margin-bottom:20px;letter-spacing:.05em">——————————————————</p>
+          <p style="color:#FF4444;font-weight:700;letter-spacing:.2em;font-size:11px;margin-bottom:8px;font-family:var(--mono)">[ THIS FILE HAS BEEN SEALED ]</p>
+          <p style="color:rgba(255,68,68,0.8);font-size:13px;letter-spacing:.1em;margin-bottom:8px;font-family:var(--mono)">READINESS LEVEL 5 — SCORE: 100 REQUIRED</p>
+          <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.7;margin-bottom:24px;font-family:var(--mono)">Only 6% of citizens have achieved access.</p>
+          <a href="#quiz" class="stm-clearance-btn">REQUEST CLEARANCE →</a>
+        </div>
+      </div>
+    </div><!-- /stm-anunnaki -->
+
+    <!-- UNLOCK BAR -->
+    <div style="text-align:center;padding:0 0 20px">
+      <p style="font-size:11px;letter-spacing:.25em;color:rgba(255,255,255,0.3);margin-bottom:28px;font-family:var(--mono)">YOUR READINESS SCORE DETERMINES WHAT GETS DECLASSIFIED</p>
+      <a href="#quiz" style="display:inline-block;font-family:var(--mono);background:#4AF626;color:#000;font-weight:700;padding:16px 48px;letter-spacing:.2em;font-size:11px;text-decoration:none;border:none">BEGIN READINESS ASSESSMENT →</a>
+    </div>
+
+  </div><!-- /stm-inner -->
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"What are the different types of alien species?","acceptedAnswer":{"@type":"Answer","text":"Six non-human intelligences have been consistently documented in contact events: The Grey (Type-II retrieval class, THREAT: HIGH), The Nordic (Type-I observer class, THREAT: CONDITIONAL), The Reptilian (Type-III apex predator, THREAT: CRITICAL), The Mantid (Type-II surgical class, THREAT: HIGH), The Tall White (Type-I teacher class, THREAT: CONDITIONAL), and The Anunnaki (Type-V progenitor class, CLASSIFIED). Each species carries a distinct threat profile and requires different survival protocols."}},
+      {"@type":"Question","name":"How dangerous are grey aliens?","acceptedAnswer":{"@type":"Answer","text":"Grey aliens are classified THREAT: HIGH. They are methodical collectors focused on biological and psychological data retrieval. They operate without aggression but will proceed with their objectives regardless of consent. Sudden movements and resistance significantly escalate the encounter."}},
+      {"@type":"Question","name":"What is the reptilian alien threat level?","acceptedAnswer":{"@type":"Answer","text":"Reptilian aliens are classified THREAT: CRITICAL — the highest threat level among documented species. They operate on strict hierarchical dominance logic. An encounter with a Reptilian that is not immediately de-escalated through submission posture is considered a survival emergency."}},
+      {"@type":"Question","name":"How do you survive an alien encounter?","acceptedAnswer":{"@type":"Answer","text":"Alien encounter survival protocols vary significantly by species. The Disclosure app provides species-specific encounter protocols including signal language training, submission postures, de-escalation techniques, and psychological preparation for each of the six documented alien species. Your readiness score unlocks increasingly classified survival intelligence."}},
+      {"@type":"Question","name":"What are the Anunnaki and why are they classified?","acceptedAnswer":{"@type":"Answer","text":"The Anunnaki are classified as a Type-V Progenitor Class — the most restricted entry in the contact registry. Their dossier pertains directly to the origin of the human species. Full access requires Readiness Level 5, achieved by fewer than 6% of citizens who complete the Disclosure training program."}},
+      {"@type":"Question","name":"What is the difference between grey aliens and nordic aliens?","acceptedAnswer":{"@type":"Answer","text":"Grey aliens (Type-II) are retrieval-class entities focused on data collection and biological sampling — classified THREAT: HIGH. Nordic aliens (Type-I) are observer-class entities who maintain non-intervention protocols — classified THREAT: CONDITIONAL. Nordics are considered among the more benevolent documented species, though direct contact indicates a significant change in their assessment of the situation."}}
+    ]
+  }
+  </script>
+
+  <!-- Scroll animations -->
+  <script>
+  (function(){
+    var cards = document.querySelectorAll('.stm-card, .stm-anunnaki');
+    var observed = new IntersectionObserver(function(entries){
+      entries.forEach(function(e, i){
+        if(e.isIntersecting){
+          setTimeout(function(){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }, i*80);
+          observed.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.1});
+    cards.forEach(function(c){ c.style.opacity='0'; c.style.transform='translateY(30px)'; c.style.transition='opacity .6s ease, transform .6s ease'; observed.observe(c); });
+  })();
+  </script>
+
+  </section><!-- /species-threat-matrix -->
+
   <!-- 6. PRODUCT SHOWCASE — Theatrical Slideshow -->
   <section id="classified-tools">
     <div class="fd-card" id="fd-card">
