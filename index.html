@@ -1114,68 +1114,6 @@
   </div>
 
   <!-- 4. THE RULES -->
-  <section class="rules">
-    <!-- SIGNAL WAVEFORM SVG -->
-    <svg class="svg-anim" width="300" height="50" viewBox="0 0 300 50" style="bottom:15%;left:2%">
-      <path d="M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25" fill="none" stroke="rgba(74,246,38,.2)" stroke-width="1.5">
-        <animate attributeName="d" dur="3s" repeatCount="indefinite" values="M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25;M0,25 Q15,45 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25;M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25"/>
-      </path>
-    </svg>
-    <div class="rules-bg" aria-hidden="true">RULES</div>
-    <div class="rules-hdr sr">// BRIEFING EXCERPT · RULE SET ALPHA //</div>
-    <div class="rules-inner">
-
-      <!-- Rule 00 — THE archetype rule -->
-      <div class="rule-row rule-zero sr">
-        <span class="rule-n">00</span>
-        <div>
-          <span class="rule-t">KNOW YOUR ARCHETYPE BEFORE CONTACT.</span>
-          <span class="rule-sub">Your archetype determines your role. Your role determines your survival.</span>
-        </div>
-      </div>
-
-      <div class="rule-row sr">
-        <span class="rule-n">01</span>
-        <div>
-          <span class="rule-t">MAINTAIN EYE CONTACT.</span>
-          <span class="rule-sub">Do not look away first.</span>
-        </div>
-      </div>
-      <div class="rule-row sr">
-        <span class="rule-n">02</span>
-        <div>
-          <span class="rule-t">DO NOT REACH.</span>
-          <span class="rule-sub">Let them initiate physical interaction.</span>
-        </div>
-      </div>
-      <div class="rule-row sr">
-        <span class="rule-n">03</span>
-        <div>
-          <span class="rule-t">STATE YOUR ROLE.</span>
-          <span class="rule-sub">They understand hierarchy.</span>
-        </div>
-      </div>
-      <div class="rule-row alarm sr">
-        <span class="rule-n">04</span>
-        <span class="rule-t">DO NOT APPROACH THE LIGHT.</span>
-      </div>
-
-      <div class="rule-partial sr">
-        <div style="display:flex;align-items:baseline;gap:24px">
-          <span class="rule-n">07</span>
-          <p class="rule-partial-text">
-            If a craft comes within <span class="rx" onclick="void(0)">████</span> meters,
-            do not attempt to <span class="rx" onclick="void(0)">██████████████</span>.
-            The outcome in <span class="rx" onclick="void(0)">██</span>% of documented cases was irreversible.
-          </p>
-        </div>
-      </div>
-
-      <p class="rule-count sr">// 47 MORE RULES IN THE FULL BRIEFING //</p>
-    </div>
-  </section>
-
-  <!-- 5b. URGENCY BRIDGE — THE PIVOT -->
   <section id="quiz" class="quiz quiz-content-hidden">
     <!-- CONTAINMENT FIELD — visual wow frame -->
     <div class="quiz-vignette" id="quiz-vignette"></div>
@@ -1400,32 +1338,6 @@
   </section>
 
   <!-- 10. QUIZ -->
-  <section id="urgency-bridge" style="position:relative;padding:80px 24px;text-align:center;overflow:hidden;border-top:1px solid rgba(74,246,38,.12);background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(74,246,38,.03) 50%,rgba(0,0,0,0) 100%)">
-    <!-- Horizontal pulse line -->
-    <div style="width:120px;height:2px;margin:0 auto 40px;background:var(--crt-green);box-shadow:0 0 12px rgba(74,246,38,.5),0 0 40px rgba(74,246,38,.2);animation:urgPulse 2s ease-in-out infinite"></div>
-    <style>@keyframes urgPulse{0%,100%{opacity:.6;width:120px}50%{opacity:1;width:200px}}</style>
-
-    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.5em;color:rgba(74,246,38,.7);margin-bottom:20px">// OPERATIONAL STATUS: UNPREPARED //</div>
-
-    <h2 class="sr" style="font-size:clamp(32px,5vw,60px);font-weight:800;letter-spacing:-.02em;color:#fff;line-height:1.1;margin-bottom:24px">
-      The briefing is over.<br>
-      <span style="color:var(--crt-green)">It's time to prepare.</span>
-    </h2>
-
-    <p class="sr" style="font-family:var(--body);font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.75);max-width:640px;margin:0 auto 20px;line-height:1.7">
-      Governments have spent decades studying this. They have protocols. Bunkers. Chains of command.<br><br>
-      <strong style="color:#fff">You have nothing.</strong>
-    </p>
-
-    <p class="sr" style="font-family:var(--body);font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,.6);max-width:580px;margin:0 auto 36px;line-height:1.7">
-      No training for what you'd actually do. No communication system. No way to prove you're calm under pressure. No credential that says <em>"this one is ready."</em><br><br>
-      There is no app for first contact. <span style="color:rgba(74,246,38,.9);font-weight:600">Until now.</span>
-    </p>
-
-    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:rgba(74,246,38,.5);margin-bottom:0">// INITIATING CLASSIFICATION //</div>
-  </section>
-
-  <!-- 5c. INTEL BRIEFINGS — CTA to /intel -->
   <section id="species-threat-matrix">
   <style>
     #species-threat-matrix{background:#000;border-top:1px solid rgba(74,246,38,0.12);padding:100px 24px;font-family:var(--mono)}
@@ -1659,6 +1571,126 @@
   </section><!-- /species-threat-matrix -->
 
   <!-- 6. PRODUCT SHOWCASE — Theatrical Slideshow -->
+  <section class="rules">
+    <!-- SIGNAL WAVEFORM SVG -->
+    <svg class="svg-anim" width="300" height="50" viewBox="0 0 300 50" style="bottom:15%;left:2%">
+      <path d="M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25" fill="none" stroke="rgba(74,246,38,.2)" stroke-width="1.5">
+        <animate attributeName="d" dur="3s" repeatCount="indefinite" values="M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25;M0,25 Q15,45 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25;M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25"/>
+      </path>
+    </svg>
+    <div class="rules-bg" aria-hidden="true">RULES</div>
+    <div class="rules-hdr sr">// BRIEFING EXCERPT · UNIVERSAL CONTACT RULES · SPECIES-SPECIFIC PROTOCOLS: CLASSIFIED //</div>
+    <div class="rules-inner">
+
+      <!-- Rule 00 — THE archetype rule -->
+      <div class="rule-row rule-zero sr">
+        <span class="rule-n">00</span>
+        <div>
+          <span class="rule-t">KNOW YOUR ARCHETYPE BEFORE CONTACT.</span>
+          <span class="rule-sub">Your archetype determines your role. Your role determines your survival.</span>
+        </div>
+      </div>
+
+      <div class="rule-row sr">
+        <span class="rule-n">01</span>
+        <div>
+          <span class="rule-t">MAINTAIN EYE CONTACT.</span>
+          <span class="rule-sub">Do not look away first. <em style="color:rgba(245,158,11,.7);font-style:normal">*Exception applies. Species-dependent. See full briefing.</em></span>
+        </div>
+      </div>
+      <div class="rule-row sr">
+        <span class="rule-n">02</span>
+        <div>
+          <span class="rule-t">DO NOT REACH.</span>
+          <span class="rule-sub">Let them initiate physical interaction.</span>
+        </div>
+      </div>
+      <div class="rule-row sr">
+        <span class="rule-n">03</span>
+        <div>
+          <span class="rule-t">STATE YOUR ROLE.</span>
+          <span class="rule-sub">They understand hierarchy. <em style="color:rgba(245,158,11,.7);font-style:normal">*Not applicable to all species.</em></span>
+        </div>
+      </div>
+      <div class="rule-row alarm sr">
+        <span class="rule-n">04</span>
+        <span class="rule-t">DO NOT APPROACH THE LIGHT.</span>
+      </div>
+
+      <div class="rule-row sr">
+        <span class="rule-n">05</span>
+        <div>
+          <span class="rule-t">DO NOT INTERRUPT THEIR PROCESS.</span>
+          <span class="rule-sub">Any defensive movement is interpreted as specimen behavior — not self-defense. <span style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:rgba(74,246,38,.5);margin-left:8px">[MANTID]</span></span>
+        </div>
+      </div>
+
+      <div class="rule-row sr">
+        <span class="rule-n">06</span>
+        <div>
+          <span class="rule-t">SUBMIT BEFORE THEY ASK.</span>
+          <span class="rule-sub">Hierarchy is the only language they respect. Hesitation is classified as resistance. <span style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:rgba(255,68,68,.6);margin-left:8px">[REPTILIAN]</span></span>
+        </div>
+      </div>
+
+      <div class="rule-partial sr">
+        <div style="display:flex;align-items:baseline;gap:24px">
+          <span class="rule-n">07</span>
+          <p class="rule-partial-text">
+            If a craft comes within <span class="rx" onclick="void(0)">████</span> meters,
+            do not attempt to <span class="rx" onclick="void(0)">██████████████</span>.
+            The outcome in <span class="rx" onclick="void(0)">██</span>% of documented cases was irreversible.
+          </p>
+        </div>
+      </div>
+
+      <div class="rule-row sr">
+        <span class="rule-n">08</span>
+        <div>
+          <span class="rule-t">DO NOT DEMONSTRATE FEAR.</span>
+          <span class="rule-sub">You are assessed in the first 90 seconds. What they decide in that window is permanent. <span style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:rgba(255,215,0,.5);margin-left:8px">[TALL WHITE]</span></span>
+        </div>
+      </div>
+
+      <div class="rule-row alarm sr">
+        <span class="rule-n">09</span>
+        <div>
+          <span class="rule-t">REMAIN STILL IF YOUR MEMORY BEGINS TO FRAGMENT.</span>
+          <span class="rule-sub">Resistance accelerates the process. Stillness is your only protocol. <span style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:rgba(74,246,38,.5);margin-left:8px">[GREY]</span></span>
+        </div>
+      </div>
+
+      <p class="rule-count sr">// SPECIES-SPECIFIC PROTOCOLS LOCKED — READINESS SCORE REQUIRED //</p>
+    </div>
+  </section>
+
+  <!-- 5b. URGENCY BRIDGE — THE PIVOT -->
+  <section id="urgency-bridge" style="position:relative;padding:80px 24px;text-align:center;overflow:hidden;border-top:1px solid rgba(74,246,38,.12);background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(74,246,38,.03) 50%,rgba(0,0,0,0) 100%)">
+    <!-- Horizontal pulse line -->
+    <div style="width:120px;height:2px;margin:0 auto 40px;background:var(--crt-green);box-shadow:0 0 12px rgba(74,246,38,.5),0 0 40px rgba(74,246,38,.2);animation:urgPulse 2s ease-in-out infinite"></div>
+    <style>@keyframes urgPulse{0%,100%{opacity:.6;width:120px}50%{opacity:1;width:200px}}</style>
+
+    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.5em;color:rgba(74,246,38,.7);margin-bottom:20px">// OPERATIONAL STATUS: UNPREPARED //</div>
+
+    <h2 class="sr" style="font-size:clamp(32px,5vw,60px);font-weight:800;letter-spacing:-.02em;color:#fff;line-height:1.1;margin-bottom:24px">
+      The briefing is over.<br>
+      <span style="color:var(--crt-green)">It's time to prepare.</span>
+    </h2>
+
+    <p class="sr" style="font-family:var(--body);font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.75);max-width:640px;margin:0 auto 20px;line-height:1.7">
+      Governments have spent decades studying this. They have protocols. Bunkers. Chains of command.<br><br>
+      <strong style="color:#fff">You have nothing.</strong>
+    </p>
+
+    <p class="sr" style="font-family:var(--body);font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,.6);max-width:580px;margin:0 auto 36px;line-height:1.7">
+      No training for what you'd actually do. No communication system. No way to prove you're calm under pressure. No credential that says <em>"this one is ready."</em><br><br>
+      There is no app for first contact. <span style="color:rgba(74,246,38,.9);font-weight:600">Until now.</span>
+    </p>
+
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:rgba(74,246,38,.5);margin-bottom:0">// INITIATING CLASSIFICATION //</div>
+  </section>
+
+  <!-- 5c. INTEL BRIEFINGS — CTA to /intel -->
   <section id="classified-tools">
     <div class="fd-card" id="fd-card">
       <div class="fd-scanline" id="fd-scanline"></div>
