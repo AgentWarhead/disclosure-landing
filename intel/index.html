@@ -159,6 +159,7 @@
       transform: translateY(-2px);
     }
     .intel-card:hover::before { opacity: 1; }
+    .intel-card { cursor: pointer; }
 
     .card-img {
       width: 100%;
@@ -614,6 +615,12 @@
   </div>
 </footer>
 
+<script>
+  document.querySelectorAll('.intel-card').forEach(card => {
+    const link = card.querySelector('.card-cta');
+    if (link) card.addEventListener('click', e => { if (!e.target.closest('a')) link.click(); });
+  });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   const sb = supabase.createClient(
