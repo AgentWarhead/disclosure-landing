@@ -241,6 +241,137 @@
   .ft-b{font-family:var(--mono,'JetBrains Mono',monospace);font-size:8px;letter-spacing:.1em;color:rgba(255,255,255,.05);cursor:pointer;margin-top:8px;transition:color .3s}
   .ft-b:hover{color:rgba(74,246,38,.5)}
   @media(max-width:600px){.ft-nav{flex-wrap:wrap;gap:4px}.ft-nav a{border-right:none;padding:4px 8px}}
+
+  /* WAITLIST CTA BANNER */
+  .wl-banner {
+    background: #000;
+    border: 1px solid rgba(57,255,20,0.35);
+    border-left: 4px solid var(--g);
+    padding: 2.5rem 2rem;
+    margin: 0 auto 2.5rem;
+    max-width: 860px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .wl-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(57,255,20,0.015) 2px, rgba(57,255,20,0.015) 4px);
+    pointer-events: none;
+  }
+  .wl-banner-kicker {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--g);
+    opacity: 0.7;
+    margin-bottom: 0.75rem;
+  }
+  .wl-banner h2 {
+    font-family: var(--sans);
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+  .wl-banner h2 span { color: var(--g); }
+  .wl-banner p {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  .wl-form {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .wl-input {
+    flex: 1;
+    min-width: 220px;
+    padding: 0.85rem 1.25rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(57,255,20,0.3);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .wl-input::placeholder { color: rgba(255,255,255,0.25); }
+  .wl-input:focus { border-color: var(--g); }
+  .wl-btn {
+    padding: 0.85rem 1.75rem;
+    background: var(--g);
+    color: #000;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .wl-btn:hover { background: #5fff35; transform: translateY(-1px); }
+  .wl-msg {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    margin-top: 0.75rem;
+    min-height: 1.2em;
+    color: var(--g);
+    display: none;
+  }
+  .wl-msg.err { color: #ff4444; }
+  .wl-privacy {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.2);
+    margin-top: 0.85rem;
+  }
+  @media(max-width:600px){
+    .wl-banner { padding: 1.75rem 1.25rem; margin-bottom: 1.5rem; }
+    .wl-form { gap: 0.5rem; }
+    .wl-input { min-width: 100%; }
+    .wl-btn { width: 100%; }
+  }
+
+  /* BOTTOM CTA STRIP */
+  .bottom-cta {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid rgba(57,255,20,0.15);
+    margin-top: 2rem;
+  }
+  .bottom-cta .kicker {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--g);
+    opacity: 0.6;
+    margin-bottom: 1rem;
+  }
+  .bottom-cta h3 {
+    font-size: clamp(1.2rem, 3vw, 1.75rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+  .bottom-cta p {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.5rem;
+  }
   </style>
 </head>
 <body>
@@ -256,6 +387,19 @@
   <p>Evidence-based field intelligence for the informed civilian. The countdown is running. Read everything.</p>
   <div class="clearance-bar">CLEARANCE LEVEL: PUBLIC // REDACTIONS PENDING REVIEW</div>
 </header>
+
+<!-- WAITLIST BANNER — TOP -->
+<div class="wl-banner" id="wl-top">
+  <div class="wl-banner-kicker">// EARLY ACCESS — ANDROID BETA OPENING SOON //</div>
+  <h2>The Intel Is Free.<br><span>The App Takes It Further.</span></h2>
+  <p>Species dossiers. Signal training. First contact drills. 20 escalating encounter scenarios.<br>Get early access before public launch — Android beta dropping soon.</p>
+  <form class="wl-form" onsubmit="wlSubmit(event,'wl-top')">
+    <input class="wl-input" type="email" placeholder="YOUR EMAIL — SECURE CHANNEL" required autocomplete="email"/>
+    <button class="wl-btn" type="submit">GET EARLY ACCESS →</button>
+  </form>
+  <div class="wl-msg" id="wl-top-msg"></div>
+  <div class="wl-privacy">No spam. No noise. One message when beta opens.</div>
+</div>
 
 <main class="intel-grid">
 
@@ -431,6 +575,23 @@
 
 </main>
 
+<!-- BOTTOM CTA STRIP -->
+<div class="bottom-cta">
+  <div class="kicker">// TRANSMISSION ENDS HERE — FOR NOW //</div>
+  <h3>You've read the intel. Now train for it.</h3>
+  <p>The app contains everything these briefings point toward — species dossiers, signal training, encounter simulations.</p>
+  <!-- WAITLIST BANNER — BOTTOM -->
+  <div class="wl-banner" id="wl-bot" style="max-width:620px;margin:0 auto;">
+    <div class="wl-banner-kicker">// ANDROID BETA — EARLY ACCESS LIST //</div>
+    <form class="wl-form" onsubmit="wlSubmit(event,'wl-bot')">
+      <input class="wl-input" type="email" placeholder="YOUR EMAIL — SECURE CHANNEL" required autocomplete="email"/>
+      <button class="wl-btn" type="submit">JOIN BETA LIST →</button>
+    </form>
+    <div class="wl-msg" id="wl-bot-msg"></div>
+    <div class="wl-privacy">First to know. First to train. No spam.</div>
+  </div>
+</div>
+
 <footer>
   <nav class="ft-nav">
     <a href="/quiz">ARCHETYPE QUIZ</a>
@@ -453,5 +614,38 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const sb = supabase.createClient(
+    'https://bexjbozbrhijtjombxkm.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJleGpib3picmhpanRqb21ieGttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1MjEzNjIsImV4cCI6MjA1NjA5NzM2Mn0.Dj_MDpVErap3HqkVRiXcCBH3bAlMFICKmB-3FeSuOHQ'
+  );
+
+  async function wlSubmit(e, id) {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.querySelector('input[type=email]').value.trim();
+    const btn = form.querySelector('button');
+    const msg = document.getElementById(id + '-msg');
+    btn.disabled = true;
+    btn.textContent = 'TRANSMITTING...';
+    msg.style.display = 'none';
+    msg.className = 'wl-msg';
+    try {
+      const { error } = await sb.rpc('join_waitlist', { p_email: email, p_label: 'intel', p_score: 0 });
+      if (error && !error.message.includes('duplicate')) throw error;
+      msg.textContent = '// ACCESS GRANTED — YOU\'RE ON THE LIST //';
+      msg.style.display = 'block';
+      btn.textContent = 'CONFIRMED ✓';
+      form.querySelector('input').value = '';
+    } catch(err) {
+      msg.textContent = '// TRANSMISSION FAILED — TRY AGAIN //';
+      msg.className = 'wl-msg err';
+      msg.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = id === 'wl-top' ? 'GET EARLY ACCESS →' : 'JOIN BETA LIST →';
+    }
+  }
+</script>
 </body>
 </html>
