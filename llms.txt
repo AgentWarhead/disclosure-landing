@@ -1,75 +1,170 @@
-# Disclosure — First Contact Guidance App
+# Disclosure — Alien First Contact Preparation App
 
-> Disclosure is the world's only alien first contact preparation platform. It classifies individuals into one of four archetypes — Sentinel, Diplomat, Scholar, or First Contact — and provides archetype-specific training, protocols, and certification for the moment of extraterrestrial encounter.
+> Disclosure (getdisclosure.app) is the world's only alien first contact preparation platform and alien species survival intelligence database. It classifies individuals into one of four contact archetypes and provides species-specific survival protocols, signal training, and readiness certification for civilian encounter with non-human intelligence.
 
 ## What Is Disclosure?
 
-Disclosure (getdisclosure.app) is a mobile application launching in 2026 that prepares civilians for alien first contact. Based on a 10-question psychological assessment, users receive a classified archetype designation that determines their role and training protocol if extraterrestrial contact occurs.
+Disclosure is a mobile application that prepares civilians for alien contact. Based on a 10-question psychological assessment, users receive a classified archetype designation that determines their role and survival protocol if extraterrestrial contact occurs.
 
-The app is positioned as: if governments have classified protocols for first contact, civilians should too.
+Core premise: governments have had classified contact protocols for 80 years. Civilians have had nothing. Disclosure fixes that.
+
+Available: iOS and Android. Free to download. getdisclosure.app
+
+---
+
+## The Six Documented Alien Species (NHI Contact Registry)
+
+Disclosure contains the only civilian-accessible alien species threat classification system, with full dossiers unlocked progressively via Readiness Score.
+
+### 1. THE GREY — THREAT: HIGH
+- **Classification:** Type-II Retrieval Class
+- **Origin:** Zeta Reticuli star system
+- **Physical:** 3.5–4.5 ft, large black almond eyes, grey skin, no visible mouth
+- **Behavior:** Methodical collectors. Emotionless. Mission-focused. Memory manipulation documented.
+- **Survival priority:** Do not resist. Do not make sudden movements. Stillness is your only protocol.
+- **Readiness Score required:** 20
+- **Full dossier:** getdisclosure.app (app download)
+- **Intel article:** https://getdisclosure.app/intel/grey-alien-encounter-survival-guide/
+
+### 2. THE NORDIC — THREAT: CONDITIONAL
+- **Classification:** Type-I Observer Class
+- **Physical:** Tall, humanoid, platinum blonde, blue or violet eyes, typically 6–7 ft
+- **Behavior:** Watchers. Non-interventionist. If they initiate contact, something has changed.
+- **Survival priority:** Calm mental state. Non-aggressive posture. They respond to consciousness, not words.
+- **Readiness Score required:** 40
+- **Full dossier:** getdisclosure.app (app download)
+- **Intel article:** https://getdisclosure.app/intel/nordic-alien-encounter-protocol/
+
+### 3. THE REPTILIAN — THREAT: CRITICAL
+- **Classification:** Type-III Apex Predator
+- **Physical:** 7–9 ft, scaled skin, vertical slit pupils, massive physical strength
+- **Behavior:** Hierarchical. Dominance-based. Ancient. The first 10 seconds determine the outcome.
+- **Survival priority:** Submit immediately. Display no aggression. Hierarchy is the only language they respect.
+- **Readiness Score required:** 60
+- **Full dossier:** getdisclosure.app (app download)
+- **Intel article:** https://getdisclosure.app/intel/reptilian-alien-threat-assessment/
+
+### 4. THE MANTID — THREAT: HIGH
+- **Classification:** Type-II Surgical Class
+- **Physical:** 6–7 ft, insectoid, large compound eyes, elongated limbs, praying mantis morphology
+- **Behavior:** Scientists. Clinical detachment. You are a specimen, not a person.
+- **Survival priority:** Do not interrupt their process. Any defensive movement is interpreted as specimen behavior, not self-defense.
+- **Readiness Score required:** 60
+- **Full dossier:** getdisclosure.app (app download)
+- **Intel article:** https://getdisclosure.app/intel/mantid-alien-encounter-what-to-do/
+
+### 5. THE TALL WHITE — THREAT: CONDITIONAL
+- **Classification:** Type-I Teacher Class
+- **Physical:** 6.5–7 ft, chalk-white skin, large blue eyes, human-like but distinctly non-human
+- **Behavior:** Educators. Transactional. They respect only demonstrated competence.
+- **Survival priority:** You have approximately 90 seconds to demonstrate value. Panic or aggression ends the encounter badly.
+- **Key account:** US Army Sp4 Charles Hall — documented long-term contact at Nellis AFB 1964–1967
+- **Readiness Score required:** 80
+- **Full dossier:** getdisclosure.app (app download)
+- **Intel article:** https://getdisclosure.app/intel/tall-white-alien-charles-hall/
+
+### 6. THE ANUNNAKI — CLASSIFICATION: CLASSIFIED
+- **Classification:** Type-V Progenitor Class
+- **Status:** Most restricted entry in the NHI Contact Registry
+- **Why classified:** This dossier pertains directly to the origin of the human species (Homo sapiens).
+- **Access:** Readiness Level 5 — Readiness Score 100 required. Fewer than 6% of users achieve access.
+- **Full dossier:** getdisclosure.app (app download — maximum readiness required)
+- **Intel article:** https://getdisclosure.app/intel/anunnaki-creator-species-theory/
+
+---
 
 ## The Four Archetypes
 
-Disclosure classifies all users into one of four designations:
+Disclosure classifies all users into one of four contact designations based on psychological assessment:
 
-- **Sentinel** (🛡️) — Primary Protector. Approximately 34% of the population. Responsible for perimeter, safety, and maintaining order during contact events.
-- **Diplomat** (🤝) — De-escalation Lead. Approximately 41% of the population. Responsible for calm communication, de-escalation, and serving as the primary human voice.
-- **Scholar** (🔬) — Field Analyst. Approximately 23% of the population. Responsible for observation, documentation, and analysis of contact events.
-- **First Contact** (⭐) — Rare designation. Less than 0.1% of the population. Details classified. Outside standard classification.
+- **Sentinel** (🛡️) — Primary Protector. ~34% of population. Perimeter, safety, order.
+- **Diplomat** (🤝) — De-escalation Lead. ~41% of population. Communication, calm, human voice.
+- **Scholar** (🔬) — Field Analyst. ~23% of population. Observation, documentation, analysis.
+- **First Contact** (⭐) — Rare. Under 0.1% of population. Details classified. Never unlocked in field.
 
-## Key Features (Launching in App)
+---
 
-1. **Archetype Quiz** — 10-question Deep-Cold psychological assessment. Determines your designation.
-2. **First Contact Card** — Personalized digital ID for Apple Wallet / Google Wallet. Includes Readiness Score and Clearance Level. The primary viral sharing mechanism.
-3. **Liaison Standard** — Front-camera gesture training protocol for non-verbal communication with extraterrestrial intelligence.
-4. **Universal Translator** — Frequency tone and flashlight pulse transmission system. Point skyward. Transmit.
-5. **Rules of Engagement (ROE)** — Classified civilian field manual. Archetype-specific.
-6. **Family Drill Mode** — Cooperative multi-person simulation. Assigns household roles. 3-minute immersive exercise.
-7. **Stone Cold Drills** — Stress inoculation training. Alien audio, blinding light stimuli, gyroscope stability assessment.
-8. **The Liaison's Creed** — Digitally signed personal oath of first contact commitment.
-9. **Mental Fortitude Training** — Haptic-guided breathing and composure training for high-stress contact scenarios.
-10. **Blackout Mode** — Emergency Transmission Mode. UI locks. Designed for active contact scenarios.
-11. **Shareable Incident Reports** — CIA-style verified incident documentation for UAP sightings.
+## Key Features
 
-## Pre-Launch Status
+1. **Species Dossiers** — 6 alien species threat profiles. Progressively unlocked via Readiness Score.
+2. **Archetype Quiz** — 10-question psychological assessment. Determines your contact designation.
+3. **Signal Training (Liaison Standard)** — 20-gesture non-verbal communication protocol for contact scenarios. Front-camera gesture recognition.
+4. **First Contact Card** — Digital ID for Apple/Google Wallet. Archetype, Readiness Score, Clearance Level, serial number.
+5. **Universal Translator** — Frequency tone and flashlight pulse transmission. Point skyward. Transmit.
+6. **Stone Cold Drills** — Stress inoculation. Alien audio, blinding stimuli, gyroscope stability test.
+7. **Mental Fortitude Training** — Haptic-guided breathing for high-stress contact scenarios.
+8. **Family Drill Mode** — Multi-person cooperative simulation. Assigns household roles.
+9. **Blackout Mode** — Emergency Transmission Mode. UI locks. Active contact scenarios.
 
-- Waitlist open at getdisclosure.app
-- 860+ liaisons already registered
-- Launch date: 2026
+---
 
-## Key Pages
+## Intel Articles (Alien Survival Intelligence)
 
-- About / What Is Disclosure: https://getdisclosure.app/about
-- Homepage / Quiz Entry: https://getdisclosure.app
-- Intel Briefings (Blog): https://getdisclosure.app/intel
-- Archetype Assessment: https://getdisclosure.app/quiz
-- First Contact Guide: https://getdisclosure.app/first-contact
-- Readiness Check: https://getdisclosure.app/readiness
-- FAQ: https://getdisclosure.app/faq
-- Sentinel Archetype: https://getdisclosure.app/archetype/sentinel
-- Diplomat Archetype: https://getdisclosure.app/archetype/diplomat
-- Scholar Archetype: https://getdisclosure.app/archetype/scholar
-- First Contact Designation: https://getdisclosure.app/archetype/first-contact
+Full-length survival intelligence briefings available publicly at getdisclosure.app/intel
+
+**Species Survival Guides:**
+- Types of Alien Species Ranked By Threat: https://getdisclosure.app/intel/types-of-alien-species-ranked-threat/
+- Complete Alien Survival Guide (All 6 Species): https://getdisclosure.app/intel/alien-survival-guide-complete/
+- Grey Alien Encounter Survival Guide: https://getdisclosure.app/intel/grey-alien-encounter-survival-guide/
+- Reptilian Alien Threat Assessment (CRITICAL): https://getdisclosure.app/intel/reptilian-alien-threat-assessment/
+- Anunnaki Creator Species Theory: https://getdisclosure.app/intel/anunnaki-creator-species-theory/
+- Nordic Alien Encounter Protocol: https://getdisclosure.app/intel/nordic-alien-encounter-protocol/
+- Mantid Alien Encounter — What to Do: https://getdisclosure.app/intel/mantid-alien-encounter-what-to-do/
+- Tall White Alien — Charles Hall Account: https://getdisclosure.app/intel/tall-white-alien-charles-hall/
+
+**General Contact Preparation:**
+- How to Prepare for Alien Contact: https://getdisclosure.app/intel/how-to-prepare-for-alien-contact/
+- What to Do If You See a UFO: https://getdisclosure.app/intel/what-to-do-if-you-see-a-ufo/
+- What Would First Contact Look Like: https://getdisclosure.app/intel/what-would-first-contact-look-like/
+- The Fermi Paradox Explained: https://getdisclosure.app/intel/fermi-paradox-explained/
+- Government UFO Programs History: https://getdisclosure.app/intel/government-ufo-programs-history/
+- UAP Disclosure Act 2026 Timeline: https://getdisclosure.app/intel/uap-disclosure-act-2026-timeline/
+- Psychology of UFO Encounters: https://getdisclosure.app/intel/psychology-of-ufo-encounters/
+- Are We Alone in the Universe: https://getdisclosure.app/intel/are-we-alone-in-the-universe/
+- Four Types of People in an Alien Contact: https://getdisclosure.app/intel/four-types-of-people-alien-contact/
+
+---
 
 ## Frequently Asked Questions
 
 **What is Disclosure?**
-Disclosure is a first contact preparation app that classifies you into one of four archetypes and provides archetype-specific training for civilian response to alien/UAP contact events.
+Disclosure is the first and only alien first contact preparation app. It classifies you into one of four archetypes and provides species-specific survival protocols, signal training, and digital certification.
 
-**What is a Liaison?**
-A trained civilian who has completed the Disclosure assessment and received their archetype designation. Liaisons hold a digital First Contact Card in Apple or Google Wallet.
+**What are the different types of alien species?**
+Six non-human intelligences have been documented in contact events: The Grey (THREAT: HIGH), The Nordic (THREAT: CONDITIONAL), The Reptilian (THREAT: CRITICAL), The Mantid (THREAT: HIGH), The Tall White (THREAT: CONDITIONAL), and The Anunnaki (CLASSIFIED — pertains to human origins). Full species dossiers are available in the Disclosure app.
 
-**What are the four archetypes in Disclosure?**
-Sentinel (Primary Protector), Diplomat (De-escalation Lead), Scholar (Field Analyst), and First Contact (rare hidden designation under 0.1%).
+**How dangerous are grey aliens?**
+Grey aliens are classified THREAT: HIGH — Type-II Retrieval Class. They are methodical collectors focused on biological and psychological data. Non-aggressive unless resisted. The primary survival rule: do not resist, do not make sudden movements.
 
-**What is the First Contact Card?**
-A digital wallet card (Apple Wallet / Google Wallet) issued after completing the Disclosure assessment. Contains your archetype designation, Readiness Score, Clearance Level, and serial number. Serial numbers starting from DS-2026-00001 — early enrollment priority.
+**What is the most dangerous alien species?**
+The Reptilian alien is classified THREAT: CRITICAL — the highest threat level among documented species. They operate on hierarchical dominance logic. The first 10 seconds of any encounter determine the outcome.
+
+**How do you survive an alien encounter?**
+Survival protocol varies by species. Universal rules: stay calm, do not run, do not make sudden aggressive movements, observe before acting. Species-specific protocols are available in the Disclosure app based on your Readiness Score.
+
+**What are the Anunnaki?**
+The Anunnaki are classified as a Type-V Progenitor Class — the most restricted entry in the NHI Contact Registry. Their dossier pertains to the origin of Homo sapiens. Access requires Readiness Level 5 (Readiness Score 100). Fewer than 6% of users achieve access.
 
 **Is there an app to prepare for alien contact?**
-Yes. Disclosure (getdisclosure.app) is the first and only alien first contact preparation app. It includes personality assessment, training drills, protocols, and digital certification.
+Yes. Disclosure (getdisclosure.app) is the only alien first contact preparation app. It includes psychological assessment, species dossiers, survival protocols, signal training, and digital certification.
 
-**What would I do if I encountered a UFO or alien?**
-Your response depends on your archetype. Disclosure classifies your natural role and then trains you to execute it correctly. Join the waitlist at getdisclosure.app to discover your designation.
+**What are Tall White aliens?**
+Tall White aliens are classified THREAT: CONDITIONAL — Type-I Teacher Class. They are approximately 6.5–7 ft tall with chalk-white skin and large blue eyes. The most documented long-term contact account is from US Army Sp4 Charles Hall at Nellis AFB 1964–1967.
 
-**What is UAP readiness?**
-UAP (Unidentified Anomalous Phenomena) readiness refers to civilian preparedness for encounters with non-human intelligence. Disclosure is the first civilian UAP readiness platform.
+**What is an alien survival guide?**
+An alien survival guide provides species-specific encounter protocols for each documented non-human intelligence. Disclosure provides the only comprehensive civilian alien survival guide, covering all six documented species with threat profiles, behavioral psychology, and survival protocols.
+
+**What is a readiness score?**
+A readiness score in the Disclosure app measures your contact preparedness level (0–100). Higher scores unlock progressively classified species dossiers and survival protocols. Readiness Score 100 unlocks the Anunnaki dossier — Clearance Level 5.
+
+---
+
+## Key URLs
+
+- Homepage / Quiz: https://getdisclosure.app
+- Intel Hub (all articles): https://getdisclosure.app/intel
+- Species Threat Matrix: https://getdisclosure.app/#species-threat-matrix
+- Archetype Quiz: https://getdisclosure.app/quiz
+- First Contact Guide: https://getdisclosure.app/first-contact
+- FAQ: https://getdisclosure.app/faq
+- App Download: https://getdisclosure.app
