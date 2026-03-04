@@ -621,11 +621,11 @@
     if (link) card.addEventListener('click', e => { if (!e.target.closest('a')) link.click(); });
   });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
-  const sb = supabase.createClient(
+  const sb = window.supabase.createClient(
     'https://bexjbozbrhijtjombxkm.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJleGpib3picmhpanRqb21ieGttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1MjEzNjIsImV4cCI6MjA1NjA5NzM2Mn0.Dj_MDpVErap3HqkVRiXcCBH3bAlMFICKmB-3FeSuOHQ'
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJleGpib3picmhpanRqb21ieGttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1NzEyNTQsImV4cCI6MjA4NzE0NzI1NH0.h3TJJ599oOoKv3RA8QfELmwzvsYi1hhuxGau842P6hs'
   );
 
   async function wlSubmit(e, id) {
