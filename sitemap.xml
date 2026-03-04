@@ -15,6 +15,25 @@
   <url><loc>https://getdisclosure.app/archetype/scholar</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://getdisclosure.app/archetype/first-contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://getdisclosure.app/intel</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Existing intel articles -->
+  <url><loc>https://getdisclosure.app/intel/are-we-alone-in-the-universe/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://getdisclosure.app/intel/fermi-paradox-explained/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://getdisclosure.app/intel/four-types-of-people-alien-contact/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://getdisclosure.app/intel/government-ufo-programs-history/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://getdisclosure.app/intel/how-to-prepare-for-alien-contact/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://getdisclosure.app/intel/psychology-of-ufo-encounters/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://getdisclosure.app/intel/uap-disclosure-act-2026-timeline/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://getdisclosure.app/intel/what-to-do-if-you-see-a-ufo/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://getdisclosure.app/intel/what-would-first-contact-look-like/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <!-- Species survival intel articles -->
+  <url><loc>https://getdisclosure.app/intel/types-of-alien-species-ranked-threat/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://getdisclosure.app/intel/grey-alien-encounter-survival-guide/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://getdisclosure.app/intel/reptilian-alien-threat-assessment/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://getdisclosure.app/intel/anunnaki-creator-species-theory/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://getdisclosure.app/intel/nordic-alien-encounter-protocol/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://getdisclosure.app/intel/mantid-alien-encounter-what-to-do/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://getdisclosure.app/intel/tall-white-alien-charles-hall/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://getdisclosure.app/intel/alien-survival-guide-complete/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://getdisclosure.app/privacy</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://getdisclosure.app/terms</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
 
