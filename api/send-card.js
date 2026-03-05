@@ -65,9 +65,9 @@ module.exports = async (req, res) => {
       html: html,
     });
 
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true, to: email, archetype: archetype });
   } catch (err) {
     console.error("Send failed:", err);
-    return res.status(500).json({ error: err.message });
+    return res.status(500).json({ error: err.message, hasPass: !!SMTP_PASS, user: SMTP_USER });
   }
 };
