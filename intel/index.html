@@ -654,7 +654,7 @@
     msg.style.display = 'none';
     msg.className = 'wl-msg';
     try {
-      const { error } = await sb.rpc('join_waitlist', { p_email: email, p_label: 'intel', p_score: 0 });
+      const { error } = await sb.rpc('join_waitlist', { p_email: email, p_label: 'SCHOLAR', p_score: 0 });
       if (error && !error.message.includes('duplicate')) throw error;
       msg.textContent = '// ACCESS GRANTED — YOU\'RE ON THE LIST //';
       msg.style.display = 'block';
