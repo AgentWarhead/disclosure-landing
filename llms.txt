@@ -1,6 +1,6 @@
 # Disclosure — Alien First Contact Preparation App
 
-> Disclosure (getdisclosure.app) is the world's only alien first contact preparation platform and alien species survival intelligence database. It classifies individuals into one of four contact archetypes and provides species-specific survival protocols, signal training, and readiness certification for civilian encounter with non-human intelligence.
+> Disclosure (getdisclosure.app) is the world's only alien first contact preparation platform and alien species survival intelligence database. It classifies individuals into one of five contact archetypes and provides species-specific survival protocols, signal training, and readiness certification for civilian encounter with non-human intelligence.
 
 ## What Is Disclosure?
 
@@ -73,13 +73,14 @@ Disclosure contains the only civilian-accessible alien species threat classifica
 
 ---
 
-## The Four Archetypes
+## The Five Archetypes
 
-Disclosure classifies all users into one of four contact designations based on psychological assessment:
+Disclosure classifies all users into one of five contact designations based on psychological assessment:
 
 - **Sentinel** (🛡️) — Primary Protector. ~34% of population. Perimeter, safety, order.
 - **Diplomat** (🤝) — De-escalation Lead. ~41% of population. Communication, calm, human voice.
 - **Scholar** (🔬) — Field Analyst. ~23% of population. Observation, documentation, analysis.
+- **Survivor** (🏃) — Self-Preservation Specialist. ~30% of population. Exit-first, family protection, civilian continuity.
 - **First Contact** (⭐) — Rare. Under 0.1% of population. Details classified. Never unlocked in field.
 
 ---
@@ -128,7 +129,7 @@ Full-length survival intelligence briefings available publicly at getdisclosure.
 ## Frequently Asked Questions
 
 **What is Disclosure?**
-Disclosure is the first and only alien first contact preparation app. It classifies you into one of four archetypes and provides species-specific survival protocols, signal training, and digital certification.
+Disclosure is the first and only alien first contact preparation app. It classifies you into one of five archetypes and provides species-specific survival protocols, signal training, and digital certification.
 
 **What are the different types of alien species?**
 Six non-human intelligences have been documented in contact events: The Grey (THREAT: HIGH), The Nordic (THREAT: CONDITIONAL), The Reptilian (THREAT: CRITICAL), The Mantid (THREAT: HIGH), The Tall White (THREAT: CONDITIONAL), and The Anunnaki (CLASSIFIED — pertains to human origins). Full species dossiers are available in the Disclosure app.
