@@ -18,7 +18,8 @@
     *{margin:0;padding:0;box-sizing:border-box}
     body{background:var(--bg);color:#fff;font-family:var(--body);min-height:100vh}
     nav{display:flex;justify-content:space-between;align-items:center;padding:20px 32px;border-bottom:1px solid rgba(74,246,38,.1)}
-    .logo{font-family:var(--mono);font-size:20px;font-weight:700;color:#fff;text-decoration:none;letter-spacing:.15em}
+    .logo{text-decoration:none;display:inline-block;line-height:0}
+    .logo img{height:32px;width:auto;display:block}
     .back{font-family:var(--mono);font-size:12px;letter-spacing:.15em;color:var(--crt);text-decoration:none;opacity:.7;transition:opacity .3s}
     .back:hover{opacity:1}
     .container{max-width:900px;margin:0 auto;padding:60px 24px 80px;text-align:center}
@@ -55,7 +56,7 @@
 </head>
 <body>
   <nav>
-    <a href="/" class="logo">DISCLOSURE</a>
+    <a href="/" class="logo"><img src="/logo-nav.png" alt="DISCLOSURE"/></a>
     <a href="/" class="back">← MAIN SITE</a>
   </nav>
   <div class="container">
