@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" fill="none">
+  <defs>
+    <filter id="glow-s" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF4444"/>
+      <stop offset="100%" stop-color="#991111"/>
+    </linearGradient>
+  </defs>
+  <!-- Shield outline -->
+  <path d="M100 10 L185 50 L185 140 Q185 200 100 230 Q15 200 15 140 L15 50 Z" 
+        stroke="url(#sg)" stroke-width="3" fill="none" filter="url(#glow-s)" opacity="0.9"/>
+  <path d="M100 20 L175 55 L175 138 Q175 192 100 220 Q25 192 25 138 L25 55 Z" 
+        stroke="#EF4444" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <!-- Phoenix -->
+  <g transform="translate(100,115)" filter="url(#glow-s)">
+    <!-- Wings -->
+    <path d="M0,-45 L-55,-15 L-45,5 L-30,-5 L-20,10 L-10,-5 L0,15 L10,-5 L20,10 L30,-5 L45,5 L55,-15 Z" 
+          fill="#EF4444" opacity="0.85"/>
+    <!-- Body -->
+    <path d="M0,-30 L-12,15 L0,45 L12,15 Z" fill="#EF4444" opacity="0.7"/>
+    <!-- Head -->
+    <circle cx="0" cy="-38" r="8" fill="#FF6666" opacity="0.9"/>
+    <!-- Tail feathers -->
+    <path d="M-15,35 L0,65 L15,35" fill="none" stroke="#EF4444" stroke-width="2" opacity="0.6"/>
+    <path d="M-8,40 L0,60 L8,40" fill="none" stroke="#FF4444" stroke-width="1.5" opacity="0.5"/>
+  </g>
+  <!-- Corner rivets -->
+  <circle cx="100" cy="15" r="3" fill="#EF4444" opacity="0.6"/>
+  <circle cx="30" cy="55" r="2.5" fill="#EF4444" opacity="0.4"/>
+  <circle cx="170" cy="55" r="2.5" fill="#EF4444" opacity="0.4"/>
+  <circle cx="100" cy="225" r="3" fill="#EF4444" opacity="0.6"/>
+</svg>
