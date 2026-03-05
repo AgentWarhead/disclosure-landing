@@ -2593,12 +2593,22 @@ function generateSerial(archetype) {
 // ── Access Form + Card Render (Changes 6, 7) ──
 async function handleAccess(e) {
   e.preventDefault();
+
+  // Gate: quiz must be completed before email capture
+  if (!currentArchetype) {
+    const btn = document.getElementById('gate-submit-btn');
+    btn.textContent = 'CLASSIFICATION REQUIRED';
+    setTimeout(() => { btn.textContent = 'SECURE POSITION'; }, 2000);
+    document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
+
   const email = document.getElementById('gate-email').value.trim();
   const btn = document.getElementById('gate-submit-btn');
   btn.textContent = 'LOGGING FREQUENCY...';
   btn.disabled = true;
 
-  const archetype = currentArchetype || 'sentinel';
+  const archetype = currentArchetype;
   const archetypeData = ARCHETYPES[archetype];
   const serial = generateSerial(archetype);
   savedSerial = serial;
