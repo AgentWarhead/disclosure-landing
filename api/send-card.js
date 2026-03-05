@@ -460,6 +460,10 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: "missing fields" });
     }
 
+    if (!SMTP_PASS) {
+      return res.status(500).json({ error: "SMTP_PASS not configured" });
+    }
+
     const key = archetype.toLowerCase();
     const a = ARCHETYPES[key] || ARCHETYPES["diplomat"];
     const html = buildEmail(key, serial);
