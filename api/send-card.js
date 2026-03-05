@@ -1,8 +1,5 @@
-const nodemailer = require("nodemailer");
-const { URL } = require("url");
-
-const SMTP_USER = process.env.SMTP_USER || "team@getdisclosure.app";
-const SMTP_PASS = process.env.SMTP_PASS || "";
+const RESEND_KEY = process.env.RESEND_KEY || "";
+const FROM_EMAIL = "Disclosure Protocol <team@getdisclosure.app>";
 
 const ARCHETYPES = {
   sentinel: {
@@ -460,27 +457,32 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: "missing fields" });
     }
 
-    if (!SMTP_PASS) {
-      return res.status(500).json({ error: "SMTP_PASS not configured" });
+    if (!RESEND_KEY) {
+      return res.status(500).json({ error: "RESEND_KEY not configured" });
     }
 
     const key = archetype.toLowerCase();
     const a = ARCHETYPES[key] || ARCHETYPES["diplomat"];
     const html = buildEmail(key, serial);
 
-    const transporter = nodemailer.createTransport({
-      host: "smtp.hostinger.com",
-      port: 465,
-      secure: true,
-      auth: { user: SMTP_USER, pass: SMTP_PASS },
+    const resp = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${RESEND_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: FROM_EMAIL,
+        to: [email],
+        subject: a.subject,
+        html: html,
+      }),
     });
 
-    await transporter.sendMail({
-      from: `"Disclosure Protocol" <${SMTP_USER}>`,
-      to: email,
-      subject: a.subject,
-      html: html,
-    });
+    if (!resp.ok) {
+      const err = await resp.text();
+      return res.status(500).json({ error: "Resend failed", detail: err });
+    }
 
     return res.status(200).json({ ok: true, to: email, archetype: key });
   } catch (err) {
