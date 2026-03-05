@@ -2609,8 +2609,8 @@ async function handleAccess(e) {
     try {
       const { data, error } = await sb.rpc('join_waitlist', {
         p_email: email,
-        p_label: (archetypeData?.name || archetype).toUpperCase(),
-        p_score: 0
+        p_archetype: archetype,
+        p_serial: serial
       });
       if (!error) {
         const { data: cnt } = await sb.rpc('get_waitlist_count');
