@@ -2639,12 +2639,7 @@ async function handleAccess(e) {
     } catch(_) {}
   }
 
-  // Fire card email — non-blocking, best effort
-  fetch('http://18.221.216.70:3002/send-card', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email: email, archetype: archetype, serial: serial })
-  }).catch(function() {});  // silent fail — UI never waits on this
+  // Email is now sent automatically via Supabase edge function on INSERT
 
   // Hide form
   document.getElementById('gate-form').style.display = 'none';
