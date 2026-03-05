@@ -1148,7 +1148,8 @@
   </div>
 
   <!-- 4. THE RULES -->
-  <section id="quiz" class="quiz quiz-content-hidden">
+  <div id="quiz-gate-notice" style="display:none;text-align:center;padding:12px 24px;background:rgba(74,246,38,0.08);border:1px solid rgba(74,246,38,0.3);font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:#4AF626;margin-bottom:0;transition:opacity 1s ease">▶ CLASSIFICATION REQUIRED — COMPLETE THE ASSESSMENT TO SECURE YOUR POSITION</div>
+<section id="quiz" class="quiz quiz-content-hidden">
     <!-- CONTAINMENT FIELD — visual wow frame -->
     <div class="quiz-vignette" id="quiz-vignette"></div>
     <div class="quiz-containment">
@@ -2599,6 +2600,10 @@ async function handleAccess(e) {
     const btn = document.getElementById('gate-submit-btn');
     btn.textContent = 'CLASSIFICATION REQUIRED';
     setTimeout(() => { btn.textContent = 'SECURE POSITION'; }, 2000);
+    const notice = document.getElementById('quiz-gate-notice');
+    notice.style.display = 'block';
+    notice.style.opacity = '1';
+    setTimeout(() => { notice.style.opacity = '0'; setTimeout(() => { notice.style.display = 'none'; }, 1000); }, 5000);
     document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
     return;
   }
