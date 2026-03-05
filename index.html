@@ -2146,6 +2146,7 @@ const ARCHETYPES = {
     icon: '🛡️',
     color: 'sentinel',
     pct: 'Primary Protector designation.',
+    sharePct: '34%',
     desc: 'You are the protector. You move first. You assess the threat before anyone else does. When it happens, people will look to you.',
     serial_prefix: 'DS',
     card_color: 'green'
@@ -2155,6 +2156,7 @@ const ARCHETYPES = {
     icon: '🤝',
     color: 'diplomat',
     pct: 'De-escalation Lead designation.',
+    sharePct: '28%',
     desc: 'You are the de-escalator. Calm under pressure. You will be the one who prevents a first contact from becoming a last contact.',
     serial_prefix: 'DS',
     card_color: 'green'
@@ -2164,6 +2166,7 @@ const ARCHETYPES = {
     icon: '🔬',
     color: 'scholar',
     pct: 'Field Analyst designation.',
+    sharePct: '22%',
     desc: 'You are the observer. You document. You analyze. Your records will be the only verifiable account that survives.',
     serial_prefix: 'DS',
     card_color: 'green'
@@ -2173,6 +2176,7 @@ const ARCHETYPES = {
     icon: '🏃',
     color: 'survivor',
     pct: 'Self-Preservation Specialist designation.',
+    sharePct: '16%',
     desc: 'You read the exit before you read the room. When it happens, your family is behind you and moving. That\'s not cowardice — that\'s the most human response there is.',
     serial_prefix: 'DS',
     card_color: 'green'
@@ -2182,6 +2186,7 @@ const ARCHETYPES = {
     icon: '⭐',
     color: 'first-contact',
     pct: 'Unclassified designation — no confirmed field contact.',
+    sharePct: '<0.1%',
     desc: 'This archetype has no confirmed field contact. You were not supposed to find this path. Welcome.',
     serial_prefix: 'FC',
     card_color: 'gold'
@@ -2575,7 +2580,7 @@ function updateGateHintWithArchetype(data) {
 function shareArchetype() {
   if (!currentArchetype) return;
   const data = ARCHETYPES[currentArchetype];
-  const pct = currentArchetype === 'first-contact' ? '<0.1%' : data.pct.split('%')[0].trim() + '%';
+  const pct = data.sharePct;
   const text = 'I just got classified as a ' + data.name + ' by @disclosure_app. Only ' + pct + ' of people get this archetype. Find out what you are: getdisclosure.app #FirstContact #Disclosure';
   const url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
   window.open(url, '_blank');
