@@ -81,7 +81,7 @@
       {
         "@type": "Quiz",
         "name": "First Contact Archetype Assessment",
-        "description": "A 10-question psychological assessment that determines your alien encounter archetype - Sentinel, Diplomat, Scholar, or the rare First Contact designation.",
+        "description": "A 10-question psychological assessment that determines your alien encounter archetype - Sentinel, Diplomat, Scholar, Survivor, or the rare First Contact designation.",
         "url": "https://getdisclosure.app/quiz",
         "educationalLevel": "General Public",
         "about": {"@type": "Thing", "name": "Alien First Contact Preparation"}
@@ -92,12 +92,12 @@
           {
             "@type": "Question",
             "name": "What is Disclosure?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Disclosure is the first civilian alien first contact preparation platform. It classifies users into one of four archetypes via a 10-question assessment and provides archetype-specific training, protocols, and digital certification (the First Contact Card) for UAP contact scenarios."}
+            "acceptedAnswer": {"@type": "Answer", "text": "Disclosure is the first civilian alien first contact preparation platform. It classifies users into one of five archetypes via a 10-question assessment and provides archetype-specific training, protocols, and digital certification (the First Contact Card) for UAP contact scenarios."}
           },
           {
             "@type": "Question",
-            "name": "What are the four archetypes in Disclosure?",
-            "acceptedAnswer": {"@type": "Answer", "text": "The four archetypes are Sentinel (Primary Protector), Diplomat (De-escalation Lead), Scholar (Field Analyst), and First Contact (a rare classified designation outside the standard three-archetype system)."}
+            "name": "What are the five archetypes in Disclosure?",
+            "acceptedAnswer": {"@type": "Answer", "text": "The five archetypes are Sentinel (Primary Protector), Diplomat (De-escalation Lead), Scholar (Field Analyst), Survivor (Self-Preservation Specialist), and First Contact (a rare classified designation outside the standard four-archetype system)."}
           },
           {
             "@type": "Question",
@@ -160,7 +160,7 @@
       --font-body:'Chakra Petch',sans-serif;
       --bg-void:#030403;--bg-surface:#0A0D0A;
       --crt-green:#4AF626;--crt-green-dim:rgba(74,246,38,0.15);
-      --arch-sentinel:#FA3E3E;--arch-diplomat:#4AF626;--arch-scholar:#3B82F6;--arch-mythic:#FBBF24;
+      --arch-sentinel:#FA3E3E;--arch-diplomat:#4AF626;--arch-scholar:#3B82F6;--arch-mythic:#FBBF24;--arch-survivor:#F97316;
       --redacted-bg:#111411;--redacted-text:rgba(255,255,255,0.03)
     }
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
@@ -406,6 +406,7 @@
     .qr-archetype-name.sentinel{color:var(--r)}
     .qr-archetype-name.diplomat{color:var(--g)}
     .qr-archetype-name.scholar{color:#60A5FA}
+    .qr-archetype-name.survivor{color:var(--arch-survivor)}
     .qr-archetype-name.first-contact{color:var(--gold);animation:fcPulse 2s infinite;text-shadow:0 0 40px rgba(255,215,0,.3)}
     .qr-pct{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:rgba(255,255,255,.62);margin-top:8px;display:block}
     .qr-pct.fc-pct{color:var(--gold)}
@@ -728,6 +729,10 @@
     .arch-card.ac-sc::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 30% 40%,rgba(59,130,246,.07) 0%,transparent 70%);pointer-events:none;z-index:0;animation:scholarPulse 2.5s ease-in-out infinite}
     @keyframes scholarPulse{0%,100%{opacity:.5}50%{opacity:1}}
     /* first contact — gold spark */
+    .arch-card.ac-sv{border-color:rgba(249,115,22,.4);background:rgba(8,4,1,.97);box-shadow:0 0 30px rgba(249,115,22,.08),inset 0 0 30px rgba(249,115,22,.03)}
+    .arch-card.ac-sv:hover{box-shadow:0 0 60px rgba(249,115,22,.25),inset 0 0 40px rgba(249,115,22,.08)}
+    .arch-card.ac-sv::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(249,115,22,.08) 0%,transparent 70%);pointer-events:none;z-index:0;animation:survivorEmber 3s ease-in-out infinite alternate}
+    @keyframes survivorEmber{from{opacity:.6}to{opacity:1}}
     .arch-card.ac-fc{border-color:rgba(251,191,36,.45);background:rgba(6,5,0,.97);box-shadow:0 0 40px rgba(251,191,36,.12),inset 0 0 40px rgba(251,191,36,.04);animation:fcShimmer 3.5s ease-in-out infinite}
     .arch-card.ac-fc:hover{box-shadow:0 0 80px rgba(251,191,36,.3),inset 0 0 50px rgba(251,191,36,.1)}
     /* FC laser line */
@@ -1172,6 +1177,7 @@
       <div class="cm-item"><span class="cm-label">SENTINEL:</span><div class="cm-bar-wrap"><div class="cm-bar-fill sentinel-bar" id="cm-sentinel" style="width:0%"></div></div></div>
       <div class="cm-item"><span class="cm-label">DIPLOMAT:</span><div class="cm-bar-wrap"><div class="cm-bar-fill diplomat-bar" id="cm-diplomat" style="width:0%"></div></div></div>
       <div class="cm-item"><span class="cm-label">SCHOLAR:</span><div class="cm-bar-wrap"><div class="cm-bar-fill scholar-bar" id="cm-scholar" style="width:0%"></div></div></div>
+      <div class="cm-item"><span class="cm-label">SURVIVOR:</span><div class="cm-bar-wrap"><div class="cm-bar-fill" id="cm-survivor" style="width:0%;background:#F97316;box-shadow:0 0 6px rgba(249,115,22,.6)"></div></div></div>
     </div>
 
     <div class="quiz-card sr">
@@ -1183,21 +1189,21 @@
         <div class="q-num">QUESTION 01 OF 10</div>
         <p class="q-text">A craft makes landfall 100 meters from you. Your first move?</p>
         <div class="q-opts">
-          <button class="q-opt" onclick="answer(1,1,'sentinel')">I move to shield the people behind me.</button>
+          <button class="q-opt" onclick="answer(1,1,'sentinel')">I move between it and the people behind me.</button>
           <button class="q-opt" onclick="answer(1,2,'diplomat')">I go completely still. Non-threatening posture.</button>
-          <button class="q-opt" onclick="answer(1,3,'scholar')">I raise both hands. I want them to see my intentions.</button>
-          <button class="q-opt" onclick="answer(1,4,'sentinel')">I back away slowly, eyes forward.</button>
+          <button class="q-opt" onclick="answer(1,3,'scholar')">I start recording. Time, distance, shape — everything.</button>
+          <button class="q-opt" onclick="answer(1,4,'survivor')">I grab whoever's closest and move toward cover.</button>
         </div>
       </div>
       <!-- Q2 -->
       <div class="q-step" id="q2">
         <div class="q-num">QUESTION 02 OF 10</div>
-        <p class="q-text">One of them makes direct eye contact with you. What do you do?</p>
+        <p class="q-text">One of them steps out. It makes direct eye contact with you.</p>
         <div class="q-opts">
-          <button class="q-opt" onclick="answer(2,1,'sentinel')">Hold it. I do not look away first.</button>
-          <button class="q-opt" onclick="answer(2,2,'diplomat')">Blink slowly. Reduce the perceived threat.</button>
-          <button class="q-opt" onclick="answer(2,3,'scholar')">Look slightly away — direct gaze may be hostile in their culture.</button>
-          <button class="q-opt" onclick="answer(2,4,'diplomat')">Drop to one knee. Show submission. Survive.</button>
+          <button class="q-opt" onclick="answer(2,1,'sentinel')">I hold it. I do not look away first.</button>
+          <button class="q-opt" onclick="answer(2,2,'diplomat')">I blink slowly. Lower my chin. Reduce the perceived threat.</button>
+          <button class="q-opt" onclick="answer(2,3,'scholar')">I study its eyes. Pupil shape, blink pattern — there's data in this.</button>
+          <button class="q-opt" onclick="answer(2,4,'survivor')">I break eye contact and scan for exits.</button>
         </div>
       </div>
       <!-- Q3 -->
@@ -1208,41 +1214,41 @@
           <button class="q-opt" onclick="answer(3,1,'sentinel')">A weapon. I brace.</button>
           <button class="q-opt" onclick="answer(3,2,'diplomat')">An offering. I nod.</button>
           <button class="q-opt" onclick="answer(3,3,'scholar')">A device. I observe.</button>
-          <button class="q-opt" onclick="answer(3,4,'first-contact')">Their hand.</button>
+          <button class="q-opt" onclick="answer(3,4,'survivor')">Irrelevant. I'm already backing up.</button>
         </div>
       </div>
       <!-- Q4 -->
       <div class="q-step" id="q4">
         <div class="q-num">QUESTION 04 OF 10</div>
-        <p class="q-text">The encounter ends. They leave. What do you do first?</p>
+        <p class="q-text">Someone near you panics and runs. The craft tracks the movement.</p>
         <div class="q-opts">
-          <button class="q-opt" onclick="answer(4,1,'sentinel')">Secure the perimeter. Establish what's safe.</button>
-          <button class="q-opt" onclick="answer(4,2,'diplomat')">Brief the people around me. Calm the crowd.</button>
-          <button class="q-opt" onclick="answer(4,3,'scholar')">Document everything, in exact sequence.</button>
-          <button class="q-opt" onclick="answer(4,4,'diplomat')">Stand completely still. Process what just happened.</button>
+          <button class="q-opt" onclick="answer(4,1,'sentinel')">I shout after them — running is the worst thing they can do.</button>
+          <button class="q-opt" onclick="answer(4,2,'diplomat')">I stay rooted. My calm might anchor what happens next.</button>
+          <button class="q-opt" onclick="answer(4,3,'scholar')">I watch the craft's response. Tracking speed, pattern — that tells me something.</button>
+          <button class="q-opt" onclick="answer(4,4,'survivor')">I use the distraction. Get my people moving the other way.</button>
         </div>
       </div>
 
       <!-- Q5 -->
       <div class="q-step" id="q5">
         <div class="q-num">QUESTION 05 OF 10</div>
-        <p class="q-text">A light from the craft sweeps slowly across the ground toward you. It stops at your feet.</p>
+        <p class="q-text">A low sound comes from the craft. You feel it in your chest before you hear it.</p>
         <div class="q-opts">
-          <button class="q-opt" onclick="answer(5,1,'sentinel')">I hold position. Whatever comes next, I'm not moving first.</button>
-          <button class="q-opt" onclick="answer(5,2,'diplomat')">I step aside slowly. I don't want to be seen as blocking it.</button>
-          <button class="q-opt" onclick="answer(5,3,'scholar')">I watch where the edges of the light fall. There's data in that.</button>
-          <button class="q-opt" onclick="answer(5,4,'first-contact')">I step into it.</button>
+          <button class="q-opt" onclick="answer(5,1,'sentinel')">Threat. My body knows before my mind does.</button>
+          <button class="q-opt" onclick="answer(5,2,'diplomat')">Communication. If it's sound, it's trying to reach us.</button>
+          <button class="q-opt" onclick="answer(5,3,'scholar')">I want to record the frequency. Every waveform is information.</button>
+          <button class="q-opt" onclick="answer(5,4,'survivor')">That's my cue to leave. If I can feel it, it's too close.</button>
         </div>
       </div>
       <!-- Q6 -->
       <div class="q-step" id="q6">
         <div class="q-num">QUESTION 06 OF 10</div>
-        <p class="q-text">Someone near you breaks and runs. The craft tracks the movement immediately.</p>
+        <p class="q-text">A light from the craft sweeps the ground and stops at your feet.</p>
         <div class="q-opts">
-          <button class="q-opt" onclick="answer(6,1,'sentinel')">I call after them. Running is the worst thing they can do.</button>
-          <button class="q-opt" onclick="answer(6,2,'diplomat')">I stay completely still. My calm might anchor what happens next.</button>
-          <button class="q-opt" onclick="answer(6,3,'scholar')">I watch the craft's reaction. The response pattern tells me something.</button>
-          <button class="q-opt" onclick="answer(6,4,'first-contact')">I take one step forward. Draw the attention back to me.</button>
+          <button class="q-opt" onclick="answer(6,1,'sentinel')">I hold position. Whatever comes next, I'm not moving first.</button>
+          <button class="q-opt" onclick="answer(6,2,'diplomat')">I open my palms slowly. Let them see I'm not a threat.</button>
+          <button class="q-opt" onclick="answer(6,3,'scholar')">I study the light's edges. Wavelength, heat, beam width — this is measurable.</button>
+          <button class="q-opt" onclick="answer(6,4,'survivor')">I step out of it immediately. I don't know what it does.</button>
         </div>
       </div>
       <!-- Q7 -->
@@ -1251,20 +1257,20 @@
         <p class="q-text">They haven't moved in three minutes. Neither have you. You realize they are studying you.</p>
         <div class="q-opts">
           <button class="q-opt" onclick="answer(7,1,'sentinel')">I stand taller. I want them to understand I'm not prey.</button>
-          <button class="q-opt" onclick="answer(7,2,'diplomat')">I lower myself slowly. I want them to see I'm not a threat.</button>
-          <button class="q-opt" onclick="answer(7,3,'scholar')">I mirror their stillness deliberately. Show them I understand patience.</button>
-          <button class="q-opt" onclick="answer(7,4,'first-contact')">I speak. One word. My name.</button>
+          <button class="q-opt" onclick="answer(7,2,'diplomat')">I lower myself slowly. Show them I'm not a threat.</button>
+          <button class="q-opt" onclick="answer(7,3,'scholar')">I mirror their stillness. Show them I understand patience.</button>
+          <button class="q-opt" onclick="answer(7,4,'survivor')">Three minutes is long enough. I start moving toward safety.</button>
         </div>
       </div>
       <!-- Q8 -->
       <div class="q-step" id="q8">
         <div class="q-num">QUESTION 08 OF 10</div>
-        <p class="q-text">A sound comes from the craft. Not language. You feel it in your chest before you hear it.</p>
+        <p class="q-text">Your phone still works. You have one action before the battery dies.</p>
         <div class="q-opts">
-          <button class="q-opt" onclick="answer(8,1,'sentinel')">Threat. My body knows before my mind does.</button>
-          <button class="q-opt" onclick="answer(8,2,'diplomat')">Communication. If it's a sound, it's trying to reach us.</button>
-          <button class="q-opt" onclick="answer(8,3,'scholar')">I want to record it. Every frequency is information.</button>
-          <button class="q-opt" onclick="answer(8,4,'first-contact')">Recognition. Like something you've heard before but couldn't place.</button>
+          <button class="q-opt" onclick="answer(8,1,'sentinel')">Call for backup. Someone needs to know our position.</button>
+          <button class="q-opt" onclick="answer(8,2,'diplomat')">Open the camera. Point it at them. Show I'm documenting, not attacking.</button>
+          <button class="q-opt" onclick="answer(8,3,'scholar')">Record everything. Audio, video, GPS — this data has to survive.</button>
+          <button class="q-opt" onclick="answer(8,4,'survivor')">Text my family our location and tell them not to come here.</button>
         </div>
       </div>
       <!-- Q9 -->
@@ -1275,18 +1281,18 @@
           <button class="q-opt" onclick="answer(9,1,'sentinel')">Everyone stay together. Don't move yet.</button>
           <button class="q-opt" onclick="answer(9,2,'diplomat')">Is everyone okay?</button>
           <button class="q-opt" onclick="answer(9,3,'scholar')">Did anyone else see the way the light changed at the end?</button>
-          <button class="q-opt" onclick="answer(9,4,'first-contact')">Nothing. You're not ready to speak yet.</button>
+          <button class="q-opt" onclick="answer(9,4,'survivor')">We need to go. Now. Before they come back.</button>
         </div>
       </div>
       <!-- Q10 -->
       <div class="q-step" id="q10">
         <div class="q-num">QUESTION 10 OF 10</div>
-        <p class="q-text">The next morning, the government confirms it happened. They are asking for civilian witnesses.</p>
+        <p class="q-text">The next morning, the government confirms it happened. They're asking for civilian witnesses.</p>
         <div class="q-opts">
-          <button class="q-opt" onclick="answer(10,1,'sentinel')">I come forward. My account is accurate and I'll stand behind it.</button>
+          <button class="q-opt" onclick="answer(10,1,'sentinel')">I come forward immediately. My account is accurate and I'll stand behind it.</button>
           <button class="q-opt" onclick="answer(10,2,'diplomat')">I come forward. Someone has to speak calmly about what we saw.</button>
           <button class="q-opt" onclick="answer(10,3,'scholar')">I submit everything. Every timestamp, detail, and observation I recorded.</button>
-          <button class="q-opt" onclick="answer(10,4,'first-contact')">I don't. Not yet. Some things aren't ready to be explained.</button>
+          <button class="q-opt" onclick="answer(10,4,'survivor')">I stay quiet. I've got a family. I'll talk when I know it's safe.</button>
         </div>
       </div>
 
@@ -1784,7 +1790,7 @@
   <!-- SPECIES THREAT MATRIX -->
   <section id="social-proof" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04);overflow:hidden">
     <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(74,246,38,.65);margin-bottom:16px">// ARCHETYPE CLASSIFICATION — ACTIVE PROFILES //</div>
-    <h2 class="sr" style="font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Four archetypes.<br>One determines everything.</h2>
+    <h2 class="sr" style="font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Five archetypes.<br>One determines everything.</h2>
     <p class="sr" style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.68);margin-bottom:56px">When it happens, your role is already assigned. Most people won't know theirs.</p>
 
     <div class="arch-cards-wrap sr">
@@ -1849,6 +1855,27 @@
           <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:91%;background:#60A5FA;box-shadow:0 0 8px rgba(96,165,250,.6)"></div></div>
         </div>
         <div class="ac-status-line" style="color:#60A5FA;border-color:rgba(96,165,250,.2)">🔵 DOCUMENTATION: ACTIVE</div>
+        <div class="ac-wm">DISCLOSURE PROTOCOL</div>
+      </div>
+
+      <!-- SURVIVOR -->
+      <div class="arch-card ac-sv">
+        <div class="ac-header">
+          <span class="ac-logo-txt">◉ DISCLOSURE PROTOCOL</span>
+          <span class="ac-serial-txt">DS-2026-11204</span>
+        </div>
+        <span class="ac-icon">🏃</span>
+        <div class="ac-name" style="color:#F97316">SURVIVOR</div>
+        <div class="ac-role">SELF-PRESERVATION SPECIALIST</div>
+        <div class="ac-mission" style="color:rgba(249,115,22,.85)">You'll be the last one standing. Not because you're brave — because you're smart.</div>
+        <div class="ac-stat"><span class="ac-sl">EXIT SCAN</span><span class="ac-sv" style="color:#F97316">ACTIVE</span></div>
+        <div class="ac-stat"><span class="ac-sl">PRIORITY</span><span class="ac-sv">FAMILY FIRST</span></div>
+        <div class="ac-stat"><span class="ac-sl">RESPONSE</span><span class="ac-sv" style="color:#F97316">EVASIVE</span></div>
+        <div class="ac-bar-wrap">
+          <div class="ac-bar-lbl"><span>SURVIVAL RATE</span><span style="color:#F97316">97%</span></div>
+          <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:97%;background:#F97316;box-shadow:0 0 8px rgba(249,115,22,.6)"></div></div>
+        </div>
+        <div class="ac-status-line" style="color:#F97316;border-color:rgba(249,115,22,.2)">🟠 EVACUATION: READY</div>
         <div class="ac-wm">DISCLOSURE PROTOCOL</div>
       </div>
 
@@ -2139,6 +2166,15 @@ const ARCHETYPES = {
     serial_prefix: 'DS',
     card_color: 'green'
   },
+  survivor: {
+    name: 'SURVIVOR',
+    icon: '🏃',
+    color: 'survivor',
+    pct: 'Self-Preservation Specialist designation.',
+    desc: 'You read the exit before you read the room. When it happens, your family is behind you and moving. That\'s not cowardice — that\'s the most human response there is.',
+    serial_prefix: 'DS',
+    card_color: 'green'
+  },
   'first-contact': {
     name: 'FIRST CONTACT',
     icon: '⭐',
@@ -2151,7 +2187,7 @@ const ARCHETYPES = {
 };
 
 // ── Quiz State ────────────────────────────────
-const scores = { sentinel: 0, diplomat: 0, scholar: 0, 'first-contact': 0 };
+const scores = { sentinel: 0, diplomat: 0, scholar: 0, survivor: 0, 'first-contact': 0 };
 const answers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // stores option index (1-4) per question
 let currentArchetype = null;
 let savedSerial = null;
@@ -2162,7 +2198,7 @@ const FC_SEQUENCE = [3, 1, 4, 2];
 // ── Retake Quiz ──
 function retakeQuiz() {
   // Reset scores
-  scores.sentinel = 0; scores.diplomat = 0; scores.scholar = 0; scores['first-contact'] = 0;
+  scores.sentinel = 0; scores.diplomat = 0; scores.scholar = 0; scores.survivor = 0; scores['first-contact'] = 0;
   // Reset answers
   for (var i = 0; i < answers.length; i++) answers[i] = 0;
   currentArchetype = null;
@@ -2231,7 +2267,7 @@ function initQuizEntrance() {
 
 // FEATURE 3: Update confidence meter
 function updateConfidenceMeter() {
-  var total = scores.sentinel + scores.diplomat + scores.scholar + scores['first-contact'];
+  var total = scores.sentinel + scores.diplomat + scores.scholar + scores.survivor + scores['first-contact'];
   if (total === 0) return;
   var meter = document.getElementById('confidence-meter');
   if (!meter.classList.contains('visible')) meter.classList.add('visible');
@@ -2239,6 +2275,7 @@ function updateConfidenceMeter() {
   document.getElementById('cm-sentinel').style.width = (scores.sentinel / maxPossible * 100) + '%';
   document.getElementById('cm-diplomat').style.width = ((scores.diplomat + scores['first-contact']) / maxPossible * 100) + '%';
   document.getElementById('cm-scholar').style.width = (scores.scholar / maxPossible * 100) + '%';
+  document.getElementById('cm-survivor').style.width = (scores.survivor / maxPossible * 100) + '%';
 }
 
 // FEATURE 4: Escalating intensity
@@ -2423,7 +2460,7 @@ function showArchetypeResult() {
   } else {
     // Tally — highest score wins; ties go to diplomat
     let top = 'diplomat', topScore = -1;
-    ['sentinel', 'diplomat', 'scholar'].forEach(function(a) {
+    ['sentinel', 'diplomat', 'scholar', 'survivor'].forEach(function(a) {
       if (scores[a] > topScore) { topScore = scores[a]; top = a; }
     });
     archetype = top;
