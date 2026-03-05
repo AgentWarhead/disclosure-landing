@@ -2639,7 +2639,12 @@ async function handleAccess(e) {
     } catch(_) {}
   }
 
-  // Email is now sent automatically via Supabase edge function on INSERT
+  // Send welcome card email via Vercel API route
+  fetch('/api/send-card', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, archetype: archetype, serial: serial })
+  }).catch(function() {});
 
   // Hide form
   document.getElementById('gate-form').style.display = 'none';
