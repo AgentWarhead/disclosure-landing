@@ -2075,10 +2075,27 @@ let sb = null;
 function initSupa() {
   if (window.supabase) sb = window.supabase.createClient(SUPA_URL, SUPA_KEY);
 }
+function shuffleQuizOptions() {
+  for (var q = 1; q <= 10; q++) {
+    var step = document.getElementById('q' + q);
+    if (!step) continue;
+    var container = step.querySelector('.q-opts');
+    if (!container) continue;
+    var opts = Array.from(container.querySelectorAll('.q-opt'));
+    // Fisher-Yates shuffle
+    for (var i = opts.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = opts[i]; opts[i] = opts[j]; opts[j] = tmp;
+    }
+    opts.forEach(function(opt) { container.appendChild(opt); });
+  }
+}
+
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initSupa);
+  document.addEventListener('DOMContentLoaded', function() { initSupa(); shuffleQuizOptions(); });
 } else {
   initSupa();
+  shuffleQuizOptions();
 }
 
 // ── Location (Change 8) ───────────────────────
@@ -2211,6 +2228,8 @@ function retakeQuiz() {
   document.body.classList.remove('quiz-glitch');
   var blackout = document.querySelector('.blackout-overlay');
   if (blackout) blackout.classList.remove('active');
+  // Re-shuffle options for fresh replay
+  shuffleQuizOptions();
 }
 
 // ── Quiz Logic (Change 1, 12) + CINEMATIC OVERHAUL ──
