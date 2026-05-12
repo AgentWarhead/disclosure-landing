@@ -955,7 +955,8 @@
 
 
     /* Mobile fix: redaction overlays must never cover readable content */
-    @media(max-width:640px){
+    @media(max-width:700px){
+      .sr::after{display:none!important}
       .stm-classified-watermark{display:none!important}
       .stm-red-scanlines,.stm-glitch-red,.stm-glitch-red2{opacity:.35;mix-blend-mode:normal}
       .stm-anunnaki{overflow:hidden}
