@@ -928,12 +928,27 @@
     @media(max-width:880px){.packet-wrap{grid-template-columns:1fr}.transmission-packet{padding:74px 18px}.packet-channels{grid-template-columns:1fr 1fr}}@media(max-width:540px){.packet-actions{flex-direction:column}.packet-actions button,.packet-actions a{text-align:center}.packet-result{grid-template-columns:1fr;text-align:center}.packet-channels{grid-template-columns:1fr}}
 
 
+    /* Attention retention: reassure, preview share payoff, and make heavy archive optional */
+    .calm-bridge,.archive-choice{position:relative;padding:42px 24px;border-top:1px solid rgba(74,246,38,.08);background:linear-gradient(180deg,rgba(74,246,38,.035),rgba(0,0,0,.08));text-align:center;overflow:hidden}
+    .calm-bridge::before,.archive-choice::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(74,246,38,.08),transparent 58%);pointer-events:none}
+    .calm-inner,.archive-choice-inner{position:relative;max-width:820px;margin:0 auto}
+    .calm-kicker,.archive-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.35em;color:rgba(74,246,38,.68);margin-bottom:12px}
+    .calm-copy{font-family:var(--font-head);font-size:clamp(28px,4.5vw,54px);line-height:1.02;letter-spacing:-.025em;color:#fff;margin:0 0 14px}
+    .calm-copy em{font-style:normal;color:var(--crt-green)}
+    .calm-sub,.archive-copy{font-size:15px;line-height:1.65;color:rgba(255,255,255,.62);max-width:620px;margin:0 auto}
+    .packet-tease{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;max-width:720px;margin:28px auto 0;border:1px solid rgba(74,246,38,.18);background:rgba(0,0,0,.38);padding:16px 18px;text-align:left}
+    .packet-tease b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--crt-green);margin-bottom:6px}.packet-tease span{font-size:13px;color:rgba(255,255,255,.6);line-height:1.5}.packet-tease a{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:#000;background:var(--crt-green);padding:12px 14px;text-decoration:none;font-weight:800;white-space:nowrap}
+    .archive-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px}.archive-actions a{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-decoration:none;padding:13px 18px;border:1px solid rgba(74,246,38,.35);color:var(--crt-green);background:rgba(74,246,38,.04)}.archive-actions a.primary{background:var(--crt-green);color:#000;font-weight:800}
+    .species-mobile-note{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.55);line-height:1.7;border:1px dashed rgba(74,246,38,.24);padding:16px;margin:0 auto 28px;max-width:520px;text-align:center}
+    @media(max-width:640px){.packet-tease{grid-template-columns:1fr;text-align:center}.packet-tease a{display:block}.stm-grid .stm-card:nth-of-type(n+3){display:none}.stm-anunnaki{display:none}.species-mobile-note{display:block}#species-threat-matrix{padding:72px 18px}.stm-subtext{margin-bottom:34px}.stm-grid{margin-bottom:24px}.archive-choice{padding:34px 18px}}
+
+
     /* Phase 5: mobile, performance, accessibility final polish */
     .skip-link{position:fixed;left:12px;top:12px;z-index:20000;transform:translateY(-140%);background:var(--crt-green);color:#000;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-decoration:none;padding:12px 16px;border:2px solid #000;transition:transform .18s ease}.skip-link:focus{transform:translateY(0)}
     a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--crt-green);outline-offset:3px;box-shadow:0 0 0 5px rgba(74,246,38,.16)}
     button,.cta-btn,.mission-cta,.dock-action,.packet-actions button,.packet-actions a,.command-actions a,.share-btn,.gs-share-btn{touch-action:manipulation}
     img{max-width:100%;height:auto}.fd-feat-img{content-visibility:auto}
-    #evidence-wall,#protocol-simulator,#app-command-bridge,#species-threat-matrix,#locked-protocols,#civilian-readiness-os,#classified-tools,#clearance-ladder,#transmission-packet,#intel-briefings,#social-proof,#fc-event,#access,.share{content-visibility:auto;contain-intrinsic-size:900px}
+    #evidence-wall,#calm-bridge,#protocol-simulator,#app-command-bridge,#archive-choice,#species-threat-matrix,#locked-protocols,#civilian-readiness-os,#classified-tools,#clearance-ladder,#transmission-packet,#intel-briefings,#fc-event,#access,.share{content-visibility:auto;contain-intrinsic-size:900px}
     @media(hover:none),(pointer:coarse){body{cursor:auto}.cursor-ring{display:none}.protocol-sim::before{opacity:.32}.mission-dock{bottom:calc(10px + env(safe-area-inset-bottom));width:calc(100vw - 20px)}.dock-status{letter-spacing:.14em}.system-progress{top:52px}}
     @media(max-width:420px){.hero-sub br{display:none}.hero-sub{max-width:320px;margin-left:auto;margin-right:auto}.mission-h,.sim-h,.command-h,.packet-h,.clearance-h,.evidence-h{letter-spacing:-.02em}.packet-card,.sim-console,.mission-shell{border-left-color:rgba(74,246,38,.28);border-right-color:rgba(74,246,38,.28)}.gate-input{font-size:16px;letter-spacing:.08em}.packet-actions button,.packet-actions a,.command-actions a{width:100%;box-sizing:border-box}.mission-dock{font-size:10px}.mission-dock:not(.collapsed) .dock-status span:last-child{max-width:170px;overflow:hidden;text-overflow:ellipsis}}
     @media(prefers-reduced-motion:reduce){.dock-feed span,.signal-meter span,.sim-console::before,.clearance-pulse,.live-dot{animation:none!important}.hero-scroll{height:auto;min-height:100vh}.hero-sticky{position:relative}.mission-dock,.system-progress{transition:none!important}.protocol-sim::before{display:none}.skip-link{transition:none}}
@@ -1378,6 +1393,17 @@
     <span class="reticle-wrap sr"><a href="#protocol-simulator" class="cta-btn" style="font-size:13px;padding:16px 44px">SEE WHAT UNLOCKS NEXT →</a><span class="rt tl"></span><span class="rt tr"></span><span class="rt bl"></span><span class="rt br"></span></span>
     <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.2);margin-top:20px">CARDS ARE NON-TRANSFERABLE. ONE PER CIVILIAN.</div>
   </section>
+  <section class="calm-bridge" id="calm-bridge">
+    <div class="calm-inner sr">
+      <div class="calm-kicker">// PROTOCOL ADVANTAGE //</div>
+      <h2 class="calm-copy">Panic is the default.<br><em>Protocol is the advantage.</em></h2>
+      <p class="calm-sub">The point is not to make contact less strange. The point is to make you steadier when strange arrives.</p>
+      <div class="packet-tease" aria-label="Share packet preview">
+        <div><b>SHARE PACKET ARMED</b><span>Your classification becomes a field card and a ready-made transmission packet near the end of the file.</span></div>
+        <a href="#transmission-packet">PREVIEW PAYOFF →</a>
+      </div>
+    </div>
+  </section>
 <section id="protocol-simulator" class="protocol-sim">
     <div class="sim-wrap">
       <div class="sr">
@@ -1441,6 +1467,13 @@
       </div>
     </div>
   </section>
+  <section class="archive-choice" id="archive-choice">
+    <div class="archive-choice-inner sr">
+      <div class="archive-kicker">// OPTIONAL ARCHIVE DIVE //</div>
+      <p class="archive-copy">Believers can open the species files. Skeptics and speed-runners can skip straight to the locked protocol path. The card still waits either way.</p>
+      <div class="archive-actions"><a class="primary" href="#locked-protocols">CONTINUE TO PROTOCOL →</a><a href="#species-threat-matrix">OPEN SPECIES FILES</a></div>
+    </div>
+  </section>
 <section id="species-threat-matrix">
   <style>
     #species-threat-matrix{background:#000;border-top:1px solid rgba(74,246,38,0.12);padding:100px 24px;font-family:var(--mono)}
@@ -1493,6 +1526,7 @@
     <span class="stm-kicker sr">[ DECLASSIFIED INTELLIGENCE REPORT — NHI CONTACT REGISTRY ]</span>
     <h2 class="stm-h2 sr">6 Encounter Species Files.<br>Ranked By Threat.</h2>
     <p class="stm-subtext sr">Governments, witnesses, folklore, and contact reports keep circling the same shapes. Treat these files like preparation theater: strange enough to remember, practical enough to rehearse. Your readiness score determines what gets declassified.</p>
+    <div class="species-mobile-note sr">Mobile briefing mode: first two files shown. Full species archive unlocks through the intel path so the mission can keep moving.</div>
 
     <!-- 5-card grid -->
     <div class="stm-grid">
@@ -1814,122 +1848,7 @@
     <div class="sr"><a href="/intel" style="display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:#000;background:var(--crt-green);padding:14px 34px;text-decoration:none;font-weight:700;border:2px solid var(--crt-green);box-shadow:0 0 30px rgba(74,246,38,.22)">OPEN INTEL ARCHIVE →</a></div>
   </section>
 
-<section id="social-proof" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04);overflow:hidden">
-    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(74,246,38,.65);margin-bottom:16px">// ARCHETYPE CLASSIFICATION — ACTIVE PROFILES //</div>
-    <h2 class="sr" style="font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Five archetypes.<br>One determines everything.</h2>
-    <p class="sr" style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.68);margin-bottom:56px">When it happens, your role is already assigned. Most people won't know theirs.</p>
 
-    <div class="arch-cards-wrap sr">
-
-      <!-- SENTINEL -->
-      <div class="arch-card ac-s">
-        <div class="ac-header">
-          <span class="ac-logo-txt">◉ DISCLOSURE PROTOCOL</span>
-          <span class="ac-serial-txt">DS-2026-08847</span>
-        </div>
-        <span class="ac-icon">🛡️</span>
-        <div class="ac-name" style="color:var(--arch-sentinel)">SENTINEL</div>
-        <div class="ac-role">PRIMARY PROTECTOR</div>
-        <div class="ac-mission" style="color:rgba(250,62,62,.85)">You hold the line so others can think.</div>
-        <div class="ac-stat"><span class="ac-sl">THREAT READ</span><span class="ac-sv" style="color:var(--arch-sentinel)">ACTIVE</span></div>
-        <div class="ac-stat"><span class="ac-sl">ROLE ONSET</span><span class="ac-sv">IMMEDIATE</span></div>
-        <div class="ac-stat"><span class="ac-sl">SECTOR</span><span class="ac-sv" style="background:rgba(255,255,255,.1);color:transparent;padding:0 8px;font-size:8px">██████</span></div>
-        <div class="ac-bar-wrap">
-          <div class="ac-bar-lbl"><span>READINESS</span><span style="color:var(--arch-sentinel)">84%</span></div>
-          <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:84%;background:var(--arch-sentinel);box-shadow:0 0 8px rgba(250,62,62,.6)"></div></div>
-        </div>
-        <div class="ac-status-line" style="color:var(--arch-sentinel);border-color:rgba(250,62,62,.2)">🔴 FIELD DEPLOYMENT: READY</div>
-        <div class="ac-wm">DISCLOSURE PROTOCOL</div>
-      </div>
-
-      <!-- DIPLOMAT -->
-      <div class="arch-card ac-d">
-        <div class="ac-header">
-          <span class="ac-logo-txt">◉ DISCLOSURE PROTOCOL</span>
-          <span class="ac-serial-txt">DS-2026-03291</span>
-        </div>
-        <span class="ac-icon">🤝</span>
-        <div class="ac-name" style="color:var(--crt-green)">DIPLOMAT</div>
-        <div class="ac-role">DE-ESCALATION LEAD</div>
-        <div class="ac-mission" style="color:rgba(74,246,38,.85)">You speak when no one else can find the words.</div>
-        <div class="ac-stat"><span class="ac-sl">CONTACT IDX</span><span class="ac-sv" style="color:var(--g)">11.4 kHz</span></div>
-        <div class="ac-stat"><span class="ac-sl">LANGUAGE</span><span class="ac-sv">UNIVERSAL</span></div>
-        <div class="ac-stat"><span class="ac-sl">PROTOCOL</span><span class="ac-sv" style="color:var(--g)">ALPHA-7</span></div>
-        <div class="ac-bar-wrap">
-          <div class="ac-bar-lbl"><span>CALM RATING</span><span style="color:var(--g)">96%</span></div>
-          <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:96%;background:var(--g);box-shadow:0 0 8px rgba(74,246,38,.6)"></div></div>
-        </div>
-        <div class="ac-status-line" style="color:var(--g);border-color:rgba(74,246,38,.2)">🟢 FIRST CONTACT: AUTHORIZED</div>
-        <div class="ac-wm">DISCLOSURE PROTOCOL</div>
-      </div>
-
-      <!-- SCHOLAR -->
-      <div class="arch-card ac-sc">
-        <div class="ac-header">
-          <span class="ac-logo-txt">◉ DISCLOSURE PROTOCOL</span>
-          <span class="ac-serial-txt">DS-2026-15503</span>
-        </div>
-        <span class="ac-icon">🔬</span>
-        <div class="ac-name" style="color:#60A5FA">SCHOLAR</div>
-        <div class="ac-role">FIELD ANALYST</div>
-        <div class="ac-mission" style="color:rgba(96,165,250,.85)">You see what everyone else is too afraid to document.</div>
-        <div class="ac-stat"><span class="ac-sl">OBS CLASS</span><span class="ac-sv" style="color:#60A5FA">ALPHA</span></div>
-        <div class="ac-stat"><span class="ac-sl">FIELD MODE</span><span class="ac-sv">PASSIVE RECORD</span></div>
-        <div class="ac-stat"><span class="ac-sl">ARCHIVE</span><span class="ac-sv" style="color:#60A5FA">PRIORITY-1</span></div>
-        <div class="ac-bar-wrap">
-          <div class="ac-bar-lbl"><span>DATA INTEGRITY</span><span style="color:#60A5FA">91%</span></div>
-          <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:91%;background:#60A5FA;box-shadow:0 0 8px rgba(96,165,250,.6)"></div></div>
-        </div>
-        <div class="ac-status-line" style="color:#60A5FA;border-color:rgba(96,165,250,.2)">🔵 DOCUMENTATION: ACTIVE</div>
-        <div class="ac-wm">DISCLOSURE PROTOCOL</div>
-      </div>
-
-      <!-- SURVIVOR -->
-      <div class="arch-card ac-sv">
-        <div class="ac-header">
-          <span class="ac-logo-txt">◉ DISCLOSURE PROTOCOL</span>
-          <span class="ac-serial-txt">DS-2026-11204</span>
-        </div>
-        <span class="ac-icon">🏃</span>
-        <div class="ac-name" style="color:#F97316">SURVIVOR</div>
-        <div class="ac-role">SELF-PRESERVATION SPECIALIST</div>
-        <div class="ac-mission" style="color:rgba(249,115,22,.85)">You'll be the last one standing. Not because you're brave — because you're smart.</div>
-        <div class="ac-stat"><span class="ac-sl">EXIT SCAN</span><span class="ac-sv" style="color:#F97316">ACTIVE</span></div>
-        <div class="ac-stat"><span class="ac-sl">PRIORITY</span><span class="ac-sv">FAMILY FIRST</span></div>
-        <div class="ac-stat"><span class="ac-sl">RESPONSE</span><span class="ac-sv" style="color:#F97316">EVASIVE</span></div>
-        <div class="ac-bar-wrap">
-          <div class="ac-bar-lbl"><span>SURVIVAL RATE</span><span style="color:#F97316">97%</span></div>
-          <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:97%;background:#F97316;box-shadow:0 0 8px rgba(249,115,22,.6)"></div></div>
-        </div>
-        <div class="ac-status-line" style="color:#F97316;border-color:rgba(249,115,22,.2)">🟠 EVACUATION: READY</div>
-        <div class="ac-wm">DISCLOSURE PROTOCOL</div>
-      </div>
-
-      <!-- FIRST CONTACT -->
-      <div class="arch-card ac-fc">
-        <div class="ac-header">
-          <span class="ac-logo-txt" style="color:var(--gold);opacity:.5">◉ DISCLOSURE PROTOCOL</span>
-          <span class="ac-serial-txt" style="color:var(--gold)">FC-0000-00001</span>
-        </div>
-        <span class="ac-icon" style="animation:fcPulse 2s infinite">⭐</span>
-        <div class="ac-name" style="color:var(--gold)">FIRST CONTACT</div>
-        <div class="ac-role" style="color:rgba(255,215,0,.5)">CLASSIFICATION UNKNOWN</div>
-        <div class="ac-mission" style="color:rgba(251,191,36,.85)">Less than 0.1% carry this designation. You know why.</div>
-        <div class="ac-stat"><span class="ac-sl">ARCHETYPE</span><span class="ac-sv" style="background:rgba(255,215,0,.1);color:transparent;padding:0 8px">████████████</span></div>
-        <div class="ac-stat"><span class="ac-sl">FIELD CONF</span><span class="ac-sv" style="color:var(--gold)">NEVER</span></div>
-        <div class="ac-stat"><span class="ac-sl">CLEARANCE</span><span class="ac-sv" style="background:rgba(255,215,0,.1);color:transparent;padding:0 8px;font-size:8px">████████</span></div>
-        <div class="ac-bar-wrap">
-          <div class="ac-bar-lbl"><span style="color:rgba(255,215,0,.45)">UNLOCK STATUS</span><span style="color:var(--gold)">&lt;0.1%</span></div>
-          <div class="ac-bar-bg"><div class="ac-bar-fg" style="width:0.1%;background:var(--gold);box-shadow:0 0 8px rgba(255,215,0,.8)"></div></div>
-        </div>
-        <div class="ac-status-line" style="color:var(--gold);border-color:rgba(255,215,0,.2)">⭐ NO CONFIRMED FIELD CONTACT</div>
-        <div class="ac-wm" style="color:var(--gold)">DISCLOSURE PROTOCOL</div>
-      </div>
-
-    </div>
-
-    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.62);margin-top:44px">// Most people will discover their archetype too late. //</p>
-  </section>
 <section id="clearance-ladder" class="clearance-ladder">
     <div class="clearance-wrap">
       <div class="clearance-top">
@@ -1941,7 +1860,7 @@
         </div>
         <div class="clearance-steps sr" aria-label="Disclosure conversion sequence">
           <div class="clearance-step active"><div class="clearance-num">01</div><div><div class="clearance-title">OPEN FILE</div><div class="clearance-desc">Eye anomaly confirms the intercepted transmission.</div></div><div class="clearance-state green">COMPLETE</div></div>
-          <div class="clearance-step"><div class="clearance-num">02</div><div><div class="clearance-title">RUN MICRO-SIM</div><div class="clearance-desc">First response pattern exposes role bias.</div></div><div class="clearance-state">OPTIONAL</div></div>
+          <div class="clearance-step"><div class="clearance-num">02</div><div><div class="clearance-title">RUN MICRO-SIM</div><div class="clearance-desc">Field drill previews app training.</div></div><div class="clearance-state">OPTIONAL</div></div>
           <div class="clearance-step"><div class="clearance-num">03</div><div><div class="clearance-title">FINISH ASSESSMENT</div><div class="clearance-desc">Ten questions generate a classified archetype.</div></div><div class="clearance-state">REQUIRED</div></div>
           <div class="clearance-step"><div class="clearance-num">04</div><div><div class="clearance-title">CLAIM CARD</div><div class="clearance-desc">Email unlocks serial, credential, and launch transmission.</div></div><div class="clearance-state">LOCKED</div></div>
         </div>
