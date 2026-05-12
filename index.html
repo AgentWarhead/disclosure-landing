@@ -1328,8 +1328,8 @@
     <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(74,246,38,.06) 0%,transparent 70%);pointer-events:none"></div>
 
     <div class="cp-eyebrow sr">// FIRST CONTACT CREDENTIAL — CLASSIFICATION PENDING //</div>
-    <h2 class="cp-h sr" style="margin-bottom:12px">Your card has already been generated.</h2>
-    <p class="cp-sub sr" style="margin-bottom:48px;max-width:480px;margin-left:auto;margin-right:auto">A serial number was assigned the moment you opened this page. The only field still blank is the one that matters most.</p>
+    <h2 class="cp-h sr" style="margin-bottom:12px">Your card is waiting in the queue.</h2>
+    <p class="cp-sub sr" style="margin-bottom:48px;max-width:480px;margin-left:auto;margin-right:auto">Your classification activates it. Until then, the system can only show the locked credential and the training stack behind it.</p>
 
     <!-- Centered card with dramatic presentation -->
     <div class="sr" style="display:flex;justify-content:center;align-items:center;margin-bottom:48px">
@@ -1361,7 +1361,7 @@
             <span style="color:#ef4444;font-weight:700;font-size:11px;letter-spacing:.05em">⊘ INCOMPLETE</span>
           </div>
 
-          <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.05);text-align:center;font-size:9px;letter-spacing:.25em;color:rgba(255,255,255,.15)">COMPLETE ASSESSMENT TO ACTIVATE</div>
+          <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.05);text-align:center;font-size:9px;letter-spacing:.25em;color:rgba(255,255,255,.15)">CLASSIFICATION ACTIVATES CARD</div>
         </div>
 
         <!-- Blurred overlay with pulsing lock -->
@@ -1370,20 +1370,20 @@
             <span style="font-size:20px">🔒</span>
           </div>
           <div style="font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(74,246,38,.9);font-weight:700">LOCKED</div>
-          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.4)">ARCHETYPE ASSESSMENT REQUIRED</div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.4)">CLASSIFICATION REQUIRED</div>
         </div>
       </div>
     </div>
 
-    <span class="reticle-wrap sr"><a href="#quiz" class="cta-btn" style="font-size:13px;padding:16px 44px">UNLOCK YOUR CARD →</a><span class="rt tl"></span><span class="rt tr"></span><span class="rt bl"></span><span class="rt br"></span></span>
+    <span class="reticle-wrap sr"><a href="#protocol-simulator" class="cta-btn" style="font-size:13px;padding:16px 44px">SEE WHAT UNLOCKS NEXT →</a><span class="rt tl"></span><span class="rt tr"></span><span class="rt bl"></span><span class="rt br"></span></span>
     <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.2);margin-top:20px">CARDS ARE NON-TRANSFERABLE. ONE PER CIVILIAN.</div>
   </section>
 <section id="protocol-simulator" class="protocol-sim">
     <div class="sim-wrap">
       <div class="sr">
         <div class="sim-kicker">// FIELD SIMULATION 00-A //</div>
-        <h2 class="sim-h">Your first three seconds decide the room.</h2>
-        <p class="sim-sub">This is not another classification. It is a field drill: one scenario, one taught response, one reason the app exists after the quiz gives you a role.</p>
+        <h2 class="sim-h">After classification, the app starts training.</h2>
+        <p class="sim-sub">Classification gives you a designation. Training teaches what to do with it: breath control, stimulus discipline, protocol recall, and calm behavior under pressure.</p>
         <div class="sim-stats">
           <div class="sim-stat"><b id="sim-calm">00</b><span>DRILL PROGRESS</span></div>
           <div class="sim-stat"><b id="sim-role">TRAIN</b><span>MODE</span></div>
@@ -1392,12 +1392,12 @@
         </div>
       </div>
       <div class="sim-console sr" aria-live="polite">
-        <div class="sim-label" id="sim-label">SCENARIO 01 // VISUAL CONTACT</div>
-        <div class="sim-scene" id="sim-scene">A silent craft settles 100 meters away. Your group freezes. One person starts breathing too fast. A white-blue light begins sweeping the tree line.</div>
+        <div class="sim-label" id="sim-label">APP DRILL PREVIEW // STONE COLD PROTOCOL</div>
+        <div class="sim-scene" id="sim-scene">Your phone enters drill mode. Audio rises. The screen flashes. The objective is not to choose a role. The objective is to train stillness under pressure.</div>
         <div class="sim-options" id="sim-options">
-          <button class="sim-option" data-step="1">01 // Stabilize posture. Feet planted. Hands visible. No sudden reach.</button>
-          <button class="sim-option" data-step="2">02 // Lower stimulus. One calm sentence. No shouting. No crowd movement.</button>
-          <button class="sim-option" data-step="3">03 // Record without pursuit. Time, distance, direction, witness count.</button>
+          <button class="sim-option" data-step="1">01 // Breath lock: slow inhale, slower exhale, shoulders down.</button>
+          <button class="sim-option" data-step="2">02 // Stimulus control: hold still through light, sound, and countdown.</button>
+          <button class="sim-option" data-step="3">03 // Protocol recall: your archetype determines the next field instruction.</button>
         </div>
         <div class="sim-result" id="sim-result"></div>
         <button class="sim-reset visible" id="sim-reset" type="button">RUN FIELD DRILL</button>
@@ -3695,7 +3695,7 @@ function initPage() {
   const mode = document.getElementById('sim-role');
   const risk = document.getElementById('sim-risk');
   if(!sim || !options.length || !reset) return;
-  const drillResult = 'DRILL COMPLETE: the app does not ask you to guess your personality twice. It teaches repeatable contact behavior after classification: stabilize, de-escalate, document, then follow your archetype protocol.<br><br><a href="#quiz" style="color:var(--crt-green);text-decoration:none">GET YOUR CLASSIFICATION →</a>';
+  const drillResult = 'DRILL PREVIEW COMPLETE: this is what unlocks after classification. Your role determines the protocol. The app trains the behavior: calm under pressure, signal discipline, protocol recall, and field readiness.<br><br><a href="#access" style="color:var(--crt-green);text-decoration:none">CLAIM LAUNCH TRANSMISSION →</a>';
   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(hover: hover)').matches){
     sim.addEventListener('pointermove', function(e){
       const r = sim.getBoundingClientRect();
