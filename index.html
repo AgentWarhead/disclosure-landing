@@ -519,13 +519,6 @@
       .moment-h{font-size:clamp(36px,6vw,56px)}
     }
 
-    /* Timeline mobile */
-    @media(max-width:480px){
-      #timeline div[style*="grid-template-columns:110px"]{grid-template-columns:70px 1fr!important;gap:10px!important}
-      #timeline span[style*="font-size:10px"]{font-size:9px!important}
-      #timeline span[style*="font-size:12px"]{font-size:11px!important}
-    }
-
     /* Inline social capture responsive */
     @media(max-width:600px){
       .inline-social-bar{padding:20px 16px;flex-direction:column;gap:8px}
@@ -536,11 +529,6 @@
     @media(max-width:480px){
       #fc-event{padding:60px 16px!important}
       #fc-event div[style*="padding:28px 52px"]{padding:20px 24px!important}
-    }
-
-    /* Urgency bridge mobile */
-    @media(max-width:480px){
-      #urgency-bridge{padding:60px 16px!important}
     }
 
     /* Archetype cards mobile */
@@ -945,7 +933,7 @@
     a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--crt-green);outline-offset:3px;box-shadow:0 0 0 5px rgba(74,246,38,.16)}
     button,.cta-btn,.mission-cta,.dock-action,.packet-actions button,.packet-actions a,.command-actions a,.share-btn,.gs-share-btn{touch-action:manipulation}
     img{max-width:100%;height:auto}.fd-feat-img{content-visibility:auto}
-    #evidence-wall,#civilian-readiness-os,#protocol-simulator,#app-command-bridge,#clearance-ladder,#transmission-packet,#intel-briefings,#social-proof,#fc-event,#access,.share{content-visibility:auto;contain-intrinsic-size:900px}
+    #evidence-wall,#protocol-simulator,#app-command-bridge,#species-threat-matrix,#locked-protocols,#civilian-readiness-os,#classified-tools,#clearance-ladder,#transmission-packet,#intel-briefings,#social-proof,#fc-event,#access,.share{content-visibility:auto;contain-intrinsic-size:900px}
     @media(hover:none),(pointer:coarse){body{cursor:auto}.cursor-ring{display:none}.protocol-sim::before{opacity:.32}.mission-dock{bottom:calc(10px + env(safe-area-inset-bottom));width:calc(100vw - 20px)}.dock-status{letter-spacing:.14em}.system-progress{top:52px}}
     @media(max-width:420px){.hero-sub br{display:none}.hero-sub{max-width:320px;margin-left:auto;margin-right:auto}.mission-h,.sim-h,.command-h,.packet-h,.clearance-h,.evidence-h{letter-spacing:-.02em}.packet-card,.sim-console,.mission-shell{border-left-color:rgba(74,246,38,.28);border-right-color:rgba(74,246,38,.28)}.gate-input{font-size:16px;letter-spacing:.08em}.packet-actions button,.packet-actions a,.command-actions a{width:100%;box-sizing:border-box}.mission-dock{font-size:10px}.mission-dock:not(.collapsed) .dock-status span:last-child{max-width:170px;overflow:hidden;text-overflow:ellipsis}}
     @media(prefers-reduced-motion:reduce){.dock-feed span,.signal-meter span,.sim-console::before,.clearance-pulse,.live-dot{animation:none!important}.hero-scroll{height:auto;min-height:100vh}.hero-sticky{position:relative}.mission-dock,.system-progress{transition:none!important}.protocol-sim::before{display:none}.skip-link{transition:none}}
@@ -1127,77 +1115,7 @@
     <div class="hero-flash-text">FILE ACCESSED — CLEARANCE PENDING</div>
   </div>
 
-  <!-- 2. THE MOMENT — moved up: credibility first -->
-  <section class="moment">
-    <!-- RADAR SWEEP SVG -->
-    <svg class="svg-anim" width="200" height="200" viewBox="0 0 200 200" style="top:10%;right:5%">
-      <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(74,246,38,.15)" stroke-width="1"/>
-      <circle cx="100" cy="100" r="50" fill="none" stroke="rgba(74,246,38,.08)" stroke-width="1"/>
-      <circle cx="100" cy="100" r="20" fill="none" stroke="rgba(74,246,38,.06)" stroke-width="1"/>
-      <line x1="100" y1="100" x2="100" y2="20" stroke="rgba(74,246,38,.4)" stroke-width="2" class="radar-sweep" style="transform-origin:100px 100px"/>
-    </svg>
-    <div class="moment-date sr">19 FEBRUARY 2026 — EXECUTIVE ORDER SIGNED</div>
-    <h2 class="moment-h sr">The president<br><em>ordered full disclosure.</em></h2>
-    <p class="moment-body sr">
-      Intelligence officials testified <strong>under oath.</strong><br>
-      Over 40 witnesses. NDAs. A task force. Then <strong>silence.</strong><br>
-      Until a sitting president broke the chain of custody.
-    </p>
-    <div class="moment-line sr"></div>
-    <div class="moment-punch sr">
-      Every agency has <strong>300 days.</strong><br>
-      The countdown is running.<br>
-      <em>This briefing was not supposed to reach civilians first.</em>
-    </div>
-  </section>
-
-  <!-- 3. THE TIMELINE — new: urgency anchor -->
-    <!-- ══════════════════════════════════════════
-       THE TIMELINE — New: Urgency Anchor
-  ══════════════════════════════════════════ -->
-  <section id="timeline" style="padding:80px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04);position:relative;overflow:hidden">
-    <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(74,246,38,.015) 1px,rgba(74,246,38,.015) 2px);pointer-events:none"></div>
-    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(74,246,38,.65);margin-bottom:40px">// THE TIMELINE IS ACCELERATING //</div>
-    <div class="sr" style="max-width:600px;margin:0 auto;text-align:left">
-      <div style="display:flex;flex-direction:column;gap:0">
-
-        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:start">
-          <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:rgba(74,246,38,.6)">JULY 2023</span>
-          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.8);letter-spacing:.05em;line-height:1.6">Congressional UAP hearing. David Grusch testifies under oath: <strong style="color:#fff">non-human intelligence is real and has been recovered.</strong></span>
-        </div>
-
-        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:start">
-          <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:rgba(74,246,38,.6)">NOV 2024</span>
-          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.8);letter-spacing:.05em;line-height:1.6">UAP Disclosure Act advances. <strong style="color:#fff">Government ordered to declassify all records.</strong> Task force formed. Then went silent.</span>
-        </div>
-
-        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:start">
-          <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:rgba(74,246,38,.6)">SEPT 2025</span>
-          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.8);letter-spacing:.05em;line-height:1.6">Declassification deadline. <strong style="color:#fff">40+ witnesses. NDAs signed. One date given.</strong> Washington went quiet the next day.</span>
-        </div>
-
-        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:start">
-          <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:rgba(74,246,38,.6)">JAN 2026</span>
-          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.8);letter-spacing:.05em;line-height:1.6">Vatican investigation goes public. Aerospace confirms objects beyond known physics. <strong style="color:#fff">Canada calls for civilian reporting infrastructure.</strong></span>
-        </div>
-
-        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:start;background:rgba(245,158,11,.025);padding-left:12px;padding-right:12px;border-left:2px solid rgba(245,158,11,.5)">
-          <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--a)">FEB 2026</span>
-          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.9);letter-spacing:.05em;line-height:1.6"><strong style="color:#fff">Trump signs executive order for full UAP declassification.</strong> All agencies given 300 days. The largest forced disclosure in history.</span>
-        </div>
-
-        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:20px 0;align-items:start;background:rgba(74,246,38,.025);padding-left:12px;padding-right:12px;border-left:2px solid rgba(74,246,38,.4)">
-          <span style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--g)">NOW</span>
-          <span style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.9);letter-spacing:.05em;line-height:1.6">The files are being released. <strong style="color:#fff">There is no longer a question of if.</strong> The only question is whether you know your role when the first verified contact document drops.</span>
-        </div>
-
-      </div>
-    </div>
-    <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.45);margin-top:40px;max-width:480px;margin-left:auto;margin-right:auto">// Every event above happened without civilian preparation protocol. That changes now. //</p>
-    <p class="sr" style="font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:rgba(255,255,255,.2);margin-top:48px;font-style:italic">// you just read that and did nothing about it //</p>
-  </section>
-
-  <!-- 3a. EVIDENCE WALL - credibility without breaking the classified tone -->
+  <!-- 2. EVIDENCE WALL - compressed credibility bridge -->
   <section id="evidence-wall" class="evidence-wall">
     <div class="evidence-wrap">
       <div class="evidence-head sr">
@@ -1205,37 +1123,30 @@
           <div class="evidence-kicker">// PUBLIC RECORD CROSSCHECK //</div>
           <h2 class="evidence-h">This stopped being fringe when the paper trail became public.</h2>
         </div>
-        <p class="evidence-copy">You do not have to believe every theory. You only have to accept one fact: governments, militaries, journalists, and witnesses are treating UAP disclosure like a real category. DISCLOSURE turns that signal into civilian readiness.</p>
+        <p class="evidence-copy">You do not have to believe. You only have to answer one question: <strong>what would you do first?</strong> Governments, militaries, journalists, and witnesses are treating UAP disclosure like a real category. DISCLOSURE turns that signal into civilian readiness.</p>
       </div>
       <div class="evidence-grid sr">
         <article class="evidence-card" data-file="FILE 01">
-          <div class="evidence-tag">GOVERNMENT</div>
-          <div class="evidence-title">Hearings moved the topic into public record.</div>
-          <div class="evidence-body">Officials, witnesses, and oversight committees created the opening. The app gives civilians a role inside the conversation.</div>
+          <div class="evidence-tag">HEARINGS</div>
+          <div class="evidence-title">The subject entered public record.</div>
+          <div class="evidence-body">Officials, witnesses, and oversight committees moved UAPs out of pure folklore and into documented testimony.</div>
         </article>
         <article class="evidence-card" data-file="FILE 02">
-          <div class="evidence-tag">MILITARY</div>
-          <div class="evidence-title">Pilots reported craft that outperformed known systems.</div>
-          <div class="evidence-body">The question shifted from spectacle to response protocol. What do ordinary people do when trained observers cannot explain the object?</div>
+          <div class="evidence-tag">PRESSURE</div>
+          <div class="evidence-title">Institutions are being forced to respond.</div>
+          <div class="evidence-body">Reports, deadlines, and declassification pressure changed the question from “is this real?” to “what happens next?”</div>
         </article>
         <article class="evidence-card" data-file="FILE 03">
-          <div class="evidence-tag">CIVILIAN</div>
-          <div class="evidence-title">Public curiosity has no training layer.</div>
+          <div class="evidence-tag">NOW</div>
+          <div class="evidence-title">Civilian curiosity has no protocol.</div>
           <div class="evidence-body">Headlines open the file. Classification gives you a role. Training decides whether you freeze when the signal arrives.</div>
         </article>
-        <article class="evidence-card" data-file="FILE 04">
-          <div class="evidence-tag">CLASSIFIED</div>
-          <div class="evidence-title">The missing file is you.<span class="evidence-redact">REDACTED</span></div>
-          <div class="evidence-body">Your archetype is the first useful answer: protect, communicate, document, survive, or something outside the normal matrix.</div>
-        </article>
       </div>
-      <div class="evidence-cta sr"><a href="#quiz">RUN YOUR PUBLIC RECORD CROSSCHECK →</a></div>
+      <div class="evidence-cta sr"><a href="#quiz">ANSWER THE FIRST QUESTION →</a></div>
     </div>
   </section>
 
-
-  <!-- 3b. INLINE SOCIAL CAPTURE -->
-  <div class="inline-social-bar">
+<div class="inline-social-bar">
     <span class="isb-label">// STAY ON FREQUENCY //</span>
     <span class="isb-text">Intel drops before launch.</span>
     <span class="isb-icons">
@@ -1245,9 +1156,7 @@
       <a href="https://instagram.com/disclosure_app" target="_blank" rel="noopener" style="color:rgba(255,255,255,.5);transition:color .2s" onmouseover="this.style.color='var(--crt-green)'" onmouseout="this.style.color='rgba(255,255,255,.5)'"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
     </span>
   </div>
-
-  <!-- 4. THE RULES -->
-  <div id="quiz-gate-notice" style="display:none;position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:9999;text-align:center;padding:12px 28px;background:rgba(0,0,0,0.92);border:1px solid rgba(74,246,38,0.6);font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:#4AF626;white-space:nowrap;box-shadow:0 0 24px rgba(74,246,38,0.2);transition:opacity 1s ease">▶ CLASSIFICATION REQUIRED — COMPLETE THE ASSESSMENT TO SECURE YOUR POSITION</div>
+<div id="quiz-gate-notice" style="display:none;position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:9999;text-align:center;padding:12px 28px;background:rgba(0,0,0,0.92);border:1px solid rgba(74,246,38,0.6);font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:#4AF626;white-space:nowrap;box-shadow:0 0 24px rgba(74,246,38,0.2);transition:opacity 1s ease">▶ CLASSIFICATION REQUIRED — COMPLETE THE ASSESSMENT TO SECURE YOUR POSITION</div>
 <section id="quiz" class="quiz quiz-content-hidden">
     <!-- CONTAINMENT FIELD - visual wow frame -->
     <div class="quiz-vignette" aria-hidden="true"></div>
@@ -1414,9 +1323,7 @@
       </div>
     </div>
   </section>
-
-  <!-- 12. FC EVENT — moved: ultimate scarcity detonates before CTA -->
-  <section id="card-preview" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(74,246,38,.06);position:relative;overflow:hidden">
+<section id="card-preview" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(74,246,38,.06);position:relative;overflow:hidden">
     <!-- Background glow -->
     <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(74,246,38,.06) 0%,transparent 70%);pointer-events:none"></div>
 
@@ -1471,9 +1378,71 @@
     <span class="reticle-wrap sr"><a href="#quiz" class="cta-btn" style="font-size:13px;padding:16px 44px">UNLOCK YOUR CARD →</a><span class="rt tl"></span><span class="rt tr"></span><span class="rt bl"></span><span class="rt br"></span></span>
     <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.2);margin-top:20px">CARDS ARE NON-TRANSFERABLE. ONE PER CIVILIAN.</div>
   </section>
-
-  <!-- 10. QUIZ -->
-  <section id="species-threat-matrix">
+<section id="protocol-simulator" class="protocol-sim">
+    <div class="sim-wrap">
+      <div class="sr">
+        <div class="sim-kicker">// FIELD SIMULATION 00-A //</div>
+        <h2 class="sim-h">Your first three seconds decide the room.</h2>
+        <p class="sim-sub">The app is built around one brutal question: when the impossible steps into the clearing, do you protect, communicate, observe, or disappear? Run the civilian micro-sim. Then take the full classification.</p>
+        <div class="sim-stats">
+          <div class="sim-stat"><b id="sim-calm">00</b><span>CALM INDEX</span></div>
+          <div class="sim-stat"><b id="sim-role">----</b><span>ROLE TRACE</span></div>
+          <div class="sim-stat"><b id="sim-risk">LOW</b><span>ESCALATION RISK</span></div>
+          <div class="sim-stat"><b>03</b><span>SECONDS TO ACT</span></div>
+        </div>
+      </div>
+      <div class="sim-console sr" aria-live="polite">
+        <div class="sim-label" id="sim-label">SCENARIO 01 // VISUAL CONTACT</div>
+        <div class="sim-scene" id="sim-scene">A silent craft settles 100 meters away. Your group freezes. One person starts breathing too fast. A white-blue light begins sweeping the tree line.</div>
+        <div class="sim-options" id="sim-options">
+          <button class="sim-option" data-role="sentinel" data-calm="72" data-risk="MED">Move between the craft and the group. Keep your hands visible.</button>
+          <button class="sim-option" data-role="diplomat" data-calm="86" data-risk="LOW">Lower your posture. Speak one calm sentence. No sudden movement.</button>
+          <button class="sim-option" data-role="scholar" data-calm="64" data-risk="MED">Mark time, distance, sound, and light direction before memory distorts.</button>
+          <button class="sim-option" data-role="survivor" data-calm="58" data-risk="HIGH">Move the group toward cover while the light is still searching.</button>
+        </div>
+        <div class="sim-result" id="sim-result"></div>
+        <button class="sim-reset" id="sim-reset" type="button">RESET SIMULATION</button>
+      </div>
+    </div>
+  </section>
+<section id="app-command-bridge" class="command-bridge">
+    <div class="command-wrap">
+      <div class="phone-vault sr" aria-label="Disclosure app field device preview">
+        <div class="phone-shell">
+          <div class="phone-screen">
+            <div class="phone-top">DISCLOSURE FIELD DEVICE // LIVE MIRROR</div>
+            <div class="phone-card">
+              <h3>READINESS<br>84%</h3>
+              <p>ARCHETYPE: SENTINEL<br>SIGNAL DISCIPLINE: ACTIVE<br>CARD STATUS: PENDING</p>
+            </div>
+            <div class="phone-bars" aria-hidden="true">
+              <span style="--w:84%"></span>
+              <span style="--w:67%"></span>
+              <span style="--w:91%"></span>
+              <span style="--w:42%"></span>
+            </div>
+            <div class="phone-alert">NEXT DRILL: STONE COLD<br>OBJECTIVE: REMAIN STILL UNDER LIGHT AND SOUND PRESSURE.</div>
+          </div>
+        </div>
+      </div>
+      <div class="sr">
+        <div class="command-kicker">// MOBILE COMMAND CENTER //</div>
+        <h2 class="command-h">The file classifies you. <em>The app trains you.</em></h2>
+        <p class="command-copy">Your classification is only the first layer. The app turns it into daily readiness: drills, signals, rules, credentials, incident reports, and the launch-day First Contact chase.</p>
+        <div class="command-list">
+          <div class="command-item"><b>01</b><span>Daily readiness score tracks whether you are getting sharper before launch.</span></div>
+          <div class="command-item"><b>02</b><span>First Contact Card turns completion into a status object worth sharing.</span></div>
+          <div class="command-item"><b>03</b><span>Stone Cold and signal drills turn strange scenarios into usable instincts.</span></div>
+          <div class="command-item"><b>04</b><span>Intel files create the upgrade path: public teaser now, full protocol in app.</span></div>
+        </div>
+        <div class="command-actions">
+          <a class="primary" href="#quiz">GET CLASSIFIED →</a>
+          <a href="#access">CLAIM LAUNCH TRANSMISSION</a>
+        </div>
+      </div>
+    </div>
+  </section>
+<section id="species-threat-matrix">
   <style>
     #species-threat-matrix{background:#000;border-top:1px solid rgba(74,246,38,0.12);padding:100px 24px;font-family:var(--mono)}
     #species-threat-matrix .sr{position:relative;overflow:hidden;display:block}
@@ -1523,8 +1492,8 @@
 
   <div class="stm-inner">
     <span class="stm-kicker sr">[ DECLASSIFIED INTELLIGENCE REPORT — NHI CONTACT REGISTRY ]</span>
-    <h2 class="stm-h2 sr">6 Confirmed Alien Species.<br>Ranked By Threat.</h2>
-    <p class="stm-subtext sr">The government has spent 80 years deciding what you're allowed to know. Six non-human intelligences have been documented in contact events worldwide — each with distinct intent, distinct psychology, and a distinct threat profile. This is the alien survival intelligence you were never given. Your readiness score determines what gets declassified.</p>
+    <h2 class="stm-h2 sr">6 Encounter Species Files.<br>Ranked By Threat.</h2>
+    <p class="stm-subtext sr">Governments, witnesses, folklore, and contact reports keep circling the same shapes. Treat these files like preparation theater: strange enough to remember, practical enough to rehearse. Your readiness score determines what gets declassified.</p>
 
     <!-- 5-card grid -->
     <div class="stm-grid">
@@ -1703,51 +1672,12 @@
   })();
   </script>
 
-  </section><!-- /species-threat-matrix -->
-
-  <!-- 4b. PROTOCOL SIMULATOR - interactive premium hook -->
-  <section id="protocol-simulator" class="protocol-sim">
-    <div class="sim-wrap">
-      <div class="sr">
-        <div class="sim-kicker">// FIELD SIMULATION 00-A //</div>
-        <h2 class="sim-h">Your first three seconds decide the room.</h2>
-        <p class="sim-sub">The app is built around one brutal question: when the impossible steps into the clearing, do you protect, communicate, observe, or disappear? Run the civilian micro-sim. Then take the full classification.</p>
-        <div class="sim-stats">
-          <div class="sim-stat"><b id="sim-calm">00</b><span>CALM INDEX</span></div>
-          <div class="sim-stat"><b id="sim-role">----</b><span>ROLE TRACE</span></div>
-          <div class="sim-stat"><b id="sim-risk">LOW</b><span>ESCALATION RISK</span></div>
-          <div class="sim-stat"><b>03</b><span>SECONDS TO ACT</span></div>
-        </div>
-      </div>
-      <div class="sim-console sr" aria-live="polite">
-        <div class="sim-label" id="sim-label">SCENARIO 01 // VISUAL CONTACT</div>
-        <div class="sim-scene" id="sim-scene">A silent craft settles 100 meters away. Your group freezes. One person starts breathing too fast. A white-blue light begins sweeping the tree line.</div>
-        <div class="sim-options" id="sim-options">
-          <button class="sim-option" data-role="sentinel" data-calm="72" data-risk="MED">Move between the craft and the group. Keep your hands visible.</button>
-          <button class="sim-option" data-role="diplomat" data-calm="86" data-risk="LOW">Lower your posture. Speak one calm sentence. No sudden movement.</button>
-          <button class="sim-option" data-role="scholar" data-calm="64" data-risk="MED">Mark time, distance, sound, and light direction before memory distorts.</button>
-          <button class="sim-option" data-role="survivor" data-calm="58" data-risk="HIGH">Move the group toward cover while the light is still searching.</button>
-        </div>
-        <div class="sim-result" id="sim-result"></div>
-        <button class="sim-reset" id="sim-reset" type="button">RESET SIMULATION</button>
-      </div>
-    </div>
   </section>
-
-
-  <!-- 6. PRODUCT SHOWCASE — Theatrical Slideshow -->
-  <section class="rules">
-    <!-- SIGNAL WAVEFORM SVG -->
-    <svg class="svg-anim" width="300" height="50" viewBox="0 0 300 50" style="bottom:15%;left:2%">
-      <path d="M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25" fill="none" stroke="rgba(74,246,38,.2)" stroke-width="1.5">
-        <animate attributeName="d" dur="3s" repeatCount="indefinite" values="M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25;M0,25 Q15,45 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25;M0,25 Q15,5 30,25 T60,25 T90,25 T120,25 T150,25 T180,25 T210,25 T240,25 T270,25 T300,25"/>
-      </path>
-    </svg>
-    <div class="rules-bg" aria-hidden="true">RULES</div>
-    <div class="rules-hdr sr">// BRIEFING EXCERPT · UNIVERSAL CONTACT RULES · SPECIES-SPECIFIC PROTOCOLS: CLASSIFIED //</div>
+  <!-- 7. LOCKED PROTOCOL TEASER - compressed rules section -->
+  <section class="rules" id="locked-protocols">
+    <div class="rules-bg" aria-hidden="true">LOCKED</div>
+    <div class="rules-hdr sr">// UNIVERSAL CONTACT RULES · FULL PROTOCOL LOCKED UNTIL CLASSIFICATION //</div>
     <div class="rules-inner">
-
-      <!-- Rule 00 — THE archetype rule -->
       <div class="rule-row rule-zero sr">
         <span class="rule-n">00</span>
         <div>
@@ -1755,108 +1685,32 @@
           <span class="rule-sub">Your archetype determines your role. Your role determines your survival.</span>
         </div>
       </div>
-
       <div class="rule-row sr">
         <span class="rule-n">01</span>
         <div>
-          <span class="rule-t">MAINTAIN EYE CONTACT.</span>
-          <span class="rule-sub">Do not look away first. <em style="color:rgba(245,158,11,.7);font-style:normal">*Exception applies. Species-dependent. See full briefing.</em></span>
+          <span class="rule-t">DO NOT REACH.</span>
+          <span class="rule-sub">Let them initiate physical interaction. Sudden movement changes the room.</span>
         </div>
       </div>
-      <div class="rule-row sr">
+      <div class="rule-row alarm sr">
         <span class="rule-n">02</span>
         <div>
-          <span class="rule-t">DO NOT REACH.</span>
-          <span class="rule-sub">Let them initiate physical interaction.</span>
+          <span class="rule-t">DO NOT APPROACH THE LIGHT.</span>
+          <span class="rule-sub">Distance is data. Curiosity is not a survival plan.</span>
         </div>
       </div>
-      <div class="rule-row sr">
-        <span class="rule-n">03</span>
-        <div>
-          <span class="rule-t">STATE YOUR ROLE.</span>
-          <span class="rule-sub">They understand hierarchy. <em style="color:rgba(245,158,11,.7);font-style:normal">*Not applicable to all species.</em></span>
-        </div>
-      </div>
-      <div class="rule-row alarm sr">
-        <span class="rule-n">04</span>
-        <span class="rule-t">DO NOT APPROACH THE LIGHT.</span>
-      </div>
-
-      <div class="rule-row sr">
-        <span class="rule-n">05</span>
-        <div>
-          <span class="rule-t">DO NOT INTERRUPT THEIR PROCESS.</span>
-          <span class="rule-sub">Any defensive movement is interpreted as specimen behavior — not self-defense. <span style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:rgba(74,246,38,.5);margin-left:8px">[MANTID]</span></span>
-        </div>
-      </div>
-
-      <div class="rule-row sr">
-        <span class="rule-n">06</span>
-        <div>
-          <span class="rule-t">SUBMIT BEFORE THEY ASK.</span>
-          <span class="rule-sub">Hierarchy is the only language they respect. Hesitation is classified as resistance. <span style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:rgba(255,68,68,.6);margin-left:8px">[REPTILIAN]</span></span>
-        </div>
-      </div>
-
       <div class="rule-partial sr">
         <div style="display:flex;align-items:baseline;gap:24px">
-          <span class="rule-n">07</span>
-          <p class="rule-partial-text">
-            If a craft comes within <span class="rx" onclick="void(0)">████</span> meters,
-            do not attempt to <span class="rx" onclick="void(0)">██████████████</span>.
-            The outcome in <span class="rx" onclick="void(0)">██</span>% of documented cases was irreversible.
-          </p>
+          <span class="rule-n">03</span>
+          <p class="rule-partial-text">If memory begins to <span class="rx" onclick="void(0)">████████</span>, remain <span class="rx" onclick="void(0)">██████</span> until your role protocol unlocks.</p>
         </div>
       </div>
-
-      <div class="rule-row sr">
-        <span class="rule-n">08</span>
-        <div>
-          <span class="rule-t">DO NOT DEMONSTRATE FEAR.</span>
-          <span class="rule-sub">You are assessed in the first 90 seconds. What they decide in that window is permanent. <span style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:rgba(255,215,0,.5);margin-left:8px">[TALL WHITE]</span></span>
-        </div>
-      </div>
-
-      <div class="rule-row alarm sr">
-        <span class="rule-n">09</span>
-        <div>
-          <span class="rule-t">REMAIN STILL IF YOUR MEMORY BEGINS TO FRAGMENT.</span>
-          <span class="rule-sub">Resistance accelerates the process. Stillness is your only protocol. <span style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:rgba(74,246,38,.5);margin-left:8px">[GREY]</span></span>
-        </div>
-      </div>
-
-      <p class="rule-count sr">// SPECIES-SPECIFIC PROTOCOLS LOCKED — READINESS SCORE REQUIRED //</p>
+      <p class="rule-count sr">// FULL SPECIES-SPECIFIC PROTOCOL LOCKED: COMPLETE CLASSIFICATION //</p>
+      <div class="sr" style="text-align:center;margin-top:30px"><a href="#quiz" class="mission-cta">UNLOCK YOUR PROTOCOL →</a></div>
     </div>
   </section>
 
-  <!-- 5b. URGENCY BRIDGE — THE PIVOT -->
-  <section id="urgency-bridge" style="position:relative;padding:80px 24px;text-align:center;overflow:hidden;border-top:1px solid rgba(74,246,38,.12);background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(74,246,38,.03) 50%,rgba(0,0,0,0) 100%)">
-    <!-- Horizontal pulse line -->
-    <div style="width:120px;height:2px;margin:0 auto 40px;background:var(--crt-green);box-shadow:0 0 12px rgba(74,246,38,.5),0 0 40px rgba(74,246,38,.2);animation:urgPulse 2s ease-in-out infinite"></div>
-    <style>@keyframes urgPulse{0%,100%{opacity:.6;width:120px}50%{opacity:1;width:200px}}</style>
-
-    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.5em;color:rgba(74,246,38,.7);margin-bottom:20px">// OPERATIONAL STATUS: UNPREPARED //</div>
-
-    <h2 class="sr" style="font-size:clamp(32px,5vw,60px);font-weight:800;letter-spacing:-.02em;color:#fff;line-height:1.1;margin-bottom:24px">
-      The briefing is over.<br>
-      <span style="color:var(--crt-green)">It's time to prepare.</span>
-    </h2>
-
-    <p class="sr" style="font-family:var(--body);font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.75);max-width:640px;margin:0 auto 20px;line-height:1.7">
-      Governments have spent decades studying this. They have protocols. Bunkers. Chains of command.<br><br>
-      <strong style="color:#fff">You have nothing.</strong>
-    </p>
-
-    <p class="sr" style="font-family:var(--body);font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,.6);max-width:580px;margin:0 auto 36px;line-height:1.7">
-      No training for what you'd actually do. No communication system. No way to prove you're calm under pressure. No credential that says <em>"this one is ready."</em><br><br>
-      There is no app for first contact. <span style="color:rgba(74,246,38,.9);font-weight:600">Until now.</span>
-    </p>
-
-    <div style="font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:rgba(74,246,38,.5);margin-bottom:0">// INITIATING CLASSIFICATION //</div>
-  </section>
-
-  <!-- 5c. CIVILIAN READINESS OS - premium conversion spine -->
-  <section id="civilian-readiness-os" class="mission-band">
+<section id="civilian-readiness-os" class="mission-band">
     <div class="mission-shell sr">
       <div class="mission-grid">
         <div>
@@ -1896,10 +1750,7 @@
       </div>
     </div>
   </section>
-
-
-  <!-- 5c. INTEL BRIEFINGS — CTA to /intel -->
-  <section id="classified-tools">
+<section id="classified-tools">
     <div class="fd-card" id="fd-card">
       <div class="fd-scanline" id="fd-scanline"></div>
 
@@ -1953,63 +1804,18 @@
       </div>
       <div style="font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:rgba(255,255,255,.35);margin-bottom:8px">4 CLASSIFIED TOOLS · 1 ASSESSMENT · NO SECOND CHANCES</div>
       <a href="#quiz" class="fd-cta-btn">BEGIN YOUR ASSESSMENT</a>
-      <div style="margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.08);padding:8px 18px;border-radius:3px">📱 LAUNCHING SOON — iOS & ANDROID</div>
+      <div style="margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.08);padding:8px 18px;border-radius:3px">📱 LAUNCHING SOON: iOS & ANDROID</div>
     </div>
   </section>
-
-  <!-- 6b. APP COMMAND BRIDGE - make the mobile product feel tangible -->
-  <section id="app-command-bridge" class="command-bridge">
-    <div class="command-wrap">
-      <div class="phone-vault sr" aria-label="Disclosure app field device preview">
-        <div class="phone-shell">
-          <div class="phone-screen">
-            <div class="phone-top">DISCLOSURE FIELD DEVICE // LIVE MIRROR</div>
-            <div class="phone-card">
-              <h3>READINESS<br>84%</h3>
-              <p>ARCHETYPE: SENTINEL<br>SIGNAL DISCIPLINE: ACTIVE<br>CARD STATUS: PENDING</p>
-            </div>
-            <div class="phone-bars" aria-hidden="true">
-              <span style="--w:84%"></span>
-              <span style="--w:67%"></span>
-              <span style="--w:91%"></span>
-              <span style="--w:42%"></span>
-            </div>
-            <div class="phone-alert">NEXT DRILL: STONE COLD<br>OBJECTIVE: REMAIN STILL UNDER LIGHT AND SOUND PRESSURE.</div>
-          </div>
-        </div>
-      </div>
-      <div class="sr">
-        <div class="command-kicker">// MOBILE COMMAND CENTER //</div>
-        <h2 class="command-h">The file classifies you. <em>The app trains you.</em></h2>
-        <p class="command-copy">Your classification is only the first layer. The app turns it into daily readiness: drills, signals, rules, credentials, incident reports, and the launch-day First Contact chase.</p>
-        <div class="command-list">
-          <div class="command-item"><b>01</b><span>Daily readiness score tracks whether you are getting sharper before launch.</span></div>
-          <div class="command-item"><b>02</b><span>First Contact Card turns completion into a status object worth sharing.</span></div>
-          <div class="command-item"><b>03</b><span>Stone Cold and signal drills turn strange scenarios into usable instincts.</span></div>
-          <div class="command-item"><b>04</b><span>Intel files create the upgrade path: public teaser now, full protocol in app.</span></div>
-        </div>
-        <div class="command-actions">
-          <a class="primary" href="#quiz">GET CLASSIFIED →</a>
-          <a href="#access">CLAIM LAUNCH TRANSMISSION</a>
-        </div>
-      </div>
-    </div>
+  <!-- 10. INTEL BRIEFINGS - compact CTA -->
+  <section id="intel-briefings" style="padding:42px 24px 52px;text-align:center;border-top:1px solid rgba(255,255,255,.04)">
+    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.5em;color:rgba(74,246,38,.6);margin-bottom:14px">// DECLASSIFIED BRIEFINGS //</div>
+    <div style="font-family:var(--mono);font-size:clamp(28px,5vw,42px);font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.1;margin-bottom:14px" class="sr">17 INTEL FILES.<br>FULL CONTEXT LOCKED.</div>
+    <div style="font-size:15px;color:rgba(255,255,255,.55);line-height:1.6;max-width:540px;margin:0 auto 26px" class="sr">Public files reveal the shape. Your classification determines which protocols matter first.</div>
+    <div class="sr"><a href="/intel" style="display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:#000;background:var(--crt-green);padding:14px 34px;text-decoration:none;font-weight:700;border:2px solid var(--crt-green);box-shadow:0 0 30px rgba(74,246,38,.22)">OPEN INTEL ARCHIVE →</a></div>
   </section>
 
-
-  <!-- 7. ARCHETYPE CARDS -->
-  <section id="intel-briefings" style="padding:70px 24px 80px;text-align:center;border-top:1px solid rgba(255,255,255,.04)">
-    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.5em;color:rgba(74,246,38,.6);margin-bottom:16px">// DECLASSIFIED BRIEFINGS //</div>
-    <div style="font-family:var(--mono);font-size:42px;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.1;margin-bottom:16px" class="sr">17 INTEL FILES.<br>0 CIVILIANS CLEARED.</div>
-    <div style="font-size:15px;color:rgba(255,255,255,.55);line-height:1.6;max-width:540px;margin:0 auto 32px" class="sr">Governments have had classified contact protocols since the Cold War. None of them involve civilians. This file changes that. The question is whether you can handle what's inside.</div>
-    <div class="sr">
-      <a href="/intel" style="display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.25em;color:#000;background:var(--crt-green);padding:16px 48px;text-decoration:none;font-weight:700;transition:all .3s;border:2px solid var(--crt-green);box-shadow:0 0 30px rgba(74,246,38,.25)" onmouseover="this.style.background='transparent';this.style.color='var(--crt-green)';this.style.boxShadow='0 0 40px rgba(74,246,38,.4)'" onmouseout="this.style.background='var(--crt-green)';this.style.color='#000';this.style.boxShadow='0 0 30px rgba(74,246,38,.25)'">ACCESS CLASSIFIED INTEL →</a>
-    </div>
-    <div style="font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.2);margin-top:20px" class="sr">CLEARANCE: PUBLIC // REDACTIONS PENDING</div>
-  </section>
-
-  <!-- SPECIES THREAT MATRIX -->
-  <section id="social-proof" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04);overflow:hidden">
+<section id="social-proof" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04);overflow:hidden">
     <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(74,246,38,.65);margin-bottom:16px">// ARCHETYPE CLASSIFICATION — ACTIVE PROFILES //</div>
     <h2 class="sr" style="font-size:clamp(28px,4.5vw,56px);font-weight:700;letter-spacing:-.02em;margin-bottom:10px">Five archetypes.<br>One determines everything.</h2>
     <p class="sr" style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.68);margin-bottom:56px">When it happens, your role is already assigned. Most people won't know theirs.</p>
@@ -2125,14 +1931,7 @@
 
     <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.62);margin-top:44px">// Most people will discover their archetype too late. //</p>
   </section>
-
-
-
-  <!-- 9. CARD PREVIEW — peak desire just before quiz -->
-
-
-  <!-- 8b. CLEARANCE LADDER - pre-gate conversion bridge -->
-  <section id="clearance-ladder" class="clearance-ladder">
+<section id="clearance-ladder" class="clearance-ladder">
     <div class="clearance-wrap">
       <div class="clearance-top">
         <div class="sr">
@@ -2150,9 +1949,7 @@
       </div>
     </div>
   </section>
-
-
-  <section id="fc-event" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,215,0,.12);position:relative;overflow:hidden">
+<section id="fc-event" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,215,0,.12);position:relative;overflow:hidden">
     <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,215,0,.04) 0%,transparent 65%);pointer-events:none"></div>
     <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(255,215,0,.7);margin-bottom:20px">// LAUNCH DAY EVENT — CLASSIFIED //</div>
     <h2 class="sr" style="font-size:clamp(28px,5vw,64px);font-weight:700;letter-spacing:-.02em;margin-bottom:24px;line-height:1.1">On launch day,<br><span style="color:var(--gold)">one slot remains open.</span></h2>
@@ -2170,9 +1967,7 @@
     <p class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.65);margin-bottom:32px">Log your frequency now. When the slot opens, you will be contacted.</p>
     <a href="#access" class="cta-btn sr" style="background:var(--gold);color:#000">LOG FREQUENCY →</a>
   </section>
-
-  <!-- 13. ACCESS GATE -->
-  <section id="access" class="gate">
+<section id="access" class="gate">
     <!-- TARGETING RETICLE SVG -->
     <svg class="svg-anim reticle" width="160" height="160" viewBox="0 0 160 160" style="top:15%;right:8%">
       <circle cx="80" cy="80" r="60" fill="none" stroke="rgba(74,246,38,.12)" stroke-width="1"/>
@@ -2249,9 +2044,7 @@
       </div>
     </div>
   </section>
-
-  <!-- 13b. TRANSMISSION PACKET - viral share loop -->
-  <section id="transmission-packet" class="transmission-packet">
+<section id="transmission-packet" class="transmission-packet">
     <div class="packet-wrap">
       <div class="sr">
         <div class="packet-kicker">// VIRAL TRANSMISSION PACKET //</div>
@@ -2285,24 +2078,15 @@
       </div>
     </div>
   </section>
-
-
-  <!-- 14. SHARE -->
-  <section class="share">
-    <p class="share-pre sr">// TRANSMISSION WINDOW CLOSING //</p>
-    <h2 class="share-h sr">Forward this briefing<br><em>before it's removed.</em></h2>
-    <p class="share-sub sr">This document has a limited distribution window. Act now.</p>
-    <div class="share-forward sr" onclick="copyForward()" title="Click to copy">
-      <span class="share-forward-label">// FORWARD THIS EXACT TRANSMISSION //</span>
-      <span id="share-forward-text">"I just found something you should see. Don't Google it first. Just read it: getdisclosure.app"</span>
+  <section class="share" style="padding:42px 24px 56px">
+    <div class="share-inner sr">
+      <div class="share-kicker">// FINAL TRANSMISSION //</div>
+      <h2 class="share-h">Get classified. Claim the card. Send the packet.</h2>
+      <p class="share-p">If the signal window opens, arrive with a role instead of a reaction.</p>
+      <div class="share-actions"><a class="share-btn primary" href="#quiz">START CLASSIFICATION</a><a class="share-btn" href="#access">GET LAUNCH ALERT</a></div>
     </div>
-    <div id="fwd-confirm">MESSAGE COPIED · SEND IT</div>
-    <div class="share-row sr">
-      <button class="share-btn" onclick="copyLink()">[ COPY LINK ]</button>
-      <a class="share-btn" id="share-x-bottom" href="https://twitter.com/intent/tweet?text=I%20just%20found%20something%20you%20should%20see.%20Don%27t%20Google%20it%20first.%20Just%20read%20it.%20getdisclosure.app%20%40disclosure_app" target="_blank" rel="noopener">[ POST ON X ]</a>
-    </div>
-    <div id="copy-confirm">LINK COPIED · PASS IT ON</div>
   </section>
+
 
 </main>
 
