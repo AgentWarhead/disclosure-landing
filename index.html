@@ -953,6 +953,15 @@
     @media(prefers-reduced-motion:reduce){.dock-feed span,.signal-meter span,.sim-console::before,.clearance-pulse,.live-dot{animation:none!important}.hero-scroll{height:auto;min-height:100vh}.hero-sticky{position:relative}.mission-dock,.system-progress{transition:none!important}.protocol-sim::before{display:none}.skip-link{transition:none}}
     @media(prefers-reduced-data:reduce){body::before,#stars,.svg-anim,.hero-scan-line,.fd-scanline{display:none!important}.mission-dock{backdrop-filter:none}.mission-shell,.packet-card,.sim-console,.phone-vault{box-shadow:none}}
 
+
+    /* Mobile fix: redaction overlays must never cover readable content */
+    @media(max-width:640px){
+      .stm-classified-watermark{display:none!important}
+      .stm-red-scanlines,.stm-glitch-red,.stm-glitch-red2{opacity:.35;mix-blend-mode:normal}
+      .stm-anunnaki{overflow:hidden}
+      .stm-anunnaki-content{z-index:2;background:linear-gradient(180deg,rgba(10,0,0,.72),rgba(0,0,0,.84))}
+    }
+
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFFMNLNSXM"></script>
