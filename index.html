@@ -916,11 +916,9 @@
     .system-progress{position:fixed;left:0;right:0;top:52px;height:2px;z-index:101;background:rgba(255,255,255,.04);pointer-events:none}.system-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--crt-green),var(--gold),var(--r));box-shadow:0 0 18px rgba(74,246,38,.45);transition:width .08s linear}
     @media(max-width:900px){.evidence-head,.clearance-top{grid-template-columns:1fr}.evidence-grid{grid-template-columns:1fr 1fr}.clearance-step{grid-template-columns:52px 1fr}.clearance-state{grid-column:2}}@media(max-width:560px){.evidence-grid{grid-template-columns:1fr}.evidence-wall,.clearance-ladder{padding:72px 18px}.evidence-card{min-height:auto}.system-progress{top:52px}}
 
-
-    /* Revamp pass 3: persistent mission dock and app command bridge */
-    .mission-dock{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:120;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;width:min(920px,calc(100vw - 28px));padding:12px 14px;border:1px solid rgba(74,246,38,.2);background:rgba(0,0,0,.78);backdrop-filter:blur(18px);box-shadow:0 0 40px rgba(0,0,0,.45),0 0 28px rgba(74,246,38,.08);font-family:var(--mono)}.mission-dock::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(74,246,38,.06),transparent 40%,rgba(245,158,11,.05));pointer-events:none}.dock-status{position:relative;display:flex;align-items:center;gap:10px;font-size:10px;letter-spacing:.24em;color:rgba(74,246,38,.8);white-space:nowrap}.dock-feed{position:relative;overflow:hidden;color:rgba(255,255,255,.58);font-size:10px;letter-spacing:.16em;white-space:nowrap}.dock-feed span{display:inline-block;animation:dockFeed 18s linear infinite}@keyframes dockFeed{0%{transform:translateX(24%)}100%{transform:translateX(-100%)}}.dock-actions{position:relative;display:flex;gap:8px}.dock-action{font-size:10px;letter-spacing:.18em;text-decoration:none;border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.68);padding:10px 12px;background:rgba(255,255,255,.03);transition:color .18s,border-color .18s,background .18s}.dock-action.primary{color:#000;background:var(--crt-green);border-color:var(--crt-green);font-weight:800}.dock-action:hover{color:var(--crt-green);border-color:rgba(74,246,38,.55);background:rgba(74,246,38,.08)}.dock-action.primary:hover{color:#000;background:#8bff6a}.dock-min{display:none;background:transparent;border:0;color:rgba(255,255,255,.45);font-family:var(--mono);font-size:12px;cursor:pointer}.mission-dock.collapsed{grid-template-columns:auto auto;width:auto}.mission-dock.collapsed .dock-feed,.mission-dock.collapsed .dock-actions{display:none}.mission-dock.collapsed .dock-min{display:block}.mission-dock.collapsed .dock-status span:last-child{display:none}
+    /* Revamp pass 3: app command bridge */
     .command-bridge{position:relative;padding:100px 24px;border-top:1px solid rgba(255,255,255,.05);background:radial-gradient(ellipse at 12% 18%,rgba(96,165,250,.08),transparent 34%),radial-gradient(ellipse at 88% 70%,rgba(74,246,38,.07),transparent 36%),#020403;overflow:hidden}.command-bridge::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(74,246,38,.025) 81px);pointer-events:none}.command-wrap{position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(320px,.92fr) minmax(0,1.08fr);gap:clamp(32px,6vw,74px);align-items:center}.phone-vault{position:relative;min-height:520px;border:1px solid rgba(74,246,38,.18);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));box-shadow:inset 0 0 60px rgba(74,246,38,.035),0 0 70px rgba(74,246,38,.07);display:flex;align-items:center;justify-content:center;overflow:hidden}.phone-vault::before{content:'FIELD DEVICE MIRROR';position:absolute;top:18px;left:20px;font-family:var(--mono);font-size:10px;letter-spacing:.28em;color:rgba(74,246,38,.48)}.phone-shell{width:min(280px,72vw);aspect-ratio:9/18;border:1px solid rgba(255,255,255,.18);border-radius:34px;background:#030503;padding:14px;box-shadow:0 24px 80px rgba(0,0,0,.6),0 0 48px rgba(74,246,38,.12);transform:rotate(-3deg)}.phone-screen{height:100%;border-radius:24px;overflow:hidden;border:1px solid rgba(74,246,38,.16);background:radial-gradient(ellipse at center top,rgba(74,246,38,.14),transparent 42%),#020302;display:flex;flex-direction:column}.phone-top{font-family:var(--mono);font-size:9px;letter-spacing:.22em;color:rgba(74,246,38,.7);padding:18px 16px;border-bottom:1px solid rgba(255,255,255,.06)}.phone-card{margin:16px;border:1px solid rgba(255,255,255,.1);padding:18px;background:rgba(255,255,255,.035)}.phone-card h3{font-family:var(--font-head);font-size:34px;line-height:.95;margin:0 0 10px;color:#fff;letter-spacing:-.02em}.phone-card p{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:rgba(255,255,255,.58);line-height:1.6;margin:0}.phone-bars{display:grid;gap:8px;margin:0 16px}.phone-bars span{height:8px;background:rgba(255,255,255,.08);overflow:hidden}.phone-bars span::before{content:'';display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--crt-green),var(--gold));box-shadow:0 0 18px rgba(74,246,38,.4)}.phone-alert{margin:auto 16px 18px;border:1px solid rgba(245,158,11,.26);color:rgba(245,158,11,.9);font-family:var(--mono);font-size:10px;letter-spacing:.16em;line-height:1.6;padding:14px;background:rgba(245,158,11,.04)}.command-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.42em;color:rgba(74,246,38,.72);margin-bottom:18px}.command-h{font-family:var(--font-head);font-size:clamp(38px,6vw,84px);line-height:.95;margin:0 0 22px;letter-spacing:-.035em}.command-h em{font-style:normal;color:var(--crt-green)}.command-copy{font-size:17px;line-height:1.72;color:rgba(255,255,255,.66);max-width:610px}.command-list{display:grid;gap:12px;margin:32px 0}.command-item{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.26);padding:14px}.command-item b{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--crt-green)}.command-item span{font-size:14px;line-height:1.5;color:rgba(255,255,255,.62)}.command-actions{display:flex;gap:12px;flex-wrap:wrap}.command-actions a{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-decoration:none;padding:15px 20px;border:1px solid rgba(74,246,38,.35);color:var(--crt-green);background:rgba(74,246,38,.04)}.command-actions a.primary{background:var(--crt-green);color:#000;font-weight:800}.command-actions a:hover{box-shadow:0 0 28px rgba(74,246,38,.16)}
-    @media(max-width:900px){.mission-dock{grid-template-columns:auto 1fr auto;bottom:10px}.dock-feed{display:none}.command-wrap{grid-template-columns:1fr}.phone-vault{min-height:430px}.phone-shell{transform:none}}@media(max-width:620px){.mission-dock{grid-template-columns:1fr auto;padding:10px 12px}.dock-status{font-size:9px}.dock-actions{display:none}.dock-min{display:block}.command-bridge{padding:74px 18px}.phone-vault{min-height:390px}.command-item{grid-template-columns:1fr}.command-actions{flex-direction:column}.command-actions a{text-align:center}}
+    @media(max-width:900px){.command-wrap{grid-template-columns:1fr}.phone-vault{min-height:430px}.phone-shell{transform:none}}@media(max-width:620px){.command-bridge{padding:74px 18px}.phone-vault{min-height:390px}.command-item{grid-template-columns:1fr}.command-actions{flex-direction:column}.command-actions a{text-align:center}}
 
 
     /* Phase 4: viral transmission packet */
@@ -946,13 +944,13 @@
     /* Phase 5: mobile, performance, accessibility final polish */
     .skip-link{position:fixed;left:12px;top:12px;z-index:20000;transform:translateY(-140%);background:var(--crt-green);color:#000;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-decoration:none;padding:12px 16px;border:2px solid #000;transition:transform .18s ease}.skip-link:focus{transform:translateY(0)}
     a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--crt-green);outline-offset:3px;box-shadow:0 0 0 5px rgba(74,246,38,.16)}
-    button,.cta-btn,.mission-cta,.dock-action,.packet-actions button,.packet-actions a,.command-actions a,.share-btn,.gs-share-btn{touch-action:manipulation}
+    button,.cta-btn,.mission-cta,.packet-actions button,.packet-actions a,.command-actions a,.share-btn,.gs-share-btn{touch-action:manipulation}
     img{max-width:100%;height:auto}.fd-feat-img{content-visibility:auto}
     #evidence-wall,#calm-bridge,#protocol-simulator,#app-command-bridge,#archive-choice,#species-threat-matrix,#locked-protocols,#civilian-readiness-os,#classified-tools,#clearance-ladder,#transmission-packet,#intel-briefings,#fc-event,#access,.share{content-visibility:auto;contain-intrinsic-size:900px}
-    @media(hover:none),(pointer:coarse){body{cursor:auto}.cursor-ring{display:none}.protocol-sim::before{opacity:.32}.mission-dock{bottom:calc(10px + env(safe-area-inset-bottom));width:calc(100vw - 20px)}.dock-status{letter-spacing:.14em}.system-progress{top:52px}}
-    @media(max-width:420px){.hero-sub br{display:none}.hero-sub{max-width:320px;margin-left:auto;margin-right:auto}.mission-h,.sim-h,.command-h,.packet-h,.clearance-h,.evidence-h{letter-spacing:-.02em}.packet-card,.sim-console,.mission-shell{border-left-color:rgba(74,246,38,.28);border-right-color:rgba(74,246,38,.28)}.gate-input{font-size:16px;letter-spacing:.08em}.packet-actions button,.packet-actions a,.command-actions a{width:100%;box-sizing:border-box}.mission-dock{font-size:10px}.mission-dock:not(.collapsed) .dock-status span:last-child{max-width:170px;overflow:hidden;text-overflow:ellipsis}}
-    @media(prefers-reduced-motion:reduce){.dock-feed span,.signal-meter span,.sim-console::before,.clearance-pulse,.live-dot{animation:none!important}.hero-scroll{height:auto;min-height:100vh}.hero-sticky{position:relative}.mission-dock,.system-progress{transition:none!important}.protocol-sim::before{display:none}.skip-link{transition:none}}
-    @media(prefers-reduced-data:reduce){body::before,#stars,.svg-anim,.hero-scan-line,.fd-scanline{display:none!important}.mission-dock{backdrop-filter:none}.mission-shell,.packet-card,.sim-console,.phone-vault{box-shadow:none}}
+    @media(hover:none),(pointer:coarse){body{cursor:auto}.cursor-ring{display:none}.protocol-sim::before{opacity:.32}.system-progress{top:52px}}
+    @media(max-width:420px){.hero-sub br{display:none}.hero-sub{max-width:320px;margin-left:auto;margin-right:auto}.mission-h,.sim-h,.command-h,.packet-h,.clearance-h,.evidence-h{letter-spacing:-.02em}.packet-card,.sim-console,.mission-shell{border-left-color:rgba(74,246,38,.28);border-right-color:rgba(74,246,38,.28)}.gate-input{font-size:16px;letter-spacing:.08em}.packet-actions button,.packet-actions a,.command-actions a{width:100%;box-sizing:border-box}}
+    @media(prefers-reduced-motion:reduce){.signal-meter span,.sim-console::before,.clearance-pulse,.live-dot{animation:none!important}.hero-scroll{height:auto;min-height:100vh}.hero-sticky{position:relative}.system-progress{transition:none!important}.protocol-sim::before{display:none}.skip-link{transition:none}}
+    @media(prefers-reduced-data:reduce){body::before,#stars,.svg-anim,.hero-scan-line,.fd-scanline{display:none!important}.mission-shell,.packet-card,.sim-console,.phone-vault{box-shadow:none}}
 
 
     /* Mobile fix: redaction overlays must never cover readable content */
@@ -1018,18 +1016,6 @@
 
 <div class="cursor-ring" id="cursor"></div>
 <div class="system-progress" aria-hidden="true"><span id="system-progress-bar"></span></div>
-<div class="mission-dock" id="mission-dock" aria-label="Disclosure mission control">
-  <div class="dock-status"><div class="live-dot"></div><span id="dock-status-text">CLEARANCE PATH ACTIVE</span></div>
-  <div class="dock-feed"><span id="dock-feed-text">EYE ANOMALY LOCKED // CIVILIAN READINESS OS ONLINE // MICRO-SIM AVAILABLE // ASSESSMENT REQUIRED FOR CARD CLAIM</span></div>
-  <div class="dock-actions">
-    <a class="dock-action" href="#protocol-simulator" aria-label="Jump to protocol simulator">SIM</a>
-    <a class="dock-action primary" href="#quiz" aria-label="Jump to readiness assessment">ASSESS</a>
-    <a class="dock-action" href="#access" aria-label="Jump to card claim">CARD</a>
-  </div>
-  <button class="dock-min" id="dock-min" type="button" aria-label="Toggle mission dock">▣</button>
-</div>
-
-
 <div id="stars"></div>
 
 <!-- CINEMATIC: Quiz scan overlay, blackout, archetype flash -->
@@ -3572,42 +3558,6 @@ function initPage() {
 })();
 </script>
 
-
-<script>
-(function initMissionDock(){
-  const dock = document.getElementById('mission-dock');
-  const min = document.getElementById('dock-min');
-  const status = document.getElementById('dock-status-text');
-  if(!dock || !min) return;
-  min.addEventListener('click', function(){ dock.classList.toggle('collapsed'); });
-  const zones = [
-    ['quiz','ASSESSMENT CHAMBER ACTIVE'],
-    ['protocol-simulator','MICRO-SIM RUNNING'],
-    ['civilian-readiness-os','READINESS OS ONLINE'],
-    ['app-command-bridge','APP COMMAND CENTER'],
-    ['access','CARD CLAIM CHANNEL'],
-    ['fc-event','FIRST CONTACT SLOT MONITOR']
-  ];
-  function updateDock(){
-    let label = 'CLEARANCE PATH ACTIVE';
-    for(const pair of zones){
-      const el = document.getElementById(pair[0]);
-      if(!el) continue;
-      const r = el.getBoundingClientRect();
-      if(r.top < window.innerHeight * 0.45 && r.bottom > window.innerHeight * 0.25){ label = pair[1]; break; }
-    }
-    status.textContent = label;
-    const footer = document.querySelector('footer');
-    if(footer){
-      const fr = footer.getBoundingClientRect();
-      dock.style.opacity = fr.top < window.innerHeight - 40 ? '0' : '1';
-      dock.style.pointerEvents = fr.top < window.innerHeight - 40 ? 'none' : '';
-    }
-  }
-  updateDock();
-  window.addEventListener('scroll', updateDock, { passive:true });
-})();
-</script>
 
 
 <script>
