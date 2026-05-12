@@ -167,10 +167,8 @@
 
     /* SCROLL REVEAL — Decryption Sweep */
     .sr{opacity:0;position:relative}
-    .sr::after{content:'';position:absolute;inset:0;background:#000;transform:translateX(0);transition:transform .6s cubic-bezier(.77,0,.18,1);pointer-events:none;z-index:10}
+    .sr::after{display:none!important}
     .sr.vis{opacity:1}
-    .sr.vis::after{transform:translateX(101%)}
-    .arch-cards-wrap.sr.vis::after{display:none}
     @media(prefers-reduced-motion:reduce){
       .sr{opacity:0;transform:none;transition:opacity .5s ease}
       .sr::after{display:none}
@@ -956,7 +954,6 @@
 
     /* Mobile fix: redaction overlays must never cover readable content */
     @media(max-width:700px){
-      .sr::after{display:none!important}
       .stm-classified-watermark{display:none!important}
       .stm-red-scanlines,.stm-glitch-red,.stm-glitch-red2{opacity:.35;mix-blend-mode:normal}
       .stm-anunnaki{overflow:hidden}
