@@ -1383,25 +1383,24 @@
       <div class="sr">
         <div class="sim-kicker">// FIELD SIMULATION 00-A //</div>
         <h2 class="sim-h">Your first three seconds decide the room.</h2>
-        <p class="sim-sub">The app is built around one brutal question: when the impossible steps into the clearing, do you protect, communicate, observe, or disappear? Run the civilian micro-sim. Then take the full classification.</p>
+        <p class="sim-sub">This is not another classification. It is a field drill: one scenario, one taught response, one reason the app exists after the quiz gives you a role.</p>
         <div class="sim-stats">
-          <div class="sim-stat"><b id="sim-calm">00</b><span>CALM INDEX</span></div>
-          <div class="sim-stat"><b id="sim-role">----</b><span>ROLE TRACE</span></div>
-          <div class="sim-stat"><b id="sim-risk">LOW</b><span>ESCALATION RISK</span></div>
-          <div class="sim-stat"><b>03</b><span>SECONDS TO ACT</span></div>
+          <div class="sim-stat"><b id="sim-calm">00</b><span>DRILL PROGRESS</span></div>
+          <div class="sim-stat"><b id="sim-role">TRAIN</b><span>MODE</span></div>
+          <div class="sim-stat"><b id="sim-risk">MED</b><span>ESCALATION RISK</span></div>
+          <div class="sim-stat"><b>03</b><span>SECONDS TO STABILIZE</span></div>
         </div>
       </div>
       <div class="sim-console sr" aria-live="polite">
         <div class="sim-label" id="sim-label">SCENARIO 01 // VISUAL CONTACT</div>
         <div class="sim-scene" id="sim-scene">A silent craft settles 100 meters away. Your group freezes. One person starts breathing too fast. A white-blue light begins sweeping the tree line.</div>
         <div class="sim-options" id="sim-options">
-          <button class="sim-option" data-role="sentinel" data-calm="72" data-risk="MED">Move between the craft and the group. Keep your hands visible.</button>
-          <button class="sim-option" data-role="diplomat" data-calm="86" data-risk="LOW">Lower your posture. Speak one calm sentence. No sudden movement.</button>
-          <button class="sim-option" data-role="scholar" data-calm="64" data-risk="MED">Mark time, distance, sound, and light direction before memory distorts.</button>
-          <button class="sim-option" data-role="survivor" data-calm="58" data-risk="HIGH">Move the group toward cover while the light is still searching.</button>
+          <button class="sim-option" data-step="1">01 // Stabilize posture. Feet planted. Hands visible. No sudden reach.</button>
+          <button class="sim-option" data-step="2">02 // Lower stimulus. One calm sentence. No shouting. No crowd movement.</button>
+          <button class="sim-option" data-step="3">03 // Record without pursuit. Time, distance, direction, witness count.</button>
         </div>
         <div class="sim-result" id="sim-result"></div>
-        <button class="sim-reset" id="sim-reset" type="button">RESET SIMULATION</button>
+        <button class="sim-reset visible" id="sim-reset" type="button">RUN FIELD DRILL</button>
       </div>
     </div>
   </section>
@@ -3692,16 +3691,11 @@ function initPage() {
   const options = document.querySelectorAll('.sim-option');
   const result = document.getElementById('sim-result');
   const reset = document.getElementById('sim-reset');
-  const calm = document.getElementById('sim-calm');
-  const role = document.getElementById('sim-role');
+  const progress = document.getElementById('sim-calm');
+  const mode = document.getElementById('sim-role');
   const risk = document.getElementById('sim-risk');
-  if(!sim || !options.length) return;
-  const roleCopy = {
-    sentinel: 'SENTINEL TRACE DETECTED: protective instinct engaged. Useful, but visible dominance can escalate unknown contact.',
-    diplomat: 'DIPLOMAT TRACE DETECTED: posture, voice, and stillness reduced perceived threat. Highest civilian survival signal.',
-    scholar: 'SCHOLAR TRACE DETECTED: observation discipline preserved data. Watch the delay between analysis and action.',
-    survivor: 'SURVIVOR TRACE DETECTED: extraction instinct active. Effective for family protection, risky under tracking behavior.'
-  };
+  if(!sim || !options.length || !reset) return;
+  const drillResult = 'DRILL COMPLETE: the app does not ask you to guess your personality twice. It teaches repeatable contact behavior after classification: stabilize, de-escalate, document, then follow your archetype protocol.<br><br><a href="#quiz" style="color:var(--crt-green);text-decoration:none">GET YOUR CLASSIFICATION →</a>';
   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(hover: hover)').matches){
     sim.addEventListener('pointermove', function(e){
       const r = sim.getBoundingClientRect();
@@ -3709,25 +3703,31 @@ function initPage() {
       sim.style.setProperty('--my', (e.clientY-r.top)+'px');
     }, { passive:true });
   }
-  options.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      options.forEach(function(o){ o.classList.remove('selected'); o.disabled = true; });
-      btn.classList.add('selected');
-      const selectedRole = btn.getAttribute('data-role');
-      const selectedCalm = btn.getAttribute('data-calm');
-      const selectedRisk = btn.getAttribute('data-risk');
-      calm.textContent = selectedCalm;
-      role.textContent = selectedRole.slice(0,4).toUpperCase();
-      risk.textContent = selectedRisk;
-      result.innerHTML = roleCopy[selectedRole] + '<br><br>FULL CLASSIFICATION REQUIRED. THE MICRO-SIM IS ONLY THE SURFACE.';
-      result.classList.add('visible');
-      reset.classList.add('visible');
+  function resetDrill(){
+    options.forEach(function(o){ o.classList.remove('selected'); o.disabled = false; });
+    progress.textContent='00'; mode.textContent='TRAIN'; risk.textContent='MED';
+    result.classList.remove('visible'); result.textContent='';
+    reset.textContent='RUN FIELD DRILL';
+  }
+  reset.addEventListener('click', function(){
+    if(result.classList.contains('visible')) { resetDrill(); return; }
+    options.forEach(function(o, i){
+      setTimeout(function(){
+        o.classList.add('selected');
+        progress.textContent = String((i + 1) * 33).padStart(2, '0');
+        if(i === 1) risk.textContent = 'LOW';
+        if(i === options.length - 1){
+          progress.textContent = '100';
+          mode.textContent = 'DRILL';
+          result.innerHTML = drillResult;
+          result.classList.add('visible');
+          reset.textContent='RESET DRILL';
+        }
+      }, i * 420);
     });
   });
-  reset.addEventListener('click', function(){
-    options.forEach(function(o){ o.disabled = false; o.classList.remove('selected'); });
-    calm.textContent='00'; role.textContent='----'; risk.textContent='LOW';
-    result.classList.remove('visible'); result.textContent=''; reset.classList.remove('visible');
+  options.forEach(function(btn){
+    btn.addEventListener('click', function(){ reset.click(); });
   });
 })();
 </script>
