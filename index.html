@@ -1054,6 +1054,10 @@
     @media(max-width:620px){.story-sim .sim-screen{grid-template-rows:auto auto auto minmax(150px,1fr) auto auto auto!important}.story-sim .sim-start-chip{font-size:8px!important;padding:7px 10px!important;letter-spacing:.14em!important}}
 
 
+    /* Cursor spotlight alignment fix: no expanded pseudo-element offset */
+    .story-sim.protocol-sim.sim-live::before{inset:0!important;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(74,246,38,.22),transparent 24%),radial-gradient(circle at 18% 18%,rgba(122,167,255,.16),transparent 28%),radial-gradient(circle at 84% 80%,rgba(255,77,77,.13),transparent 30%),linear-gradient(180deg,#041004 0%,#000 58%,#050202 100%)!important}
+
+
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFFMNLNSXM"></script>
