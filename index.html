@@ -941,6 +941,31 @@
     @media(max-width:640px){.packet-tease{grid-template-columns:1fr;text-align:center}.packet-tease a{display:block}.stm-grid .stm-card:nth-of-type(n+3){display:none}.stm-anunnaki{display:none}.species-mobile-note{display:block}#species-threat-matrix{padding:72px 18px}.stm-subtext{margin-bottom:34px}.stm-grid{margin-bottom:24px}.archive-choice{padding:34px 18px}}
 
 
+
+
+    /* Boss pass: Simulation Command Deck centerpiece */
+    .evidence-wall{--deck-green:#4af626;--deck-blue:#7aa7ff;--deck-red:#ff4d4d;isolation:isolate;position:relative;min-height:100svh;padding:clamp(92px,11vw,156px) 20px 120px;border-top:1px solid rgba(137,255,92,.18);background:#010302;overflow:hidden;perspective:1400px}
+    .evidence-wall::before{content:'';position:absolute;inset:-18%;z-index:-4;background:radial-gradient(circle at 18% 12%,rgba(74,246,38,.28),transparent 25%),radial-gradient(circle at 78% 14%,rgba(122,167,255,.22),transparent 28%),radial-gradient(circle at 50% 78%,rgba(255,77,77,.14),transparent 32%),linear-gradient(180deg,#020902 0%,#000 54%,#050202 100%)}
+    .evidence-wall::after{content:'';position:absolute;inset:0;z-index:-3;background:linear-gradient(90deg,rgba(74,246,38,.045) 1px,transparent 1px),linear-gradient(0deg,rgba(74,246,38,.03) 1px,transparent 1px),radial-gradient(ellipse at center,transparent 0 42%,rgba(0,0,0,.76) 100%);background-size:82px 82px,82px 82px,100% 100%;mask-image:radial-gradient(ellipse at center,black 0 68%,transparent 94%);opacity:.95}
+    .deck-aurora{position:absolute;inset:0;z-index:-2;pointer-events:none;background:conic-gradient(from 220deg at 50% 42%,transparent 0deg,rgba(74,246,38,.17) 16deg,transparent 46deg,transparent 210deg,rgba(122,167,255,.13) 256deg,transparent 304deg);mix-blend-mode:screen;animation:deckSweep 9s cubic-bezier(.32,.72,0,1) infinite alternate}.deck-vignette{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 42%,transparent 0 45%,rgba(0,0,0,.72) 82%,#000 100%)}
+    @keyframes deckSweep{0%{transform:rotate(-5deg) scale(1.04);opacity:.45}100%{transform:rotate(6deg) scale(1.12);opacity:.9}}
+    .evidence-wrap{position:relative;width:min(1280px,100%);margin:0 auto}.deck-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.42fr);gap:clamp(24px,5vw,70px);align-items:end;margin-bottom:clamp(30px,5vw,52px)}
+    .evidence-kicker{display:inline-flex;align-items:center;gap:10px;width:max-content;max-width:100%;font-family:var(--mono);font-size:10px;letter-spacing:.32em;color:#061006;text-transform:uppercase;margin-bottom:18px;padding:9px 13px;border-radius:999px;background:linear-gradient(90deg,#4af626,#d9ff9f);box-shadow:0 0 34px rgba(74,246,38,.3)}.evidence-kicker::before{content:'';width:7px;height:7px;border-radius:50%;background:#020402;box-shadow:0 0 0 5px rgba(0,0,0,.14)}
+    .evidence-h{font-family:var(--font-head);font-size:clamp(54px,8.8vw,126px);line-height:.78;letter-spacing:-.054em;margin:0;text-transform:uppercase;text-wrap:balance;text-shadow:0 0 42px rgba(74,246,38,.15)}.evidence-h em{display:block;font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(195,255,174,.86);text-shadow:0 0 38px rgba(74,246,38,.27)}
+    .deck-brief{margin:0;font-size:clamp(16px,1.6vw,20px);line-height:1.72;color:rgba(255,255,255,.7);padding:24px;border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 32px 100px rgba(0,0,0,.44)}.deck-brief strong{color:#fff;text-shadow:0 0 22px rgba(74,246,38,.25)}
+    .sim-deck{position:relative;display:grid;grid-template-columns:minmax(230px,.75fr) minmax(380px,1.14fr) minmax(250px,.78fr);gap:18px;align-items:stretch}.sim-deck::before{content:'';position:absolute;inset:9% 18%;border:1px solid rgba(74,246,38,.2);border-radius:50%;transform:rotate(-9deg);opacity:.55;pointer-events:none}.sim-deck::after{content:'SIMULATION COMMAND DECK';position:absolute;left:50%;top:-18px;transform:translateX(-50%);font-family:var(--mono);font-size:9px;letter-spacing:.42em;color:rgba(255,255,255,.18);white-space:nowrap}
+    .deck-shell{position:relative;padding:7px;border-radius:34px;background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.026));border:1px solid rgba(255,255,255,.1);box-shadow:0 34px 100px rgba(0,0,0,.5),0 0 76px rgba(74,246,38,.07)}.deck-core{position:relative;height:100%;border-radius:27px;overflow:hidden;background:radial-gradient(circle at 18% 10%,rgba(74,246,38,.18),transparent 30%),linear-gradient(180deg,rgba(5,14,6,.96),rgba(0,0,0,.92));border:1px solid rgba(74,246,38,.13);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),inset 0 0 54px rgba(74,246,38,.04)}
+    .deck-node-stack{display:grid;gap:12px;align-content:center}.deck-node{position:relative;width:100%;text-align:left;padding:0;border:0;background:transparent;color:#fff;cursor:pointer;transform:translateY(0);transition:transform .7s cubic-bezier(.32,.72,0,1),filter .7s cubic-bezier(.32,.72,0,1)}.deck-node:hover,.deck-node.active{transform:translateY(-5px);filter:brightness(1.12)}.deck-node .deck-core{min-height:132px;padding:18px 18px 40px}.deck-node-k{display:flex;justify-content:space-between;gap:10px;margin-bottom:14px;font-family:var(--mono);font-size:9px;letter-spacing:.23em;color:rgba(205,255,184,.75)}.deck-node h3{margin:0 0 8px;font-family:var(--font-head);font-size:clamp(28px,2.4vw,40px);line-height:.86;letter-spacing:-.025em;text-transform:uppercase}.deck-node p{margin:0;font-size:12px;line-height:1.45;color:rgba(255,255,255,.58)}.deck-node-meter{position:absolute;left:18px;right:18px;bottom:17px;height:4px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}.deck-node-meter span{display:block;height:100%;width:var(--charge,64%);border-radius:inherit;background:linear-gradient(90deg,var(--deck-green),#f5c85b,var(--deck-red));box-shadow:0 0 18px rgba(74,246,38,.45)}.deck-node.active .deck-shell{box-shadow:0 34px 100px rgba(0,0,0,.5),0 0 72px rgba(74,246,38,.22)}
+    .mission-artifact{transform:rotate(.4deg);z-index:2}.mission-artifact .deck-core{min-height:560px;padding:26px;background:radial-gradient(circle at 48% 0%,rgba(74,246,38,.28),transparent 31%),radial-gradient(circle at 80% 72%,rgba(255,77,77,.16),transparent 32%),linear-gradient(180deg,rgba(7,20,8,.98),rgba(0,0,0,.94))}.mission-artifact .deck-core::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 0 38%,rgba(255,255,255,.13) 46%,transparent 55% 100%);opacity:.32;transform:translateX(-62%);animation:artifactSheen 5.5s cubic-bezier(.32,.72,0,1) infinite}.mission-artifact .deck-core::after{content:'';position:absolute;inset:18px;border:1px solid rgba(74,246,38,.12);border-radius:22px;pointer-events:none}@keyframes artifactSheen{0%,58%{transform:translateX(-68%)}100%{transform:translateX(72%)}}
+    .artifact-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px}.artifact-stamp{font-family:var(--mono);font-size:10px;letter-spacing:.28em;color:#061006;background:linear-gradient(90deg,#4af626,#d8ff9b);border-radius:999px;padding:10px 12px;box-shadow:0 0 26px rgba(74,246,38,.26)}.artifact-status{font-family:var(--mono);font-size:9px;letter-spacing:.24em;color:rgba(255,255,255,.34)}
+    .artifact-title{margin:0 0 16px;font-family:var(--font-head);font-size:clamp(48px,5.6vw,82px);line-height:.79;letter-spacing:-.045em;text-transform:uppercase}.artifact-title span{display:block;color:transparent;-webkit-text-stroke:1px rgba(205,255,184,.82)}.artifact-copy{max-width:560px;margin:0 0 24px;font-size:15px;line-height:1.7;color:rgba(255,255,255,.68)}
+    .artifact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.artifact-chip{padding:14px 12px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09)}.artifact-chip b{display:block;font-family:var(--mono);font-size:16px;color:#fff}.artifact-chip span{font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:rgba(255,255,255,.38)}
+    .artifact-wave{height:76px;margin:18px 0 22px;display:flex;align-items:center;gap:5px;padding:0 4px}.artifact-wave i{display:block;flex:1;height:var(--h,30%);border-radius:999px;background:linear-gradient(180deg,#d8ff9b,#4af626);box-shadow:0 0 14px rgba(74,246,38,.3);animation:wavePulse 1.9s cubic-bezier(.32,.72,0,1) infinite alternate;animation-delay:var(--d,0s)}@keyframes wavePulse{from{transform:scaleY(.55);opacity:.45}to{transform:scaleY(1.08);opacity:.95}}
+    .artifact-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.artifact-actions a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;border-radius:999px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;font-weight:900;transition:transform .7s cubic-bezier(.32,.72,0,1),box-shadow .7s cubic-bezier(.32,.72,0,1)}.artifact-primary{color:#061006;background:linear-gradient(90deg,#4af626,#d8ff9b);border:1px solid rgba(216,255,155,.76);padding:7px 7px 7px 18px;box-shadow:0 0 32px rgba(74,246,38,.25)}.artifact-primary::after{content:'→';display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.13);font-size:15px}.artifact-secondary{color:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);padding:15px 17px}.artifact-actions a:hover{transform:translateY(-3px);box-shadow:0 0 58px rgba(74,246,38,.36)}
+    .deck-orbit{position:absolute;right:24px;bottom:24px;width:128px;height:128px;border-radius:50%;border:1px solid rgba(74,246,38,.28);background:repeating-radial-gradient(circle,rgba(74,246,38,.1) 0 1px,transparent 1px 17px);opacity:.62;animation:evidenceOrbit 7s cubic-bezier(.32,.72,0,1) infinite alternate;pointer-events:none}@keyframes evidenceOrbit{0%{transform:rotate(-8deg) scale(.92);opacity:.34}100%{transform:rotate(15deg) scale(1.05);opacity:.74}}
+    .sim-rail .deck-core{padding:22px;min-height:560px}.rail-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.28em;color:rgba(205,255,184,.72);margin-bottom:18px}.rail-title{margin:0 0 18px;font-family:var(--font-head);font-size:clamp(36px,3.6vw,56px);line-height:.84;letter-spacing:-.03em;text-transform:uppercase}.rail-list{display:grid;gap:12px;margin:22px 0}.rail-item{display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start;padding:13px;border-radius:20px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08)}.rail-item b{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:rgba(74,246,38,.1);border:1px solid rgba(74,246,38,.22);font-family:var(--mono);font-size:11px;color:#d8ff9b}.rail-item span{display:block;font-size:12px;line-height:1.45;color:rgba(255,255,255,.62)}.rail-item strong{display:block;margin-bottom:3px;font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:#fff}.rail-lock{margin-top:18px;padding:16px;border-radius:22px;background:linear-gradient(135deg,rgba(74,246,38,.09),rgba(122,167,255,.055));border:1px solid rgba(74,246,38,.16);font-size:13px;line-height:1.55;color:rgba(255,255,255,.66)}
+    @media(max-width:1080px){.sim-deck{grid-template-columns:1fr}.mission-artifact{transform:none}.mission-artifact .deck-core,.sim-rail .deck-core{min-height:auto}.deck-node-stack{grid-template-columns:1fr 1fr}.deck-head{grid-template-columns:1fr}.sim-deck::before,.sim-deck::after{display:none}.deck-orbit{opacity:.35}}
+    @media(max-width:620px){.evidence-wall{padding:76px 14px 92px}.evidence-h{font-size:clamp(48px,16vw,88px)}.deck-brief{padding:20px}.deck-node-stack{grid-template-columns:1fr}.deck-shell{border-radius:26px;padding:5px}.deck-core{border-radius:21px}.mission-artifact .deck-core{padding:21px}.artifact-title{font-size:48px}.artifact-grid{grid-template-columns:1fr}.artifact-actions a{width:100%;justify-content:space-between;box-sizing:border-box}.deck-orbit{display:none}}
     /* Phase 5: mobile, performance, accessibility final polish */
     .skip-link{position:fixed;left:12px;top:12px;z-index:20000;transform:translateY(-140%);background:var(--crt-green);color:#000;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-decoration:none;padding:12px 16px;border:2px solid #000;transition:transform .18s ease}.skip-link:focus{transform:translateY(0)}
     a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--crt-green);outline-offset:3px;box-shadow:0 0 0 5px rgba(74,246,38,.16)}
@@ -1126,39 +1151,93 @@
     <div class="hero-flash-text">FILE ACCESSED — CLEARANCE PENDING</div>
   </div>
 
-  <!-- 2. EVIDENCE WALL - compressed credibility bridge -->
-  <section id="evidence-wall" class="evidence-wall">
+  <!-- 2. EVIDENCE WALL - Simulation Command Deck -->
+  <section id="evidence-wall" class="evidence-wall sim-command-deck">
+    <div class="deck-aurora" aria-hidden="true"></div>
+    <div class="deck-vignette" aria-hidden="true"></div>
     <div class="evidence-wrap">
-      <div class="evidence-head sr">
+      <div class="deck-head sr">
         <div>
-          <div class="evidence-kicker">// PUBLIC RECORD CROSSCHECK //</div>
-          <h2 class="evidence-h">This stopped being fringe when the paper trail became public.</h2>
+          <div class="evidence-kicker">Simulation command deck</div>
+          <h2 class="evidence-h">Reality opened the file.<em>Now run the simulations.</em></h2>
         </div>
-        <p class="evidence-copy">You do not have to believe. You only have to answer one question: <strong>what would you do first?</strong> Governments, militaries, journalists, and witnesses are treating UAP disclosure like a real category. On May 8, 2026, the National Archives opened bulk public access to UAP records across federal collections. DISCLOSURE turns that signal into civilian readiness.</p>
+        <p class="deck-brief">The public record is not the destination. It is the ignition key. Each confirmed signal loads a flash simulation: blackout control, crowd behavior, evidence discipline, and contact boundaries.</p>
       </div>
-      <div class="evidence-grid sr">
-        <article class="evidence-card" data-file="FILE 01">
-          <div class="evidence-tag">HEARINGS</div>
-          <div class="evidence-title">The subject entered public record.</div>
-          <div class="evidence-body">Officials, witnesses, and oversight committees moved UAPs out of pure folklore and into documented testimony.</div>
+
+      <div class="sim-deck sr" aria-label="Simulation command deck evidence hub">
+        <div class="deck-node-stack" role="tablist" aria-label="Evidence driven simulation modules">
+          <button class="deck-node active" type="button" data-deck-node="archive" style="--charge:91%" aria-selected="true">
+            <div class="deck-shell"><div class="deck-core">
+              <div class="deck-node-k"><span>FILE 03</span><span>91%</span></div>
+              <h3>Archive breach</h3>
+              <p>Public UAP records confirm the signal is no longer sealed.</p>
+              <div class="deck-node-meter" aria-hidden="true"><span></span></div>
+            </div></div>
+          </button>
+          <button class="deck-node" type="button" data-deck-node="blackout" style="--charge:84%" aria-selected="false">
+            <div class="deck-shell"><div class="deck-core">
+              <div class="deck-node-k"><span>SIM 01</span><span>84%</span></div>
+              <h3>Blackout drill</h3>
+              <p>Power fails, engines die, ordinary space becomes hostile.</p>
+              <div class="deck-node-meter" aria-hidden="true"><span></span></div>
+            </div></div>
+          </button>
+          <button class="deck-node" type="button" data-deck-node="crowd" style="--charge:76%" aria-selected="false">
+            <div class="deck-shell"><div class="deck-core">
+              <div class="deck-node-k"><span>SIM 02</span><span>76%</span></div>
+              <h3>Crowd control</h3>
+              <p>Fear spreads faster than facts. Your first sentence matters.</p>
+              <div class="deck-node-meter" aria-hidden="true"><span></span></div>
+            </div></div>
+          </button>
+          <button class="deck-node" type="button" data-deck-node="contact" style="--charge:68%" aria-selected="false">
+            <div class="deck-shell"><div class="deck-core">
+              <div class="deck-node-k"><span>SIM 03</span><span>68%</span></div>
+              <h3>Contact boundary</h3>
+              <p>The voice may be calm. That does not make it safe.</p>
+              <div class="deck-node-meter" aria-hidden="true"><span></span></div>
+            </div></div>
+          </button>
+        </div>
+
+        <article class="deck-shell mission-artifact" aria-live="polite">
+          <div class="deck-core">
+            <div class="artifact-top">
+              <div class="artifact-stamp" id="deck-stamp">MAY 8, 2026</div>
+              <div class="artifact-status" id="deck-status">PUBLIC RECORD CONFIRMED</div>
+            </div>
+            <h3 class="artifact-title" id="deck-title">Archive door opened.<span>Simulation path armed.</span></h3>
+            <p class="artifact-copy" id="deck-copy">The National Archives published bulk UAP downloads covering FAA, ODNI, Office of the Secretary of Defense, Project Blue Book, Roswell source files, Air Intelligence reports, images, video, and audio. The app converts that public signal into civilian response drills.</p>
+            <div class="artifact-grid" aria-label="Current mission telemetry">
+              <div class="artifact-chip"><b id="deck-risk">91</b><span>SIGNAL LOCK</span></div>
+              <div class="artifact-chip"><b id="deck-mode">LIVE</b><span>SIM STATE</span></div>
+              <div class="artifact-chip"><b id="deck-time">00:42</b><span>DRILL WINDOW</span></div>
+            </div>
+            <div class="artifact-wave" aria-hidden="true">
+              <i style="--h:28%;--d:.0s"></i><i style="--h:62%;--d:.1s"></i><i style="--h:36%;--d:.2s"></i><i style="--h:78%;--d:.05s"></i><i style="--h:42%;--d:.18s"></i><i style="--h:86%;--d:.09s"></i><i style="--h:54%;--d:.23s"></i><i style="--h:31%;--d:.14s"></i><i style="--h:72%;--d:.04s"></i><i style="--h:48%;--d:.2s"></i><i style="--h:92%;--d:.12s"></i><i style="--h:38%;--d:.26s"></i>
+            </div>
+            <div class="artifact-actions">
+              <a class="artifact-primary" href="#protocol-simulator">Run first flash simulation</a>
+              <a class="artifact-secondary" href="https://www.archives.gov/research/catalog/catalog-bulk-downloads/uap-bulk-download" target="_blank" rel="noopener">Verify archive</a>
+            </div>
+            <div class="deck-orbit" aria-hidden="true"></div>
+          </div>
         </article>
-        <article class="evidence-card" data-file="FILE 02">
-          <div class="evidence-tag">PRESSURE</div>
-          <div class="evidence-title">Institutions are being forced to respond.</div>
-          <div class="evidence-body">Reports, deadlines, and declassification pressure changed the question from “is this real?” to “what happens next?”</div>
-        </article>
-        <article class="evidence-card" data-file="FILE 03">
-          <div class="evidence-tag">MAY 8, 2026</div>
-          <div class="evidence-title">The files started landing in public.</div>
-          <div class="evidence-body">The National Archives published bulk UAP downloads covering FAA, ODNI, Office of the Secretary of Defense, Project Blue Book, Roswell source files, Air Intelligence reports, images, video, and audio. <a href="https://www.archives.gov/research/catalog/catalog-bulk-downloads/uap-bulk-download" target="_blank" rel="noopener">Verify the archive</a>.</div>
-        </article>
-        <article class="evidence-card" data-file="FILE 04">
-          <div class="evidence-tag">NOW</div>
-          <div class="evidence-title">Civilian curiosity has no protocol.</div>
-          <div class="evidence-body">Headlines open the file. Classification gives you a role. Training decides whether you freeze when the signal arrives.</div>
-        </article>
+
+        <aside class="deck-shell sim-rail" aria-label="Flash simulation series">
+          <div class="deck-core">
+            <div class="rail-kicker">SERIES ARMED</div>
+            <h3 class="rail-title">Four flash simulations. One readiness path.</h3>
+            <div class="rail-list">
+              <div class="rail-item"><b>01</b><span><strong>BLACKOUT</strong>Dead power, dead cars, limited time.</span></div>
+              <div class="rail-item"><b>02</b><span><strong>CROWD</strong>Keep strangers useful before panic cascades.</span></div>
+              <div class="rail-item"><b>03</b><span><strong>EVIDENCE</strong>Capture proof without becoming the liability.</span></div>
+              <div class="rail-item"><b>04</b><span><strong>CONTACT</strong>Boundary discipline when instructions arrive.</span></div>
+            </div>
+            <div class="rail-lock">The page gives the first taste. The app becomes the full civilian readiness campaign.</div>
+          </div>
+        </aside>
       </div>
-      <div class="evidence-cta sr"><a href="#quiz">ANSWER THE FIRST QUESTION →</a></div>
     </div>
   </section>
 
@@ -3739,6 +3818,35 @@ function initPage() {
 })();
 </script>
 
+
+<script>
+(function initSimulationCommandDeck(){
+  const deck = document.getElementById('evidence-wall');
+  if(!deck) return;
+  const nodes = Array.from(deck.querySelectorAll('[data-deck-node]'));
+  const data = {
+    archive:{stamp:'MAY 8, 2026',status:'PUBLIC RECORD CONFIRMED',title:'Archive door opened.',sub:'Simulation path armed.',copy:'The National Archives published bulk UAP downloads covering FAA, ODNI, Office of the Secretary of Defense, Project Blue Book, Roswell source files, Air Intelligence reports, images, video, and audio. The app converts that public signal into civilian response drills.',risk:'91',mode:'LIVE',time:'00:42'},
+    blackout:{stamp:'SIM 01',status:'FLASH INCIDENT LOADED',title:'Parking lot blackout.',sub:'First decision critical.',copy:'Power drops. Engines fail. Doors lock. People start guessing. This flash simulation measures whether you create a safe pocket before the crowd becomes the threat.',risk:'84',mode:'ARMED',time:'00:42'},
+    crowd:{stamp:'SIM 02',status:'PANIC CASCADE MODEL',title:'Crowd behavior shifts.',sub:'Command voice required.',copy:'Fear is contagious. The drill tracks whether you make strangers steadier or accidentally turn confusion into a stampede.',risk:'76',mode:'QUEUED',time:'00:35'},
+    contact:{stamp:'SIM 03',status:'BOUNDARY PROTOCOL',title:'The instruction arrives.',sub:'Calm is not consent.',copy:'A voice, signal, or figure gives a simple instruction. The simulation tests whether you can stay human without surrendering control.',risk:'68',mode:'LOCKED',time:'00:21'}
+  };
+  const els = {
+    stamp:document.getElementById('deck-stamp'), status:document.getElementById('deck-status'), title:document.getElementById('deck-title'), copy:document.getElementById('deck-copy'), risk:document.getElementById('deck-risk'), mode:document.getElementById('deck-mode'), time:document.getElementById('deck-time')
+  };
+  function setActive(key){
+    const item = data[key] || data.archive;
+    nodes.forEach(btn => { const active = btn.dataset.deckNode === key; btn.classList.toggle('active', active); btn.setAttribute('aria-selected', active ? 'true' : 'false'); });
+    if(els.stamp) els.stamp.textContent = item.stamp;
+    if(els.status) els.status.textContent = item.status;
+    if(els.title) els.title.innerHTML = item.title + '<span>' + item.sub + '</span>';
+    if(els.copy) els.copy.textContent = item.copy;
+    if(els.risk) els.risk.textContent = item.risk;
+    if(els.mode) els.mode.textContent = item.mode;
+    if(els.time) els.time.textContent = item.time;
+  }
+  nodes.forEach(btn => btn.addEventListener('click', () => setActive(btn.dataset.deckNode)));
+})();
+</script>
 
 <script>
 (function initSystemProgress(){
