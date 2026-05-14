@@ -1049,6 +1049,11 @@
     .signal-timeline{gap:14px!important}.signal-item{min-height:190px!important;padding:22px!important;border-radius:28px!important;background:linear-gradient(180deg,rgba(255,255,255,.078),rgba(255,255,255,.032))!important;border-color:rgba(255,255,255,.14)!important}.signal-item::after{color:rgba(255,255,255,.62)!important;font-size:10px!important;letter-spacing:.24em!important;right:18px!important;bottom:16px!important}.signal-tag{font-size:10px!important}.signal-title{font-size:14px!important;line-height:1.35!important}.signal-body{font-size:13px!important;line-height:1.6!important;color:rgba(255,255,255,.66)!important}
 
 
+    /* Simulator feedback pacing and start chip placement */
+    .story-sim .sim-screen{grid-template-rows:auto auto auto minmax(190px,1fr) auto auto auto!important}.story-sim .sim-start-chip{justify-self:center;margin:0!important;padding:9px 13px!important;border-radius:999px!important;background:rgba(74,246,38,.09)!important;border:1px solid rgba(74,246,38,.28)!important;color:rgba(216,255,155,.9)!important;font-size:10px!important;letter-spacing:.2em!important;text-align:center!important}.story-sim .sim-start-chip.is-hidden{display:none!important}.story-sim .sim-feedback.good,.story-sim .sim-feedback.bad{font-size:11px!important;color:#fff!important;border-color:rgba(216,255,155,.32)!important;background:rgba(74,246,38,.075)!important}.story-sim .sim-feedback.bad{border-color:rgba(255,77,77,.32)!important;background:rgba(255,77,77,.075)!important}
+    @media(max-width:620px){.story-sim .sim-screen{grid-template-rows:auto auto auto minmax(150px,1fr) auto auto auto!important}.story-sim .sim-start-chip{font-size:8px!important;padding:7px 10px!important;letter-spacing:.14em!important}}
+
+
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFFMNLNSXM"></script>
@@ -1216,6 +1221,7 @@
       </header>
       <div class="sim-console sim-incident sr" aria-live="polite">
         <div class="sim-screen">
+          <div class="sim-start-chip" id="sim-start-chip">PRESS START. TIMER BEGINS IMMEDIATELY.</div>
           <div class="sim-topline">
             <div class="sim-label" id="sim-label">INCIDENT QUEUE // POWER FAILURE</div>
             <div class="sim-clock" id="sim-clock">00:42</div>
@@ -3584,9 +3590,11 @@ function initPage() {
   const sceneEl = document.getElementById('sim-scene');
   const feedbackEl = document.getElementById('sim-feedback');
   const claimEl = document.getElementById('sim-claim');
+  const startChipEl = document.getElementById('sim-start-chip');
   if(!sim || !consoleEl || !optionsEl || !reset) return;
 
   const BEAT_SECONDS = 10;
+  const FEEDBACK_HOLD_MS = 2600;
   const beats = [
     {
       label:'01:00 // HOME BLACKOUT',
@@ -3651,6 +3659,7 @@ function initPage() {
   ];
 
   let state = { calm:72, safety:68, evidence:41, step:0, running:false, seconds:BEAT_SECONDS, total:BEAT_SECONDS * beats.length, timer:null };
+  let pendingAdvance = null;
 
   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(hover: hover)').matches){
     sim.addEventListener('pointermove', function(e){
@@ -3670,16 +3679,20 @@ function initPage() {
   }
   function renderIntro(){
     clearInterval(state.timer);
+    clearTimeout(pendingAdvance);
+    pendingAdvance = null;
     state.running = false;
     labelEl.textContent = 'READY ROOM // FIELD SIMULATION LOCKED';
     alertEl.textContent = 'SIX DECISIONS · TEN SECONDS EACH · STAY USEFUL';
     alertEl.classList.remove('red');
-    sceneEl.innerHTML = 'A normal night breaks in one second. Read the scene, make the call, keep people alive.<br><span class="sim-start-chip">PRESS START. TIMER BEGINS IMMEDIATELY.</span>';
+    sceneEl.textContent = 'A normal night breaks in one second. Read the scene, make the call, keep people alive.';
+    if(startChipEl) startChipEl.classList.remove('is-hidden');
     optionsEl.innerHTML = '';
     feedbackEl.className = 'sim-feedback good';
     feedbackEl.textContent = 'Start the simulation when you are ready. It will move fast.';
     result.classList.remove('visible'); result.innerHTML = '';
     claimEl.classList.remove('visible');
+    if(startChipEl) startChipEl.classList.remove('is-hidden');
     reset.textContent = 'START FIELD SIMULATION';
     reset.classList.remove('running');
     updateMeters();
@@ -3695,6 +3708,7 @@ function initPage() {
     feedbackEl.textContent = 'Choose fast. The incident will not pause for you.';
     result.classList.remove('visible'); result.innerHTML = '';
     claimEl.classList.remove('visible');
+    if(startChipEl) startChipEl.classList.add('is-hidden');
     optionsEl.innerHTML = '';
     beat.options.forEach(function(opt, index){
       const btn = document.createElement('button');
@@ -3729,7 +3743,7 @@ function initPage() {
     feedbackEl.textContent = opt.feedback;
     pulse(opt.good ? 'good' : 'bad');
     updateMeters();
-    setTimeout(function(){ state.step += 1; renderBeat(); startTick(); }, 1050);
+    pendingAdvance = setTimeout(function(){ pendingAdvance = null; state.step += 1; renderBeat(); startTick(); }, FEEDBACK_HOLD_MS);
   }
   function timeoutChoice(){
     if(!state.running) return;
@@ -3739,7 +3753,7 @@ function initPage() {
     feedbackEl.className = 'sim-feedback bad';
     feedbackEl.textContent = 'You froze. The group copies the silence and the situation gets ahead of you.';
     pulse('bad'); updateMeters();
-    setTimeout(function(){ state.step += 1; renderBeat(); startTick(); }, 1050);
+    pendingAdvance = setTimeout(function(){ pendingAdvance = null; state.step += 1; renderBeat(); startTick(); }, FEEDBACK_HOLD_MS);
   }
   function startTick(){
     clearInterval(state.timer);
@@ -3770,6 +3784,8 @@ function initPage() {
   }
   function startSim(){
     clearInterval(state.timer);
+    clearTimeout(pendingAdvance);
+    pendingAdvance = null;
     state = { calm:72, safety:68, evidence:41, step:0, running:true, seconds:BEAT_SECONDS, total:BEAT_SECONDS * beats.length, timer:null };
     reset.textContent = 'RESET SIMULATION'; reset.classList.add('running'); renderBeat(); startTick();
   }
