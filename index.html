@@ -1045,6 +1045,10 @@
     @media(max-width:620px){.story-sim.protocol-sim.sim-live{padding:10px!important}.story-sim .sim-wrap-live{max-height:calc(100svh - 20px);gap:8px!important}.story-sim .sim-kicker{display:none!important}.story-sim .sim-h{font-size:30px!important}.story-sim .sim-screen{padding:14px!important;gap:7px!important;grid-template-rows:auto auto minmax(160px,1fr) auto auto auto!important}.story-sim .sim-label{font-size:8px!important}.story-sim .sim-clock{font-size:13px!important}.story-sim .sim-alert{font-size:8px!important;padding:7px 9px!important}.story-sim .sim-scene{font-size:clamp(27px,8.6vw,38px)!important;padding:18px!important;border-radius:22px!important}.story-sim .sim-option{font-size:10px!important;padding:10px 11px!important}.story-sim .sim-feedback{font-size:9px!important;min-height:30px!important}.story-sim .sim-actions .sim-reset{width:100%!important;justify-content:space-between!important}}
 
 
+    /* Timeline card visibility polish */
+    .signal-timeline{gap:14px!important}.signal-item{min-height:190px!important;padding:22px!important;border-radius:28px!important;background:linear-gradient(180deg,rgba(255,255,255,.078),rgba(255,255,255,.032))!important;border-color:rgba(255,255,255,.14)!important}.signal-item::after{color:rgba(255,255,255,.62)!important;font-size:10px!important;letter-spacing:.24em!important;right:18px!important;bottom:16px!important}.signal-tag{font-size:10px!important}.signal-title{font-size:14px!important;line-height:1.35!important}.signal-body{font-size:13px!important;line-height:1.6!important;color:rgba(255,255,255,.66)!important}
+
+
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFFMNLNSXM"></script>
@@ -3582,70 +3586,71 @@ function initPage() {
   const claimEl = document.getElementById('sim-claim');
   if(!sim || !consoleEl || !optionsEl || !reset) return;
 
+  const BEAT_SECONDS = 10;
   const beats = [
     {
-      label:'00:42 // PARKING LOT BLACKOUT',
-      alert:'STORE POWER OUT · CARTS ROLLING · AUTOMATIC DOORS STUCK',
-      scene:'You are loading groceries at 9:38 PM. The whole lot goes black at once. A cart rolls by itself and bumps your tire. Above the supermarket roof, the clouds glow from underneath.',
+      label:'01:00 // HOME BLACKOUT',
+      alert:'STREETLIGHTS OUT · WIFI DEAD · DOGS BARKING OUTSIDE',
+      scene:'You are on the couch after dinner. The TV cuts out. Every house on the street goes dark. Outside, the clouds glow green-white above the treeline.',
       options:[
-        { text:'Get everyone into the car, shut the doors, and kill the cabin light.', calm:12, safety:14, evidence:2, good:true, feedback:'Good. Familiar place, unfamiliar event. First move is making a safe pocket.' },
-        { text:'Stand outside and film the glowing clouds before the moment passes.', calm:-8, safety:-12, evidence:10, feedback:'You get the shot and give up cover. The lot now has one more exposed person.' },
-        { text:'Run back to the store entrance and try to force the doors open.', calm:-10, safety:-10, evidence:-4, feedback:'Panic loves glass doors. Now you are trapped between a crowd and a locked entrance.' }
+        { text:'Keep everyone inside, dim the room, and move away from the windows.', calm:12, safety:14, evidence:2, good:true, feedback:'Good. You made a safe pocket before curiosity turned into exposure.' },
+        { text:'Step onto the porch and film the glowing clouds before it disappears.', calm:-8, safety:-12, evidence:10, feedback:'You get a clip, but now you are standing outside under the thing everyone is staring at.' },
+        { text:'Tell everyone to grab keys and leave before the roads jam.', calm:-10, safety:-10, evidence:-4, feedback:'Panic loves motion. Now you are moving without knowing what you are moving into.' }
       ]
     },
     {
-      label:'00:35 // ENGINE FAILURE',
-      alert:'IGNITION DEAD · KEY FOB UNRESPONSIVE · CHILD CRYING NEARBY',
-      scene:'Your car will not start. Neither will the truck beside you. A kid in the next vehicle is crying while their parent keeps clicking the key fob harder, like that will help.',
+      label:'00:50 // PHONES FAIL',
+      alert:'NO SERVICE · GROUP CHAT DEAD · NEIGHBOR CALLING FROM DRIVEWAY',
+      scene:'Your phone shows SOS only. Across the street, a neighbor stands in their driveway yelling that their car will not start. Their kid is crying in the back seat.',
       options:[
-        { text:'Tell them calmly: stop clicking, stay inside, crack the window, keep the kid low.', calm:12, safety:10, evidence:0, good:true, feedback:'Useful beats dramatic. You gave a scared stranger one thing to do next.' },
-        { text:'Yell that every car is dead and everyone needs to get out now.', calm:-14, safety:-12, evidence:-2, feedback:'That may be true. It is also how ten people become one stampede.' },
-        { text:'Record the dashboard, failed ignition, and exact time.', calm:2, safety:-2, evidence:14, feedback:'Strong evidence, weak leadership. The crying kid is still setting the room on fire.' }
+        { text:'Call over calmly: stay in the car, lights off, keep the kid low.', calm:12, safety:10, evidence:0, good:true, feedback:'Useful beats dramatic. You gave a scared person one clear instruction.' },
+        { text:'Yell that all electronics are dead and everyone needs to get out now.', calm:-14, safety:-12, evidence:-2, feedback:'That may be true. It is also how a quiet street becomes a stampede.' },
+        { text:'Record your dead phone, the stopped cars, and the exact time.', calm:2, safety:-2, evidence:14, feedback:'Strong evidence, weak leadership. The crying kid is still setting the room on fire.' }
       ]
     },
     {
-      label:'00:28 // LOADING BAY BANG',
-      alert:'METAL IMPACT · DOG BARKING · TWO PEOPLE WALKING TOWARD SOUND',
-      scene:'A deep bang rolls out from the loading bay behind the store. Someone whispers, "Transformer." Two men start walking that way with phone flashlights up.',
+      label:'00:40 // BACKYARD IMPACT',
+      alert:'METAL IMPACT · DOGS SILENT · TWO PEOPLE WALKING TOWARD SOUND',
+      scene:'Something heavy hits behind the houses. Two neighbors start walking toward the alley with phone flashlights raised. The dogs stop barking all at once.',
       options:[
-        { text:'Call out low and sharp: "Stop. Lights down. Back to the cars."', calm:12, safety:16, evidence:0, good:true, feedback:'Clean command. Not heroic, not hysterical. Just enough to interrupt a bad idea.' },
+        { text:'Call out low and sharp: "Stop. Lights down. Back inside."', calm:12, safety:16, evidence:0, good:true, feedback:'Clean command. Not heroic, not hysterical. Just enough to interrupt a bad idea.' },
         { text:'Follow them at a distance so someone can see what happens.', calm:-6, safety:-14, evidence:8, feedback:'You became the documentary crew for the worst possible scene.' },
-        { text:'Shine your flashlight at the bay and shout, "Anyone there?"', calm:-10, safety:-10, evidence:2, feedback:'You just announced your position to whatever made the sound. Bold. Stupid.' }
+        { text:'Shine your flashlight down the alley and shout, "Anyone there?"', calm:-10, safety:-10, evidence:2, feedback:'You just announced your position to whatever made the sound. Bold. Stupid.' }
       ]
     },
     {
-      label:'00:21 // WINDOW STRIKE',
-      alert:'UNKNOWN ADULT AT PASSENGER WINDOW · CROWD SPREADING · LOCK STATUS ACTIVE',
-      scene:'A stranger hits your passenger window with both hands. "Let me in." Their face is terrified. Behind them, more people are leaving their cars and staring at the roofline.',
+      label:'00:30 // WINDOW STRIKE',
+      alert:'UNKNOWN ADULT AT FRONT WINDOW · STREET GATHERING · DOORS LOCKED',
+      scene:'A stranger hits your front window with both hands. "Let me in." Their face is terrified. Behind them, more people are stepping into the street and staring upward.',
       options:[
-        { text:'Keep the doors locked, speak through the glass, and point them to shelter by the wall.', calm:8, safety:14, evidence:0, good:true, feedback:'Hard boundary, still human. You protect your people without abandoning theirs.' },
-        { text:'Unlock fast. You cannot leave someone scared outside.', calm:2, safety:-16, evidence:-2, feedback:'Compassion without control just moved the panic inside your car.' },
+        { text:'Keep the door locked, speak through the glass, and point them to shelter nearby.', calm:8, safety:14, evidence:0, good:true, feedback:'Hard boundary, still human. You protect your people without abandoning theirs.' },
+        { text:'Open the door fast. You cannot leave someone scared outside.', calm:2, safety:-16, evidence:-2, feedback:'Compassion without control just moved the panic inside your home.' },
         { text:'Ignore them and keep watching the sky.', calm:-8, safety:-8, evidence:8, feedback:'The sky matters. The threat touching your window matters more.' }
       ]
     },
     {
-      label:'00:14 // DEAD SPEAKERS',
-      alert:'STORE PA SYSTEM ACTIVE WITHOUT POWER · MESSAGE REPEATING',
-      scene:'The dead store speakers crackle on. A calm voice says, "Remain where you are." It repeats three times. It is not the store manager. Everyone in the lot hears it.',
+      label:'00:20 // SPEAKER VOICE',
+      alert:'ALEXA ACTIVE WITHOUT POWER · SAME MESSAGE REPEATING',
+      scene:'The smart speaker on the counter lights up even though the power is out. A calm voice says, "Remain where you are." It repeats three times.',
       options:[
-        { text:'Stay put, keep people low, and do not follow any instruction that moves the crowd blindly.', calm:14, safety:12, evidence:4, good:true, feedback:'You separated calm from trustworthy. That distinction keeps people alive.' },
+        { text:'Stay put, keep people low, and do not follow any new instruction blindly.', calm:14, safety:12, evidence:4, good:true, feedback:'You separated calm from trustworthy. That distinction keeps people alive.' },
         { text:'Obey the voice exactly. Calm instructions are probably safer than panic.', calm:4, safety:-8, evidence:0, feedback:'Calm is not proof. A trap can have excellent diction.' },
         { text:'Shout that the speaker is fake and everyone is being lured.', calm:-16, safety:-10, evidence:-2, feedback:'Correct suspicion. Catastrophic delivery.' }
       ]
     },
     {
-      label:'00:07 // WHITEOUT SWEEP',
-      alert:'LIGHT MOVING CAR TO CAR · WINDOWS FLARING · LOT COMPLETELY SILENT',
-      scene:'A sheet of white light moves across the lot, one car at a time. It is almost at yours. The crying stops. Even the dog near the loading bay goes quiet.',
+      label:'00:10 // WHITEOUT SWEEP',
+      alert:'LIGHT MOVING HOUSE TO HOUSE · WINDOWS FLARING · STREET SILENT',
+      scene:'A sheet of white light moves down the street, house by house. It is almost at yours. The crying stops. Even the wind goes quiet.',
       options:[
         { text:'Eyes down, hands visible, bodies low, no sudden movement until it passes.', calm:16, safety:14, evidence:2, good:true, feedback:'Stillness without surrender. That is the whole game.' },
-        { text:'Pull everyone hard onto the floorboards and cover their faces.', calm:4, safety:6, evidence:-6, feedback:'Messy, but survivable. Fear made the move, not protocol.' },
-        { text:'Hold your phone up to catch the light through the windshield.', calm:-10, safety:-14, evidence:12, feedback:'The clip might go viral. So might the missing-person poster.' }
+        { text:'Pull everyone to the floor and cover their faces.', calm:4, safety:6, evidence:-6, feedback:'Messy, but survivable. Fear made the move, not protocol.' },
+        { text:'Hold your phone up to catch the light through the window.', calm:-10, safety:-14, evidence:12, feedback:'The clip might go viral. So might the missing-person poster.' }
       ]
     }
   ];
 
-  let state = { calm:72, safety:68, evidence:41, step:0, running:false, seconds:7, total:42, timer:null };
+  let state = { calm:72, safety:68, evidence:41, step:0, running:false, seconds:BEAT_SECONDS, total:BEAT_SECONDS * beats.length, timer:null };
 
   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(hover: hover)').matches){
     sim.addEventListener('pointermove', function(e){
@@ -3661,15 +3666,15 @@ function initPage() {
   function updateMeters(){
     setMeter(calmEl, state.calm); setMeter(safetyEl, state.safety); setMeter(evidenceEl, state.evidence);
     if(timerEl) timerEl.textContent = pad(state.seconds);
-    if(clockEl) { clockEl.textContent = '00:' + pad(state.total); clockEl.classList.toggle('urgent', state.seconds <= 3 && state.running); }
+    if(clockEl) { const m = Math.floor(Math.max(0,state.total)/60); const sec = Math.max(0,state.total)%60; clockEl.textContent = pad(m) + ':' + pad(sec); clockEl.classList.toggle('urgent', state.seconds <= 3 && state.running); }
   }
   function renderIntro(){
     clearInterval(state.timer);
     state.running = false;
     labelEl.textContent = 'READY ROOM // FIELD SIMULATION LOCKED';
-    alertEl.textContent = 'ONE VIEWPORT · SIX DECISIONS · SEVEN SECONDS EACH';
+    alertEl.textContent = 'SIX DECISIONS · TEN SECONDS EACH · STAY USEFUL';
     alertEl.classList.remove('red');
-    sceneEl.innerHTML = 'You are not choosing an archetype here. You are in a supermarket parking lot with dead cars, locked doors, strangers panicking, and something overhead moving through the clouds.<br><span class="sim-start-chip">PRESS START. TIMER BEGINS IMMEDIATELY.</span>';
+    sceneEl.innerHTML = 'A normal night breaks in one second. Read the scene, make the call, keep people alive.<br><span class="sim-start-chip">PRESS START. TIMER BEGINS IMMEDIATELY.</span>';
     optionsEl.innerHTML = '';
     feedbackEl.className = 'sim-feedback good';
     feedbackEl.textContent = 'Start the simulation when you are ready. It will move fast.';
@@ -3699,7 +3704,7 @@ function initPage() {
       btn.addEventListener('click', function(){ choose(index); });
       optionsEl.appendChild(btn);
     });
-    state.seconds = 7;
+    state.seconds = BEAT_SECONDS;
     updateMeters();
   }
   function pulse(kind){
@@ -3765,10 +3770,10 @@ function initPage() {
   }
   function startSim(){
     clearInterval(state.timer);
-    state = { calm:72, safety:68, evidence:41, step:0, running:true, seconds:7, total:42, timer:null };
+    state = { calm:72, safety:68, evidence:41, step:0, running:true, seconds:BEAT_SECONDS, total:BEAT_SECONDS * beats.length, timer:null };
     reset.textContent = 'RESET SIMULATION'; reset.classList.add('running'); renderBeat(); startTick();
   }
-  reset.addEventListener('click', startSim);
+  reset.addEventListener('click', function(){ if(state.running){ renderIntro(); return; } startSim(); });
   updateMeters(); renderIntro();
 })();
 </script>
