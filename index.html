@@ -1263,7 +1263,7 @@
             <span class="hc-num" id="hero-count">—</span>
             <span>civilians briefed</span>
             <span class="hc-sep">·</span>
-            <span class="hc-live" id="hero-live">+— this hour</span>
+            <span class="hc-live" id="hero-live">lifetime total</span>
             <span class="hc-sep">·</span>
             <span>file accessed</span>
           </div>
@@ -1539,7 +1539,7 @@
       <div class="gst">
         <span class="gst-n" id="stat-count">—</span>
         <span class="gst-l">CIVILIANS BRIEFED</span>
-        <span class="gst-live" id="stat-live">+— THIS HOUR</span>
+        <span class="gst-live" id="stat-live">LIFETIME TOTAL</span>
       </div>
       <span class="gst-sep">·</span>
       <div class="gst">
@@ -1964,10 +1964,10 @@
           <div class="clearance-pulse" aria-hidden="true"></div>
         </div>
         <div class="clearance-steps sr" aria-label="Disclosure conversion sequence">
-          <div class="clearance-step active"><div class="clearance-num">01</div><div><div class="clearance-title">OPEN FILE</div><div class="clearance-desc">Eye anomaly confirms the intercepted transmission.</div></div><div class="clearance-state green">COMPLETE</div></div>
-          <div class="clearance-step"><div class="clearance-num">02</div><div><div class="clearance-title">RUN MICRO-SIM</div><div class="clearance-desc">Field drill previews app training.</div></div><div class="clearance-state">OPTIONAL</div></div>
-          <div class="clearance-step"><div class="clearance-num">03</div><div><div class="clearance-title">FINISH ASSESSMENT</div><div class="clearance-desc">Ten questions generate a classified archetype.</div></div><div class="clearance-state">REQUIRED</div></div>
-          <div class="clearance-step"><div class="clearance-num">04</div><div><div class="clearance-title">CLAIM CARD</div><div class="clearance-desc">Email unlocks serial, credential, and launch transmission.</div></div><div class="clearance-state">LOCKED</div></div>
+          <div class="clearance-step active" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important"><div class="clearance-num" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">01</div><div style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important"><div class="clearance-title" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">OPEN FILE</div><div class="clearance-desc" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">Eye anomaly confirms the intercepted transmission.</div></div><div class="clearance-state green" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">COMPLETE</div></div>
+          <div class="clearance-step" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important"><div class="clearance-num" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">02</div><div style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important"><div class="clearance-title" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">RUN MICRO-SIM</div><div class="clearance-desc" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">Field drill previews app training.</div></div><div class="clearance-state" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">OPTIONAL</div></div>
+          <div class="clearance-step" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important"><div class="clearance-num" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">03</div><div style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important"><div class="clearance-title" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">FINISH ASSESSMENT</div><div class="clearance-desc" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">Ten questions generate a classified archetype.</div></div><div class="clearance-state" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">REQUIRED</div></div>
+          <div class="clearance-step" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important"><div class="clearance-num" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">04</div><div style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important"><div class="clearance-title" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">CLAIM CARD</div><div class="clearance-desc" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">Email unlocks serial, credential, and launch transmission.</div></div><div class="clearance-state" style="color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important">LOCKED</div></div>
         </div>
       </div>
     </div>
@@ -2107,7 +2107,7 @@ function shuffleQuizOptions() {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function() { initSupa(); shuffleQuizOptions(); });
+  document.addEventListener('DOMContentLoaded', function() { initSupa(); shuffleQuizOptions(); loadCount(); });
 } else {
   initSupa();
   shuffleQuizOptions();
@@ -2678,14 +2678,13 @@ async function handleAccess(e) {
   clearedEl.textContent = archetype === 'first-contact' ? '⭐ FIRST CONTACT CONFIRMED' : '◉ CLEARANCE GRANTED';
   clearedEl.className = 'gs-cleared' + (archetype === 'first-contact' ? ' fc-cleared' : '');
 
-  // Civilian number
+  // Civilian number, always shown as the lifetime total from Supabase
   const numEl = document.getElementById('gs-num');
+  const lifetimeBriefed = await fetchLifetimeBriefedCount();
+  civilianNum = lifetimeBriefed || civilianNum;
   if (civilianNum) {
     numEl.textContent = 'YOU ARE CIVILIAN #' + civilianNum.toLocaleString() + ' · ' + archetypeData.name + ' · CARD INCOMING';
-    ['hero-count', 'stat-count'].forEach(function(id) {
-      const el = document.getElementById(id);
-      if (el) el.textContent = civilianNum.toLocaleString();
-    });
+    setBriefedCount(civilianNum);
   } else {
     numEl.textContent = 'ACCESS LOGGED · ' + archetypeData.name + ' · CARD INCOMING';
   }
@@ -2977,17 +2976,33 @@ function initCursor() {
   document.addEventListener('mousemove', function(e) { r.style.transform='translate('+(e.clientX-9)+'px,'+(e.clientY-9)+'px)'; });
 }
 
-// ── Live Count ────────────────────────────────
-async function loadCount() {
-  if (!sb) return;
+// ── Lifetime Civilian Briefed Count ───────────
+function setBriefedCount(total) {
+  if (!total || total < 1) return;
+  const totalFmt = Number(total).toLocaleString();
+  ['hero-count','stat-count'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = totalFmt;
+  });
+  ['hero-live','stat-live'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = id === 'hero-live' ? 'lifetime total' : 'LIFETIME TOTAL';
+  });
+}
+
+async function fetchLifetimeBriefedCount() {
+  if (!sb) initSupa();
+  if (!sb) return null;
   try {
-    const { data } = await sb.rpc('get_waitlist_count');
-    if (data && data > 0) {
-      const totalFmt = data.toLocaleString();
-      ['hero-count','stat-count'].forEach(function(id) { const el=document.getElementById(id); if(el) el.textContent=totalFmt; });
-    }
-    ['hero-live','stat-live'].forEach(function(id) { const el=document.getElementById(id); if(el) el.style.display='none'; });
+    const { data, error } = await sb.rpc('get_waitlist_count');
+    if (!error && Number(data) > 0) return Number(data);
   } catch(_) {}
+  return null;
+}
+
+async function loadCount() {
+  const total = await fetchLifetimeBriefedCount();
+  setBriefedCount(total);
 }
 
 // ── Liaison Map Counter Tick ──────────────────
