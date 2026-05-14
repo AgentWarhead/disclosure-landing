@@ -987,6 +987,25 @@
       #classified-tools .fd-card > div:last-child{max-width:100%;white-space:normal;justify-content:center;text-align:center;line-height:1.5}
     }
 
+    /* Legendary field simulation */
+    .sim-live{background:radial-gradient(circle at 18% 18%,rgba(74,246,38,.11),transparent 24%),radial-gradient(circle at 82% 34%,rgba(250,62,62,.12),transparent 28%),linear-gradient(180deg,#030403,#010101 52%,#050201);isolation:isolate}
+    .sim-live::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 0 42%,rgba(255,255,255,.035) 43%,transparent 44% 100%);opacity:.45;pointer-events:none;mix-blend-mode:screen}
+    .sim-wrap-live{grid-template-columns:minmax(280px,.82fr) minmax(360px,1.18fr);align-items:center}
+    .sim-h em{font-style:normal;color:var(--crt-green);text-shadow:0 0 24px rgba(74,246,38,.22)}
+    .sim-brief{position:relative;z-index:2}.sim-primer{margin-top:24px;border-left:2px solid rgba(74,246,38,.5);padding:14px 0 14px 18px;max-width:520px;background:linear-gradient(90deg,rgba(74,246,38,.055),transparent)}.sim-primer span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(74,246,38,.72);margin-bottom:8px}.sim-primer p{margin:0;color:rgba(255,255,255,.58);font-size:13px;line-height:1.65}
+    .sim-incident{min-height:560px;border-color:rgba(74,246,38,.3);background:linear-gradient(180deg,rgba(2,10,4,.96),rgba(0,0,0,.9));transform:translateZ(0)}
+    .sim-incident.danger{animation:simDanger .18s linear 2;border-color:rgba(250,62,62,.55);box-shadow:0 0 80px rgba(250,62,62,.14),inset 0 0 50px rgba(250,62,62,.055)}
+    .sim-incident.stable{border-color:rgba(74,246,38,.58);box-shadow:0 0 80px rgba(74,246,38,.14),inset 0 0 50px rgba(74,246,38,.055)}
+    @keyframes simDanger{0%,100%{transform:translateX(0)}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+    .sim-topline{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}.sim-topline .sim-label{margin:0}.sim-clock{font-family:var(--mono);font-size:22px;color:#fff;text-shadow:0 0 18px rgba(74,246,38,.3);letter-spacing:.08em}.sim-clock.urgent{color:#FA3E3E;text-shadow:0 0 18px rgba(250,62,62,.45);animation:simPulse .7s infinite}@keyframes simPulse{50%{opacity:.45}}
+    .sim-alert{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:#000;background:var(--crt-green);padding:10px 12px;margin-bottom:18px;box-shadow:0 0 24px rgba(74,246,38,.16);white-space:normal}.sim-alert.red{background:#FA3E3E;color:#fff;box-shadow:0 0 28px rgba(250,62,62,.28)}
+    .sim-scene{font-size:15px;line-height:1.75;min-height:112px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.025);padding:16px;margin-bottom:16px}.sim-scene strong{color:#fff}
+    .sim-options{counter-reset:simChoice}.sim-option{counter-increment:simChoice;display:grid;grid-template-columns:34px 1fr;align-items:start;gap:12px}.sim-option::before{content:'0' counter(simChoice);font-family:var(--mono);font-size:10px;color:rgba(74,246,38,.7);border:1px solid rgba(74,246,38,.2);padding:5px 0;text-align:center}.sim-option.good{border-color:rgba(74,246,38,.7);background:rgba(74,246,38,.12);color:#fff}.sim-option.bad{border-color:rgba(250,62,62,.62);background:rgba(250,62,62,.1);color:#fff}.sim-option:disabled{cursor:default}.sim-option:disabled:not(.good):not(.bad){opacity:.36}
+    .sim-feedback{min-height:42px;margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;line-height:1.55;color:rgba(255,255,255,.48)}.sim-feedback.good{color:rgba(74,246,38,.92)}.sim-feedback.bad{color:rgba(250,62,62,.9)}
+    .sim-meters .sim-stat{position:relative;overflow:hidden}.sim-meters .sim-stat::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:var(--meter,60%);background:var(--crt-green);box-shadow:0 0 10px rgba(74,246,38,.55);transition:width .35s ease}.sim-meters .sim-stat:nth-child(2)::after{background:#FBBF24}.sim-meters .sim-stat:nth-child(3)::after{background:#60A5FA}.sim-meters .sim-stat:nth-child(4)::after{background:#FA3E3E}
+    .sim-result{font-size:12px;letter-spacing:.1em}.sim-result b{display:block;font-size:28px;letter-spacing:.08em;color:#fff;margin-bottom:10px}.sim-result small{display:block;color:rgba(255,255,255,.52);font-size:11px;line-height:1.6;letter-spacing:.08em}.sim-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:18px}.sim-claim{display:none;font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:#000;background:var(--crt-green);padding:12px 16px;text-decoration:none}.sim-claim.visible{display:inline-block}
+    @media(max-width:860px){.sim-wrap-live{grid-template-columns:1fr}.sim-incident{min-height:520px}.sim-topline{align-items:flex-start}.sim-clock{font-size:18px}.sim-options{gap:8px}.sim-option{font-size:11px;padding:13px 12px;grid-template-columns:30px 1fr}.sim-primer{margin-bottom:4px}}
+
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFFMNLNSXM"></script>
@@ -1396,29 +1415,37 @@
       </div>
     </div>
   </section>
-<section id="protocol-simulator" class="protocol-sim">
-    <div class="sim-wrap">
-      <div class="sr">
-        <div class="sim-kicker">// FIELD SIMULATION 00-A //</div>
-        <h2 class="sim-h">After classification, the app starts training.</h2>
-        <p class="sim-sub">Classification gives you a designation. Training teaches what to do with it: breath control, stimulus discipline, protocol recall, and calm behavior under pressure.</p>
-        <div class="sim-stats">
-          <div class="sim-stat"><b id="sim-calm">00</b><span>DRILL PROGRESS</span></div>
-          <div class="sim-stat"><b id="sim-role">TRAIN</b><span>MODE</span></div>
-          <div class="sim-stat"><b id="sim-risk">MED</b><span>ESCALATION RISK</span></div>
-          <div class="sim-stat"><b>03</b><span>SECONDS TO STABILIZE</span></div>
+<section id="protocol-simulator" class="protocol-sim sim-live">
+    <div class="sim-wrap sim-wrap-live">
+      <div class="sr sim-brief">
+        <div class="sim-kicker">// FIELD SIMULATION 00-A // LIVE INCIDENT DRILL //</div>
+        <h2 class="sim-h">The lights go out.<br><em>You have seconds.</em></h2>
+        <p class="sim-sub">This is not another personality test. It is a fast contact drill built around moments ordinary people could actually face: a blackout, a neighbour outside, a strange object in the yard, and a crowd that starts making bad decisions.</p>
+        <div class="sim-stats sim-meters">
+          <div class="sim-stat"><b id="sim-calm">72</b><span>CALM</span></div>
+          <div class="sim-stat"><b id="sim-safety">68</b><span>GROUP SAFETY</span></div>
+          <div class="sim-stat"><b id="sim-evidence">41</b><span>EVIDENCE</span></div>
+          <div class="sim-stat"><b id="sim-timer">07</b><span>SECONDS</span></div>
+        </div>
+        <div class="sim-primer">
+          <span>HOW IT WORKS</span>
+          <p>Six rapid decisions. No archetype scoring. Each move changes calm, safety, and evidence. Hesitate too long and the incident keeps moving without you.</p>
         </div>
       </div>
-      <div class="sim-console sr" aria-live="polite">
-        <div class="sim-label" id="sim-label">APP DRILL PREVIEW // STONE COLD PROTOCOL</div>
-        <div class="sim-scene" id="sim-scene">Your phone enters drill mode. Audio rises. The screen flashes. The objective is not to choose a role. The objective is to train stillness under pressure.</div>
-        <div class="sim-options" id="sim-options">
-          <button class="sim-option" data-step="1">01 // Breath lock: slow inhale, slower exhale, shoulders down.</button>
-          <button class="sim-option" data-step="2">02 // Stimulus control: hold still through light, sound, and countdown.</button>
-          <button class="sim-option" data-step="3">03 // Protocol recall: your archetype determines the next field instruction.</button>
+      <div class="sim-console sim-incident sr" aria-live="polite">
+        <div class="sim-topline">
+          <div class="sim-label" id="sim-label">INCIDENT QUEUE // POWER FAILURE</div>
+          <div class="sim-clock" id="sim-clock">00:42</div>
         </div>
+        <div class="sim-alert" id="sim-alert">BLACKOUT DETECTED · LOCAL GRID OFFLINE · DOGS BARKING OUTSIDE</div>
+        <div class="sim-scene" id="sim-scene">It is 11:47 PM. The house goes dark. Across the street, a green-white light is hanging over the treeline. Your phone has one bar. Someone in the room says, "What is that?"</div>
+        <div class="sim-options" id="sim-options"></div>
+        <div class="sim-feedback" id="sim-feedback">Choose fast. The scenario will not wait.</div>
         <div class="sim-result" id="sim-result"></div>
-        <button class="sim-reset visible" id="sim-reset" type="button">RUN FIELD DRILL</button>
+        <div class="sim-actions">
+          <button class="sim-reset visible" id="sim-reset" type="button">START FIELD SIMULATION</button>
+          <a class="sim-claim" id="sim-claim" href="#access">CLAIM LAUNCH TRANSMISSION</a>
+        </div>
       </div>
     </div>
   </section>
@@ -3515,14 +3542,87 @@ function initPage() {
 <script>
 (function initProtocolSimulator(){
   const sim = document.getElementById('protocol-simulator');
-  const options = document.querySelectorAll('.sim-option');
+  const consoleEl = document.querySelector('.sim-incident');
+  const optionsEl = document.getElementById('sim-options');
   const result = document.getElementById('sim-result');
   const reset = document.getElementById('sim-reset');
-  const progress = document.getElementById('sim-calm');
-  const mode = document.getElementById('sim-role');
-  const risk = document.getElementById('sim-risk');
-  if(!sim || !options.length || !reset) return;
-  const drillResult = 'DRILL PREVIEW COMPLETE: this is what unlocks after classification. Your role determines the protocol. The app trains the behavior: calm under pressure, signal discipline, protocol recall, and field readiness.<br><br><a href="#access" style="color:var(--crt-green);text-decoration:none">CLAIM LAUNCH TRANSMISSION →</a>';
+  const calmEl = document.getElementById('sim-calm');
+  const safetyEl = document.getElementById('sim-safety');
+  const evidenceEl = document.getElementById('sim-evidence');
+  const timerEl = document.getElementById('sim-timer');
+  const clockEl = document.getElementById('sim-clock');
+  const labelEl = document.getElementById('sim-label');
+  const alertEl = document.getElementById('sim-alert');
+  const sceneEl = document.getElementById('sim-scene');
+  const feedbackEl = document.getElementById('sim-feedback');
+  const claimEl = document.getElementById('sim-claim');
+  if(!sim || !consoleEl || !optionsEl || !reset) return;
+
+  const beats = [
+    {
+      label:'00:42 // POWER FAILURE',
+      alert:'GRID OFFLINE · DOGS BARKING · NEIGHBOURS WAKING UP',
+      scene:'It is 11:47 PM. The house goes dark. Across the street, a green-white light is hanging over the treeline. Your phone has one bar. Someone in the room says, "What is that?"',
+      options:[
+        { text:'Move everyone away from the windows and tell them to keep voices low.', calm:10, safety:14, evidence:2, good:true, feedback:'Good. You reduce exposure before curiosity turns into a window-shaped mistake.' },
+        { text:'Run outside to get a better look before it disappears.', calm:-8, safety:-14, evidence:8, feedback:'You get a view, but you leave the group exposed and make yourself the first moving target.' },
+        { text:'Call three people and start explaining what you see.', calm:-10, safety:-4, evidence:-2, feedback:'The call burns focus. The room gets louder while the situation keeps changing.' }
+      ]
+    },
+    {
+      label:'00:35 // DRIVEWAY MOVEMENT',
+      alert:'TWO NEIGHBOURS OUTSIDE · ONE CHILD CRYING · STREETLIGHTS DEAD',
+      scene:'A neighbour steps into the road in socks, filming with flash on. Another person follows them. The light over the hill drops lower.',
+      options:[
+        { text:'Call them by name and tell them to come back to the porch slowly.', calm:12, safety:12, evidence:0, good:true, feedback:'Names cut through panic. You give them a simple action without chasing them.' },
+        { text:'Sprint across the road and pull them back yourself.', calm:-6, safety:-10, evidence:-4, feedback:'Brave, but messy. Now there are more moving bodies in the open.' },
+        { text:'Ignore them and keep filming the light.', calm:-4, safety:-12, evidence:12, feedback:'The footage improves. The people do not.' }
+      ]
+    },
+    {
+      label:'00:28 // BACK DOOR ALARM',
+      alert:'MOTION LIGHT TRIGGERED · BACK DOOR OPEN · DOG PULLING HARD',
+      scene:'The back door sensor chimes even though the power is out. Your dog bolts toward the kitchen. The motion light outside flickers on and catches something low moving near the shed.',
+      options:[
+        { text:'Shut the inner door, call the dog back, and keep everyone away from the kitchen windows.', calm:10, safety:14, evidence:2, good:true, feedback:'Good. You control the house before curiosity turns into an open doorway.' },
+        { text:'Open the back door and try to see what tripped the light.', calm:-10, safety:-18, evidence:4, feedback:'That is how a house becomes part of the incident instead of shelter from it.' },
+        { text:'Send someone upstairs for a better view while you hold the dog.', calm:-4, safety:-12, evidence:8, feedback:'You gain an angle and split the group. Bad trade under pressure.' }
+      ]
+    },
+    {
+      label:'00:21 // CONTACT OBJECT',
+      alert:'OBJECT DETECTED NEAR SHED · LOW HUM · METAL TASTE REPORTED',
+      scene:'Something small lands in the yard without a sound. It pulses like a heartbeat. Your dog is pulling toward it. Someone reaches for the back door.',
+      options:[
+        { text:'Lock the door, keep the dog back, and mark the object location from inside.', calm:8, safety:16, evidence:8, good:true, feedback:'Distance first. You control the room and still keep the object documented.' },
+        { text:'Open the door a crack and try to hear it better.', calm:-4, safety:-10, evidence:5, feedback:'A cracked door is still an open door. You traded safety for a little curiosity.' },
+        { text:'Send one person out with a flashlight while you record.', calm:-12, safety:-18, evidence:10, feedback:'You just turned a witness into bait. The camera will remember that too.' }
+      ]
+    },
+    {
+      label:'00:14 // FIGURE AT TREE LINE',
+      alert:'VISUAL CONTACT · HUMAN SHAPE WRONG SCALE · CROWD NOISE RISING',
+      scene:'A tall figure stands at the edge of the yard. It is not rushing. It is waiting. Behind you, someone starts praying out loud. Someone else says they are going live.',
+      options:[
+        { text:'Keep hands visible, lower your voice, and tell everyone behind you to sit down.', calm:16, safety:10, evidence:2, good:true, feedback:'You make the whole group smaller and quieter without looking like a threat.' },
+        { text:'Shout at it to stay back.', calm:-12, safety:-6, evidence:-2, feedback:'The group hears confidence. Whatever is outside hears aggression.' },
+        { text:'Let the livestream happen so there is proof.', calm:-6, safety:-8, evidence:14, feedback:'Proof matters. So does not turning panic into a broadcast.' }
+      ]
+    },
+    {
+      label:'00:07 // DIRECT QUESTION',
+      alert:'AUDIO ABSENT · PRESSURE IN CHEST · THOUGHT PATTERN DETECTED',
+      scene:'The figure does not move its mouth, but a sentence lands in your head: WHO SPEAKS FOR THEM? The room goes silent. Everyone is looking at you.',
+      options:[
+        { text:'Say, "We are scared. We do not want conflict. No one here will move toward you."', calm:16, safety:12, evidence:4, good:true, feedback:'Plain English. No challenge, no worship, no panic. That is a protocol.' },
+        { text:'Say nothing and wait for someone else to answer.', calm:-8, safety:-10, evidence:0, feedback:'Hesitation becomes leadership too. Just the bad kind.' },
+        { text:'Ask what it wants and step toward the door.', calm:-12, safety:-16, evidence:4, feedback:'You turned contact into approach. The room follows your mistake.' }
+      ]
+    }
+  ];
+
+  let state = { calm:72, safety:68, evidence:41, step:0, running:false, seconds:7, total:42, timer:null };
+
   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(hover: hover)').matches){
     sim.addEventListener('pointermove', function(e){
       const r = sim.getBoundingClientRect();
@@ -3530,32 +3630,106 @@ function initPage() {
       sim.style.setProperty('--my', (e.clientY-r.top)+'px');
     }, { passive:true });
   }
-  function resetDrill(){
-    options.forEach(function(o){ o.classList.remove('selected'); o.disabled = false; });
-    progress.textContent='00'; mode.textContent='TRAIN'; risk.textContent='MED';
-    result.classList.remove('visible'); result.textContent='';
-    reset.textContent='RUN FIELD DRILL';
+
+  function clamp(n){ return Math.max(0, Math.min(100, n)); }
+  function pad(n){ return String(Math.max(0,n)).padStart(2,'0'); }
+  function setMeter(el, val){ if(el){ el.textContent = pad(val); el.parentElement.style.setProperty('--meter', clamp(val)+'%'); } }
+  function updateMeters(){
+    setMeter(calmEl, state.calm); setMeter(safetyEl, state.safety); setMeter(evidenceEl, state.evidence);
+    if(timerEl) timerEl.textContent = pad(state.seconds);
+    if(clockEl) { clockEl.textContent = '00:' + pad(state.total); clockEl.classList.toggle('urgent', state.seconds <= 3 && state.running); }
   }
-  reset.addEventListener('click', function(){
-    if(result.classList.contains('visible')) { resetDrill(); return; }
-    options.forEach(function(o, i){
-      setTimeout(function(){
-        o.classList.add('selected');
-        progress.textContent = String((i + 1) * 33).padStart(2, '0');
-        if(i === 1) risk.textContent = 'LOW';
-        if(i === options.length - 1){
-          progress.textContent = '100';
-          mode.textContent = 'DRILL';
-          result.innerHTML = drillResult;
-          result.classList.add('visible');
-          reset.textContent='RESET DRILL';
-        }
-      }, i * 420);
+  function renderBeat(){
+    const beat = beats[state.step];
+    if(!beat) return finishSim();
+    labelEl.textContent = beat.label;
+    alertEl.textContent = beat.alert;
+    alertEl.classList.toggle('red', state.step >= 3);
+    sceneEl.textContent = beat.scene;
+    feedbackEl.className = 'sim-feedback';
+    feedbackEl.textContent = 'Choose fast. The incident will not pause for you.';
+    result.classList.remove('visible'); result.innerHTML = '';
+    claimEl.classList.remove('visible');
+    optionsEl.innerHTML = '';
+    beat.options.forEach(function(opt, index){
+      const btn = document.createElement('button');
+      btn.className = 'sim-option';
+      btn.type = 'button';
+      btn.textContent = opt.text;
+      btn.addEventListener('click', function(){ choose(index); });
+      optionsEl.appendChild(btn);
     });
-  });
-  options.forEach(function(btn){
-    btn.addEventListener('click', function(){ reset.click(); });
-  });
+    state.seconds = 7;
+    updateMeters();
+  }
+  function pulse(kind){
+    consoleEl.classList.remove('danger','stable');
+    void consoleEl.offsetWidth;
+    consoleEl.classList.add(kind === 'good' ? 'stable' : 'danger');
+    setTimeout(function(){ consoleEl.classList.remove('danger','stable'); }, 520);
+  }
+  function choose(index){
+    if(!state.running) return;
+    const beat = beats[state.step];
+    const opt = beat.options[index];
+    clearInterval(state.timer);
+    state.calm = clamp(state.calm + opt.calm);
+    state.safety = clamp(state.safety + opt.safety);
+    state.evidence = clamp(state.evidence + opt.evidence);
+    Array.from(optionsEl.children).forEach(function(btn, i){
+      btn.disabled = true;
+      if(i === index) btn.classList.add(opt.good ? 'good' : 'bad');
+    });
+    feedbackEl.className = 'sim-feedback ' + (opt.good ? 'good' : 'bad');
+    feedbackEl.textContent = opt.feedback;
+    pulse(opt.good ? 'good' : 'bad');
+    updateMeters();
+    setTimeout(function(){ state.step += 1; renderBeat(); startTick(); }, 1050);
+  }
+  function timeoutChoice(){
+    if(!state.running) return;
+    clearInterval(state.timer);
+    state.calm = clamp(state.calm - 10); state.safety = clamp(state.safety - 12); state.evidence = clamp(state.evidence - 4);
+    Array.from(optionsEl.children).forEach(function(btn){ btn.disabled = true; btn.classList.add('bad'); });
+    feedbackEl.className = 'sim-feedback bad';
+    feedbackEl.textContent = 'You froze. The group copies the silence and the situation gets ahead of you.';
+    pulse('bad'); updateMeters();
+    setTimeout(function(){ state.step += 1; renderBeat(); startTick(); }, 1050);
+  }
+  function startTick(){
+    clearInterval(state.timer);
+    if(!state.running || state.step >= beats.length) return;
+    state.timer = setInterval(function(){
+      state.seconds -= 1; state.total -= 1; updateMeters();
+      if(state.seconds <= 0) timeoutChoice();
+    }, 1000);
+  }
+  function finishSim(){
+    clearInterval(state.timer); state.running = false;
+    const avg = Math.round((state.calm + state.safety + state.evidence) / 3);
+    let grade = 'CONTACT COMPROMISED';
+    let copy = 'You created too much noise, lost control of the group, or missed the evidence. The app trains this before it matters.';
+    if(avg >= 82){ grade = 'FIELD READY'; copy = 'You kept people steady, avoided reckless contact, and preserved the record. That is the difference between panic and protocol.'; }
+    else if(avg >= 66){ grade = 'UNSTABLE BUT USEFUL'; copy = 'You made a few dangerous moves, but you stayed functional. More drills would turn instinct into procedure.'; }
+    else if(avg >= 48){ grade = 'PANIC LIABILITY'; copy = 'You were brave in places and sloppy in others. First contact does not reward sloppy.'; }
+    labelEl.textContent = 'SIMULATION COMPLETE // SCORE ' + avg;
+    alertEl.textContent = 'FIELD RESULT ISSUED · TRAINING PATH LOCKED BEHIND APP';
+    alertEl.classList.remove('red');
+    sceneEl.textContent = 'The light is gone. The street is quiet again. Now comes the harder part: proving what happened and living with what you did under pressure.';
+    optionsEl.innerHTML = '';
+    feedbackEl.className = 'sim-feedback good';
+    feedbackEl.textContent = 'Run it again or claim the launch transmission.';
+    result.innerHTML = '<b>' + grade + '</b><small>' + copy + '</small>';
+    result.classList.add('visible'); claimEl.classList.add('visible');
+    reset.textContent = 'RUN IT AGAIN'; updateMeters(); pulse(avg >= 66 ? 'good' : 'bad');
+  }
+  function startSim(){
+    clearInterval(state.timer);
+    state = { calm:72, safety:68, evidence:41, step:0, running:true, seconds:7, total:42, timer:null };
+    reset.textContent = 'RESET SIMULATION'; renderBeat(); startTick();
+  }
+  reset.addEventListener('click', startSim);
+  updateMeters(); renderBeat();
 })();
 </script>
 
