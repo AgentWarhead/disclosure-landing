@@ -948,7 +948,7 @@
     a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--crt-green);outline-offset:3px;box-shadow:0 0 0 5px rgba(74,246,38,.16)}
     button,.cta-btn,.mission-cta,.packet-actions button,.packet-actions a,.command-actions a,.share-btn,.gs-share-btn{touch-action:manipulation}
     img{max-width:100%;height:auto}.fd-feat-img{content-visibility:auto}
-    #calm-bridge,#protocol-simulator,#app-command-bridge,#archive-choice,#species-threat-matrix,#locked-protocols,#civilian-readiness-os,#classified-tools,#clearance-ladder,#transmission-packet,#intel-briefings,#fc-event,#access,.share{content-visibility:auto;contain-intrinsic-size:900px}
+    #evidence-wall,#calm-bridge,#protocol-simulator,#app-command-bridge,#archive-choice,#species-threat-matrix,#locked-protocols,#civilian-readiness-os,#classified-tools,#clearance-ladder,#transmission-packet,#intel-briefings,#fc-event,#access,.share{content-visibility:auto;contain-intrinsic-size:900px}
     @media(hover:none),(pointer:coarse){body{cursor:auto}.cursor-ring{display:none}.protocol-sim::before{opacity:.32}.system-progress{top:52px}}
     @media(max-width:420px){.hero-sub br{display:none}.hero-sub{max-width:320px;margin-left:auto;margin-right:auto}.mission-h,.sim-h,.command-h,.packet-h,.clearance-h,.evidence-h{letter-spacing:-.02em}.packet-card,.sim-console,.mission-shell{border-left-color:rgba(74,246,38,.28);border-right-color:rgba(74,246,38,.28)}.gate-input{font-size:16px;letter-spacing:.08em}.packet-actions button,.packet-actions a,.command-actions a{width:100%;box-sizing:border-box}}
     @media(prefers-reduced-motion:reduce){.signal-meter span,.sim-console::before,.clearance-pulse,.live-dot{animation:none!important}.hero-scroll{height:auto;min-height:100vh}.hero-sticky{position:relative}.system-progress{transition:none!important}.protocol-sim::before{display:none}.skip-link{transition:none}}
@@ -1020,6 +1020,10 @@
     .sim-live .sim-stats{margin-top:16px}.sim-primer,.sim-brief-rail{display:none}.sim-console.sim-incident{min-height:0;height:min(650px,calc(100svh - 96px))}.sim-screen{min-height:0;height:100%;padding:22px}.sim-holo{height:96px}.sim-scene{min-height:96px;font-size:13px;line-height:1.58;padding:15px 16px}.sim-option{padding:12px 14px}.sim-feedback{min-height:34px;padding:10px 12px}.sim-actions{padding-top:11px}.sim-result b{font-size:30px}
     @media(max-width:980px){.protocol-sim.sim-live{height:auto;max-height:none;min-height:auto}.sim-console.sim-incident{height:auto}.sim-screen{height:auto}.sim-proof{grid-template-columns:1fr}.sim-live .sim-stats{grid-template-columns:repeat(4,1fr)}}
     @media(max-width:620px){.sim-live .sim-stats{grid-template-columns:repeat(2,1fr)}.sim-proof a,.sim-proof div{align-items:flex-start;flex-direction:column}.sim-proof span{text-align:left}.sim-holo{height:84px}}
+
+
+    /* Restored top credibility runway: compact news/timeline bridge */
+    .evidence-wall.signal-runway{position:relative;padding:clamp(54px,6vw,82px) 20px;border-top:1px solid rgba(74,246,38,.12);background:radial-gradient(ellipse at 20% 0%,rgba(74,246,38,.08),transparent 34%),radial-gradient(ellipse at 86% 100%,rgba(122,167,255,.07),transparent 32%),#020302;overflow:hidden}.signal-runway::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(74,246,38,.035) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(90deg,transparent,black 18%,black 82%,transparent);pointer-events:none}.signal-runway .evidence-wrap{position:relative;width:min(1180px,100%);margin:0 auto}.signal-runway .evidence-head{display:grid;grid-template-columns:minmax(0,.95fr) minmax(320px,1.05fr);gap:clamp(24px,5vw,58px);align-items:center;margin:0}.signal-runway .evidence-kicker{display:inline-flex;font-family:var(--mono);font-size:10px;letter-spacing:.32em;color:rgba(74,246,38,.78);text-transform:uppercase;margin-bottom:14px}.signal-runway .evidence-h{font-family:var(--font-head);font-size:clamp(38px,5vw,72px);line-height:.86;letter-spacing:-.04em;margin:0;text-transform:uppercase}.signal-runway .evidence-h em{display:block;font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(205,255,184,.78);text-shadow:0 0 28px rgba(74,246,38,.2)}.signal-runway .evidence-copy{margin:16px 0 0;font-size:15px;line-height:1.65;color:rgba(255,255,255,.62);max-width:520px}.signal-timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.signal-item{position:relative;min-height:154px;padding:17px;border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.024));border:1px solid rgba(255,255,255,.09);box-shadow:inset 0 1px 0 rgba(255,255,255,.1);overflow:hidden}.signal-item::after{content:attr(data-file);position:absolute;right:15px;bottom:13px;font-family:var(--mono);font-size:8px;letter-spacing:.22em;color:rgba(255,255,255,.18)}.signal-tag{font-family:var(--mono);font-size:9px;letter-spacing:.22em;color:rgba(245,200,91,.88);margin-bottom:12px}.signal-title{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:#fff;line-height:1.35;margin-bottom:10px}.signal-body{font-size:12px;line-height:1.55;color:rgba(255,255,255,.56)}.signal-body a{display:inline-flex;margin-top:10px;color:#061006!important;background:linear-gradient(90deg,#4af626,#d8ff9b);border-radius:999px;padding:8px 10px;text-decoration:none!important;font-family:var(--mono);font-size:8px;letter-spacing:.16em;font-weight:900}.signal-runway .evidence-cta{margin-top:22px;display:flex;justify-content:flex-start}.signal-runway .evidence-cta a{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-decoration:none;color:rgba(216,255,155,.9);border:1px solid rgba(74,246,38,.22);border-radius:999px;padding:11px 14px;background:rgba(74,246,38,.045)}@media(max-width:980px){.signal-runway .evidence-head{grid-template-columns:1fr}.signal-timeline{grid-template-columns:1fr 1fr}}@media(max-width:560px){.signal-runway{padding:48px 14px}.signal-timeline{grid-template-columns:1fr}.signal-item{min-height:auto}.signal-runway .evidence-h{font-size:42px}}
 
 
   </style>
@@ -1151,6 +1155,26 @@
   <div class="hero-flash" id="hero-flash">
     <div class="hero-flash-text">FILE ACCESSED — CLEARANCE PENDING</div>
   </div>
+
+  <!-- 2. SIGNAL TIMELINE - credibility runway -->
+  <section id="evidence-wall" class="evidence-wall signal-runway">
+    <div class="evidence-wrap">
+      <div class="evidence-head sr">
+        <div>
+          <div class="evidence-kicker">// SIGNAL TIMELINE //</div>
+          <h2 class="evidence-h">This stopped being fringe.<em>The paper trail is public.</em></h2>
+          <p class="evidence-copy">The site needs the proof before the drill. This is the runway: public record, institutional pressure, archive release, civilian readiness gap.</p>
+          <div class="evidence-cta"><a href="#protocol-simulator">LOAD FIRST FLASH SIMULATION →</a></div>
+        </div>
+        <div class="signal-timeline" aria-label="Public record timeline">
+          <article class="signal-item" data-file="FILE 01"><div class="signal-tag">HEARINGS</div><div class="signal-title">The subject entered public record.</div><div class="signal-body">Officials, witnesses, and oversight committees moved UAP out of folklore and into testimony.</div></article>
+          <article class="signal-item" data-file="FILE 02"><div class="signal-tag">PRESSURE</div><div class="signal-title">Institutions are being forced to respond.</div><div class="signal-body">Reports, deadlines, and declassification pressure changed the shape of the conversation.</div></article>
+          <article class="signal-item" data-file="FILE 03"><div class="signal-tag">MAY 8, 2026</div><div class="signal-title">The files started landing in public.</div><div class="signal-body">National Archives UAP bulk downloads went live. <a href="https://www.archives.gov/research/catalog/catalog-bulk-downloads/uap-bulk-download" target="_blank" rel="noopener">Verify</a></div></article>
+          <article class="signal-item" data-file="FILE 04"><div class="signal-tag">NOW</div><div class="signal-title">Civilian curiosity has no protocol.</div><div class="signal-body">Headlines open the file. Training decides whether you freeze when the signal arrives.</div></article>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- 2. FLASH SIMULATION ARENA - proof + playable drill in one viewport -->
   <section id="protocol-simulator" class="protocol-sim sim-live">
