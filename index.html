@@ -1782,6 +1782,108 @@
     @keyframes sectionPulse{0%,100%{filter:saturate(1)}50%{filter:saturate(1.08)}}
     @media(max-width:700px){.evidence-wall::after{height:44px;opacity:.28}:is(.evidence-wall,.quiz,.gate,.protocol-sim,.calm-bridge,.command-bridge,.transmission-packet,.archive-choice,.species-hangar,.rules,.mission-band,#classified-tools,.clearance-ladder,#intel-briefings,#fc-event,.share){box-shadow:inset 0 1px 0 rgba(255,255,255,.045),inset 0 -1px 0 rgba(74,246,38,.08),inset 0 0 90px rgba(0,0,0,.42)!important}}
 
+
+
+    /* Mobile performance and display audit fixes: mobile-first containment without content edits */
+    @media(max-width:700px){
+      body::before,body::after{opacity:.18!important;animation:none!important;mix-blend-mode:normal!important}
+      .evidence-wall::before,.command-bridge::before,.transmission-packet::before,.mission-band::before,.protocol-sim::before,.species-hangar::after{animation:none!important}
+      :is(a,button,.q-opt,.sim-option,.mission-cta,.packet-actions a,.packet-actions button,.command-actions a,.archive-actions a,.fd-nav-label,.fd-cta-btn,.fd-secondary-btn,.sh-nav,#sh-classify){min-height:44px;box-sizing:border-box}
+      :is(.evidence-card,.quiz-card,.gate-card,.sim-console,.mission-panel,.packet-card,.phone-vault,.fd-card,.clearance-step,.arch-card,.sh-dossier){backdrop-filter:none!important;filter:none!important}
+    }
+
+    /* Mobile signal runway: stop four dossier cards from making a skyscraper */
+    @media(max-width:560px){
+      .evidence-wall.signal-runway{padding:42px 14px 48px!important;overflow:hidden!important}
+      .signal-runway .evidence-head{gap:22px!important}
+      .signal-runway .evidence-h{font-size:clamp(36px,13vw,52px)!important;line-height:.84!important}
+      .signal-runway .evidence-copy{font-size:14px!important;line-height:1.55!important;margin-top:12px!important}
+      .signal-runway .signal-timeline.evidence-grid{display:flex!important;grid-template-columns:none!important;gap:12px!important;overflow-x:auto!important;overflow-y:hidden!important;scroll-snap-type:x mandatory!important;padding:0 0 12px!important;margin:0 -14px!important;border:0!important;background:transparent!important;box-shadow:none!important;-webkit-overflow-scrolling:touch!important}
+      .signal-runway .signal-timeline.evidence-grid::-webkit-scrollbar{display:none}
+      .signal-runway .signal-item.evidence-card{flex:0 0 82vw!important;min-height:230px!important;padding:20px!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:24px!important;scroll-snap-align:center!important}
+      .signal-runway .signal-item.evidence-card:first-child{margin-left:14px!important}.signal-runway .signal-item.evidence-card:last-child{margin-right:14px!important}
+      .signal-runway .evidence-cta{justify-content:center!important;margin-top:14px!important}.signal-runway .evidence-cta a{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+    }
+
+    /* Mobile simulator: stop forced viewport math from clipping the drill */
+    @media(max-width:700px){
+      .story-sim.protocol-sim.sim-live{height:auto!important;max-height:none!important;min-height:100svh!important;overflow:visible!important;padding:34px 12px 48px!important}
+      .story-sim .sim-wrap-live{height:auto!important;max-height:none!important;display:grid!important;grid-template-rows:auto auto!important;gap:12px!important}
+      .story-sim .sim-brief{display:block!important;text-align:center!important}.story-sim .sim-h{font-size:clamp(34px,11vw,48px)!important;line-height:.82!important;text-align:center!important;margin:0 auto 10px!important}
+      .story-sim .sim-stats{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important;max-width:100%!important}.story-sim .sim-stat{padding:7px 4px!important;border-radius:14px!important}.story-sim .sim-stat b{font-size:16px!important}.story-sim .sim-stat span{font-size:6px!important;letter-spacing:.08em!important}
+      .story-sim .sim-console.sim-incident{height:auto!important;max-height:none!important;width:100%!important;border-radius:26px!important}.story-sim .sim-screen{height:auto!important;min-height:0!important;display:grid!important;grid-template-rows:auto auto auto auto auto auto!important;gap:7px!important;padding:13px!important}
+      .story-sim .sim-scene{min-height:132px!important;height:auto!important;font-size:clamp(27px,8.4vw,38px)!important;line-height:.94!important;padding:16px!important}.story-sim .sim-option{font-size:10px!important;line-height:1.28!important;padding:11px!important}.story-sim .sim-feedback{font-size:9px!important;line-height:1.35!important}.story-sim .sim-actions .sim-reset{min-height:48px!important}
+    }
+
+    /* Mobile app feature showcase: compress the conversion card without breaking image containment */
+    @media(max-width:700px){
+      #classified-tools.fd-command-center{height:auto!important;min-height:0!important;max-height:none!important;overflow:hidden!important;padding:34px 10px 42px!important;display:block!important}
+      #classified-tools .fd-card{border-radius:26px!important;padding:6px!important;box-shadow:0 28px 80px rgba(0,0,0,.56),0 0 54px rgba(74,246,38,.1)!important}
+      #classified-tools .fd-card::before{inset:6px!important;border-radius:20px!important}
+      #classified-tools .fd-command-grid{padding:16px!important;gap:16px!important;display:grid!important;grid-template-columns:1fr!important}
+      .fd-command-center .fd-kicker{font-size:8px!important;letter-spacing:.2em!important;margin-bottom:10px!important;padding:7px 10px!important}.fd-command-center .fd-main-h{font-size:clamp(34px,12vw,54px)!important;line-height:.86!important;margin-bottom:8px!important}.fd-command-center .fd-main-copy{font-size:13px!important;line-height:1.42!important;margin-bottom:10px!important}.fd-live-strip{display:none!important}
+      #classified-tools .fd-nav-labels{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}.fd-command-center .fd-nav-label{min-height:76px!important;border-radius:16px!important;padding:9px!important;grid-template-rows:auto minmax(24px,auto) auto!important}.fd-command-center .fd-nav-label span{font-size:8px!important;margin-bottom:2px!important}.fd-command-center .fd-nav-label strong{font-size:10px!important;line-height:1.12!important;letter-spacing:.055em!important}.fd-command-center .fd-nav-label em{font-size:6px!important;letter-spacing:.1em!important;margin-top:2px!important}
+      .fd-actions{margin-top:10px!important;gap:8px!important}.fd-command-center .fd-cta-btn,.fd-command-center .fd-secondary-btn{min-height:48px!important;width:100%!important;padding:12px 14px!important;font-size:10px!important;letter-spacing:.14em!important}.fd-command-center .fd-cta-btn i{width:24px!important;height:24px!important}
+      #classified-tools .fd-feature-wrap{padding:10px!important}.fd-feature-head{display:grid!important;grid-template-columns:1fr auto!important;gap:8px!important;align-items:start!important;margin-bottom:6px!important}.fd-command-center .fd-feat-label{font-size:clamp(13px,4.6vw,18px)!important;letter-spacing:.14em!important}.fd-command-center .fd-feat-h{font-size:clamp(26px,9vw,40px)!important;margin-bottom:6px!important}.fd-command-center .fd-feat-p{font-size:12px!important;line-height:1.34!important;min-height:0!important;margin-bottom:9px!important}.fd-command-center .fd-feat-p .fd-bullet{padding-left:8px!important;margin-bottom:2px!important}
+      #classified-tools .fd-feat-img-wrap{aspect-ratio:16/9!important;min-height:0!important;height:auto!important;max-height:230px!important;padding:7px!important;border-radius:18px!important}.fd-command-center .fd-feat-img{border-radius:12px!important}
+      .fd-metric-row{display:none!important}#classified-tools .fd-dots{margin-top:8px!important}.fd-command-center .fd-dot{width:34px!important;height:5px!important}.fd-download-note{font-size:8px!important;line-height:1.4!important;margin-top:7px!important}.fd-command-center .fd-device-vault{border-radius:24px!important;padding:6px!important}.fd-command-center .fd-device-vault::before{inset:6px!important;border-radius:18px!important}.fd-command-center .fd-device-vault::after{display:none!important}
+    }
+
+    /* Mobile compact modules and final sections */
+    @media(max-width:700px){
+      .mission-band,.clearance-ladder,.rules,.transmission-packet,.command-bridge{padding:54px 14px!important;overflow:hidden!important}.calm-bridge,.archive-choice,#intel-briefings,.share.final-transmission{padding:32px 14px 38px!important}.mission-shell{padding:20px 16px!important}.mission-grid,.clearance-top,.packet-wrap,.command-wrap{grid-template-columns:1fr!important;gap:20px!important}.mission-h,.clearance-h,.packet-h,.command-h{font-size:clamp(34px,12vw,54px)!important;line-height:.9!important}.mission-copy,.clearance-copy,.packet-copy,.command-copy{font-size:14px!important;line-height:1.55!important}.mission-panel{padding:14px!important}.mission-row,.clearance-step{grid-template-columns:44px 1fr!important;gap:10px!important;padding:13px 0!important}.mission-lock,.clearance-state{grid-column:2!important;font-size:8px!important;letter-spacing:.12em!important}.mission-title,.clearance-title{font-size:11px!important;letter-spacing:.12em!important}.mission-desc,.clearance-desc{font-size:12px!important}.packet-card{padding:18px!important}.packet-name{font-size:34px!important}.phone-vault{min-height:340px!important}.phone-shell{width:min(230px,68vw)!important}
+      #fc-event{padding:56px 14px!important}#fc-event h2{font-size:clamp(38px,14vw,62px)!important;line-height:.84!important}#fc-event p{font-size:15px!important;line-height:1.55!important}.share.final-transmission .share-h{font-size:clamp(32px,12vw,54px)!important}
+    }
+
+    /* Mobile species hangar: keep carousel theatrical, stop it from creating dead-height chaos */
+    @media(max-width:700px){
+      .species-hangar{padding:44px 0 42px!important;overflow:hidden!important}.sh-head{padding:0 14px!important}.sh-title{font-size:clamp(38px,14vw,58px)!important;line-height:.82!important}.sh-copy{font-size:14px!important;line-height:1.5!important}.sh-stage{min-height:650px!important}.sh-rail{inset:0 0 260px!important}.sh-dossier{width:calc(100% - 24px)!important;padding:12px!important}.sh-dossier h3{font-size:clamp(28px,9vw,38px)!important}.sh-dossier p{font-size:13px!important;line-height:1.4!important}.sh-actions a,.sh-actions button,#sh-classify{min-height:44px!important}
+    }
+
+
+    /* Mobile audit pass 2: compact high-risk long sections after measured scroll pass */
+    @media(max-width:700px){
+      .command-bridge{padding:42px 14px!important}.command-wrap{gap:16px!important}.phone-vault{min-height:0!important;padding:12px!important}.phone-shell{width:min(190px,58vw)!important}.phone-card{margin:12px!important;padding:14px!important}.phone-card h3{font-size:26px!important}.phone-alert{display:none!important}.command-list{display:flex!important;gap:10px!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;margin:22px -14px 20px!important;padding:0 14px 8px!important;-webkit-overflow-scrolling:touch}.command-list::-webkit-scrollbar{display:none}.command-item{flex:0 0 78vw!important;grid-template-columns:36px 1fr!important;scroll-snap-align:center!important}.command-actions a{min-height:48px!important;display:flex!important;align-items:center!important;justify-content:center!important}
+
+      .mission-band,.clearance-ladder{padding:42px 14px!important}.mission-shell{padding:16px!important;border-radius:20px}.mission-grid,.clearance-top{gap:16px!important}.mission-copy,.clearance-copy{font-size:13px!important;line-height:1.48!important}.mission-actions{margin-top:18px!important}.mission-panel::before{display:none!important}.mission-row,.clearance-step{padding:11px 0!important}.mission-desc,.clearance-desc{line-height:1.32!important}.signal-meter{margin-top:14px!important}.clearance-steps{gap:9px!important}
+
+      #classified-tools.fd-command-center{padding:28px 10px 34px!important}.fd-command-center .fd-main-h{font-size:clamp(32px,11vw,48px)!important}.fd-command-center .fd-main-copy{font-size:12px!important;line-height:1.35!important}.fd-command-center .fd-nav-label{min-height:68px!important;padding:8px!important}.fd-command-center .fd-nav-label strong{font-size:9.5px!important}.fd-command-center .fd-nav-label em{display:none!important}.fd-command-center .fd-feat-h{font-size:clamp(24px,8vw,34px)!important}.fd-command-center .fd-feat-p{font-size:11px!important;line-height:1.28!important}.fd-command-center .fd-feat-p .fd-bullet:nth-child(n+3){display:none!important}#classified-tools .fd-feat-img-wrap{max-height:190px!important;aspect-ratio:16/8.6!important}.fd-download-note{display:none!important}.fd-command-center .fd-dot{min-width:44px!important;width:44px!important;height:8px!important}
+
+      .species-hangar{padding-bottom:32px!important}.sh-stage{min-height:560px!important}.sh-rail{inset:0 0 218px!important}.sh-card{width:64vw!important;top:18px!important}.sh-dossier{bottom:0!important}.sh-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}.sh-actions a,.sh-actions button{display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;width:auto!important;padding:11px 8px!important;font-size:9px!important;letter-spacing:.12em!important}
+
+      .evidence-body a{display:inline-flex!important;align-items:center!important;min-height:44px!important}.sh-preview-close{min-width:44px!important;min-height:44px!important}.q-opt{min-height:46px!important}
+    }
+
+    @media(min-width:701px) and (max-width:1100px){
+      #classified-tools.fd-command-center{padding:44px 16px!important}.fd-live-strip{display:none!important}#classified-tools .fd-command-grid{gap:18px!important}.fd-command-center .fd-main-h{font-size:clamp(40px,7vw,66px)!important}.fd-command-center .fd-main-copy{font-size:14px!important;line-height:1.42!important}.fd-command-center .fd-nav-label{min-height:78px!important}.fd-command-center .fd-feat-p .fd-bullet:nth-child(n+3){display:none!important}#classified-tools .fd-feat-img-wrap{height:300px!important;min-height:220px!important;max-height:300px!important}.fd-metric-row{display:none!important}.fd-download-note{display:none!important}.fd-command-center .fd-dot{min-width:44px!important;height:8px!important}
+      .mission-band,.clearance-ladder{padding:62px 18px!important}.mission-shell{padding:26px!important}.mission-grid,.clearance-top{gap:26px!important}.mission-panel{padding:18px!important}.mission-row,.clearance-step{padding:14px 0!important}
+    }
+
+
+    /* Mobile audit pass 3: mission stacks become swipeable consoles, not vertical tombstones */
+    @media(max-width:700px){
+      .mission-panel{overflow:hidden!important}.mission-panel-head{margin-bottom:12px!important}
+      #civilian-readiness-os .mission-panel,#clearance-ladder .mission-panel{padding:14px!important}
+      #civilian-readiness-os .mission-panel .mission-row,#clearance-ladder .mission-panel .mission-row{display:grid!important;grid-template-columns:32px 1fr!important;grid-template-rows:auto auto!important;align-content:start!important;min-height:142px!important;padding:13px!important;border:1px solid rgba(255,255,255,.08)!important;border-radius:18px!important;background:rgba(255,255,255,.035)!important}
+      #civilian-readiness-os .mission-panel,#clearance-ladder .mission-panel{display:grid!important;grid-template-columns:1fr!important}
+      #civilian-readiness-os .mission-panel .mission-row:nth-of-type(1),#clearance-ladder .mission-panel .mission-row:nth-of-type(1){margin-left:0!important}
+      #civilian-readiness-os .mission-panel .mission-row,#clearance-ladder .mission-panel .mission-row{width:78vw!important;max-width:310px!important;scroll-snap-align:center!important;flex:0 0 auto!important}
+      #civilian-readiness-os .mission-panel,#clearance-ladder .mission-panel{row-gap:0!important}
+      #civilian-readiness-os .mission-panel .mission-panel-head,#clearance-ladder .mission-panel .mission-panel-head,#civilian-readiness-os .mission-panel .signal-meter,#clearance-ladder .mission-panel .signal-meter{width:100%!important;max-width:none!important}
+      #civilian-readiness-os .mission-panel .mission-row-wrap,#clearance-ladder .mission-panel .mission-row-wrap{display:none!important}
+      #civilian-readiness-os .mission-panel{position:relative!important}#clearance-ladder .mission-panel{position:relative!important}
+      #civilian-readiness-os .mission-panel .mission-row,#clearance-ladder .mission-panel .mission-row{float:none!important}
+      #civilian-readiness-os .mission-panel,#clearance-ladder .mission-panel{grid-auto-rows:auto!important}
+      #civilian-readiness-os .mission-panel .mission-row:nth-of-type(n),#clearance-ladder .mission-panel .mission-row:nth-of-type(n){margin-bottom:0!important}
+      #civilian-readiness-os .mission-panel,#clearance-ladder .mission-panel{--stack-gap:10px}
+      #civilian-readiness-os .mission-panel .mission-panel-head + .mission-row,#clearance-ladder .mission-panel .mission-panel-head + .mission-row{margin-top:0!important}
+      #civilian-readiness-os .mission-panel .mission-panel-head ~ .mission-row,#clearance-ladder .mission-panel .mission-panel-head ~ .mission-row{display:grid!important}
+      #civilian-readiness-os .mission-panel,#clearance-ladder .mission-panel{overflow-x:auto!important;scroll-snap-type:x mandatory!important;-webkit-overflow-scrolling:touch!important;display:flex!important;gap:10px!important;align-items:stretch!important;padding-bottom:16px!important}
+      #civilian-readiness-os .mission-panel::-webkit-scrollbar,#clearance-ladder .mission-panel::-webkit-scrollbar{display:none}
+      #civilian-readiness-os .mission-panel .mission-panel-head,#clearance-ladder .mission-panel .mission-panel-head,#civilian-readiness-os .mission-panel .signal-meter,#clearance-ladder .mission-panel .signal-meter{flex:0 0 100%!important;position:sticky!important;left:0!important;z-index:2!important;background:linear-gradient(180deg,rgba(8,14,8,.96),rgba(0,0,0,.82))!important}
+      #civilian-readiness-os .mission-panel .signal-meter,#clearance-ladder .mission-panel .signal-meter{position:absolute!important;left:14px!important;right:14px!important;bottom:6px!important;width:auto!important}
+      #civilian-readiness-os .mission-panel .mission-lock,#clearance-ladder .mission-panel .mission-lock{grid-column:2!important;align-self:end!important}.mission-title,.clearance-title{line-height:1.22!important}.mission-desc,.clearance-desc{margin-top:5px!important}
+    }
 </style>
 
   <div class="sh-atmosphere" id="sh-atmosphere" aria-hidden="true"></div>
@@ -2947,7 +3049,8 @@ const BOOT = [
 // ── Stars ─────────────────────────────────────
 function initStars() {
   const c = document.getElementById('stars'), f = document.createDocumentFragment();
-  for (let i = 0; i < 180; i++) {
+  const starCount = window.matchMedia && window.matchMedia('(max-width: 700px)').matches ? 72 : 180;
+  for (let i = 0; i < starCount; i++) {
     const s = document.createElement('div');
     const sz = Math.random() < .9 ? Math.random() * 1.5 + .5 : Math.random() * 2.5 + 1.5;
     s.className = 'star';
