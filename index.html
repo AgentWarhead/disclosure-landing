@@ -18,24 +18,24 @@
   <!-- ═══ OPEN GRAPH ═══ -->
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="DISCLOSURE"/>
-  <meta property="og:title" content="Disclosure App — Alien Encounter Preparation &amp; First Contact Training"/>
-  <meta property="og:description" content="The only civilian alien encounter preparation app. Species threat assessments, first contact protocols, and readiness training for 6 documented non-human intelligences."/>
-  <meta property="og:image" content="https://www.getdisclosure.app/og-image.jpg"/>
+  <meta property="og:title" content="DISCLOSURE - Humanity's First Contact Readiness System"/>
+  <meta property="og:description" content="Get classified. Train your response. Carry the card before the sky opens."/>
+  <meta property="og:image" content="https://getdisclosure.app/og-image.jpg"/>
   <meta property="og:image:type" content="image/jpeg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:alt" content="DISCLOSURE - Not If. When. Humanity's first contact training protocol."/>
-  <meta property="og:url" content="https://www.getdisclosure.app"/>
+  <meta property="og:image:alt" content="DISCLOSURE - Get classified before first contact."/>
+  <meta property="og:url" content="https://getdisclosure.app"/>
   <meta property="og:locale" content="en_US"/>
 
   <!-- ═══ TWITTER / X ═══ -->
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:site" content="@disclosure_app"/>
   <meta name="twitter:creator" content="@disclosure_app"/>
-  <meta name="twitter:title" content="Disclosure App — Alien Encounter Preparation &amp; First Contact Training"/>
-  <meta name="twitter:description" content="The only civilian alien encounter preparation app. Species threat assessments, first contact protocols, and readiness training for 6 documented non-human intelligences."/>
-  <meta name="twitter:image" content="https://www.getdisclosure.app/og-image.jpg"/>
-  <meta name="twitter:image:alt" content="DISCLOSURE - Not If. When."/>
+  <meta name="twitter:title" content="DISCLOSURE - Humanity's First Contact Readiness System"/>
+  <meta name="twitter:description" content="Get classified. Train your response. Carry the card before the sky opens."/>
+  <meta name="twitter:image" content="https://getdisclosure.app/og-image.jpg"/>
+  <meta name="twitter:image:alt" content="DISCLOSURE - Get classified before first contact."/>
 
   <!-- ═══ THEME & APP ═══ -->
   <meta name="theme-color" content="#000000"/>
@@ -1830,7 +1830,7 @@
           </div>
           <div class="gs-share-btns">
             <span class="gs-share-btn" onclick="copyShareText()" style="cursor:pointer">[ COPY ]</span>
-            <a class="gs-share-btn" id="gs-share-x" href="#" target="_blank" rel="noopener">[ POST ON X ]</a>
+            <span class="gs-share-btn" id="gs-share-native" onclick="nativeShareArchetypeCard()" style="cursor:pointer">[ SHARE ]</span>
           </div>
           <span class="gs-copied" id="gs-copied">COPIED · SEND IT</span>
         </div>
@@ -1861,7 +1861,7 @@
         <div class="packet-actions">
           <button class="primary" type="button" onclick="nativeSharePacket()">TRANSMIT PACKET</button>
           <button type="button" onclick="copyPacketText()">COPY FIELD MESSAGE</button>
-          <a id="packet-x" href="https://twitter.com/intent/tweet?text=I%20found%20the%20civilian%20first%20contact%20readiness%20system.%20Get%20classified%3A%20getdisclosure.app%20%40disclosure_app" target="_blank" rel="noopener">POST ON X</a>
+          <a id="packet-x" href="https://twitter.com/intent/tweet?text=I%20found%20DISCLOSURE.%20Get%20classified%20before%20the%20sky%20opens%3A%20getdisclosure.app%20%40disclosure_app" target="_blank" rel="noopener">POST ON X</a>
         </div>
       </div>
       <div class="packet-card sr" aria-live="polite">
@@ -2034,7 +2034,6 @@ const ARCHETYPES = {
     icon: '🛡️',
     color: 'sentinel',
     pct: 'Primary Protector designation.',
-    sharePct: '25%',
     desc: 'You are the protector. You move first. You assess the threat before anyone else does. When it happens, people will look to you.',
     serial_prefix: 'DS',
     card_color: 'green'
@@ -2044,7 +2043,6 @@ const ARCHETYPES = {
     icon: '🤝',
     color: 'diplomat',
     pct: 'De-escalation Lead designation.',
-    sharePct: '28%',
     desc: 'You are the de-escalator. Calm under pressure. You will be the one who prevents a first contact from becoming a last contact.',
     serial_prefix: 'DS',
     card_color: 'green'
@@ -2054,7 +2052,6 @@ const ARCHETYPES = {
     icon: '🔬',
     color: 'scholar',
     pct: 'Field Analyst designation.',
-    sharePct: '22%',
     desc: 'You are the observer. You document. You analyze. Your records will be the only verifiable account that survives.',
     serial_prefix: 'DS',
     card_color: 'green'
@@ -2064,7 +2061,6 @@ const ARCHETYPES = {
     icon: '🏃',
     color: 'survivor',
     pct: 'Self-Preservation Specialist designation.',
-    sharePct: '16%',
     desc: 'You read the exit before you read the room. When it happens, your family is behind you and moving. That\'s not cowardice — that\'s the most human response there is.',
     serial_prefix: 'DS',
     card_color: 'green'
@@ -2074,7 +2070,6 @@ const ARCHETYPES = {
     icon: '⭐',
     color: 'first-contact',
     pct: 'Unclassified designation — no confirmed field contact.',
-    sharePct: '<0.1%',
     desc: 'This archetype has no confirmed field contact. You were not supposed to find this path. Welcome.',
     serial_prefix: 'FC',
     card_color: 'gold'
@@ -2401,11 +2396,11 @@ function showArchetypeResult() {
   // Update bottom share section with archetype-specific text
   var fwdEl = document.getElementById('share-forward-text');
   if (fwdEl) {
-    fwdEl.textContent = '"I just got classified as a ' + data.name + ' ' + data.icon + ' by @disclosure_app. What\'s your designation? Find out: getdisclosure.app"';
+    fwdEl.textContent = '"' + getArchetypeShareMessage(archetype) + '"';
   }
   var shareXBottom = document.getElementById('share-x-bottom');
   if (shareXBottom) {
-    var xTxt = 'I just got classified as a ' + data.name + ' ' + data.icon + ' by @disclosure_app. What\'s your designation? Find out: getdisclosure.app #FirstContact #Disclosure';
+    var xTxt = getArchetypeShareMessage(archetype) + ' #FirstContact #Disclosure';
     shareXBottom.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(xTxt);
   }
 
@@ -2468,12 +2463,31 @@ function updateGateHintWithArchetype(data) {
 }
 
 // ── Archetype Share (Change 7) ────────────────
+function getArchetypeShareMessage(archetype) {
+  const data = ARCHETYPES[archetype] || ARCHETYPES.sentinel;
+  const messages = {
+    sentinel: 'I got classified as SENTINEL in DISCLOSURE. If the sky opens, I am the one standing between the unknown and everyone else. Get your First Contact Card: getdisclosure.app',
+    diplomat: 'I got classified as DIPLOMAT in DISCLOSURE. Calm voice, open hands, no panic when first contact hits. Get your First Contact Card: getdisclosure.app',
+    scholar: 'I got classified as SCHOLAR in DISCLOSURE. While everyone else panics, I am recording what actually happened. Get your First Contact Card: getdisclosure.app',
+    survivor: 'I got classified as SURVIVOR in DISCLOSURE. I know the exits, I move my people, and I live long enough to tell the story. Get your First Contact Card: getdisclosure.app',
+    'first-contact': 'I unlocked FIRST CONTACT in DISCLOSURE. This path was not supposed to open. Get classified before the signal finds you: getdisclosure.app'
+  };
+  return messages[archetype] || ('I got classified as ' + data.name + ' in DISCLOSURE. Get your First Contact Card before the sky opens: getdisclosure.app');
+}
+
 function shareArchetype() {
   if (!currentArchetype) return;
-  const data = ARCHETYPES[currentArchetype];
-  const pct = data.sharePct;
-  const text = 'I just got classified as a ' + data.name + ' by @disclosure_app. Only ' + pct + ' of people get this archetype. Find out what you are: getdisclosure.app #FirstContact #Disclosure';
-  const url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
+  const text = getArchetypeShareMessage(currentArchetype);
+  const shareData = {
+    title: 'DISCLOSURE classification',
+    text: text,
+    url: 'https://getdisclosure.app'
+  };
+  if (navigator.share) {
+    navigator.share(shareData).catch(function(){});
+    return;
+  }
+  const url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text + ' #FirstContact #Disclosure');
   window.open(url, '_blank');
 }
 
@@ -2602,18 +2616,22 @@ async function handleAccess(e) {
   }
 
   // Share text with archetype (Change 7)
-  const shareMsg = 'I just got classified as a ' + archetypeData.name + ' ' + archetypeData.icon + ' by @disclosure_app. What\'s your designation? Find out: getdisclosure.app #FirstContact #Disclosure';
+  const shareMsg = getArchetypeShareMessage(archetype);
   const shareEl = document.getElementById('gs-share-text');
   shareEl.textContent = shareMsg;
-
-  const shareXEl = document.getElementById('gs-share-x');
-  if (shareXEl) {
-    shareXEl.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareMsg);
-  }
 
   success.style.display = 'block';
   success.classList.add('sr');
   setTimeout(function() { success.classList.add('vis'); }, 50);
+}
+
+function nativeShareArchetypeCard() {
+  const text = document.getElementById('gs-share-text').textContent;
+  if (navigator.share) {
+    navigator.share({ title: 'DISCLOSURE classification', text: text, url: 'https://getdisclosure.app' }).catch(function(){});
+  } else {
+    copyShareText();
+  }
 }
 
 function copyShareText() {
@@ -2901,7 +2919,7 @@ function copyForward() {
   var msg;
   if (currentArchetype && ARCHETYPES[currentArchetype]) {
     var d = ARCHETYPES[currentArchetype];
-    msg = 'I just got classified as a ' + d.name + ' ' + d.icon + ' by @disclosure_app. Find out what you are before it\u2019s too late: getdisclosure.app #FirstContact #Disclosure';
+    msg = getArchetypeShareMessage(currentArchetype) + ' #FirstContact #Disclosure';
   } else {
     msg = "I just found something you should see. Don\u2019t Google it first. Just read it: getdisclosure.app";
   }
@@ -3563,7 +3581,7 @@ function initPage() {
 <script>
 function getPacketMessage(){
   const el = document.getElementById('packet-text');
-  return el ? el.textContent : 'I found the civilian first contact readiness system. Get classified: getdisclosure.app';
+  return el ? el.textContent : 'I found DISCLOSURE. Get classified before the sky opens: getdisclosure.app';
 }
 function updateTransmissionPacket(archetype, serial){
   const data = archetype && window.ARCHETYPES ? ARCHETYPES[archetype] : null;
@@ -3579,7 +3597,7 @@ function updateTransmissionPacket(archetype, serial){
     role.textContent = data.role || 'CIVILIAN DESIGNATION';
     icon.textContent = data.icon;
     serialEl.textContent = serial || savedSerial || 'DS-2026-ISSUED';
-    const msg = 'I just got classified as ' + data.name + ' ' + data.icon + ' by @disclosure_app. The civilian first contact readiness system is live. What is your designation? getdisclosure.app';
+    const msg = getArchetypeShareMessage(archetype);
     textEl.textContent = msg;
     if(xEl) xEl.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(msg + ' #FirstContact #Disclosure');
   }
