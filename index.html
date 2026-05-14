@@ -1047,7 +1047,32 @@
     @media(max-width:980px){.story-sim .sim-wrap-live{grid-template-columns:1fr!important;gap:14px!important}.story-sim .sim-h{max-width:none!important;font-size:clamp(32px,8vw,54px)!important}.story-sim .sim-stats{max-width:none!important}}
 
 
-  </style>
+
+
+    /* Disclosure Interactivity Doctrine: page-wide premium polish, no content changes */
+    :root{--doctrine-ease:cubic-bezier(.16,1,.3,1);--doctrine-fast:180ms;--doctrine-mid:420ms;--doctrine-glow:rgba(74,246,38,.32);--doctrine-gold:rgba(245,158,11,.22)}
+    main>section{position:relative;isolation:isolate;--mx:50%;--my:28%}
+    main>section>.ambient-field{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:.58;transition:opacity .7s var(--doctrine-ease),filter .7s var(--doctrine-ease);mix-blend-mode:screen}
+    main>section:not(.doctrine-in)>.ambient-field{opacity:.26;filter:saturate(.75)}
+    main>section>.ambient-field::before{content:'';position:absolute;inset:-18%;background:radial-gradient(circle at var(--mx) var(--my),rgba(74,246,38,.13),transparent 18%),radial-gradient(ellipse at 15% 82%,rgba(245,158,11,.075),transparent 32%),linear-gradient(115deg,transparent 0 42%,rgba(74,246,38,.045) 43%,transparent 46% 100%);transform:translate3d(0,0,0);transition:background-position .45s var(--doctrine-ease)}
+    main>section>.ambient-field::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(74,246,38,.035) 1px,transparent 1px),linear-gradient(0deg,rgba(74,246,38,.026) 1px,transparent 1px),repeating-linear-gradient(0deg,transparent,transparent 5px,rgba(0,0,0,.18) 6px);background-size:72px 72px,72px 72px,100% 7px;mask-image:radial-gradient(ellipse at center,#000 0 48%,transparent 82%);animation:doctrineGridDrift 24s linear infinite}
+    main>section>:not(.ambient-field):not(style):not(script){position:relative;z-index:2}
+    #quiz>.ambient-field::before,#access>.ambient-field::before{background:radial-gradient(circle at var(--mx) var(--my),rgba(74,246,38,.16),transparent 16%),radial-gradient(ellipse at 85% 20%,rgba(96,165,250,.08),transparent 30%),linear-gradient(130deg,transparent 0 38%,rgba(74,246,38,.04) 40%,transparent 43% 100%)}
+    #protocol-simulator>.ambient-field::before,#species-threat-matrix>.ambient-field::before{background:radial-gradient(circle at var(--mx) var(--my),rgba(74,246,38,.12),transparent 20%),radial-gradient(ellipse at 50% 80%,rgba(160,90,255,.09),transparent 34%),linear-gradient(115deg,transparent 0 44%,rgba(255,255,255,.035) 45%,transparent 47% 100%)}
+    #transmission-packet>.ambient-field::before,#clearance-ladder>.ambient-field::before,#classified-tools>.ambient-field::before{background:radial-gradient(circle at var(--mx) var(--my),rgba(245,158,11,.12),transparent 18%),radial-gradient(ellipse at 18% 20%,rgba(74,246,38,.1),transparent 30%),linear-gradient(105deg,transparent 0 40%,rgba(74,246,38,.04) 41%,transparent 44% 100%)}
+    @keyframes doctrineGridDrift{from{background-position:0 0,0 0,0 0}to{background-position:72px 72px,-72px 36px,0 42px}}
+    :is(.evidence-card,.quiz-card,.gate-card,.mission-panel,.packet-card,.clearance-step,.phone-vault,.fd-card,.sh-dossier,.arch-card,.packet-result,.command-item,.sim-console){transition:filter var(--doctrine-mid) var(--doctrine-ease),box-shadow var(--doctrine-mid) var(--doctrine-ease),border-color var(--doctrine-mid) var(--doctrine-ease),background-color var(--doctrine-mid) var(--doctrine-ease)}
+    :is(.evidence-card,.quiz-card,.gate-card,.mission-panel,.packet-card,.clearance-step,.phone-vault,.fd-card,.sh-dossier,.arch-card,.packet-result,.command-item,.sim-console):hover{filter:brightness(1.06) saturate(1.08);border-color:rgba(74,246,38,.34)!important;box-shadow:0 24px 90px rgba(0,0,0,.42),0 0 34px rgba(74,246,38,.09)!important}
+    :is(a,button,.packet-text,.gs-share-text){-webkit-tap-highlight-color:transparent}
+    :is(.cta-btn,.qr-cta,.gate-submit,.sim-reset,.sim-claim,.archive-actions a,.command-actions a,.packet-actions a,.packet-actions button,.fd-cta-btn,.sh-actions a,.sh-actions button,#packet-text,.gs-share-btn,.evidence-cta a){position:relative;overflow:hidden;transition:transform var(--doctrine-fast) var(--doctrine-ease),box-shadow var(--doctrine-mid) var(--doctrine-ease),border-color var(--doctrine-mid) var(--doctrine-ease),filter var(--doctrine-mid) var(--doctrine-ease)}
+    :is(.cta-btn,.qr-cta,.gate-submit,.sim-reset,.sim-claim,.archive-actions a,.command-actions a,.packet-actions a,.packet-actions button,.fd-cta-btn,.sh-actions a,.sh-actions button,#packet-text,.gs-share-btn,.evidence-cta a):hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 0 34px rgba(74,246,38,.24),0 0 90px rgba(74,246,38,.08)!important}
+    :is(a,button,input,.packet-text,.gs-share-text):focus-visible{outline:1px solid var(--crt-green)!important;outline-offset:4px!important;box-shadow:0 0 0 4px rgba(74,246,38,.13),0 0 34px rgba(74,246,38,.2)!important}
+    .d-ripple{position:absolute;width:12px;height:12px;border-radius:999px;left:var(--rx);top:var(--ry);transform:translate(-50%,-50%) scale(1);background:radial-gradient(circle,rgba(255,255,255,.5),rgba(74,246,38,.28) 40%,transparent 70%);pointer-events:none;animation:doctrineRipple .68s var(--doctrine-ease) forwards;mix-blend-mode:screen}
+    @keyframes doctrineRipple{to{opacity:0;transform:translate(-50%,-50%) scale(18)}}
+    .doctrine-in :is(.evidence-card,.mission-row,.command-item,.packet-channel,.clearance-step,.fd-nav-label){animation:doctrineSettle .7s var(--doctrine-ease) both;animation-delay:calc(var(--i,0)*42ms)}
+    @keyframes doctrineSettle{from{opacity:.76;filter:blur(2px);transform:translateY(10px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+    @media(prefers-reduced-motion:reduce){main>section>.ambient-field::after,.doctrine-in :is(.evidence-card,.mission-row,.command-item,.packet-channel,.clearance-step,.fd-nav-label),.d-ripple{animation:none!important}:is(.cta-btn,.qr-cta,.gate-submit,.sim-reset,.sim-claim,.archive-actions a,.command-actions a,.packet-actions a,.packet-actions button,.fd-cta-btn,.sh-actions a,.sh-actions button,#packet-text,.gs-share-btn,.evidence-cta a):hover{transform:none!important}}
+</style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFFMNLNSXM"></script>
   <script>
@@ -3799,6 +3824,32 @@ function nativeSharePacket(){
     copyPacketText();
   }
 }
+</script>
+
+
+<script>
+(function initDisclosureInteractivityDoctrine(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ids=['evidence-wall','quiz','access','protocol-simulator','calm-bridge','app-command-bridge','transmission-packet','archive-choice','species-threat-matrix','locked-protocols','civilian-readiness-os','classified-tools','intel-briefings','clearance-ladder','fc-event'];
+  var sections=ids.map(function(id){return document.getElementById(id)}).filter(Boolean);
+  sections.forEach(function(sec){if(!sec.querySelector(':scope > .ambient-field')){var f=document.createElement('div');f.className='ambient-field';f.setAttribute('aria-hidden','true');sec.insertBefore(f,sec.firstChild)}});
+  document.querySelectorAll('.evidence-card,.mission-row,.command-item,.packet-channel,.clearance-step,.fd-nav-label').forEach(function(el,i){el.style.setProperty('--i',i%8)});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){entries.forEach(function(e){e.target.classList.toggle('doctrine-in',e.isIntersecting)})},{threshold:.18,rootMargin:'-8% 0px -12% 0px'});
+    sections.forEach(function(sec){io.observe(sec)});
+  }else{sections.forEach(function(sec){sec.classList.add('doctrine-in')});}
+  if(!reduce){
+    var raf=0,lastX=0,lastY=0,lastSec=null;
+    window.addEventListener('pointermove',function(e){lastX=e.clientX;lastY=e.clientY;if(raf)return;raf=requestAnimationFrame(function(){raf=0;var el=document.elementFromPoint(lastX,lastY);var sec=el&&el.closest?el.closest('main>section'):null;if(sec){lastSec=sec;var r=sec.getBoundingClientRect();sec.style.setProperty('--mx',Math.max(0,Math.min(100,((lastX-r.left)/Math.max(1,r.width))*100)).toFixed(2)+'%');sec.style.setProperty('--my',Math.max(0,Math.min(100,((lastY-r.top)/Math.max(1,r.height))*100)).toFixed(2)+'%')}})}, {passive:true});
+  }
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('.cta-btn,.qr-cta,.gate-submit,.sim-reset,.sim-claim,.archive-actions a,.command-actions a,.packet-actions a,.packet-actions button,.fd-cta-btn,.sh-actions a,.sh-actions button,#packet-text,.gs-share-btn,.evidence-cta a');
+    if(!t||reduce)return;
+    var r=t.getBoundingClientRect(),span=document.createElement('span');
+    span.className='d-ripple';span.style.setProperty('--rx',(e.clientX-r.left)+'px');span.style.setProperty('--ry',(e.clientY-r.top)+'px');
+    t.appendChild(span);setTimeout(function(){span.remove()},720);
+  }, {passive:true});
+})();
 </script>
 
 </body>
