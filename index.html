@@ -1035,6 +1035,16 @@
     @media(max-width:620px){.sim-kicker{font-size:8px!important;letter-spacing:.2em!important;padding:7px 10px!important;margin-bottom:8px!important}.sim-live .sim-h{font-size:clamp(30px,10vw,46px)!important}.sim-proof{display:none!important}.sim-live .sim-stats{grid-template-columns:repeat(4,1fr)!important}.sim-live .sim-stat{padding:7px 5px!important}.sim-live .sim-stat b{font-size:16px!important}.sim-live .sim-stat span{font-size:6px!important}.sim-topline{flex-direction:row!important;align-items:center!important}.sim-label{font-size:8px!important;letter-spacing:.14em!important}.sim-clock{font-size:13px!important;padding:6px 8px!important}.sim-holo{display:none!important}.sim-screen{grid-template-rows:auto auto auto auto auto auto!important;gap:6px!important}.sim-scene{font-size:11px!important;line-height:1.34!important;padding:10px!important}.sim-option{font-size:9px!important;padding:9px 10px!important}.sim-actions .sim-reset{width:100%!important;justify-content:space-between!important}}
 
 
+    /* Story-first simulator: remove clutter, maximize attention */
+    .story-sim.protocol-sim.sim-live{height:100svh!important;min-height:0!important;padding:clamp(18px,3svh,32px) 18px!important;background:#010201!important}
+    .story-sim .sim-wrap-live{height:100%;max-height:calc(100svh - clamp(36px,6svh,64px));width:min(1180px,100%);grid-template-columns:minmax(220px,.42fr) minmax(560px,1.58fr)!important;gap:clamp(14px,2.4vw,34px)!important;align-items:center!important}
+    .story-sim .sim-wrap-live::before{content:'LIVE INCIDENT DRILL';top:-18px;letter-spacing:.34em}.story-sim .sim-wrap-live::after,.story-sim .sim-holo,.story-sim .sim-proof,.story-sim .sim-sub,.story-sim .sim-primer,.story-sim .sim-brief-rail{display:none!important}
+    .story-sim .sim-brief{align-self:center!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}.story-sim .sim-brief::before{display:none!important}.story-sim .sim-kicker{margin-bottom:14px!important}.story-sim .sim-h{font-size:clamp(46px,5.8vw,84px)!important;line-height:.78!important;margin:0 0 18px!important;max-width:360px}.story-sim .sim-stats{display:grid!important;grid-template-columns:1fr!important;gap:9px!important;margin:0!important;max-width:240px}.story-sim .sim-stat{display:grid;grid-template-columns:72px 1fr;align-items:center;gap:12px;padding:11px 13px!important;border-radius:18px!important;background:rgba(255,255,255,.045)!important}.story-sim .sim-stat b{font-size:28px!important}.story-sim .sim-stat span{font-size:9px!important;letter-spacing:.18em!important}.story-sim .timer-stat{border-color:rgba(245,200,91,.28)!important;background:rgba(245,200,91,.055)!important}.story-sim .timer-stat b{color:#f5c85b!important}
+    .story-sim .sim-console.sim-incident{height:100%!important;max-height:100%!important;border-radius:34px!important}.story-sim .sim-console.sim-incident::after{display:none!important}.story-sim .sim-screen{height:100%!important;display:grid!important;grid-template-rows:auto auto minmax(210px,1fr) auto auto auto!important;gap:12px!important;padding:clamp(18px,2.8vw,30px)!important}.story-sim .sim-topline{margin:0!important}.story-sim .sim-label{font-size:11px!important;letter-spacing:.24em!important}.story-sim .sim-clock{font-size:20px!important;padding:8px 12px!important}.story-sim .sim-alert{margin:0!important;padding:10px 13px!important;font-size:10px!important;letter-spacing:.18em!important;border-radius:18px!important}.story-sim .sim-scene{margin:0!important;min-height:0!important;height:100%!important;max-height:none!important;overflow:hidden!important;display:flex!important;align-items:center!important;padding:clamp(22px,4vw,42px)!important;border-radius:28px!important;font-family:var(--font-head)!important;font-size:clamp(36px,4.2vw,64px)!important;line-height:.92!important;letter-spacing:-.035em!important;color:#fff!important;background:radial-gradient(circle at 18% 15%,rgba(74,246,38,.16),transparent 32%),rgba(0,0,0,.42)!important;text-shadow:0 0 32px rgba(74,246,38,.12)}.story-sim .sim-scene::before{display:none!important}.story-sim .sim-options{gap:9px!important;margin:0!important}.story-sim .sim-option{padding:15px 18px!important;border-radius:20px!important;font-size:13px!important;line-height:1.35!important;letter-spacing:.06em!important}.story-sim .sim-feedback{margin:0!important;min-height:38px!important;padding:10px 13px!important;font-size:10px!important}.story-sim .sim-actions{margin:0!important;padding:0!important}.story-sim .sim-actions .sim-reset{font-size:11px!important;padding:6px 6px 6px 18px!important}.story-sim .sim-result b{font-size:42px!important}
+    @media(max-width:980px){.story-sim .sim-wrap-live{grid-template-columns:1fr!important;grid-template-rows:auto 1fr!important}.story-sim .sim-brief{display:grid;grid-template-columns:1fr auto;align-items:end;gap:14px}.story-sim .sim-h{font-size:clamp(34px,8vw,56px)!important;margin:0!important}.story-sim .sim-stats{grid-template-columns:repeat(4,1fr)!important;max-width:none}.story-sim .sim-stat{grid-template-columns:1fr;gap:4px;text-align:center;padding:8px!important}.story-sim .sim-stat b{font-size:20px!important}.story-sim .sim-stat span{font-size:6px!important}.story-sim .sim-screen{grid-template-rows:auto auto minmax(180px,1fr) auto auto auto!important}.story-sim .sim-scene{font-size:clamp(30px,7vw,52px)!important}}
+    @media(max-width:620px){.story-sim.protocol-sim.sim-live{padding:10px!important}.story-sim .sim-wrap-live{max-height:calc(100svh - 20px);gap:8px!important}.story-sim .sim-kicker{display:none!important}.story-sim .sim-h{font-size:30px!important}.story-sim .sim-screen{padding:14px!important;gap:7px!important;grid-template-rows:auto auto minmax(160px,1fr) auto auto auto!important}.story-sim .sim-label{font-size:8px!important}.story-sim .sim-clock{font-size:13px!important}.story-sim .sim-alert{font-size:8px!important;padding:7px 9px!important}.story-sim .sim-scene{font-size:clamp(27px,8.6vw,38px)!important;padding:18px!important;border-radius:22px!important}.story-sim .sim-option{font-size:10px!important;padding:10px 11px!important}.story-sim .sim-feedback{font-size:9px!important;min-height:30px!important}.story-sim .sim-actions .sim-reset{width:100%!important;justify-content:space-between!important}}
+
+
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFFMNLNSXM"></script>
@@ -1185,27 +1195,21 @@
     </div>
   </section>
 
-  <!-- 2. FLASH SIMULATION ARENA - proof + playable drill in one viewport -->
-  <section id="protocol-simulator" class="protocol-sim sim-live">
+  <!-- 2. FLASH SIMULATION ARENA - story first -->
+  <section id="protocol-simulator" class="protocol-sim sim-live story-sim">
     <div class="sim-arena-glow" aria-hidden="true"></div>
     <div class="sim-arena-vignette" aria-hidden="true"></div>
     <div class="sim-wrap sim-wrap-live">
-      <div class="sr sim-brief">
-        <div class="sim-kicker">Public record loaded</div>
-        <h2 class="sim-h">Reality opened the file.<br><em>Run the drill.</em></h2>
-        <p class="sim-sub">The archive loads the drill. Stay calm, protect the group, preserve evidence.</p>
-        <div class="sim-proof" aria-label="Simulation briefing sources">
-          <a href="https://www.archives.gov/research/catalog/catalog-bulk-downloads/uap-bulk-download" target="_blank" rel="noopener"><b>MAY 8, 2026</b><span>Verify archive</span></a>
-          <div><b>SIM 00-A</b><span>Parking lot blackout</span></div>
-          <div><b>FULL SERIES</b><span>Blackout · Crowd · Evidence · Contact</span></div>
-        </div>
-        <div class="sim-stats sim-meters">
+      <header class="sr sim-brief">
+        <div class="sim-kicker">Field simulation 00-A</div>
+        <h2 class="sim-h">Read fast.<br><em>Choose faster.</em></h2>
+        <div class="sim-stats sim-meters" aria-label="Simulation meters">
           <div class="sim-stat"><b id="sim-calm">72</b><span>CALM</span></div>
-          <div class="sim-stat"><b id="sim-safety">68</b><span>GROUP SAFETY</span></div>
+          <div class="sim-stat"><b id="sim-safety">68</b><span>SAFETY</span></div>
           <div class="sim-stat"><b id="sim-evidence">41</b><span>EVIDENCE</span></div>
-          <div class="sim-stat"><b id="sim-timer">07</b><span>SECONDS</span></div>
+          <div class="sim-stat timer-stat"><b id="sim-timer">07</b><span>SECONDS</span></div>
         </div>
-      </div>
+      </header>
       <div class="sim-console sim-incident sr" aria-live="polite">
         <div class="sim-screen">
           <div class="sim-topline">
@@ -1213,7 +1217,6 @@
             <div class="sim-clock" id="sim-clock">00:42</div>
           </div>
           <div class="sim-alert" id="sim-alert">BLACKOUT DETECTED · LOCAL GRID OFFLINE · DOGS BARKING OUTSIDE</div>
-          <div class="sim-holo" aria-hidden="true"><span class="sim-car"></span><span class="sim-car"></span><span class="sim-car"></span><span class="sim-ufo"></span></div>
           <div class="sim-scene" id="sim-scene">11:47 PM. The house dies. A green-white light hangs over the treeline. Your phone has one bar. Someone whispers, "What is that?"</div>
           <div class="sim-options" id="sim-options"></div>
           <div class="sim-feedback" id="sim-feedback">Choose fast. The scenario will not wait.</div>
