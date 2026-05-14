@@ -1098,6 +1098,12 @@
     .hero-scroll-hint,.live-dot,.hero-eye-glow{filter:drop-shadow(0 0 18px rgba(74,246,38,.34))}
     @media(prefers-reduced-motion:reduce){body::before,.evidence-wall::before,.command-bridge::before,.transmission-packet::before,.mission-band::before,.protocol-sim::before,.species-hangar::after,.system-progress span,.quiz-progress-bar,.cm-bar-fill,.ac-bar-fg,.signal-meter span,.phone-bars span::before{animation:none!important}}
     @media(max-width:700px){body::before{opacity:.24;background-size:120px 120px,120px 120px,auto}.fd-card,.quiz-card,.gate-form-wrap,.packet-card,.sim-console,.mission-panel,.phone-vault,.sh-stage,.clearance-steps{filter:none}}
+
+
+    /* Hero to Signal Timeline seam stabilization */
+    .hero-flash{display:none!important;opacity:0!important}
+    #evidence-wall.signal-runway{content-visibility:visible!important;contain-intrinsic-size:auto!important;transform:translateZ(0);backface-visibility:hidden}
+    #hero-scroll{transform:translateZ(0);backface-visibility:hidden}
 </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFFMNLNSXM"></script>
@@ -3294,15 +3300,9 @@ function initEyeScroll() {
       scanLine.style.top = (progress * 100) + '%';
     }
 
-    /* ENHANCEMENT: Transition flash (#7) */
-    if (progress > 0.92 && !enhFlags.transitionFlashDone && heroFlash) {
+    /* Boundary flash disabled: it caused visible strobing when entering Signal Timeline. */
+    if (progress > 0.92 && !enhFlags.transitionFlashDone) {
       enhFlags.transitionFlashDone = true;
-      heroFlash.classList.add('show');
-      setTimeout(function() {
-        heroFlash.style.transition = 'opacity 1s ease';
-        heroFlash.classList.remove('show');
-        setTimeout(function() { heroFlash.style.transition = ''; }, 1100);
-      }, 1500);
     }
 
     // Text choreography — each layer fades in, holds, fades out
