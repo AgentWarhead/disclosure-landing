@@ -940,12 +940,15 @@
 
     /* Fix: app feature presentation card containment and spacing */
     #classified-tools{overflow:hidden}
-    .fd-card{height:auto;min-height:920px;display:flex;flex-direction:column;overflow:hidden;padding-bottom:44px}
-    .fd-content{flex:0 0 auto;margin-bottom:12px}
-    .fd-dots{flex-shrink:0}
-    .fd-nav-labels{flex-shrink:0}
-    .fd-premium-strip{flex-shrink:0;margin-top:24px;margin-bottom:18px}
-    .fd-cta-btn{margin-top:4px}
+    #classified-tools{padding:20px 24px 28px}
+    .fd-card{height:auto;min-height:0;display:flex;flex-direction:column;overflow:hidden;padding:24px 34px 26px}
+    .fd-kicker{margin-bottom:10px}.fd-main-h{font-size:clamp(26px,3.4vw,36px);margin-bottom:10px}
+    .fd-content{flex:0 0 auto;height:470px;margin-bottom:8px}
+    .fd-feat-img-wrap{height:280px;margin-top:10px}.fd-feat-p{height:92px;line-height:1.55}.fd-bullet{padding:2px 0}
+    .fd-dots{flex-shrink:0;margin-top:10px}
+    .fd-nav-labels{flex-shrink:0;margin-top:10px}.fd-nav-label{font-size:12px;padding:8px 15px}.fd-nav-sep{line-height:22px}
+    .fd-divider{margin:14px auto}
+    .fd-cta-btn{margin-top:2px;padding:14px 38px;font-size:13px}
     @media(max-width:600px){
       #classified-tools{padding:20px 12px 36px}
       .fd-card{min-height:0;height:auto!important;overflow:hidden!important;padding:22px 14px 26px!important;border-radius:10px}
@@ -955,8 +958,6 @@
       .fd-feat-p{height:auto!important;max-height:none;overflow:visible;margin-bottom:8px}
       .fd-dots{margin-top:12px;margin-bottom:8px}
       .fd-nav-labels{margin-top:10px;margin-bottom:8px}
-      .fd-premium-strip{margin:18px auto 16px;grid-template-columns:1fr!important;width:100%}
-      .fd-premium-strip div{padding:12px 10px}
       .fd-divider{margin:16px auto 14px}
       .fd-cta-btn{display:block;width:100%;max-width:320px;margin:8px auto 0;padding:14px 16px;font-size:11px;letter-spacing:.16em;box-sizing:border-box}
       #classified-tools .fd-card > div:last-child{max-width:100%;white-space:normal;justify-content:center;text-align:center;line-height:1.5}
@@ -1830,12 +1831,6 @@
       <!-- CTA -->
       <div class="fd-divider"></div>
 
-      <div class="fd-premium-strip sr" aria-label="Disclosure app command modules">
-        <div><strong>ASSESS</strong>Archetype quiz and readiness score</div>
-        <div><strong>TRAIN</strong>Stone Cold drills and fortitude sessions</div>
-        <div><strong>SIGNAL</strong>Translator pulses and liaison standard</div>
-        <div><strong>CREDENTIAL</strong>First Contact Card and launch event</div>
-      </div>
       <div style="font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:rgba(255,255,255,.35);margin-bottom:8px">4 CLASSIFIED TOOLS · 1 ASSESSMENT · NO SECOND CHANCES</div>
       <a href="#quiz" class="fd-cta-btn">GET CLASSIFIED</a>
       <div style="margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.08);padding:8px 18px;border-radius:3px">📱 LAUNCHING SOON: iOS & ANDROID</div>
