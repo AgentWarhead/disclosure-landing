@@ -987,24 +987,14 @@
       #classified-tools .fd-card > div:last-child{max-width:100%;white-space:normal;justify-content:center;text-align:center;line-height:1.5}
     }
 
-    /* Legendary field simulation */
-    .sim-live{background:radial-gradient(circle at 18% 18%,rgba(74,246,38,.11),transparent 24%),radial-gradient(circle at 82% 34%,rgba(250,62,62,.12),transparent 28%),linear-gradient(180deg,#030403,#010101 52%,#050201);isolation:isolate}
-    .sim-live::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 0 42%,rgba(255,255,255,.035) 43%,transparent 44% 100%);opacity:.45;pointer-events:none;mix-blend-mode:screen}
-    .sim-wrap-live{grid-template-columns:minmax(280px,.82fr) minmax(360px,1.18fr);align-items:center}
-    .sim-h em{font-style:normal;color:var(--crt-green);text-shadow:0 0 24px rgba(74,246,38,.22)}
-    .sim-brief{position:relative;z-index:2}.sim-primer{margin-top:24px;border-left:2px solid rgba(74,246,38,.5);padding:14px 0 14px 18px;max-width:520px;background:linear-gradient(90deg,rgba(74,246,38,.055),transparent)}.sim-primer span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:rgba(74,246,38,.72);margin-bottom:8px}.sim-primer p{margin:0;color:rgba(255,255,255,.58);font-size:13px;line-height:1.65}
-    .sim-incident{min-height:560px;border-color:rgba(74,246,38,.3);background:linear-gradient(180deg,rgba(2,10,4,.96),rgba(0,0,0,.9));transform:translateZ(0)}
-    .sim-incident.danger{animation:simDanger .18s linear 2;border-color:rgba(250,62,62,.55);box-shadow:0 0 80px rgba(250,62,62,.14),inset 0 0 50px rgba(250,62,62,.055)}
-    .sim-incident.stable{border-color:rgba(74,246,38,.58);box-shadow:0 0 80px rgba(74,246,38,.14),inset 0 0 50px rgba(74,246,38,.055)}
-    @keyframes simDanger{0%,100%{transform:translateX(0)}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
-    .sim-topline{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}.sim-topline .sim-label{margin:0}.sim-clock{font-family:var(--mono);font-size:22px;color:#fff;text-shadow:0 0 18px rgba(74,246,38,.3);letter-spacing:.08em}.sim-clock.urgent{color:#FA3E3E;text-shadow:0 0 18px rgba(250,62,62,.45);animation:simPulse .7s infinite}@keyframes simPulse{50%{opacity:.45}}
-    .sim-alert{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:#000;background:var(--crt-green);padding:10px 12px;margin-bottom:18px;box-shadow:0 0 24px rgba(74,246,38,.16);white-space:normal}.sim-alert.red{background:#FA3E3E;color:#fff;box-shadow:0 0 28px rgba(250,62,62,.28)}
-    .sim-scene{font-size:15px;line-height:1.75;min-height:112px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.025);padding:16px;margin-bottom:16px}.sim-scene strong{color:#fff}
-    .sim-options{counter-reset:simChoice}.sim-option{counter-increment:simChoice;display:grid;grid-template-columns:34px 1fr;align-items:start;gap:12px}.sim-option::before{content:'0' counter(simChoice);font-family:var(--mono);font-size:10px;color:rgba(74,246,38,.7);border:1px solid rgba(74,246,38,.2);padding:5px 0;text-align:center}.sim-option.good{border-color:rgba(74,246,38,.7);background:rgba(74,246,38,.12);color:#fff}.sim-option.bad{border-color:rgba(250,62,62,.62);background:rgba(250,62,62,.1);color:#fff}.sim-option:disabled{cursor:default}.sim-option:disabled:not(.good):not(.bad){opacity:.36}
-    .sim-feedback{min-height:42px;margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;line-height:1.55;color:rgba(255,255,255,.48)}.sim-feedback.good{color:rgba(74,246,38,.92)}.sim-feedback.bad{color:rgba(250,62,62,.9)}
-    .sim-meters .sim-stat{position:relative;overflow:hidden}.sim-meters .sim-stat::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:var(--meter,60%);background:var(--crt-green);box-shadow:0 0 10px rgba(74,246,38,.55);transition:width .35s ease}.sim-meters .sim-stat:nth-child(2)::after{background:#FBBF24}.sim-meters .sim-stat:nth-child(3)::after{background:#60A5FA}.sim-meters .sim-stat:nth-child(4)::after{background:#FA3E3E}
-    .sim-result{font-size:12px;letter-spacing:.1em}.sim-result b{display:block;font-size:28px;letter-spacing:.08em;color:#fff;margin-bottom:10px}.sim-result small{display:block;color:rgba(255,255,255,.52);font-size:11px;line-height:1.6;letter-spacing:.08em}.sim-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:18px}.sim-claim{display:none;font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:#000;background:var(--crt-green);padding:12px 16px;text-decoration:none}.sim-claim.visible{display:inline-block}
-    @media(max-width:860px){.sim-wrap-live{grid-template-columns:1fr}.sim-incident{min-height:520px}.sim-topline{align-items:flex-start}.sim-clock{font-size:18px}.sim-options{gap:8px}.sim-option{font-size:11px;padding:13px 12px;grid-template-columns:30px 1fr}.sim-primer{margin-bottom:4px}}
+    /* Field sim viewport fit + cinematic launcher pass */
+    .protocol-sim.sim-live{min-height:100svh;padding:clamp(34px,5svh,58px) 20px;display:flex;align-items:center}
+    .sim-wrap-live{width:min(1120px,100%);gap:clamp(18px,3vw,38px)}
+    .sim-live .sim-h{font-size:clamp(36px,5vw,64px);margin-bottom:12px}.sim-live .sim-sub{font-size:14px;line-height:1.55;max-width:500px}.sim-live .sim-stats{margin-top:18px;gap:9px}.sim-live .sim-stat{padding:12px 13px}.sim-live .sim-stat b{font-size:22px}.sim-live .sim-stat span{font-size:9px;letter-spacing:.18em}.sim-live .sim-primer{margin-top:16px;padding:11px 0 11px 15px}.sim-live .sim-primer p{font-size:12px;line-height:1.45}
+    .sim-incident{min-height:auto;height:min(590px,calc(100svh - 96px));padding:20px}.sim-incident::after{content:'';position:absolute;right:-90px;bottom:-90px;width:240px;height:240px;border:1px solid rgba(74,246,38,.18);border-radius:50%;background:repeating-radial-gradient(circle,rgba(74,246,38,.07) 0 1px,transparent 1px 22px);opacity:.55;pointer-events:none;animation:simRadarSpin 9s linear infinite}@keyframes simRadarSpin{to{transform:rotate(360deg)}}
+    .sim-topline{margin-bottom:9px}.sim-alert{padding:8px 10px;margin-bottom:11px;font-size:9px}.sim-scene{min-height:88px;max-height:122px;overflow:auto;font-size:13px;line-height:1.55;padding:13px;margin-bottom:11px}.sim-options{gap:8px}.sim-option{font-size:11px;line-height:1.35;padding:11px 12px}.sim-feedback{margin-top:10px;min-height:34px;font-size:10px}.sim-result{margin-top:12px;padding-top:12px}.sim-result b{font-size:24px;margin-bottom:6px}.sim-actions{margin-top:12px}.sim-actions .sim-reset{display:inline-flex!important;align-items:center;justify-content:center;min-width:min(100%,330px);padding:16px 22px;border:1px solid var(--crt-green);background:linear-gradient(90deg,var(--crt-green),#b8ff9b);color:#020402;box-shadow:0 0 24px rgba(74,246,38,.35),0 0 70px rgba(74,246,38,.16);font-size:12px;letter-spacing:.22em;font-weight:900;animation:simStartBreathe 1.25s ease-in-out infinite;text-align:center}.sim-actions .sim-reset:hover{transform:translateY(-2px) scale(1.015);color:#000}.sim-actions .sim-reset::before{content:'▶';margin-right:10px}.sim-actions .sim-reset.running{animation:none;background:transparent;color:rgba(255,255,255,.58);border-color:rgba(255,255,255,.18);box-shadow:none}.sim-actions .sim-reset.running::before{content:'↻'}@keyframes simStartBreathe{0%,100%{filter:brightness(1);box-shadow:0 0 24px rgba(74,246,38,.35),0 0 70px rgba(74,246,38,.16)}50%{filter:brightness(1.25);box-shadow:0 0 36px rgba(74,246,38,.55),0 0 110px rgba(74,246,38,.26)}}
+    .sim-start-chip{display:inline-flex;margin-top:4px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(74,246,38,.8);border:1px solid rgba(74,246,38,.22);padding:8px 10px;background:rgba(74,246,38,.055)}
+    @media(max-width:860px){.protocol-sim.sim-live{min-height:auto;padding:42px 16px}.sim-incident{height:auto;min-height:520px}.sim-live .sim-primer{display:none}.sim-live .sim-stats{grid-template-columns:repeat(4,1fr)}.sim-live .sim-stat{padding:9px 6px}.sim-live .sim-stat b{font-size:18px}.sim-live .sim-stat span{font-size:7px;letter-spacing:.08em}.sim-scene{max-height:none}.sim-actions .sim-reset{width:100%;font-size:11px}}
 
   </style>
   <!-- Google tag (gtag.js) -->
@@ -1419,8 +1409,8 @@
     <div class="sim-wrap sim-wrap-live">
       <div class="sr sim-brief">
         <div class="sim-kicker">// FIELD SIMULATION 00-A // LIVE INCIDENT DRILL //</div>
-        <h2 class="sim-h">The lights go out.<br><em>You have seconds.</em></h2>
-        <p class="sim-sub">This is not another personality test. It is a fast contact drill built around moments ordinary people could actually face: a blackout, a neighbour outside, a strange object in the yard, and a crowd that starts making bad decisions.</p>
+        <h2 class="sim-h">Your car dies.<br><em>The lot goes silent.</em></h2>
+        <p class="sim-sub">A blackout in a familiar place. People you do not know. Bad choices happening in every direction. This is not your archetype. This is whether you can stay useful when the ordinary world breaks.</p>
         <div class="sim-stats sim-meters">
           <div class="sim-stat"><b id="sim-calm">72</b><span>CALM</span></div>
           <div class="sim-stat"><b id="sim-safety">68</b><span>GROUP SAFETY</span></div>
@@ -1429,7 +1419,7 @@
         </div>
         <div class="sim-primer">
           <span>HOW IT WORKS</span>
-          <p>Six rapid decisions. No archetype scoring. Each move changes calm, safety, and evidence. Hesitate too long and the incident keeps moving without you.</p>
+          <p>Six rapid decisions. No archetype scoring. Every move changes calm, safety, and evidence. Wait too long and the incident chooses for you.</p>
         </div>
       </div>
       <div class="sim-console sim-incident sr" aria-live="polite">
@@ -3560,63 +3550,63 @@ function initPage() {
 
   const beats = [
     {
-      label:'00:42 // POWER FAILURE',
-      alert:'GRID OFFLINE · DOGS BARKING · NEIGHBOURS WAKING UP',
-      scene:'It is 11:47 PM. The house goes dark. Across the street, a green-white light is hanging over the treeline. Your phone has one bar. Someone in the room says, "What is that?"',
+      label:'00:42 // PARKING LOT BLACKOUT',
+      alert:'STORE POWER OUT · CARTS ROLLING · AUTOMATIC DOORS STUCK',
+      scene:'You are loading groceries at 9:38 PM. The whole lot goes black at once. A cart rolls by itself and bumps your tire. Above the supermarket roof, the clouds glow from underneath.',
       options:[
-        { text:'Move everyone away from the windows and tell them to keep voices low.', calm:10, safety:14, evidence:2, good:true, feedback:'Good. You reduce exposure before curiosity turns into a window-shaped mistake.' },
-        { text:'Run outside to get a better look before it disappears.', calm:-8, safety:-14, evidence:8, feedback:'You get a view, but you leave the group exposed and make yourself the first moving target.' },
-        { text:'Call three people and start explaining what you see.', calm:-10, safety:-4, evidence:-2, feedback:'The call burns focus. The room gets louder while the situation keeps changing.' }
+        { text:'Get everyone into the car, shut the doors, and kill the cabin light.', calm:12, safety:14, evidence:2, good:true, feedback:'Good. Familiar place, unfamiliar event. First move is making a safe pocket.' },
+        { text:'Stand outside and film the glowing clouds before the moment passes.', calm:-8, safety:-12, evidence:10, feedback:'You get the shot and give up cover. The lot now has one more exposed person.' },
+        { text:'Run back to the store entrance and try to force the doors open.', calm:-10, safety:-10, evidence:-4, feedback:'Panic loves glass doors. Now you are trapped between a crowd and a locked entrance.' }
       ]
     },
     {
-      label:'00:35 // DRIVEWAY MOVEMENT',
-      alert:'TWO NEIGHBOURS OUTSIDE · ONE CHILD CRYING · STREETLIGHTS DEAD',
-      scene:'A neighbour steps into the road in socks, filming with flash on. Another person follows them. The light over the hill drops lower.',
+      label:'00:35 // ENGINE FAILURE',
+      alert:'IGNITION DEAD · KEY FOB UNRESPONSIVE · CHILD CRYING NEARBY',
+      scene:'Your car will not start. Neither will the truck beside you. A kid in the next vehicle is crying while their parent keeps clicking the key fob harder, like that will help.',
       options:[
-        { text:'Call them by name and tell them to come back to the porch slowly.', calm:12, safety:12, evidence:0, good:true, feedback:'Names cut through panic. You give them a simple action without chasing them.' },
-        { text:'Sprint across the road and pull them back yourself.', calm:-6, safety:-10, evidence:-4, feedback:'Brave, but messy. Now there are more moving bodies in the open.' },
-        { text:'Ignore them and keep filming the light.', calm:-4, safety:-12, evidence:12, feedback:'The footage improves. The people do not.' }
+        { text:'Tell them calmly: stop clicking, stay inside, crack the window, keep the kid low.', calm:12, safety:10, evidence:0, good:true, feedback:'Useful beats dramatic. You gave a scared stranger one thing to do next.' },
+        { text:'Yell that every car is dead and everyone needs to get out now.', calm:-14, safety:-12, evidence:-2, feedback:'That may be true. It is also how ten people become one stampede.' },
+        { text:'Record the dashboard, failed ignition, and exact time.', calm:2, safety:-2, evidence:14, feedback:'Strong evidence, weak leadership. The crying kid is still setting the room on fire.' }
       ]
     },
     {
-      label:'00:28 // BACK DOOR ALARM',
-      alert:'MOTION LIGHT TRIGGERED · BACK DOOR OPEN · DOG PULLING HARD',
-      scene:'The back door sensor chimes even though the power is out. Your dog bolts toward the kitchen. The motion light outside flickers on and catches something low moving near the shed.',
+      label:'00:28 // LOADING BAY BANG',
+      alert:'METAL IMPACT · DOG BARKING · TWO PEOPLE WALKING TOWARD SOUND',
+      scene:'A deep bang rolls out from the loading bay behind the store. Someone whispers, "Transformer." Two men start walking that way with phone flashlights up.',
       options:[
-        { text:'Shut the inner door, call the dog back, and keep everyone away from the kitchen windows.', calm:10, safety:14, evidence:2, good:true, feedback:'Good. You control the house before curiosity turns into an open doorway.' },
-        { text:'Open the back door and try to see what tripped the light.', calm:-10, safety:-18, evidence:4, feedback:'That is how a house becomes part of the incident instead of shelter from it.' },
-        { text:'Send someone upstairs for a better view while you hold the dog.', calm:-4, safety:-12, evidence:8, feedback:'You gain an angle and split the group. Bad trade under pressure.' }
+        { text:'Call out low and sharp: "Stop. Lights down. Back to the cars."', calm:12, safety:16, evidence:0, good:true, feedback:'Clean command. Not heroic, not hysterical. Just enough to interrupt a bad idea.' },
+        { text:'Follow them at a distance so someone can see what happens.', calm:-6, safety:-14, evidence:8, feedback:'You became the documentary crew for the worst possible scene.' },
+        { text:'Shine your flashlight at the bay and shout, "Anyone there?"', calm:-10, safety:-10, evidence:2, feedback:'You just announced your position to whatever made the sound. Bold. Stupid.' }
       ]
     },
     {
-      label:'00:21 // CONTACT OBJECT',
-      alert:'OBJECT DETECTED NEAR SHED · LOW HUM · METAL TASTE REPORTED',
-      scene:'Something small lands in the yard without a sound. It pulses like a heartbeat. Your dog is pulling toward it. Someone reaches for the back door.',
+      label:'00:21 // WINDOW STRIKE',
+      alert:'UNKNOWN ADULT AT PASSENGER WINDOW · CROWD SPREADING · LOCK STATUS ACTIVE',
+      scene:'A stranger hits your passenger window with both hands. "Let me in." Their face is terrified. Behind them, more people are leaving their cars and staring at the roofline.',
       options:[
-        { text:'Lock the door, keep the dog back, and mark the object location from inside.', calm:8, safety:16, evidence:8, good:true, feedback:'Distance first. You control the room and still keep the object documented.' },
-        { text:'Open the door a crack and try to hear it better.', calm:-4, safety:-10, evidence:5, feedback:'A cracked door is still an open door. You traded safety for a little curiosity.' },
-        { text:'Send one person out with a flashlight while you record.', calm:-12, safety:-18, evidence:10, feedback:'You just turned a witness into bait. The camera will remember that too.' }
+        { text:'Keep the doors locked, speak through the glass, and point them to shelter by the wall.', calm:8, safety:14, evidence:0, good:true, feedback:'Hard boundary, still human. You protect your people without abandoning theirs.' },
+        { text:'Unlock fast. You cannot leave someone scared outside.', calm:2, safety:-16, evidence:-2, feedback:'Compassion without control just moved the panic inside your car.' },
+        { text:'Ignore them and keep watching the sky.', calm:-8, safety:-8, evidence:8, feedback:'The sky matters. The threat touching your window matters more.' }
       ]
     },
     {
-      label:'00:14 // FIGURE AT TREE LINE',
-      alert:'VISUAL CONTACT · HUMAN SHAPE WRONG SCALE · CROWD NOISE RISING',
-      scene:'A tall figure stands at the edge of the yard. It is not rushing. It is waiting. Behind you, someone starts praying out loud. Someone else says they are going live.',
+      label:'00:14 // DEAD SPEAKERS',
+      alert:'STORE PA SYSTEM ACTIVE WITHOUT POWER · MESSAGE REPEATING',
+      scene:'The dead store speakers crackle on. A calm voice says, "Remain where you are." It repeats three times. It is not the store manager. Everyone in the lot hears it.',
       options:[
-        { text:'Keep hands visible, lower your voice, and tell everyone behind you to sit down.', calm:16, safety:10, evidence:2, good:true, feedback:'You make the whole group smaller and quieter without looking like a threat.' },
-        { text:'Shout at it to stay back.', calm:-12, safety:-6, evidence:-2, feedback:'The group hears confidence. Whatever is outside hears aggression.' },
-        { text:'Let the livestream happen so there is proof.', calm:-6, safety:-8, evidence:14, feedback:'Proof matters. So does not turning panic into a broadcast.' }
+        { text:'Stay put, keep people low, and do not follow any instruction that moves the crowd blindly.', calm:14, safety:12, evidence:4, good:true, feedback:'You separated calm from trustworthy. That distinction keeps people alive.' },
+        { text:'Obey the voice exactly. Calm instructions are probably safer than panic.', calm:4, safety:-8, evidence:0, feedback:'Calm is not proof. A trap can have excellent diction.' },
+        { text:'Shout that the speaker is fake and everyone is being lured.', calm:-16, safety:-10, evidence:-2, feedback:'Correct suspicion. Catastrophic delivery.' }
       ]
     },
     {
-      label:'00:07 // DIRECT QUESTION',
-      alert:'AUDIO ABSENT · PRESSURE IN CHEST · THOUGHT PATTERN DETECTED',
-      scene:'The figure does not move its mouth, but a sentence lands in your head: WHO SPEAKS FOR THEM? The room goes silent. Everyone is looking at you.',
+      label:'00:07 // WHITEOUT SWEEP',
+      alert:'LIGHT MOVING CAR TO CAR · WINDOWS FLARING · LOT COMPLETELY SILENT',
+      scene:'A sheet of white light moves across the lot, one car at a time. It is almost at yours. The crying stops. Even the dog near the loading bay goes quiet.',
       options:[
-        { text:'Say, "We are scared. We do not want conflict. No one here will move toward you."', calm:16, safety:12, evidence:4, good:true, feedback:'Plain English. No challenge, no worship, no panic. That is a protocol.' },
-        { text:'Say nothing and wait for someone else to answer.', calm:-8, safety:-10, evidence:0, feedback:'Hesitation becomes leadership too. Just the bad kind.' },
-        { text:'Ask what it wants and step toward the door.', calm:-12, safety:-16, evidence:4, feedback:'You turned contact into approach. The room follows your mistake.' }
+        { text:'Eyes down, hands visible, bodies low, no sudden movement until it passes.', calm:16, safety:14, evidence:2, good:true, feedback:'Stillness without surrender. That is the whole game.' },
+        { text:'Pull everyone hard onto the floorboards and cover their faces.', calm:4, safety:6, evidence:-6, feedback:'Messy, but survivable. Fear made the move, not protocol.' },
+        { text:'Hold your phone up to catch the light through the windshield.', calm:-10, safety:-14, evidence:12, feedback:'The clip might go viral. So might the missing-person poster.' }
       ]
     }
   ];
@@ -3638,6 +3628,22 @@ function initPage() {
     setMeter(calmEl, state.calm); setMeter(safetyEl, state.safety); setMeter(evidenceEl, state.evidence);
     if(timerEl) timerEl.textContent = pad(state.seconds);
     if(clockEl) { clockEl.textContent = '00:' + pad(state.total); clockEl.classList.toggle('urgent', state.seconds <= 3 && state.running); }
+  }
+  function renderIntro(){
+    clearInterval(state.timer);
+    state.running = false;
+    labelEl.textContent = 'READY ROOM // FIELD SIMULATION LOCKED';
+    alertEl.textContent = 'ONE VIEWPORT · SIX DECISIONS · SEVEN SECONDS EACH';
+    alertEl.classList.remove('red');
+    sceneEl.innerHTML = 'You are not choosing an archetype here. You are in a supermarket parking lot with dead cars, locked doors, strangers panicking, and something overhead moving through the clouds.<br><span class="sim-start-chip">PRESS START. TIMER BEGINS IMMEDIATELY.</span>';
+    optionsEl.innerHTML = '';
+    feedbackEl.className = 'sim-feedback good';
+    feedbackEl.textContent = 'Start the simulation when you are ready. It will move fast.';
+    result.classList.remove('visible'); result.innerHTML = '';
+    claimEl.classList.remove('visible');
+    reset.textContent = 'START FIELD SIMULATION';
+    reset.classList.remove('running');
+    updateMeters();
   }
   function renderBeat(){
     const beat = beats[state.step];
@@ -3721,15 +3727,15 @@ function initPage() {
     feedbackEl.textContent = 'Run it again or claim the launch transmission.';
     result.innerHTML = '<b>' + grade + '</b><small>' + copy + '</small>';
     result.classList.add('visible'); claimEl.classList.add('visible');
-    reset.textContent = 'RUN IT AGAIN'; updateMeters(); pulse(avg >= 66 ? 'good' : 'bad');
+    reset.textContent = 'RUN IT AGAIN'; reset.classList.remove('running'); updateMeters(); pulse(avg >= 66 ? 'good' : 'bad');
   }
   function startSim(){
     clearInterval(state.timer);
     state = { calm:72, safety:68, evidence:41, step:0, running:true, seconds:7, total:42, timer:null };
-    reset.textContent = 'RESET SIMULATION'; renderBeat(); startTick();
+    reset.textContent = 'RESET SIMULATION'; reset.classList.add('running'); renderBeat(); startTick();
   }
   reset.addEventListener('click', startSim);
-  updateMeters(); renderBeat();
+  updateMeters(); renderIntro();
 })();
 </script>
 
