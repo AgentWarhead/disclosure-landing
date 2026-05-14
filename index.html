@@ -272,31 +272,6 @@
     .rx:hover::after{content:'CLASSIFIED'}
     .rule-count{margin-top:32px;font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:rgba(245,158,11,.8);text-align:center}
 
-    /* CARD PREVIEW SECTION */
-    #card-preview{padding:100px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
-    .cp-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(74,246,38,.65);margin-bottom:16px}
-    .cp-h{font-size:clamp(28px,5vw,60px);font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
-    .cp-sub{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.68);margin-bottom:48px}
-    .fcc-card{background:#050a05;border:1px solid rgba(74,246,38,.3);box-shadow:0 0 40px rgba(74,246,38,.08),inset 0 0 40px rgba(74,246,38,.02);padding:32px;max-width:360px;margin:0 auto;text-align:left;font-family:var(--mono);position:relative;overflow:hidden}
-    .fcc-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(74,246,38,.03) 1px,rgba(74,246,38,.03) 2px);pointer-events:none}
-    .fcc-card.fc-gold{border-color:rgba(255,215,0,.5);box-shadow:0 0 60px rgba(255,215,0,.15),inset 0 0 40px rgba(255,215,0,.04);background:#080700;animation:fcShimmer 3s ease-in-out infinite}
-    @keyframes fcShimmer{0%,100%{box-shadow:0 0 60px rgba(255,215,0,.15),inset 0 0 40px rgba(255,215,0,.04)}50%{box-shadow:0 0 100px rgba(255,215,0,.3),inset 0 0 60px rgba(255,215,0,.08)}}
-    .fcc-logo{color:var(--g);font-size:9px;letter-spacing:.3em;margin-bottom:12px;display:block}
-    .fcc-card.fc-gold .fcc-logo{color:var(--gold)}
-    .fcc-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:16px;display:block;border-bottom:1px solid rgba(74,246,38,.2);padding-bottom:12px}
-    .fcc-card.fc-gold .fcc-title{border-color:rgba(255,215,0,.2)}
-    .fcc-row{display:flex;justify-content:space-between;margin-bottom:10px;font-size:12px}
-    .fcc-label{color:rgba(255,255,255,.62);letter-spacing:.1em}
-    .fcc-val{color:rgba(255,255,255,.8)}
-    .fcc-val.redacted{background:rgba(255,255,255,.12);color:rgba(255,255,255,.1);padding:0 6px}
-    .fcc-val.amber{color:var(--a)}
-    .fcc-val.green{color:var(--g)}
-    .fcc-val.gold{color:var(--gold)}
-    .fcc-watermark{position:absolute;bottom:12px;right:14px;font-size:8px;letter-spacing:.3em;color:rgba(74,246,38,.06);transform:rotate(-15deg);pointer-events:none;user-select:none}
-    .fcc-card.fc-gold .fcc-watermark{color:rgba(255,215,0,.08)}
-    .fcc-wallet{margin-top:24px;font-size:9px;color:rgba(255,255,255,.2);text-align:center;letter-spacing:.2em;border-top:1px solid rgba(255,255,255,.05);padding-top:16px}
-    .fcc-caption{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:rgba(255,255,255,.6);margin-top:28px;max-width:360px;margin-left:auto;margin-right:auto}
-
     /* QUIZ */
     .quiz{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px;position:relative;border-top:1px solid rgba(60,80,255,.15);border-bottom:1px solid rgba(60,80,255,.15);overflow:hidden;background:#080812;background-image:radial-gradient(ellipse at center,rgba(60,80,255,.06) 0%,transparent 70%)}
 
@@ -570,8 +545,6 @@
 
     /* Card preview mobile */
     @media(max-width:480px){
-      #card-preview{padding:60px 16px!important}
-      .fcc-card{padding:20px 16px}
     }
 
     /* LIAISON MAP */
@@ -1425,61 +1398,6 @@
         <button onclick="retakeQuiz()" style="color:rgba(255,255,255,0.4);font-family:monospace;font-size:11px;letter-spacing:.15em;cursor:pointer;border:none;background:none;margin-top:16px;text-decoration:underline;transition:color .2s" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">↻ RETAKE ASSESSMENT</button>
       </div>
     </div>
-  </section>
-<section id="card-preview" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(74,246,38,.06);position:relative;overflow:hidden">
-    <!-- Background glow -->
-    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(74,246,38,.06) 0%,transparent 70%);pointer-events:none"></div>
-
-    <div class="cp-eyebrow sr">// FIRST CONTACT CREDENTIAL — CLASSIFICATION PENDING //</div>
-    <h2 class="cp-h sr" style="margin-bottom:12px">Your card is waiting in the queue.</h2>
-    <p class="cp-sub sr" style="margin-bottom:48px;max-width:480px;margin-left:auto;margin-right:auto">Your classification activates it. Until then, the system can only show the locked credential and the training stack behind it.</p>
-
-    <!-- Centered card with dramatic presentation -->
-    <div class="sr" style="display:flex;justify-content:center;align-items:center;margin-bottom:48px">
-      <div style="position:relative">
-        <!-- The card itself -->
-        <div style="background:#050a05;border:1px solid rgba(74,246,38,.25);padding:32px 36px;width:380px;max-width:90vw;text-align:left;font-family:var(--mono);position:relative;overflow:hidden;box-shadow:0 0 60px rgba(74,246,38,.08),0 20px 60px rgba(0,0,0,.5)">
-          <!-- Scanline overlay -->
-          <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(74,246,38,.02) 1px,rgba(74,246,38,.02) 2px);pointer-events:none"></div>
-          <!-- Laser scan -->
-          <div class="ac-laser"></div>
-
-          <span style="color:var(--crt-green);font-size:9px;letter-spacing:.3em;display:block;margin-bottom:14px;opacity:.5">◉ DISCLOSURE PROTOCOL</span>
-          <span style="font-size:15px;font-weight:700;color:#fff;display:block;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(74,246,38,.15)">FIRST CONTACT CARD — ISSUED</span>
-
-          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px">
-            <span style="color:rgba(255,255,255,.5);letter-spacing:.1em">ARCHETYPE</span>
-            <span style="color:rgba(255,255,255,.15);letter-spacing:.15em;font-size:14px">██████████</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px">
-            <span style="color:rgba(255,255,255,.5);letter-spacing:.1em">READINESS</span>
-            <span style="color:rgba(251,191,36,.8);font-size:11px">UNVERIFIED</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px">
-            <span style="color:rgba(255,255,255,.5);letter-spacing:.1em">SERIAL</span>
-            <span style="color:var(--crt-green);font-size:11px">DS-2026-?????</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;margin-bottom:0;font-size:12px">
-            <span style="color:rgba(255,255,255,.5);letter-spacing:.1em">STATUS</span>
-            <span style="color:#ef4444;font-weight:700;font-size:11px;letter-spacing:.05em">⊘ INCOMPLETE</span>
-          </div>
-
-          <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.05);text-align:center;font-size:9px;letter-spacing:.25em;color:rgba(255,255,255,.15)">CLASSIFICATION ACTIVATES CARD</div>
-        </div>
-
-        <!-- Blurred overlay with pulsing lock -->
-        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(0,0,0,.35);backdrop-filter:blur(1.5px)">
-          <div style="width:48px;height:48px;border:2px solid rgba(74,246,38,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;animation:pulse 2s ease-in-out infinite;box-shadow:0 0 20px rgba(74,246,38,.15)">
-            <span style="font-size:20px">🔒</span>
-          </div>
-          <div style="font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(74,246,38,.9);font-weight:700">LOCKED</div>
-          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.4)">CLASSIFICATION REQUIRED</div>
-        </div>
-      </div>
-    </div>
-
-    <span class="reticle-wrap sr"><a href="#protocol-simulator" class="cta-btn" style="font-size:13px;padding:16px 44px">SEE WHAT UNLOCKS NEXT →</a><span class="rt tl"></span><span class="rt tr"></span><span class="rt bl"></span><span class="rt br"></span></span>
-    <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.2);margin-top:20px">CARDS ARE NON-TRANSFERABLE. ONE PER CIVILIAN.</div>
   </section>
   <section class="calm-bridge" id="calm-bridge">
     <div class="calm-inner sr">
