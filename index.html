@@ -1077,6 +1077,27 @@
     .packet-text:hover,.gs-share-text:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(74,246,38,.12);border-color:rgba(74,246,38,.48)!important;color:#fff!important}
     @media(prefers-reduced-motion:reduce){body::after{animation:none}:is(.evidence-card,.quiz-card,.gate-card,.sim-console,.mission-panel,.packet-card,.phone-vault,.fd-card,.clearance-step,.arch-card,.sh-dossier,.cta-btn,.qr-cta,.gate-submit,.sim-reset,.sim-claim,.archive-actions a,.command-actions a,.packet-actions a,.packet-actions button,.fd-cta-btn,.sh-actions a,.sh-actions button,.evidence-cta a):hover{transform:none!important}:is(.evidence-card,.command-item,.clearance-step,.packet-channel,.mission-row,.fd-nav-label)::before{display:none}}
     @media(max-width:700px){body::after{opacity:.4}:is(.evidence-card,.quiz-card,.gate-card,.sim-console,.mission-panel,.packet-card,.phone-vault,.fd-card,.clearance-step,.arch-card,.sh-dossier):hover{transform:none}}
+
+
+    /* Premium accent doctrine v2: containment energy, scoped and structural-safe */
+    body::before{content:'';position:fixed;inset:0;z-index:89;pointer-events:none;background:linear-gradient(90deg,rgba(74,246,38,.035) 1px,transparent 1px),linear-gradient(0deg,rgba(74,246,38,.025) 1px,transparent 1px),radial-gradient(ellipse at 50% 50%,transparent 48%,rgba(0,0,0,.38) 100%);background-size:96px 96px,96px 96px,auto;mask-image:radial-gradient(ellipse at center,#000 0 54%,transparent 86%);opacity:.44;mix-blend-mode:screen;animation:dxGridFloat 34s linear infinite}
+    @keyframes dxGridFloat{from{background-position:0 0,0 0,0 0}to{background-position:96px 96px,-96px 48px,0 0}}
+    @keyframes dxSignalBreathe{0%,100%{opacity:.42;filter:brightness(.92) saturate(.95)}50%{opacity:.82;filter:brightness(1.15) saturate(1.18)}}
+    @keyframes dxEnergyCrawl{from{background-position:0 0,0 0,0 0}to{background-position:160px 0,-90px 90px,0 0}}
+    .evidence-wall::before,.command-bridge::before,.transmission-packet::before,.mission-band::before,.protocol-sim::before,.species-hangar::after{animation:dxEnergyCrawl 22s linear infinite,dxSignalBreathe 7s var(--dx-ease) infinite}
+    :is(.glitch,.quiz-h,.gate-h,.sim-h,.command-h,.packet-h,.sh-title,.mission-h,.fd-main-h,.clearance-h,.share-h){text-shadow:0 0 26px rgba(74,246,38,.16),0 0 72px rgba(74,246,38,.06)}
+    :is(.quiz-eyebrow,.gate-eyebrow,.sim-kicker,.command-kicker,.packet-kicker,.sh-kicker,.mission-kicker,.clearance-kicker,.fd-kicker,.evidence-kicker){text-shadow:0 0 18px rgba(74,246,38,.35);filter:saturate(1.16)}
+    .nav-sig,.hero-hud,.system-progress{box-shadow:0 0 28px rgba(74,246,38,.12),inset 0 0 18px rgba(74,246,38,.035)!important;border-color:rgba(74,246,38,.28)!important}
+    .system-progress span,.quiz-progress-bar,.cm-bar-fill,.ac-bar-fg,.signal-meter span,.phone-bars span::before{animation:dxSignalBreathe 3.8s var(--dx-ease) infinite;filter:saturate(1.18)}
+    :is(.q-opt,.sim-option,.gate-input,.fd-dot,.sh-nav,.packet-channel,.clearance-step,.mission-row,.command-item){transition:transform .38s var(--dx-ease),border-color .38s var(--dx-ease),background .38s var(--dx-ease),box-shadow .38s var(--dx-ease),color .38s var(--dx-ease),filter .38s var(--dx-ease)!important}
+    :is(.q-opt,.sim-option,.gate-input,.fd-dot,.sh-nav):hover{border-color:rgba(74,246,38,.58)!important;background-color:rgba(74,246,38,.075)!important;box-shadow:0 0 24px rgba(74,246,38,.14),inset 0 0 24px rgba(74,246,38,.035)!important;color:#fff!important;filter:brightness(1.08)}
+    :is(.q-opt,.sim-option):hover{transform:translateX(6px) scale(1.006)!important}
+    .gate-input:focus{border-color:rgba(74,246,38,.72)!important;box-shadow:0 0 0 4px rgba(74,246,38,.11),0 0 34px rgba(74,246,38,.16)!important;background:rgba(0,0,0,.56)!important;color:#fff!important}
+    .fd-card,.quiz-card,.gate-form-wrap,.packet-card,.sim-console,.mission-panel,.phone-vault,.sh-stage,.clearance-steps{filter:drop-shadow(0 0 34px rgba(74,246,38,.045))}
+    .fd-feat-img,.sh-hero,.phone-screen,img.arch-card-bg{filter:saturate(1.08) contrast(1.04)}
+    .hero-scroll-hint,.live-dot,.hero-eye-glow{filter:drop-shadow(0 0 18px rgba(74,246,38,.34))}
+    @media(prefers-reduced-motion:reduce){body::before,.evidence-wall::before,.command-bridge::before,.transmission-packet::before,.mission-band::before,.protocol-sim::before,.species-hangar::after,.system-progress span,.quiz-progress-bar,.cm-bar-fill,.ac-bar-fg,.signal-meter span,.phone-bars span::before{animation:none!important}}
+    @media(max-width:700px){body::before{opacity:.24;background-size:120px 120px,120px 120px,auto}.fd-card,.quiz-card,.gate-form-wrap,.packet-card,.sim-console,.mission-panel,.phone-vault,.sh-stage,.clearance-steps{filter:none}}
 </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFFMNLNSXM"></script>
