@@ -187,15 +187,15 @@
 
     /* ═══ SCROLL-DRIVEN HERO (Apple-quality) ═══ */
     .hero-scroll{position:relative;height:500vh;width:100%}
-    .hero-sticky{position:sticky;top:0;height:100vh;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
-    #eye-canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+    .hero-sticky{position:sticky;top:0;height:100vh;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#020302;transform:translateZ(0);backface-visibility:hidden}
+    #eye-canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:#020302;transform:translateZ(0);backface-visibility:hidden}
     .hero-vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 50%,transparent 30%,rgba(0,0,0,.4) 60%,rgba(0,0,0,.85) 100%)}
     .hero-fade-bottom{position:absolute;bottom:0;left:0;right:0;height:30vh;z-index:1;pointer-events:none;background:linear-gradient(to bottom,transparent,#000)}
     .hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;max-width:900px;width:100%}
     .hero-layer{opacity:0;transform:translateY(30px);transition:none;will-change:opacity,transform}
     .hero-layer.active{opacity:1;transform:translateY(0)}
 
-    .hero-kicker{font-family:var(--mono);font-size:clamp(12px,1.05vw,14px);font-weight:800;letter-spacing:.32em;color:rgba(245,158,11,.95);margin-bottom:24px;text-shadow:0 0 18px rgba(245,158,11,.28)}
+    .hero-kicker{font-family:var(--mono);font-size:clamp(10px,.92vw,13px);font-weight:800;letter-spacing:.18em;color:rgba(245,158,11,.95);margin-bottom:24px;text-shadow:0 0 18px rgba(245,158,11,.28);white-space:nowrap}
     .hero-intercept{font-family:var(--mono);font-size:clamp(10px,1.3vw,13px);letter-spacing:.4em;color:rgba(74,246,38,.55);margin-bottom:28px;text-transform:uppercase}
     .hero-h{font-family:var(--font-head);font-size:clamp(80px,18vw,220px);font-weight:700;line-height:.88;letter-spacing:-.01em;margin-bottom:24px;position:relative;white-space:nowrap;width:100%;display:flex;justify-content:center;align-items:center}
     .glitch{position:relative;display:inline-block;color:#fff}
@@ -205,7 +205,7 @@
     @keyframes ga{0%,90%,100%{transform:none;opacity:0}91%{transform:translateX(-4px);opacity:1}93%{transform:translateX(4px) skewX(3deg);opacity:.8}95%{transform:none;opacity:0}}
     @keyframes gb{0%,93%,100%{transform:none;opacity:0}94%{transform:translateX(4px);opacity:.9}96%{transform:translateX(-3px) skewX(-2deg);opacity:.7}98%{transform:none;opacity:0}}
     .hero-identity{font-size:clamp(22px,3.5vw,42px);font-weight:700;color:#fff;letter-spacing:-.01em;margin-bottom:12px;line-height:1.1}
-    .hero-sub{font-size:clamp(16px,2.2vw,24px);font-weight:500;color:rgba(255,255,255,.65);max-width:560px;margin:0 auto 40px;line-height:1.7}
+    .hero-sub{font-size:clamp(16px,2.2vw,24px);font-weight:650;color:rgba(255,255,255,.96);max-width:560px;margin:0 auto 40px;line-height:1.7;text-shadow:0 2px 18px rgba(0,0,0,.9),0 0 22px rgba(255,255,255,.12)}
     .hero-sub em{font-style:normal;color:var(--g)}
     .cta-btn{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.3em;color:#000;background:var(--g);padding:16px 40px;text-decoration:none;cursor:pointer;border:none;position:relative;overflow:hidden;transition:box-shadow .2s}
     .cta-btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-100%);transition:transform .2s}
@@ -1099,6 +1099,25 @@
     @media(prefers-reduced-motion:reduce){body::before,.evidence-wall::before,.command-bridge::before,.transmission-packet::before,.mission-band::before,.protocol-sim::before,.species-hangar::after,.system-progress span,.quiz-progress-bar,.cm-bar-fill,.ac-bar-fg,.signal-meter span,.phone-bars span::before{animation:none!important}}
     @media(max-width:700px){body::before{opacity:.24;background-size:120px 120px,120px 120px,auto}.fd-card,.quiz-card,.gate-form-wrap,.packet-card,.sim-console,.mission-panel,.phone-vault,.sh-stage,.clearance-steps{filter:none}}
 
+    /* Quiz viewport fit pass: compact by roughly 10% without changing the quiz logic */
+    .quiz{padding:clamp(44px,7vh,72px) 24px!important}.quiz-eyebrow{font-size:10px!important;letter-spacing:.36em!important;margin-bottom:30px!important}.quiz-h{font-size:clamp(32px,5.4vw,63px)!important;margin-bottom:38px!important;line-height:.96!important}.quiz-progress{max-width:630px!important;margin-bottom:26px!important}.quiz-card{max-width:630px!important;padding:36px!important}.q-num{font-size:10px!important;margin-bottom:13px!important}.q-text{font-size:clamp(20px,3.15vw,29px)!important;line-height:1.24!important;margin-bottom:26px!important}.q-opts{gap:9px!important}.q-opt{font-size:14px!important;padding:14px 18px!important}.response-logged-text{font-size:clamp(15px,1.32vw,20px)!important;padding:12px 18px!important}
+    @media(max-width:600px){.quiz{padding:44px 16px!important}.quiz-eyebrow{margin-bottom:24px!important}.quiz-h{font-size:clamp(24px,6vw,34px)!important;margin-bottom:26px!important}.quiz-progress{margin-bottom:22px!important}.quiz-card{padding:18px 15px!important}.q-num{margin-bottom:10px!important}.q-text{font-size:clamp(19px,5.6vw,25px)!important;margin-bottom:22px!important}.q-opt{font-size:13px!important;padding:12px 14px!important}}
+
+    /* Training sim balance pass: smaller right console, stronger left headline contrast */
+    .story-sim .sim-wrap-live{grid-template-columns:minmax(260px,330px) minmax(0,0.9fr)!important;width:min(1120px,100%)!important;gap:clamp(42px,6vw,90px)!important}.story-sim .sim-brief{justify-self:start!important}.story-sim .sim-h{max-width:340px!important;font-size:clamp(50px,5.25vw,76px)!important;line-height:.78!important;letter-spacing:-.06em!important}.story-sim .sim-kicker{font-size:clamp(9px,.82vw,11px)!important;font-weight:900!important;letter-spacing:.24em!important}.story-sim .sim-stats{max-width:260px!important}.story-sim .sim-console.sim-incident{width:90%!important;justify-self:end!important;max-height:90%!important;box-shadow:0 30px 92px rgba(0,0,0,.56),0 0 74px rgba(74,246,38,.1)!important}.story-sim .sim-screen{padding:clamp(14px,2.1vw,24px)!important}.story-sim .sim-scene{font-size:clamp(33px,3.75vw,58px)!important}.story-sim .sim-option{padding:13px 16px!important;font-size:12px!important}
+    @media(max-width:980px){.story-sim .sim-wrap-live{grid-template-columns:1fr!important;width:100%!important;gap:14px!important}.story-sim .sim-console.sim-incident{width:100%!important;max-height:100%!important}.story-sim .sim-h{font-size:clamp(36px,8vw,58px)!important;max-width:none!important}.story-sim .sim-option{font-size:10px!important;padding:10px 11px!important}}
+
+    /* Command/device polish: stop phone overlap, brighten protocol list, remove muted sludge */
+    .command-bridge{padding:58px 24px!important}.command-wrap{grid-template-columns:minmax(300px,.84fr) minmax(0,1.16fr)!important;gap:clamp(34px,5.4vw,68px)!important}.phone-vault{min-height:470px!important;padding:22px!important;box-sizing:border-box}.phone-shell{width:min(232px,60vw)!important;border-radius:30px!important;padding:12px!important}.phone-screen{border-radius:22px!important}.phone-top{font-size:8px!important;letter-spacing:.17em!important;padding:15px 13px!important}.phone-card{margin:13px!important;padding:15px!important}.phone-card h3{font-size:28px!important}.phone-card p{font-size:9px!important;line-height:1.48!important}.phone-alert{margin:auto 13px 15px!important;font-size:9px!important;line-height:1.45!important;padding:12px!important}.command-copy{color:rgba(255,255,255,.88)!important}.command-list{gap:10px!important;margin:26px 0!important}.command-item{background:linear-gradient(90deg,rgba(74,246,38,.09),rgba(0,0,0,.34))!important;border-color:rgba(74,246,38,.24)!important;box-shadow:inset 0 0 24px rgba(74,246,38,.025),0 0 28px rgba(74,246,38,.04)!important}.command-item span{color:rgba(255,255,255,.94)!important;font-weight:600!important}.command-item b{color:#dfff8c!important;text-shadow:0 0 18px rgba(74,246,38,.36)}
+    .command-list{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;margin:28px 0!important}.command-item{position:relative!important;display:grid!important;grid-template-columns:1fr!important;gap:10px!important;min-height:110px!important;padding:15px 16px 14px!important;overflow:hidden!important;border-radius:18px!important;background:radial-gradient(ellipse at 18% 0%,rgba(74,246,38,.18),transparent 46%),linear-gradient(145deg,rgba(9,22,10,.92),rgba(0,0,0,.72))!important;border:1px solid rgba(74,246,38,.34)!important;box-shadow:0 0 0 1px rgba(255,255,255,.035),0 24px 62px rgba(0,0,0,.34),0 0 42px rgba(74,246,38,.09),inset 0 0 38px rgba(74,246,38,.045)!important}.command-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,transparent,#dfff8c,var(--crt-green),transparent);box-shadow:0 0 22px rgba(74,246,38,.65)}.command-item::after{content:'READY';position:absolute;right:12px;top:11px;font-family:var(--mono);font-size:8px;font-weight:900;letter-spacing:.22em;color:rgba(216,255,155,.82);text-shadow:0 0 16px rgba(74,246,38,.5)}.command-item b{font-size:clamp(22px,2.2vw,30px)!important;line-height:.82!important;color:#dfff8c!important;letter-spacing:.02em!important;text-shadow:0 0 18px rgba(74,246,38,.52),0 0 34px rgba(74,246,38,.22)!important}.command-item span{font-size:clamp(12px,1vw,14px)!important;line-height:1.34!important;color:#fff!important;font-weight:750!important;text-shadow:0 1px 14px rgba(0,0,0,.9)!important;max-width:95%}.command-item:hover{transform:translateY(-4px)!important;border-color:rgba(216,255,155,.62)!important;box-shadow:0 0 0 1px rgba(74,246,38,.2),0 28px 72px rgba(0,0,0,.48),0 0 64px rgba(74,246,38,.16),inset 0 0 44px rgba(74,246,38,.065)!important}
+    @media(max-width:900px){.phone-shell{width:min(238px,62vw)!important}.phone-vault{min-height:420px!important}.command-wrap{gap:28px!important}.command-list{grid-template-columns:1fr!important}.command-item{min-height:auto!important}}
+
+    /* Transmission packet cleanup: dead channel tiles removed, card resizes around actual content */
+    .packet-card{padding:26px!important}.packet-text{color:rgba(255,255,255,.9)!important}.packet-channels{display:none!important}.packet-result{margin-bottom:18px!important}.packet-actions{margin-top:24px!important}
+
+    /* Species containment header fit: 10% tighter without flattening the hangar */
+    .species-hangar .sh-head{margin-bottom:12px!important;gap:clamp(22px,3.8vw,42px)!important}.species-hangar .sh-kicker{font-size:9px!important;letter-spacing:.34em!important;margin-bottom:10px!important}.species-hangar .sh-title{font-size:clamp(38px,5.2vw,68px)!important;line-height:.88!important}.species-hangar .sh-copy{font-size:15px!important;line-height:1.38!important;margin-bottom:10px!important}.species-hangar .sh-status{gap:8px!important}.species-hangar .sh-status div{padding:9px 10px!important}.species-hangar .sh-status b{font-size:15px!important}.species-hangar .sh-status span{font-size:8px!important}
+
 
     /* Hero to Signal Timeline seam stabilization */
     .hero-flash{display:none!important;opacity:0!important}
@@ -1617,11 +1636,6 @@
         </div>
         <div class="packet-text" id="packet-text" onclick="copyPacketText()">I found the civilian first contact readiness system. It classifies how you respond when contact happens. Take the assessment: getdisclosure.app</div>
         <div class="packet-copied" id="packet-copied">COPIED TO CLIPBOARD</div>
-        <div class="packet-channels" aria-label="Recommended transmission channels">
-          <div class="packet-channel active">X / THREAD</div>
-          <div class="packet-channel active">GROUP CHAT</div>
-          <div class="packet-channel">STORY</div>
-        </div>
       </div>
     </div>
   </section>
@@ -3043,6 +3057,12 @@ function initEyeScroll() {
   // Draw a frame centered/cover-filling the canvas
   function drawFrame(idx) {
     var img = frames[idx];
+    if (!img) {
+      for (var spread = 1; spread < TOTAL; spread++) {
+        img = frames[idx - spread] || frames[idx + spread];
+        if (img) break;
+      }
+    }
     if (!img) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // Cover-fill like background-size: cover
@@ -3071,9 +3091,12 @@ function initEyeScroll() {
 
   // Load first 10 frames immediately for instant start
   var firstBatch = [];
-  for (var i = 0; i < Math.min(10, TOTAL); i++) {
-    firstBatch.push(loadFrame(i));
-  }
+  var urgentFrames = {};
+  for (var i = 0; i < Math.min(10, TOTAL); i++) urgentFrames[i] = true;
+  for (var e = Math.max(0, TOTAL - 14); e < TOTAL; e++) urgentFrames[e] = true;
+  Object.keys(urgentFrames).forEach(function(key) {
+    firstBatch.push(loadFrame(parseInt(key, 10)));
+  });
   Promise.all(firstBatch).then(function() {
     resize();
     drawFrame(0);
@@ -3086,7 +3109,7 @@ function initEyeScroll() {
   (function loadRemaining() {
     var batch = [];
     for (var i = 10; i < TOTAL; i++) {
-      batch.push(loadFrame(i));
+      if (!frames[i]) batch.push(loadFrame(i));
     }
     Promise.all(batch);
   })();
@@ -3310,7 +3333,7 @@ function initEyeScroll() {
 
     /* ENHANCEMENT: Scan line (#6) */
     if (scanLine) {
-      scanLine.style.opacity = (progress > 0.01 && progress < 0.95) ? '1' : '0';
+      scanLine.style.opacity = (progress > 0.01 && progress < 0.9) ? '1' : '0';
       scanLine.style.top = (progress * 100) + '%';
     }
 
