@@ -1494,6 +1494,7 @@
         <p class="qr-desc" id="qr-desc">You are the protector. You move first. You read the room before anyone else does.</p>
         <div class="qr-cta-wrap">
           <button class="qr-cta primary" id="qr-cta-primary" onclick="document.getElementById('access').scrollIntoView({behavior:'smooth'})">CLAIM YOUR FIRST CONTACT CARD →</button>
+          <a class="qr-cta secondary" href="/archetypes">REVIEW ALL DOSSIERS</a>
           <button class="qr-cta secondary" onclick="shareArchetype()">SHARE MY ARCHETYPE</button>
         </div>
         <button onclick="retakeQuiz()" style="color:rgba(255,255,255,0.4);font-family:monospace;font-size:11px;letter-spacing:.15em;cursor:pointer;border:none;background:none;margin-top:16px;text-decoration:underline;transition:color .2s" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">↻ RETAKE ASSESSMENT</button>
@@ -1562,6 +1563,7 @@
       </div>
 
       <p class="gate-note" id="gate-note">Your frequency is logged once. This channel does not repeat.</p>
+      <p class="gate-note"><a href="/archetypes" style="color:rgba(216,255,155,.86);text-decoration:none;border-bottom:1px solid rgba(216,255,155,.32)">Review the civilian archetype dossiers →</a></p>
     </div>
 
     <div class="gate-stats sr">
@@ -1709,8 +1711,9 @@
       </div>
       <div class="archive-map" aria-label="Archive paths">
         <a class="archive-node primary" href="#locked-protocols"><b>01</b><span><strong>LOCKED PROTOCOLS</strong>Immediate civilian rules before the full app unlock.</span><i>BEST NEXT</i></a>
-        <a class="archive-node" href="#species-threat-matrix"><b>02</b><span><strong>SPECIES FILES</strong>Containment hangar, threat readouts, partial contact notes.</span><i>VISUAL FILE</i></a>
-        <a class="archive-node" href="/intel"><b>03</b><span><strong>INTEL ARCHIVE</strong>Public record trail for the skeptic-curious visitor.</span><i>OPEN FILE</i></a>
+        <a class="archive-node" href="/archetypes"><b>02</b><span><strong>CLASSIFICATION FILES</strong>Full Sentinel, Diplomat, Scholar, Survivor, and First Contact dossier hub.</span><i>ROLE MAP</i></a>
+        <a class="archive-node" href="#species-threat-matrix"><b>03</b><span><strong>SPECIES FILES</strong>Containment hangar, threat readouts, partial contact notes.</span><i>VISUAL FILE</i></a>
+        <a class="archive-node" href="/intel"><b>04</b><span><strong>INTEL ARCHIVE</strong>Public record trail for the skeptic-curious visitor.</span><i>OPEN FILE</i></a>
       </div>
     </div>
   </section>
@@ -1841,10 +1844,14 @@
       .fd-metric-row{display:none!important}#classified-tools .fd-dots{margin-top:8px!important}.fd-command-center .fd-dot{width:34px!important;height:5px!important}.fd-download-note{font-size:8px!important;line-height:1.4!important;margin-top:7px!important}.fd-command-center .fd-device-vault{border-radius:24px!important;padding:6px!important}.fd-command-center .fd-device-vault::before{inset:6px!important;border-radius:18px!important}.fd-command-center .fd-device-vault::after{display:none!important}
     }
 
+
+    .related-files{position:relative;overflow:hidden;padding:36px 24px 48px;border-top:1px solid rgba(74,246,38,.12);background:radial-gradient(ellipse at 50% 0%,rgba(74,246,38,.13),transparent 42%),linear-gradient(180deg,#020503,#000 78%)}
+    .related-files::before{content:'RELATED FILES';position:absolute;right:clamp(18px,5vw,70px);top:34px;font-family:var(--mono);font-size:10px;letter-spacing:.34em;color:rgba(216,255,155,.52);writing-mode:vertical-rl;text-shadow:0 0 18px rgba(74,246,38,.35);pointer-events:none}.related-shell{position:relative;z-index:1;max-width:1180px;margin:0 auto}.related-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.32em;color:rgba(216,255,155,.76);margin-bottom:12px}.related-head{font-family:var(--font-head);font-size:clamp(34px,5.4vw,70px);line-height:.9;letter-spacing:-.045em;margin:0 0 14px;color:#fff}.related-head em{display:block;font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(216,255,155,.82);text-shadow:0 0 34px rgba(74,246,38,.2)}.related-copy{max-width:620px;color:rgba(255,255,255,.76);font-size:clamp(15px,1.55vw,18px);line-height:1.58;margin:0 0 22px;font-weight:650}.related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.related-card{position:relative;min-height:134px;padding:16px;border:1px solid rgba(255,255,255,.1);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.018));overflow:hidden;text-decoration:none;color:#fff;transition:transform .36s var(--dx-ease),border-color .36s var(--dx-ease),box-shadow .36s var(--dx-ease),background .36s var(--dx-ease)}.related-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 16% 0%,rgba(var(--rf),.24),transparent 52%);opacity:.78}.related-card::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 0 40%,rgba(255,255,255,.13) 48%,transparent 56%);transform:translateX(-130%);transition:transform .7s var(--dx-ease)}.related-card:hover{transform:translateY(-4px);border-color:rgba(var(--rf),.58);box-shadow:0 26px 80px rgba(0,0,0,.42),0 0 44px rgba(var(--rf),.14);background:linear-gradient(145deg,rgba(var(--rf),.12),rgba(255,255,255,.024))}.related-card:hover::after{transform:translateX(130%)}.related-card > *{position:relative;z-index:1}.related-card b{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgb(var(--rf));margin-bottom:18px}.related-card strong{display:block;font-size:22px;line-height:1;letter-spacing:-.02em;margin-bottom:8px}.related-card span{display:block;font-size:14px;line-height:1.35;color:rgba(255,255,255,.78);font-weight:750}
     /* Mobile compact modules and final sections */
     @media(max-width:700px){
       .mission-band,.clearance-ladder,.rules,.transmission-packet,.command-bridge{padding:54px 14px!important;overflow:hidden!important}.calm-bridge,.archive-choice,#intel-briefings,.share.final-transmission{padding:32px 14px 38px!important}.mission-shell{padding:20px 16px!important}.mission-grid,.clearance-top,.packet-wrap,.command-wrap{grid-template-columns:1fr!important;gap:20px!important}.mission-h,.clearance-h,.packet-h,.command-h{font-size:clamp(34px,12vw,54px)!important;line-height:.9!important}.mission-copy,.clearance-copy,.packet-copy,.command-copy{font-size:14px!important;line-height:1.55!important}.mission-panel{padding:14px!important}.mission-row,.clearance-step{grid-template-columns:44px 1fr!important;gap:10px!important;padding:13px 0!important}.mission-lock,.clearance-state{grid-column:2!important;font-size:8px!important;letter-spacing:.12em!important}.mission-title,.clearance-title{font-size:11px!important;letter-spacing:.12em!important}.mission-desc,.clearance-desc{font-size:12px!important}.packet-card{padding:18px!important}.packet-name{font-size:34px!important}.phone-vault{min-height:340px!important}.phone-shell{width:min(230px,68vw)!important}
       #fc-event{padding:56px 14px!important}#fc-event h2{font-size:clamp(38px,14vw,62px)!important;line-height:.84!important}#fc-event p{font-size:15px!important;line-height:1.55!important}.share.final-transmission .share-h{font-size:clamp(32px,12vw,54px)!important}
+      .related-files{padding:34px 14px 38px!important}.related-files::before{display:none!important}.related-grid{grid-template-columns:1fr!important}.related-card{min-height:0!important;border-radius:18px!important}.related-card strong{font-size:20px!important}.related-card span{font-size:14px!important}.related-head{font-size:clamp(34px,12vw,54px)!important}
     }
 
     /* Mobile species hangar: keep carousel theatrical, stop it from creating dead-height chaos */
@@ -2250,6 +2257,19 @@
       <a href="https://instagram.com/disclosure_app" target="_blank" rel="noopener" style="color:rgba(255,255,255,.5);transition:color .2s" onmouseover="this.style.color='var(--crt-green)'" onmouseout="this.style.color='rgba(255,255,255,.5)'"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
     </span>
   </div>
+  <section class="related-files" aria-labelledby="related-files-title">
+    <div class="related-shell sr">
+      <div class="related-kicker">// RELATED CLASSIFIED FILES //</div>
+      <h2 class="related-head" id="related-files-title">Open the archive.<em>Pick your next file.</em></h2>
+      <p class="related-copy">If the assessment pulled you in, these are the next four doors. Dossiers for identity, briefing for lore, readiness for training, intel for the public-record trail.</p>
+      <div class="related-grid">
+        <a class="related-card" href="/archetypes" style="--rf:216,255,155"><b>FILE 01</b><strong>Archetype Dossiers</strong><span>Compare every civilian designation and route into individual role files.</span></a>
+        <a class="related-card" href="/first-contact" style="--rf:255,215,0"><b>FILE 02</b><strong>First Contact Briefing</strong><span>The launch-day anomaly, hidden designation, and classified slot.</span></a>
+        <a class="related-card" href="/readiness" style="--rf:74,246,38"><b>FILE 03</b><strong>Readiness Protocol</strong><span>What the app trains after classification is complete.</span></a>
+        <a class="related-card" href="/intel" style="--rf:96,165,250"><b>FILE 04</b><strong>Intel Archive</strong><span>Public-record context for the skeptic-curious visitor.</span></a>
+      </div>
+    </div>
+  </section>
   <section class="share final-transmission" style="padding:42px 24px 56px">
     <div class="share-inner sr">
       <div class="share-kicker">// FINAL TRANSMISSION //</div>
