@@ -182,12 +182,26 @@
     .section-divider::after{content:'';position:absolute;left:50%;top:0;width:min(190px,36vw);height:10px;transform:translateX(-50%);background:linear-gradient(180deg,rgba(74,246,38,.28),transparent);clip-path:polygon(0 0,100% 0,82% 100%,18% 100%);opacity:.8}
 
     /* NAV */
-    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:6px 24px;height:52px;box-sizing:border-box;background:rgba(0,0,0,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(74,246,38,.06)}
-    .nav-logo{text-decoration:none;display:inline-block;line-height:0}
-    .nav-logo img{height:100%;width:auto;display:block;max-height:44px}
-    .nav-sig{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.42);transition:color .4s}
-    .live-dot{width:5px;height:5px;border-radius:50%;background:var(--g);animation:live 1.8s ease-in-out infinite;flex-shrink:0}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:8px clamp(18px,4vw,58px);min-height:58px;box-sizing:border-box;background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(3,16,7,.88) 48%,rgba(0,0,0,.94));backdrop-filter:blur(22px) saturate(1.2);border-bottom:1px solid rgba(216,255,155,.2);box-shadow:0 18px 70px rgba(0,0,0,.42),0 1px 0 rgba(255,255,255,.05),0 0 42px rgba(74,246,38,.07);isolation:isolate;overflow:hidden}
+    .nav::before{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;background:linear-gradient(rgba(74,246,38,.052) 1px,transparent 1px),linear-gradient(90deg,rgba(74,246,38,.038) 1px,transparent 1px),radial-gradient(ellipse at 16% 50%,rgba(74,246,38,.14),transparent 34%),radial-gradient(ellipse at 86% 50%,rgba(245,158,11,.08),transparent 30%);background-size:44px 44px,44px 44px,100% 100%,100% 100%;opacity:.7}
+    .nav::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;z-index:-1;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(74,246,38,.82),rgba(216,255,155,.52),rgba(245,158,11,.32),transparent);box-shadow:0 0 26px rgba(74,246,38,.42)}
+    .nav-logo{position:relative;text-decoration:none;display:inline-flex;align-items:center;gap:12px;line-height:0;min-height:42px;padding:7px 12px;border:1px solid rgba(216,255,155,.16);border-radius:999px;background:rgba(0,0,0,.34);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 0 24px rgba(74,246,38,.08);flex:0 0 auto}
+    .nav-logo img{height:30px;width:auto;display:block;filter:drop-shadow(0 0 12px rgba(74,246,38,.24))}
+    .nav-logo::after{content:'MAIN SIGNAL';font-family:var(--mono);font-size:10px;font-weight:950;letter-spacing:.18em;color:rgba(216,255,155,.78);line-height:1;white-space:nowrap;text-shadow:0 0 14px rgba(74,246,38,.28)}
+    .nav-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;min-width:0}
+    .nav-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .nav-links a{min-height:36px;display:inline-flex;align-items:center;justify-content:center;padding:9px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);box-shadow:inset 0 1px 0 rgba(255,255,255,.04);font-family:var(--mono);font-size:10px;font-weight:850;letter-spacing:.16em;color:rgba(255,255,255,.72);text-decoration:none;text-transform:uppercase;white-space:nowrap;transition:transform .28s var(--dx-ease),color .28s var(--dx-ease),border-color .28s var(--dx-ease),background .28s var(--dx-ease),box-shadow .28s var(--dx-ease)}
+    .nav-links a:hover{transform:translateY(-1px);color:#dfff8c;border-color:rgba(216,255,155,.42);background:rgba(74,246,38,.09);box-shadow:0 0 22px rgba(74,246,38,.16)}
+    .nav-links a.nav-primary{color:#061006;background:linear-gradient(90deg,#dfff8c,#4af626);border-color:rgba(216,255,155,.72);font-weight:950;box-shadow:0 0 24px rgba(74,246,38,.22)}
+    .nav-sig{display:flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid rgba(74,246,38,.22);background:rgba(0,0,0,.3);font-family:var(--mono);font-size:9px;font-weight:850;letter-spacing:.18em;color:rgba(216,255,155,.68);white-space:nowrap;transition:color .4s;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+    .live-dot{width:6px;height:6px;border-radius:50%;background:var(--g);animation:live 1.8s ease-in-out infinite;flex-shrink:0}
     @keyframes live{0%,100%{box-shadow:0 0 3px var(--g)}50%{box-shadow:0 0 12px var(--g),0 0 24px var(--g)}}
+    @media(max-width:900px){
+      .nav{min-height:56px;padding:8px 18px;gap:10px}
+      .nav-logo{min-height:38px;padding:6px 10px;gap:9px}.nav-logo img{height:26px}.nav-logo::after{content:'LIVE';font-size:9px;letter-spacing:.14em}
+      .nav-sig{display:none}.nav-links{gap:7px}.nav-links a{min-height:34px;padding:8px 10px;font-size:9px;letter-spacing:.1em}
+    }
+    @media(max-width:700px){.nav-links a:not(.nav-primary){display:none}.nav-links a.nav-primary{font-size:11px;letter-spacing:.08em}}
 
     /* ═══ SCROLL-DRIVEN HERO (Apple-quality) ═══ */
     .hero-scroll{position:relative;height:500vh;width:100%}
@@ -531,10 +545,16 @@
       main{overflow-x:clip;max-width:100vw}
       /* Hero title safe scaling — keep nowrap, just resize */
       .hero-h{font-size:clamp(58px,15vw,90px)}
-      /* Nav status text — hide on small screens, too cramped */
-      .nav-sig span{display:none}
-      .nav-sig{gap:0}
-      .nav{padding:6px 16px}
+      /* Command bar compact mode */
+      .nav{min-height:56px;padding:8px 14px;gap:10px}
+      .nav::before{background-size:34px 34px,34px 34px,100% 100%,100% 100%}
+      .nav-logo{min-height:38px;padding:6px 10px;gap:9px}
+      .nav-logo img{height:26px}
+      .nav-logo::after{content:'LIVE';font-size:9px;letter-spacing:.14em}
+      .nav-actions{gap:8px}
+      .nav-sig{display:none}
+      .nav-links a:not(.nav-primary){display:none}
+      .nav-links a.nav-primary{min-height:36px;padding:9px 12px;font-size:11px;letter-spacing:.08em}
       /* Flash text — reduce letter-spacing so it centers properly */
       .hero-flash-text{letter-spacing:.2em;font-size:clamp(11px,3vw,16px);text-align:center;padding:0 16px}
       /* Rules watermark — remove to avoid overflow */
@@ -1235,9 +1255,17 @@
 </div>
 
 <main id="main-content" tabindex="-1">
-  <nav class="nav">
+  <nav class="nav" aria-label="Primary navigation">
     <a href="/" class="nav-logo"><img src="logo-nav.png" alt="DISCLOSURE" /></a>
-    <div class="nav-sig" id="nav-sig"><div class="live-dot"></div><span id="nav-status-text">LEAKED DOCUMENT · READING IN PROGRESS</span></div>
+    <div class="nav-actions">
+      <div class="nav-links">
+        <a href="#quiz">Assessment</a>
+        <a href="/archetypes">Dossiers</a>
+        <a href="/first-contact">Briefing</a>
+        <a class="nav-primary" href="#quiz">Get classified</a>
+      </div>
+      <div class="nav-sig" id="nav-sig"><div class="live-dot"></div><span id="nav-status-text">LEAKED DOCUMENT · READING IN PROGRESS</span></div>
+    </div>
   </nav>
 
   <!-- 1. HERO — Apple-quality scroll-driven eye animation -->
