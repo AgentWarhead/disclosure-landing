@@ -192,7 +192,6 @@
     .nav-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
     .nav-links a{min-height:36px;display:inline-flex;align-items:center;justify-content:center;padding:9px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);box-shadow:inset 0 1px 0 rgba(255,255,255,.04);font-family:var(--mono);font-size:10px;font-weight:850;letter-spacing:.16em;color:rgba(255,255,255,.72);text-decoration:none;text-transform:uppercase;white-space:nowrap;transition:transform .28s var(--dx-ease),color .28s var(--dx-ease),border-color .28s var(--dx-ease),background .28s var(--dx-ease),box-shadow .28s var(--dx-ease)}
     .nav-links a:hover{transform:translateY(-1px);color:#dfff8c;border-color:rgba(216,255,155,.42);background:rgba(74,246,38,.09);box-shadow:0 0 22px rgba(74,246,38,.16)}
-    .nav-links a.nav-primary{color:#061006;background:linear-gradient(90deg,#dfff8c,#4af626);border-color:rgba(216,255,155,.72);font-weight:950;box-shadow:0 0 24px rgba(74,246,38,.22)}
     .nav-sig{display:flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid rgba(74,246,38,.22);background:rgba(0,0,0,.3);font-family:var(--mono);font-size:9px;font-weight:850;letter-spacing:.18em;color:rgba(216,255,155,.68);white-space:nowrap;transition:color .4s;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
     .live-dot{width:6px;height:6px;border-radius:50%;background:var(--g);animation:live 1.8s ease-in-out infinite;flex-shrink:0}
     @keyframes live{0%,100%{box-shadow:0 0 3px var(--g)}50%{box-shadow:0 0 12px var(--g),0 0 24px var(--g)}}
@@ -201,7 +200,7 @@
       .nav-logo{min-height:38px;padding:6px 10px;gap:9px}.nav-logo img{height:26px}.nav-logo::after{content:'LIVE';font-size:9px;letter-spacing:.14em}
       .nav-sig{display:none}.nav-links{gap:7px}.nav-links a{min-height:34px;padding:8px 10px;font-size:9px;letter-spacing:.1em}
     }
-    @media(max-width:700px){.nav-links a:not(.nav-primary){display:none}.nav-links a.nav-primary{font-size:11px;letter-spacing:.08em}}
+    @media(max-width:700px){.nav-links{gap:6px}.nav-links a{min-height:34px;padding:8px 9px;font-size:9px;letter-spacing:.08em}}
 
     /* ═══ SCROLL-DRIVEN HERO (Apple-quality) ═══ */
     .hero-scroll{position:relative;height:500vh;width:100%}
@@ -553,8 +552,8 @@
       .nav-logo::after{content:'LIVE';font-size:9px;letter-spacing:.14em}
       .nav-actions{gap:8px}
       .nav-sig{display:none}
-      .nav-links a:not(.nav-primary){display:none}
-      .nav-links a.nav-primary{min-height:36px;padding:9px 12px;font-size:11px;letter-spacing:.08em}
+      .nav-links{gap:6px}
+      .nav-links a{min-height:34px;padding:8px 9px;font-size:9px;letter-spacing:.08em}
       /* Flash text — reduce letter-spacing so it centers properly */
       .hero-flash-text{letter-spacing:.2em;font-size:clamp(11px,3vw,16px);text-align:center;padding:0 16px}
       /* Rules watermark — remove to avoid overflow */
@@ -1259,10 +1258,8 @@
     <a href="/" class="nav-logo"><img src="logo-nav.png" alt="DISCLOSURE" /></a>
     <div class="nav-actions">
       <div class="nav-links">
-        <a href="#evidence-wall">Signal</a>
+        <a href="/first-contact">Briefing</a>
         <a href="/archetypes">Dossiers</a>
-        <a href="#protocol-simulator">Training</a>
-        <a class="nav-primary" href="#quiz">Get classified</a>
       </div>
       <div class="nav-sig" id="nav-sig"><div class="live-dot"></div><span id="nav-status-text">LEAKED DOCUMENT · READING IN PROGRESS</span></div>
     </div>
