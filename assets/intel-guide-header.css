@@ -6,11 +6,15 @@
   --intel-guide-mono: 'Share Tech Mono', 'JetBrains Mono', monospace;
 }
 
+body {
+  overflow-x: clip;
+}
+
 body > nav.intel-guide-topbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  width: 100%;
+  width: 100vw;
   min-height: 68px;
   display: flex;
   align-items: center;

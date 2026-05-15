@@ -10,9 +10,9 @@ body {
   width: min(100%, 1440px);
 }
 .topbar {
-  width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw + (100vw - 100%) / 2 - 22px) !important;
+  margin-right: calc(50% - 50vw + (100vw - 100%) / 2 - 22px) !important;
 }
 .article-grid {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
@@ -86,7 +86,9 @@ body {
     overflow: visible;
   }
   .topbar {
-    margin-inline: 0 !important;
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw + (100vw - 100%) / 2 - 14px) !important;
+    margin-right: calc(50% - 50vw + (100vw - 100%) / 2 - 14px) !important;
     padding-inline: 16px !important;
   }
   .article-grid .article-body {

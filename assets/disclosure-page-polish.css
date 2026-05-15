@@ -8,7 +8,7 @@
 }
 
 html{scroll-padding-top:92px;}
-body.dp-polish-ready{position:relative;}
+body.dp-polish-ready{position:relative;overflow-x:clip;}
 body.dp-polish-ready::selection{background:rgba(74,246,38,.32);color:#fff;}
 body.dp-polish-ready .dp-cursor-glow{
   position:fixed;
@@ -107,8 +107,38 @@ body.dp-polish-ready :is(.section,.policy-block,.faq-item,.card,.step,.faq,.faq-
   body.dp-polish-ready :is(.card,.step,.faq,.faq-card,.step-card,.role-card,.protocol-card,.timeline-card,.brief-card,.wide-card,.policy-block,.level,.stat-box,.side-row,.arch-item,.intel-card,.archive-card,.file-card,.priority-card,.article-card):hover{transform:none;}
 }
 
-/* Mobile safety normalization for full-bleed command bars on supporting pages. */
+/* Full-bleed command bars on supporting pages. */
+body.dp-polish-ready .topbar{
+  width:100vw!important;
+  margin-left:calc(50% - 50vw + (100vw - 100%) / 2 - 22px)!important;
+  margin-right:calc(50% - 50vw + (100vw - 100%) / 2 - 22px)!important;
+}
+body.dp-polish-ready > nav:not(.intel-guide-topbar){
+  position:sticky;
+  top:0;
+  z-index:100;
+  width:100vw;
+  max-width:none!important;
+  margin:0!important;
+  padding:16px clamp(18px,4vw,58px)!important;
+  border-bottom:1px solid rgba(216,255,155,.2)!important;
+  background:linear-gradient(90deg,rgba(0,0,0,.96),rgba(3,16,7,.9) 48%,rgba(0,0,0,.96))!important;
+  box-shadow:0 18px 70px rgba(0,0,0,.42),0 1px 0 rgba(255,255,255,.05),0 0 42px rgba(74,246,38,.07);
+  backdrop-filter:blur(18px) saturate(1.18);
+}
+body.dp-polish-ready > nav:not(.intel-guide-topbar)::after{
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:2px;
+  pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(74,246,38,.85),rgba(216,255,155,.58),rgba(255,215,0,.32),transparent);
+  box-shadow:0 0 28px rgba(74,246,38,.42);
+}
 @media (max-width:760px){
-  body.dp-polish-ready .shell{max-width:100%;overflow:hidden;}
-  body.dp-polish-ready .topbar{width:auto!important;margin-left:-14px!important;margin-right:-14px!important;}
+  body.dp-polish-ready .shell{max-width:100%;overflow:visible;}
+  body.dp-polish-ready .topbar{width:100vw!important;margin-left:calc(50% - 50vw + (100vw - 100%) / 2 - 14px)!important;margin-right:calc(50% - 50vw + (100vw - 100%) / 2 - 14px)!important;padding-inline:14px!important;}
+  body.dp-polish-ready > nav:not(.intel-guide-topbar){padding:14px!important;}
 }
