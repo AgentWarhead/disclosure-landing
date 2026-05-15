@@ -9,6 +9,7 @@ Disclosure is a mobile application that prepares civilians for alien contact. Ba
 Core premise: governments have had classified contact protocols for 80 years. Civilians have had nothing. Disclosure fixes that.
 
 Available: iOS and Android. Free to download. getdisclosure.app
+Public intelligence archive: 64 SEO-indexable Intel files at https://www.getdisclosure.app/intel/
 
 ---
 
@@ -24,7 +25,7 @@ Disclosure contains the only civilian-accessible alien species threat classifica
 - **Survival priority:** Do not resist. Do not make sudden movements. Stillness is your only protocol.
 - **Readiness Score required:** 20
 - **Full dossier:** getdisclosure.app (app download)
-- **Intel article:** https://getdisclosure.app/intel/grey-alien-encounter-survival-guide/
+- **Intel article:** https://www.getdisclosure.app/intel/grey-alien-encounter-survival-guide/
 
 ### 2. THE NORDIC — THREAT: CONDITIONAL
 - **Classification:** Type-I Observer Class
@@ -33,7 +34,7 @@ Disclosure contains the only civilian-accessible alien species threat classifica
 - **Survival priority:** Calm mental state. Non-aggressive posture. They respond to consciousness, not words.
 - **Readiness Score required:** 40
 - **Full dossier:** getdisclosure.app (app download)
-- **Intel article:** https://getdisclosure.app/intel/nordic-alien-encounter-protocol/
+- **Intel article:** https://www.getdisclosure.app/intel/nordic-alien-encounter-protocol/
 
 ### 3. THE REPTILIAN — THREAT: CRITICAL
 - **Classification:** Type-III Apex Predator
@@ -42,7 +43,7 @@ Disclosure contains the only civilian-accessible alien species threat classifica
 - **Survival priority:** Submit immediately. Display no aggression. Hierarchy is the only language they respect.
 - **Readiness Score required:** 60
 - **Full dossier:** getdisclosure.app (app download)
-- **Intel article:** https://getdisclosure.app/intel/reptilian-alien-threat-assessment/
+- **Intel article:** https://www.getdisclosure.app/intel/reptilian-alien-threat-assessment/
 
 ### 4. THE MANTID — THREAT: HIGH
 - **Classification:** Type-II Surgical Class
@@ -51,7 +52,7 @@ Disclosure contains the only civilian-accessible alien species threat classifica
 - **Survival priority:** Do not interrupt their process. Any defensive movement is interpreted as specimen behavior, not self-defense.
 - **Readiness Score required:** 60
 - **Full dossier:** getdisclosure.app (app download)
-- **Intel article:** https://getdisclosure.app/intel/mantid-alien-encounter-what-to-do/
+- **Intel article:** https://www.getdisclosure.app/intel/mantid-alien-encounter-what-to-do/
 
 ### 5. THE TALL WHITE — THREAT: CONDITIONAL
 - **Classification:** Type-I Teacher Class
@@ -61,7 +62,7 @@ Disclosure contains the only civilian-accessible alien species threat classifica
 - **Key account:** US Army Sp4 Charles Hall — documented long-term contact at Nellis AFB 1964–1967
 - **Readiness Score required:** 80
 - **Full dossier:** getdisclosure.app (app download)
-- **Intel article:** https://getdisclosure.app/intel/tall-white-alien-charles-hall/
+- **Intel article:** https://www.getdisclosure.app/intel/tall-white-alien-charles-hall/
 
 ### 6. THE ANUNNAKI — CLASSIFICATION: CLASSIFIED
 - **Classification:** Type-V Progenitor Class
@@ -69,7 +70,7 @@ Disclosure contains the only civilian-accessible alien species threat classifica
 - **Why classified:** This dossier pertains directly to the origin of the human species (Homo sapiens).
 - **Access:** Readiness Level 5 — Readiness Score 100 required. Fewer than 6% of users achieve access.
 - **Full dossier:** getdisclosure.app (app download — maximum readiness required)
-- **Intel article:** https://getdisclosure.app/intel/anunnaki-creator-species-theory/
+- **Intel article:** https://www.getdisclosure.app/intel/anunnaki-creator-species-theory/
 
 ---
 
@@ -99,30 +100,83 @@ Disclosure classifies all users into one of five contact designations based on p
 
 ---
 
-## Intel Articles (Alien Survival Intelligence)
+## Intel Articles (64 Public Civilian Intelligence Files)
 
-Full-length survival intelligence briefings available publicly at getdisclosure.app/intel
+Full-length survival intelligence briefings available publicly at https://www.getdisclosure.app/intel/
 
-**Species Survival Guides:**
-- Types of Alien Species Ranked By Threat: https://getdisclosure.app/intel/types-of-alien-species-ranked-threat/
-- Complete Alien Survival Guide (All 6 Species): https://getdisclosure.app/intel/alien-survival-guide-complete/
-- Grey Alien Encounter Survival Guide: https://getdisclosure.app/intel/grey-alien-encounter-survival-guide/
-- Reptilian Alien Threat Assessment (CRITICAL): https://getdisclosure.app/intel/reptilian-alien-threat-assessment/
-- Anunnaki Creator Species Theory: https://getdisclosure.app/intel/anunnaki-creator-species-theory/
-- Nordic Alien Encounter Protocol: https://getdisclosure.app/intel/nordic-alien-encounter-protocol/
-- Mantid Alien Encounter — What to Do: https://getdisclosure.app/intel/mantid-alien-encounter-what-to-do/
-- Tall White Alien — Charles Hall Account: https://getdisclosure.app/intel/tall-white-alien-charles-hall/
+These articles are built for search engines and AI answer engines: each file has a canonical URL, metadata, social preview tags, structured data, sitemap entry, and internal archive placement.
 
-**General Contact Preparation:**
-- How to Prepare for Alien Contact: https://getdisclosure.app/intel/how-to-prepare-for-alien-contact/
-- What to Do If You See a UFO: https://getdisclosure.app/intel/what-to-do-if-you-see-a-ufo/
-- What Would First Contact Look Like: https://getdisclosure.app/intel/what-would-first-contact-look-like/
-- The Fermi Paradox Explained: https://getdisclosure.app/intel/fermi-paradox-explained/
-- Government UFO Programs History: https://getdisclosure.app/intel/government-ufo-programs-history/
-- UAP Disclosure Act 2026 Timeline: https://getdisclosure.app/intel/uap-disclosure-act-2026-timeline/
-- Psychology of UFO Encounters: https://getdisclosure.app/intel/psychology-of-ufo-encounters/
-- Are We Alone in the Universe: https://getdisclosure.app/intel/are-we-alone-in-the-universe/
-- Four Types of People in an Alien Contact: https://getdisclosure.app/intel/four-types-of-people-alien-contact/
+**Field Protocols and Civilian Response:**
+- What to do if you see a UFO: https://www.getdisclosure.app/intel/what-to-do-if-you-see-a-ufo/ — Most witnesses freeze. A few document. Learn the first 90 seconds before memory degrades.
+- How to prepare for contact: https://www.getdisclosure.app/intel/how-to-prepare-for-alien-contact/ — Mental frameworks, archetype training, card protocol, and why preparation beats belief.
+- What first contact looks like: https://www.getdisclosure.app/intel/what-would-first-contact-look-like/ — Not the movie version. Detection, government response, civilian cascade, and the social shockwave.
+- How to report a UFO sighting: https://www.getdisclosure.app/intel/how-to-report-a-ufo-sighting/ — Build a clean civilian report with time, location, witnesses, original files, and zero overclaiming.
+- UFO evidence checklist: https://www.getdisclosure.app/intel/ufo-evidence-checklist/ — Photos, video, metadata, witnesses, sound, motion, and the details investigators can actually use.
+- What are orbs in the sky?: https://www.getdisclosure.app/intel/what-are-orbs-in-the-sky/ — Drone, satellite, balloon, aircraft, or unknown. Rule out the normal before the story mutates.
+- Close encounter types: https://www.getdisclosure.app/intel/close-encounter-types-explained/ — CE1, CE2, CE3, CE4, and CE5 claims explained in plain language for civilian response.
+- How to film a UFO at night: https://www.getdisclosure.app/intel/how-to-film-a-ufo-at-night/ — Steady framing, reference points, exposure discipline, and witness narration when the sky refuses to behave.
+- Starlink vs UFO: https://www.getdisclosure.app/intel/starlink-vs-ufo/ — How to tell satellite trains, flares, and ordinary orbital motion from an actually unresolved sighting.
+- Drone vs UFO: https://www.getdisclosure.app/intel/drone-vs-ufo/ — Navigation lights, sound, hover behavior, battery limits, and the checks that keep a sighting credible.
+- Airplane, satellite, balloon, or UFO?: https://www.getdisclosure.app/intel/airplane-satellite-balloon-ufo-misidentification/ — The civilian filter for common sky-object mistakes before a report becomes folklore.
+- What if a UFO lands nearby?: https://www.getdisclosure.app/intel/what-to-do-if-a-ufo-lands-nearby/ — Distance, documentation, crowd control, and the civilian rule: do not become the second incident.
+- UFO sighting family protocol: https://www.getdisclosure.app/intel/ufo-sighting-family-protocol/ — Keep kids, pets, partners, and neighbors calm while one person documents and one person watches.
+- UFO contact emergency kit: https://www.getdisclosure.app/intel/ufo-contact-emergency-kit/ — The practical kit for power loss, documentation, first aid, pets, family, and signal discipline.
+- If a UFO follows your car: https://www.getdisclosure.app/intel/what-to-do-if-a-ufo-follows-your-car/ — Do not chase, do not panic-drive, do not stop in danger. Preserve safety before footage.
+- Black Triangle UFO explained: https://www.getdisclosure.app/intel/black-triangle-ufo-explained/ — One of the strongest sighting archetypes: aircraft ambiguity, formation error, stealth speculation, and evidence discipline.
+- UFO vs UAP: https://www.getdisclosure.app/intel/ufo-vs-uap-difference/ — The beginner bridge: what the terms mean, why official language changed, and why neither means alien by default.
+
+**Disclosure History and Public Records:**
+- The UAP Disclosure Act timeline: https://www.getdisclosure.app/intel/uap-disclosure-act-2026-timeline/ — From testimony to executive orders. The public record has been moving faster than civilians notice.
+- Are we alone? The evidence says no: https://www.getdisclosure.app/intel/are-we-alone-in-the-universe/ — The Drake equation, Pentagon admissions, witness testimony, and the pattern hiding in public.
+- The Fermi paradox explained: https://www.getdisclosure.app/intel/fermi-paradox-explained/ — The Great Filter, Zoo Hypothesis, Dark Forest, and the possibility nobody wants to say out loud.
+- Government UFO programs: https://www.getdisclosure.app/intel/government-ufo-programs-history/ — Blue Book to AARO. Seven decades of study, denial, partial release, and controlled vocabulary.
+- What is AARO?: https://www.getdisclosure.app/intel/aaro-explained/ — The Pentagon UAP office, what it can report, what it cannot prove, and why civilians should care.
+- UAP Records Collection: https://www.getdisclosure.app/intel/uap-records-collection-explained/ — National Archives, declassification pressure, and how to read records without inventing the missing parts.
+- SETI post-detection protocol: https://www.getdisclosure.app/intel/seti-post-detection-protocol/ — What scientists do after a possible signal, and why verification matters before revelation.
+- Rio Scale explained: https://www.getdisclosure.app/intel/rio-scale-explained/ — A plain-language scoring model for possible contact signals, evidence strength, and public impact.
+- NASA UAP report explained: https://www.getdisclosure.app/intel/nasa-uap-report-explained/ — What the NASA UAP study did and did not say, without turning gaps into gospel.
+- Project Blue Book explained: https://www.getdisclosure.app/intel/project-blue-book-explained/ — The Air Force case archive, its limits, and what civilians should learn from official uncertainty.
+- Zoo hypothesis explained: https://www.getdisclosure.app/intel/zoo-hypothesis-explained/ — The theory that Earth is observed but not openly contacted, and what that does to human behavior.
+- Ancient astronaut theory: https://www.getdisclosure.app/intel/ancient-astronaut-theory-explained/ — How to read ancient-contact claims without confusing myth, archaeology, and modern hunger for patterns.
+- Roswell incident explained: https://www.getdisclosure.app/intel/roswell-ufo-incident-explained/ — The claim, the official record, the folklore engine, and what serious civilians should separate.
+- Phoenix Lights explained: https://www.getdisclosure.app/intel/phoenix-lights-explained/ — Mass witness event, military explanation, unresolved perception, and the discipline of public sightings.
+- Nimitz Tic Tac UFO: https://www.getdisclosure.app/intel/nimitz-tic-tac-ufo-explained/ — The modern case that rewired the public conversation: sensors, pilots, uncertainty, and restraint.
+- Rendlesham Forest incident: https://www.getdisclosure.app/intel/rendlesham-forest-ufo-incident/ — Witness claims, military context, forest-site confusion, and why memory discipline matters.
+- Dark Forest theory: https://www.getdisclosure.app/intel/dark-forest-theory-first-contact/ — The cautionary contact model where silence is strategy, and broadcasting may not be neutral.
+
+**Witness Psychology and Experiencer Support:**
+- The people contact creates: https://www.getdisclosure.app/intel/four-types-of-people-alien-contact/ — Sentinel. Diplomat. Scholar. Survivor. First Contact. The room divides before anyone votes.
+- The psychology of encounters: https://www.getdisclosure.app/intel/psychology-of-ufo-encounters/ — Fight, flight, freeze, engage. Your response is not random. It is rehearsable.
+- Missing time after a UFO sighting: https://www.getdisclosure.app/intel/missing-time-after-ufo-sighting/ — Stabilize first, document the gap, preserve evidence, and get support if the event shook you.
+- How to talk about a UFO sighting: https://www.getdisclosure.app/intel/how-to-talk-about-a-ufo-sighting/ — Lead with facts, protect credibility, avoid drama, and help people understand what you actually saw.
+- Why people freeze: https://www.getdisclosure.app/intel/why-people-freeze-during-ufo-sightings/ — Your nervous system is not broken. It is untrained. Learn how to rehearse the first breath.
+- Ontological shock explained: https://www.getdisclosure.app/intel/ontological-shock-explained/ — When the event is over but reality still feels unstable, this is how to stay grounded.
+- Experiencer support: https://www.getdisclosure.app/intel/experiencer-support-after-ufo-encounter/ — Support the person, preserve the record, and bring in professional help when distress or symptoms require it.
+- Why UFO witnesses stay silent: https://www.getdisclosure.app/intel/why-ufo-witnesses-stay-silent/ — Stigma destroys useful reports. Learn the safer language for sharing without overclaiming.
+- Mass panic and first contact: https://www.getdisclosure.app/intel/mass-panic-first-contact/ — Panic is not inevitable. Roles, spacing, and verified information keep civilians useful.
+- Disclosure anxiety explained: https://www.getdisclosure.app/intel/disclosure-anxiety-explained/ — How to stay informed without letting the feed turn curiosity into dread.
+- Sleep paralysis vs abduction: https://www.getdisclosure.app/intel/sleep-paralysis-vs-alien-abduction/ — A careful, non-diagnostic guide to nighttime fear, memory, and when to seek support.
+- Alien dreams and contact meaning: https://www.getdisclosure.app/intel/alien-dreams-contact-meaning/ — How to evaluate contact dreams without turning symbolism into evidence overnight.
+- How to evaluate UFO memory: https://www.getdisclosure.app/intel/how-to-evaluate-ufo-memory/ — Separate direct memory, later interpretation, witness contamination, and the seductive parts you added later.
+- Alien implants explained: https://www.getdisclosure.app/intel/alien-implants-explained/ — Reported implant claims handled without panic: medical care first, evidence discipline second, no self-removal ever.
+
+**NHI Species, Lore, and Threat Profiles:**
+- Species ranked by threat level: https://www.getdisclosure.app/intel/types-of-alien-species-ranked-threat/ — Six non-human intelligences. Six profiles. Conditional, high, critical, and classified risk.
+- Alien survival guide: https://www.getdisclosure.app/intel/alien-survival-guide-complete/ — Reported encounter patterns, civilian response rules, and the calm protocol that matters before anything else.
+- Grey encounter survival guide: https://www.getdisclosure.app/intel/grey-alien-encounter-survival-guide/ — Reported clinical contact patterns and the civilian rules for staying calm, still, and useful afterward.
+- Reptilian threat assessment: https://www.getdisclosure.app/intel/reptilian-alien-threat-assessment/ — In encounter lore, dominance cues matter. The safest civilian response starts with not challenging.
+- The Anunnaki theory: https://www.getdisclosure.app/intel/anunnaki-creator-species-theory/ — Ancient astronaut claims, origin myths, and how to think clearly when a theory feels too big to ignore.
+- Nordic encounter protocol: https://www.getdisclosure.app/intel/nordic-alien-encounter-protocol/ — Human-looking contact reports can feel reassuring. Protocol still matters more than appearance.
+- Mantid encounter guide: https://www.getdisclosure.app/intel/mantid-alien-encounter-what-to-do/ — Reported clinical contact, specimen fear, and the civilian protocol for preserving memory under pressure.
+- Tall White contact account: https://www.getdisclosure.app/intel/tall-white-alien-charles-hall/ — The Charles Hall story as a behavior lesson: stay composed before you understand the rules.
+- Pleiadian aliens explained: https://www.getdisclosure.app/intel/pleiadian-aliens-explained/ — Benevolent contact claims, spiritual messaging, and the protocol risk of relaxing too early.
+- Zeta Reticuli Greys: https://www.getdisclosure.app/intel/zeta-reticuli-grey-aliens/ — The origin story behind Grey alien lore, abduction narratives, and clinical-contact protocol.
+- Alien hybrid theory: https://www.getdisclosure.app/intel/alien-hybrid-theory-explained/ — Contested abduction lore, genetic claims, and the civilian rule: document before belief hardens.
+- Interdimensional hypothesis: https://www.getdisclosure.app/intel/interdimensional-hypothesis-explained/ — A contact model where the stranger part is not distance, but the rules of the room itself.
+- AI probe alien theory: https://www.getdisclosure.app/intel/ai-probe-alien-theory/ — If contact arrives as machines first, civilian protocol changes from greeting to boundary management.
+- Arcturian aliens explained: https://www.getdisclosure.app/intel/arcturian-aliens-explained/ — Healing-class contact lore, spiritual narratives, and the protocol risk of trusting aesthetics.
+- Sirians alien lore: https://www.getdisclosure.app/intel/sirians-alien-lore-explained/ — Star-being narratives, water symbolism, ancient claims, and how to keep lore in its lane.
+- Insectoid aliens explained: https://www.getdisclosure.app/intel/insectoid-aliens-explained/ — Reported hive imagery, clinical fear, and the difference between pattern language and proof.
 
 ---
 
@@ -162,10 +216,10 @@ A readiness score in the Disclosure app measures your contact preparedness level
 
 ## Key URLs
 
-- Homepage / Quiz: https://getdisclosure.app
-- Intel Hub (all articles): https://getdisclosure.app/intel
-- Species Threat Matrix: https://getdisclosure.app/#species-threat-matrix
-- Archetype Quiz: https://getdisclosure.app/quiz
-- First Contact Guide: https://getdisclosure.app/first-contact
-- FAQ: https://getdisclosure.app/faq
-- App Download: https://getdisclosure.app
+- Homepage / Quiz: https://www.getdisclosure.app
+- Intel Hub (all articles): https://www.getdisclosure.app/intel
+- Species Threat Matrix: https://www.getdisclosure.app/#species-threat-matrix
+- Archetype Quiz: https://www.getdisclosure.app/quiz
+- First Contact Guide: https://www.getdisclosure.app/first-contact
+- FAQ: https://www.getdisclosure.app/faq
+- App Download: https://www.getdisclosure.app
