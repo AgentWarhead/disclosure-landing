@@ -1,0 +1,107 @@
+/* DISCLOSURE Intel archive readability + device performance layer */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  overflow-x: clip;
+}
+.shell {
+  width: min(100%, 1440px);
+}
+.topbar {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.article-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(14px, 1.4vw, 22px);
+  align-items: stretch;
+}
+.article-grid .article-card,
+.article-grid .article-card.dp-reveal,
+.article-grid .article-card.dp-reveal.dp-inview {
+  min-height: 0;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  content-visibility: auto;
+  contain-intrinsic-size: 470px 540px;
+}
+.article-grid .article-card img,
+.article-grid .article-card .article-body,
+.article-grid .article-card h3,
+.article-grid .article-card p,
+.article-grid .article-card .file-label,
+.article-grid .article-card .article-meta {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.article-grid .article-card img {
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: rgba(57,255,20,.04);
+}
+.article-grid .article-body {
+  padding: clamp(22px, 2vw, 28px);
+}
+.article-grid .article-body .file-label {
+  font-size: clamp(13px, .72vw, 14px);
+  line-height: 1.35;
+  letter-spacing: .11em;
+  color: rgba(216,255,155,.96);
+}
+.article-grid .article-body h3 {
+  font-size: clamp(30px, 2.05vw, 38px);
+  line-height: .94;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.article-grid .article-body p {
+  font-size: clamp(19px, 1.08vw, 21px);
+  line-height: 1.5;
+  color: rgba(255,255,255,.9);
+  text-wrap: pretty;
+}
+.article-grid .article-meta {
+  font-size: clamp(13px, .75vw, 14px);
+  line-height: 1.35;
+  color: rgba(216,255,155,.86);
+}
+.feature-card,
+.matrix-card,
+.stack-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 560px 720px;
+}
+@media (min-width: 1180px) {
+  .article-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .shell {
+    padding-inline: 16px;
+    overflow: visible;
+  }
+  .topbar {
+    margin-inline: 0 !important;
+    padding-inline: 16px !important;
+  }
+  .article-grid .article-body {
+    padding: 24px 22px 22px;
+  }
+  .article-grid .article-body h3 {
+    font-size: clamp(29px, 8vw, 34px);
+    line-height: .96;
+  }
+  .article-grid .article-body p {
+    font-size: 19px;
+    line-height: 1.52;
+  }
+  .article-grid .article-body .file-label,
+  .article-grid .article-meta {
+    font-size: 13px;
+  }
+}
