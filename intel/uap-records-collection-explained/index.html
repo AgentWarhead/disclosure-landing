@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UAP Records Collection Explained | DISCLOSURE</title>
+  <meta name="description" content="A civilian guide to the National Archives UAP Records Collection, what it contains, what it excludes, and how to read releases."/>
+  <meta name="keywords" content="UAP Records Collection, National Archives UAP, Record Group 615, UAP records, UFO records archive, UAP bulk downloads"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://www.getdisclosure.app/intel/uap-records-collection-explained/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="DISCLOSURE"/>
+  <meta property="og:title" content="UAP Records Collection Explained | DISCLOSURE"/>
+  <meta property="og:description" content="What the National Archives UAP Records Collection is, how records move into it, and how civilians should read releases without losing discipline."/>
+  <meta property="og:image" content="https://www.getdisclosure.app/intel/images/uap-records-collection.webp"/>
+  <meta property="og:url" content="https://www.getdisclosure.app/intel/uap-records-collection-explained/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="UAP Records Collection Explained | DISCLOSURE"/>
+  <meta name="twitter:description" content="What the National Archives UAP Records Collection is, how records move into it, and how civilians should read releases without losing discipline."/>
+  <meta name="twitter:image" content="https://www.getdisclosure.app/intel/images/uap-records-collection.webp"/>
+  <meta name="theme-color" content="#000000"/>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "UAP Records Collection Explained",
+    "description": "A civilian guide to the National Archives UAP Records Collection, what it contains, what it excludes, and how to read releases.",
+    "image": "https://www.getdisclosure.app/intel/images/uap-records-collection.webp",
+    "url": "https://www.getdisclosure.app/intel/uap-records-collection-explained/",
+    "datePublished": "2026-05-15",
+    "dateModified": "2026-05-15",
+    "author": {
+        "@type": "Organization",
+        "name": "DISCLOSURE Protocol"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "DISCLOSURE",
+        "url": "https://www.getdisclosure.app"
+    },
+    "mainEntityOfPage": "https://www.getdisclosure.app/intel/uap-records-collection-explained/"
+}
+  </script>
+  <style>
+    :root {
+      --g: #39ff14;
+      --gold: #FFD700;
+      --bg: #000;
+      --text: #fff;
+      --mono: 'Share Tech Mono', monospace;
+      --sans: 'Rajdhani', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(0,0,0,0.95);
+      border-bottom: 1px solid rgba(57,255,20,0.2);
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo img { height: 32px; display: block; }
+    .nav-back {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--g);
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .nav-back:hover { opacity: 1; }
+
+    .article-hero {
+      position: relative;
+      max-height: 480px;
+      overflow: hidden;
+    }
+    .article-hero img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      filter: brightness(0.5) saturate(0.8);
+    }
+    .hero-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 3rem 2rem 2rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    }
+    .article-kicker {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--g);
+      letter-spacing: 0.25em;
+      margin-bottom: 0.75rem;
+    }
+    .article-title {
+      font-family: var(--mono);
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.2;
+      max-width: 760px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+
+    .article-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+    }
+    .article-meta {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(57,255,20,0.15);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+      flex-wrap: wrap;
+    }
+    .article-meta span { color: var(--g); margin-right: 0.3rem; }
+
+    .article-body h2 {
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      color: var(--g);
+      letter-spacing: 0.1em;
+      margin: 2.5rem 0 1rem;
+      text-transform: uppercase;
+    }
+    .article-body h3 {
+      font-family: var(--sans);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 2rem 0 0.75rem;
+    }
+    .article-body p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 1.25rem;
+    }
+    .article-body ul, .article-body ol {
+      margin: 1rem 0 1.5rem 1.5rem;
+    }
+    .article-body li {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 0.5rem;
+    }
+    .article-body strong { color: #fff; }
+    .article-body em { color: var(--g); font-style: normal; }
+    .article-body a { color: var(--g); text-decoration: underline; text-decoration-color: rgba(57,255,20,0.35); text-underline-offset: 0.18em; }
+
+    .classified-box {
+      border: 1px solid rgba(57,255,20,0.3);
+      background: rgba(57,255,20,0.03);
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+    }
+    .classified-box .box-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--g);
+      letter-spacing: 0.25em;
+      margin-bottom: 0.75rem;
+      opacity: 0.8;
+    }
+    .classified-box p {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+      margin: 0;
+    }
+
+    .source-panel {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.025);
+      padding: 1rem 1.2rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .source-panel .source-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.5rem;
+    }
+    .source-panel p {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.62);
+      margin: 0;
+    }
+
+    .article-cta {
+      margin-top: 3.5rem;
+      border-top: 1px solid rgba(57,255,20,0.2);
+      padding-top: 2.5rem;
+      text-align: center;
+    }
+    .article-cta p {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.25rem;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--g);
+      color: #000;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+    .cta-btn:hover { background: #fff; transform: scale(1.02); }
+
+    footer {
+      border-top: 1px solid rgba(57,255,20,0.1);
+      padding: 2rem;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.15em;
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem; }
+      .article-wrap { padding: 2rem 1rem 3rem; }
+    }
+    .ft-nav{margin-bottom:14px;display:flex;justify-content:center;flex-wrap:wrap;gap:6px 0}
+    .ft-nav a{font-family:var(--mono,'JetBrains Mono',monospace);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.3);text-decoration:none;padding:0 10px;border-right:1px solid rgba(255,255,255,.1);transition:color .2s;white-space:nowrap}
+    .ft-nav a:last-child{border-right:none}
+    .ft-nav a:hover{color:rgba(74,246,38,.7)}
+    .ft-social{display:flex;justify-content:center;gap:20px;margin:16px 0 12px}
+    .ft-social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid rgba(74,246,38,.15);border-radius:4px;color:rgba(255,255,255,.4);text-decoration:none;transition:all .3s;font-size:16px}
+    .ft-social a:hover{color:rgba(74,246,38,.9);border-color:rgba(74,246,38,.5);box-shadow:0 0 12px rgba(74,246,38,.15)}
+    .ft-social a svg{width:18px;height:18px;fill:currentColor}
+    .ft-t{font-family:var(--mono,'JetBrains Mono',monospace);font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.65)}
+    .ft-b{font-family:var(--mono,'JetBrains Mono',monospace);font-size:8px;letter-spacing:.1em;color:rgba(255,255,255,.05);cursor:pointer;margin-top:8px;transition:color .3s}
+    .ft-b:hover{color:rgba(74,246,38,.5)}
+    @media(max-width:600px){.ft-nav{flex-wrap:wrap;gap:4px}.ft-nav a{border-right:none;padding:4px 8px}}
+  </style>
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.getdisclosure.app/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Intel Briefings",
+            "item": "https://www.getdisclosure.app/intel/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UAP Records Collection Explained",
+            "item": "https://www.getdisclosure.app/intel/uap-records-collection-explained/"
+        }
+    ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is the UAP Records Collection?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The UAP Records Collection is a National Archives collection created under the 2024 National Defense Authorization Act for digital copies of federal UAP records."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Are all UAP records public now?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. NARA receives records on a rolling basis, and some records may include redactions, access limits, or metadata before full online availability."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How should civilians use UAP records?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use primary records to track dates, agencies, descriptions, redactions, and metadata. Avoid treating a document title as full proof without reading the file."
+            }
+        }
+    ]
+}
+  </script>
+
+<link rel="stylesheet" href="/assets/disclosure-footer.css"/>
+<link rel="stylesheet" href="/assets/disclosure-page-polish.css"/>
+<link rel="stylesheet" href="/assets/intel-field-value.css"/>
+
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><img src="/logo-nav.webp" alt="DISCLOSURE"/></a>
+  <a href="/intel" class="nav-back">← INTEL INDEX</a>
+</nav>
+
+<header class="article-hero">
+  <img src="/intel/images/uap-records-collection.webp" alt="National Archives style UAP records collection with file boxes, metadata screens, and green disclosure overlays"/>
+  <div class="hero-overlay">
+    <div class="article-kicker">INTEL-019 // PUBLIC RECORDS // CLEARANCE: PUBLIC</div>
+    <h1 class="article-title">UAP Records Collection Explained</h1>
+  </div>
+</header>
+
+<main class="article-wrap">
+  <div class="article-meta">
+    <div><span>FILED:</span> 2026-05-15</div>
+    <div><span>CLASSIFICATION:</span> UNCLASSIFIED</div>
+    <div><span>CATEGORY:</span> PUBLIC RECORDS</div>
+    <div><span>READ TIME:</span> ~8 MIN</div>
+  </div>
+
+  <div class="article-body">
+
+    <p><strong>The UAP Records Collection</strong> is the National Archives system for organizing federal records related to unidentified anomalous phenomena. It matters because the disclosure fight is no longer only testimony and headlines. It is records, metadata, transfers, redactions, and public access.</p>
+
+    <p>If you are trying to understand what governments actually documented, the UAP Records Collection is one of the places to watch. It will not answer every question. It does give civilians a cleaner way to follow the paper trail.</p>
+
+    <div class="classified-box">
+      <div class="box-label">// QUICK ANSWER // RECORD GROUP 615</div>
+      <p>The National Archives established Record Group 615 for the UAP Records Collection. Federal agencies identify, prepare, and transfer digital UAP records on a rolling basis. Public access depends on what is releasable, transferred, digitized, and cataloged.</p>
+    </div>
+
+    <div class="field-card">
+      <div class="field-label">// SCREENSHOT FIELD CARD //</div>
+      <h3>FIELD CARD // ARCHIVE READING PROTOCOL</h3>
+      <ul>
+        <li>Start with the catalog record before the screenshot.</li>
+        <li>Capture agency, date range, record group, and identifier.</li>
+        <li>Separate metadata from the underlying document.</li>
+        <li>Expect redactions, missing context, and rolling updates.</li>
+        <li>Use releases to improve readiness, not to feed panic.</li>
+      </ul>
+    </div>
+
+    <h2>// WHAT IS IN THE UAP RECORDS COLLECTION?</h2>
+
+    <p>NARA describes the collection as records related to UAP, technologies of unknown origin, and non-human intelligence or equivalent subjects, with specific statutory language and exclusions. In practice, that can include agency records, reports, correspondence, images, videos, PDFs, and metadata that help civilians see where a file came from.</p>
+
+    <p>The collection also intersects with older UFO and UAP holdings. That includes historic material like Project Blue Book related records and newer digital transfers from federal agencies. The important point is not that every file is dramatic. The important point is that records can be traced.</p>
+
+    <div class="source-panel">
+      <div class="source-label">PRIMARY SOURCE PATHS</div>
+      <p>Use the National Archives UAP topic page, Record Group 615 page, FAQ, and UAP bulk download page. Those pages explain transfer rules, catalog access, digital copies, and update cadence.</p>
+    </div>
+
+    <h2>// WHY DID THIS COLLECTION EXIST?</h2>
+
+    <p>The 2024 National Defense Authorization Act required federal agencies to identify UAP records and transfer digital copies to the National Archives. That does not mean the whole archive appears at once. NARA receives and adds materials on an ongoing basis.</p>
+
+    <p>This is why release culture feels confusing. A file can exist, be identified, be prepared, be transferred, be redacted, be cataloged, be available onsite, and later appear online. Those are separate states. Treating them as one event creates bad analysis.</p>
+
+    <h2>// WHAT DO BULK DOWNLOADS CHANGE?</h2>
+
+    <p>Bulk downloads make digitized and born-digital UAP-related records easier to inspect at scale. NARA's bulk download pages can include zip files for image, video, and PDF files, plus JSON metadata. That is useful because metadata often carries the boring facts that keep interpretation honest.</p>
+
+    <p>Bulk access does not remove the need for caution. A file title can be misleading. A description can be incomplete. A clipped image can travel faster than the catalog context. The prepared reader always keeps the record identifier attached to the claim.</p>
+
+    <h2>// WHAT IS NOT INCLUDED?</h2>
+
+    <p>Not every material is available online. Some records may be unavailable because of rights restrictions, access procedures, redactions, or because the record has not moved through transfer and catalog systems yet. Some records may require onsite access before they become available in the online catalog.</p>
+
+    <p>That gap does not automatically mean conspiracy. It also does not mean the gap is irrelevant. In a public records environment, the absence, delay, or redaction pattern is a signal to track with discipline.</p>
+
+    <h2>// HOW SHOULD CIVILIANS READ RELEASES?</h2>
+
+    <ul>
+      <li><strong>Keep the record chain intact.</strong> Save the URL, identifier, agency, and date range with every quote.</li>
+      <li><strong>Read before sharing.</strong> A dramatic filename is not the same as a dramatic finding.</li>
+      <li><strong>Compare duplicates.</strong> Redacted and unredacted versions can tell different parts of the story.</li>
+      <li><strong>Watch updates.</strong> Rolling release systems can change without one giant announcement.</li>
+      <li><strong>Separate proof from preparation.</strong> Even partial records can teach civilians how information shock unfolds.</li>
+    </ul>
+
+    <p>If a release wave triggers fear or viral certainty, return to basics: source, timestamp, agency, record identifier, and what a calm civilian should do differently now.</p>
+
+    <h2>// HOW THIS CONNECTS TO FIRST CONTACT READINESS</h2>
+
+    <p>The UAP Records Collection is not a survival manual. It is a public memory system. But public memory matters during disclosure because people panic when impossible information arrives without structure.</p>
+
+    <p>A prepared civilian learns how to read evidence before the feed starts screaming. That means knowing what a primary record is, what a redaction means, and what your role is when other people confuse a document dump with the end of reality.</p>
+
+    <h2>// RELATED FILES</h2>
+
+    <ul>
+      <li><a href="/intel/uap-disclosure-act-2026-timeline/"><strong>UAP disclosure timeline</strong></a> tracks the public pressure around records and release deadlines.</li>
+      <li><a href="/intel/government-ufo-programs-history/"><strong>Government UFO programs history</strong></a> gives context for older records and official investigations.</li>
+      <li><a href="/first-contact"><strong>The First Contact briefing</strong></a> turns archive awareness into civilian behavior.</li>
+      <li><a href="/quiz"><strong>The classification quiz</strong></a> identifies how you respond when the record changes faster than people can process.</li>
+    </ul>
+
+    <div class="classified-box">
+      <div class="box-label">// FINAL ASSESSMENT</div>
+      <p>The archive will not stay neat. Your process can. Track identifiers, preserve context, and let the record make you steadier instead of louder.</p>
+    </div>
+
+    <div class="article-artifact">
+      <div class="artifact-label">// DISCLOSURE FIELD ARTIFACT //</div>
+      <h3>UAP RECORD RELEASE CHECKLIST</h3>
+      <div class="artifact-grid">
+        <div class="artifact-step"><strong>ID</strong><span>Record group, National Archives identifier, agency, and catalog URL.</span></div>
+        <div class="artifact-step"><strong>TYPE</strong><span>Memo, image, video, PDF, metadata file, report, or correspondence.</span></div>
+        <div class="artifact-step"><strong>STATUS</strong><span>Public, redacted, onsite, restricted, updated, or newly transferred.</span></div>
+        <div class="artifact-step"><strong>CLAIM</strong><span>What the document supports, and what it does not support.</span></div>
+        <div class="artifact-step"><strong>ROLE</strong><span>What a Sentinel, Diplomat, Scholar, Survivor, or First Contact profile should do with the information.</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="article-cta">
+    <p>// THE RECORD IS OPENING. ENTER WITH DISCIPLINE. //</p>
+    <a href="/quiz" class="cta-btn">START CLASSIFICATION →</a>
+  </div>
+</main>
+
+<footer class="ds-footer">
+  <div class="ds-ft-shell">
+    <div class="ds-ft-grid">
+      <div>
+        <div class="ds-ft-kicker">// TRANSMISSION CLOSED //</div>
+        <h2 class="ds-ft-head">Stay on frequency.<em>Arrive classified.</em></h2>
+        <p class="ds-ft-copy">The public file ends here. Your civilian role, field card, and launch signal begin when you enter the system.</p>
+        <div class="ds-ft-cta-row">
+          <a class="ds-ft-cta primary" href="/#quiz">START CLASSIFICATION <i>↗</i></a>
+          <a class="ds-ft-cta secondary" href="/#access">CLAIM CARD</a>
+        </div>
+      </div>
+      <div class="ds-ft-panel">
+        <div class="ds-ft-panel-inner">
+          <nav class="ds-ft-nav" aria-label="Footer navigation">
+            <a href="/quiz">ARCHETYPE QUIZ</a>
+            <a href="/first-contact">THE BRIEFING</a>
+            <a href="/readiness">READINESS</a>
+            <a href="/archetypes">ARCHETYPES</a>
+            <a href="/faq">FAQ</a>
+            <a href="/about">ABOUT</a>
+            <a href="/intel" aria-current="page">INTEL</a>
+            <a href="/privacy">PRIVACY</a>
+            <a href="/terms">TERMS</a>
+          </nav>
+          <div class="ds-ft-social" aria-label="Disclosure social channels">
+            <a href="https://x.com/disclosure_app" target="_blank" rel="noopener" title="X / Twitter"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="https://www.youtube.com/@getdisclosure" target="_blank" rel="noopener" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12z"/></svg></a>
+            <a href="https://www.tiktok.com/@getdisclosure" target="_blank" rel="noopener" title="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+            <a href="https://instagram.com/disclosure_app" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+          </div>
+          <div class="ds-ft-status" aria-label="Transmission status">
+            <span><b>LIVE</b> Signal file</span>
+            <span><b>04</b> Archetypes</span>
+            <span><b>99+</b> Briefed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ds-ft-t">DISCLOSURE // GETDISCLOSURE.APP</div>
+    <div class="ds-ft-b" onclick="this.textContent='IT\'S REAL';this.style.color='rgba(74,246,38,.55)'" title="Decode">
+      01001001 01010100 00100111 01010011 00100000 01010010 01000101 01000001 01001100
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/disclosure-page-polish.js" defer></script>
+</body>
+</html>
