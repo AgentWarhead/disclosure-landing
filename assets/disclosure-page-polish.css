@@ -1,0 +1,114 @@
+/* DISCLOSURE shared non-landing polish layer. Visual/interaction only. No content rules. */
+:root{
+  --dp-acid:#dfff8c;
+  --dp-green:#4af626;
+  --dp-line:rgba(216,255,155,.22);
+  --dp-soft:rgba(74,246,38,.08);
+  --dp-glow:rgba(74,246,38,.28);
+}
+
+html{scroll-padding-top:92px;}
+body.dp-polish-ready{position:relative;}
+body.dp-polish-ready::selection{background:rgba(74,246,38,.32);color:#fff;}
+body.dp-polish-ready .dp-cursor-glow{
+  position:fixed;
+  left:0;
+  top:0;
+  width:460px;
+  height:460px;
+  transform:translate(calc(var(--dp-mx,50vw) - 50%),calc(var(--dp-my,50vh) - 50%));
+  border-radius:50%;
+  pointer-events:none;
+  z-index:2;
+  opacity:.32;
+  background:radial-gradient(circle,rgba(74,246,38,.13),rgba(216,255,155,.045) 34%,transparent 68%);
+  mix-blend-mode:screen;
+  transition:opacity .24s ease;
+}
+body.dp-polish-ready:not(:hover) .dp-cursor-glow{opacity:.12;}
+
+body.dp-polish-ready :is(a,button,.btn,.cta-btn,.ds-ft-cta,.navlinks a,.links-grid a,.arch-item,.card,.step,.faq,.faq-card,.step-card,.role-card,.protocol-card,.timeline-card,.brief-card,.wide-card,.policy-block,.level,.stat-box,.side-row,.intel-card,.archive-card,.file-card,.priority-card,.article-card){
+  transition:transform .32s cubic-bezier(.22,1,.36,1),border-color .32s cubic-bezier(.22,1,.36,1),box-shadow .32s cubic-bezier(.22,1,.36,1),background .32s cubic-bezier(.22,1,.36,1),color .24s ease,opacity .24s ease,filter .24s ease;
+}
+
+body.dp-polish-ready :is(.card,.step,.faq,.faq-card,.step-card,.role-card,.protocol-card,.timeline-card,.brief-card,.wide-card,.policy-block,.level,.stat-box,.side-row,.arch-item,.intel-card,.archive-card,.file-card,.priority-card,.article-card):hover{
+  transform:translateY(-4px);
+  border-color:rgba(216,255,155,.42)!important;
+  box-shadow:0 24px 70px rgba(0,0,0,.38),0 0 42px rgba(74,246,38,.10),inset 0 0 70px rgba(74,246,38,.045);
+  background-color:rgba(74,246,38,.035);
+}
+
+body.dp-polish-ready :is(.btn,.cta-btn,.ds-ft-cta,.navlinks a,.links-grid a):hover{
+  transform:translateY(-2px);
+  filter:brightness(1.08) saturate(1.08);
+  box-shadow:0 18px 50px rgba(0,0,0,.36),0 0 28px rgba(74,246,38,.16);
+}
+
+body.dp-polish-ready :is(a,button,.btn,.cta-btn,.ds-ft-cta,.navlinks a,.links-grid a):focus-visible{
+  outline:2px solid rgba(216,255,155,.82);
+  outline-offset:4px;
+  box-shadow:0 0 0 6px rgba(74,246,38,.12);
+}
+
+body.dp-polish-ready :is(main,.container,.shell)>section,
+body.dp-polish-ready :is(.section,.policy-block,.faq-item){
+  position:relative;
+}
+body.dp-polish-ready :is(main,.container,.shell)>section:not(:first-child)::before,
+body.dp-polish-ready :is(.section,.policy-block,.faq-item)::before{
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:1px;
+  pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(74,246,38,.24),rgba(216,255,155,.36),rgba(251,191,36,.16),transparent);
+  box-shadow:0 0 24px rgba(74,246,38,.12);
+}
+
+body.dp-polish-ready :is(h1,h2,h3,.section-k,.kicker,.eyebrow,.section-header,.panel-head,.logo)::selection{
+  background:rgba(216,255,155,.26);
+}
+
+body.dp-polish-ready :is(.card,.step,.faq,.faq-card,.step-card,.role-card,.protocol-card,.timeline-card,.brief-card,.wide-card,.policy-block,.level,.stat-box,.side-row,.arch-item,.intel-card,.archive-card,.file-card,.priority-card,.article-card){
+  isolation:isolate;
+  overflow:hidden;
+}
+body.dp-polish-ready :is(.card,.step,.faq,.faq-card,.step-card,.role-card,.protocol-card,.timeline-card,.brief-card,.wide-card,.policy-block,.level,.stat-box,.side-row,.arch-item,.intel-card,.archive-card,.file-card,.priority-card,.article-card)::after{
+  opacity:var(--dp-after-opacity,inherit);
+}
+body.dp-polish-ready :is(.card,.step,.faq,.faq-card,.step-card,.role-card,.protocol-card,.timeline-card,.brief-card,.wide-card,.policy-block,.level,.stat-box,.side-row,.arch-item,.intel-card,.archive-card,.file-card,.priority-card,.article-card):hover::before{
+  opacity:1;
+}
+
+body.dp-polish-ready .dp-reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);
+}
+body.dp-polish-ready .dp-reveal.dp-inview{
+  opacity:1;
+  transform:translateY(0);
+}
+
+body.dp-polish-ready :is(.section,.policy-block,.faq-item,.card,.step,.faq,.faq-card,.step-card,.role-card,.protocol-card,.timeline-card,.brief-card,.wide-card,.level,.arch-item,.stat-box,.side-row):has(a:hover){
+  border-color:rgba(216,255,155,.46)!important;
+}
+
+@media (prefers-reduced-motion: reduce){
+  body.dp-polish-ready .dp-cursor-glow{display:none;}
+  body.dp-polish-ready .dp-reveal{opacity:1;transform:none;transition:none;}
+  body.dp-polish-ready *{transition:none!important;animation:none!important;}
+}
+
+@media (max-width:760px){
+  body.dp-polish-ready .dp-cursor-glow{display:none;}
+  body.dp-polish-ready :is(.card,.step,.faq,.faq-card,.step-card,.role-card,.protocol-card,.timeline-card,.brief-card,.wide-card,.policy-block,.level,.stat-box,.side-row,.arch-item,.intel-card,.archive-card,.file-card,.priority-card,.article-card):hover{transform:none;}
+}
+
+/* Mobile safety normalization for full-bleed command bars on supporting pages. */
+@media (max-width:760px){
+  body.dp-polish-ready .shell{max-width:100%;overflow:hidden;}
+  body.dp-polish-ready .topbar{width:auto!important;margin-left:-14px!important;margin-right:-14px!important;}
+}
