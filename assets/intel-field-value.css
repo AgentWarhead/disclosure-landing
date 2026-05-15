@@ -1,0 +1,113 @@
+/* DISCLOSURE Intel field value layer */
+.field-card {
+  position: relative;
+  margin: 2rem 0 2.4rem;
+  padding: 1.35rem 1.45rem 1.35rem 1.65rem;
+  border: 1px solid rgba(57,255,20,0.34);
+  border-left: 4px solid var(--g);
+  background: linear-gradient(135deg, rgba(57,255,20,0.095), rgba(57,255,20,0.025) 55%, rgba(255,215,0,0.045));
+  box-shadow: 0 0 28px rgba(57,255,20,0.08), inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+.field-card::before {
+  content: "";
+  position: absolute;
+  top: 0.65rem;
+  right: 0.75rem;
+  width: 58px;
+  height: 10px;
+  background: repeating-linear-gradient(90deg, rgba(57,255,20,0.58) 0 6px, transparent 6px 10px);
+  opacity: 0.45;
+}
+.field-label,
+.artifact-label {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--g);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+.field-card h3,
+.article-body .field-card h3 {
+  margin: 0 0 0.85rem;
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.field-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.52rem;
+}
+.field-card li {
+  position: relative;
+  margin: 0;
+  padding-left: 1.15rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.78);
+}
+.field-card li::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  color: var(--g);
+}
+.article-artifact {
+  margin: 2.6rem 0;
+  padding: 1.5rem;
+  border: 1px solid rgba(255,215,0,0.28);
+  background:
+    linear-gradient(180deg, rgba(255,215,0,0.075), rgba(255,255,255,0.025)),
+    radial-gradient(circle at top right, rgba(57,255,20,0.12), transparent 44%);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.32);
+}
+.article-artifact h3,
+.article-body .article-artifact h3 {
+  margin: 0 0 1rem;
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.artifact-grid {
+  display: grid;
+  gap: 0.65rem;
+}
+.artifact-step {
+  display: grid;
+  grid-template-columns: minmax(74px, 0.34fr) 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  padding: 0.72rem 0.78rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.24);
+}
+.artifact-step strong {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--g);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.artifact-step span {
+  font-size: 0.96rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.78);
+}
+@media (max-width: 600px) {
+  .field-card,
+  .article-artifact {
+    padding: 1.15rem;
+  }
+  .artifact-step {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
