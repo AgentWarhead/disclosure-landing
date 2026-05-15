@@ -176,6 +176,10 @@
     }
 
     main{position:relative;z-index:2}
+    main>section:not(.hero-scroll){position:relative;border-top:1px solid rgba(74,246,38,.22)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 -18px 70px rgba(74,246,38,.08)}
+    .section-divider{position:absolute;left:clamp(18px,5vw,72px);right:clamp(18px,5vw,72px);top:0;height:18px;z-index:12;pointer-events:none;mix-blend-mode:screen}
+    .section-divider::before{content:'';position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent 0%,rgba(74,246,38,.22) 9%,rgba(74,246,38,.95) 21%,rgba(255,255,255,.72) 50%,rgba(74,246,38,.95) 79%,rgba(74,246,38,.22) 91%,transparent 100%);box-shadow:0 0 14px rgba(74,246,38,.62),0 0 38px rgba(74,246,38,.24)}
+    .section-divider::after{content:'';position:absolute;left:50%;top:0;width:min(190px,36vw);height:10px;transform:translateX(-50%);background:linear-gradient(180deg,rgba(74,246,38,.28),transparent);clip-path:polygon(0 0,100% 0,82% 100%,18% 100%);opacity:.8}
 
     /* NAV */
     .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:6px 24px;height:52px;box-sizing:border-box;background:rgba(0,0,0,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(74,246,38,.06)}
@@ -2479,6 +2483,17 @@ function retakeQuiz() {
 
 // ── Quiz Logic (Change 1, 12) + CINEMATIC OVERHAUL ──
 let quizEntranceDone = false;
+
+// Visible section separators
+(function() {
+  document.querySelectorAll('main > section:not(.hero-scroll)').forEach(function(section) {
+    if (section.querySelector(':scope > .section-divider')) return;
+    var divider = document.createElement('div');
+    divider.className = 'section-divider';
+    divider.setAttribute('aria-hidden', 'true');
+    section.prepend(divider);
+  });
+})();
 
 // FEATURE 1: Glitch entrance IntersectionObserver
 function initQuizEntrance() {
