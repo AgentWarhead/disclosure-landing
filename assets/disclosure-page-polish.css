@@ -109,9 +109,16 @@ body.dp-polish-ready :is(.section,.policy-block,.faq-item,.card,.step,.faq,.faq-
 
 /* Full-bleed command bars on supporting pages. */
 body.dp-polish-ready .topbar{
-  width:100vw!important;
-  margin-left:calc(50% - 50vw + (100vw - 100%) / 2 - 22px)!important;
-  margin-right:calc(50% - 50vw + (100vw - 100%) / 2 - 22px)!important;
+  width:calc(100% + 44px)!important;
+  margin-left:-22px!important;
+  margin-right:-22px!important;
+}
+@media (min-width:1441px){
+  body.dp-polish-ready .topbar{
+    width:100vw!important;
+    margin-left:calc(50% - 50vw)!important;
+    margin-right:calc(50% - 50vw)!important;
+  }
 }
 body.dp-polish-ready > nav:not(.intel-guide-topbar){
   position:sticky;
@@ -139,6 +146,6 @@ body.dp-polish-ready > nav:not(.intel-guide-topbar)::after{
 }
 @media (max-width:760px){
   body.dp-polish-ready .shell{max-width:100%;overflow:visible;}
-  body.dp-polish-ready .topbar{width:100vw!important;margin-left:calc(50% - 50vw + (100vw - 100%) / 2 - 14px)!important;margin-right:calc(50% - 50vw + (100vw - 100%) / 2 - 14px)!important;padding-inline:14px!important;}
+  body.dp-polish-ready .topbar{width:calc(100% + 28px)!important;margin-left:-14px!important;margin-right:-14px!important;padding-inline:14px!important;}
   body.dp-polish-ready > nav:not(.intel-guide-topbar){padding:14px!important;}
 }
