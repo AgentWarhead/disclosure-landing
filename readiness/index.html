@@ -1,220 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Are You Ready for First Contact? | DISCLOSURE</title>
-<meta name="description" content="The average civilian scores 22 out of 100 on the Readiness Index. Your archetype determines your role. Your training determines your survival. Find out where you stand."/>
-<meta name="keywords" content="UAP readiness quiz, alien preparedness test, are you ready for alien contact, alien contact readiness, UFO encounter preparedness, first contact readiness score"/>
-<link rel="canonical" href="https://getdisclosure.app/readiness"/>
-<meta property="og:title" content="Are You Ready for First Contact? | DISCLOSURE"/>
-<meta property="og:description" content="The average civilian scores 22 out of 100. Your archetype determines your role. Your training determines your survival."/>
-<meta name="twitter:title" content="Are You Ready for First Contact? | DISCLOSURE"/>
-<meta name="twitter:description" content="The average civilian scores 22 out of 100. Your archetype determines your role. Your training determines your survival."/>
-<meta name="twitter:image" content="https://getdisclosure.app/og-v2.png"/>
-<meta property="og:image" content="https://getdisclosure.app/og-v2.png"/>
-<meta property="og:url" content="https://getdisclosure.app/readiness"/>
-<meta property="og:type" content="website"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="theme-color" content="#000000"/>
-<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
-<link rel="manifest" href="/site.webmanifest"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet"/>
-<style>
-  :root{--g:#39ff14;--mono:'Share Tech Mono',monospace;--gold:#FFD700}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#000;color:#fff;font-family:'Rajdhani',sans-serif;line-height:1.6;min-height:100vh}
-  a{color:var(--g);text-decoration:none}
-  nav{padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;max-width:800px;margin:0 auto}
-  .nav-logo{font-family:var(--mono);font-size:10px;letter-spacing:.35em;color:var(--g)}
-  .nav-back{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.45)}
-  .container{max-width:720px;margin:0 auto;padding:64px 24px 100px}
-  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(57,255,20,.7);margin-bottom:20px}
-  h1{font-size:clamp(32px,5.5vw,60px);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:24px}
-  h1 em{font-style:normal;color:var(--g)}
-  .lead{font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:48px;max-width:580px}
-  .divider{width:60px;height:1px;background:rgba(57,255,20,.4);margin:48px 0}
-  h2{font-size:clamp(20px,3vw,28px);font-weight:700;letter-spacing:-.01em;margin-bottom:16px;margin-top:44px}
-  h2 span{color:var(--g)}
-  p{color:rgba(255,255,255,.72);line-height:1.85;margin-bottom:20px;font-size:clamp(15px,1.8vw,18px)}
-  strong{color:#fff}
-  .score-display{margin:40px 0;padding:32px;border:1px solid rgba(57,255,20,.2);border-radius:6px;text-align:center;background:rgba(57,255,20,.02)}
-  .score-label{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(57,255,20,.6);margin-bottom:12px}
-  .score-bar-wrap{background:rgba(255,255,255,.06);border-radius:2px;height:6px;max-width:400px;margin:16px auto}
-  .score-bar{height:6px;background:var(--g);border-radius:2px;width:22%}
-  .score-note{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,.45);margin-top:12px}
-  .levels{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:32px 0}
-  .level{padding:16px;border:1px solid rgba(255,255,255,.08);border-radius:4px}
-  .level-score{font-family:var(--mono);font-size:20px;color:var(--g);display:block;margin-bottom:4px}
-  .level-name{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.5);display:block;margin-bottom:8px}
-  .level-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
-  .level.locked .level-score{color:rgba(255,255,255,.2)}
-  .cta-wrap{text-align:center;margin-top:56px;padding:40px 24px;border:1px solid rgba(57,255,20,.2);border-radius:6px;background:rgba(57,255,20,.02)}
-  .cta-label{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:rgba(57,255,20,.6);margin-bottom:16px}
-  .cta-btn{display:inline-block;background:var(--g);color:#000;font-family:var(--mono);font-size:12px;letter-spacing:.25em;padding:16px 40px;border-radius:3px;font-weight:700;transition:opacity .2s}
-  .cta-btn:hover{opacity:.85}
-  .faq{margin-top:64px;border-top:1px solid rgba(255,255,255,.06);padding-top:48px}
-  .faq-item{margin-bottom:32px}
-  .faq-q{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:#fff;margin-bottom:10px}
-  .faq-a{color:rgba(255,255,255,.68);font-size:clamp(14px,1.6vw,17px);line-height:1.8}
-  footer{text-align:center;padding:32px 24px;border-top:1px solid rgba(255,255,255,.05);font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.25)}
-  .ft-nav{margin-bottom:14px;display:flex;justify-content:center;flex-wrap:wrap;gap:6px 0}
-  .ft-nav a{font-family:var(--mono,'JetBrains Mono',monospace);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.3);text-decoration:none;padding:0 10px;border-right:1px solid rgba(255,255,255,.1);transition:color .2s;white-space:nowrap}
-  .ft-nav a:last-child{border-right:none}
-  .ft-nav a:hover{color:rgba(74,246,38,.7)}
-  .ft-social{display:flex;justify-content:center;gap:20px;margin:16px 0 12px}
-  .ft-social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid rgba(74,246,38,.15);border-radius:4px;color:rgba(255,255,255,.4);text-decoration:none;transition:all .3s;font-size:16px}
-  .ft-social a:hover{color:rgba(74,246,38,.9);border-color:rgba(74,246,38,.5);box-shadow:0 0 12px rgba(74,246,38,.15)}
-  .ft-social a svg{width:18px;height:18px;fill:currentColor}
-  .ft-t{font-family:var(--mono,'JetBrains Mono',monospace);font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.65)}
-  .ft-b{font-family:var(--mono,'JetBrains Mono',monospace);font-size:8px;letter-spacing:.1em;color:rgba(255,255,255,.05);cursor:pointer;margin-top:8px;transition:color .3s}
-  .ft-b:hover{color:rgba(74,246,38,.5)}
-  @media(max-width:600px){.ft-nav{flex-wrap:wrap;gap:4px}.ft-nav a{border-right:none;padding:4px 8px}}
-  </style>
-
-<!-- Schema.org: WebPage + FAQPage -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "UAP Readiness Assessment",
-  "description": "The average civilian scores 22 out of 100 on the Disclosure Readiness Index. Your archetype determines your role. Your training determines your survival.",
-  "url": "https://getdisclosure.app/readiness",
-  "isPartOf": {"@type": "WebSite", "name": "Disclosure", "url": "https://getdisclosure.app"},
-  "publisher": {"@type": "Organization", "name": "Disclosure", "url": "https://getdisclosure.app"}
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is UAP readiness?",
-      "acceptedAnswer": {"@type": "Answer", "text": "UAP readiness measures how prepared a civilian is to respond to an unidentified anomalous phenomena encounter in real time, without support. The average civilian scores 22 out of 100. Disclosure provides archetype-specific training to improve this score."}
-    },
-    {
-      "@type": "Question",
-      "name": "What is a good readiness score?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Scores 1-25 are Unverified (high freeze probability), 26-50 are Field Ready, 51-75 are Protocol Cleared, and 76-100 are Classified. Most untrained civilians score below 30. Every training module in the Disclosure app is designed to move your score upward."}
-    },
-    {
-      "@type": "Question",
-      "name": "How do I improve my readiness score?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Your Readiness Score improves through archetype-specific training modules inside the Disclosure app. Each module targets different readiness dimensions: composure, role orientation, protocol retention, and situational awareness. Take the assessment at getdisclosure.app to establish your baseline."}
-    }
-  ]
-}
-</script>
-
-<link rel="stylesheet" href="/assets/disclosure-footer.css"/>
-
-
-</head>
-<body>
-<nav>
-  <a href="/" class="nav-logo">DISCLOSURE</a>
-  <a href="/" class="nav-back">← RETURN TO BASE</a>
-</nav>
-
-<div class="container">
-  <div class="eyebrow">// READINESS PROTOCOL — INITIATED //</div>
-  <h1>Are You Ready<br>for <em>First Contact</em>?</h1>
-  <p class="lead">The average unprepared civilian scores 22 out of 100 on the Disclosure Readiness Index. Your score depends on what you know, who you are — and whether you've been trained.</p>
-
-  <div class="divider"></div>
-
-  <h2>What Is <span>UAP Readiness</span>?</h2>
-  <p>UAP readiness is the measure of how prepared a civilian is to respond to an unidentified anomalous phenomena encounter — in real time, without support, with no protocol in hand.</p>
-  <p>It is not about whether you believe. It is not about your knowledge of government programs or declassified files. It is about one thing: <strong>what you do in the sixty seconds after contact occurs</strong>, when there is no one to call and no manual to open.</p>
-  <p>Most people have a readiness score below 30. Not because they are unintelligent or unprepared in other areas of life. Because this is a scenario that has never had civilian training infrastructure — until now.</p>
-
-  <div class="score-display">
-    <div class="score-label">// AVERAGE CIVILIAN READINESS //</div>
-    <div class="score-bar-wrap"><div class="score-bar"></div></div>
-    <div class="score-note">22 / 100 · DESIGNATION: UNVERIFIED · STATUS: UNPREPARED</div>
-  </div>
-
-  <h2>The <span>Readiness Score</span></h2>
-  <p>Your Readiness Score is generated by the Disclosure archetype assessment and reflected on your First Contact Card. It measures four axes: composure under extreme-unknown conditions, instinctive role orientation, protocol retention capacity, and situational awareness response time.</p>
-  <p>It is not a grade. It is a baseline. And every training module in the Disclosure app is designed to move it upward.</p>
-
-  <h2>Clearance <span>Levels</span></h2>
-  <div class="levels">
-    <div class="level">
-      <span class="level-score">0–19</span>
-      <span class="level-name">CIVILIAN</span>
-      <span class="level-desc">No prior training. Default response. High freeze probability.</span>
-    </div>
-    <div class="level">
-      <span class="level-score">20–39</span>
-      <span class="level-name">OBSERVER</span>
-      <span class="level-desc">Basic awareness activated. Watching. Processing. Not yet tested.</span>
-    </div>
-    <div class="level">
-      <span class="level-score">40–59</span>
-      <span class="level-name">TRAINEE</span>
-      <span class="level-desc">Archetype identified. Protocol study underway. Composure building.</span>
-    </div>
-    <div class="level">
-      <span class="level-score">60–79</span>
-      <span class="level-name">LIAISON</span>
-      <span class="level-desc">Drill-tested. Full protocol knowledge. Capable of executing primary role.</span>
-    </div>
-    <div class="level locked">
-      <span class="level-score">80–99</span>
-      <span class="level-name">DIPLOMAT</span>
-      <span class="level-desc">Advanced clearance. Multi-protocol fluency. Field-deployment ready.</span>
-    </div>
-    <div class="level locked">
-      <span class="level-score">100</span>
-      <span class="level-name">FIRST CONTACT</span>
-      <span class="level-desc">Maximum clearance. Designation details available in the Disclosure app only.</span>
-    </div>
-  </div>
-
-  <h2>Why <span>Your Score</span> Matters Now</h2>
-  <p>The UAP Disclosure Act. The Vatican's investigation. Canada's civilian reporting infrastructure. The Congressional hearings. The world is moving toward an event that generations have treated as hypothetical.</p>
-  <p>A First Contact Card with a high Readiness Score is not a novelty. It is proof that you took it seriously before most people knew it was real. <strong>Low serial numbers board first.</strong></p>
-
-  <div class="cta-wrap">
-    <div class="cta-label">// GET YOUR READINESS SCORE //</div>
-    <p style="color:rgba(255,255,255,.6);font-size:14px;margin-bottom:24px;font-family:'Share Tech Mono',monospace;letter-spacing:.05em">Join the waitlist. Get classified before launch.</p>
-    <a href="/" class="cta-btn">START ASSESSMENT</a>
-  </div>
-
-  <div class="faq">
-    <h2>Frequently <span>Asked</span></h2>
-
-    <div class="faq-item">
-      <div class="faq-q">Q: What is the UAP readiness quiz?</div>
-      <div class="faq-a">The Disclosure UAP readiness assessment is a 10-question test that generates your personal Readiness Score and determines your archetype designation. It is the first civilian UAP readiness platform of its kind.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Q: Are you ready for alien contact?</div>
-      <div class="faq-a">Most people aren't — not because they lack intelligence or preparation in other areas, but because no civilian training infrastructure has existed until now. Disclosure provides the assessment, training, and certification that changes that.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Q: What is the alien preparedness test?</div>
-      <div class="faq-a">The Disclosure alien preparedness assessment classifies you as a Sentinel, Diplomat, Scholar, Survivor, or the rare First Contact designation. Each archetype receives a different Readiness Score, Clearance Level, and training protocol in the app.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Q: How do I improve my readiness score?</div>
-      <div class="faq-a">Your Readiness Score improves through training modules inside the Disclosure app. Each module is archetype-specific and targets different readiness dimensions. Details available after classification.</div>
-    </div>
-  </div>
-</div>
-
-<footer class="ds-footer">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>UAP Readiness Protocol: First Contact Preparedness | DISCLOSURE</title>
+<meta name="description" content="A civilian UAP readiness protocol for first contact preparation: score your response, learn the levels, and train the first sixty seconds."/>
+<meta name="robots" content="index, follow, max-image-preview:large"/><link rel="canonical" href="https://getdisclosure.app/readiness"/>
+<meta property="og:title" content="UAP Readiness Protocol: First Contact Preparedness | DISCLOSURE"/><meta property="og:description" content="A civilian UAP readiness protocol for first contact preparation: score your response, learn the levels, and train the first sixty seconds."/><meta property="og:image" content="https://getdisclosure.app/og-image.jpg"/><meta property="og:url" content="https://getdisclosure.app/readiness"/><meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="UAP Readiness Protocol: First Contact Preparedness | DISCLOSURE"/><meta name="twitter:description" content="A civilian UAP readiness protocol for first contact preparation: score your response, learn the levels, and train the first sixty seconds."/><meta name="twitter:image" content="https://getdisclosure.app/og-image.jpg"/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="manifest" href="/site.webmanifest"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=JetBrains+Mono:wght@400;700;800&family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet"/><link rel="stylesheet" href="/assets/disclosure-footer.css"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"UAP Readiness Protocol","description":"Civilian readiness framework for first contact, UFO, UAP, and NHI encounter scenarios.","url":"https://getdisclosure.app/readiness","isPartOf":{"@type":"WebSite","name":"DISCLOSURE","url":"https://getdisclosure.app"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is UAP readiness?","acceptedAnswer":{"@type":"Answer","text":"UAP readiness is the ability to stay calm, create distance, document cleanly, protect dependents, and act by role during an unidentified anomalous phenomena encounter."}},{"@type":"Question","name":"How do I improve my first contact readiness?","acceptedAnswer":{"@type":"Answer","text":"Improve readiness by training composure, role clarity, observation, evidence discipline, communication, and scenario rehearsal."}},{"@type":"Question","name":"What is a readiness score?","acceptedAnswer":{"@type":"Answer","text":"A readiness score is a baseline estimate of civilian preparedness across composure, role orientation, protocol retention, and situational awareness."}}]}</script><style>
+:root{--g:#4AF626;--acid:#dfff8c;--font-head:'Teko',sans-serif;--font-mono:'JetBrains Mono',monospace;--font-body:'Chakra Petch',sans-serif;--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box;margin:0;padding:0}html{background:#000;scroll-behavior:smooth}
+body{min-height:100vh;background:radial-gradient(circle at 50% -12%,rgba(74,246,38,.18),transparent 30%),radial-gradient(circle at 88% 18%,rgba(251,191,36,.12),transparent 28%),radial-gradient(circle at 8% 58%,rgba(96,165,250,.11),transparent 30%),linear-gradient(180deg,#020604 0%,#000 52%,#030503 100%);color:#fff;font-family:var(--font-body);overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(rgba(255,255,255,.026) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:46px 46px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.92),transparent 88%)}
+a{color:inherit;text-decoration:none}.shell{position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:10;width:calc(100vw + 14px);margin-left:calc(50% - 50vw - 7px);margin-right:calc(50% - 50vw - 7px);display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px clamp(25px,4vw,61px);border-bottom:1px solid rgba(216,255,155,.22);background:linear-gradient(90deg,rgba(0,0,0,.96),rgba(3,16,7,.9) 48%,rgba(0,0,0,.96));backdrop-filter:blur(22px) saturate(1.25);overflow:hidden}
+.topbar::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,rgba(74,246,38,.85),rgba(216,255,155,.58),rgba(255,215,0,.32),transparent)}
+.logo{display:inline-flex;align-items:center;min-height:42px;padding:7px 12px;border:1px solid rgba(216,255,155,.16);border-radius:999px;background:rgba(0,0,0,.34);line-height:0}
+.logo img{height:30px;width:auto;display:block}.logo::after{content:attr(data-label);margin-left:12px;font-family:var(--font-mono);font-size:10px;font-weight:950;letter-spacing:.18em;color:rgba(216,255,155,.78)}
+.navlinks{display:flex;align-items:center;gap:8px}.navlinks a{min-height:38px;display:inline-flex;align-items:center;padding:10px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.82)}
+.navlinks a.primary{color:#061006;background:linear-gradient(90deg,#dfff8c,#4af626);border-color:rgba(216,255,155,.72);font-weight:950}
+.hero{position:relative;min-height:calc(100svh - 70px);display:grid;grid-template-columns:minmax(0,1.02fr) minmax(380px,.98fr);gap:36px;align-items:center;padding:64px 0 44px}
+.kicker{display:inline-flex;align-items:center;gap:10px;width:max-content;max-width:100%;margin-bottom:18px;padding:9px 13px;border:1px solid rgba(74,246,38,.26);background:rgba(74,246,38,.06);font-family:var(--font-mono);font-size:13px;letter-spacing:.16em;color:var(--acid)}
+.kicker::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--g)}
+h1{max-width:920px;font-family:var(--font-head);font-size:clamp(58px,9vw,132px);line-height:.79;letter-spacing:-.045em;font-weight:700;text-transform:uppercase}
+h1 span{display:block;margin-top:.08em;color:transparent;-webkit-text-stroke:1px rgba(216,255,155,.82)}
+.lead{max-width:760px;margin:26px 0 28px;color:rgba(255,255,255,.88);font-size:clamp(20px,2vw,27px);line-height:1.35;font-weight:650}
+.answer-box{max-width:780px;margin:24px 0 0;padding:18px 20px;border:1px solid rgba(216,255,155,.24);background:linear-gradient(90deg,rgba(74,246,38,.08),rgba(255,255,255,.035));font-size:18px;line-height:1.55;color:rgba(255,255,255,.86);font-weight:650}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 22px;border:1px solid rgba(216,255,155,.3);font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;font-weight:900;text-transform:uppercase}
+.btn.primary{background:linear-gradient(135deg,var(--acid),var(--g));color:#031005}.btn.ghost{color:var(--acid);background:rgba(74,246,38,.04)}
+.panel{border:1px solid rgba(216,255,155,.26);background:linear-gradient(145deg,rgba(9,22,12,.92),rgba(0,0,0,.72));box-shadow:inset 0 0 90px rgba(74,246,38,.05)}
+.panel-head{display:flex;justify-content:space-between;padding:20px;border-bottom:1px solid rgba(255,255,255,.1);font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.82)}
+.panel-head strong{color:var(--acid)}
+.grid{display:grid;gap:10px;padding:18px}.row{border:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.35);padding:14px}.row b{display:block;font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:var(--acid);margin-bottom:6px}.row span{font-size:17px;color:rgba(255,255,255,.86);font-weight:650;line-height:1.4}
+.section{padding:82px 0;border-top:1px solid rgba(255,255,255,.08)}.section-k{font-family:var(--font-mono);font-size:13px;letter-spacing:.16em;color:rgba(216,255,155,.92);margin-bottom:10px}
+.section h2{font-family:var(--font-head);font-size:clamp(40px,5.6vw,82px);line-height:.88;letter-spacing:-.035em;text-transform:uppercase}.section h2 em{font-style:normal;color:var(--acid)}
+.section-note{max-width:620px;color:rgba(255,255,255,.84);font-size:21px;line-height:1.45;font-weight:650;margin-top:10px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:20px}.card{border:1px solid rgba(216,255,155,.18);background:linear-gradient(135deg,rgba(7,18,9,.9),rgba(0,0,0,.66));padding:20px;min-height:220px}
+.card b{display:block;font-size:30px;margin-bottom:8px}.card strong{display:block;font-family:var(--font-head);font-size:36px;line-height:.9;text-transform:uppercase}.card p{margin-top:10px;color:rgba(255,255,255,.84);font-size:17px;line-height:1.4;font-weight:650}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}.step{border:1px solid rgba(216,255,155,.18);background:linear-gradient(135deg,rgba(7,18,9,.9),rgba(0,0,0,.66));padding:22px;min-height:240px}.step b{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--acid)}.step h3{font-family:var(--font-head);font-size:34px;line-height:.9;text-transform:uppercase;margin:12px 0}.step p{color:rgba(255,255,255,.84);font-size:18px;line-height:1.45;font-weight:650}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}.faq{border:1px solid rgba(216,255,155,.18);background:linear-gradient(135deg,rgba(7,18,9,.9),rgba(0,0,0,.66));padding:22px}.faq h3{font-family:var(--font-mono);font-size:14px;line-height:1.35;letter-spacing:.05em;color:#fff;margin-bottom:12px;text-transform:uppercase}.faq p{color:rgba(255,255,255,.82);font-size:18px;line-height:1.48;font-weight:650}
+.cta{margin:84px 0 36px;padding:42px;border:1px solid rgba(216,255,155,.34);background:radial-gradient(circle at 70% 0%,rgba(74,246,38,.2),transparent 40%),linear-gradient(135deg,rgba(10,30,11,.96),rgba(0,0,0,.78))}
+.cta h2{max-width:900px;font-family:var(--font-head);font-size:clamp(42px,6.4vw,96px);line-height:.86;letter-spacing:-.04em;text-transform:uppercase}.cta p{max-width:720px;margin:18px 0 26px;color:rgba(255,255,255,.84);font-size:21px;line-height:1.38;font-weight:650}
+@media(max-width:1160px){.hero{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.shell{padding:0 14px;max-width:100%;overflow:hidden}.topbar{padding:11px 14px;width:auto;margin-left:-14px;margin-right:-14px}.logo::after{font-size:9px;letter-spacing:.14em}.navlinks a:not(.primary){display:none}.hero{padding:42px 0 30px;min-height:auto}.hero h1{font-size:clamp(42px,12.5vw,54px);line-height:.92}.hero h1 span{margin-top:.12em}.lead,.section-note{font-size:19px;line-height:1.45}.answer-box{font-size:17px}.actions,.btn{width:100%}.cards,.steps,.faq-grid{grid-template-columns:1fr}.section{padding:56px 0}.cta{padding:28px 18px}.cta p,.faq p,.step p,.card p{font-size:18px}}
+</style></head><body><div class="shell">
+<nav class="topbar" aria-label="Primary navigation"><a href="/" class="logo" data-label="READINESS"><img src="/logo-nav.png" alt="DISCLOSURE"/></a><div class="navlinks"><a href="/first-contact">Briefing</a><a href="/quiz">Quiz</a><a class="primary" href="/#quiz">Get classified</a></div></nav>
+<main>
+<section class="hero"><div><div class="kicker">// READINESS PROTOCOL // CIVILIAN RESPONSE INDEX //</div><h1>Readiness is not belief.<span>It is behavior.</span></h1><p class="lead">The first sixty seconds of a UFO, UAP, or NHI encounter will not wait for a government briefing. This page defines the civilian readiness stack: calm, distance, evidence, role, and recovery.</p><div class="answer-box"><strong>Baseline:</strong> untrained civilians fail from panic, pursuit, over-talking, bad footage, and no role clarity. Readiness is the opposite: fewer moves, cleaner facts, better survival.</div><div class="actions"><a class="btn primary" href="/#quiz">Get your baseline</a><a class="btn ghost" href="/first-contact">Read protocol</a></div></div><aside class="panel"><div class="panel-head"><span>READINESS INDEX</span><strong>22/100</strong></div><div class="grid"><div class="row"><b>COMMON FAILURE</b><span>Freeze, rush, film badly, invent details</span></div><div class="row"><b>FIELD READY</b><span>Calm, distance, documentation, role control</span></div><div class="row"><b>TRAINING TARGET</b><span>75+ protocol retention under stress</span></div><div class="row"><b>NEXT STEP</b><span>Classification before drills</span></div></div></aside></section>
+<section class="section"><div class="section-k">// THE FIVE READINESS AXES //</div><h2>What gets measured.<em>What gets trained.</em></h2><p class="section-note">Readiness is not a vibe score. It is a practical map of how you behave when reality stops matching the room.</p><div class="cards"><article class="card"><b>01</b><strong>Composure</strong><p>Can you slow the panic response before it infects the group?</p></article><article class="card"><b>02</b><strong>Distance</strong><p>Can you create safety without triggering pursuit, crowding, or provocation?</p></article><article class="card"><b>03</b><strong>Evidence</strong><p>Can you document facts without hallucinating conclusions into the record?</p></article><article class="card"><b>04</b><strong>Role</strong><p>Can you do your job instead of trying to do everyone else's?</p></article></div></section>
+<section class="section"><div class="section-k">// RESPONSE LEVELS //</div><h2>From unverified<em>to field-ready.</em></h2><p class="section-note">Every level answers one question: if contact happens near you, are you an asset or another variable?</p><div class="steps"><article class="step"><b>0-25</b><h3>Unverified</h3><p>No trained sequence. High freeze probability. Likely to chase spectacle or spread panic.</p></article><article class="step"><b>26-50</b><h3>Observer</h3><p>Basic awareness. Can document and hold position, but needs role clarity.</p></article><article class="step"><b>51-75</b><h3>Liaison</h3><p>Can stabilize a small group, preserve evidence, and execute a role-specific response.</p></article><article class="step"><b>76-100</b><h3>Field ready</h3><p>Protocol retention under pressure. Calm enough to be useful when everyone else is loud.</p></article><article class="step"><b>ROLE</b><h3>Archetype</h3><p>Sentinel, Diplomat, Scholar, Survivor, or rare First Contact changes the correct response.</p></article><article class="step"><b>DRILL</b><h3>Repeatable</h3><p>The app turns readiness into drills: blackout, contact boundary, evidence capture, and family mode.</p></article></div></section>
+<section class="section"><div class="section-k">// FIRST SIXTY SECONDS //</div><h2>The protocol is simple.<em>That is why it works.</em></h2><div class="faq-grid"><article class="faq"><h3>1. Stop the rush</h3><p>Do not sprint toward the anomaly. Do not let the group turn curiosity into a stampede.</p></article><article class="faq"><h3>2. Create a buffer</h3><p>Move dependents away. Reduce noise and light. Keep a clean line between witnesses and event.</p></article><article class="faq"><h3>3. Record facts</h3><p>Time, direction, light, sound, motion, witnesses, device behavior, animals, weather, location.</p></article><article class="faq"><h3>4. Assign roles</h3><p>One person documents. One protects. One communicates. One moves vulnerable people. No hero chaos.</p></article></div></section>
+<section class="cta"><h2>Your readiness score starts with classification.</h2><p>The quiz gives you the role. Readiness gives that role a protocol. Start there.</p><div class="actions"><a class="btn primary" href="/#quiz">Start assessment</a><a class="btn ghost" href="/archetypes">Review roles</a></div></section>
+</main></div><footer class="ds-footer">
   <div class="ds-ft-shell">
     <div class="ds-ft-grid">
       <div>
@@ -258,6 +95,4 @@
       01001001 01010100 00100111 01010011 00100000 01010010 01000101 01000001 01001100
     </div>
   </div>
-</footer>
-</body>
-</html>
+</footer></body></html>
