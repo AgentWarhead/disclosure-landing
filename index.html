@@ -1210,6 +1210,19 @@
     .dx-gsap-lock{filter:brightness(1.18) saturate(1.16)!important;box-shadow:0 0 0 1px rgba(74,246,38,.25),0 0 54px rgba(74,246,38,.18),inset 0 0 34px rgba(74,246,38,.06)!important}
     .dx-quiz-pulse{box-shadow:0 0 0 1px rgba(74,246,38,.26),0 0 44px rgba(74,246,38,.2)!important}
     .dx-species-pulse{filter:brightness(1.16) saturate(1.16)!important}
+
+
+    /* Viral transmission packet: make the copied message feel like leaked evidence, not a form receipt. */
+    .gate-success .gs-share-wrap{position:relative;margin-top:26px;padding:18px 16px 16px;border:1px solid rgba(216,255,155,.26);background:radial-gradient(ellipse at 50% 0%,rgba(255,215,0,.12),transparent 45%),linear-gradient(180deg,rgba(74,246,38,.09),rgba(0,0,0,.54));box-shadow:0 0 36px rgba(74,246,38,.1),inset 0 0 34px rgba(74,246,38,.055);overflow:hidden}
+    .gate-success .gs-share-wrap::before{content:'COPY THE LEAK';position:absolute;right:10px;top:10px;font-family:var(--mono);font-size:8px;font-weight:950;letter-spacing:.22em;color:rgba(255,215,0,.72);text-shadow:0 0 18px rgba(255,215,0,.24)}
+    .gate-success .gs-share-wrap::after{content:'';position:absolute;left:-20%;right:-20%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(216,255,155,.78),transparent);box-shadow:0 0 22px rgba(74,246,38,.38);opacity:.8}
+    .gate-success .gs-share-label{font-size:10px!important;letter-spacing:.24em!important;color:rgba(216,255,155,.86)!important;text-shadow:0 0 16px rgba(74,246,38,.42)!important}
+    .gate-success .gs-share-text{position:relative;margin-top:10px!important;margin-bottom:14px!important;padding:16px 14px!important;border-color:rgba(216,255,155,.24)!important;background:rgba(0,0,0,.48)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font-size:12px!important;line-height:1.65!important;font-weight:850!important;letter-spacing:.035em!important;text-shadow:0 0 2px #000,0 0 18px rgba(255,255,255,.16)!important;box-shadow:inset 0 0 24px rgba(74,246,38,.045)}
+    .gate-success .gs-share-text::before{content:'FORWARD PACKET // TAP TO COPY';display:block;margin-bottom:10px;font-family:var(--mono);font-size:8px;font-weight:950;letter-spacing:.22em;color:rgba(255,215,0,.84);-webkit-text-fill-color:rgba(255,215,0,.84);text-shadow:0 0 18px rgba(255,215,0,.18)}
+    .gate-success .gs-share-btn{border-color:rgba(216,255,155,.28)!important;background:rgba(74,246,38,.055)!important;color:rgba(216,255,155,.9)!important;font-weight:950!important}
+    .gate-success .gs-share-btn:hover{background:rgba(216,255,155,.12)!important;color:#fff!important;box-shadow:0 0 24px rgba(74,246,38,.18)!important}
+    @media(max-width:700px){.gate-success .gs-share-wrap{padding:16px 12px 14px}.gate-success .gs-share-wrap::before{position:static;display:block;margin-bottom:8px;text-align:center}.gate-success .gs-share-text{font-size:11px!important;line-height:1.55!important;padding:14px 12px!important}.gate-success .gs-share-text::before{font-size:7px;letter-spacing:.16em}}
+
 </style>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -2563,8 +2576,8 @@ const ARCHETYPES = {
     name: 'FIRST CONTACT',
     icon: '⭐',
     color: 'first-contact',
-    pct: 'Unclassified designation - no confirmed field contact.',
-    desc: 'This archetype has no confirmed field contact. You were not supposed to find this path. Welcome.',
+    pct: 'Signal anomaly: no public civilian match. This designation should not be visible.',
+    desc: 'This path is not issued. It appears. If it opened for you, the protocol is already watching.',
     serial_prefix: 'FC',
     card_color: 'gold'
   }
@@ -2968,13 +2981,13 @@ function updateGateHintWithArchetype(data) {
 function getArchetypeShareMessage(archetype) {
   const data = ARCHETYPES[archetype] || ARCHETYPES.sentinel;
   const messages = {
-    sentinel: 'I got classified as SENTINEL in DISCLOSURE. If the sky opens, I am the one standing between the unknown and everyone else. Get your First Contact Card: getdisclosure.app',
-    diplomat: 'I got classified as DIPLOMAT in DISCLOSURE. Calm voice, open hands, no panic when first contact hits. Get your First Contact Card: getdisclosure.app',
-    scholar: 'I got classified as SCHOLAR in DISCLOSURE. While everyone else panics, I am recording what actually happened. Get your First Contact Card: getdisclosure.app',
-    survivor: 'I got classified as SURVIVOR in DISCLOSURE. I know the exits, I move my people, and I live long enough to tell the story. Get your First Contact Card: getdisclosure.app',
-    'first-contact': 'I unlocked FIRST CONTACT in DISCLOSURE. This path was not supposed to open. Get classified before the signal finds you: getdisclosure.app'
+    sentinel: 'DISCLOSURE classified me as SENTINEL. If the sky breaks open, my job is perimeter, people, protocol. Find your First Contact role before the signal picks you: getdisclosure.app',
+    diplomat: 'DISCLOSURE classified me as DIPLOMAT. Calm voice. Open hands. First words when everyone else freezes. Find your First Contact role before the signal picks you: getdisclosure.app',
+    scholar: 'DISCLOSURE classified me as SCHOLAR. If contact happens, I am not panicking. I am recording the evidence everyone else will argue about later: getdisclosure.app',
+    survivor: 'DISCLOSURE classified me as SURVIVOR. I know the exits, move my people, and live long enough to tell the story. What are you when the signal hits? getdisclosure.app',
+    'first-contact': 'DISCLOSURE flagged me as FIRST CONTACT. No public file. No standard protocol. If this path opened for me, the signal is already spreading. Get classified before you are the only one still guessing: getdisclosure.app'
   };
-  return messages[archetype] || ('I got classified as ' + data.name + ' in DISCLOSURE. Get your First Contact Card before the sky opens: getdisclosure.app');
+  return messages[archetype] || ('DISCLOSURE classified me as ' + data.name + '. Find your First Contact role before the signal picks you: getdisclosure.app');
 }
 
 function shareArchetype() {
@@ -3088,7 +3101,7 @@ async function handleAccess(e) {
     sentinel:      { cls:'ac-s',  color:'var(--arch-sentinel)', glow:'rgba(250,62,62,.6)',  role:'PRIMARY PROTECTOR',      s1:['THREAT READ','ACTIVE'],        s2:['ROLE ONSET','IMMEDIATE'],      bar:['READINESS','84%','84%'],      status:'🔴 FIELD DEPLOYMENT: READY',   sBorder:'rgba(250,62,62,.2)'  },
     diplomat:      { cls:'ac-d',  color:'var(--crt-green)', glow:'rgba(74,246,38,.6)',  role:'DE-ESCALATION LEAD',     s1:['CONTACT IDX','11.4 kHz'],      s2:['PROTOCOL','ALPHA-7'],          bar:['CALM RATING','96%','96%'],    status:'🟢 FIRST CONTACT: AUTHORIZED', sBorder:'rgba(74,246,38,.2)'  },
     scholar:       { cls:'ac-sc', color:'#60A5FA', glow:'rgba(96,165,250,.6)', role:'FIELD ANALYST',          s1:['OBS CLASS','ALPHA'],           s2:['FIELD MODE','PASSIVE RECORD'], bar:['DATA INTEGRITY','91%','91%'], status:'🔵 DOCUMENTATION: ACTIVE',     sBorder:'rgba(96,165,250,.2)' },
-    'first-contact':{ cls:'ac-fc', color:'#FFD700', glow:'rgba(255,215,0,.8)',  role:'CLASSIFICATION UNKNOWN', s1:['ARCHETYPE','████████████'],    s2:['CLEARANCE','████████'],        bar:['UNLOCK STATUS','<0.1%','0.1%'], status:'⭐ NO CONFIRMED FIELD CONTACT', sBorder:'rgba(255,215,0,.2)'  }
+    'first-contact':{ cls:'ac-fc', color:'#FFD700', glow:'rgba(255,215,0,.8)',  role:'NONSTANDARD CONTACT ASSET', s1:['FILE STATE','BLACK CHANNEL'],    s2:['CLEARANCE','SIGNAL-LOCKED'],        bar:['ANOMALY INDEX','<0.1%','0.1%'], status:'⭐ FILE BREACH: FIRST CONTACT PATH OPEN', sBorder:'rgba(255,215,0,.2)'  }
   };
 
   const cr = CARD_RENDER[archetype] || CARD_RENDER.diplomat;
