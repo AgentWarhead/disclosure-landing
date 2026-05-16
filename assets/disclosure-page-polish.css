@@ -158,3 +158,57 @@ body.dp-polish-ready > nav:not(.intel-guide-topbar)::after{
 @media (max-width:430px){
   body.dp-polish-ready .navlinks .primary{display:none!important;}
 }
+
+/* Mobile numbered-card cleanup: keep numeric badges from colliding with headings/copy. */
+@media (max-width:760px){
+  body.dp-polish-ready :is(.card,.step,.protocol-card,.timeline-card,.matrix-card,.role-card,.stack-item){
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    gap:0!important;
+  }
+  body.dp-polish-ready :is(.card,.step,.protocol-card,.timeline-card,.matrix-card,.role-card,.stack-item) > b:first-child{
+    position:relative!important;
+    inset:auto!important;
+    align-self:flex-start!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:auto!important;
+    max-width:100%!important;
+    min-width:44px!important;
+    min-height:28px!important;
+    margin:0 0 14px 0!important;
+    padding:6px 10px!important;
+    border:1px solid rgba(216,255,155,.24)!important;
+    border-radius:999px!important;
+    background:rgba(0,0,0,.42)!important;
+    font-family:var(--font-mono,var(--mono),monospace)!important;
+    font-size:12px!important;
+    line-height:1!important;
+    letter-spacing:.1em!important;
+    color:rgba(216,255,155,.94)!important;
+    text-align:left!important;
+    writing-mode:horizontal-tb!important;
+    transform:none!important;
+    z-index:2!important;
+    white-space:nowrap!important;
+  }
+  body.dp-polish-ready :is(.card,.step,.protocol-card,.timeline-card,.matrix-card,.role-card,.stack-item) > :is(h3,strong,span,p){
+    position:relative!important;
+    z-index:1!important;
+    width:100%!important;
+    max-width:100%!important;
+    margin-left:0!important;
+    clear:both!important;
+  }
+  body.dp-polish-ready .stack-item > span{
+    display:block!important;
+    margin-top:0!important;
+    padding-left:0!important;
+  }
+  body.dp-polish-ready .stack-item > span strong{
+    display:block!important;
+    margin-bottom:6px!important;
+  }
+}
