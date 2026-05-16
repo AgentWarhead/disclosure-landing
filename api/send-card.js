@@ -56,8 +56,8 @@ const ARCHETYPES = {
   },
   "first-contact": {
     name: "FIRST CONTACT", icon: "⭐", role: "OUTSIDE CLASSIFICATION", code: "BLACK CHANNEL",
-    color: "#FFD700", glow: "rgba(255,215,0,0.46)", subject: "Black Channel file opened",
-    preheader: "A rare designation surfaced. Standard classification could not contain it.",
+    color: "#FFD700", glow: "rgba(255,215,0,0.46)", subject: "Your Disclosure file is active",
+    preheader: "Your rare First Contact designation surfaced. Open the field packet.",
     tagline: "Less than 0.1% carry this designation. You know why.",
     reveal: "This is not a normal result. The system flagged a signal anomaly and moved your file outside the standard civilian classification stack.",
     directive: "Do not treat this as a trophy. Treat it as a locked door noticing you first.",
@@ -72,6 +72,32 @@ const ARCHETYPES = {
 function enc(s) { return encodeURIComponent(s); }
 function esc(value) {
   return String(value).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[ch] || ch));
+}
+
+function buildPlainText(archetype, serial) {
+  const a = ARCHETYPES[archetype] || ARCHETYPES["diplomat"];
+  return [
+    `DISCLOSURE // CLASSIFICATION ISSUED`,
+    ``,
+    `Your ${a.name} file is active.`,
+    `Serial: ${serial || "DS-2026-ISSUED"}`,
+    `Role: ${a.role}`,
+    ``,
+    a.reveal,
+    ``,
+    `FIELD DIRECTIVE`,
+    a.directive,
+    a.protocol,
+    ``,
+    `MOBILE APP INCOMING`,
+    `Disclosure is actively being built now and launching soon. Android testing opportunities will be available before public launch. Low serials board first.`,
+    ``,
+    `SPREAD THE SIGNAL`,
+    `Post the quiz, send it to your group chat, and tell friends to get classified before the signal gets loud.`,
+    ``,
+    `Take the quiz: https://getdisclosure.app/#quiz`,
+    `Forward the signal: https://getdisclosure.app`,
+  ].join("\n");
 }
 
 function buildEmail(archetype, serial) {
@@ -188,6 +214,7 @@ module.exports = async (req, res) => {
     const key = archetype.toLowerCase();
     const a = ARCHETYPES[key] || ARCHETYPES["diplomat"];
     const html = buildEmail(key, serial);
+    const text = buildPlainText(key, serial);
 
     const resp = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -200,6 +227,12 @@ module.exports = async (req, res) => {
         to: [email],
         subject: a.subject,
         html: html,
+        text: text,
+        reply_to: "team@getdisclosure.app",
+        headers: {
+          "List-Unsubscribe": "<https://getdisclosure.app?unsub=1>",
+          "List-Unsubscribe-Post": "List-Unsubscribe=One-Click"
+        },
       }),
     });
 

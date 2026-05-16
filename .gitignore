@@ -3,3 +3,5 @@ deploy.sh
 .env
 .env.*
 .env.local
+
+artifacts/
