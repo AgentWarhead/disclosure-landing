@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- ═══ PRIMARY META ═══ -->
-  <title>Disclosure App — Alien Encounter Preparation &amp; First Contact Training</title>
+  <title>Disclosure App - Alien Encounter Preparation &amp; First Contact Training</title>
   <meta name="description" content="The only civilian alien encounter preparation app. Species threat assessments, first contact protocols, and readiness training for 6 documented non-human intelligences."/>
   <meta name="keywords" content="UAP, UFO, first contact, alien encounter, archetype quiz, disclosure, NHI, contact protocol, citizen diplomat"/>
   <meta name="author" content="DISCLOSURE PROTOCOL"/>
@@ -153,7 +153,7 @@
     .cursor-ring{position:fixed;width:18px;height:18px;border:1px solid rgba(74,246,38,.35);border-radius:50%;pointer-events:none;z-index:9999;left:0;top:0;will-change:transform;mix-blend-mode:screen;transition:width .15s,height .15s,border-color .15s}
 
     /* CRAFT */
-    /* craft-canvas removed — replaced by eye-canvas scroll animation */
+    /* craft-canvas removed - replaced by eye-canvas scroll animation */
 
     /* BOOT */
     #boot{position:fixed;inset:0;background:#000;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:20px}
@@ -162,7 +162,7 @@
     #boot-bar{width:min(300px,80vw);height:1px;background:rgba(74,246,38,.1);margin-top:20px;overflow:hidden}
     #boot-progress{height:100%;background:var(--g);width:0;box-shadow:0 0 8px var(--g);transition:width .04s linear}
 
-    /* SCROLL REVEAL — Decryption Sweep */
+    /* SCROLL REVEAL - Decryption Sweep */
     .sr{opacity:0;position:relative}
     .sr::after{display:none!important}
     .sr.vis{opacity:1}
@@ -296,7 +296,7 @@
     /* QUIZ */
     .quiz{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px;position:relative;border-top:1px solid rgba(60,80,255,.15);border-bottom:1px solid rgba(60,80,255,.15);overflow:hidden;background:#080812;background-image:radial-gradient(ellipse at center,rgba(60,80,255,.06) 0%,transparent 70%)}
 
-    /* QUIZ CONTAINMENT FIELD — the wow factor */
+    /* QUIZ CONTAINMENT FIELD - the wow factor */
     .quiz-containment{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 
     /* Animated corner brackets */
@@ -310,7 +310,7 @@
     .quiz-corner.br{bottom:20px;right:20px}.quiz-corner.br::before{bottom:0;right:0}.quiz-corner.br::after{bottom:0;right:0}
     .quiz-corner{opacity:0;transition:opacity .8s}.quiz.quiz-activated .quiz-corner{opacity:1}
 
-    /* Radar ping — rings pulsing outward from center */
+    /* Radar ping - rings pulsing outward from center */
     .quiz-radar{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;pointer-events:none;opacity:0;transition:opacity 1s}
     .quiz.quiz-activated .quiz-radar{opacity:1}
     .radar-ring{position:absolute;inset:0;border:1px solid rgba(74,246,38,.12);border-radius:50%;animation:radarPing 4s ease-out infinite}
@@ -323,11 +323,11 @@
     .quiz.quiz-activated .quiz-scanbeam{opacity:1;animation:scanBeam 6s linear infinite}
     @keyframes scanBeam{0%{left:-2px}100%{left:100%}}
 
-    /* Perimeter glow — green ambient border */
+    /* Perimeter glow - green ambient border */
     .quiz-perimeter{position:absolute;inset:0;border:1px solid rgba(74,246,38,.08);box-shadow:inset 0 0 80px rgba(74,246,38,.04),0 0 80px rgba(74,246,38,.03);opacity:0;transition:opacity 1.2s}
     .quiz.quiz-activated .quiz-perimeter{opacity:1}
 
-    /* Floating data fragments — classified text in background */
+    /* Floating data fragments - classified text in background */
     .quiz-data-frag{position:absolute;font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:rgba(74,246,38,.07);white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 2s}
     .quiz.quiz-activated .quiz-data-frag{opacity:1}
     .qdf-1{top:15%;left:5%;animation:dataFloat 20s linear infinite}
@@ -385,7 +385,7 @@
     .qr-cta.secondary{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.25)}
     .qr-cta.secondary:hover{border-color:rgba(74,246,38,.5);color:var(--g)}
 
-    /* PRODUCT SHOWCASE V6 — Theatrical Slideshow */
+    /* PRODUCT SHOWCASE V6 - Theatrical Slideshow */
     #classified-tools{position:relative;padding:40px 24px;text-align:center}
     .fd-card{max-width:900px;width:100%;box-sizing:border-box;margin:0 auto;background-color:#0a1a1a;background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('asset-bg-alien.webp') center/cover no-repeat;border-radius:8px;border:1px solid rgba(74,246,38,.2);box-shadow:0 4px 40px rgba(0,0,0,.5);padding:36px 40px;position:relative;text-align:center;overflow:hidden;height:920px}
     /* Glitch flash effect */
@@ -541,9 +541,9 @@
       .svg-anim{display:none}
       .quiz-radar{width:260px;height:260px;overflow:hidden}
       .quiz-data-frag{display:none}
-      /* Contain overflow via wrapper — NOT on html/body (breaks fixed/sticky) */
+      /* Contain overflow via wrapper - NOT on html/body (breaks fixed/sticky) */
       main{overflow-x:clip;max-width:100vw}
-      /* Hero title safe scaling — keep nowrap, just resize */
+      /* Hero title safe scaling - keep nowrap, just resize */
       .hero-h{font-size:clamp(58px,15vw,90px)}
       /* Command bar compact mode */
       .nav{min-height:56px;padding:8px 14px;gap:10px}
@@ -555,11 +555,11 @@
       .nav-sig{display:none}
       .nav-links{gap:6px}
       .nav-links a{min-height:34px;padding:8px 9px;font-size:9px;letter-spacing:.08em}
-      /* Flash text — reduce letter-spacing so it centers properly */
+      /* Flash text - reduce letter-spacing so it centers properly */
       .hero-flash-text{letter-spacing:.2em;font-size:clamp(11px,3vw,16px);text-align:center;padding:0 16px}
-      /* Rules watermark — remove to avoid overflow */
+      /* Rules watermark - remove to avoid overflow */
       .rules-bg{display:none}
-      /* Footer nav links — allow wrap */
+      /* Footer nav links - allow wrap */
       .ft-nav{flex-wrap:wrap;gap:4px}
       .ft-nav a{border-right:none;padding:4px 8px}
     }
@@ -662,7 +662,7 @@
     .ap-body{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.8);line-height:1.65}
     .ap-close{position:absolute;top:10px;right:12px;color:rgba(255,255,255,.25);cursor:pointer;font-size:12px}
 
-    /* ARCHETYPE IDENTITY CARDS — v2 HOLOGRAPHIC */
+    /* ARCHETYPE IDENTITY CARDS - v2 HOLOGRAPHIC */
     .arch-cards-wrap{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;max-width:1200px;margin:0 auto;perspective:1200px}
     @media(max-width:700px){
       .arch-cards-wrap{flex-wrap:nowrap;overflow-x:auto;overflow-y:visible;scroll-snap-type:x mandatory;padding-bottom:16px;justify-content:flex-start;-webkit-overflow-scrolling:touch;max-width:100%}
@@ -672,22 +672,22 @@
     .arch-card{flex:0 0 260px;font-family:var(--mono);padding:28px 22px 22px;position:relative;overflow:hidden;border:1px solid;cursor:default;transition:box-shadow .3s ease;will-change:transform;transform-style:preserve-3d;scroll-snap-align:center}
     @media(min-width:701px){.arch-card{flex:1;min-width:240px;max-width:280px}}
     .arch-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(255,255,255,.015) 1px,rgba(255,255,255,.015) 2px);pointer-events:none;z-index:0}
-    /* sentinel — red ember */
+    /* sentinel - red ember */
     .arch-card.ac-s{border-color:rgba(250,62,62,.4);background:rgba(8,1,1,.97);box-shadow:0 0 30px rgba(250,62,62,.08),inset 0 0 30px rgba(250,62,62,.03)}
     .arch-card.ac-s:hover{box-shadow:0 0 60px rgba(250,62,62,.25),inset 0 0 40px rgba(250,62,62,.08)}
     .arch-card.ac-s::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(250,62,62,.08) 0%,transparent 70%);pointer-events:none;z-index:0;animation:sentinelEmber 3s ease-in-out infinite alternate}
     @keyframes sentinelEmber{from{opacity:.6}to{opacity:1}}
-    /* diplomat — green aurora */
+    /* diplomat - green aurora */
     .arch-card.ac-d{border-color:rgba(74,246,38,.4);background:rgba(1,8,1,.97);box-shadow:0 0 30px rgba(74,246,38,.08),inset 0 0 30px rgba(74,246,38,.03)}
     .arch-card.ac-d:hover{box-shadow:0 0 60px rgba(74,246,38,.25),inset 0 0 40px rgba(74,246,38,.08)}
     .arch-card.ac-d::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 50% at 50% 50%,rgba(74,246,38,.06) 0%,transparent 70%);pointer-events:none;z-index:0;animation:diplomatAurora 4s ease-in-out infinite alternate}
     @keyframes diplomatAurora{from{transform:translateY(-5%) scaleX(.9);opacity:.5}to{transform:translateY(5%) scaleX(1.1);opacity:1}}
-    /* scholar — blue data pulse */
+    /* scholar - blue data pulse */
     .arch-card.ac-sc{border-color:rgba(59,130,246,.4);background:rgba(1,3,12,.97);box-shadow:0 0 30px rgba(59,130,246,.08),inset 0 0 30px rgba(59,130,246,.03)}
     .arch-card.ac-sc:hover{box-shadow:0 0 60px rgba(59,130,246,.25),inset 0 0 40px rgba(59,130,246,.08)}
     .arch-card.ac-sc::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 30% 40%,rgba(59,130,246,.07) 0%,transparent 70%);pointer-events:none;z-index:0;animation:scholarPulse 2.5s ease-in-out infinite}
     @keyframes scholarPulse{0%,100%{opacity:.5}50%{opacity:1}}
-    /* first contact — gold spark */
+    /* first contact - gold spark */
     .arch-card.ac-sv{border-color:rgba(249,115,22,.4);background:rgba(8,4,1,.97);box-shadow:0 0 30px rgba(249,115,22,.08),inset 0 0 30px rgba(249,115,22,.03)}
     .arch-card.ac-sv:hover{box-shadow:0 0 60px rgba(249,115,22,.25),inset 0 0 40px rgba(249,115,22,.08)}
     .arch-card.ac-sv::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(249,115,22,.08) 0%,transparent 70%);pointer-events:none;z-index:0;animation:survivorEmber 3s ease-in-out infinite alternate}
@@ -766,7 +766,7 @@
     .quiz-card.shake{animation:screenShake .4s ease-out}
     @media(prefers-reduced-motion:reduce){.quiz-card.shake{animation:none}}
 
-    /* QUIZ RESULT — stamp reveal */
+    /* QUIZ RESULT - stamp reveal */
     @keyframes stampReveal{0%{transform:scale(2.5) rotate(-8deg);opacity:0}60%{transform:scale(.95) rotate(1deg);opacity:1}80%{transform:scale(1.05) rotate(-.5deg)}100%{transform:scale(1) rotate(0)}}
     .qr-archetype-name.stamp-in{animation:stampReveal .5s cubic-bezier(.19,1,.22,1) forwards}
     @media(prefers-reduced-motion:reduce){.qr-archetype-name.stamp-in{animation:none}}
@@ -800,7 +800,7 @@
 
     /* ═══ CINEMATIC QUIZ OVERHAUL ═══ */
 
-    /* 1. GLITCH ENTRANCE — CRT glitch on body */
+    /* 1. GLITCH ENTRANCE - CRT glitch on body */
     @keyframes quizGlitchFlicker{
       0%{filter:none}
       10%{filter:hue-rotate(40deg) brightness(.7)}
@@ -861,7 +861,7 @@
     .cm-bar-fill.diplomat-bar{background:var(--g);box-shadow:0 0 6px rgba(74,246,38,.4)}
     .cm-bar-fill.scholar-bar{background:#60A5FA;box-shadow:0 0 6px rgba(96,165,250,.4)}
 
-    /* 4. ESCALATING INTENSITY — vignette */
+    /* 4. ESCALATING INTENSITY - vignette */
     .quiz-vignette{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity .8s ease;background:radial-gradient(ellipse 60% 50% at 50% 50%,transparent 20%,rgba(0,0,0,.7) 100%)}
     .quiz-vignette.v7{opacity:.4}
     .quiz-vignette.v8{opacity:.65}
@@ -1231,7 +1231,7 @@
 <body>
 <a class="skip-link" href="#main-content">SKIP TO BRIEFING</a>
 <script>
-// Share redirect handler — fires from Disclosure card emails
+// Share redirect handler - fires from Disclosure card emails
 (function(){
   var p = new URLSearchParams(window.location.search);
   var share = p.get('share');
@@ -1278,7 +1278,7 @@
     </div>
   </nav>
 
-  <!-- 1. HERO — Apple-quality scroll-driven eye animation -->
+  <!-- 1. HERO - Apple-quality scroll-driven eye animation -->
   <section class="hero-scroll" id="hero-scroll">
     <div class="hero-sticky">
       <canvas id="eye-canvas" aria-hidden="true"></canvas>
@@ -1299,7 +1299,7 @@
         <!-- Layer 1: Case file kicker (appears 5-20%) -->
         <div class="hero-layer" id="hl-kicker">
           <div class="hero-kicker">CASE FILE: UAP-CIVILIAN-001 // CLASSIFICATION REVOKED BY EXECUTIVE ORDER</div>
-          <p class="hero-intercept">// LEAKED DOCUMENT — UNAUTHORIZED DISTRIBUTION — DO NOT SHARE //</p>
+          <p class="hero-intercept">// LEAKED DOCUMENT - UNAUTHORIZED DISTRIBUTION - DO NOT SHARE //</p>
         </div>
 
         <!-- Layer 2: DISCLOSURE title (appears 20-45%) -->
@@ -1327,7 +1327,7 @@
           <span class="reticle-wrap"><a href="#quiz" class="cta-btn" id="hero-cta-btn">GET CLASSIFIED →</a><span class="rt tl"></span><span class="rt tr"></span><span class="rt bl"></span><span class="rt br"></span></span>
           <div class="hero-counter">
             <div class="live-dot" style="width:4px;height:4px"></div>
-            <span class="hc-num" id="hero-count">—</span>
+            <span class="hc-num" id="hero-count">-</span>
             <span>civilians briefed</span>
             <span class="hc-sep">·</span>
             <span class="hc-live" id="hero-live">lifetime total</span>
@@ -1348,7 +1348,7 @@
 
   <!-- ENHANCEMENT: Section Transition Flash (#7) -->
   <div class="hero-flash" id="hero-flash">
-    <div class="hero-flash-text">FILE ACCESSED — CLEARANCE PENDING</div>
+    <div class="hero-flash-text">FILE ACCESSED - CLEARANCE PENDING</div>
   </div>
 
   <!-- 2. SIGNAL TIMELINE - credibility runway -->
@@ -1372,7 +1372,7 @@
   </section>
 
 
-<div id="quiz-gate-notice" style="display:none;position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:9999;text-align:center;padding:12px 28px;background:rgba(0,0,0,0.92);border:1px solid rgba(74,246,38,0.6);font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:#4AF626;white-space:nowrap;box-shadow:0 0 24px rgba(74,246,38,0.2);transition:opacity 1s ease">▶ CLASSIFICATION REQUIRED — COMPLETE THE ASSESSMENT TO SECURE YOUR POSITION</div>
+<div id="quiz-gate-notice" style="display:none;position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:9999;text-align:center;padding:12px 28px;background:rgba(0,0,0,0.92);border:1px solid rgba(74,246,38,0.6);font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:#4AF626;white-space:nowrap;box-shadow:0 0 24px rgba(74,246,38,0.2);transition:opacity 1s ease">▶ CLASSIFICATION REQUIRED - COMPLETE THE ASSESSMENT TO SECURE YOUR POSITION</div>
 <section id="quiz" class="quiz quiz-content-hidden">
     <!-- CONTAINMENT FIELD - visual wow frame -->
     <div class="quiz-vignette" aria-hidden="true"></div>
@@ -1551,7 +1551,7 @@
       <line x1="120" y1="80" x2="160" y2="80" stroke="rgba(74,246,38,.15)" stroke-width="1"/>
       <circle cx="80" cy="80" r="3" fill="rgba(74,246,38,.2)"/>
     </svg>
-    <div class="gate-eyebrow sr">// CARD CLAIM — SECURE CHANNEL //</div>
+    <div class="gate-eyebrow sr">// CARD CLAIM - SECURE CHANNEL //</div>
     <h2 class="gate-h sr">Claim your<br><em>First Contact Card.</em></h2>
     <p class="gate-sub sr">Your classification is active. Secure the card, app access, and launch-day field kit built for whatever arrives next.</p>
     <div class="gate-app-strip sr" aria-label="Disclosure app launch access includes">
@@ -1567,12 +1567,12 @@
         <button class="gate-submit" type="submit" id="gate-submit-btn">CLAIM APP ACCESS →</button>
       </form>
 
-      <!-- Post-signup card — Change 6 -->
+      <!-- Post-signup card - Change 6 -->
       <div class="gate-success" id="gate-success">
         <div class="gs-cleared" id="gs-cleared-text">◉ CLEARANCE GRANTED</div>
-        <span class="gs-num" id="gs-num">YOU ARE CIVILIAN #— · ACCESS LOGGED · CARD INCOMING</span>
+        <span class="gs-num" id="gs-num">YOU ARE CIVILIAN #- · ACCESS LOGGED · CARD INCOMING</span>
 
-        <!-- Rendered First Contact Card — archetype-styled -->
+        <!-- Rendered First Contact Card - archetype-styled -->
         <div class="arch-card" id="gs-card" style="margin-top:24px;max-width:300px;margin-left:auto;margin-right:auto">
           <div class="ac-header">
             <span class="ac-logo-txt" id="gs-logo">◉ DISCLOSURE PROTOCOL</span>
@@ -1592,7 +1592,7 @@
           <div class="ac-wm">DISCLOSURE PROTOCOL</div>
         </div>
 
-        <!-- Archetype share — Change 7 -->
+        <!-- Archetype share - Change 7 -->
         <div class="gs-share-wrap">
           <span class="gs-share-label">// SHARE YOUR ARCHETYPE //</span>
           <div class="gs-share-text" id="gs-share-text" onclick="copyShareText()">
@@ -1612,7 +1612,7 @@
 
     <div class="gate-stats sr">
       <div class="gst">
-        <span class="gst-n" id="stat-count">—</span>
+        <span class="gst-n" id="stat-count">-</span>
         <span class="gst-l">CIVILIANS BRIEFED</span>
         <span class="gst-live" id="stat-live">LIFETIME TOTAL</span>
       </div>
@@ -2054,11 +2054,11 @@
   (function(){
     var species=[
       {key:'grey',name:'The Grey',code:'TYPE-II RETRIEVAL CLASS',threat:'THREAT: HIGH',color:'#9fd7ff',hero:'assets/species-hangar/grey-hero.webp',close:'assets/species-hangar/grey-close.webp',mask:'assets/species-hangar/disclosure-grey-depth-mask.png',overlay:'assets/species-hangar/disclosure-overlay-grey-dark.webp',url:'https://www.getdisclosure.app/intel/grey-alien-encounter-survival-guide/',line:'Collectors. Methodical. Emotionless. Your memories are the inventory.',protocol:'Hold still. Reduce stimulus. Protect recall integrity.',closePos:'center 27%'},
-      {key:'reptilian',name:'The Reptilian',code:'TYPE-III APEX CLASS',threat:'THREAT: CRITICAL',color:'#ff4545',hero:'assets/species-hangar/reptilian-hero.webp',close:'assets/species-hangar/reptilian-close.webp',mask:'assets/species-hangar/disclosure-reptilian-depth-mask.png',overlay:'assets/species-hangar/disclosure-overlay-reptilian-transparent.png',url:'https://www.getdisclosure.app/intel/reptilian-alien-threat-assessment/',line:'Predatory. Hierarchical. Ancient. It reads weakness before language.',protocol:'Lower posture. Do not challenge rank. Exit the dominance field.',closePos:'center 22%'},
-      {key:'nordic',name:'The Nordic',code:'TYPE-I OBSERVER CLASS',threat:'THREAT: CONDITIONAL',color:'#ffd66b',hero:'assets/species-hangar/nordic-hero.webp',close:'assets/species-hangar/nordic-close.webp',mask:'assets/species-hangar/disclosure-nordic-depth-mask.png',overlay:'assets/species-hangar/disclosure-overlay-nordic-transparent.png',url:'https://www.getdisclosure.app/intel/nordic-alien-encounter-protocol/',line:'Watchers. Serene. If they break distance, the assessment has already changed.',protocol:'Maintain calm eye line. Mirror pace. Do not over-signal intent.',closePos:'center 20%'},
+      {key:'reptilian',name:'The Reptilian',code:'TYPE-III APEX CLASS',threat:'THREAT: CRITICAL',color:'#ff4545',hero:'assets/species-hangar/reptilian-hero.webp',close:'assets/species-hangar/reptilian-close.webp',mask:'assets/species-hangar/disclosure-reptilian-depth-mask.png',overlay:'assets/species-hangar/disclosure-overlay-reptilian-transparent.webp',url:'https://www.getdisclosure.app/intel/reptilian-alien-threat-assessment/',line:'Predatory. Hierarchical. Ancient. It reads weakness before language.',protocol:'Lower posture. Do not challenge rank. Exit the dominance field.',closePos:'center 22%'},
+      {key:'nordic',name:'The Nordic',code:'TYPE-I OBSERVER CLASS',threat:'THREAT: CONDITIONAL',color:'#ffd66b',hero:'assets/species-hangar/nordic-hero.webp',close:'assets/species-hangar/nordic-close.webp',mask:'assets/species-hangar/disclosure-nordic-depth-mask.png',overlay:'assets/species-hangar/disclosure-overlay-nordic-transparent.webp',url:'https://www.getdisclosure.app/intel/nordic-alien-encounter-protocol/',line:'Watchers. Serene. If they break distance, the assessment has already changed.',protocol:'Maintain calm eye line. Mirror pace. Do not over-signal intent.',closePos:'center 20%'},
       {key:'mantis',name:'The Mantis',code:'TYPE-II SURGICAL CLASS',threat:'THREAT: HIGH',color:'#a474ff',hero:'assets/species-hangar/mantis-hero.webp',close:'assets/species-hangar/mantis-close.webp',mask:'assets/species-hangar/disclosure-mantis-depth-mask.png',overlay:'assets/species-hangar/disclosure-overlay-mantis-dark.webp',url:'https://www.getdisclosure.app/intel/mantid-alien-encounter-what-to-do/',line:'Clinical. Telepathic. You are not being judged. You are being processed.',protocol:'Slow breathing. Do not interrupt sequence. Anchor to one physical detail.',closePos:'center 24%'},
-      {key:'tall-white',name:'The Tall White',code:'TYPE-I TEACHER CLASS',threat:'THREAT: CONDITIONAL',color:'#d8f0ff',hero:'assets/species-hangar/tall-white-hero.webp',close:'assets/species-hangar/tall-white-close.webp',mask:'assets/species-hangar/disclosure-tall-white-depth-mask.png',overlay:'assets/species-hangar/disclosure-overlay-tall-white-transparent.png',url:'https://www.getdisclosure.app/intel/tall-white-alien-charles-hall/',line:'Teachers. Cold luminosity. Their calm is not comfort. It is control.',protocol:'Keep hands visible. Answer simply. Do not volunteer extra memory.',closePos:'center 22%'},
-      {key:'anunnaki',name:'The Anunnaki',code:'TYPE-V PROGENITOR CLASS',threat:'CLEARANCE: SEALED',color:'#d6a84a',hero:'assets/species-hangar/anunnaki-hero.webp',close:'assets/species-hangar/anunnaki-close.webp',mask:'assets/species-hangar/disclosure-anunnaki-depth-mask.png',overlay:'assets/species-hangar/disclosure-overlay-anunnaki-transparent.png',url:'https://www.getdisclosure.app/intel/anunnaki-creator-species-theory/',line:'Monumental. Regal. The file does not describe contact. It describes origin.',protocol:'Do not kneel unless instructed. Do not speak first. Record everything.',closePos:'center 24%'}
+      {key:'tall-white',name:'The Tall White',code:'TYPE-I TEACHER CLASS',threat:'THREAT: CONDITIONAL',color:'#d8f0ff',hero:'assets/species-hangar/tall-white-hero.webp',close:'assets/species-hangar/tall-white-close.webp',mask:'assets/species-hangar/disclosure-tall-white-depth-mask.png',overlay:'assets/species-hangar/disclosure-overlay-tall-white-transparent.webp',url:'https://www.getdisclosure.app/intel/tall-white-alien-charles-hall/',line:'Teachers. Cold luminosity. Their calm is not comfort. It is control.',protocol:'Keep hands visible. Answer simply. Do not volunteer extra memory.',closePos:'center 22%'},
+      {key:'anunnaki',name:'The Anunnaki',code:'TYPE-V PROGENITOR CLASS',threat:'CLEARANCE: SEALED',color:'#d6a84a',hero:'assets/species-hangar/anunnaki-hero.webp',close:'assets/species-hangar/anunnaki-close.webp',mask:'assets/species-hangar/disclosure-anunnaki-depth-mask.png',overlay:'assets/species-hangar/disclosure-overlay-anunnaki-transparent.webp',url:'https://www.getdisclosure.app/intel/anunnaki-creator-species-theory/',line:'Monumental. Regal. The file does not describe contact. It describes origin.',protocol:'Do not kneel unless instructed. Do not speak first. Record everything.',closePos:'center 24%'}
     ];
     var rail=document.getElementById('sh-rail'),dossier=document.getElementById('sh-dossier'),stage=document.getElementById('species-hangar-stage'),atm=document.getElementById('sh-atmosphere'),preview=document.getElementById('sh-preview'),previewCore=document.getElementById('sh-preview-core');
     if(!rail||!dossier||!stage||!atm) return;
@@ -2225,7 +2225,7 @@
                 <div class="crt-meta crt-meta-top" id="crt-meta-top">REC ● 03.05.24 // CLASSIFIED</div>
                 <div class="crt-meta crt-meta-bottom" id="crt-meta-bottom">FEED: SURVEILLANCE-07</div>
                 <div class="crt-vignette"></div>
-                <img class="fd-feat-img" id="fd-feat-img" src="asset-signal-language-v7.webp" alt="Signal Language app preview" loading="lazy" decoding="async"/>
+                <img class="fd-feat-img" id="fd-feat-img" src="asset-signal-language-v7.webp" srcset="asset-signal-language-v7-640.webp 640w, asset-signal-language-v7-960.webp 960w, asset-signal-language-v7-1280.webp 1280w, asset-signal-language-v7.webp 2752w" sizes="(max-width: 620px) calc(100vw - 56px), (max-width: 1100px) calc(100vw - 96px), 560px" width="2752" height="1536" alt="Signal Language app preview" loading="lazy" decoding="async"/>
               </div>
               <div class="fd-metric-row" aria-hidden="true">
                 <span id="fd-metric-a">GESTURE LOCK</span>
@@ -2275,7 +2275,7 @@
   </section>
 <section id="fc-event" style="padding:100px 24px;text-align:center;border-top:1px solid rgba(255,215,0,.12);position:relative;overflow:hidden">
     <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,215,0,.04) 0%,transparent 65%);pointer-events:none"></div>
-    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(255,215,0,.7);margin-bottom:20px">// LAUNCH DAY EVENT — CLASSIFIED //</div>
+    <div class="sr" style="font-family:var(--mono);font-size:11px;letter-spacing:.45em;color:rgba(255,215,0,.7);margin-bottom:20px">// LAUNCH DAY EVENT - CLASSIFIED //</div>
     <h2 class="sr" style="font-size:clamp(28px,5vw,64px);font-weight:700;letter-spacing:-.02em;margin-bottom:24px;line-height:1.1">On launch day,<br><span style="color:var(--gold)">one slot remains open.</span></h2>
     <p class="sr" style="font-family:var(--mono);font-size:clamp(12px,1.6vw,16px);letter-spacing:.08em;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 40px;line-height:2.2">
       The FIRST CONTACT archetype has never been confirmed in the field.<br>
@@ -2419,7 +2419,7 @@ function scrambleText(el, finalText, durationMs, onDone) {
 <script>
 // ── Supabase ──────────────────────────────────
 const SUPA_URL = 'https://bexjbozbrhijtjombxkm.supabase.co';
-// Supabase anon key — public-safe, protected by Row Level Security
+// Supabase anon key - public-safe, protected by Row Level Security
 const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJleGpib3picmhpanRqb21ieGttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1NzEyNTQsImV4cCI6MjA4NzE0NzI1NH0.h3TJJ599oOoKv3RA8QfELmwzvsYi1hhuxGau842P6hs';
 let sb = null;
 let supaPromise = null;
@@ -2555,7 +2555,7 @@ const ARCHETYPES = {
     icon: '🏃',
     color: 'survivor',
     pct: 'Self-Preservation Specialist designation.',
-    desc: 'You read the exit before you read the room. When it happens, your family is behind you and moving. That\'s not cowardice — that\'s the most human response there is.',
+    desc: 'You read the exit before you read the room. When it happens, your family is behind you and moving. That\'s not cowardice - that\'s the most human response there is.',
     serial_prefix: 'DS',
     card_color: 'green'
   },
@@ -2563,7 +2563,7 @@ const ARCHETYPES = {
     name: 'FIRST CONTACT',
     icon: '⭐',
     color: 'first-contact',
-    pct: 'Unclassified designation — no confirmed field contact.',
+    pct: 'Unclassified designation - no confirmed field contact.',
     desc: 'This archetype has no confirmed field contact. You were not supposed to find this path. Welcome.',
     serial_prefix: 'FC',
     card_color: 'gold'
@@ -2708,7 +2708,7 @@ function answer(qNum, optIdx, archetype) {
     }, 200);
   }
 
-  // Update progress bar — color shifts green→amber→red + tension vignette
+  // Update progress bar - color shifts green→amber→red + tension vignette
   var bar = document.getElementById('quiz-bar');
   bar.style.width = (qNum / 10 * 100) + '%';
   var quizEl = document.querySelector('.quiz');
@@ -2852,7 +2852,7 @@ function showArchetypeResult() {
   if (isFC) {
     archetype = 'first-contact';
   } else {
-    // Tally — highest score wins; ties go to diplomat
+    // Tally - highest score wins; ties go to diplomat
     let top = 'diplomat', topScore = -1;
     ['sentinel', 'diplomat', 'scholar', 'survivor'].forEach(function(a) {
       if (scores[a] > topScore) { topScore = scores[a]; top = a; }
@@ -3083,7 +3083,7 @@ async function handleAccess(e) {
   }
   numEl.className = 'gs-num' + (archetype === 'first-contact' ? ' fc-num' : '');
 
-  // Render card — archetype-styled
+  // Render card - archetype-styled
   const CARD_RENDER = {
     sentinel:      { cls:'ac-s',  color:'var(--arch-sentinel)', glow:'rgba(250,62,62,.6)',  role:'PRIMARY PROTECTOR',      s1:['THREAT READ','ACTIVE'],        s2:['ROLE ONSET','IMMEDIATE'],      bar:['READINESS','84%','84%'],      status:'🔴 FIELD DEPLOYMENT: READY',   sBorder:'rgba(250,62,62,.2)'  },
     diplomat:      { cls:'ac-d',  color:'var(--crt-green)', glow:'rgba(74,246,38,.6)',  role:'DE-ESCALATION LEAD',     s1:['CONTACT IDX','11.4 kHz'],      s2:['PROTOCOL','ALPHA-7'],          bar:['CALM RATING','96%','96%'],    status:'🟢 FIRST CONTACT: AUTHORIZED', sBorder:'rgba(74,246,38,.2)'  },
@@ -3157,7 +3157,7 @@ const NAV_STATES = [
   'LEAKED DOCUMENT · READING IN PROGRESS',
   'IDENTITY SCAN IN PROGRESS...',
   'ARCHETYPE CLASSIFICATION PENDING',
-  'OPERATIVE LOCATION — FILE ACCESSED'
+  'OPERATIVE LOCATION - FILE ACCESSED'
 ];
 
 function initNavScroll() {
@@ -3176,7 +3176,7 @@ function initNavScroll() {
       currentNavState = state;
       let txt = NAV_STATES[state];
       if (state === 3 && userCity !== 'UNKNOWN') {
-        txt = 'OPERATIVE ' + userCity + ' — CLEARANCE PENDING';
+        txt = 'OPERATIVE ' + userCity + ' - CLEARANCE PENDING';
       } else if (state === 0 && userCity !== 'UNKNOWN') {
         txt = 'LEAKED DOCUMENT · ' + userCity + ', ' + userRegion;
       }
@@ -3220,9 +3220,9 @@ function triggerFlagged() {
 // ── Boot Sequence ─────────────────────────────
 const BOOT = [
   'INTERCEPTED TRANSMISSION // SOURCE: [REDACTED]',
-  'CASE FILE: UAP-CIVILIAN-001 — LEAKED 2026-02-19',
+  'CASE FILE: UAP-CIVILIAN-001 - LEAKED 2026-02-19',
   'ORIGIN: 37°14\'06"N 115°48\'40"W // DUGWAY PROVING GROUND',
-  'CLASSIFICATION: TS/SCI — DOWNGRADED BY EXECUTIVE ORDER',
+  'CLASSIFICATION: TS/SCI - DOWNGRADED BY EXECUTIVE ORDER',
   'ARCHETYPE DATABASE: MIRRORED FROM INTERNAL SERVER',
   'ROUTING THROUGH PROXY...',
   'CHAIN OF CUSTODY BROKEN. YOU ARE NOW A WITNESS.',
@@ -3504,7 +3504,7 @@ function initEyeScroll() {
     ctx.drawImage(img, dx, dy, dw, dh);
   }
 
-  // Progressive frame loader — first 10 immediately, rest in background
+  // Progressive frame loader - first 10 immediately, rest in background
   function loadFrame(i) {
     return new Promise(function(resolve) {
       var img = new Image();
@@ -3548,7 +3548,7 @@ function initEyeScroll() {
   }
   window.addEventListener('scroll', loadRemaining, { once:true, passive:true });
   window.addEventListener('pointerdown', loadRemaining, { once:true, passive:true });
-  setTimeout(loadRemaining, 7000);
+  // Do not hydrate the 201-frame eye sequence on a timer. Load it only when the viewer shows intent.
 
   // Smooth interpolation loop (lerp toward target frame)
   function animate() {
@@ -3658,7 +3658,7 @@ function initEyeScroll() {
       setTimeout(function() { sp.style.opacity = '1'; }, i * 120);
     });
 
-    // Sub line — reveal with "assigned" green pulse
+    // Sub line - reveal with "assigned" green pulse
     var subDelay = identityWords.length * 120 + 200;
     subEl.style.opacity = '0';
     setTimeout(function() {
@@ -3716,7 +3716,7 @@ function initEyeScroll() {
     // Map scroll to frame
     targetFrame = progress * (TOTAL - 1);
 
-    // Eye glow effect — peaks at mid-scroll
+    // Eye glow effect - peaks at mid-scroll
     if (eyeGlow) {
       var glowIntensity = Math.sin(progress * Math.PI) * 0.6;
       eyeGlow.style.opacity = glowIntensity;
@@ -3769,7 +3769,7 @@ function initEyeScroll() {
       enhFlags.transitionFlashDone = true;
     }
 
-    // Text choreography — each layer fades in, holds, fades out
+    // Text choreography - each layer fades in, holds, fades out
     layers.forEach(function(layer) {
       if (!layer.el) return;
       var opacity = 0;
@@ -3806,7 +3806,7 @@ function initEyeScroll() {
   onScroll(); // Initial state
 }
 
-/* ENHANCEMENT: Cursor Particle Trail (#9) — Desktop only */
+/* ENHANCEMENT: Cursor Particle Trail (#9) - Desktop only */
 function initCursorTrail() {
   if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
   var MAX = 30;
@@ -3869,7 +3869,7 @@ function initPage() {
   initQuizEntrance(); /* CINEMATIC: Quiz glitch entrance */
 }
 
-  /* ── PRODUCT SHOWCASE V6 — Theatrical Slideshow ── */
+  /* ── PRODUCT SHOWCASE V6 - Theatrical Slideshow ── */
   (function(){
     var card = document.getElementById('fd-card');
     if (!card) return;
@@ -3888,10 +3888,10 @@ function initPage() {
     var navLabels = document.querySelectorAll('#fd-nav-labels .fd-nav-label');
 
     var features = [
-      { label:"SIGNAL LANGUAGE", headline:"Speak when words fail.", desc:"<span class='fd-bullet'>Learn gesture sequences built for non-human contact</span><span class='fd-bullet'>Practice fluency until it becomes muscle memory</span><span class='fd-bullet'>When your voice locks, <strong>your hands still work</strong></span>", img:"asset-signal-language-v7.webp", crtTop:"REC ● 03.05.24 // CLASSIFIED", crtBot:"FEED: SURVEILLANCE-07", metric:"GESTURE LOCK", score:"94%", fit:"contain" },
-      { label:"UNIVERSAL TRANSLATOR", headline:"Broadcast a first hello.", desc:"<span class='fd-bullet'>Frequency tones and geometric light pulses from your phone</span><span class='fd-bullet'>Point it at the sky, press transmit, hold steady</span><span class='fd-bullet'>Whatever is listening, <strong>now it knows you are here</strong></span>", img:"asset-universal-translator-v3.webp", crtTop:"FREQ: 1420.405 MHz // ACTIVE", crtBot:"TX: HYDROGEN LINE BROADCAST", metric:"SIGNAL SYNC", score:"88%", fit:"contain" },
-      { label:"STONE COLD DRILLS", headline:"Train the panic out.", desc:"<span class='fd-bullet'>Strobes, alien audio, pressure timing, real reaction scoring</span><span class='fd-bullet'>Photography drills teach you to <strong>get the shot under stress</strong></span><span class='fd-bullet'>Escalating levels turn nerves into readiness</span>", img:"asset-stone-cold-v3.webp", crtTop:"SUBJ: 0041 // BPM: 142 // STRESS: HIGH", crtBot:"PROTOCOL: ENDURANCE LEVEL 07", metric:"COMPOSURE", score:"72%", fit:"contain" },
-      { label:"FIRST CONTACT CARD", headline:"Carry your clearance.", desc:"<span class='fd-bullet'>Digital credential with archetype, score, and clearance level</span><span class='fd-bullet'>Apple Wallet and Google Wallet compatible</span><span class='fd-bullet'>Save it, share it, or keep it hidden. <strong>You are in the system</strong></span>", img:"asset-first-contact-card-v5.webp", crtTop:"CREDENTIAL: VERIFIED // ACTIVE", crtBot:"CLEARANCE: PENDING CLASSIFICATION", metric:"CARD STATUS", score:"ISSUED", fit:"contain" }
+      { label:"SIGNAL LANGUAGE", headline:"Speak when words fail.", desc:"<span class='fd-bullet'>Learn gesture sequences built for non-human contact</span><span class='fd-bullet'>Practice fluency until it becomes muscle memory</span><span class='fd-bullet'>When your voice locks, <strong>your hands still work</strong></span>", img:"asset-signal-language-v7.webp", srcset:"asset-signal-language-v7-640.webp 640w, asset-signal-language-v7-960.webp 960w, asset-signal-language-v7-1280.webp 1280w, asset-signal-language-v7.webp 2752w", crtTop:"REC ● 03.05.24 // CLASSIFIED", crtBot:"FEED: SURVEILLANCE-07", metric:"GESTURE LOCK", score:"94%", fit:"contain" },
+      { label:"UNIVERSAL TRANSLATOR", headline:"Broadcast a first hello.", desc:"<span class='fd-bullet'>Frequency tones and geometric light pulses from your phone</span><span class='fd-bullet'>Point it at the sky, press transmit, hold steady</span><span class='fd-bullet'>Whatever is listening, <strong>now it knows you are here</strong></span>", img:"asset-universal-translator-v3.webp", srcset:"asset-universal-translator-v3-640.webp 640w, asset-universal-translator-v3-960.webp 960w, asset-universal-translator-v3-1280.webp 1280w, asset-universal-translator-v3.webp 2752w", crtTop:"FREQ: 1420.405 MHz // ACTIVE", crtBot:"TX: HYDROGEN LINE BROADCAST", metric:"SIGNAL SYNC", score:"88%", fit:"contain" },
+      { label:"STONE COLD DRILLS", headline:"Train the panic out.", desc:"<span class='fd-bullet'>Strobes, alien audio, pressure timing, real reaction scoring</span><span class='fd-bullet'>Photography drills teach you to <strong>get the shot under stress</strong></span><span class='fd-bullet'>Escalating levels turn nerves into readiness</span>", img:"asset-stone-cold-v3.webp", srcset:"asset-stone-cold-v3-640.webp 640w, asset-stone-cold-v3-960.webp 960w, asset-stone-cold-v3-1280.webp 1280w, asset-stone-cold-v3.webp 2752w", crtTop:"SUBJ: 0041 // BPM: 142 // STRESS: HIGH", crtBot:"PROTOCOL: ENDURANCE LEVEL 07", metric:"COMPOSURE", score:"72%", fit:"contain" },
+      { label:"FIRST CONTACT CARD", headline:"Carry your clearance.", desc:"<span class='fd-bullet'>Digital credential with archetype, score, and clearance level</span><span class='fd-bullet'>Apple Wallet and Google Wallet compatible</span><span class='fd-bullet'>Save it, share it, or keep it hidden. <strong>You are in the system</strong></span>", img:"asset-first-contact-card-v5.webp", srcset:"asset-first-contact-card-v5-640.webp 640w, asset-first-contact-card-v5-960.webp 960w, asset-first-contact-card-v5-1280.webp 1280w, asset-first-contact-card-v5.webp 2752w", crtTop:"CREDENTIAL: VERIFIED // ACTIVE", crtBot:"CLEARANCE: PENDING CLASSIFICATION", metric:"CARD STATUS", score:"ISSUED", fit:"contain" }
     ];
 
     var current = 0;
@@ -3931,6 +3931,8 @@ function initPage() {
         labelEl.textContent = f.label;
         headEl.textContent = f.headline;
         descEl.innerHTML = f.desc;
+        imgEl.srcset = f.srcset || '';
+        imgEl.sizes = '(max-width: 620px) calc(100vw - 56px), (max-width: 1100px) calc(100vw - 96px), 560px';
         imgEl.src = f.img;
         imgEl.alt = f.label;
         imgEl.style.objectFit = f.fit || 'cover';
@@ -3963,6 +3965,8 @@ function initPage() {
 
         /* 4. Type label, then reveal content */
         setTimeout(function(){
+          imgEl.srcset = f.srcset || '';
+          imgEl.sizes = '(max-width: 620px) calc(100vw - 56px), (max-width: 1100px) calc(100vw - 96px), 560px';
           imgEl.src = f.img;
           imgEl.alt = f.label;
           imgEl.style.objectFit = f.fit || 'cover';

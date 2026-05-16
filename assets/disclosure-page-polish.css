@@ -145,7 +145,16 @@ body.dp-polish-ready > nav:not(.intel-guide-topbar)::after{
   box-shadow:0 0 28px rgba(74,246,38,.42);
 }
 @media (max-width:760px){
-  body.dp-polish-ready .shell{max-width:100%;overflow:visible;}
+  body.dp-polish-ready .shell{max-width:100%!important;overflow:visible;}
   body.dp-polish-ready .topbar{width:calc(100% + 28px)!important;margin-left:-14px!important;margin-right:-14px!important;padding-inline:14px!important;}
   body.dp-polish-ready > nav:not(.intel-guide-topbar){padding:14px!important;}
+  body.dp-polish-ready :is(.hero,.section,.cta,.panel,.answer-box,.faq,.faq-card,.step,.card,.policy-block,.dossier-panel,.matrix-panel,.dossier-wrap,.team-panel,.matrix-row,.trait-grid,.team-grid){min-width:0!important;max-width:100%!important;}
+  body.dp-polish-ready :is(.hero > *,.section > *,.panel > *,.answer-box > *,.policy-block > *,.dossier-panel > *,.matrix-panel > *,h1,h1 span,h2,h2 span,.lead,.kicker,.section-note,.section-head,.navlinks){min-width:0!important;max-width:100%!important;width:auto!important;overflow-wrap:anywhere!important;}
+  body.dp-polish-ready :is(h1,h1 span,h2,h2 span){word-break:normal;text-wrap:balance;}
+  body.dp-polish-ready .kicker{width:auto!important;}
+  body.dp-polish-ready .navlinks{gap:8px!important;min-width:0!important;}
+  body.dp-polish-ready .navlinks .primary{padding-inline:10px!important;font-size:10px!important;letter-spacing:.08em!important;white-space:nowrap;}
+}
+@media (max-width:430px){
+  body.dp-polish-ready .navlinks .primary{display:none!important;}
 }

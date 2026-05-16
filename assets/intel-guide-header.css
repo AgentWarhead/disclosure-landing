@@ -227,6 +227,35 @@ body > nav.intel-guide-topbar + .article-hero .article-title {
 }
 
 @media (max-width: 780px) {
+  .article-hero,
+  .article-hero img,
+  .article-wrap,
+  .article-body,
+  .classified-box,
+  .field-card,
+  .article-artifact,
+  .artifact-grid,
+  .redacted-block {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  .article-body :is(p, li, h2, h3, a, strong, span),
+  .classified-box,
+  .field-card,
+  .article-artifact,
+  .rb-line,
+  .r {
+    overflow-wrap: anywhere !important;
+  }
+  .rb-line .r,
+  .r {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    vertical-align: bottom;
+  }
   body > nav.intel-guide-topbar {
     min-height: 62px;
     padding: 10px 12px;
