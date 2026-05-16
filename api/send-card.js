@@ -133,6 +133,7 @@ module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Cache-Control", "no-store, max-age=0");
   if (req.method === "OPTIONS") return res.status(200).end();
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
@@ -164,12 +165,15 @@ module.exports = async (req, res) => {
       }),
     });
 
+    const detailText = await resp.text();
+    let detail = null;
+    try { detail = JSON.parse(detailText); } catch (_) { detail = detailText; }
+
     if (!resp.ok) {
-      const err = await resp.text();
-      return res.status(500).json({ error: "Resend failed", detail: err });
+      return res.status(500).json({ error: "Resend failed", detail });
     }
 
-    return res.status(200).json({ ok: true, to: email, archetype: key });
+    return res.status(200).json({ ok: true, to: email, archetype: key, provider: "resend", detail });
   } catch (err) {
     console.error("Send failed:", err);
     return res.status(500).json({ error: err.message });
