@@ -1189,6 +1189,9 @@
     /* Transmission packet cleanup: dead channel tiles removed, card resizes around actual content */
     .packet-card{padding:26px!important}.packet-text{color:rgba(255,255,255,.9)!important}.packet-channels{display:none!important}.packet-result{margin-bottom:18px!important}.packet-actions{margin-top:24px!important}
 
+    /* Viral field packet: pre-classification state should feel like a leak, not a placeholder */
+    .packet-card{isolation:isolate;border-color:rgba(216,255,155,.36)!important;background:radial-gradient(ellipse at 18% 0%,rgba(216,255,155,.16),transparent 42%),radial-gradient(ellipse at 90% 92%,rgba(245,158,11,.11),transparent 38%),linear-gradient(180deg,rgba(7,15,8,.96),rgba(0,0,0,.88))!important;box-shadow:0 0 0 1px rgba(255,255,255,.035),0 34px 110px rgba(0,0,0,.52),0 0 86px rgba(74,246,38,.16),inset 0 0 58px rgba(74,246,38,.06)!important}.packet-card::after{content:'BLACK CHANNEL // CIVILIAN LEAK';position:absolute;left:18px;right:18px;bottom:14px;z-index:-1;height:28px;border:1px solid rgba(74,246,38,.18);border-radius:999px;background:linear-gradient(90deg,transparent,rgba(74,246,38,.07),transparent);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;font-weight:950;letter-spacing:.24em;color:rgba(216,255,155,.42);text-shadow:0 0 18px rgba(74,246,38,.35)}.packet-badge{color:#dfff8c!important;-webkit-text-fill-color:#dfff8c!important;font-weight:950!important;text-shadow:0 0 18px rgba(74,246,38,.72)!important}.packet-result{border-color:rgba(216,255,155,.3)!important;background:linear-gradient(135deg,rgba(74,246,38,.11),rgba(255,255,255,.035))!important;box-shadow:inset 0 0 32px rgba(74,246,38,.05),0 0 38px rgba(74,246,38,.08)!important}.packet-icon{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;border:1px solid rgba(216,255,155,.55);background:radial-gradient(circle,rgba(216,255,155,.18),rgba(74,246,38,.04));font-size:30px!important;color:#dfff8c;text-shadow:0 0 20px rgba(74,246,38,.9);box-shadow:0 0 30px rgba(74,246,38,.18),inset 0 0 18px rgba(74,246,38,.08)}.packet-name{font-size:clamp(38px,4.8vw,62px)!important;text-transform:uppercase;text-shadow:0 0 28px rgba(216,255,155,.22),0 0 58px rgba(74,246,38,.12)!important}.packet-role{font-weight:950!important;letter-spacing:.22em!important}.packet-text{position:relative;border:1px solid rgba(216,255,155,.26)!important;border-left:3px solid rgba(216,255,155,.72)!important;background:linear-gradient(90deg,rgba(74,246,38,.08),rgba(0,0,0,.46))!important;font-size:clamp(13px,1.05vw,16px)!important;font-weight:850!important;letter-spacing:.045em!important;line-height:1.62!important;color:#fff!important;-webkit-text-fill-color:#fff!important;text-shadow:0 0 2px #000,0 0 18px rgba(255,255,255,.16)!important;box-shadow:inset 0 0 28px rgba(74,246,38,.04),0 0 34px rgba(74,246,38,.08)}.packet-text::before{content:'TAP TO COPY // FORWARD THE SIGNAL';display:block;margin-bottom:10px;font-family:var(--mono);font-size:9px;font-weight:950;letter-spacing:.22em;color:#dfff8c;-webkit-text-fill-color:#dfff8c;text-shadow:0 0 18px rgba(74,246,38,.72)}@media(max-width:700px){.packet-card{padding:18px!important}.packet-card::before,.packet-card::after{display:none!important}.packet-top{align-items:flex-start;flex-direction:column;gap:8px!important}.packet-badge,.packet-serial{font-size:8px!important;line-height:1.35!important}.packet-result{grid-template-columns:54px minmax(0,1fr)!important;text-align:left!important;gap:12px!important;padding:13px!important}.packet-name{font-size:clamp(32px,10vw,42px)!important;line-height:.92!important;overflow-wrap:anywhere}.packet-role{font-size:8px!important;line-height:1.35!important}.packet-text{font-size:12px!important;line-height:1.56!important;padding:14px!important}.packet-text::before{font-size:8px!important;letter-spacing:.16em!important}}
+
     /* Species containment header fit: 10% tighter without flattening the hangar */
     .species-hangar .sh-head{margin-bottom:12px!important;gap:clamp(22px,3.8vw,42px)!important}.species-hangar .sh-kicker{font-size:9px!important;letter-spacing:.34em!important;margin-bottom:10px!important}.species-hangar .sh-title{font-size:clamp(38px,5.2vw,68px)!important;line-height:.88!important}.species-hangar .sh-copy{font-size:15px!important;line-height:1.38!important;margin-bottom:10px!important}.species-hangar .sh-status{gap:8px!important}.species-hangar .sh-status div{padding:9px 10px!important}.species-hangar .sh-status b{font-size:15px!important}.species-hangar .sh-status span{font-size:8px!important}
 
@@ -1738,22 +1741,22 @@
         <div class="packet-actions">
           <button class="primary" type="button" onclick="nativeSharePacket()">TRANSMIT PACKET</button>
           <button type="button" onclick="copyPacketText()">COPY FIELD MESSAGE</button>
-          <a id="packet-x" href="https://twitter.com/intent/tweet?text=I%20found%20DISCLOSURE.%20Get%20classified%20before%20the%20sky%20opens%3A%20getdisclosure.app%20%40disclosure_app" target="_blank" rel="noopener">POST ON X</a>
+          <a id="packet-x" href="https://twitter.com/intent/tweet?text=A%20civilian%20first%20contact%20file%20is%20open.%20Mine%20has%20not%20been%20classified%20yet.%20Yours%20might%20be%20stranger.%20Enter%20the%20black%20channel%20before%20the%20signal%20moves%20without%20you%3A%20getdisclosure.app%20%40disclosure_app" target="_blank" rel="noopener">POST ON X</a>
         </div>
       </div>
       <div class="packet-card sr" aria-live="polite">
         <div class="packet-top">
-          <div class="packet-badge">◉ SHAREABLE FIELD PACKET</div>
-          <div class="packet-serial" id="packet-serial">DS-2026-PENDING</div>
+          <div class="packet-badge">◉ BLACK CHANNEL FIELD PACKET</div>
+          <div class="packet-serial" id="packet-serial">DS-2026-SIGNAL</div>
         </div>
         <div class="packet-result">
           <div class="packet-icon" id="packet-icon">◉</div>
           <div>
-            <div class="packet-name" id="packet-name">UNCLASSIFIED</div>
-            <div class="packet-role" id="packet-role">ASSESSMENT REQUIRED</div>
+            <div class="packet-name" id="packet-name">SIGNAL PENDING</div>
+            <div class="packet-role" id="packet-role">CLASSIFICATION NOT YET ISSUED</div>
           </div>
         </div>
-        <div class="packet-text" id="packet-text" onclick="copyPacketText()">I found the civilian first contact readiness system. It classifies how you respond when contact happens. Take the assessment: getdisclosure.app</div>
+        <div class="packet-text" id="packet-text" onclick="copyPacketText()">A civilian first contact file is open. Mine has not been classified yet. Yours might be stranger. Enter the black channel before the signal moves without you: getdisclosure.app</div>
         <div class="packet-copied" id="packet-copied">COPIED TO CLIPBOARD</div>
       </div>
     </div>
@@ -4303,7 +4306,7 @@ function initPage() {
 <script>
 function getPacketMessage(){
   const el = document.getElementById('packet-text');
-  return el ? el.textContent : 'I found DISCLOSURE. Get classified before the sky opens: getdisclosure.app';
+  return el ? el.textContent : 'A civilian first contact file is open. Mine has not been classified yet. Yours might be stranger. Enter the black channel before the signal moves without you: getdisclosure.app';
 }
 function updateTransmissionPacket(archetype, serial){
   const data = archetype && window.ARCHETYPES ? ARCHETYPES[archetype] : null;
