@@ -117,6 +117,9 @@ function buildPlainText(archetype, serial) {
     `OPEN YOUR FULL ${a.name} DOSSIER`,
     u.dossier,
     ``,
+    `COMING SOON TO iOS AND ANDROID`,
+    `The mobile command deck is almost live: drills, field cards, species files, incident reports, and signal tools built for your pocket.`,
+    ``,
     `CLAIM APP ACCESS`,
     u.access,
     ``,
@@ -174,6 +177,24 @@ function buildEmail(archetype, serial) {
 </td></tr>
 <tr><td style="padding:0 0 20px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(216,255,155,0.20);border-radius:24px;background:rgba(0,0,0,0.54);box-shadow:inset 0 0 42px rgba(74,246,38,0.045);"><tr><td style="padding:22px 24px;"><p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.4px;color:${c};font-weight:900;">FIELD DIRECTIVE</p><p style="margin:0;font-size:18px;line-height:1.5;color:#ffffff;font-weight:800;">${esc(a.directive)}</p></td></tr></table></td></tr>
 <tr><td style="padding:0 0 22px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(255,255,255,0.12);border-radius:24px;background:linear-gradient(135deg,rgba(7,18,9,0.95),rgba(0,0,0,0.72));"><tr><td style="padding:20px 24px 6px;"><p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.4px;color:#DFFF8C;font-weight:900;">APP TRAINING QUEUE</p></td></tr>${moduleRows}</table></td></tr>
+<tr><td style="padding:0 0 24px;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(74,246,38,0.34);border-radius:28px;background:#031006;background-image:radial-gradient(circle at 50% 0,rgba(74,246,38,0.26),transparent 42%),radial-gradient(circle at 86% 24%,${glow},transparent 30%),linear-gradient(145deg,rgba(6,24,10,0.98),rgba(0,0,0,0.82));box-shadow:0 0 70px rgba(74,246,38,0.16),inset 0 0 46px rgba(255,215,0,0.045);overflow:hidden;">
+    <tr><td style="padding:0;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+        <td style="padding:24px 24px 22px;vertical-align:top;">
+          <p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2.6px;color:#4AF626;font-weight:900;">MOBILE COMMAND DECK // COMING SOON</p>
+          <h2 style="margin:0 0 12px;font-size:34px;line-height:0.98;letter-spacing:-1.3px;color:#ffffff;font-weight:900;text-transform:uppercase;">The briefing is moving to your pocket.</h2>
+          <p style="margin:0 0 16px;font-size:17px;line-height:1.48;color:#ffffff;font-weight:800;">iOS and Android launch channels are opening. Your archetype becomes a live field system: drills, signal tools, species files, incident reports, and a First Contact Card built to deploy when the sky changes.</p>
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 14px;"><tr>
+            <td style="padding:4px 5px 4px 0;"><div style="border:1px solid rgba(255,255,255,0.18);border-radius:14px;padding:10px 8px;text-align:center;background:rgba(0,0,0,0.42);font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:1.7px;color:#ffffff;font-weight:900;">iOS<br/><span style="color:#DFFF8C;">ARMING</span></div></td>
+            <td style="padding:4px 0 4px 5px;"><div style="border:1px solid rgba(255,255,255,0.18);border-radius:14px;padding:10px 8px;text-align:center;background:rgba(0,0,0,0.42);font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:1.7px;color:#ffffff;font-weight:900;">ANDROID<br/><span style="color:#DFFF8C;">ARMING</span></div></td>
+          </tr></table>
+          <div style="border:1px solid rgba(216,255,155,0.22);border-radius:16px;padding:11px 12px;background:rgba(74,246,38,0.06);font-family:'Courier New',Courier,monospace;font-size:12px;line-height:1.45;letter-spacing:1.4px;color:#DFFF8C;font-weight:900;">EARLY ACCESS SIGNAL: CLAIM YOUR SLOT BEFORE CIVILIAN ONBOARDING OPENS.</div>
+        </td>
+      </tr></table>
+    </td></tr>
+  </table>
+</td></tr>
 <tr><td align="center" style="padding:0 0 24px;">
   <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding:6px;">${button(`OPEN YOUR FULL ${a.name} DOSSIER`, u.dossier, true)}</td></tr><tr><td style="padding:6px;">${button('CLAIM APP ACCESS', u.access)}</td></tr></table>
 </td></tr>
