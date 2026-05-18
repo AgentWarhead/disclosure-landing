@@ -87,10 +87,10 @@ function urlsFor(archetype, shareText) {
     archetypes: `${base}/archetypes`,
     dossier: `${base}/archetype/${dossierPath}`,
     intel: `${base}/intel`,
-    x: `https://twitter.com/intent/tweet?text=${enc(shareText)}`,
-    whatsapp: `https://wa.me/?text=${enc(shareText)}`,
-    facebook: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgetdisclosure.app",
-    mailFriend: `mailto:?subject=${enc("Get your First Contact classification")}&body=${enc(shareText)}`,
+    signal: `${base}/#transmission-packet`,
+    share: `${base}/?share=x&a=${archetype}&text=${enc(shareText)}`,
+    group: `${base}/?ref=group-chat#quiz`,
+    friend: `${base}/?ref=friend#quiz`,
   };
 }
 
@@ -201,7 +201,7 @@ function buildEmail(archetype, serial) {
     <tr><td style="padding:20px;border:1px solid rgba(255,255,255,0.16);border-radius:22px;background:rgba(255,255,255,0.045);text-align:center;">
       <p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:14px;letter-spacing:2.5px;color:#FFD66B;font-weight:900;">SPREAD THE SIGNAL</p>
       <p style="margin:0 0 16px;font-size:17px;line-height:1.55;color:#ffffff;font-weight:800;">Post your classification. Challenge your group chat. Make them find out who they become when the sky stops pretending.</p>
-      <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding:5px;">${button('POST ON X', u.x)}</td></tr><tr><td style="padding:5px;">${button('SEND TO GROUP CHAT', u.whatsapp)}</td></tr><tr><td style="padding:5px;">${button('SHARE ON FACEBOOK', u.facebook)}</td></tr><tr><td style="padding:5px;">${button('TELL A FRIEND', u.mailFriend)}</td></tr></table>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding:5px;">${button('ARM SHARE PACKET', u.signal)}</td></tr><tr><td style="padding:5px;">${button('OPEN SHAREABLE FIELD FILE', u.share)}</td></tr><tr><td style="padding:5px;">${button('SEND THE QUIZ TO YOUR GROUP CHAT', u.group)}</td></tr><tr><td style="padding:5px;">${button('CHALLENGE A FRIEND', u.friend)}</td></tr></table>
     </td></tr>
   </table>
 </td></tr>
