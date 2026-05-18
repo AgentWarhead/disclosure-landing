@@ -1940,6 +1940,16 @@
 
 
     /* Mobile audit pass 3: mission stacks become swipeable consoles, not vertical tombstones */
+    /* App feature CTA breathing room: keep launch pills out of the four-card module stack */
+    #classified-tools .fd-copy-deck{display:flex!important;flex-direction:column!important;min-width:0!important}
+    #classified-tools .fd-nav-labels{margin-bottom:0!important}
+    #classified-tools .fd-actions{position:relative!important;z-index:3!important;margin-top:clamp(26px,2.8vw,38px)!important;padding-top:clamp(18px,2.2vw,28px)!important;border-top:1px solid rgba(216,255,155,.18)!important;gap:12px!important}
+    #classified-tools .fd-actions::before{content:'';position:absolute;left:0;right:0;top:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(216,255,155,.58),transparent);box-shadow:0 0 22px rgba(74,246,38,.22);pointer-events:none}
+    #classified-tools .fd-feature-deck{position:relative!important;z-index:1!important}
+    @media(min-width:1101px){#classified-tools.fd-command-center{height:auto!important;min-height:780px!important;max-height:none!important;padding:54px 22px!important}#classified-tools .fd-command-grid{align-items:center!important}}
+    @media(min-width:701px) and (max-width:1100px){#classified-tools .fd-actions{margin-top:26px!important;padding-top:20px!important}}
+    @media(max-width:700px){#classified-tools .fd-actions{margin-top:20px!important;padding-top:18px!important;gap:10px!important}}
+
     @media(max-width:700px){
       .mission-panel{overflow:hidden!important}.mission-panel-head{margin-bottom:12px!important}
       #civilian-readiness-os .mission-panel,#clearance-ladder .mission-panel{padding:14px!important}
