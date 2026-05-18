@@ -156,10 +156,10 @@ function buildPlainText(archetype, serial) {
     `IF CONTACT HAPPENS`,
     e.directive,
     ``,
-    `COMING SOON TO iPHONE AND ANDROID`,
-    `The app turns your result into quick drills, encounter scenarios, shareable cards, and tools you can use before everyone else catches up.`,
+    `YOU'RE ON THE LIST`,
+    `Good move. When Disclosure launches on iPhone and Android, you will hear from us first. Launch day, new features, strange updates, and the next steps all go to this email.`,
     ``,
-    `WHAT YOU GET FIRST`,
+    `WHAT COMES NEXT`,
     `01 ${e.modules[0]}`,
     `02 ${e.modules[1]}`,
     `03 ${e.modules[2]}`,
@@ -167,8 +167,8 @@ function buildPlainText(archetype, serial) {
     `OPEN YOUR ${a.name} DOSSIER`,
     u.dossier,
     ``,
-    `GET APP ACCESS`,
-    u.access,
+    `YOU ARE ONE STEP CLOSER TO BEING READY`,
+    `Watch this inbox. We will send the launch signal when the app is ready.`,
     ``,
     `Challenge your group chat: ${u.share}`,
     `getdisclosure.app`,
@@ -225,19 +225,19 @@ function buildEmail(archetype, serial) {
   <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(74,246,38,0.40);border-radius:30px;background:#031006;background-image:radial-gradient(circle at 50% 0,rgba(74,246,38,0.30),transparent 42%),radial-gradient(circle at 92% 22%,${glow},transparent 32%),linear-gradient(145deg,rgba(7,28,11,0.98),rgba(0,0,0,0.82));box-shadow:0 0 82px rgba(74,246,38,0.20),inset 0 0 48px rgba(255,215,0,0.05);overflow:hidden;">
     <tr><td style="padding:26px 24px 24px;text-align:center;">
       <div style="display:inline-block;margin:0 0 12px;padding:7px 12px;border-radius:999px;background:rgba(74,246,38,0.12);border:1px solid rgba(74,246,38,0.36);font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2.3px;color:#4AF626;font-weight:900;">COMING SOON TO iPHONE + ANDROID</div>
-      <h2 style="margin:0 0 12px;font-size:40px;line-height:0.94;letter-spacing:-1.8px;color:#ffffff;font-weight:900;text-transform:uppercase;">The app is where this gets real.</h2>
-      <p style="margin:0 auto 18px;max-width:530px;font-size:18px;line-height:1.48;color:#ffffff;font-weight:900;">Your result is only the start. The app gives you quick drills, strange encounter scenarios, shareable cards, and simple tools to use before everyone else catches up.</p>
+      <h2 style="margin:0 0 12px;font-size:40px;line-height:0.94;letter-spacing:-1.8px;color:#ffffff;font-weight:900;text-transform:uppercase;">You made the right call.</h2>
+      <p style="margin:0 auto 18px;max-width:530px;font-size:18px;line-height:1.48;color:#ffffff;font-weight:900;">Most people will wait until the sky gets weird. You are already one step closer to being ready. When Disclosure launches, this inbox gets the signal first.</p>
       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 16px;"><tr>
-        <td style="padding:5px;"><div style="border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:13px 8px;text-align:center;background:rgba(0,0,0,0.48);font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:0.6px;color:#ffffff;font-weight:900;text-transform:uppercase;">iPhone<br/><span style="color:#DFFF8C;">launch list open</span></div></td>
-        <td style="padding:5px;"><div style="border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:13px 8px;text-align:center;background:rgba(0,0,0,0.48);font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:0.6px;color:#ffffff;font-weight:900;text-transform:uppercase;">Android<br/><span style="color:#DFFF8C;">launch list open</span></div></td>
+        <td style="padding:5px;"><div style="border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:13px 8px;text-align:center;background:rgba(0,0,0,0.48);font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:0.6px;color:#ffffff;font-weight:900;text-transform:uppercase;">iPhone<br/><span style="color:#DFFF8C;">you are on the list</span></div></td>
+        <td style="padding:5px;"><div style="border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:13px 8px;text-align:center;background:rgba(0,0,0,0.48);font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:0.6px;color:#ffffff;font-weight:900;text-transform:uppercase;">Android<br/><span style="color:#DFFF8C;">you are on the list</span></div></td>
       </tr></table>
-      <div style="border:1px solid rgba(216,255,155,0.24);border-radius:18px;padding:13px 14px;background:rgba(74,246,38,0.07);font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.35;color:#DFFF8C;font-weight:900;">Get on the list now. When the app opens, early people get in first.</div>
+      <div style="border:1px solid rgba(216,255,155,0.24);border-radius:18px;padding:13px 14px;background:rgba(74,246,38,0.07);font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.35;color:#DFFF8C;font-weight:900;">You are on the list. We will send launch day, app updates, and the next Disclosure drops here first.</div>
     </td></tr>
   </table>
 </td></tr>
 <tr><td style="padding:0 0 22px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(255,255,255,0.12);border-radius:24px;background:linear-gradient(135deg,rgba(7,18,9,0.95),rgba(0,0,0,0.72));"><tr><td style="padding:20px 24px 6px;"><p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.2px;color:#DFFF8C;font-weight:900;">WHAT YOU GET FIRST</p></td></tr>${moduleRows}</table></td></tr>
 <tr><td align="center" style="padding:0 0 24px;">
-  <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding:6px;">${button(`OPEN MY ${a.name} DOSSIER`, u.dossier, true)}</td></tr><tr><td style="padding:6px;">${button('GET APP ACCESS', u.access)}</td></tr></table>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding:6px;">${button(`OPEN MY ${a.name} DOSSIER`, u.dossier, true)}</td></tr><tr><td style="padding:6px;">${button('SEND THIS TO A FRIEND', u.share)}</td></tr></table>
 </td></tr>
 <tr><td style="padding:18px 20px;border:1px solid rgba(255,255,255,0.14);border-radius:22px;background:rgba(255,255,255,0.04);text-align:center;">
   <p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.2px;color:#FFD66B;font-weight:900;">SEND THIS TO THE GROUP CHAT</p>
