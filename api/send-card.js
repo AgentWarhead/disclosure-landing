@@ -4,7 +4,7 @@ const FROM_EMAIL = "Disclosure Protocol <team@getdisclosure.app>";
 const ARCHETYPES = {
   sentinel: {
     name: "SENTINEL", icon: "🛡️", role: "PRIMARY PROTECTOR", code: "ARCHETYPE 001",
-    color: "#4AF626", glow: "rgba(74,246,38,0.42)", subject: "Your Sentinel file is active",
+    color: "#FA3E3E", glow: "rgba(250,62,62,0.42)", subject: "Your Sentinel file is active",
     preheader: "Classification issued. First Contact Card attached. The perimeter starts with you.",
     tagline: "You move before the crowd understands why movement is required.",
     reveal: "Your nervous system does not wait for permission. It creates a line, places itself on that line, and dares the unknown to cross it.",
@@ -30,7 +30,7 @@ const ARCHETYPES = {
   },
   scholar: {
     name: "SCHOLAR", icon: "🔬", role: "FIELD ANALYST", code: "ARCHETYPE 003",
-    color: "#60A5FA", glow: "rgba(96,165,250,0.42)", subject: "Your Scholar file is active",
+    color: "#3B82F6", glow: "rgba(59,130,246,0.42)", subject: "Your Scholar file is active",
     preheader: "Classification issued. First Contact Card attached. Your record may be the only one that survives.",
     tagline: "Your records will be the only verifiable account that survives.",
     reveal: "You do not just witness the event. You preserve it. Sequence, sound, shape, contradiction, timing: the details panic tries to delete.",
@@ -74,13 +74,33 @@ function esc(value) {
   return String(value).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[ch] || ch));
 }
 
+function urlsFor(archetype, shareText) {
+  const base = "https://getdisclosure.app";
+  const dossierPath = archetype === "first-contact" ? "first-contact" : archetype;
+  return {
+    home: base,
+    quiz: `${base}/#quiz`,
+    access: `${base}/#access`,
+    fieldKit: `${base}/#classified-tools`,
+    simulator: `${base}/#protocol-simulator`,
+    packet: `${base}/#transmission-packet`,
+    archetypes: `${base}/archetypes`,
+    dossier: `${base}/archetype/${dossierPath}`,
+    intel: `${base}/intel`,
+    x: `https://twitter.com/intent/tweet?text=${enc(shareText)}`,
+    whatsapp: `https://wa.me/?text=${enc(shareText)}`,
+    facebook: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgetdisclosure.app",
+    mailFriend: `mailto:?subject=${enc("Get your First Contact classification")}&body=${enc(shareText)}`,
+  };
+}
+
 function buildPlainText(archetype, serial) {
   const a = ARCHETYPES[archetype] || ARCHETYPES["diplomat"];
+  const u = urlsFor(archetype, a.share_txt);
   return [
     `DISCLOSURE // CLASSIFICATION ISSUED`,
-    ``,
-    `Your ${a.name} file is active.`,
     `Serial: ${serial || "DS-2026-ISSUED"}`,
+    `Designation: ${a.name}`,
     `Role: ${a.role}`,
     ``,
     a.reveal,
@@ -89,14 +109,17 @@ function buildPlainText(archetype, serial) {
     a.directive,
     a.protocol,
     ``,
-    `MOBILE APP INCOMING`,
-    `Disclosure is actively being built now and launching soon. Android testing opportunities will be available before public launch. Low serials board first.`,
+    `YOUR NEXT MOVES`,
+    `1. Open your ${a.name} dossier: ${u.dossier}`,
+    `2. Review the app field kit: ${u.fieldKit}`,
+    `3. Run the field simulation: ${u.simulator}`,
+    `4. Browse the intel archive: ${u.intel}`,
     ``,
     `SPREAD THE SIGNAL`,
-    `Post the quiz, send it to your group chat, and tell friends to get classified before the signal gets loud.`,
+    a.share_txt,
     ``,
-    `Take the quiz: https://getdisclosure.app/#quiz`,
-    `Forward the signal: https://getdisclosure.app`,
+    `Take the quiz: ${u.quiz}`,
+    `All archetypes: ${u.archetypes}`,
   ].join("\n");
 }
 
@@ -104,91 +127,85 @@ function buildEmail(archetype, serial) {
   const a = ARCHETYPES[archetype] || ARCHETYPES["diplomat"];
   const issued = new Date().toISOString().slice(0, 10);
   const serialSafe = esc(serial || "DS-2026-ISSUED");
-  const briefingUrl = "https://getdisclosure.app/#quiz";
-  const dossierUrl = `https://getdisclosure.app/archetype/${archetype === "first-contact" ? "first-contact" : archetype}`;
-  const shareUrl = `https://getdisclosure.app?share=x&a=${archetype}&text=${enc(a.share_txt)}`;
-  const quizUrl = "https://getdisclosure.app/#quiz";
-  const whatsappUrl = `https://wa.me/?text=${enc(a.share_txt)}`;
-  const facebookUrl = "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgetdisclosure.app";
-  const mailFriendUrl = `mailto:?subject=${enc("Get your First Contact classification")}&body=${enc(a.share_txt)}`;
+  const u = urlsFor(archetype, a.share_txt);
+  const c = a.color;
+  const glow = a.glow;
+  const button = (label, href, filled = false) => `<a href="${href}" style="display:inline-block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;border-radius:999px;padding:15px 16px;font-family:'Courier New',Courier,monospace;font-size:16px;line-height:1.15;letter-spacing:1.8px;font-weight:900;${filled ? `background:linear-gradient(90deg,#dfff8c,#4AF626);color:#020302;border:1px solid #dfff8c;box-shadow:0 0 34px rgba(74,246,38,0.35);` : `background:rgba(255,255,255,0.045);color:#ffffff;border:1px solid rgba(255,255,255,0.18);`}">${label}</a>`;
   const moduleRows = a.modules.map((m, i) => `
-    <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-        <td style="width:42px;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:${a.color};">0${i + 1}</td>
-        <td style="font-family:Arial,Helvetica,sans-serif;font-size:20px;line-height:1.35;color:#ffffff;font-weight:800;">${esc(m)}</td>
-        <td align="right" style="font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:rgba(255,255,255,0.9);">QUEUED</td>
-      </tr></table>
-    </td></tr>`).join("");
+    <tr>
+      <td style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation"><tr>
+          <td style="width:44px;font-family:'Courier New',Courier,monospace;font-size:14px;letter-spacing:2px;color:${c};font-weight:900;">0${i + 1}</td>
+          <td style="font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:1.35;color:#ffffff;font-weight:800;">${esc(m)}</td>
+          <td align="right" style="font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2px;color:rgba(216,255,155,0.82);">QUEUED</td>
+        </tr></table>
+      </td>
+    </tr>`).join("");
+  const archetypeLinks = [
+    ["🛡️ SENTINEL", "sentinel"],
+    ["🤝 DIPLOMAT", "diplomat"],
+    ["🔬 SCHOLAR", "scholar"],
+    ["🏃 SURVIVOR", "survivor"],
+    ["⭐ FIRST CONTACT", "first-contact"],
+  ].map(([label, key]) => `<td style="padding:5px;"><a href="https://getdisclosure.app/archetype/${key}" style="display:block;padding:12px 8px;border-radius:15px;border:1px solid ${key === archetype ? c : 'rgba(255,255,255,0.13)'};background:${key === archetype ? 'rgba(74,246,38,0.10)' : 'rgba(255,255,255,0.035)'};font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:1.2px;color:#ffffff;text-decoration:none;font-weight:900;text-align:center;">${label}</a></td>`).join("");
 
   return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>${esc(a.subject)}</title></head>
 <body style="margin:0;padding:0;background:#000000;font-family:Arial,Helvetica,sans-serif;color:#ffffff;font-size:17px;line-height:1.55;">
 <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">${esc(a.preheader)}</div>
-<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="background:#000000;background-image:radial-gradient(circle at 50% 0,${a.glow},transparent 34%),radial-gradient(circle at 90% 18%,rgba(255,215,0,0.12),transparent 26%),linear-gradient(180deg,#020604 0%,#000000 58%,#030603 100%);"><tr><td align="center" style="padding:26px 12px 46px;">
-<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="max-width:640px;margin:0 auto;">
-<tr><td style="padding:16px 0 24px;text-align:center;border-bottom:1px solid rgba(74,246,38,0.22);">
-  <div style="display:inline-block;padding:9px 14px;border:1px solid rgba(216,255,155,0.24);border-radius:999px;background:rgba(0,0,0,0.5);box-shadow:0 0 30px ${a.glow};font-family:'Courier New',Courier,monospace;font-size:24px;font-weight:900;letter-spacing:2px;color:#4AF626;line-height:1;">DISCLOSURE <span style="font-size:20px;letter-spacing:2px;color:#ffffff;vertical-align:middle;">LIVE</span></div>
-  <p style="margin:12px 0 0;font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2.5px;color:rgba(255,255,255,0.95);">FIRST CONTACT READINESS PROGRAM</p>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="background:#000000;background-image:radial-gradient(circle at 50% 0,${glow},transparent 34%),radial-gradient(circle at 90% 18%,rgba(255,215,0,0.12),transparent 26%),linear-gradient(180deg,#020604 0%,#000000 58%,#030603 100%);"><tr><td align="center" style="padding:26px 12px 48px;">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="max-width:660px;margin:0 auto;">
+<tr><td style="padding:16px 0 22px;text-align:center;border-bottom:1px solid rgba(74,246,38,0.24);">
+  <a href="${u.home}" style="text-decoration:none;"><img src="https://getdisclosure.app/logo-nav.png" width="214" alt="DISCLOSURE" style="display:block;margin:0 auto 12px;max-width:214px;height:auto;border:0;filter:drop-shadow(0 0 18px rgba(74,246,38,0.34));"/></a>
+  <div style="display:inline-block;padding:8px 13px;border:1px solid rgba(216,255,155,0.24);border-radius:999px;background:rgba(0,0,0,0.55);font-family:'Courier New',Courier,monospace;font-size:13px;line-height:1.2;letter-spacing:2.5px;color:#DFFF8C;font-weight:900;">FIRST CONTACT READINESS PROGRAM</div>
 </td></tr>
-<tr><td style="padding:34px 0 24px;text-align:center;">
-  <p style="margin:0 0 10px;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:${a.color};font-weight:800;">CLASSIFICATION ISSUED</p>
-  <h1 style="margin:0;font-size:42px;line-height:0.98;letter-spacing:-1.6px;color:#ffffff;font-weight:900;text-transform:uppercase;">Your ${esc(a.name)} file<br/>is active.</h1>
-  <p style="margin:18px auto 0;max-width:500px;font-size:20px;line-height:1.65;color:#ffffff;font-weight:800;">${esc(a.reveal)}</p>
+<tr><td style="padding:34px 0 22px;text-align:center;">
+  <p style="margin:0 0 10px;font-family:'Courier New',Courier,monospace;font-size:14px;letter-spacing:2.6px;color:${c};font-weight:900;">CLASSIFICATION ISSUED // ${serialSafe}</p>
+  <h1 style="margin:0;font-size:44px;line-height:0.98;letter-spacing:-1.6px;color:#ffffff;font-weight:900;text-transform:uppercase;">Your ${esc(a.name)} file<br/>is active.</h1>
+  <p style="margin:18px auto 0;max-width:540px;font-size:20px;line-height:1.55;color:#ffffff;font-weight:800;">${esc(a.reveal)}</p>
 </td></tr>
 <tr><td align="center" style="padding:8px 0 30px;">
-  <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="max-width:470px;border:1px solid ${a.color};border-radius:26px;background:#061006;background-image:radial-gradient(circle at 50% 0,${a.glow},transparent 36%),linear-gradient(145deg,rgba(8,22,9,0.98),rgba(0,0,0,0.82));box-shadow:0 0 0 1px rgba(255,255,255,0.05),0 30px 90px rgba(0,0,0,0.66),0 0 70px ${a.glow};overflow:hidden;">
-    <tr><td style="padding:24px 24px 0;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:rgba(255,255,255,0.93);">${esc(a.code)}</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:#ffffff;">${serialSafe}</td></tr></table></td></tr>
-    <tr><td align="center" style="padding:22px 24px 20px;"><div style="font-size:56px;line-height:1;margin-bottom:12px;">${a.icon}</div><div style="font-family:'Courier New',Courier,monospace;font-size:26px;font-weight:900;letter-spacing:7px;color:${a.color};text-shadow:0 0 22px ${a.glow};">${esc(a.name)}</div><div style="margin-top:8px;font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:#ffffff;">${esc(a.role)}</div><p style="margin:18px auto 0;max-width:350px;font-size:17px;line-height:1.55;color:#ffffff;font-weight:800;">${esc(a.tagline)}</p></td></tr>
-    <tr><td style="padding:0 24px 22px;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="max-width:490px;border:1px solid ${c};border-radius:28px;background:#061006;background-image:radial-gradient(circle at 50% 0,${glow},transparent 36%),linear-gradient(145deg,rgba(8,22,9,0.98),rgba(0,0,0,0.84));box-shadow:0 0 0 1px rgba(255,255,255,0.05),0 30px 90px rgba(0,0,0,0.66),0 0 70px ${glow};overflow:hidden;">
+    <tr><td style="padding:24px 24px 0;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2px;color:rgba(255,255,255,0.93);font-weight:900;">${esc(a.code)}</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2px;color:#ffffff;">${issued}</td></tr></table></td></tr>
+    <tr><td align="center" style="padding:22px 24px 20px;"><div style="font-size:58px;line-height:1;margin-bottom:12px;">${a.icon}</div><div style="font-family:'Courier New',Courier,monospace;font-size:28px;font-weight:900;letter-spacing:6px;color:${c};text-shadow:0 0 22px ${glow};">${esc(a.name)}</div><div style="margin-top:8px;font-family:'Courier New',Courier,monospace;font-size:15px;letter-spacing:2px;color:#ffffff;font-weight:900;">${esc(a.role)}</div><p style="margin:18px auto 0;max-width:360px;font-size:17px;line-height:1.52;color:#ffffff;font-weight:800;">${esc(a.tagline)}</p></td></tr>
+    <tr><td style="padding:0 24px 24px;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid rgba(255,255,255,0.08);">
-        <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.08);"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:rgba(255,255,255,0.96);">${esc(a.stat1[0])}</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:${a.color};font-weight:900;">${esc(a.stat1[1])}</td></tr></table></td></tr>
-        <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.08);"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:rgba(255,255,255,0.96);">${esc(a.stat2[0])}</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:#ffffff;font-weight:900;">${esc(a.stat2[1])}</td></tr></table></td></tr>
-        <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.08);"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:rgba(255,255,255,0.96);">${esc(a.stat3[0])}</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:#FFD66B;font-weight:900;">${esc(a.stat3[1])}</td></tr></table></td></tr>
-        <tr><td style="padding:10px 0;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:rgba(255,255,255,0.96);">ISSUED</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:#ffffff;">${issued}</td></tr></table></td></tr>
+        ${[[a.stat1[0], a.stat1[1], c], [a.stat2[0], a.stat2[1], '#ffffff'], [a.stat3[0], a.stat3[1], '#FFD66B']].map(([l,v,col]) => `<tr><td style="padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.08);"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:14px;letter-spacing:2px;color:rgba(255,255,255,0.94);font-weight:900;">${esc(l)}</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:14px;letter-spacing:2px;color:${col};font-weight:900;">${esc(v)}</td></tr></table></td></tr>`).join('')}
       </table>
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:16px 0 14px;"><tr><td style="padding-bottom:7px;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:#ffffff;">${esc(a.bar_lbl)}</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:${a.color};font-weight:900;">${a.bar_pct}</td></tr></table></td></tr><tr><td style="background:rgba(255,255,255,0.11);height:9px;border-radius:999px;overflow:hidden;"><table width="${a.bar_w}" cellpadding="0" cellspacing="0" border="0"><tr><td style="background:linear-gradient(90deg,${a.color},#FFD700);height:9px;box-shadow:0 0 20px ${a.glow};">&nbsp;</td></tr></table></td></tr></table>
-      <div style="border:1px solid rgba(216,255,155,0.28);border-radius:16px;padding:12px;text-align:center;font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:${a.color};font-weight:900;background:rgba(74,246,38,0.06);">${esc(a.status)}</div>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:16px 0 14px;"><tr><td style="padding-bottom:7px;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2px;color:#ffffff;font-weight:900;">${esc(a.bar_lbl)}</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2px;color:${c};font-weight:900;">${a.bar_pct}</td></tr></table></td></tr><tr><td style="background:rgba(255,255,255,0.11);height:9px;border-radius:999px;overflow:hidden;"><table width="${a.bar_w}" cellpadding="0" cellspacing="0" border="0"><tr><td style="background:linear-gradient(90deg,${c},#FFD700);height:9px;box-shadow:0 0 20px ${glow};">&nbsp;</td></tr></table></td></tr></table>
+      <div style="border:1px solid rgba(216,255,155,0.28);border-radius:16px;padding:12px;text-align:center;font-family:'Courier New',Courier,monospace;font-size:14px;letter-spacing:2px;color:${c};font-weight:900;background:rgba(74,246,38,0.06);">${esc(a.status)}</div>
     </td></tr>
   </table>
-  <p style="margin:12px 0 0;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:rgba(255,255,255,0.96);text-align:center;">${serialSafe} // EARLY ENROLLMENT PRIORITY</p>
 </td></tr>
-<tr><td style="padding:2px 0 24px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(216,255,155,0.20);border-radius:24px;background:rgba(0,0,0,0.52);box-shadow:inset 0 0 45px rgba(74,246,38,0.045);"><tr><td style="padding:24px;"><p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2.5px;color:${a.color};font-weight:900;">FIELD DIRECTIVE</p><p style="margin:0;font-size:20px;line-height:1.55;color:#ffffff;font-weight:800;">${esc(a.directive)}</p><p style="margin:16px 0 0;font-size:17px;line-height:1.7;color:#ffffff;font-weight:800;">${esc(a.protocol)}</p></td></tr></table></td></tr>
-<tr><td style="padding:0 0 28px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(255,255,255,0.12);border-radius:24px;background:linear-gradient(135deg,rgba(7,18,9,0.95),rgba(0,0,0,0.72));"><tr><td style="padding:22px 24px 8px;"><p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2.5px;color:#DFFF8C;font-weight:900;">LIVE MODULE STACK</p></td></tr>${moduleRows}</table></td></tr>
+<tr><td style="padding:2px 0 24px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(216,255,155,0.20);border-radius:24px;background:rgba(0,0,0,0.52);box-shadow:inset 0 0 45px rgba(74,246,38,0.045);"><tr><td style="padding:24px;"><p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:14px;letter-spacing:2.5px;color:${c};font-weight:900;">FIELD DIRECTIVE</p><p style="margin:0;font-size:19px;line-height:1.55;color:#ffffff;font-weight:800;">${esc(a.directive)}</p><p style="margin:16px 0 0;font-size:17px;line-height:1.68;color:#ffffff;font-weight:800;">${esc(a.protocol)}</p></td></tr></table></td></tr>
+<tr><td style="padding:0 0 28px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(255,255,255,0.12);border-radius:24px;background:linear-gradient(135deg,rgba(7,18,9,0.95),rgba(0,0,0,0.72));"><tr><td style="padding:22px 24px 8px;"><p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:14px;letter-spacing:2.5px;color:#DFFF8C;font-weight:900;">YOUR APP TRAINING QUEUE</p></td></tr>${moduleRows}</table></td></tr>
 <tr><td style="padding:0 0 28px;">
   <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(74,246,38,0.34);border-radius:28px;background:#051006;background-image:radial-gradient(circle at 50% 0,rgba(74,246,38,0.22),transparent 42%),linear-gradient(135deg,rgba(7,24,10,0.98),rgba(0,0,0,0.78));box-shadow:0 0 60px rgba(74,246,38,0.14);">
     <tr><td style="padding:28px 24px;text-align:center;">
-      <p style="margin:0 0 10px;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2.5px;color:#4AF626;font-weight:900;">MOBILE APP INCOMING</p>
+      <p style="margin:0 0 10px;font-family:'Courier New',Courier,monospace;font-size:14px;letter-spacing:2.5px;color:#4AF626;font-weight:900;">MOBILE APP INCOMING</p>
       <h2 style="margin:0 0 14px;font-size:32px;line-height:1.02;letter-spacing:-1px;color:#ffffff;font-weight:900;text-transform:uppercase;">Your card is step one.<br/>The app is the real training.</h2>
-      <p style="margin:0 auto 18px;max-width:520px;font-size:20px;line-height:1.68;color:#ffffff;font-weight:800;">Disclosure is actively being built now and launching soon. The mobile app turns your archetype into drills, protocols, signal tools, species briefings, and a First Contact Card you can carry when the room goes quiet.</p>
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:18px 0 0;">
-        <tr>
-          <td style="padding:10px;border:1px solid rgba(216,255,155,0.26);border-radius:16px;background:rgba(74,246,38,0.08);"><p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:#DFFF8C;font-weight:900;">ANDROID TEST ACCESS</p><p style="margin:7px 0 0;font-size:17px;line-height:1.45;color:#ffffff;font-weight:800;">Early testing opportunities will open before public launch.</p></td>
-        </tr>
-        <tr><td style="height:10px;font-size:0;line-height:0;">&nbsp;</td></tr>
-        <tr>
-          <td style="padding:10px;border:1px solid rgba(255,215,0,0.28);border-radius:16px;background:rgba(255,215,0,0.08);"><p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:#FFD66B;font-weight:900;">LOW SERIALS BOARD FIRST</p><p style="margin:7px 0 0;font-size:17px;line-height:1.45;color:#ffffff;font-weight:800;">You are already in the queue. Friends who classify now enter before the signal gets loud.</p></td>
-        </tr>
-      </table>
+      <p style="margin:0 auto 20px;max-width:540px;font-size:19px;line-height:1.62;color:#ffffff;font-weight:800;">The app turns this classification into drills, signal tools, species files, incident reports, and a First Contact Card built to be carried and shared.</p>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding:6px;">${button('SEE THE APP FIELD KIT', u.fieldKit, true)}</td></tr><tr><td style="padding:6px;">${button('RUN THE FIELD SIMULATION', u.simulator)}</td></tr><tr><td style="padding:6px;">${button('OPEN INTEL ARCHIVE', u.intel)}</td></tr></table>
     </td></tr>
   </table>
 </td></tr>
-
+<tr><td style="padding:0 0 30px;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(255,255,255,0.12);border-radius:24px;background:rgba(255,255,255,0.035);"><tr><td style="padding:22px;">
+    <p style="margin:0 0 12px;font-family:'Courier New',Courier,monospace;font-size:14px;letter-spacing:2.5px;color:#DFFF8C;font-weight:900;text-align:center;">CROSS-CHECK THE SYSTEM</p>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>${archetypeLinks}</tr></table>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:12px;"><tr><td style="padding:6px;">${button('OPEN YOUR FULL DOSSIER', u.dossier, true)}</td></tr><tr><td style="padding:6px;">${button('VIEW ALL ARCHETYPES', u.archetypes)}</td></tr></table>
+  </td></tr></table>
+</td></tr>
 <tr><td align="center" style="padding:0 0 36px;">
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr><td align="center" style="padding:0 0 14px;"><a href="${briefingUrl}" style="display:inline-block;background:#4AF626;color:#020302;font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;padding:18px 34px;text-decoration:none;font-weight:900;border-radius:999px;box-shadow:0 0 38px rgba(74,246,38,0.42);">ACCESS YOUR BRIEFING</a></td></tr>
-    <tr><td align="center" style="padding:0 0 20px;"><a href="${dossierUrl}" style="font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:#DFFF8C;text-decoration:none;font-weight:900;">OPEN ARCHETYPE DOSSIER</a></td></tr>
+    <tr><td align="center" style="padding:0 0 14px;">${button('ACCESS YOUR BRIEFING', u.quiz, true)}</td></tr>
     <tr><td style="padding:20px;border:1px solid rgba(255,255,255,0.16);border-radius:22px;background:rgba(255,255,255,0.045);text-align:center;">
-      <p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2.5px;color:#FFD66B;font-weight:900;">SPREAD THE SIGNAL</p>
+      <p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:14px;letter-spacing:2.5px;color:#FFD66B;font-weight:900;">SPREAD THE SIGNAL</p>
       <p style="margin:0 0 16px;font-size:17px;line-height:1.55;color:#ffffff;font-weight:800;">Post your classification. Challenge your group chat. Make them find out who they become when the sky stops pretending.</p>
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr><td style="padding:5px;"><a href="${shareUrl}" style="display:block;border:1px solid rgba(216,255,155,0.35);border-radius:999px;padding:13px 12px;color:#DFFF8C;text-decoration:none;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;font-weight:900;background:rgba(74,246,38,0.08);">POST ON X</a></td></tr>
-        <tr><td style="padding:5px;"><a href="${whatsappUrl}" style="display:block;border:1px solid rgba(34,197,94,0.35);border-radius:999px;padding:13px 12px;color:#ffffff;text-decoration:none;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;font-weight:900;background:rgba(34,197,94,0.08);">SEND TO GROUP CHAT</a></td></tr>
-        <tr><td style="padding:5px;"><a href="${facebookUrl}" style="display:block;border:1px solid rgba(96,165,250,0.35);border-radius:999px;padding:13px 12px;color:#ffffff;text-decoration:none;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;font-weight:900;background:rgba(96,165,250,0.08);">SHARE ON FACEBOOK</a></td></tr>
-        <tr><td style="padding:5px;"><a href="${mailFriendUrl}" style="display:block;border:1px solid rgba(255,215,0,0.35);border-radius:999px;padding:13px 12px;color:#FFD66B;text-decoration:none;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;font-weight:900;background:rgba(255,215,0,0.08);">TELL A FRIEND</a></td></tr>
-      </table>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding:5px;">${button('POST ON X', u.x)}</td></tr><tr><td style="padding:5px;">${button('SEND TO GROUP CHAT', u.whatsapp)}</td></tr><tr><td style="padding:5px;">${button('SHARE ON FACEBOOK', u.facebook)}</td></tr><tr><td style="padding:5px;">${button('TELL A FRIEND', u.mailFriend)}</td></tr></table>
     </td></tr>
   </table>
 </td></tr>
-<tr><td style="padding:22px 0 0;text-align:center;border-top:1px solid rgba(255,255,255,0.08);"><p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:rgba(255,255,255,0.95);">BLACK CHANNEL FIELD PACKET // DO NOT IGNORE SKYBORNE ANOMALIES</p><p style="margin:0 0 10px;font-family:Arial,Helvetica,sans-serif;font-size:20px;line-height:1.6;color:rgba(255,255,255,0.96);">Only ${esc(a.pct)} of civilians share this designation. Most will not know their role until the signal is already overhead.</p><p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:17px;color:rgba(255,255,255,0.95);"><a href="https://getdisclosure.app" style="color:rgba(255,255,255,0.93);text-decoration:none;">getdisclosure.app</a> &nbsp;•&nbsp; <a href="https://getdisclosure.app?unsub=1" style="color:rgba(255,255,255,0.9);text-decoration:none;">unsubscribe</a></p></td></tr>
+<tr><td style="padding:22px 0 0;text-align:center;border-top:1px solid rgba(255,255,255,0.08);"><p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2px;color:rgba(255,255,255,0.95);">BLACK CHANNEL FIELD PACKET // LOW SERIALS BOARD FIRST</p><p style="margin:0 0 10px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.55;color:rgba(255,255,255,0.96);">Only ${esc(a.pct)} of civilians share this designation. Most will not know their role until the signal is already overhead.</p><p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:rgba(255,255,255,0.85);"><a href="${u.home}" style="color:rgba(255,255,255,0.93);text-decoration:none;">getdisclosure.app</a> &nbsp;•&nbsp; <a href="https://getdisclosure.app?unsub=1" style="color:rgba(255,255,255,0.85);text-decoration:none;">unsubscribe</a></p></td></tr>
 </table></td></tr></table>
 </body></html>`;
 }
