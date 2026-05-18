@@ -94,57 +94,102 @@ function urlsFor(archetype, shareText) {
   };
 }
 
+const EMAIL_COPY = {
+  sentinel: {
+    role: "THE ONE WHO MOVES FIRST",
+    oneLine: "If people freeze, you get them moving.",
+    directive: "Your job is to keep people back, spot the danger, and make the first safe move.",
+    modules: ["Spot danger fast", "Keep people back", "Move without panic"],
+    status: "YOU MOVE FIRST",
+    share: "I got Sentinel. Apparently I am the one dragging everyone away from the glowing thing."
+  },
+  diplomat: {
+    role: "THE ONE WHO KEEPS PEOPLE CALM",
+    oneLine: "If everyone panics, you become the calm voice in the room.",
+    directive: "Your job is to slow people down, choose the right words, and stop fear from taking over.",
+    modules: ["Calm people fast", "Say the first words", "Keep the room together"],
+    status: "STAY CALM. SPEAK CLEARLY.",
+    share: "I got Diplomat. Apparently I am the person who has to keep everyone calm when the sky gets weird."
+  },
+  scholar: {
+    role: "THE ONE WHO NOTICES DETAILS",
+    oneLine: "If the impossible happens, you remember what everyone else misses.",
+    directive: "Your job is to watch, record, and keep the facts straight while everyone else spirals.",
+    modules: ["Notice what matters", "Record the event", "Separate facts from panic"],
+    status: "REMEMBER WHAT HAPPENED",
+    share: "I got Scholar. If something impossible happens, I am the one taking notes while everyone else loses it."
+  },
+  survivor: {
+    role: "THE ONE WHO FINDS THE EXIT",
+    oneLine: "If the room turns chaotic, you already know the way out.",
+    directive: "Your job is to get yourself and your people away from danger before panic spreads.",
+    modules: ["Find the safest exit", "Move your people", "Leave before it gets worse"],
+    status: "GET OUT CLEAN",
+    share: "I got Survivor. Translation: I already know where the exits are."
+  },
+  "first-contact": {
+    role: "THE RARE ONE",
+    oneLine: "Your result was not supposed to be common.",
+    directive: "Your job is to stay sharp, pay attention, and be ready when the next layer opens.",
+    modules: ["Watch for the signal", "Read the hidden file", "Wait for the next unlock"],
+    status: "RARE RESULT FOUND",
+    share: "My Disclosure result was First Contact. Standard classification failed, which feels either bad or extremely interesting."
+  },
+};
+
+function emailCopyFor(archetype) {
+  return EMAIL_COPY[archetype] || EMAIL_COPY.diplomat;
+}
+
 function buildPlainText(archetype, serial) {
   const a = ARCHETYPES[archetype] || ARCHETYPES["diplomat"];
+  const e = emailCopyFor(archetype);
   const u = urlsFor(archetype, a.share_txt);
   return [
-    `DISCLOSURE // CLASSIFICATION ISSUED`,
+    `DISCLOSURE // YOUR ROLE IS READY`,
     `Serial: ${serial || "DS-2026-ISSUED"}`,
-    `Designation: ${a.name}`,
-    `Role: ${a.role}`,
-    `Status: ${a.status}`,
+    `Result: ${a.name}`,
+    `Role: ${e.role}`,
     ``,
-    a.tagline,
+    e.oneLine,
     ``,
-    `FIELD DIRECTIVE`,
-    a.directive,
+    `IF CONTACT HAPPENS`,
+    e.directive,
     ``,
-    `TRAINING QUEUE`,
-    `01 ${a.modules[0]}`,
-    `02 ${a.modules[1]}`,
-    `03 ${a.modules[2]}`,
+    `COMING SOON TO iPHONE AND ANDROID`,
+    `The app turns your result into quick drills, encounter scenarios, shareable cards, and tools you can use before everyone else catches up.`,
     ``,
-    `OPEN YOUR FULL ${a.name} DOSSIER`,
+    `WHAT YOU GET FIRST`,
+    `01 ${e.modules[0]}`,
+    `02 ${e.modules[1]}`,
+    `03 ${e.modules[2]}`,
+    ``,
+    `OPEN YOUR ${a.name} DOSSIER`,
     u.dossier,
     ``,
-    `COMING SOON TO iOS AND ANDROID`,
-    `The mobile command deck is almost live: drills, field cards, species files, incident reports, and signal tools built for your pocket.`,
-    ``,
-    `CLAIM APP ACCESS`,
+    `GET APP ACCESS`,
     u.access,
     ``,
-    `SPREAD THE SIGNAL`,
-    a.share_txt,
-    ``,
+    `Challenge your group chat: ${u.share}`,
     `getdisclosure.app`,
   ].join("\n");
 }
 
 function buildEmail(archetype, serial) {
   const a = ARCHETYPES[archetype] || ARCHETYPES["diplomat"];
+  const e = emailCopyFor(archetype);
   const issued = new Date().toISOString().slice(0, 10);
   const serialSafe = esc(serial || "DS-2026-ISSUED");
   const u = urlsFor(archetype, a.share_txt);
   const c = a.color;
   const glow = a.glow;
-  const button = (label, href, filled = false) => `<a href="${href}" style="display:inline-block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;border-radius:999px;padding:15px 16px;font-family:'Courier New',Courier,monospace;font-size:15px;line-height:1.15;letter-spacing:1.6px;font-weight:900;${filled ? `background:linear-gradient(90deg,#dfff8c,#4AF626);color:#020302;border:1px solid #dfff8c;box-shadow:0 0 34px rgba(74,246,38,0.35);` : `background:rgba(255,255,255,0.045);color:#ffffff;border:1px solid rgba(255,255,255,0.18);`}">${label}</a>`;
-  const moduleRows = a.modules.map((m, i) => `
+  const button = (label, href, filled = false) => `<a href="${href}" style="display:inline-block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;border-radius:999px;padding:16px 18px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.15;letter-spacing:0.8px;font-weight:900;text-transform:uppercase;${filled ? `background:linear-gradient(90deg,#ecff7a,#4AF626);color:#020302;border:1px solid #ecff7a;box-shadow:0 0 38px rgba(74,246,38,0.42);` : `background:rgba(255,255,255,0.055);color:#ffffff;border:1px solid rgba(255,255,255,0.20);`}">${label}</a>`;
+  const moduleRows = e.modules.map((m, i) => `
     <tr>
-      <td style="padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.08);">
+      <td style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.09);">
         <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation"><tr>
-          <td style="width:38px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2px;color:${c};font-weight:900;">0${i + 1}</td>
-          <td style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.35;color:#ffffff;font-weight:800;">${esc(m)}</td>
-          <td align="right" style="font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:1.8px;color:rgba(216,255,155,0.82);">QUEUED</td>
+          <td style="width:36px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:1.8px;color:${c};font-weight:900;">0${i + 1}</td>
+          <td style="font-family:Arial,Helvetica,sans-serif;font-size:17px;line-height:1.35;color:#ffffff;font-weight:900;">${esc(m)}</td>
         </tr></table>
       </td>
     </tr>`).join("");
@@ -152,58 +197,54 @@ function buildEmail(archetype, serial) {
   return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>${esc(a.subject)}</title></head>
 <body style="margin:0;padding:0;background:#000000;font-family:Arial,Helvetica,sans-serif;color:#ffffff;font-size:16px;line-height:1.5;">
 <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">${esc(a.preheader)}</div>
-<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="background:#000000;background-image:radial-gradient(circle at 50% 0,${glow},transparent 34%),linear-gradient(180deg,#020604 0%,#000000 62%,#030603 100%);"><tr><td align="center" style="padding:24px 12px 42px;">
-<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="max-width:620px;margin:0 auto;">
-<tr><td style="padding:14px 0 20px;text-align:center;border-bottom:1px solid rgba(74,246,38,0.22);">
-  <a href="${u.home}" style="text-decoration:none;"><img src="https://getdisclosure.app/logo-nav.png" width="206" alt="DISCLOSURE" style="display:block;margin:0 auto 12px;max-width:206px;height:auto;border:0;filter:drop-shadow(0 0 18px rgba(74,246,38,0.34));"/></a>
-  <div style="display:inline-block;padding:8px 13px;border:1px solid rgba(216,255,155,0.24);border-radius:999px;background:rgba(0,0,0,0.55);font-family:'Courier New',Courier,monospace;font-size:12px;line-height:1.2;letter-spacing:2.4px;color:#DFFF8C;font-weight:900;">CLASSIFICATION ISSUED // ${serialSafe}</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="background:#000000;background-image:radial-gradient(circle at 50% 0,${glow},transparent 34%),radial-gradient(circle at 100% 16%,rgba(255,215,0,0.14),transparent 28%),linear-gradient(180deg,#020604 0%,#000000 62%,#030603 100%);"><tr><td align="center" style="padding:22px 12px 42px;">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="max-width:640px;margin:0 auto;">
+<tr><td style="padding:14px 0 22px;text-align:center;border-bottom:1px solid rgba(74,246,38,0.24);">
+  <a href="${u.home}" style="text-decoration:none;"><img src="https://getdisclosure.app/logo-nav.png" width="210" alt="DISCLOSURE" style="display:block;margin:0 auto 12px;max-width:210px;height:auto;border:0;filter:drop-shadow(0 0 18px rgba(74,246,38,0.36));"/></a>
+  <div style="display:inline-block;padding:8px 13px;border:1px solid rgba(216,255,155,0.28);border-radius:999px;background:rgba(0,0,0,0.62);font-family:'Courier New',Courier,monospace;font-size:12px;line-height:1.2;letter-spacing:2px;color:#DFFF8C;font-weight:900;">YOUR ROLE IS READY // ${serialSafe}</div>
 </td></tr>
-<tr><td style="padding:30px 0 18px;text-align:center;">
-  <p style="margin:0 0 10px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.6px;color:${c};font-weight:900;">${esc(a.code)} // ${issued}</p>
-  <h1 style="margin:0;font-size:48px;line-height:0.96;letter-spacing:-1.8px;color:#ffffff;font-weight:900;text-transform:uppercase;">${esc(a.name)}</h1>
-  <p style="margin:14px auto 0;max-width:500px;font-size:21px;line-height:1.42;color:#ffffff;font-weight:900;">${esc(a.tagline)}</p>
+<tr><td style="padding:32px 0 20px;text-align:center;">
+  <p style="margin:0 0 10px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.4px;color:${c};font-weight:900;">${esc(a.code)} // ${issued}</p>
+  <h1 style="margin:0;font-size:54px;line-height:0.92;letter-spacing:-2px;color:#ffffff;font-weight:900;text-transform:uppercase;text-shadow:0 0 30px rgba(255,255,255,0.12);">${esc(a.name)}</h1>
+  <p style="margin:15px auto 0;max-width:520px;font-size:23px;line-height:1.28;color:#ffffff;font-weight:900;">${esc(e.oneLine)}</p>
 </td></tr>
 <tr><td align="center" style="padding:8px 0 26px;">
-  <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="max-width:470px;border:1px solid ${c};border-radius:28px;background:#061006;background-image:radial-gradient(circle at 50% 0,${glow},transparent 36%),linear-gradient(145deg,rgba(8,22,9,0.98),rgba(0,0,0,0.84));box-shadow:0 0 0 1px rgba(255,255,255,0.05),0 24px 80px rgba(0,0,0,0.66),0 0 62px ${glow};overflow:hidden;">
-    <tr><td style="padding:22px 22px 0;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.93);font-weight:900;">FIELD CREDENTIAL</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2px;color:#ffffff;">ACTIVE</td></tr></table></td></tr>
-    <tr><td align="center" style="padding:20px 24px 20px;"><div style="font-size:56px;line-height:1;margin-bottom:12px;">${a.icon}</div><div style="font-family:'Courier New',Courier,monospace;font-size:28px;font-weight:900;letter-spacing:5px;color:${c};text-shadow:0 0 22px ${glow};">${esc(a.name)}</div><div style="margin-top:8px;font-family:'Courier New',Courier,monospace;font-size:14px;letter-spacing:2px;color:#ffffff;font-weight:900;">${esc(a.role)}</div></td></tr>
-    <tr><td style="padding:0 24px 22px;">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid rgba(255,255,255,0.08);">
-        ${[[a.stat1[0], a.stat1[1], c], [a.stat2[0], a.stat2[1], '#ffffff'], [a.stat3[0], a.stat3[1], '#FFD66B']].map(([l,v,col]) => `<tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.08);"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:1.8px;color:rgba(255,255,255,0.94);font-weight:900;">${esc(l)}</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:1.8px;color:${col};font-weight:900;">${esc(v)}</td></tr></table></td></tr>`).join('')}
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="max-width:500px;border:1px solid ${c};border-radius:30px;background:#061006;background-image:radial-gradient(circle at 50% 0,${glow},transparent 38%),linear-gradient(145deg,rgba(8,22,9,0.98),rgba(0,0,0,0.84));box-shadow:0 0 0 1px rgba(255,255,255,0.05),0 26px 88px rgba(0,0,0,0.72),0 0 76px ${glow};overflow:hidden;">
+    <tr><td style="padding:22px 22px 0;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.9);font-weight:900;">RESULT CARD</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2px;color:#ffffff;">ACTIVE</td></tr></table></td></tr>
+    <tr><td align="center" style="padding:20px 24px 22px;"><div style="font-size:58px;line-height:1;margin-bottom:12px;">${a.icon}</div><div style="font-family:Arial,Helvetica,sans-serif;font-size:34px;font-weight:900;letter-spacing:1px;color:${c};text-shadow:0 0 24px ${glow};text-transform:uppercase;">${esc(a.name)}</div><div style="margin-top:8px;font-family:Arial,Helvetica,sans-serif;font-size:15px;letter-spacing:1.1px;color:#ffffff;font-weight:900;text-transform:uppercase;">${esc(e.role)}</div></td></tr>
+    <tr><td style="padding:0 24px 24px;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid rgba(255,255,255,0.10);">
+        <tr><td style="padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.09);"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:1.6px;color:rgba(255,255,255,0.90);font-weight:900;">WHAT YOU DO</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:1.6px;color:${c};font-weight:900;">${esc(e.status)}</td></tr></table></td></tr>
+        <tr><td style="padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.09);"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:1.6px;color:rgba(255,255,255,0.90);font-weight:900;">APP STATUS</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:1.6px;color:#DFFF8C;font-weight:900;">COMING SOON</td></tr></table></td></tr>
       </table>
-      <div style="margin-top:14px;border:1px solid rgba(216,255,155,0.28);border-radius:16px;padding:12px;text-align:center;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:1.8px;color:${c};font-weight:900;background:rgba(74,246,38,0.06);">${esc(a.status)}</div>
     </td></tr>
   </table>
 </td></tr>
-<tr><td style="padding:0 0 20px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(216,255,155,0.20);border-radius:24px;background:rgba(0,0,0,0.54);box-shadow:inset 0 0 42px rgba(74,246,38,0.045);"><tr><td style="padding:22px 24px;"><p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.4px;color:${c};font-weight:900;">FIELD DIRECTIVE</p><p style="margin:0;font-size:18px;line-height:1.5;color:#ffffff;font-weight:800;">${esc(a.directive)}</p></td></tr></table></td></tr>
-<tr><td style="padding:0 0 22px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(255,255,255,0.12);border-radius:24px;background:linear-gradient(135deg,rgba(7,18,9,0.95),rgba(0,0,0,0.72));"><tr><td style="padding:20px 24px 6px;"><p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.4px;color:#DFFF8C;font-weight:900;">APP TRAINING QUEUE</p></td></tr>${moduleRows}</table></td></tr>
+<tr><td style="padding:0 0 20px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(216,255,155,0.20);border-radius:24px;background:rgba(0,0,0,0.56);box-shadow:inset 0 0 42px rgba(74,246,38,0.05);"><tr><td style="padding:22px 24px;"><p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.2px;color:${c};font-weight:900;">IF CONTACT HAPPENS</p><p style="margin:0;font-size:19px;line-height:1.45;color:#ffffff;font-weight:900;">${esc(e.directive)}</p></td></tr></table></td></tr>
 <tr><td style="padding:0 0 24px;">
-  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(74,246,38,0.34);border-radius:28px;background:#031006;background-image:radial-gradient(circle at 50% 0,rgba(74,246,38,0.26),transparent 42%),radial-gradient(circle at 86% 24%,${glow},transparent 30%),linear-gradient(145deg,rgba(6,24,10,0.98),rgba(0,0,0,0.82));box-shadow:0 0 70px rgba(74,246,38,0.16),inset 0 0 46px rgba(255,215,0,0.045);overflow:hidden;">
-    <tr><td style="padding:0;">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-        <td style="padding:24px 24px 22px;vertical-align:top;">
-          <p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2.6px;color:#4AF626;font-weight:900;">MOBILE COMMAND DECK // COMING SOON</p>
-          <h2 style="margin:0 0 12px;font-size:34px;line-height:0.98;letter-spacing:-1.3px;color:#ffffff;font-weight:900;text-transform:uppercase;">The briefing is moving to your pocket.</h2>
-          <p style="margin:0 0 16px;font-size:17px;line-height:1.48;color:#ffffff;font-weight:800;">iOS and Android launch channels are opening. Your archetype becomes a live field system: drills, signal tools, species files, incident reports, and a First Contact Card built to deploy when the sky changes.</p>
-          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 14px;"><tr>
-            <td style="padding:4px 5px 4px 0;"><div style="border:1px solid rgba(255,255,255,0.18);border-radius:14px;padding:10px 8px;text-align:center;background:rgba(0,0,0,0.42);font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:1.7px;color:#ffffff;font-weight:900;">iOS<br/><span style="color:#DFFF8C;">ARMING</span></div></td>
-            <td style="padding:4px 0 4px 5px;"><div style="border:1px solid rgba(255,255,255,0.18);border-radius:14px;padding:10px 8px;text-align:center;background:rgba(0,0,0,0.42);font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:1.7px;color:#ffffff;font-weight:900;">ANDROID<br/><span style="color:#DFFF8C;">ARMING</span></div></td>
-          </tr></table>
-          <div style="border:1px solid rgba(216,255,155,0.22);border-radius:16px;padding:11px 12px;background:rgba(74,246,38,0.06);font-family:'Courier New',Courier,monospace;font-size:12px;line-height:1.45;letter-spacing:1.4px;color:#DFFF8C;font-weight:900;">EARLY ACCESS SIGNAL: CLAIM YOUR SLOT BEFORE CIVILIAN ONBOARDING OPENS.</div>
-        </td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(74,246,38,0.40);border-radius:30px;background:#031006;background-image:radial-gradient(circle at 50% 0,rgba(74,246,38,0.30),transparent 42%),radial-gradient(circle at 92% 22%,${glow},transparent 32%),linear-gradient(145deg,rgba(7,28,11,0.98),rgba(0,0,0,0.82));box-shadow:0 0 82px rgba(74,246,38,0.20),inset 0 0 48px rgba(255,215,0,0.05);overflow:hidden;">
+    <tr><td style="padding:26px 24px 24px;text-align:center;">
+      <div style="display:inline-block;margin:0 0 12px;padding:7px 12px;border-radius:999px;background:rgba(74,246,38,0.12);border:1px solid rgba(74,246,38,0.36);font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2.3px;color:#4AF626;font-weight:900;">COMING SOON TO iPHONE + ANDROID</div>
+      <h2 style="margin:0 0 12px;font-size:40px;line-height:0.94;letter-spacing:-1.8px;color:#ffffff;font-weight:900;text-transform:uppercase;">The app is where this gets real.</h2>
+      <p style="margin:0 auto 18px;max-width:530px;font-size:18px;line-height:1.48;color:#ffffff;font-weight:900;">Your result is only the start. The app gives you quick drills, strange encounter scenarios, shareable cards, and simple tools to use before everyone else catches up.</p>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 16px;"><tr>
+        <td style="padding:5px;"><div style="border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:13px 8px;text-align:center;background:rgba(0,0,0,0.48);font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:0.6px;color:#ffffff;font-weight:900;text-transform:uppercase;">iPhone<br/><span style="color:#DFFF8C;">launch list open</span></div></td>
+        <td style="padding:5px;"><div style="border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:13px 8px;text-align:center;background:rgba(0,0,0,0.48);font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:0.6px;color:#ffffff;font-weight:900;text-transform:uppercase;">Android<br/><span style="color:#DFFF8C;">launch list open</span></div></td>
       </tr></table>
+      <div style="border:1px solid rgba(216,255,155,0.24);border-radius:18px;padding:13px 14px;background:rgba(74,246,38,0.07);font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.35;color:#DFFF8C;font-weight:900;">Get on the list now. When the app opens, early people get in first.</div>
     </td></tr>
   </table>
 </td></tr>
+<tr><td style="padding:0 0 22px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(255,255,255,0.12);border-radius:24px;background:linear-gradient(135deg,rgba(7,18,9,0.95),rgba(0,0,0,0.72));"><tr><td style="padding:20px 24px 6px;"><p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.2px;color:#DFFF8C;font-weight:900;">WHAT YOU GET FIRST</p></td></tr>${moduleRows}</table></td></tr>
 <tr><td align="center" style="padding:0 0 24px;">
-  <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding:6px;">${button(`OPEN YOUR FULL ${a.name} DOSSIER`, u.dossier, true)}</td></tr><tr><td style="padding:6px;">${button('CLAIM APP ACCESS', u.access)}</td></tr></table>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding:6px;">${button(`OPEN MY ${a.name} DOSSIER`, u.dossier, true)}</td></tr><tr><td style="padding:6px;">${button('GET APP ACCESS', u.access)}</td></tr></table>
 </td></tr>
 <tr><td style="padding:18px 20px;border:1px solid rgba(255,255,255,0.14);border-radius:22px;background:rgba(255,255,255,0.04);text-align:center;">
-  <p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.4px;color:#FFD66B;font-weight:900;">SOCIAL CHALLENGE</p>
-  <p style="margin:0 0 14px;font-size:16px;line-height:1.5;color:#ffffff;font-weight:800;">Post your classification. Challenge the group chat. Find out who gets perimeter, who speaks first, and who runs.</p>
-  ${button('OPEN SHAREABLE FIELD FILE', u.share)}
+  <p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.2px;color:#FFD66B;font-weight:900;">SEND THIS TO THE GROUP CHAT</p>
+  <p style="margin:0 0 14px;font-size:16px;line-height:1.45;color:#ffffff;font-weight:800;">Make them take the quiz. Someone gets calm voice. Someone gets exit plan. Someone gets the weird result.</p>
+  ${button('SHARE MY RESULT', u.share)}
 </td></tr>
-<tr><td style="padding:22px 0 0;text-align:center;border-top:1px solid rgba(255,255,255,0.08);"><p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.95);">BLACK CHANNEL FIELD PACKET</p><p style="margin:0 0 10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.45;color:rgba(255,255,255,0.88);">Most civilians will not know their role until the signal is already overhead.</p><p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:rgba(255,255,255,0.82);"><a href="${u.home}" style="color:rgba(255,255,255,0.92);text-decoration:none;">getdisclosure.app</a> &nbsp;•&nbsp; <a href="https://getdisclosure.app?unsub=1" style="color:rgba(255,255,255,0.82);text-decoration:none;">unsubscribe</a></p></td></tr>
+<tr><td style="padding:22px 0 0;text-align:center;border-top:1px solid rgba(255,255,255,0.08);"><p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.95);">DISCLOSURE FIELD FILE</p><p style="margin:0 0 10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.45;color:rgba(255,255,255,0.88);">Most people wait until things get strange. You do not have to.</p><p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:rgba(255,255,255,0.82);"><a href="${u.home}" style="color:rgba(255,255,255,0.92);text-decoration:none;">getdisclosure.app</a> &nbsp;•&nbsp; <a href="https://getdisclosure.app?unsub=1" style="color:rgba(255,255,255,0.82);text-decoration:none;">unsubscribe</a></p></td></tr>
 </table></td></tr></table>
 </body></html>`;
 }
