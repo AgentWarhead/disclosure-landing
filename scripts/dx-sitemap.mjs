@@ -151,7 +151,7 @@ How often each role comes up is not measured, so no role percentages are publish
 
 ## Planned app features
 
-The app is in development and details may change. The planned features are: the classification; a First Contact Card with role, readiness score and serial; Liaison Standard (practising slow, open gestures with the front camera); Universal Translator (frequency tones and flashlight pulses); Stone Cold Drills (holding still through strange audio and sudden light); Rules of Engagement (light discipline and the 30-foot buffer); Family Drill Mode; Mental Fortitude (breathing paced by haptics); The Liaison's Creed; Blackout Mode; Incident Reports; and the Global Liaison Map.
+The app is in development and details may change. The planned features are: the classification and a six-second video of your iris; a First Contact Card that grows with every drill; Crew (roles across a household or friend group, with crew drills); Don't Flinch (holding still through sudden sound and light while the front camera films you); the Open Hand (an open-palm sign and slow gestures checked by on-device hand tracking); Message to the Stars (a personal message built like the 1974 Arecibo message); Tonight's Sky (what is overhead from your town each night); verdict alerts on new UFO file releases; Incident Reports; a Field Card widget; Mental Fortitude (breathing paced by haptics); and an Offline Kit.
 
 ## Core pages
 

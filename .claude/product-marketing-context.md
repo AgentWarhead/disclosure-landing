@@ -64,8 +64,8 @@
 
 ## Objections
 1. "This isn't real" → We know. That's the point. It's preparation theater — like a fire drill. You don't need a real fire to benefit from knowing what to do.
-2. "UFO stuff is for conspiracy theorists" → The US Congress held hearings. A president signed an executive order. 40+ witnesses testified under oath. This is mainstream now.
-3. "It's just a personality quiz" → The quiz is the entry point. The app has 12 features including signal transmission tools, stone cold drills, family drill mode, and a global liaison map.
+2. "UFO stuff is for conspiracy theorists" → Congress has held sworn UAP hearings since 2023, and the Department of War has released six batches of files since May 2026. No executive order was signed (see /intel/did-trump-sign-a-ufo-executive-order/). Every number quoted must come from docs/research-timeline.md.
+3. "It's just a personality quiz" → The quiz is the entry point. The app trains the role it finds: Don't Flinch, the Open Hand, Message to the Stars and Crew.
 
 ## Customer Language
 **Use:** classified, briefing, protocol, designation, archetype, prepared, credential, first contact, disclosure
@@ -79,10 +79,9 @@
 - **Key tension:** "This wasn't meant for you... but now that you've seen it, you need to act."
 
 ## Proof Points
-- Real timeline: Congressional hearings (2023), Disclosure Act (2024), Trump executive order (Feb 2026)
-- Civilian counter on landing page (social proof of participation)
-- 4 archetype distribution across real users
-- First Contact archetype rarity (<0.1%) = exclusivity proof
+- Real timeline, verified in docs/research-timeline.md: sworn House hearings (2023, 2024), the FY2024 UAP records provision, AARO and NASA reports, the 2026 PURSUE releases. There was no executive order.
+- Counts only when they are real and live (the waitlist count RPC). Never an invented counter.
+- No role percentages and no rarity figures: the sealed First Contact result is rare, and nobody publishes a number for it.
 
 ## Goals
 - **Primary:** Drive app installs (iOS + Android)
@@ -91,16 +90,7 @@
 - **Viral mechanic:** Archetype card screenshots shared on X/TikTok/Instagram Stories
 - **North star metric:** Quiz completions per day
 
-## 12 Confirmed App Features
-1. Archetype Quiz — 10 Deep-Cold questions
-2. First Contact Card — Apple/Google Wallet digital ID
-3. Liaison Standard — Front camera gesture training
-4. Universal Translator — Frequency tones + flashlight pulses
-5. Rules of Engagement (ROE) — Light Discipline, 30-Foot Buffer
-6. Family Drill Mode — Cooperative simulation
-7. Stone Cold Drills — Alien audio + blinding lights endurance
-8. The Liaison's Creed — Digitally signed oath
-9. Mental Fortitude Training — Haptic-guided breathing
-10. Global Liaison Map — Live map of active diplomats
-11. Blackout Mode — Emergency Transmission Mode
-12. Shareable Incident Reports — CIA-style verified documents
+## App features (approved 2026-09-29, disclosure-app/docs/FEATURE-AUDIT.md)
+Free core: the Classification (with the iris video), the First Contact Card (grows with every drill), Crew, Don't Flinch.
+Depth: the Open Hand (on-device hand tracking), Message to the Stars (an Arecibo-style personal message), crew drills, Tonight's Sky, verdict alerts, Incident Reports (redactable), the Field Card widget, Mental Fortitude (haptic breathing), the Offline Kit.
+Cut: the Liaison's Creed, the Global Liaison Map, Blackout Mode as "emergency transmission". No Wallet claim until a Wallet pass exists.
