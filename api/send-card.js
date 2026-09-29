@@ -13,10 +13,9 @@ const UNSUB_MAILTO = "mailto:team@getdisclosure.app?subject=unsubscribe";
 const UNSUB_PAGE = SITE + "/privacy/#unsubscribe";
 const PRIVACY_PAGE = SITE + "/privacy/";
 
-// TODO(boss): CASL requires a valid mailing address for the sender in every commercial email.
-// Add it to MAILING_ADDRESS below (one line, plain text) before any launch or batch mail goes out.
-// Left empty on purpose: never invent one.
-const MAILING_ADDRESS = "";
+// CASL requires a valid mailing address for the sender in every commercial email.
+// TODO(boss): this is a stand-in until a Castlegar PO box exists; swap it in when it does.
+const MAILING_ADDRESS = "DISCLOSURE, 1525 Aspen Lane, Castlegar BC V1N 4X8, Canada";
 
 const ALLOWED_ORIGINS = new Set([
   "https://www.getdisclosure.app",
