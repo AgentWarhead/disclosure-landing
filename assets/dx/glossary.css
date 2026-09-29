@@ -1,0 +1,81 @@
+/* Glossary: the A to Z bar, the filter, and the term ledger. Loaded after dx.css, kit.css, chrome.css. */
+
+.gl-body { padding-block: var(--space-7) var(--space-9); }
+
+/* intro answer */
+.gl-intro { max-width: var(--measure); color: var(--bone-dim); margin: 0 0 var(--space-6); }
+.gl-intro strong { color: var(--bone); }
+
+/* tools: filter + A to Z */
+.gl-tools { border-top: 1px solid var(--rule-strong); border-bottom: 1px solid var(--rule); padding-block: var(--space-4); margin-bottom: var(--space-7); background: var(--void-0); }
+@media (min-width: 900px) {
+  .gl-tools { position: sticky; top: var(--nav-h); z-index: 5; display: grid; grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr); gap: var(--space-5); align-items: start; }
+  .gl-tools .gl-filter { margin-bottom: 0; }
+}
+.gl-filter { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-2); max-width: 36rem; margin-bottom: var(--space-4); }
+.gl-filter[hidden] { display: none; }
+.gl-filter label { font-family: var(--mono); font-size: var(--step--2); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-dim); }
+.gl-filter input {
+  width: 100%; min-height: 44px; padding: 0 var(--space-4);
+  background: var(--void-1); color: var(--bone); border: 1px solid var(--rule-strong); border-radius: var(--radius);
+  font-family: var(--mono); font-size: 16px; letter-spacing: 0.02em;
+}
+.gl-filter input::placeholder { color: var(--bone-faint); opacity: 1; }
+.gl-filter input:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; border-color: transparent; }
+.gl-count { margin: 0; font-family: var(--mono); font-size: var(--step--2); letter-spacing: 0.06em; color: var(--bone-faint); min-height: 1.4em; }
+
+.gl-az ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.gl-az a, .gl-az .off {
+  display: grid; place-items: center; width: 44px; height: 44px;
+  font-family: var(--mono); font-size: var(--step--1); font-weight: 700; letter-spacing: 0;
+  border: 1px solid var(--rule); border-radius: var(--radius); text-decoration: none;
+}
+.gl-az a { color: var(--bone); }
+.gl-az a:hover { border-color: var(--bone-dim); background: var(--void-1); }
+.gl-az a:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+.gl-az a.is-empty { color: var(--bone-faint); border-style: dashed; }
+.gl-az .off { color: rgba(214, 224, 217, 0.28); border-color: transparent; }
+
+/* groups */
+.gl-group { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); padding-block: var(--space-6); border-top: 1px solid var(--rule); scroll-margin-top: calc(var(--nav-h) + 24px); }
+@media (min-width: 900px) {
+  .gl-group { grid-template-columns: 8rem minmax(0, 1fr); gap: var(--space-6); scroll-margin-top: calc(var(--nav-h) + 150px); }
+  .gl-group > h2 { position: sticky; top: calc(var(--nav-h) + 160px); align-self: start; }
+}
+.gl-group[hidden] { display: none; }
+.gl-group > h2 { font-size: var(--step-5); line-height: 1; letter-spacing: -0.03em; color: var(--bone); margin: 0; width: max-content; }
+
+/* the term ledger */
+.gl-list { margin: 0; max-width: 72ch; }
+.gl-term { padding-block: var(--space-4); border-bottom: 1px solid var(--rule); scroll-margin-top: calc(var(--nav-h) + 24px); }
+.gl-term:first-child { padding-top: 0; }
+.gl-term:last-child { border-bottom: 0; }
+.gl-term[hidden] { display: none; }
+.gl-term dt { font-weight: 750; font-size: var(--step-1); line-height: 1.25; letter-spacing: -0.012em; color: var(--bone); }
+.gl-term dt .gl-alt { font-weight: 420; color: var(--bone-dim); font-size: var(--step-0); letter-spacing: 0; }
+.gl-term dd { margin: var(--space-2) 0 0; color: #cdd5d0; line-height: 1.6; }
+.gl-term dd p { margin: 0; }
+.gl-tag {
+  display: inline-block; margin-right: 0.5em; padding: 1px 6px; vertical-align: 0.12em;
+  font-family: var(--mono); font-size: var(--step--2); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--bone-dim); border: 1px solid var(--rule-strong); border-radius: 2px;
+}
+.gl-tag.site { color: var(--signal); border-color: rgba(74, 246, 38, 0.4); }
+.gl-more { margin-top: var(--space-2) !important; display: flex; flex-wrap: wrap; gap: 0 var(--space-4); font-family: var(--mono); font-size: var(--step--2); letter-spacing: 0.04em; }
+.gl-more a { display: inline-flex; align-items: center; min-height: 24px; color: var(--bone-dim); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rule-strong); }
+.gl-more a:hover { color: var(--bone); text-decoration-color: var(--bone-dim); }
+.gl-more a.gl-deep { color: var(--bone); }
+
+.gl-empty { padding-block: var(--space-7); color: var(--bone-dim); }
+.gl-empty[hidden] { display: none; }
+
+/* the notes block */
+.gl-notes { max-width: var(--measure); margin-top: var(--space-8); color: var(--bone-dim); font-size: var(--step--1); }
+.gl-notes h2 { font-size: var(--step-3); color: var(--bone); margin-bottom: var(--space-3); }
+.gl-notes p + p { margin-top: 0.8em; }
+
+@media (max-width: 420px) {
+  .gl-az ul { gap: 2px; }
+  .gl-group > h2 { font-size: var(--step-4); }
+}
+@media (forced-colors: active) { .gl-az a, .gl-filter input { border: 1px solid CanvasText; } }

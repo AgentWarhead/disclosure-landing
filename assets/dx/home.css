@@ -204,3 +204,6 @@
   .exhibit-fan { height: 84vw; max-height: 460px; }
   .exhibit-fan .exhibit-doc { width: 52%; }
 }
+
+.intel-more { margin-top: var(--space-5); color: var(--bone-dim); max-width: 34ch; }
+.intel-more a { color: var(--bone); text-decoration-color: var(--signal); text-decoration-thickness: 1.5px; }

@@ -46,10 +46,33 @@ function lensFor(path) {
     '/privacy/': { src: '/frames/f075.webp' },
     '/terms/': { src: '/frames/f075.webp' },
     '/accessibility/': { src: '/frames/f075.webp' },
+    '/tools/': { src: '/intel/images/ufo-sighting-1280.webp', kind: 'wide' },
+    '/tools/what-did-i-see/': { src: '/intel/images/starlink-vs-ufo-1280.webp', kind: 'wide' },
+    '/tools/report/': { src: '/assets/evidence/sketch-grey.webp', kind: 'wide' },
+    '/tools/drake/': { src: '/intel/images/fermi-paradox-1280.webp', kind: 'wide' },
+    '/glossary/': { src: '/asset-bg-alien.webp', kind: 'wide' },
+    '/record/': { src: '/intel/images/roswell-incident-1280.webp', kind: 'wide' },
+    '/record/pursue/': { src: '/asset-bg-alien.webp', kind: 'wide' },
+    '/cases/': { src: '/assets/species-hangar/hangar-bg.webp', kind: 'wide' },
     '/404': { src: '/frames/f075.webp' },
     ...Object.fromEntries(CATEGORIES.map(c => ['/intel/' + c.slug + '/', { src: c.lens, kind: 'wide' }])),
   };
   return map[path] || null;
+}
+
+// live counts from the intel hub, so the nav never states a stale number
+const hubHtml = readFileSync(join(root, 'intel', 'index.html'), 'utf8');
+const DATA_TO_SLUG = { protocol: 'protocol', 'field-guide': 'field-guide', psychology: 'psychology', species: 'species', record: 'public-record', theory: 'theory' };
+const catCount = {};
+let intelCount = 0;
+for (const g of hubHtml.matchAll(/<section class="intel-group" data-cat="([^"]+)"[\s\S]*?<\/section>/g)) {
+  const n = (g[0].match(/<li[^>]*><a href="\/intel\/[^/"]+\/">/g) || []).length;
+  catCount[DATA_TO_SLUG[g[1]]] = n; intelCount += n;
+}
+function fillCounts(html) {
+  html = html.replace(/\{\{INTEL_COUNT\}\}/g, String(intelCount));
+  html = html.replace(/(All )\d+( (?:intel )?files)/g, `$1${intelCount}$2`);
+  return html.replace(/(<a href="\/intel\/([a-z-]+)\/"><span class="label">)\d+ files/g, (m, a, slug) => catCount[slug] ? `${a}${catCount[slug]} files` : m);
 }
 
 let changed = 0, missing = [];
@@ -63,14 +86,15 @@ for (const file of pages(root)) {
   if (!h || !f) { missing.push(path); continue; }
 
   const control = (out.match(/<meta name="dx:control" content="([^"]*)"/) || [])[1] || 'Released in part';
-  let hdr = header.replace('{{NAV_ATTR}}', h[1] ? ' data-over data-mode="over"' : '').replace('{{CONTROL}}', control);
+  let hdr = fillCounts(header.replace('{{NAV_ATTR}}', h[1] ? ' data-over data-mode="over"' : '').replace('{{CONTROL}}', control));
   // exact-page links get aria-current (panel lists, mobile sheet)
   hdr = hdr.replace(/<a((?: class="[^"]*")?) href="([^"]+)">/g, (m, cls, href) => href === path && href !== '/' ? `<a${cls} href="${href}" aria-current="page">` : m);
   // the section tab for this page gets marked
-  const section = /^\/(archetypes|archetype|quiz|about)\//.test(path) ? 'file'
+  const section = /^\/(archetypes|archetype|quiz|about|faq)\//.test(path) ? (header.includes('dx-p-record') ? 'file' : (path === '/faq/' ? 'faq' : 'file'))
     : /^\/(first-contact|readiness)\/$/.test(path) || path === '/intel/protocol/' ? 'protocol'
-    : path.startsWith('/intel/') ? 'archive'
-    : path === '/faq/' ? 'faq' : '';
+    : /^\/(record|cases)\//.test(path) ? 'record'
+    : path.startsWith('/tools/') ? 'tools'
+    : path.startsWith('/intel/') || path === '/glossary/' ? 'archive' : '';
   if (section === 'faq') hdr = hdr.replace('<a class="dx-tab dx-tab-link" href="/faq/">', '<a class="dx-tab dx-tab-link is-current" href="/faq/" aria-current="page">');
   else if (section) hdr = hdr.replace(`class="dx-tab" type="button" aria-expanded="false" aria-controls="dx-p-${section}"`, `class="dx-tab is-current" type="button" aria-expanded="false" aria-controls="dx-p-${section}"`);
   const ftr = footer.replace('{{CONTROL}}', control);

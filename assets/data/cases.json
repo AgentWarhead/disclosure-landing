@@ -1,0 +1,865 @@
+{
+  "generated": "2026-09-28",
+  "note": "Structured case summaries for the DISCLOSURE case files. Claims are recorded as claims; status labels are defined at /cases/.",
+  "statusLabels": {
+    "explained": "An official finding or a well-documented cause accounts for the main evidence. Loose ends may remain.",
+    "disputed": "An ordinary explanation is on the table with real support, and credible people still reject it, or the record is too thin to settle it.",
+    "unexplained": "No explanation fits the record yet. The label says nobody has shown what it was, and nothing more."
+  },
+  "cases": [
+    {
+      "slug": "navy-ufo-videos-gimbal-gofast-flir",
+      "url": "/cases/navy-ufo-videos-gimbal-gofast-flir/",
+      "no": "001",
+      "name": "US Navy UAP videos (FLIR1, Gimbal, GoFast)",
+      "title": "The Gimbal, GoFast and FLIR UFO videos explained",
+      "date": "2004-11-14",
+      "dateDisplay": "FLIR1: 14 November 2004. Gimbal and GoFast: January 2015. The Navy gave 21 January 2015 for both, in a statement carried by The Black Vault.",
+      "year": "2004",
+      "place": "Pacific Ocean southwest of San Diego (FLIR1); off the US East Coast (Gimbal, GoFast)",
+      "country": "United States",
+      "lat": 31.6,
+      "lng": -118.3,
+      "coordsNote": "Approximate. FLIR1 only: about 100 miles southwest of San Diego per CBS News. Gimbal and GoFast were off the US East Coast; AARO gives the eastern coast of Florida for GoFast.",
+      "witnesses": "Navy aircrews. Public figures: Cmdr. David Fravor and Lt. Cmdr. Alex Dietrich (the 2004 sighting), Chad Underwood (the pilot who filmed FLIR1) and Ryan Graves (who served in the Gimbal squadron).",
+      "duration": "Short infrared clips. Longer recordings and the radar data have not been released.",
+      "evidence": "Infrared targeting camera video with on-screen flight data and cockpit audio, plus aircrew testimony, some of it given under oath.",
+      "officialFinding": "Department of Defense, 27 April 2020: the phenomena remain characterized as unidentified.’ (war.gov) AARO, 6 February 2025, on GoFast: the object did not move at anomalous speeds. (aaro.mil) FLIR1 and Gimbal are listed as unresolved.",
+      "officialFindingSource": "https://www.aaro.mil/Portals/136/PDFs/case_resolution_reports/AARO_GoFast_Case_Resolution_Card_Methodology_Final.pdf",
+      "status": "disputed",
+      "statusReason": "AARO resolved GoFast as ordinary in 2025. FLIR1 and Gimbal are still listed as unresolved, and the aircrews reject the leading explanations.",
+      "verdict": "The three Navy videos are genuine military footage, and the Pentagon officially released them in April 2020. None of them is proof of an alien craft. In 2025 AARO found that GoFast showed an ordinary object at about 13,000 feet. FLIR1 and Gimbal are still listed as unresolved, and analysts argue both show distant jets.",
+      "explanations": [
+        {
+          "name": "GoFast: an ordinary object made fast by parallax",
+          "source": "https://www.aaro.mil/Portals/136/PDFs/case_resolution_reports/AARO_GoFast_Case_Resolution_Card_Methodology_Final.pdf"
+        },
+        {
+          "name": "Gimbal: glare from a distant jet, turned by the camera mount",
+          "source": "https://www.metabunk.org/threads/nyt-gimbal-video-of-u-s-navy-jet-encounter-with-unknown-object.9333/"
+        },
+        {
+          "name": "FLIR1: a distant aircraft flying away",
+          "source": "https://www.metabunk.org/threads/2004-uss-nimitz-tic-tac-ufo-flir-footage-flir1.9190/"
+        },
+        {
+          "name": "Something the military still cannot identify",
+          "source": "https://www.war.gov/News/Releases/Release/Article/2165713/statement-by-the-department-of-defense-on-the-release-of-historical-navy-videos/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Statement by the Department of Defense on the release of historical Navy videos",
+          "url": "https://www.war.gov/News/Releases/Release/Article/2165713/statement-by-the-department-of-defense-on-the-release-of-historical-navy-videos/",
+          "domain": "war.gov",
+          "published": "27 April 2020",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Naval Air Systems Command FOIA reading room (the official video files)",
+          "url": "https://www.navair.navy.mil/foia/documents",
+          "domain": "navair.navy.mil",
+          "published": null,
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "FLIR UAP, official video page",
+          "url": "https://www.dvidshub.net/video/955825/flir-uap",
+          "domain": "dvidshub.net",
+          "published": "posted March 2025",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Gimbal UAP, official video page",
+          "url": "https://www.dvidshub.net/video/956955/gimbal-uap",
+          "domain": "dvidshub.net",
+          "published": "posted March 2025",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "GoFast UAP, official video page",
+          "url": "https://www.dvidshub.net/video/956683/gofast-uap",
+          "domain": "dvidshub.net",
+          "published": "posted March 2025",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "AARO case resolution: \"Go Fast\"",
+          "url": "https://www.aaro.mil/Portals/136/PDFs/case_resolution_reports/AARO_GoFast_Case_Resolution_Card_Methodology_Final.pdf",
+          "domain": "aaro.mil",
+          "published": "6 February 2025",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "AARO Official UAP Imagery",
+          "url": "https://www.aaro.mil/UAP-Cases/Official-UAP-Imagery/",
+          "domain": "aaro.mil",
+          "published": null,
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "NASA UAP Independent Study Team final report",
+          "url": "https://science.nasa.gov/wp-content/uploads/2023/09/uap-independent-study-team-final-report.pdf",
+          "domain": "nasa.gov",
+          "published": "14 September 2023",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Written testimony of David Fravor, House Oversight hearing",
+          "url": "https://www.congress.gov/118/meeting/house/116282/witnesses/HHRG-118-GO06-Wstate-FravorD-20230726.pdf",
+          "domain": "congress.gov",
+          "published": "26 July 2023",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Written testimony of Ryan Graves, House Oversight hearing",
+          "url": "https://www.congress.gov/118/meeting/house/116282/witnesses/HHRG-118-GO06-Wstate-GravesR-20230726.pdf",
+          "domain": "congress.gov",
+          "published": "26 July 2023",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Hearing transcript, \"Unidentified Anomalous Phenomena: Exposing the Truth\"",
+          "url": "https://www.congress.gov/event/118th-congress/house-event/LC73681/text",
+          "domain": "congress.gov",
+          "published": "13 November 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "PURSUE: Department of War UAP file releases",
+          "url": "https://www.war.gov/UFO/",
+          "domain": "war.gov",
+          "published": "2026",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Glowing Auras and Black Money’: The Pentagon’s Mysterious U.F.O. Program",
+          "url": "https://www.nytimes.com/2017/12/16/us/politics/pentagon-program-ufo-harry-reid.html",
+          "domain": "nytimes.com",
+          "published": "16 December 2017",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "CNN report on the GoFast release",
+          "url": "https://www.cnn.com/2018/03/12/politics/unidentified-aircraft-navy/index.html",
+          "domain": "cnn.com",
+          "published": "12 March 2018",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Navy confirms videos did capture UFO sightings",
+          "url": "https://www.nbcnews.com/news/us-news/navy-confirms-videos-did-capture-ufo-sightings-it-calls-them-n1056201",
+          "domain": "nbcnews.com",
+          "published": "19 September 2019",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "U.S. Navy releases dates of three officially acknowledged encounters",
+          "url": "https://www.theblackvault.com/documentarchive/u-s-navy-releases-dates-of-three-officially-acknowledged-encounters-with-phenomena/",
+          "domain": "theblackvault.com",
+          "published": "11 September 2019",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Q&A with Navy pilot Chad Underwood",
+          "url": "https://nymag.com/intelligencer/2019/12/tic-tac-ufo-video-q-and-a-with-navy-pilot-chad-underwood.html",
+          "domain": "nymag.com",
+          "published": "19 December 2019",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Navy pilots describe the 2004 encounter, 60 Minutes",
+          "url": "https://www.cbsnews.com/news/navy-ufo-sighting-60-minutes-2021-05-16/",
+          "domain": "cbsnews.com",
+          "published": "16 May 2021",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Mick West, GoFast analysis thread",
+          "url": "https://www.metabunk.org/threads/go-fast-footage-from-tom-delonges-to-the-stars-academy-bird-balloon.9569/",
+          "domain": "metabunk.org",
+          "published": "from March 2018",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Mick West, Gimbal analysis thread",
+          "url": "https://www.metabunk.org/threads/nyt-gimbal-video-of-u-s-navy-jet-encounter-with-unknown-object.9333/",
+          "domain": "metabunk.org",
+          "published": "from December 2017",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "FLIR1 analysis thread",
+          "url": "https://www.metabunk.org/threads/2004-uss-nimitz-tic-tac-ufo-flir-footage-flir1.9190/",
+          "domain": "metabunk.org",
+          "published": "from October 2017",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Peings and von Rennenkampff, Reconstruction of potential flight paths for the January 2015 Gimbal UAP (preprint)",
+          "url": "https://arxiv.org/abs/2306.08773",
+          "domain": "arxiv.org",
+          "published": "June 2023",
+          "accessed": "2026-09-28"
+        }
+      ]
+    },
+    {
+      "slug": "jellyfish-ufo-iraq",
+      "url": "/cases/jellyfish-ufo-iraq/",
+      "no": "002",
+      "name": "Al Taqaddum object (\"Jellyfish UFO\")",
+      "title": "The Jellyfish UFO video explained",
+      "date": "2017-10-23",
+      "dateDisplay": "23 October 2017, per AARO. Early press reports in 2024 gave 2018.",
+      "year": "2017",
+      "place": "Al Taqaddum Air Base, Iraq",
+      "country": "Iraq",
+      "lat": 33.34,
+      "lng": 43.6,
+      "coordsNote": "Approximate: Al Taqaddum Air Base, west of Baghdad.",
+      "witnesses": "Base personnel watching a sensor feed. One former Marine controller at the base has spoken publicly about what he saw.",
+      "duration": "The full video AARO released runs 17 minutes 27 seconds.",
+      "evidence": "Thermal infrared video from a sensor on a force-protection aerostat, a tethered surveillance balloon, operating at 2,700 feet.",
+      "officialFinding": "AARO case resolution, 8 September 2025: AARO assesses with high confidence that the Al Taqaddum object did not exhibit anomalous behavior or capabilities. (aaro.mil)",
+      "officialFindingSource": "https://www.aaro.mil/Portals/136/PDFs/case_resolution_reports/AARO_Al_Taqaddam_Case_Resolution_Final.pdf",
+      "status": "explained",
+      "statusReason": "AARO matched the object to a balloon cluster moving with the wind and released the full video. The water claim has no support in it.",
+      "verdict": "The Jellyfish video was filmed over Al Taqaddum Air Base in Iraq in October 2017 and leaked in January 2024. In September 2025 the Pentagon’s UAP office, AARO, concluded with high confidence that it shows a cluster of balloons drifting with the wind. The claim that it went into the water is not shown in the full video.",
+      "explanations": [
+        {
+          "name": "A cluster of balloons",
+          "source": "https://www.aaro.mil/Portals/136/PDFs/case_resolution_reports/AARO_Al_Taqaddam_Case_Resolution_Final.pdf"
+        },
+        {
+          "name": "A transmedium craft",
+          "source": "https://www.weaponizedpodcast.com/news-1/the-jellyfish-uap"
+        }
+      ],
+      "sources": [
+        {
+          "title": "AARO case resolution: Al Taqaddum object",
+          "url": "https://www.aaro.mil/Portals/136/PDFs/case_resolution_reports/AARO_Al_Taqaddam_Case_Resolution_Final.pdf",
+          "domain": "aaro.mil",
+          "published": "8 September 2025",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Al Taqaddum object, full video (AARO)",
+          "url": "https://www.dvidshub.net/video/960331/al-taqaddum-object",
+          "domain": "dvidshub.net",
+          "published": "29 April 2025",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "AARO announcement of the balloon finding",
+          "url": "https://x.com/DoD_AARO/status/1917294137188995106",
+          "domain": "x.com",
+          "published": "29 April 2025",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Hearing transcript, \"Restoring Public Trust Through UAP Transparency and Whistleblower Protection\"",
+          "url": "https://www.govinfo.gov/content/pkg/CHRG-119hhrg61718/html/CHRG-119hhrg61718.htm",
+          "domain": "govinfo.gov",
+          "published": "9 September 2025",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "The Jellyfish UAP",
+          "url": "https://www.weaponizedpodcast.com/news-1/the-jellyfish-uap",
+          "domain": "weaponizedpodcast.com",
+          "published": "8 January 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "TMZ documentary promotion",
+          "url": "https://www.tmz.com/2024/01/09/ufo-promo-tmz-documentary-ufo-transparency-threatened/",
+          "domain": "tmz.com",
+          "published": "9 January 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Jellyfish UFO video from Iraq",
+          "url": "https://globalnews.ca/news/10216527/jellyfish-ufo-iraq-video-uap/",
+          "domain": "globalnews.ca",
+          "published": "January 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Jellyfish UFO reportedly recorded over a US joint operations base in Iraq",
+          "url": "https://www.singularfortean.com/news/2024/1/9/jellyfish-ufo-reportedly-recorded-over-united-states-joint-operations-base-in-iraq",
+          "domain": "singularfortean.com",
+          "published": "9 January 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Arab News report on the Jellyfish video",
+          "url": "https://www.arabnews.com/node/2442101/offbeat",
+          "domain": "arabnews.com",
+          "published": "January 2024",
+          "accessed": "2026-09-28"
+        }
+      ]
+    },
+    {
+      "slug": "new-jersey-drones-2024",
+      "url": "/cases/new-jersey-drones-2024/",
+      "no": "003",
+      "name": "New Jersey drone sightings",
+      "title": "What were the New Jersey drones?",
+      "date": "2024-11-18",
+      "dateDisplay": "First reports 18 November 2024, per the FAA and FBI. Picatinny Arsenal police logged reports from 13 November. Reports peaked in December 2024.",
+      "year": "2024",
+      "place": "New Jersey, United States, mainly Morris and Somerset counties",
+      "country": "United States",
+      "lat": 40.86,
+      "lng": -74.54,
+      "coordsNote": "Approximate centre of Morris County, where the FAA says the first reports came from.",
+      "witnesses": "Residents, police and trained security staff at two military bases. The FBI received more than 5,000 tips.",
+      "duration": "About six weeks of reports, from mid November to late December 2024.",
+      "evidence": "Tips, phone video and visual reports. Federal agencies said electronic detection did not back up the visual sightings.",
+      "officialFinding": "DHS, FBI, FAA and DoD, December 2024: We have not identified anything anomalous. (faa.gov) White House, 28 January 2025: the drones were authorized to be flown by the FAA for research and various other reasons. (rollcall.com transcript)",
+      "officialFindingSource": "https://www.faa.gov/newsroom/dhs-fbi-faa-dod-joint-statement-ongoing-response-reported-drone-sightings",
+      "status": "explained",
+      "statusReason": "Federal agencies matched the reports to drones, aircraft and stars. The operators of drones confirmed over two bases were never publicly named.",
+      "verdict": "Federal agencies traced the New Jersey drone reports of late 2024 to lawful drones, manned aircraft and even stars, and found nothing anomalous. In January 2025 the White House said the drones had been authorized by the FAA for research. Drones confirmed over two military bases were never publicly traced to an operator.",
+      "explanations": [
+        {
+          "name": "Manned aircraft mistaken for drones",
+          "source": "https://www.dhs.gov/sites/default/files/2025-05/25_0428_2025-HQFO-01883%20Final%20Records_0.pdf"
+        },
+        {
+          "name": "Lawful drones and stars",
+          "source": "https://www.faa.gov/newsroom/dhs-fbi-faa-dod-joint-statement-ongoing-response-reported-drone-sightings"
+        },
+        {
+          "name": "Drones authorized by the FAA for research",
+          "source": "https://rollcall.com/factbase/trump/transcript/donald-trump-press-conference-briefing-karoline-leavitt-january-28-2025/"
+        },
+        {
+          "name": "A wave of reporting",
+          "source": "https://www.nj.gov/governor/news/news/562024/approved/20241223a.shtml"
+        }
+      ],
+      "sources": [
+        {
+          "title": "DHS, FBI, FAA and DoD joint statement on the ongoing response to reported drone sightings",
+          "url": "https://www.faa.gov/newsroom/dhs-fbi-faa-dod-joint-statement-ongoing-response-reported-drone-sightings",
+          "domain": "faa.gov",
+          "published": "17 December 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "The same joint statement, FBI copy",
+          "url": "https://www.fbi.gov/news/press-releases/dhs-fbi-faa-and-dod-joint-statement-on-ongoing-response-to-reported-drone-sightings",
+          "domain": "fbi.gov",
+          "published": "16 December 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Joint DHS and FBI statement on reports of drones in New Jersey",
+          "url": "https://www.fbi.gov/news/press-releases/joint-dhs-fbi-statement-on-reports-of-drones-in-new-jersey",
+          "domain": "fbi.gov",
+          "published": "12 December 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Background press call on the response to reported drone sightings",
+          "url": "https://bidenwhitehouse.archives.gov/briefing-room/press-briefings/2024/12/14/background-press-call-on-the-ongoing-response-to-reported-drone-sightings/",
+          "domain": "bidenwhitehouse.archives.gov",
+          "published": "14 December 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Joint Staff addresses drones over New Jersey military installations",
+          "url": "https://www.war.gov/News/News-Stories/Article/Article/4002374/joint-staff-addresses-drones-over-new-jersey-military-installations/",
+          "domain": "war.gov",
+          "published": "14 December 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Deputy Pentagon Press Secretary Sabrina Singh press briefing",
+          "url": "https://www.war.gov/News/Transcripts/Transcript/Article/3998124/deputy-pentagon-press-secretary-sabrina-singh-holds-a-press-briefing/",
+          "domain": "war.gov",
+          "published": "11 December 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Pentagon Press Secretary Maj. Gen. Pat Ryder press briefing",
+          "url": "https://www.war.gov/News/Transcripts/Transcript/Article/4005839/pentagon-press-secretary-maj-gen-pat-ryder-holds-an-off-camera-on-the-record-pr/",
+          "domain": "war.gov",
+          "published": "16 December 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "FAA general statements (flight restrictions over New Jersey and New York)",
+          "url": "https://www.faa.gov/newsroom/statements/general-statements",
+          "domain": "faa.gov",
+          "published": "December 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Press gaggle by John Kirby",
+          "url": "https://bidenwhitehouse.archives.gov/briefing-room/speeches-remarks/2024/12/16/on-the-record-press-gaggle-by-white-house-national-security-communications-advisor-john-kirby-37/",
+          "domain": "bidenwhitehouse.archives.gov",
+          "published": "16 December 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Unidentified Aerial Phenomena (UAP) sightings in NJ, FOIA release",
+          "url": "https://www.dhs.gov/publication/unidentified-aerial-phenomena-uap-sightings-nj",
+          "domain": "dhs.gov",
+          "published": "updated May 2025",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "TSA slides, New Jersey drones, 18 December 2024 (FOIA records)",
+          "url": "https://www.dhs.gov/sites/default/files/2025-05/25_0428_2025-HQFO-01883%20Final%20Records_0.pdf",
+          "domain": "dhs.gov",
+          "published": "posted April 2025",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "House Homeland Security hearing on counter-drone authorities",
+          "url": "https://homeland.house.gov/2024/12/12/unexplained-sighting-doj-fbi-cbp-witnesses-testify-on-ongoing-threats-posed-by-drones-discuss-current-counter-drone-authorities/",
+          "domain": "homeland.house.gov",
+          "published": "12 December 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "New Jersey drone working group announcement",
+          "url": "https://www.nj.gov/governor/news/news/562024/approved/20241223a.shtml",
+          "domain": "nj.gov",
+          "published": "23 December 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Counter-UAS authority for state, local, tribal and territorial law enforcement (interim final rule)",
+          "url": "https://www.federalregister.gov/documents/2026/07/06/2026-13609/counter-uas-authority-for-state-local-tribal-and-territorial-law-enforcement-and-correctional",
+          "domain": "federalregister.gov",
+          "published": "6 July 2026",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Press briefing by Karoline Leavitt, transcript",
+          "url": "https://rollcall.com/factbase/trump/transcript/donald-trump-press-conference-briefing-karoline-leavitt-january-28-2025/",
+          "domain": "rollcall.com",
+          "published": "28 January 2025",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "White House says New Jersey drones were authorized by the FAA",
+          "url": "https://www.nbcnews.com/news/us-news/white-house-says-new-jersey-drones-authorized-faa-was-not-enemy-rcna189646",
+          "domain": "nbcnews.com",
+          "published": "28 January 2025",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "New Jersey drone sightings",
+          "url": "https://www.cnn.com/2024/12/12/us/new-jersey-drone-sightings/index.html",
+          "domain": "cnn.com",
+          "published": "12 December 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Federal assessments suggest New Jersey drones are not UAP or US military assets",
+          "url": "https://defensescoop.com/2024/12/16/new-jersey-drones-federal-assessments-suggest-not-uap-or-us-military-assets/",
+          "domain": "defensescoop.com",
+          "published": "16 December 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "No suspects in FBI’s New Jersey drone investigation",
+          "url": "https://www.twz.com/news-features/no-suspects-in-fbis-new-jersey-drone-scare-investigation-dozens-of-airspace-closures-just-expired",
+          "domain": "twz.com",
+          "published": "January 2025",
+          "accessed": "2026-09-28"
+        }
+      ]
+    },
+    {
+      "slug": "ariel-school-ufo-1994",
+      "url": "/cases/ariel-school-ufo-1994/",
+      "no": "004",
+      "name": "Ariel School sighting",
+      "title": "The Ariel School UFO incident",
+      "date": "1994-09-16",
+      "dateDisplay": "16 September 1994, during the mid-morning break, about 10:00 to 10:15 am.",
+      "year": "1994",
+      "place": "Ariel School, Ruwa, Zimbabwe",
+      "country": "Zimbabwe",
+      "lat": -17.89,
+      "lng": 31.24,
+      "coordsNote": "Approximate: the town of Ruwa, about 20 km from Harare.",
+      "witnesses": "About 60 children, 62 in most accounts, aged roughly 6 to 12. No adult saw it: the teachers were in a staff meeting.",
+      "duration": "Accounts vary. A 1995 summary by Mack’s research associate gives about 15 minutes.",
+      "evidence": "Children’s accounts recorded days to weeks later, drawings collected by the headmaster, filmed interviews. An instrument check of the site found nothing.",
+      "officialFinding": "None. No government, police or military investigation or finding was found. The only investigators were a UFO researcher, a journalist and a psychiatrist.",
+      "officialFindingSource": null,
+      "status": "disputed",
+      "statusReason": "Many former pupils stand by their accounts. Skeptics argue suggestion shaped them, and no physical trace or adult witness exists.",
+      "verdict": "On 16 September 1994, about sixty children at Ariel School in Ruwa, Zimbabwe, reported a craft and a small figure beyond their playing field. No adult saw it and no physical trace was found. Many of those children, now adults, still stand by what they reported. Skeptics point to suggestion, group dynamics and a fireball seen two nights earlier.",
+      "explanations": [
+        {
+          "name": "Something physical that the children saw",
+          "source": "https://whyy.org/segments/documentary-explores-the-ufo-sighting-that-changed-the-course-of-62-childrens-lives/"
+        },
+        {
+          "name": "Suggestion and group dynamics",
+          "source": "https://skeptoid.com/episodes/4760"
+        },
+        {
+          "name": "A country primed by a fireball",
+          "source": "http://www.satobs.org/reentry/Visually_Observed_Natural_Re-entries_latest_draft.pdf"
+        },
+        {
+          "name": "A prank",
+          "source": "https://www.vice.com/en/article/encounters-netflix-zimbabwe-ufo-sighting/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Cynthia Hind, \"The Children of Ariel School,\" UFO Afrinews, reprinted",
+          "url": "http://ufoevidence.org/Cases/case127.htm",
+          "domain": "ufoevidence.org",
+          "published": "original 1994",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Dominique Callimanopulos, Exploring African and other alien encounters",
+          "url": "http://johnemackinstitute.org/1995/03/exploring-african-and-other-alien-encounters/",
+          "domain": "johnemackinstitute.org",
+          "published": "1995",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "The Witness (Pietermaritzburg) on the Ariel School follow-up, scan",
+          "url": "http://www.johnemackinstitute.org/images/2008_0416_TheWitness_Ariel_School.pdf",
+          "domain": "johnemackinstitute.org",
+          "published": "16 April 2008",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "BBC Witness History: the Ariel School sighting",
+          "url": "https://www.bbc.co.uk/news/av/stories-57749238",
+          "domain": "bbc.co.uk",
+          "published": "10 July 2021",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Remembering Zimbabwe’s great alien invasion",
+          "url": "https://mg.co.za/article/2014-09-04-remembering-zimbabwes-great-alien-invasion/",
+          "domain": "mg.co.za",
+          "published": "4 September 2014",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Documentary explores the UFO sighting that changed the course of 62 children’s lives",
+          "url": "https://whyy.org/segments/documentary-explores-the-ufo-sighting-that-changed-the-course-of-62-childrens-lives/",
+          "domain": "whyy.org",
+          "published": "23 October 2023",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Ariel Phenomenon documentary review",
+          "url": "https://thedebrief.org/ariel-phenomenon-documentary-a-journey-worth-taking/",
+          "domain": "thedebrief.org",
+          "published": "20 May 2022",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Netflix Encounters and the Zimbabwe UFO sighting",
+          "url": "https://www.vice.com/en/article/encounters-netflix-zimbabwe-ufo-sighting/",
+          "domain": "vice.com",
+          "published": "6 October 2023",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Brian Dunning, Skeptoid episode 4760",
+          "url": "https://skeptoid.com/episodes/4760",
+          "domain": "skeptoid.com",
+          "published": "29 December 2020",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Gideon Reid, Scepticisme Scientifique vol. 2",
+          "url": "https://revue.comitepara.be/wp-content/uploads/2024/10/Scepticisme_Scientifique_12_2024_SI.pdf",
+          "domain": "revue.comitepara.be",
+          "published": "2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Ted Molczan, visually observed natural re-entries (catalogue)",
+          "url": "http://www.satobs.org/reentry/Visually_Observed_Natural_Re-entries_latest_draft.pdf",
+          "domain": "satobs.org",
+          "published": "compiled 2025",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "David Halperin on the Ariel School encounter",
+          "url": "https://www.davidhalperin.net/the-phenomenon-reflections-on-james-foxs-new-ufo-documentary-part-3-ufo-encounter-at-ariel-school/",
+          "domain": "davidhalperin.net",
+          "published": "13 November 2020",
+          "accessed": "2026-09-28"
+        }
+      ]
+    },
+    {
+      "slug": "travis-walton-abduction",
+      "url": "/cases/travis-walton-abduction/",
+      "no": "005",
+      "name": "Travis Walton abduction claim",
+      "title": "The Travis Walton abduction story",
+      "date": "1975-11-05",
+      "dateDisplay": "5 November 1975, about 6:15 pm. Walton phoned family from Heber just after midnight on 11 November. One local paper gives 10 November.",
+      "year": "1975",
+      "place": "Apache-Sitgreaves National Forest near Heber, Arizona",
+      "country": "United States",
+      "lat": 34.43,
+      "lng": -110.59,
+      "coordsNote": "Approximate: the town of Heber, Arizona. The Turkey Springs work site was in the forest nearby.",
+      "witnesses": "A seven-man Forest Service thinning crew: Walton, foreman Mike Rogers and five others. Walton and Rogers are public figures.",
+      "duration": "The crew described a sighting of moments. Walton was missing for about five days.",
+      "evidence": "Crew testimony, Walton’s own account and a series of polygraph tests with conflicting results. No physical evidence.",
+      "officialFinding": "None found. The Navajo County Sheriff’s Office investigated, but no closing report or finding was located, and there was no federal inquiry.",
+      "officialFindingSource": null,
+      "status": "disputed",
+      "statusReason": "Walton and his crew stood by the account for decades. A skeptic argued it was a hoax to escape a work contract, and the lie-detector results conflict.",
+      "verdict": "Travis Walton says a craft took him from an Arizona forest on 5 November 1975 and that he woke aboard it. He was missing for about five days. Six co-workers say they saw a beam strike him. No physical evidence was ever produced, and the polygraph record cuts both ways. No official body issued a finding.",
+      "explanations": [
+        {
+          "name": "An abduction, as Walton describes it",
+          "source": "https://www.nicap.org/reports2/Cy_Gilson_Polygraph_Test_of_Travis_Walton.pdf"
+        },
+        {
+          "name": "A hoax to escape a work contract",
+          "source": "https://rr0.org/time/1/9/7/6/06/WaltonAbductionCoverUpRevealed_UfoInvestigator/index.html"
+        },
+        {
+          "name": "A real light, then something in the mind",
+          "source": "https://cdn.centerforinquiry.org/wp-content/uploads/sites/29/1981/07/22165430/p49.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Philip J. Klass interview, \"Walton abduction cover-up revealed,\" UFO Investigator (NICAP), transcribed",
+          "url": "https://rr0.org/time/1/9/7/6/06/WaltonAbductionCoverUpRevealed_UfoInvestigator/index.html",
+          "domain": "rr0.org",
+          "published": "June 1976",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Jeff Wells, \"Profitable Nightmare of a Very Unreal Kind,\" Skeptical Inquirer",
+          "url": "https://cdn.centerforinquiry.org/wp-content/uploads/sites/29/1981/07/22165430/p49.pdf",
+          "domain": "centerforinquiry.org",
+          "published": "Summer 1981",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Cy Gilson, letter on the 1993 polygraph of Travis Walton",
+          "url": "https://www.nicap.org/reports2/Cy_Gilson_Polygraph_Test_of_Travis_Walton.pdf",
+          "domain": "nicap.org",
+          "published": "4 February 1993",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Michael Shermer, Travis Walton’s alien abduction lie detection test",
+          "url": "https://michaelshermer.com/articles/travis-waltons-alien-abduction-lie-detection-test/",
+          "domain": "michaelshermer.com",
+          "published": "14 August 2012",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "The Muddle of Truth, Walton’s reply",
+          "url": "https://michaelshermer.com/articles/the-muddle-of-truth/",
+          "domain": "michaelshermer.com",
+          "published": "21 August 2012",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Travis Walton, an ordinary day",
+          "url": "http://www.travis-walton.com/ordinary.html",
+          "domain": "travis-walton.com",
+          "published": null,
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Travis Walton, frequently asked questions",
+          "url": "http://www.travis-walton.com/faq.html",
+          "domain": "travis-walton.com",
+          "published": null,
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "UFO incident makes worldwide headlines in 1975",
+          "url": "https://www.wmicentral.com/news/snowflake_taylor/ufo-incident-makes-worldwide-headlines-in-1975/article_96495b2c-e695-5340-8958-d63def914388.html",
+          "domain": "wmicentral.com",
+          "published": "4 November 2005",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Fire in the Sky (1993), catalog entry",
+          "url": "https://catalog.afi.com/Catalog/moviedetails/59525",
+          "domain": "catalog.afi.com",
+          "published": null,
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Fire in the Sky: the inside story, book excerpt",
+          "url": "https://www.dailygrail.com/2015/09/fire-in-the-sky-the-inside-story-an-exclusive-excerpt-from-silver-screen-saucers/",
+          "domain": "dailygrail.com",
+          "published": "29 September 2015",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "His Arizona UFO abduction story became legend",
+          "url": "https://www.kjzz.org/the-show/2025-07-03/his-arizona-ufo-abduction-story-became-legend-after-50-years-hes-sick-of-attempts-to-debunk-it",
+          "domain": "kjzz.org",
+          "published": "3 July 2025",
+          "accessed": "2026-09-28"
+        }
+      ]
+    },
+    {
+      "slug": "shag-harbour-ufo-1967",
+      "url": "/cases/shag-harbour-ufo-1967/",
+      "no": "006",
+      "name": "Shag Harbour UFO incident",
+      "title": "The Shag Harbour UFO incident",
+      "date": "1967-10-04",
+      "dateDisplay": "4 October 1967, at night. Reports put the first calls to the RCMP around 11:00 pm and the object on the water around 11:20 pm.",
+      "year": "1967",
+      "place": "Shag Harbour, Nova Scotia, Canada",
+      "country": "Canada",
+      "lat": 43.5,
+      "lng": -65.71,
+      "coordsNote": "Approximate: the village of Shag Harbour. The object was reported entering the water a short distance offshore.",
+      "witnesses": "An RCMP corporal and six other witnesses, per the National Defence memo. Later accounts count about a dozen people at the shore, plus fishermen. RCMP Const. Ron O’Brien has spoken publicly.",
+      "duration": "Minutes in the air. A light stayed on the water before it disappeared. The sea search ran through the night, and the navy dive search lasted about three days.",
+      "evidence": "Police and National Defence records, witness statements, and a trail of yellowish foam that searchers reported on the water. No debris was recovered.",
+      "officialFinding": "National Defence memo: divers failed to locate any tangible evidence. (Library and Archives Canada) The archives’ exhibition adds that National Defence identified this sighting as unsolved.",
+      "officialFindingSource": "https://web.archive.org/web/20110519132147/http://www.collectionscanada.gc.ca/ufo/002029-1500.01-e.html",
+      "status": "unexplained",
+      "statusReason": "National Defence classed it as unsolved. Rescue officials ruled out a missing aircraft and flares, and the dive search found no debris.",
+      "verdict": "On the night of 4 October 1967, witnesses including an RCMP corporal saw a lit object come down into the sea off Shag Harbour, Nova Scotia. No aircraft was missing, and navy divers found nothing. National Defence classed the sighting as unsolved. It is one of the few UFO cases with Canadian government records behind it.",
+      "explanations": [
+        {
+          "name": "A plane crash",
+          "source": "https://www.cbc.ca/news/canada/nova-scotia/shag-harbour-ufo-incident-oct-4-1967-laurie-wickens-nova-scotia-9.7292815"
+        },
+        {
+          "name": "A meteor or marine flares",
+          "source": "https://skeptoid.com/episodes/565"
+        },
+        {
+          "name": "A submarine or a secret aircraft",
+          "source": "https://www.ctvnews.ca/atlantic/article/canadas-best-documented-ufo-sighting-still-intrigues-50-years-on/"
+        },
+        {
+          "name": "An unknown craft that moved underwater",
+          "source": "https://openlibrary.org/books/OL3964979M"
+        }
+      ],
+      "sources": [
+        {
+          "title": "National Defence memo, \"UFO Report, Lower Woods Harbour, N.S.\" (scan, Library and Archives Canada, archived copy)",
+          "url": "https://web.archive.org/web/20110519211523/http://www.collectionscanada.gc.ca/obj/002029/f1/e002996951.mo-vx.jpg",
+          "domain": "collectionscanada.gc.ca",
+          "published": null,
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Library and Archives Canada, Department of National Defence memo page (archived copy)",
+          "url": "https://web.archive.org/web/20110519211459/http://www.collectionscanada.gc.ca/ufo/002029-1501-e.html",
+          "domain": "collectionscanada.gc.ca",
+          "published": "2005, updated 2007",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Library and Archives Canada, Shag Harbour, Nova Scotia, October 4, 1967 (archived copy)",
+          "url": "https://web.archive.org/web/20110519132147/http://www.collectionscanada.gc.ca/ufo/002029-1500.01-e.html",
+          "domain": "collectionscanada.gc.ca",
+          "published": "2005, updated 2007",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Library and Archives Canada research list, 1967 Shag Harbour UFO sighting and related research",
+          "url": "https://recherche-research.bac-lac.gc.ca/eng/public/list/43130",
+          "domain": "bac-lac.gc.ca",
+          "published": "26 September 2024",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Shag Harbour UFO incident, with the Turner memo",
+          "url": "https://www.cbc.ca/news/canada/nova-scotia/shag-harbour-ufo-incident-oct-4-1967-laurie-wickens-nova-scotia-9.7292815",
+          "domain": "cbc.ca",
+          "published": "2 August 2026",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Canada’s best-documented UFO sighting still intrigues 50 years on (Canadian Press)",
+          "url": "https://www.ctvnews.ca/atlantic/article/canadas-best-documented-ufo-sighting-still-intrigues-50-years-on/",
+          "domain": "ctvnews.ca",
+          "published": "21 September 2017",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Shag Harbour UFO incident, visitor page",
+          "url": "https://www.barringtonmunicipality.com/Visiting-Us/shag-harbour-ufo-incident",
+          "domain": "barringtonmunicipality.com",
+          "published": null,
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Don Ledger, Shag Harbour article (archived copy)",
+          "url": "https://web.archive.org/web/2001/http://www3.ns.sympatico.ca:80/dledger/Shag_Harbour_article.html",
+          "domain": "sympatico.ca",
+          "published": "1997",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Don Ledger, Dark Object documents (archived copy)",
+          "url": "https://web.archive.org/web/2001/http://www3.ns.sympatico.ca:80/dledger/DO-Docs.html",
+          "domain": "sympatico.ca",
+          "published": null,
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Don Ledger and Chris Styles, Dark Object (Dell, 2001), catalogue record",
+          "url": "https://openlibrary.org/books/OL3964979M",
+          "domain": "openlibrary.org",
+          "published": null,
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Brian Dunning, Skeptoid episode 565",
+          "url": "https://skeptoid.com/episodes/565",
+          "domain": "skeptoid.com",
+          "published": "4 April 2017",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Royal Canadian Mint Shag Harbour coin",
+          "url": "https://www.cbc.ca/news/canada/nova-scotia/shag-harbour-ufo-coin-royal-canadian-mint-1.5304445",
+          "domain": "cbc.ca",
+          "published": "1 October 2019",
+          "accessed": "2026-09-28"
+        },
+        {
+          "title": "Shag Harbour UFO Incident Society",
+          "url": "https://www.shagharbourincident.ca/shag-harbour-ufo-incident-1967/",
+          "domain": "shagharbourincident.ca",
+          "published": null,
+          "accessed": "2026-09-28"
+        }
+      ]
+    }
+  ],
+  "alsoInArchive": [
+    "/intel/roswell-ufo-incident-explained/",
+    "/intel/phoenix-lights-explained/",
+    "/intel/rendlesham-forest-ufo-incident/",
+    "/intel/nimitz-tic-tac-ufo-explained/"
+  ]
+}

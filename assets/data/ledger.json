@@ -1,0 +1,369 @@
+{
+  "name": "The Disclosure Ledger",
+  "pageTitle": "UAP Disclosure Timeline: Every Official Event",
+  "pageDescription": "Every official UFO and UAP event from 1947 to 2026, from Project Sign to the PURSUE files, each with its source and a verdict on what that source confirms.",
+  "lastReviewed": "2026-09-28",
+  "contact": "team@getdisclosure.app",
+  "verdicts": {
+    "VERIFIED": "A primary source we read confirms the date and the fact: the agency, the law, the committee or the report itself.",
+    "PARTLY": "Confirmed only by a major news outlet or a secondary source, or one detail such as the exact day is unconfirmed. The row says which.",
+    "FALSE AS WORDED": "Something real happened, but the claim as people repeat it gets the event, the agency or the outcome wrong.",
+    "NOT FOUND": "We looked in the official record and could not find the event the claim describes."
+  },
+  "types": ["hearing", "law", "report", "release", "statement"],
+  "entries": [
+    {
+      "id": "roswell-1947", "date": "1947-07-08", "type": "statement", "verdict": "VERIFIED",
+      "text": "The Roswell Army Air Field press office said it had recovered a “flying disc.” The next day the Eighth Air Force commander said the object was a radar-tracking weather balloon.",
+      "sources": [{ "url": "https://www.gao.gov/assets/nsiad-95-187.pdf" }]
+    },
+    {
+      "id": "twining-memo-1947", "date": "1947-09-23", "type": "statement", "verdict": "PARTLY",
+      "text": "Lt. Gen. Nathan Twining of Air Materiel Command wrote that the reported flying discs were “something real and not visionary or fictitious.”",
+      "note": "The memo is known from its reprint in the 1969 Condon Report appendix and from secondary histories. We did not read an archive copy of the original.",
+      "sources": [{ "url": "http://project1947.com/shg/condon/appndx-r.html" }, { "url": "https://skepticalinquirer.org/2020/03/general-nathan-f-twining-and-the-flying-disc-problem-of-1947/" }]
+    },
+    {
+      "id": "project-sign-1947", "date": "1947-12-30", "type": "statement", "verdict": "VERIFIED",
+      "text": "An Air Force headquarters memorandum set up Project Sign to study flying disc reports. Air Materiel Command took it on January 22, 1948.",
+      "sources": [{ "url": "https://www.archives.gov/research/guide-fed-records/groups/341.html" }, { "url": "https://www.cia.gov/resources/csi/static/cia-role-study-UFOs.pdf" }]
+    },
+    {
+      "id": "project-grudge-1949", "date": "1949-02-11", "type": "statement", "verdict": "VERIFIED",
+      "text": "The Air Force renamed its UFO study Project Grudge. It kept collecting reports while working to persuade the public that the sightings were nothing extraordinary.",
+      "sources": [{ "url": "https://www.archives.gov/research/guide-fed-records/groups/341.html" }, { "url": "https://www.cia.gov/resources/csi/static/cia-role-study-UFOs.pdf" }]
+    },
+    {
+      "id": "grudge-ends-1949", "date": "1949-12-27", "type": "statement", "verdict": "VERIFIED",
+      "text": "The Air Force announced the end of Project Grudge. Its officials had concluded that UFO reports posed no threat to US security.",
+      "sources": [{ "url": "https://www.cia.gov/resources/csi/static/cia-role-study-UFOs.pdf" }]
+    },
+    {
+      "id": "blue-book-1952", "date": "1952-03", "type": "statement", "verdict": "VERIFIED",
+      "text": "Project Grudge became Project Blue Book, the Air Force’s main UFO investigation for the next seventeen years.",
+      "note": "The National Archives gives the month, March 1952, but not the day.",
+      "sources": [{ "url": "https://www.archives.gov/research/guide-fed-records/groups/341.html" }]
+    },
+    {
+      "id": "samford-1952", "date": "1952-07", "type": "statement", "verdict": "PARTLY",
+      "text": "After a run of radar and visual sightings over Washington, DC, Air Force intelligence chief Maj. Gen. John Samford briefed reporters at the Pentagon and said the reports posed no threat.",
+      "note": "The National Archives holds film of the statement dated July 31, 1952. The widely repeated date of July 29 is not confirmed by any source we read.",
+      "sources": [{ "url": "https://www.archives.gov/news/articles/do-records-show-proof-of-ufos" }, { "url": "https://unwritten-record.blogs.archives.gov/2013/09/30/project-blue-book-looking-to-the-film-record/" }]
+    },
+    {
+      "id": "robertson-panel-1953", "date": "1953-01-14", "type": "report", "verdict": "VERIFIED",
+      "text": "A CIA-sponsored panel of scientists chaired by H. P. Robertson met for four days. It found no direct threat to national security in UFO reports and recommended public education to take the mystery out of them.",
+      "sources": [{ "url": "https://www.cia.gov/resources/csi/static/cia-role-study-UFOs.pdf" }]
+    },
+    {
+      "id": "hasc-hearing-1966", "date": "1966-04-05", "type": "hearing", "verdict": "VERIFIED",
+      "text": "The House Armed Services Committee held a hearing on unidentified flying objects. Air Force Secretary Harold Brown testified that most sightings were easily explained.",
+      "sources": [{ "url": "https://www.govinfo.gov/app/details/CHRG-89hhrg50066O" }, { "url": "https://www.cia.gov/resources/csi/static/cia-role-study-UFOs.pdf" }]
+    },
+    {
+      "id": "condon-contract-1966", "date": "1966-10-07", "type": "statement", "verdict": "VERIFIED",
+      "text": "The University of Colorado accepted a $325,000 Air Force contract for an 18-month scientific study of UFOs, led by physicist Edward Condon.",
+      "sources": [{ "url": "https://www.cia.gov/resources/csi/static/cia-role-study-UFOs.pdf" }]
+    },
+    {
+      "id": "house-symposium-1968", "date": "1968-07-29", "type": "hearing", "verdict": "VERIFIED",
+      "text": "The House Committee on Science and Astronautics held a one-day Symposium on Unidentified Flying Objects, taking statements from scientists on whether the subject deserved more study.",
+      "sources": [{ "url": "https://www.govinfo.gov/app/details/CHRG-90hhrg97818/CHRG-90hhrg97818" }]
+    },
+    {
+      "id": "condon-report-1969", "date": "1969-01", "type": "report", "verdict": "PARTLY",
+      "text": "The Colorado study led by Edward Condon concluded that two decades of UFO study had added nothing to scientific knowledge. A National Academy of Sciences panel agreed.",
+      "note": "The Associated Press dates the report to January 9, 1969, but no primary source we read gives the day, and a CIA history says April 1969.",
+      "sources": [{ "url": "https://www.cia.gov/resources/csi/static/cia-role-study-UFOs.pdf" }, { "url": "https://www.archives.gov/research/military/air-force/ufos" }]
+    },
+    {
+      "id": "blue-book-ends-1969", "date": "1969-12-17", "type": "statement", "verdict": "VERIFIED",
+      "text": "Air Force Secretary Robert Seamans announced the end of Project Blue Book. It had logged 12,618 sightings from 1947 to 1969, and 701 stayed “unidentified.”",
+      "sources": [{ "url": "https://www.archives.gov/research/military/air-force/ufos" }, { "url": "https://www.cia.gov/resources/csi/static/cia-role-study-UFOs.pdf" }]
+    },
+    {
+      "id": "blue-book-archives-1976", "date": "1976", "type": "release", "verdict": "PARTLY",
+      "text": "Project Blue Book’s records went to the National Archives and opened to researchers on microfilm, with the names of witnesses removed.",
+      "note": "The National Archives confirms the transfer and the removed names but gives no year. The 1976 date comes from the microfilm publication’s own pamphlet.",
+      "sources": [{ "url": "https://www.archives.gov/research/military/air-force/ufos" }, { "url": "https://www.fold3.com/pdf/T1206.pdf" }]
+    },
+    {
+      "id": "nasa-declines-1977", "date": "1977", "type": "statement", "verdict": "PARTLY",
+      "text": "NASA turned down a White House suggestion that it take up UFO investigations again, according to NASA’s own chronology of the year.",
+      "note": "NASA’s chronology records the decision by December 1977. The exact date of the decision is not confirmed.",
+      "sources": [{ "url": "https://www.nasa.gov/wp-content/uploads/2023/04/1977.pdf" }]
+    },
+    {
+      "id": "af-roswell-report-1994", "date": "1994-07", "type": "report", "verdict": "VERIFIED",
+      "text": "The Air Force reported that the Roswell debris most likely came from a classified balloon project built to detect Soviet nuclear tests, not from a spacecraft.",
+      "sources": [{ "url": "https://www.gao.gov/assets/nsiad-95-187.pdf" }, { "url": "https://unwritten-record.blogs.archives.gov/2014/07/07/the-roswell-reports-what-crashed-in-the-desert/" }]
+    },
+    {
+      "id": "gao-roswell-1995", "date": "1995-07-28", "type": "report", "verdict": "VERIFIED",
+      "text": "The General Accounting Office reported on its search for Roswell records and found that some Roswell Army Air Field records from 1945 to 1949 had been destroyed.",
+      "sources": [{ "url": "https://www.gao.gov/products/nsiad-95-187" }]
+    },
+    {
+      "id": "roswell-case-closed-1997", "date": "1997-06-24", "type": "report", "verdict": "PARTLY",
+      "text": "The Air Force released The Roswell Report: Case Closed, which said accounts of alien bodies likely came from test dummies dropped in 1950s parachute experiments.",
+      "note": "The government record confirms the report and its 1997 publication. The day comes from same-day newspaper coverage.",
+      "sources": [{ "url": "https://www.govinfo.gov/app/details/GOVPUB-D301-PURL-gpo92195" }, { "url": "https://www.deseret.com/1997/6/24/19319696/air-force-report-says-roswell-aliens-were-just-dummies/" }]
+    },
+    {
+      "id": "aatip-2017", "date": "2017-12-16", "type": "statement", "verdict": "VERIFIED",
+      "text": "The New York Times revealed the Pentagon’s Advanced Aerospace Threat Identification Program. The Defense Department acknowledged the program and said it had shut down in 2012.",
+      "note": "The program’s backers have said the work continued after 2012. That is their claim, not the Pentagon’s.",
+      "sources": [{ "url": "https://www.nytimes.com/2017/12/16/us/politics/pentagon-program-ufo-harry-reid.html" }, { "url": "https://www.npr.org/sections/thetwo-way/2017/12/17/571446881/secret-pentagon-program-spent-millions-to-research-ufos" }]
+    },
+    {
+      "id": "navy-guidelines-2019", "date": "2019-04-23", "type": "statement", "verdict": "PARTLY",
+      "text": "The Navy said it was drafting new guidelines for pilots and other personnel to report unexplained aerial sightings.",
+      "note": "Reported by Politico and CNN, quoting a Navy statement. We found no Navy document.",
+      "sources": [{ "url": "https://www.politico.com/story/2019/04/23/us-navy-guidelines-reporting-ufos-1375290" }, { "url": "https://www.cnn.com/2019/04/24/politics/us-navy-ufo-guidelines" }]
+    },
+    {
+      "id": "navy-videos-uap-2019", "date": "2019-09", "type": "statement", "verdict": "PARTLY",
+      "text": "A Navy spokesman said the objects in three leaked Navy videos were “unidentified aerial phenomena,” without saying what they were.",
+      "note": "Reported by CNN on September 18, 2019. We found no Navy document, and the day of the statement is not confirmed.",
+      "sources": [{ "url": "https://www.cnn.com/2019/09/18/politics/navy-confirms-ufo-videos-trnd" }]
+    },
+    {
+      "id": "navy-videos-2020", "date": "2020-04-27", "type": "release", "verdict": "VERIFIED",
+      "text": "The Department of Defense formally released three unclassified Navy videos recorded in 2004 and 2015, saying it wanted to clear up any confusion about the footage already circulating.",
+      "sources": [{ "url": "https://www.defense.gov/News/Releases/Release/Article/2165713/statement-by-the-department-of-defense-on-the-release-of-historical-navy-videos/" }, { "url": "https://edition.cnn.com/2020/04/27/politics/pentagon-ufo-videos" }]
+    },
+    {
+      "id": "uaptf-2020", "date": "2020-08-14", "type": "statement", "verdict": "VERIFIED",
+      "text": "The Department of Defense announced a Navy-led Unidentified Aerial Phenomena Task Force to detect, analyze and catalog UAP that could threaten national security.",
+      "sources": [{ "url": "https://www.defense.gov/News/Releases/Release/Article/2314065/establishment-of-unidentified-aerial-phenomena-task-force/" }]
+    },
+    {
+      "id": "report-mandate-2020", "date": "2020-12-27", "type": "law", "verdict": "VERIFIED",
+      "text": "The Consolidated Appropriations Act, 2021 became law. Its intelligence section adopted Senate report language directing the intelligence community to give Congress a UAP report within 180 days.",
+      "sources": [{ "url": "https://www.govinfo.gov/app/details/PLAW-116publ260" }, { "url": "https://www.govinfo.gov/content/pkg/CRPT-116srpt233/html/CRPT-116srpt233.htm" }]
+    },
+    {
+      "id": "odni-assessment-2021", "date": "2021-06-25", "type": "report", "verdict": "VERIFIED",
+      "text": "The Office of the Director of National Intelligence released its Preliminary Assessment on UAP. It reviewed 144 government reports from 2004 to 2021 and explained one of them, as a large deflating balloon.",
+      "sources": [{ "url": "https://archive.dni.gov/files/ODNI/documents/assessments/Prelimary-Assessment-UAP-20210625.pdf" }]
+    },
+    {
+      "id": "aoimsg-2021", "date": "2021-11-23", "type": "statement", "verdict": "VERIFIED",
+      "text": "Deputy Secretary of Defense Kathleen Hicks set up the Airborne Object Identification and Management Synchronization Group to take over from the Navy’s UAP Task Force.",
+      "sources": [{ "url": "https://www.defense.gov/News/Releases/Release/Article/2853121/dod-announces-the-establishment-of-the-airborne-object-identification-and-manag/" }]
+    },
+    {
+      "id": "ndaa-fy2022", "date": "2021-12-27", "type": "law", "verdict": "VERIFIED",
+      "text": "The FY2022 defense authorization act became law. Section 1683 required the Pentagon, with the intelligence community, to set up an office to handle UAP.",
+      "sources": [{ "url": "https://www.govinfo.gov/app/details/PLAW-117publ81" }]
+    },
+    {
+      "id": "house-hearing-2022", "date": "2022-05-17", "type": "hearing", "verdict": "VERIFIED",
+      "text": "A House Intelligence subcommittee held an open hearing on UAP with Pentagon officials Ronald Moultrie and Scott Bray, the first public congressional UFO hearing in more than 50 years.",
+      "sources": [{ "url": "https://www.congress.gov/117/meeting/house/114761/documents/HHRG-117-IG05-Transcript-20220517.pdf" }, { "url": "https://www.cbsnews.com/newyork/news/ufo-hearing-congress-pentagon-watch-live-stream-today-2022-05-17/" }]
+    },
+    {
+      "id": "nasa-study-2022", "date": "2022-06-09", "type": "statement", "verdict": "VERIFIED",
+      "text": "NASA announced an independent study team to examine unidentified aerial phenomena from a scientific point of view.",
+      "sources": [{ "url": "https://www.nasa.gov/news-release/nasa-to-discuss-new-unidentified-aerial-phenomena-study-today/" }, { "url": "https://science.nasa.gov/uap/" }]
+    },
+    {
+      "id": "aaro-2022", "date": "2022-07-20", "type": "statement", "verdict": "VERIFIED",
+      "text": "The Department of Defense set up the All-domain Anomaly Resolution Office, AARO, replacing the earlier group, and named Sean Kirkpatrick its director.",
+      "sources": [{ "url": "https://www.defense.gov/News/Releases/Release/Article/3100053/dod-announces-the-establishment-of-the-all-domain-anomaly-resolution-office/" }]
+    },
+    {
+      "id": "ndaa-fy2023", "date": "2022-12-23", "type": "law", "verdict": "VERIFIED",
+      "text": "The FY2023 defense authorization act became law. Section 1673 created a protected way for people to report UAP events and any government or contractor UAP programs.",
+      "sources": [{ "url": "https://www.govinfo.gov/app/details/PLAW-117publ263" }]
+    },
+    {
+      "id": "odni-2022-report", "date": "2023-01-12", "type": "report", "verdict": "VERIFIED",
+      "text": "The intelligence community’s 2022 annual UAP report covered 366 new reports. It put 195 down to balloons, drones or clutter and left 171 uncharacterized.",
+      "sources": [{ "url": "https://archive.dni.gov/files/ODNI/documents/assessments/Unclassified-2022-Annual-Report-UAP.pdf" }, { "url": "https://www.npr.org/2023/01/13/1149019140/ufo-report" }]
+    },
+    {
+      "id": "sasc-hearing-2023", "date": "2023-04-19", "type": "hearing", "verdict": "VERIFIED",
+      "text": "AARO director Sean Kirkpatrick testified before a Senate Armed Services subcommittee on the office’s mission, oversight and budget.",
+      "sources": [{ "url": "https://www.armed-services.senate.gov/hearings/to-receive-testimony-on-the-mission-activities-oversight-and-budget-of-the-all-domain-anomaly-resolution-office" }]
+    },
+    {
+      "id": "house-hearing-2023", "date": "2023-07-26", "type": "hearing", "verdict": "VERIFIED",
+      "text": "David Grusch, David Fravor and Ryan Graves testified under oath before a House Oversight subcommittee. Their claims entered the public record. The hearing did not settle them.",
+      "sources": [{ "url": "https://oversight.house.gov/hearing/unidentified-anomalous-phenomena-implications-on-national-security-public-safety-and-government-transparency/" }]
+    },
+    {
+      "id": "aaro-website-2023", "date": "2023-08-31", "type": "statement", "verdict": "VERIFIED",
+      "text": "The Department of Defense launched AARO’s public website to share declassified case resolutions, images and reporting trends.",
+      "sources": [{ "url": "https://www.defense.gov/News/Releases/Release/Article/3513171/the-department-of-defense-launches-the-all-domain-anomaly-resolution-office-web/" }, { "url": "https://www.cbsnews.com/news/pentagon-ufo-website-declassified-info-uaps-all-domain-anomaly-resolution-office/" }]
+    },
+    {
+      "id": "nasa-report-2023", "date": "2023-09-14", "type": "report", "verdict": "VERIFIED",
+      "text": "NASA’s independent study team published its final report. It asked for better data and real scientific method, and found no evidence that UAP are extraterrestrial.",
+      "sources": [{ "url": "https://science.nasa.gov/uap/" }, { "url": "https://www.nasa.gov/news-release/update-nasa-shares-uap-independent-study-report-names-director/" }]
+    },
+    {
+      "id": "aaro-reporting-2023", "date": "2023-10-31", "type": "statement", "verdict": "VERIFIED",
+      "text": "AARO opened a secure online form for current and former government staff, service members and contractors who say they know of government UAP programs going back to 1945.",
+      "sources": [{ "url": "https://defensescoop.com/2023/10/31/dod-invites-past-and-present-military-personnel-and-contractors-to-report-uap-activity-via-new-portal/" }, { "url": "https://media.defense.gov/2024/Nov/14/2003583603/-1/-1/0/FY24-CONSOLIDATED-ANNUAL-REPORT-ON-UAP-508.PDF" }]
+    },
+    {
+      "id": "ndaa-fy2024", "date": "2023-12-22", "type": "law", "verdict": "VERIFIED",
+      "text": "The FY2024 defense authorization act became law. Sections 1841 to 1843 ordered agencies to send UAP records to a new UAP Records Collection at the National Archives.",
+      "note": "This was a cut-down version of the Schumer and Rounds UAP Disclosure Act. The independent review board and eminent domain powers were dropped.",
+      "sources": [{ "url": "https://www.govinfo.gov/app/details/PLAW-118publ31" }, { "url": "https://www.archives.gov/research/topics/uaps" }]
+    },
+    {
+      "id": "aaro-history-2024", "date": "2024-03-08", "type": "report", "verdict": "VERIFIED",
+      "text": "AARO published Volume 1 of its review of government UAP work since 1945. It found no evidence that any sighting was extraterrestrial technology or that the government reverse-engineered alien craft.",
+      "sources": [{ "url": "https://media.defense.gov/2024/Mar/08/2003409233/-1/-1/0/DOPSR-CLEARED-508-COMPLIANT-HRRV1-08-MAR-2024-FINAL.PDF" }]
+    },
+    {
+      "id": "nara-guidance-2024", "date": "2024-05-09", "type": "statement", "verdict": "VERIFIED",
+      "text": "The National Archives told federal agencies how to find, digitize and transfer their UAP records into the new UAP Records Collection.",
+      "sources": [{ "url": "https://www.archives.gov/records-mgmt/memos/ac-26-2024" }]
+    },
+    {
+      "id": "house-hearing-2024", "date": "2024-11-13", "type": "hearing", "verdict": "VERIFIED",
+      "text": "A second House Oversight hearing, “Unidentified Anomalous Phenomena: Exposing the Truth,” heard Tim Gallaudet, Luis Elizondo, Michael Gold and Michael Shellenberger.",
+      "sources": [{ "url": "https://oversight.house.gov/hearing/unidentified-anomalous-phenomena-exposing-the-truth/" }]
+    },
+    {
+      "id": "aaro-fy2024-report", "date": "2024-11-14", "type": "report", "verdict": "VERIFIED",
+      "text": "AARO’s FY2024 annual report counted 757 UAP reports received from May 2023 to June 2024, resolved 118 as ordinary objects, and found no evidence of extraterrestrial technology.",
+      "sources": [{ "url": "https://media.defense.gov/2024/Nov/14/2003583603/-1/-1/0/FY24-CONSOLIDATED-ANNUAL-REPORT-ON-UAP-508.PDF" }]
+    },
+    {
+      "id": "sasc-hearing-2024", "date": "2024-11-19", "type": "hearing", "verdict": "VERIFIED",
+      "text": "AARO director Jon Kosloski testified before a Senate Armed Services subcommittee on the office’s work.",
+      "sources": [{ "url": "https://www.armed-services.senate.gov/hearings/to-receive-testimony-on-the-activities-of-the-all-domain-anomaly-resolution-office" }]
+    },
+    {
+      "id": "nara-release-2025", "date": "2025-04-24", "type": "release", "verdict": "VERIFIED",
+      "text": "The National Archives released UAP records sent by the intelligence community, the Office of the Secretary of Defense, the FAA and the Nuclear Regulatory Commission.",
+      "sources": [{ "url": "https://www.archives.gov/press/press-releases/2025/nr25-07" }]
+    },
+    {
+      "id": "house-hearing-2025", "date": "2025-09-09", "type": "hearing", "verdict": "VERIFIED",
+      "text": "Rep. Anna Paulina Luna’s Task Force on the Declassification of Federal Secrets held “Restoring Public Trust Through UAP Transparency and Whistleblower Protection.”",
+      "sources": [{ "url": "https://oversight.house.gov/hearing/restoring-public-trust-through-uap-transparency-and-whistleblower-protection/" }]
+    },
+    {
+      "id": "president-post-2026", "date": "2026-02-19", "type": "statement", "verdict": "VERIFIED",
+      "text": "In a Truth Social post, the President said he would direct the Secretary of War and other agencies to begin identifying and releasing government files on UAP, UFOs and alien life.",
+      "note": "A social media statement. No presidential document on UAP appears in the Federal Register.",
+      "sources": [{ "url": "https://www.war.gov/UFO/" }, { "url": "https://www.nbcnews.com/politics/trump-administration/trump-says-directing-pentagon-release-files-related-ufos-aliens-rcna259833" }]
+    },
+    {
+      "id": "luna-request-2026", "date": "2026-04-01", "type": "statement", "verdict": "VERIFIED",
+      "text": "Rep. Luna’s House task force asked the Secretary of War for further UAP video records it says AARO holds.",
+      "sources": [{ "url": "https://oversight.house.gov/release/luna-continues-transparency-investigation-into-uaps/" }]
+    },
+    {
+      "id": "pursue-release-1", "date": "2026-05-08", "type": "release", "verdict": "VERIFIED", "release": 1,
+      "text": "The Department of War opened war.gov/UFO and published its first batch of declassified UAP files under PURSUE, an interagency effort that includes ODNI, AARO, NASA, the FBI and the Energy Department.",
+      "contents": "NBC News counted more than 160 files covering more than 400 incidents.",
+      "sources": [{ "url": "https://www.war.gov/News/Releases/Release/Article/4480582/department-of-war-releases-unidentified-anomalous-phenomena-files-in-historic-t/" }, { "url": "https://www.nbcnews.com/science/ufos-and-anomalous-phenomena/ufo-uap-files-pentagon-release-trump-rcna344204" }]
+    },
+    {
+      "id": "pursue-release-2", "date": "2026-05-22", "type": "release", "verdict": "VERIFIED", "release": 2,
+      "text": "The Department of War published the second PURSUE release of UAP files on war.gov/UFO.",
+      "contents": "CBS News counted 64 files, most of them videos, including footage of the object shot down over Lake Huron in February 2023.",
+      "sources": [{ "url": "https://www.war.gov/News/Releases/Release/Article/4499305/department-of-war-publishes-second-release-of-unidentified-anomalous-phenomena/" }, { "url": "https://www.cbsnews.com/news/ufo-files-pentagon-videos-documents/" }]
+    },
+    {
+      "id": "pursue-release-3", "date": "2026-06-12", "type": "release", "verdict": "VERIFIED", "release": 3,
+      "text": "The Department of War published the third PURSUE release of UAP files on war.gov/UFO.",
+      "contents": "CBS News counted 53 documents, 10 images, six videos and three NASA audio recordings, including several reported orb sightings from 2008 to 2025.",
+      "sources": [{ "url": "https://www.war.gov/News/Releases/Release/Article/4515408/department-of-war-publishes-third-release-of-unidentified-anomalous-phenomena-f/" }, { "url": "https://www.cbsnews.com/news/ufo-files-pentagon-3rd-release-documents-videos/" }]
+    },
+    {
+      "id": "uap-governance-board-2026", "date": "2026-06", "type": "statement", "verdict": "PARTLY",
+      "text": "An intelligence official said ODNI, the FBI and the Pentagon had formed a UAP Governance Board, advised by outside groups including a new science council.",
+      "note": "Reported by DefenseScoop on June 17, 2026. We found no government announcement, and the date the board was formed is not given.",
+      "sources": [{ "url": "https://defensescoop.com/2026/06/17/new-science-advisory-council-forms-to-help-us-government-resolve-the-uap-mystery/" }]
+    },
+    {
+      "id": "pursue-release-4", "date": "2026-07-10", "type": "release", "verdict": "VERIFIED", "release": 4,
+      "text": "The Department of War published the fourth PURSUE release of UAP files on war.gov/UFO.",
+      "contents": "CBS News counted 40 files from the Pentagon, NASA, the CIA, the FBI and the Energy Department, including a 1949 transcript on the Los Alamos “green fireballs.”",
+      "sources": [{ "url": "https://www.war.gov/News/Releases/Release/Article/4539898/department-of-war-publishes-fourth-release-of-unidentified-anomalous-phenomena/" }, { "url": "https://www.cbsnews.com/news/ufo-files-4th-release-pentagon/" }]
+    },
+    {
+      "id": "aaro-fy2025-report", "date": "2026-07-21", "type": "report", "verdict": "PARTLY",
+      "text": "AARO’s FY2025 annual report counted 319 new UAP reports, resolved 114 of them, and said every resolved case came down to ordinary objects such as balloons, satellites, birds, aircraft and drones.",
+      "note": "The report’s text is confirmed from AARO’s own PDF. The publication day comes from DefenseScoop, which said the report came out that week.",
+      "sources": [{ "url": "https://www.aaro.mil/Portals/136/PDFs/FY25%20UAP%20Annual%20Report/AARO_FY2025_Consolidated_Annual_Report_on_UAP.pdf" }, { "url": "https://defensescoop.com/2026/07/21/pentagon-investigating-ufo-uap-event-near-virginia-coast/" }]
+    },
+    {
+      "id": "nda-directive-2026", "date": "2026-07", "type": "statement", "verdict": "PARTLY",
+      "text": "The President directed agencies to let people with UAP information speak to AARO or PURSUE despite earlier nondisclosure agreements, according to senior officials.",
+      "note": "Rep. Eric Burlison’s office confirms the directive existed. Its exact date and form are unconfirmed.",
+      "sources": [{ "url": "https://burlison.house.gov/media/press-releases/rep-eric-burlison-releases-statement-president-trumps-uap-nda-directive" }]
+    },
+    {
+      "id": "house-uapda-2026", "date": "2026-07-22", "type": "law", "verdict": "VERIFIED",
+      "text": "The House added Rep. Eric Burlison’s UAP Disclosure Act to its FY2027 defense bill and passed the bill 216 to 212. It is not law: it still needs the Senate and a final agreement.",
+      "sources": [{ "url": "https://burlison.house.gov/media/press-releases/house-adopts-burlison-amendment-establishing-uap-disclosure-framework" }, { "url": "https://clerk.house.gov/Votes/2026278" }]
+    },
+    {
+      "id": "odni-nda-guidance-2026", "date": "2026-07-31", "type": "statement", "verdict": "VERIFIED",
+      "text": "The Principal Deputy Director of National Intelligence signed guidance waiving earlier nondisclosure agreements for people sharing UAP information with AARO or the PURSUE Task Force.",
+      "note": "We read the signed memo as posted by Rep. Burlison’s office. We found no copy on dni.gov.",
+      "sources": [{ "url": "https://burlison.house.gov/sites/evo-subsites/burlison.house.gov/files/evo-media-document/memorandum_2026.pdf" }]
+    },
+    {
+      "id": "pursue-release-5", "date": "2026-08-07", "type": "release", "verdict": "VERIFIED", "release": 5,
+      "text": "The Department of War published the fifth PURSUE release of UAP files on war.gov/UFO.",
+      "contents": "CBS News counted 41 files from the Pentagon, the FBI, the CIA, the State Department and the Executive Office of the President.",
+      "sources": [{ "url": "https://www.war.gov/News/Releases/Release/Article/4565994/department-of-war-publishes-fifth-release-of-unidentified-anomalous-phenomena-f/" }, { "url": "https://www.cbsnews.com/news/ufo-files-pentagon-5th-release-documents-videos/" }]
+    },
+    {
+      "id": "dow-waiver-2026", "date": "2026-09-14", "type": "statement", "verdict": "VERIFIED",
+      "text": "The Department of War issued a legal waiver letting current and former personnel and contractors share UAP information with PURSUE representatives without breaching nondisclosure agreements.",
+      "sources": [{ "url": "https://www.war.gov/News/Releases/Release/Article/4600020/department-of-war-issues-legal-waiver-to-authorize-unidentified-anomalous-pheno/" }, { "url": "https://defensescoop.com/2026/09/14/pentagon-legal-relief-uap-whistleblowers-trump-project/" }]
+    },
+    {
+      "id": "pursue-release-6", "date": "2026-09-18", "type": "release", "verdict": "VERIFIED", "release": 6,
+      "text": "The Department of War published the sixth PURSUE release of UAP files on war.gov/UFO.",
+      "contents": "CBS News counted 71 files, many of them reference papers from the Defense Intelligence Agency’s AAWSAP study.",
+      "sources": [{ "url": "https://www.war.gov/News/Releases/Release/Article/4604795/department-of-war-publishes-sixth-release-of-unidentified-anomalous-phenomena-f/" }, { "url": "https://www.cbsnews.com/news/ufo-files-uap-pentagon-6th-release/" }]
+    }
+  ],
+  "claims": [
+    {
+      "id": "executive-order", "verdict": "FALSE AS WORDED",
+      "claim": "Trump signed a UFO executive order in February 2026.",
+      "actually": "On February 19, 2026 the President said in a Truth Social post that he would direct agencies to identify and release UAP files. That was a public statement. No presidential document on UAP, UFOs or alien life appears in the Federal Register, and a search of whitehouse.gov found none. What followed was real: the Department of War began releasing files on May 8, 2026.",
+      "sources": [{ "url": "https://www.nbcnews.com/politics/trump-administration/trump-says-directing-pentagon-release-files-related-ufos-aliens-rcna259833" }, { "url": "https://www.federalregister.gov/api/v1/documents.json?conditions[term]=UFO%20OR%20UAP%20OR%20extraterrestrial&conditions[publication_date][gte]=2025-01-01&conditions[type][]=PRESDOCU", "name": "federalregister.gov search" }]
+    },
+    {
+      "id": "nara-bulk-2026", "verdict": "FALSE AS WORDED",
+      "claim": "The National Archives launched UFO bulk downloads on May 8, 2026.",
+      "actually": "May 8, 2026 was the Department of War’s first PURSUE release at war.gov/UFO. The National Archives’ UAP bulk download page is older: it was last updated on April 24, 2025, and it covers records the Archives already held.",
+      "sources": [{ "url": "https://www.archives.gov/research/catalog/catalog-bulk-downloads/uap-bulk-download" }, { "url": "https://www.war.gov/UFO/" }]
+    },
+    {
+      "id": "uapda-law", "verdict": "FALSE AS WORDED",
+      "claim": "The UAP Disclosure Act became law.",
+      "actually": "Not in full. A reduced version became law in the FY2024 defense bill in December 2023: it created the UAP Records Collection at the National Archives, without the review board. A fuller UAP Disclosure Act passed the House inside its FY2027 defense bill on July 22, 2026. As of September 28, 2026 we found no Senate passage and no final law.",
+      "sources": [{ "url": "https://www.govinfo.gov/app/details/PLAW-118publ31" }, { "url": "https://burlison.house.gov/media/press-releases/house-adopts-burlison-amendment-establishing-uap-disclosure-framework" }, { "url": "https://breakingdefense.com/2026/07/house-passes-2027-ndaa-while-measure-remains-stalled-in-the-senate/" }]
+    },
+    {
+      "id": "hearing-july-17-2026", "verdict": "NOT FOUND",
+      "claim": "Congress held a UFO hearing on July 17, 2026.",
+      "actually": "We found no congressional UAP hearing on that date. The House UAP task force’s only 2026 UAP action we found is its April 1 request for video records. The most recent House UAP hearing we can confirm was on September 9, 2025.",
+      "sources": [{ "url": "https://oversight.house.gov/category/declassification-of-federal-secrets/" }]
+    },
+    {
+      "id": "files-confirm-contact", "verdict": "FALSE AS WORDED",
+      "claim": "The released UFO files confirm alien contact.",
+      "actually": "The files are real, but no official statement says they show non-human technology. The Department of War describes them as unresolved cases, where the government could not determine what was seen, and says many have not yet been analyzed. AARO’s own reports found no evidence of extraterrestrial technology.",
+      "sources": [{ "url": "https://www.war.gov/UFO/" }, { "url": "https://www.cbsnews.com/news/ufo-files-uap-pentagon-6th-release/" }, { "url": "https://media.defense.gov/2024/Mar/08/2003409233/-1/-1/0/DOPSR-CLEARED-508-COMPLIANT-HRRV1-08-MAR-2024-FINAL.PDF" }]
+    }
+  ],
+  "pursue": {
+    "pageTitle": "PURSUE UFO Files: The 2026 Releases Explained",
+    "pageDescription": "What the PURSUE UFO files are, the six 2026 Department of War releases with dates and sources, what the files show and do not show, and how to read them."
+  }
+}
