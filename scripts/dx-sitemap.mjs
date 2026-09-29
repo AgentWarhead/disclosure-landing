@@ -10,11 +10,13 @@ import { fileURLToPath } from 'node:url';
 const root = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 const HOST = 'https://www.getdisclosure.app';
 /* lastmod is real per page: scripts/lastmod.json keeps a hash of each page's <main> text and the
-   local date it last changed. A page's date moves only when its content does, and each Article's
-   dateModified is kept in step. The ledger was seeded 2026-09-28, the day the overhaul went live. */
+   moment it last changed. A page's lastmod moves only when its content does, and each Article's
+   dateModified (the day part) is kept in step. The ledger was seeded 2026-09-28, the day the overhaul
+   went live. New changes are stamped with the time, not just the day (2026-09-29): IndexNow submits
+   pages whose lastmod moved, and a second edit on the same day never moved a day-only date. */
 const LEDGER_FILE = join(root, 'scripts', 'lastmod.json');
 const SEED = '2026-09-28';
-const TODAY = new Date().toLocaleDateString('en-CA');
+const TODAY = new Date().toISOString().replace(/\.\d{3}Z$/, '+00:00');
 let ledger = {};
 try { ledger = JSON.parse(readFileSync(LEDGER_FILE, 'utf8')); } catch (e) { ledger = {}; }
 const seeding = Object.keys(ledger).length === 0;
@@ -61,8 +63,9 @@ const pages = walk(root).map((file) => {
   const prev = ledger[path];
   const date = prev && prev.hash === hash ? prev.date : (seeding ? SEED : TODAY);
   ledger[path] = { hash, date };
-  if (/"dateModified":\s*"[^"]*"/.test(src) && !src.includes('"dateModified": "' + date + '"')) {
-    writeFileSync(file, src.replace(/("dateModified":\s*")[^"]*(")/, '$1' + date + '$2'));
+  const day = date.slice(0, 10);
+  if (/"dateModified":\s*"[^"]*"/.test(src) && !src.includes('"dateModified": "' + day + '"')) {
+    writeFileSync(file, src.replace(/("dateModified":\s*")[^"]*(")/, '$1' + day + '$2'));
   }
   return { path, url: HOST + path, title, noindex, date };
 }).filter((p) => !p.noindex);
