@@ -165,12 +165,12 @@ function buildHtml(key, serial, token, issued) {
   const row = (k, v) => `<tr><td style="padding:11px 0;border-top:1px solid ${C.rule};font-family:${MONO};font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:${C.faint};">${k}</td><td align="right" style="padding:11px 0;border-top:1px solid ${C.rule};font-family:${MONO};font-size:13px;letter-spacing:1px;color:${C.bone};">${v}</td></tr>`;
   const button = (href, text) => `<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td bgcolor="${C.void}" style="background:${C.void};border:2px solid ${C.signal};border-radius:2px;"><a href="${esc(href)}" style="display:inline-block;padding:14px 26px;font-family:${MONO};font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:${C.signal};text-decoration:none;">${text} &rarr;</a></td></tr></table>`;
   const address = MAILING_ADDRESS ? `<p style="margin:0 0 8px;">${esc(MAILING_ADDRESS)}</p>` : "";
-  const cardAlt = `Your First Contact Card: ${r.name}, serial ${serial}. ${r.line} The iris on it was grown from your ten answers.`;
+  const cardAlt = `Your First Contact Card: ${r.name}, serial ${serial}. ${r.line} The iris on it was grown from your ${issued ? "ten answers" : "serial"}.`;
 
   const cardBlock = token ? `
 <tr><td style="padding:30px 0 6px;" align="center">
   <a href="${esc(u.card)}" style="color:${C.bone};text-decoration:none;display:block;"><img src="${esc(u.image)}" width="440" alt="${esc(cardAlt)}" style="display:block;width:100%;max-width:440px;height:auto;border:1px solid ${C.rule};background:${C.void};color:${C.bone};font-family:${SANS};font-size:15px;line-height:1.5;"></a>
-  <p style="margin:12px 0 0;font-family:${MONO};font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:${C.faint};">Iris print ${esc(serial)}. No two sets of answers grow the same eye.</p>
+  <p style="margin:12px 0 0;font-family:${MONO};font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:${C.faint};">Iris print ${esc(serial)}. ${issued ? "No two sets of answers grow the same eye." : "Grown from your serial. No two serials grow the same eye."}</p>
 </td></tr>
 <tr><td style="padding:22px 0 4px;" align="center">
   ${button(u.card, "Open your card")}
@@ -256,7 +256,7 @@ function buildText(key, serial, token, issued) {
     "",
     r.line,
     "",
-    ...(u.card ? ["Your card, with the iris grown from your answers: " + u.card, ""] : []),
+    ...(u.card ? [(issued ? "Your card, with the iris grown from your answers: " : "Your card, with the iris grown from your serial: ") + u.card, ""] : []),
     sealed ? "THE RECORD" : "THE FIRST MINUTE",
     r.first,
     "",
@@ -283,12 +283,17 @@ function buildText(key, serial, token, issued) {
 /* The card token, when the quiz sent its answers. The role comes from the answers, never from the
    caller, so the email always matches the card it links to. Anything malformed means no card image,
    not a failed send. */
-function cardFile(body, serial) {
+function cardFile(body, serial, key) {
   const salt = typeof body.salt === "string" ? body.salt.trim() : "";
   const answers = typeof body.answers === "string" ? body.answers.trim() : "";
   const issued = typeof body.issued === "string" ? body.issued.trim() : "";
-  if (!salt || !/^[0-3]{10}$/.test(answers) || !/^\d{4}-\d{2}-\d{2}$/.test(issued)) return null;
-  const token = IR.encodeToken({ salt, answers: answers.split("").map(Number), serial, issued });
+  if (salt && /^[0-3]{10}$/.test(answers) && /^\d{4}-\d{2}-\d{2}$/.test(issued)) {
+    const token = IR.encodeToken({ salt, answers: answers.split("").map(Number), serial, issued });
+    const file = IR.decodeToken(token);
+    if (file) return { token, file };
+  }
+  // No usable answers (the waitlist batch, an old client, a bad token): a role card grown from the serial.
+  const token = IR.roleToken(key, serial);
   const file = IR.decodeToken(token);
   return file ? { token, file } : null;
 }
@@ -329,7 +334,7 @@ async function handler(req, res) {
   if (!Object.prototype.hasOwnProperty.call(ROLES, key)) return send(res, 400, { ok: false, error: "invalid_archetype" });
   if (!SERIAL_RE.test(serial)) return send(res, 400, { ok: false, error: "invalid_serial" });
 
-  const card = cardFile(body, serial);
+  const card = cardFile(body, serial, key);
   const role = card ? card.file.archetype : key;
   const token = card ? card.token : "";
   const issued = card ? card.file.issued : "";

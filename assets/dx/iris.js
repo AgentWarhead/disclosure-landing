@@ -241,25 +241,47 @@
     c2.strokeStyle = 'rgba(214,224,217,0.22)'; c2.beginPath(); c2.moveTo(88, 1190); c2.lineTo(CW - 88, 1190); c2.stroke();
     c2.font = '700 22px ' + MONO; c2.fillStyle = '#d8dfda';
     c2.fillText('SERIAL ' + file.serial, 88, 1236);
-    c2.fillText('ISSUED ' + file.issued, 88, 1272);
+    if (file.issued) c2.fillText('ISSUED ' + file.issued, 88, 1272);
     c2.textAlign = 'right'; c2.fillStyle = col; c2.fillText('GETDISCLOSURE.APP', CW - 88, 1272); c2.textAlign = 'left';
   }
 
-  /* ---------- the card token: v1.<salt>.<answers>.<serial>.<issued yyyymmdd> ----------
-     The role is never carried: it is recomputed from the answers, so a token cannot claim a role it did not earn. */
+  /* ---------- the card token ----------
+     v2.<salt>.<masked answers>.<serial>.<issued yyyymmdd>: a card grown from the quiz. The answers are
+     masked with a salt-derived stream so a shared link does not print them in the clear. v1 carried
+     them plain and still decodes, so links already sent keep working.
+     The role is never carried: it is recomputed from the answers, so a token cannot claim a role it did not earn.
+     r1.<role>.<serial>: a role card for a file with no answers on record (the waitlist predates the
+     iris). Its eye is grown from the serial and the role alone, and it carries no issue date. */
   var SALT_RE = /^[0-9A-HJKMNP-TV-Z]{8}$/;
+  var SALT_CHARS = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
   var SERIAL_RE = /^(DSC|FC)-[0-9A-HJKMNP-TV-Z]{4}-[0-9A-HJKMNP-TV-Z]{4}$/;
+  var ROLE_SERIAL_RE = /^(DSC|FC|DS)-[A-Z0-9-]{4,16}$/;
+  function mask(salt) { var r = mulberry(fnv('mask:' + salt)), k = []; for (var i = 0; i < 10; i++) k.push(Math.floor(r() * 4)); return k; }
   function encodeToken(file) {
-    return ['v1', file.salt, file.answers.join(''), file.serial, String(file.issued).replace(/-/g, '')].join('.');
+    var k = mask(file.salt);
+    var masked = file.answers.map(function (a, i) { return (a + k[i]) % 4; }).join('');
+    return ['v2', file.salt, masked, file.serial, String(file.issued).replace(/-/g, '')].join('.');
+  }
+  function roleToken(archetype, serial) { return ['r1', archetype, serial].join('.'); }
+  function decodeRole(p) {
+    if (p.length !== 3 || !Object.prototype.hasOwnProperty.call(ROLES, p[1]) || !ROLE_SERIAL_RE.test(p[2])) return null;
+    if ((p[1] === 'first-contact') !== (p[2].indexOf('FC-') === 0)) return null;
+    var r = mulberry(fnv('salt:' + p[2])), salt = '';
+    for (var i = 0; i < 8; i++) salt += SALT_CHARS[Math.floor(r() * 32)];
+    var idx = ORDER.indexOf(p[1]), answers = [];
+    for (var j = 0; j < 10; j++) answers.push(idx < 0 ? 0 : idx);
+    return { salt: salt, answers: answers, serial: p[2], issued: '', archetype: p[1], generic: true };
   }
   function decodeToken(tok) {
     if (typeof tok !== 'string' || tok.length > 64) return null;
     var p = tok.split('.');
-    if (p.length !== 5 || p[0] !== 'v1') return null;
+    if (p[0] === 'r1') return decodeRole(p);
+    if (p.length !== 5 || (p[0] !== 'v1' && p[0] !== 'v2')) return null;
     if (!SALT_RE.test(p[1]) || !/^[0-3]{10}$/.test(p[2]) || !SERIAL_RE.test(p[3]) || !/^\d{8}$/.test(p[4])) return null;
     var y = +p[4].slice(0, 4), m = +p[4].slice(4, 6), d = +p[4].slice(6, 8);
     if (y < 2026 || y > 2100 || m < 1 || m > 12 || d < 1 || d > 31) return null;
     var answers = p[2].split('').map(Number);
+    if (p[0] === 'v2') { var k = mask(p[1]); answers = answers.map(function (a, i) { return (a - k[i] + 4) % 4; }); }
     var archetype = decide(answers);
     /* the serial prefix must agree with the role the answers earn */
     if ((archetype === 'first-contact') !== (p[3].indexOf('FC-') === 0)) return null;
@@ -270,6 +292,6 @@
     ORDER: ORDER, COLORS: COLORS, ROLES: ROLES,
     fnv: fnv, mulberry: mulberry, scores: scores, decide: decide,
     buildFibres: buildFibres, draw: draw, drawCard: drawCard, wrapText: wrapText,
-    encodeToken: encodeToken, decodeToken: decodeToken
+    encodeToken: encodeToken, decodeToken: decodeToken, roleToken: roleToken
   };
 });
