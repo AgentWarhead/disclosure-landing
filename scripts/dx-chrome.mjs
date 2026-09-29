@@ -2,7 +2,8 @@
 //   <!-- dx:header -->...<!-- /dx:header -->   (add "over" for a transparent nav over a hero: <!-- dx:header over -->)
 //   <!-- dx:footer -->...<!-- /dx:footer -->
 // The footer control line reads <meta name="dx:control" content="...">.
-// Usage: node scripts/dx-chrome.mjs [--check]
+// Usage: node scripts/dx-chrome.mjs [--check] [--only=/cases/]
+//   --only=<prefix>  stamp only pages whose URL path starts with the prefix (default: every page)
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -12,6 +13,7 @@ const root = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 const header = readFileSync(join(root, 'docs/partials/header.html'), 'utf8').trim();
 const footer = readFileSync(join(root, 'docs/partials/footer.html'), 'utf8').trim();
 const check = process.argv.includes('--check');
+const only = (process.argv.find(a => a.startsWith('--only=')) || '').slice('--only='.length);
 const SKIP = new Set(['.git', 'node_modules', 'docs', 'scripts', 'supabase', 'frames', '.claude', 'api']);
 
 function pages(dir) {
@@ -77,8 +79,9 @@ function fillCounts(html) {
 
 let changed = 0, missing = [];
 for (const file of pages(root)) {
-  const src = readFileSync(file, 'utf8');
   const path = urlPath(file);
+  if (only && !path.startsWith(only)) continue;
+  const src = readFileSync(file, 'utf8');
   let out = src;
 
   const h = out.match(/<!-- dx:header( over)? -->[\s\S]*?<!-- \/dx:header -->/);

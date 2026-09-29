@@ -25,14 +25,14 @@ export default {
   crumb: 'The New Jersey drones',
   title: 'New Jersey Drones 2024: What They Were',
   h1: 'What were the New Jersey drones?',
-  desc: 'What were the New Jersey drones of 2024? The FBI, DHS, FAA and Pentagon statements, the White House answer in January 2025, and the questions nobody closed.',
-  ogDesc: 'Thousands of reports, 22 flight bans, one White House answer, and two military bases with drones nobody traced.',
+  desc: 'Federal agencies found the 2024 New Jersey drones were lawful drones, aircraft and stars. The White House answer, and the base sightings nobody traced.',
+  og: '/og/share/drone-vs-ufo.jpg', ogAlt: "A drone at night below three orange lights, with a targeting overlay.",
   eventName: 'New Jersey drone sightings', dateISO: '2024-11-18',
   placeFull: 'New Jersey, United States, mainly Morris and Somerset counties', country: 'United States',
   lat: 40.86, lng: -74.54, coordsNote: 'Approximate centre of Morris County, where the FAA says the first reports came from.',
   cardTitle: 'The New Jersey drones', cardLine: 'Thousands of reports, a joint federal statement and a White House answer.',
   cardDate: 'Nov to Dec 2024', cardPlace: 'New Jersey, US', status: 'explained',
-  lede: 'Federal agencies traced the New Jersey drone reports of late 2024 to lawful drones, manned aircraft and even stars, and found nothing anomalous. In January 2025 the White House said the drones had been authorized by the FAA for research. Drones confirmed over two military bases were never publicly traced to an operator.',
+  lede: 'Federal agencies traced the New Jersey drone reports of late 2024 to lawful drones, manned aircraft and stars, and found nothing anomalous. Drones confirmed over two military bases were never publicly traced to an operator.',
   statusReason: 'Federal agencies matched the reports to drones, aircraft and stars. The operators of drones confirmed over two bases were never publicly named.',
   findingSource: JOINT,
   sheet: {
@@ -73,7 +73,8 @@ export default {
 <p>Two things are closed. A Pentagon spokesperson said the UAP office had ${a(SCOOP, 'received no reports of UAP')} tied to the drone flights. Congress later gave trained state and local police limited counter-drone powers, under a ${a(FEDREG, 'rule published in July 2026')}. That rule does not mention New Jersey.</p>`,
   learn: `<p><strong>A crowd of reports is not a crowd of objects.</strong> Five thousand tips produced about a hundred leads. Once a story is on the news, every airliner on approach becomes a candidate. Check the sky against the flight paths before you add to the pile. The ${a('/intel/drone-vs-ufo/', 'drone or UFO file')} lists the checks.</p>
 <p><strong>Lights lie about distance.</strong> A plane turning toward you looks like it is hovering. Watch for two full minutes before you decide it stopped. Note which way it went and when.</p>
-<p><strong>Report what you saw, not what you heard.</strong> Write the time, direction, sound and number of lights before you read anyone else&rsquo;s account. The ${a('/intel/how-to-report-a-ufo-sighting/', 'reporting file')} shows what investigators need.</p>`,
+<p><strong>Report what you saw, not what you heard.</strong> Write the time, direction, sound and number of lights before you read anyone else&rsquo;s account. The ${a('/intel/how-to-report-a-ufo-sighting/', 'reporting file')} shows what investigators need.</p>
+<p>Two military videos show how an official answer can arrive: <a href="/cases/jellyfish-ufo-iraq/">the Jellyfish UFO, which AARO resolved as balloons</a>, and <a href="/cases/navy-ufo-videos-gimbal-gofast-flir/">the Navy&rsquo;s GoFast video</a>, which AARO found showed an ordinary object.</p>`,
   ledgerLine: 'The joint federal statement of December 2024 and the White House answer of January 2025 are both official events.',
   fieldNote: 'Five thousand tips, about a hundred leads. Know your job before the sky gets crowded.',
   related: ['drone-vs-ufo', 'airplane-satellite-balloon-ufo-misidentification', 'how-to-report-a-ufo-sighting', 'mass-panic-first-contact'],

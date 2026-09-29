@@ -1,4 +1,4 @@
-// Generates /cases/ hub + six case pages + assets/data/cases.json from content.mjs
+// Generates /cases/ hub + every case page + assets/data/cases.json from content.mjs
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { CASES, ARCHIVE, HUB } from './content.mjs';
@@ -6,6 +6,17 @@ import { CASES, ARCHIVE, HUB } from './content.mjs';
 const ROOT = 'C:/Users/bfauc/Desktop/Kootenay Made Digital/Disclosure App/disclosure-landing';
 const HOST = 'https://www.getdisclosure.app';
 const ACCESSED = '2026-09-28';
+// Optional flags. Default behaviour (no flags) is unchanged.
+//   --only=slug,slug  write just those case pages; skip the hub and cases.json
+//   --out=dir         write under another root (for diffing a run without touching the site)
+const argOf = k => (process.argv.find(a => a.startsWith(`--${k}=`)) || '').slice(k.length + 3);
+const ONLY = argOf('only') ? new Set(argOf('only').split(',')) : null;
+const OUT = argOf('out') || ROOT;
+
+// The hub copy states the case count from CASES, never a hardcoded number.
+const NUM = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen', 'Twenty'];
+const COUNT_WORD = NUM[CASES.length] || String(CASES.length);
+for (const k of ['desc', 'ogDesc', 'lede']) HUB[k] = HUB[k].replaceAll('{Count}', COUNT_WORD);
 
 // intel card data, read from the live hub (read only)
 const intelHub = readFileSync(join(ROOT, 'intel/index.html'), 'utf8');
@@ -22,7 +33,7 @@ const STATUS_WORD = { explained: 'Explained', disputed: 'Disputed', unexplained:
 const chip = s => `<span class="chip chip-${s}">${STATUS_WORD[s]}</span>`;
 const ld = obj => `<script type="application/ld+json">\n${JSON.stringify(obj, null, 2)}\n</script>`;
 
-function head({ title, desc, path, control, ogType, ogTitle, ogDesc, ldBlocks }) {
+function head({ title, desc, path, control, ogType, ogTitle, ogDesc, ldBlocks, og, ogAlt }) {
   return `<!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -40,11 +51,11 @@ function head({ title, desc, path, control, ogType, ogTitle, ogDesc, ldBlocks })
 <meta property="og:url" content="${HOST}${path}">
 <meta property="og:title" content="${esc(ogTitle)}">
 <meta property="og:description" content="${esc(ogDesc)}">
-<meta property="og:image" content="${HOST}/og/intel.jpg">
+<meta property="og:image" content="${HOST}${og || '/og/intel.jpg'}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The DISCLOSURE archive.">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image:alt" content="${esc(ogAlt || 'The DISCLOSURE archive.')}">
+<meta name="twitter:card" content="summary_large_image">${og ? `\n<meta name="twitter:image" content="${HOST}${og}">` : ''}
 <meta name="twitter:site" content="@disclosure_app">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -85,9 +96,10 @@ function caseCard(c, feat) {
 
 // ---------- case pages ----------
 for (const c of CASES) {
+  if (ONLY && !ONLY.has(c.slug)) continue;
   const path = `/cases/${c.slug}/`;
   const words = stripTags(c.lede).split(/\s+/).filter(Boolean).length;
-  if (words < 40 || words > 60) console.warn(`LEDE ${c.slug}: ${words} words`);
+  if (words < 30 || words > 60) console.warn(`LEDE ${c.slug}: ${words} words`);
   const tlen = (c.title + ' | DISCLOSURE').length;
   if (tlen > 60) console.warn(`TITLE ${c.slug}: ${tlen}`);
   if (c.desc.length < 140 || c.desc.length > 160) console.warn(`DESC ${c.slug}: ${c.desc.length}`);
@@ -95,9 +107,9 @@ for (const c of CASES) {
   const article = {
     '@context': 'https://schema.org', '@type': 'Article',
     headline: stripTags(c.h1), description: c.desc,
-    image: [`${HOST}/og/intel.jpg`],
+    image: [`${HOST}${c.og || '/og/intel.jpg'}`],
     url: HOST + path, mainEntityOfPage: { '@type': 'WebPage', '@id': HOST + path },
-    datePublished: ACCESSED, dateModified: ACCESSED, articleSection: 'Case files',
+    datePublished: c.date || ACCESSED, dateModified: c.date || ACCESSED, articleSection: 'Case files',
     about: { '@type': 'Event', name: c.eventName, startDate: c.dateISO, location: { '@type': 'Place', name: c.placeFull, geo: { '@type': 'GeoCoordinates', latitude: c.lat, longitude: c.lng } } },
     citation: c.sources.map(s => s.url),
     author: { '@type': 'Organization', name: 'DISCLOSURE', url: HOST + '/' },
@@ -135,12 +147,12 @@ ${e.html}
 </div>`).join('\n');
 
   const sources = `<ol class="sources">
-${c.sources.map(s => `<li><a href="${s.url}" rel="noopener" target="_blank">${s.title}</a>. <span class="dom">${s.domain}${s.pub ? ', ' + s.pub : ''}. Accessed ${ACCESSED}.</span></li>`).join('\n')}
+${c.sources.map(s => `<li><a href="${s.url}" rel="noopener" target="_blank">${s.title}</a>. <span class="dom">${s.domain}${s.pub ? ', ' + s.pub : ''}. Accessed ${c.accessed || ACCESSED}.</span></li>`).join('\n')}
 </ol>`;
 
   const html = head({
-    title: c.title, desc: c.desc, path, ogType: 'article', ogTitle: stripTags(c.h1), ogDesc: c.ogDesc,
-    control: `File CSE-${c.no} &middot; ${c.crumb} &middot; Unclassified`, ldBlocks: [article, crumbs],
+    title: c.title, desc: c.desc, path, ogType: 'article', ogTitle: stripTags(c.h1), ogDesc: c.ogDesc || c.desc,
+    control: `File CSE-${c.no} &middot; ${c.crumb} &middot; Unclassified`, ldBlocks: [article, crumbs], og: c.og, ogAlt: c.ogAlt,
   }) + `<header class="page-head case-head">
   <span class="case-year" aria-hidden="true">${c.year}</span>
   <div class="wrap">
@@ -202,14 +214,14 @@ ${toc.map(([id, t]) => `        <li><a href="#${id}">${t}</a></li>`).join('\n')}
   </div>
 </section>
 ` + FOOT;
-  mkdirSync(join(ROOT, 'cases', c.slug), { recursive: true });
-  const file = join(ROOT, 'cases', c.slug, 'index.html');
+  mkdirSync(join(OUT, 'cases', c.slug), { recursive: true });
+  const file = join(OUT, 'cases', c.slug, 'index.html');
   // keep the stamped header/footer if the file already exists (dx-chrome refills anyway)
   writeFileSync(file, html);
 }
 
 // ---------- hub ----------
-{
+if (!ONLY) {
   const path = '/cases/';
   const counts = { explained: 0, disputed: 0, unexplained: 0 };
   CASES.forEach(c => counts[c.status]++);
@@ -276,12 +288,14 @@ ${toc.map(([id, t]) => `        <li><a href="#${id}">${t}</a></li>`).join('\n')}
 </section>
 ` + FOOT;
   if (HUB.desc.length < 140 || HUB.desc.length > 160) console.warn('HUB DESC ' + HUB.desc.length);
-  writeFileSync(join(ROOT, 'cases', 'index.html'), html);
+  mkdirSync(join(OUT, 'cases'), { recursive: true });
+  writeFileSync(join(OUT, 'cases', 'index.html'), html);
 }
 
 // ---------- data ----------
-mkdirSync(join(ROOT, 'assets/data'), { recursive: true });
-writeFileSync(join(ROOT, 'assets/data/cases.json'), JSON.stringify({
+if (!ONLY) {
+mkdirSync(join(OUT, 'assets/data'), { recursive: true });
+writeFileSync(join(OUT, 'assets/data/cases.json'), JSON.stringify({
   generated: ACCESSED,
   note: 'Structured case summaries for the DISCLOSURE case files. Claims are recorded as claims; status labels are defined at /cases/.',
   statusLabels: HUB.labels,
@@ -293,8 +307,9 @@ writeFileSync(join(ROOT, 'assets/data/cases.json'), JSON.stringify({
     officialFinding: stripTags(c.sheet.finding), officialFindingSource: c.findingSource,
     status: c.status, statusReason: stripTags(c.statusReason), verdict: stripTags(c.lede),
     explanations: c.explanations.map(e => ({ name: stripTags(e.h), source: e.src.url })),
-    sources: c.sources.map(s => ({ title: stripTags(s.title), url: s.url, domain: s.domain, published: s.pub || null, accessed: ACCESSED })),
+    sources: c.sources.map(s => ({ title: stripTags(s.title), url: s.url, domain: s.domain, published: s.pub || null, accessed: c.accessed || ACCESSED })),
   })),
   alsoInArchive: ARCHIVE.map(s => `/intel/${s}/`),
 }, null, 2) + '\n');
-console.log('generated', CASES.length, 'cases + hub + data');
+}
+console.log(ONLY ? `generated ${[...ONLY].join(', ')} only (hub and data untouched)` : `generated ${CASES.length} cases + hub + data`);

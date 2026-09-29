@@ -10,7 +10,7 @@ Ariel School
 
 The Ariel School UFO incident
 
-On 16 September 1994, about sixty children at Ariel School in Ruwa, Zimbabwe, reported a craft and a small figure beyond their playing field. No adult saw it and no physical trace was found. Many of those children, now adults, still stand by what they reported. Skeptics point to suggestion, group dynamics and a fireball seen two nights earlier.
+About sixty children at Ariel School in Zimbabwe reported a craft and a small figure on 16 September 1994. No adult saw it, no trace was found, and skeptics point to suggestion, though many of the children still stand by what they reported.
 
 Case 004Sep 1994Ruwa, ZimbabweDisputed
 
@@ -117,6 +117,8 @@ If a child tells you they saw something, write down their words first. Ask what 
 Separate the witnesses before they compare notes. A group that talks first remembers together. Get each account alone, and date it.
 
 Retelling changes a memory. It happens to children and adults alike. The memory file explains how to keep your first version intact.
+
+The closest parallel is the Westall school sighting in Melbourne, where students reported a craft in 1966 and were told not to talk about it. Like the Travis Walton case, Ariel rests on witnesses who have stood by their accounts for decades with no physical evidence. The Shag Harbour incident is the other kind of file, with Canadian government records behind it.
 
 Where this sits on the record
 

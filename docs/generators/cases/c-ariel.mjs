@@ -18,14 +18,14 @@ export default {
   crumb: 'Ariel School',
   title: 'The Ariel School UFO Incident of 1994',
   h1: 'The Ariel School UFO incident',
-  desc: 'The Ariel School UFO incident in Zimbabwe, 1994: what about 60 children reported, who interviewed them, what they say as adults, and the explanations on offer.',
-  ogDesc: 'About sixty children, one school field in Zimbabwe, and no adult who saw it. What the record holds and what it cannot settle.',
+  desc: 'About 60 children at a Zimbabwe school reported a craft in 1994 and no adult saw it. Who interviewed them, what they say now, and what skeptics argue.',
+  og: '/og/share/close-encounter-types.jpg', ogAlt: "Four framed images: a bright light over a field, a scorched mark on the ground, a silhouette and a cracked clock.",
   eventName: 'Ariel School sighting', dateISO: '1994-09-16',
   placeFull: 'Ariel School, Ruwa, Zimbabwe', country: 'Zimbabwe',
   lat: -17.89, lng: 31.24, coordsNote: 'Approximate: the town of Ruwa, about 20 km from Harare.',
   cardTitle: 'The Ariel School incident', cardLine: 'About sixty children, one field, and no adult who saw it.',
   cardDate: 'Sep 1994', cardPlace: 'Ruwa, Zimbabwe', status: 'disputed',
-  lede: 'On 16 September 1994, about sixty children at Ariel School in Ruwa, Zimbabwe, reported a craft and a small figure beyond their playing field. No adult saw it and no physical trace was found. Many of those children, now adults, still stand by what they reported. Skeptics point to suggestion, group dynamics and a fireball seen two nights earlier.',
+  lede: 'About sixty children at Ariel School in Zimbabwe reported a craft and a small figure on 16 September 1994. No adult saw it, no trace was found, and skeptics point to suggestion, though many of the children still stand by what they reported.',
   statusReason: 'Many former pupils stand by their accounts. Skeptics argue suggestion shaped them, and no physical trace or adult witness exists.',
   findingSource: null,
   sheet: {
@@ -71,7 +71,8 @@ export default {
 <p>Historian of religion David Halperin ${a(HALPERIN, 'puts one view')} this way: the experience was real to the children, even if what they experienced is uncertain. Both sides can agree on the first half.</p>`,
   learn: `<p><strong>If a child tells you they saw something, write down their words first.</strong> Ask what happened, then stop talking. Do not suggest shapes, colours or meanings. Every question an adult asked at Ariel is now part of the argument. The ${a('/intel/ufo-sighting-family-protocol/', 'family protocol')} covers what to do with children present.</p>
 <p><strong>Separate the witnesses before they compare notes.</strong> A group that talks first remembers together. Get each account alone, and date it.</p>
-<p><strong>Retelling changes a memory.</strong> It happens to children and adults alike. The ${a('/intel/how-to-evaluate-ufo-memory/', 'memory file')} explains how to keep your first version intact.</p>`,
+<p><strong>Retelling changes a memory.</strong> It happens to children and adults alike. The ${a('/intel/how-to-evaluate-ufo-memory/', 'memory file')} explains how to keep your first version intact.</p>
+<p>The closest parallel is <a href="/cases/westall-ufo-1966/">the Westall school sighting in Melbourne</a>, where students reported a craft in 1966 and were told not to talk about it. Like <a href="/cases/travis-walton-abduction/">the Travis Walton case</a>, Ariel rests on witnesses who have stood by their accounts for decades with no physical evidence. <a href="/cases/shag-harbour-ufo-1967/">The Shag Harbour incident</a> is the other kind of file, with Canadian government records behind it.</p>`,
   ledgerLine: 'This case has no official finding. The ledger tracks what government bodies have actually said about UAP.',
   fieldNote: 'At Ariel every adult question became part of the record. Know your job before a child asks you what they saw.',
   related: ['ufo-sighting-family-protocol', 'how-to-evaluate-ufo-memory', 'close-encounter-types-explained', 'experiencer-support-after-ufo-encounter'],

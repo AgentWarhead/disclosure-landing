@@ -10,7 +10,7 @@ The New Jersey drones
 
 What were the New Jersey drones?
 
-Federal agencies traced the New Jersey drone reports of late 2024 to lawful drones, manned aircraft and even stars, and found nothing anomalous. In January 2025 the White House said the drones had been authorized by the FAA for research. Drones confirmed over two military bases were never publicly traced to an operator.
+Federal agencies traced the New Jersey drone reports of late 2024 to lawful drones, manned aircraft and stars, and found nothing anomalous. Drones confirmed over two military bases were never publicly traced to an operator.
 
 Case 003Nov to Dec 2024New Jersey, USExplained
 
@@ -111,6 +111,8 @@ A crowd of reports is not a crowd of objects. Five thousand tips produced about 
 Lights lie about distance. A plane turning toward you looks like it is hovering. Watch for two full minutes before you decide it stopped. Note which way it went and when.
 
 Report what you saw, not what you heard. Write the time, direction, sound and number of lights before you read anyone else’s account. The reporting file shows what investigators need.
+
+Two military videos show how an official answer can arrive: the Jellyfish UFO, which AARO resolved as balloons, and the Navy’s GoFast video, which AARO found showed an ordinary object.
 
 Where this sits on the record
 

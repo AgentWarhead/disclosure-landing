@@ -184,3 +184,55 @@
 .ps-list .lg-no { display: none; }
 .ps-copy .lg-src a { color: var(--bone-dim); text-decoration-color: var(--rule-strong); text-decoration-thickness: 1px; }
 .ps-copy .lg-src a:hover { color: var(--signal-soft); text-decoration-color: var(--signal); }
+
+/* ---------- ledger v2: verdict filter, search, linked entry, copy link, data ---------- */
+.lg-search { display: flex; flex-direction: column; min-width: min(100%, 18rem); flex: 1 1 18rem; }
+.lg-search .label { display: block; margin-bottom: var(--space-2); color: var(--bone-faint); }
+.lg-search input {
+  width: 100%; min-height: 44px; padding: 8px 12px; background: var(--void-0); color: var(--bone);
+  border: 1px solid var(--rule-strong); border-radius: var(--radius); font-family: var(--mono); font-size: 1rem;
+}
+.lg-search input::placeholder { color: var(--bone-faint); opacity: 1; }
+.lg-search input:focus-visible { border-color: var(--signal); }
+
+.lg-ledger .lg-row { scroll-margin-top: calc(var(--nav-h) + 24px); }
+.lg-ledger .lg-row.is-target {
+  background: linear-gradient(90deg, rgba(74, 246, 38, 0.1), transparent 70%);
+  box-shadow: inset 3px 0 0 var(--signal);
+  padding-left: var(--space-4);
+}
+.lg-ledger .lg-row.is-target:focus { outline: 2px solid var(--signal); outline-offset: 2px; }
+.lg-notice {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3) var(--space-5);
+  margin: var(--space-4) 0; padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--rule-strong); border-left: 3px solid var(--amber); background: var(--void-0);
+}
+.lg-notice[hidden] { display: none; }
+.lg-notice p { margin: 0; color: var(--bone); max-width: 64ch; }
+.lg-empty .btn { margin-top: var(--space-3); }
+
+.lg-verdict { display: flex; flex-direction: column; align-items: flex-end; gap: var(--space-3); }
+.lg-copy {
+  display: inline-flex; align-items: center; min-height: 32px; min-width: 32px; padding: 0 var(--space-3);
+  background: none; cursor: pointer; border: 1px solid var(--rule-strong); border-radius: var(--radius);
+  color: var(--bone-dim); font-family: var(--mono); font-size: var(--step--2); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 160ms var(--ease-out), border-color 160ms var(--ease-out);
+}
+.lg-copy:hover { color: var(--bone); border-color: var(--bone-dim); }
+.lg-copy.is-done { color: var(--signal); border-color: var(--signal); }
+@media (max-width: 760px) { .lg-verdict { flex-direction: row-reverse; align-items: center; flex-wrap: wrap; justify-content: flex-start; } }
+
+.lg-data { border: 1px solid var(--rule-strong); padding: var(--space-4) var(--space-5); background: var(--void-0); max-width: 30rem; }
+.lg-data .label { margin: 0 0 var(--space-2); color: var(--bone-faint); }
+.lg-data-links { display: flex; flex-direction: column; gap: var(--space-1); margin: 0; }
+.lg-data-links a {
+  display: inline-flex; align-items: center; min-height: 32px; color: var(--bone);
+  text-decoration-color: var(--signal); text-decoration-thickness: 1.5px; text-underline-offset: 0.2em;
+}
+.lg-data-links a:hover { color: var(--signal-soft); }
+.lg-data-note { margin: var(--space-2) 0 0; font-size: var(--step--1); color: var(--bone-dim); }
+@media (prefers-reduced-motion: reduce) { .lg-copy { transition: none; } }
+@media print { .lg-copy, .lg-notice { display: none !important; } }
+
+/* link from a ledger row or claim to its own page */
+.lg-more { margin: var(--space-2) 0 0; font-size: var(--step--1); }

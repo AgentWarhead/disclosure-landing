@@ -1,7 +1,7 @@
 // Renders assets/data/ledger.json into static HTML inside record/index.html and record/pursue/index.html.
 // Marker pairs: <!-- ledger:NAME --> ... <!-- /ledger:NAME -->. Idempotent.
 // Usage: node scripts/dx-ledger.mjs   (rebuilds /record/ rows from assets/data/ledger.json)
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 
@@ -30,21 +30,30 @@ const entries = data.entries.slice().sort((a, b) => a.date.localeCompare(b.date)
 entries.forEach((e, i) => { e.seq = i + 1; });
 const newest = entries.slice().reverse();
 
+// a PURSUE release with its own page under /record/pursue/release-N/ links to it from both ledgers
+const releasePage = e => (e.type === 'release' && e.release && existsSync(join(root, 'record/pursue', `release-${e.release}`, 'index.html'))) ? `/record/pursue/release-${e.release}/` : '';
+// claims that have a full page of their own
+const CLAIM_MORE = { 'files-confirm-contact': ['/intel/did-the-ufo-files-confirm-aliens/', 'Every claim about the files, checked'] };
+
 function row(e, opts = {}) {
   const p = parts(e.date);
+  const page = releasePage(e);
+  const more = page ? `<p class="lg-more"><a class="link" href="${page}">Release ${e.release} case file</a></p>` : '';
   let note = e.note ? `<p class="lg-note">${e.verdict === 'PARTLY' ? '<b>Partly:</b>' : ''}${esc(e.note)}</p>` : '';
   if (opts.release && e.contents) note = `<p class="lg-note">${esc(e.contents)}</p>` + note;
   const head = opts.release ? `<span class="label ps-rel-n">Release ${e.release}</span>` : `<span class="label lg-type">${TYPE[e.type]}</span>`;
   const text = esc(e.text);
   return `<li class="lg-row" id="${opts.release ? 'r' : 'e'}-${esc(e.id)}" data-type="${e.type}" data-seq="${e.seq}">` +
     `<p class="lg-date"><time datetime="${e.date}"><span class="lg-y">${p.y}</span><span class="lg-md">${p.md}</span></time><span class="lg-no">Entry ${pad(e.seq)}</span></p>` +
-    `<div class="lg-body">${head}<p class="lg-text">${text}</p>${note}${src(e.sources)}</div>` +
+    `<div class="lg-body">${head}<p class="lg-text">${text}</p>${note}${more}${src(e.sources)}</div>` +
     `<p class="lg-verdict">${chip(e.verdict)}</p></li>`;
 }
 
 function claim(c) {
   return `<li class="lg-claim" id="c-${esc(c.id)}"><div class="lg-claim-q">${chip(c.verdict)}<p>&ldquo;${esc(c.claim)}&rdquo;</p></div>` +
-    `<div class="lg-claim-a"><span class="k">What the record shows</span><p>${esc(c.actually)}</p>${src(c.sources)}</div></li>`;
+    `<div class="lg-claim-a"><span class="k">What the record shows</span><p>${esc(c.actually)}</p>` +
+    (CLAIM_MORE[c.id] && existsSync(join(root, CLAIM_MORE[c.id][0], 'index.html')) ? `<p class="lg-more"><a class="link" href="${CLAIM_MORE[c.id][0]}">${CLAIM_MORE[c.id][1]}</a></p>` : '') +
+    `${src(c.sources)}</div></li>`;
 }
 
 const counts = { all: entries.length };
@@ -91,7 +100,7 @@ const pursue = {
       { '@type': 'WebPage', '@id': HOST + '/record/pursue/', url: HOST + '/record/pursue/', name: data.pursue.pageTitle, description: data.pursue.pageDescription,
         dateModified: data.lastReviewed, inLanguage: 'en-US', isPartOf: { '@id': HOST + '/#site' },
         mainEntity: { '@type': 'ItemList', name: 'Department of War UAP file releases, 2026', numberOfItems: rel.length, itemListOrder: 'https://schema.org/ItemListOrderAscending',
-          itemListElement: rel.map((e, i) => ({ '@type': 'ListItem', position: i + 1, url: `${HOST}/record/pursue/#r-${e.id}`, name: `Release ${e.release}, ${parts(e.date).long}` })) } } ]
+          itemListElement: rel.map((e, i) => ({ '@type': 'ListItem', position: i + 1, url: releasePage(e) ? HOST + releasePage(e) : `${HOST}/record/pursue/#r-${e.id}`, name: `Release ${e.release}, ${parts(e.date).long}` })) } } ]
   }, null, 2)}\n</script>`,
 };
 

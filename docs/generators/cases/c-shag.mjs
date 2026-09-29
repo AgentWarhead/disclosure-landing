@@ -19,14 +19,13 @@ export default {
   crumb: 'Shag Harbour',
   title: 'The Shag Harbour UFO Incident of 1967',
   h1: 'The Shag Harbour UFO incident',
-  desc: 'The Shag Harbour UFO incident, Nova Scotia, 1967: what the RCMP and National Defence records say, the navy dive search, and why Canada still calls it unsolved.',
-  ogDesc: 'An RCMP corporal, a light on the water, a navy dive search, and a Canadian file still marked unsolved.',
+  desc: 'Canada still classes the 1967 Shag Harbour sighting as unsolved. What the RCMP and National Defence records say, and what the navy dive search found.',
   eventName: 'Shag Harbour UFO incident', dateISO: '1967-10-04',
   placeFull: 'Shag Harbour, Nova Scotia, Canada', country: 'Canada',
   lat: 43.50, lng: -65.71, coordsNote: 'Approximate: the village of Shag Harbour. The object was reported entering the water a short distance offshore.',
   cardTitle: 'The Shag Harbour incident', cardLine: 'An RCMP corporal, a light on the water, and a dive search that found nothing.',
   cardDate: 'Oct 1967', cardPlace: 'Nova Scotia, Canada', status: 'unexplained',
-  lede: 'On the night of 4 October 1967, witnesses including an RCMP corporal saw a lit object come down into the sea off Shag Harbour, Nova Scotia. No aircraft was missing, and navy divers found nothing. National Defence classed the sighting as unsolved. It is one of the few UFO cases with Canadian government records behind it.',
+  lede: 'National Defence classed the Shag Harbour sighting of 4 October 1967 as unsolved. Witnesses, including an RCMP corporal, saw a lit object come down into the sea off Nova Scotia, and navy divers found nothing.',
   statusReason: 'National Defence classed it as unsolved. Rescue officials ruled out a missing aircraft and flares, and the dive search found no debris.',
   findingSource: LAC_PAGE,
   sheet: {
@@ -34,12 +33,12 @@ export default {
     place: 'Off Shag Harbour, on the south-west coast of Nova Scotia. The National Defence memo is filed as &ldquo;Lower Woods Harbour, N.S.&rdquo;',
     witnesses: 'An RCMP corporal and six other witnesses, per the National Defence memo. Later accounts count about a dozen people at the shore, plus fishermen. RCMP Const. Ron O&rsquo;Brien has spoken publicly.',
     duration: 'Minutes in the air. A light stayed on the water before it disappeared. The sea search ran through the night, and the navy dive search lasted about three days.',
-    evidence: 'Police and National Defence records, witness statements, and a trail of yellowish foam that searchers reported on the water. No debris was recovered.',
+    evidence: 'Police and National Defence records, witness statements, and a trail of yellowish foam that search crews reported on the water. No debris was recovered.',
     finding: `National Defence memo: divers <q>failed to locate any tangible evidence.</q> <span class="src">(Library and Archives Canada)</span> The archives&rsquo; exhibition adds that National Defence <q>identified this sighting as unsolved.</q>`,
   },
   happened: `<p>On the night of 4 October 1967, people around Shag Harbour, a fishing village on Nova Scotia&rsquo;s south-west coast, saw a row of lights in the sky. They said the lights came down toward the water. Several people phoned the RCMP, including a 17-year-old who called from a phone booth after watching four lights descend, ${a(CBC26, 'CBC reports')}.</p>
 <p>A National Defence summary memo, now held by ${a(LAC_MEMO, 'Library and Archives Canada')}, records what came next. An RCMP corporal and six other witnesses saw an object about 60 feet long heading east. It descended into the water with a &ldquo;bright splash,&rdquo; and a single white light stayed on the surface. RCMP Const. Ron O&rsquo;Brien, one of the officers who went down to the shore, later described a light about 800 metres out that drifted on the tide and disappeared before a boat could reach it.</p>
-<p>An officer called the Rescue Coordination Centre in Halifax, which sent a coast guard cutter. Local fishing boats went out too. They found no wreck, but searchers reported a wide trail of bubbling yellowish foam, according to ${a(CBC26, 'CBC')} and ${a(CP17, 'Canadian Press')}. On 6 October a navy diving team arrived, and divers searched the seabed for about three days. They found nothing.</p>`,
+<p>An officer called the Rescue Coordination Centre in Halifax, which sent a coast guard cutter. Local fishing boats went out too. They found no wreck, but search crews reported a wide trail of bubbling yellowish foam, according to ${a(CBC26, 'CBC')} and ${a(CP17, 'Canadian Press')}. On 6 October a navy diving team arrived, and divers searched the seabed for about three days. They found nothing.</p>`,
   evidence: `<p>Shag Harbour stands out because government paperwork exists. Library and Archives Canada put the ${a(LAC_MEMO_PAGE, 'National Defence memo')} online in its UFO exhibition, with the archival reference RG 24, accession 83-84/167, box 7523, file DRBS 3800-10-1. That exhibition page now survives only as an ${a(LAC_PAGE, 'archived copy')}. In 2024 the archives published a ${a(LAC_LIST, 'research list of Shag Harbour records')}, including National Research Council files on non-meteor sightings from 1967.</p>
 <p>A second memo, dated 6 October 1967 and written by Col. W.W. Turner at National Defence headquarters, says the rescue centre ${a(CBC26, '&ldquo;discounted the possibilities&rdquo;')} of an aircraft, flares, floats or any other known object. CBC reproduces it and credits the image to the public archives. No online government copy of that memo was found for this file.</p>
 <p>The archives&rsquo; own exhibition text says there is &ldquo;no trace of the RCMP reports of this sighting in the files.&rdquo; Researchers Chris Styles and Don Ledger later located RCMP telexes and wrote the book ${a(BOOK, '<em>Dark Object</em>')} (2001). Canadian Press also reported that the pilots of a Pan Am flight saw a similar row of lights over the Gulf of Maine that night, a sighting Styles traced years later.</p>`,
@@ -63,8 +62,9 @@ export default {
 </ul>
 <p>Canada treats the story as part of its history. The Royal Canadian Mint issued a ${a(COIN, 'Shag Harbour coin')} in 2019, and a local society runs an ${a(SOCIETY, 'interpretive centre')} in the village.</p>`,
   learn: `<p><strong>Call it in, and say what you see.</strong> Shag Harbour has records because people phoned the police that night and officers wrote it down. A report made in the first hour is worth more than a story told for fifty years. The ${a('/intel/how-to-report-a-ufo-sighting/', 'reporting file')} shows how to do it well.</p>
-<p><strong>Mark where it went.</strong> The searchers had a place to look because witnesses on shore agreed on where the light went down. Note landmarks, direction and distance while you can still see them.</p>
-<p><strong>Report even if you think someone already has.</strong> The Pan Am pilots who saw lights that night never filed a report. A researcher found them years later. If something comes down near you, the ${a('/intel/what-to-do-if-a-ufo-lands-nearby/', 'landing file')} covers the first minutes.</p>`,
+<p><strong>Mark where it went.</strong> The search crews had a place to look because witnesses on shore agreed on where the light went down. Note landmarks, direction and distance while you can still see them.</p>
+<p><strong>Report even if you think someone already has.</strong> The Pan Am pilots who saw lights that night never filed a report. A researcher found them years later. If something comes down near you, the ${a('/intel/what-to-do-if-a-ufo-lands-nearby/', 'landing file')} covers the first minutes.</p>
+<p>Few UFO cases have government records like these. One of the few is <a href="/cases/falcon-lake-ufo-1967/">the Falcon Lake case in Manitoba, the same year</a>, where two RCMP reports survive. <a href="/cases/ariel-school-ufo-1994/">The Ariel School case</a> rests on children&rsquo;s testimony with no adult witness, and <a href="/cases/travis-walton-abduction/">the Travis Walton story</a> never received an official finding at all.</p>`,
   ledgerLine: 'Shag Harbour predates the modern UAP record, but it is the Canadian case with the most government paperwork behind it.',
   fieldNote: 'Shag Harbour has records because someone picked up a phone. Know your job before the lights come down.',
   related: ['how-to-report-a-ufo-sighting', 'what-to-do-if-a-ufo-lands-nearby', 'project-blue-book-explained', 'government-ufo-programs-history'],

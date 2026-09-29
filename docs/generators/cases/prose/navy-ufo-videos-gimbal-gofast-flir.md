@@ -10,7 +10,7 @@ The Navy UFO videos
 
 The Gimbal, GoFast and FLIR UFO videos explained
 
-The three Navy videos are genuine military footage, and the Pentagon officially released them in April 2020. None of them is proof of an alien craft. In 2025 AARO found that GoFast showed an ordinary object at about 13,000 feet. FLIR1 and Gimbal are still listed as unresolved, and analysts argue both show distant jets.
+The three Navy videos are genuine military footage, officially released in April 2020, and none is proof of an alien craft. AARO resolved GoFast in 2025, while FLIR1 and Gimbal are still listed as unresolved.
 
 Case 001Nov 2004 and Jan 2015Pacific and AtlanticDisputed
 
@@ -109,6 +109,8 @@ Keep the numbers. GoFast was solved because the flight data stayed burned into t
 Distance is the hardest judgment. Without a landmark, a slow object far away can look close and fast. Before you decide it moved impossibly, ask how you know how far away it was. The misidentification filter runs that check.
 
 Your memory and your video are separate records. The pilots’ accounts and the clips do not cover the same minutes. Write down what you saw before you watch your own footage or anyone else’s. The memory file explains why the order matters.
+
+For contrast, AARO matched the Jellyfish video from Iraq to a cluster of balloons, while Canada’s Shag Harbour file, with its navy dive search, is still classed as unsolved.
 
 Where this sits on the record
 

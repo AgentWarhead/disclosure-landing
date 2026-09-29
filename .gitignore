@@ -5,3 +5,4 @@
 artifacts/
 deploy.sh
 node_modules/
+.indexnow-state.json

@@ -10,7 +10,7 @@ Shag Harbour
 
 The Shag Harbour UFO incident
 
-On the night of 4 October 1967, witnesses including an RCMP corporal saw a lit object come down into the sea off Shag Harbour, Nova Scotia. No aircraft was missing, and navy divers found nothing. National Defence classed the sighting as unsolved. It is one of the few UFO cases with Canadian government records behind it.
+National Defence classed the Shag Harbour sighting of 4 October 1967 as unsolved. Witnesses, including an RCMP corporal, saw a lit object come down into the sea off Nova Scotia, and navy divers found nothing.
 
 Case 006Oct 1967Nova Scotia, CanadaUnexplained
 
@@ -36,7 +36,7 @@ Minutes in the air. A light stayed on the water before it disappeared. The sea s
 
 Evidence
 
-Police and National Defence records, witness statements, and a trail of yellowish foam that searchers reported on the water. No debris was recovered.
+Police and National Defence records, witness statements, and a trail of yellowish foam that search crews reported on the water. No debris was recovered.
 
 Official finding
 
@@ -54,7 +54,7 @@ On the night of 4 October 1967, people around Shag Harbour, a fishing village on
 
 A National Defence summary memo, now held by Library and Archives Canada, records what came next. An RCMP corporal and six other witnesses saw an object about 60 feet long heading east. It descended into the water with a “bright splash,” and a single white light stayed on the surface. RCMP Const. Ron O’Brien, one of the officers who went down to the shore, later described a light about 800 metres out that drifted on the tide and disappeared before a boat could reach it.
 
-An officer called the Rescue Coordination Centre in Halifax, which sent a coast guard cutter. Local fishing boats went out too. They found no wreck, but searchers reported a wide trail of bubbling yellowish foam, according to CBC and Canadian Press. On 6 October a navy diving team arrived, and divers searched the seabed for about three days. They found nothing.
+An officer called the Rescue Coordination Centre in Halifax, which sent a coast guard cutter. Local fishing boats went out too. They found no wreck, but search crews reported a wide trail of bubbling yellowish foam, according to CBC and Canadian Press. On 6 October a navy diving team arrived, and divers searched the seabed for about three days. They found nothing.
 
 What the evidence is
 
@@ -102,9 +102,11 @@ What a civilian can learn from it
 
 Call it in, and say what you see. Shag Harbour has records because people phoned the police that night and officers wrote it down. A report made in the first hour is worth more than a story told for fifty years. The reporting file shows how to do it well.
 
-Mark where it went. The searchers had a place to look because witnesses on shore agreed on where the light went down. Note landmarks, direction and distance while you can still see them.
+Mark where it went. The search crews had a place to look because witnesses on shore agreed on where the light went down. Note landmarks, direction and distance while you can still see them.
 
 Report even if you think someone already has. The Pan Am pilots who saw lights that night never filed a report. A researcher found them years later. If something comes down near you, the landing file covers the first minutes.
+
+Few UFO cases have government records like these. One of the few is the Falcon Lake case in Manitoba, the same year, where two RCMP reports survive. The Ariel School case rests on children’s testimony with no adult witness, and the Travis Walton story never received an official finding at all.
 
 Where this sits on the record
 

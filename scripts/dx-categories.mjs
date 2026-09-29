@@ -76,7 +76,7 @@ for (const c of CATEGORIES) {
 <meta property="og:site_name" content="DISCLOSURE">
 <meta property="og:url" content="${url}">
 <meta property="og:title" content="${esc(c.title)}">
-<meta property="og:description" content="${esc(c.lede)}">
+<meta property="og:description" content="${esc(c.desc)}">
 <meta property="og:image" content="${HOST}/og/intel.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -106,7 +106,7 @@ ${JSON.stringify(ld, null, 2)}
   <header class="page-head">
     <div class="wrap">
       <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/intel/">Intel</a></li><li aria-current="page">${c.name}</li></ol></nav>
-      <h1>${c.h1}</h1>
+      ${c.kicker ? `<p class="label kicker">${c.kicker}</p>\n      ` : ''}<h1>${c.h1}</h1>
       <p class="lede">${c.lede}</p>
       <p class="label cat-count">${ordered.length} files &middot; ${c.short}</p>
     </div>

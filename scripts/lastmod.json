@@ -1,0 +1,478 @@
+{
+ "/about/": {
+  "hash": "3b7cf03027128f15",
+  "date": "2026-09-29"
+ },
+ "/accessibility/": {
+  "hash": "16fbb170bf2ed4c8",
+  "date": "2026-09-28"
+ },
+ "/archetype/diplomat/": {
+  "hash": "1e714a36dbf3ef5a",
+  "date": "2026-09-28"
+ },
+ "/archetype/first-contact/": {
+  "hash": "cbbdf93bee617b01",
+  "date": "2026-09-28"
+ },
+ "/archetype/scholar/": {
+  "hash": "421ffa0cbd72bfad",
+  "date": "2026-09-28"
+ },
+ "/archetype/sentinel/": {
+  "hash": "88d4238f3b1ecb4e",
+  "date": "2026-09-28"
+ },
+ "/archetype/survivor/": {
+  "hash": "8a299afe913e8665",
+  "date": "2026-09-28"
+ },
+ "/archetypes/": {
+  "hash": "8d19cd4d254e191c",
+  "date": "2026-09-28"
+ },
+ "/card/": {
+  "hash": "521b83c785e9eba6",
+  "date": "2026-09-28"
+ },
+ "/cases/ariel-school-ufo-1994/": {
+  "hash": "1eb78e1cb2353d6c",
+  "date": "2026-09-29"
+ },
+ "/cases/": {
+  "hash": "e4e29918775f999c",
+  "date": "2026-09-29"
+ },
+ "/cases/jellyfish-ufo-iraq/": {
+  "hash": "6353250cf239e0f3",
+  "date": "2026-09-29"
+ },
+ "/cases/navy-ufo-videos-gimbal-gofast-flir/": {
+  "hash": "d39f2bbc32ab6975",
+  "date": "2026-09-29"
+ },
+ "/cases/new-jersey-drones-2024/": {
+  "hash": "ec64c8c5709e453e",
+  "date": "2026-09-29"
+ },
+ "/cases/shag-harbour-ufo-1967/": {
+  "hash": "eae3fc9f10238991",
+  "date": "2026-09-29"
+ },
+ "/cases/travis-walton-abduction/": {
+  "hash": "96bbe4eb85460dc4",
+  "date": "2026-09-29"
+ },
+ "/faq/": {
+  "hash": "1c3cca0075d4030e",
+  "date": "2026-09-28"
+ },
+ "/first-contact/": {
+  "hash": "fa6e45125bafeed0",
+  "date": "2026-09-29"
+ },
+ "/glossary/": {
+  "hash": "269dda8d646ed2f1",
+  "date": "2026-09-28"
+ },
+ "/": {
+  "hash": "9ae82a9157ee4bc4",
+  "date": "2026-09-29"
+ },
+ "/intel/aaro-explained/": {
+  "hash": "70584b28a1f31ca0",
+  "date": "2026-09-29"
+ },
+ "/intel/ai-probe-alien-theory/": {
+  "hash": "d97be7f0897c0ea1",
+  "date": "2026-09-29"
+ },
+ "/intel/airplane-satellite-balloon-ufo-misidentification/": {
+  "hash": "5d1002ee0e217b55",
+  "date": "2026-09-29"
+ },
+ "/intel/alien-dreams-contact-meaning/": {
+  "hash": "3ce4192215afd54a",
+  "date": "2026-09-29"
+ },
+ "/intel/alien-hybrid-theory-explained/": {
+  "hash": "d4f2c8c53d1273f5",
+  "date": "2026-09-29"
+ },
+ "/intel/alien-implants-explained/": {
+  "hash": "14d9d63210ca1837",
+  "date": "2026-09-29"
+ },
+ "/intel/alien-survival-guide-complete/": {
+  "hash": "3c6ffdc88270a2cd",
+  "date": "2026-09-29"
+ },
+ "/intel/ancient-astronaut-theory-explained/": {
+  "hash": "228f1ba2742617eb",
+  "date": "2026-09-29"
+ },
+ "/intel/anunnaki-creator-species-theory/": {
+  "hash": "19d9bf4ae902770f",
+  "date": "2026-09-29"
+ },
+ "/intel/arcturian-aliens-explained/": {
+  "hash": "9d98d0f74325ad65",
+  "date": "2026-09-29"
+ },
+ "/intel/are-we-alone-in-the-universe/": {
+  "hash": "a58daedd0b98a27c",
+  "date": "2026-09-29"
+ },
+ "/intel/black-triangle-ufo-explained/": {
+  "hash": "485c7e9ed1c60f3e",
+  "date": "2026-09-29"
+ },
+ "/intel/close-encounter-types-explained/": {
+  "hash": "fcfcae4da98ad04e",
+  "date": "2026-09-29"
+ },
+ "/intel/dark-forest-theory-first-contact/": {
+  "hash": "845f24ef1d7747a2",
+  "date": "2026-09-29"
+ },
+ "/intel/did-trump-sign-a-ufo-executive-order/": {
+  "hash": "dcdba50692d2b298",
+  "date": "2026-09-29"
+ },
+ "/intel/disclosure-anxiety-explained/": {
+  "hash": "2a90d918e1291c52",
+  "date": "2026-09-29"
+ },
+ "/intel/drone-vs-ufo/": {
+  "hash": "407f12b87f0d870b",
+  "date": "2026-09-29"
+ },
+ "/intel/experiencer-support-after-ufo-encounter/": {
+  "hash": "da621646d250ddb1",
+  "date": "2026-09-29"
+ },
+ "/intel/fermi-paradox-explained/": {
+  "hash": "26763ad4efeb2f92",
+  "date": "2026-09-29"
+ },
+ "/intel/field-guide/": {
+  "hash": "6fc824a503d20bb2",
+  "date": "2026-09-29"
+ },
+ "/intel/four-types-of-people-alien-contact/": {
+  "hash": "e089cb7a0e37bd12",
+  "date": "2026-09-29"
+ },
+ "/intel/government-ufo-programs-history/": {
+  "hash": "6a256fba4a95ac34",
+  "date": "2026-09-29"
+ },
+ "/intel/grey-alien-encounter-survival-guide/": {
+  "hash": "dab912839f9949c2",
+  "date": "2026-09-29"
+ },
+ "/intel/how-to-evaluate-ufo-memory/": {
+  "hash": "b409cb183e30530c",
+  "date": "2026-09-29"
+ },
+ "/intel/how-to-film-a-ufo-at-night/": {
+  "hash": "523da5943212ca8a",
+  "date": "2026-09-29"
+ },
+ "/intel/how-to-prepare-for-alien-contact/": {
+  "hash": "e97472bd843fd289",
+  "date": "2026-09-29"
+ },
+ "/intel/how-to-report-a-ufo-sighting/": {
+  "hash": "2bdb7c5aefed972b",
+  "date": "2026-09-29"
+ },
+ "/intel/how-to-talk-about-a-ufo-sighting/": {
+  "hash": "cfbf8be8c0281b5c",
+  "date": "2026-09-29"
+ },
+ "/intel/": {
+  "hash": "b219727e21849cf1",
+  "date": "2026-09-29"
+ },
+ "/intel/insectoid-aliens-explained/": {
+  "hash": "c2a50de299212c8a",
+  "date": "2026-09-29"
+ },
+ "/intel/interdimensional-hypothesis-explained/": {
+  "hash": "db69b2c71b3c6481",
+  "date": "2026-09-29"
+ },
+ "/intel/is-disclosure-day-real/": {
+  "hash": "b802be317a6d021d",
+  "date": "2026-09-29"
+ },
+ "/intel/mantid-alien-encounter-what-to-do/": {
+  "hash": "9129774e759e4ece",
+  "date": "2026-09-29"
+ },
+ "/intel/mass-panic-first-contact/": {
+  "hash": "52ce1659e87a3b80",
+  "date": "2026-09-29"
+ },
+ "/intel/missing-time-after-ufo-sighting/": {
+  "hash": "d946d5e901179acc",
+  "date": "2026-09-29"
+ },
+ "/intel/nasa-uap-report-explained/": {
+  "hash": "4b7b29a8e5e608e3",
+  "date": "2026-09-29"
+ },
+ "/intel/nimitz-tic-tac-ufo-explained/": {
+  "hash": "040cb9e670983355",
+  "date": "2026-09-29"
+ },
+ "/intel/nordic-alien-encounter-protocol/": {
+  "hash": "8f166aa86f361ea1",
+  "date": "2026-09-29"
+ },
+ "/intel/ontological-shock-explained/": {
+  "hash": "7533c561b9285bda",
+  "date": "2026-09-29"
+ },
+ "/intel/phoenix-lights-explained/": {
+  "hash": "b678a5a2d089fce8",
+  "date": "2026-09-29"
+ },
+ "/intel/pleiadian-aliens-explained/": {
+  "hash": "332577d156fb62e5",
+  "date": "2026-09-29"
+ },
+ "/intel/project-blue-book-explained/": {
+  "hash": "50cbc84ce3521234",
+  "date": "2026-09-29"
+ },
+ "/intel/protocol/": {
+  "hash": "d3f9bb513ee655fc",
+  "date": "2026-09-29"
+ },
+ "/intel/psychology/": {
+  "hash": "c5a22e72c793535e",
+  "date": "2026-09-29"
+ },
+ "/intel/psychology-of-ufo-encounters/": {
+  "hash": "c61c811adb886b30",
+  "date": "2026-09-29"
+ },
+ "/intel/public-record/": {
+  "hash": "b80ea75d0efddca4",
+  "date": "2026-09-29"
+ },
+ "/intel/rendlesham-forest-ufo-incident/": {
+  "hash": "ae87edf002208899",
+  "date": "2026-09-29"
+ },
+ "/intel/report-a-ufo-in-canada/": {
+  "hash": "7de65842fe5c899c",
+  "date": "2026-09-29"
+ },
+ "/intel/reptilian-alien-threat-assessment/": {
+  "hash": "11dccc85b564359b",
+  "date": "2026-09-29"
+ },
+ "/intel/rio-scale-explained/": {
+  "hash": "201f28c8035f98d6",
+  "date": "2026-09-29"
+ },
+ "/intel/roswell-ufo-incident-explained/": {
+  "hash": "aa945a03b693b6cb",
+  "date": "2026-09-29"
+ },
+ "/intel/seti-post-detection-protocol/": {
+  "hash": "56df1be81e58bed7",
+  "date": "2026-09-29"
+ },
+ "/intel/sirians-alien-lore-explained/": {
+  "hash": "aaf58514d093aaeb",
+  "date": "2026-09-29"
+ },
+ "/intel/sleep-paralysis-vs-alien-abduction/": {
+  "hash": "e6edb82276ae61eb",
+  "date": "2026-09-29"
+ },
+ "/intel/species/": {
+  "hash": "073da8912c9c8456",
+  "date": "2026-09-29"
+ },
+ "/intel/starlink-vs-ufo/": {
+  "hash": "5f6e02241c0878ca",
+  "date": "2026-09-29"
+ },
+ "/intel/tall-white-alien-charles-hall/": {
+  "hash": "bdf2a8641294f1d6",
+  "date": "2026-09-29"
+ },
+ "/intel/theory/": {
+  "hash": "461a4a6532325116",
+  "date": "2026-09-29"
+ },
+ "/intel/types-of-alien-species-ranked-threat/": {
+  "hash": "cfd55b2db3b6a3c4",
+  "date": "2026-09-29"
+ },
+ "/intel/uap-disclosure-act-2026-timeline/": {
+  "hash": "62a8f4d481747808",
+  "date": "2026-09-29"
+ },
+ "/intel/uap-records-collection-explained/": {
+  "hash": "d7b46daabeba759a",
+  "date": "2026-09-29"
+ },
+ "/intel/ufo-contact-emergency-kit/": {
+  "hash": "7ef2d40c2a20b5aa",
+  "date": "2026-09-29"
+ },
+ "/intel/ufo-evidence-checklist/": {
+  "hash": "edc9beda21268281",
+  "date": "2026-09-29"
+ },
+ "/intel/ufo-sighting-family-protocol/": {
+  "hash": "90a55218d4fcd9fc",
+  "date": "2026-09-29"
+ },
+ "/intel/ufo-vs-uap-difference/": {
+  "hash": "541a2811ef31752d",
+  "date": "2026-09-29"
+ },
+ "/intel/what-are-orbs-in-the-sky/": {
+  "hash": "67bee1644664d136",
+  "date": "2026-09-29"
+ },
+ "/intel/what-to-do-if-a-ufo-follows-your-car/": {
+  "hash": "a9d92e78c91dfae5",
+  "date": "2026-09-29"
+ },
+ "/intel/what-to-do-if-a-ufo-lands-nearby/": {
+  "hash": "5709aa6a0cb050cd",
+  "date": "2026-09-29"
+ },
+ "/intel/what-to-do-if-you-see-a-ufo/": {
+  "hash": "a4e70ad5e639c1b1",
+  "date": "2026-09-29"
+ },
+ "/intel/what-would-first-contact-look-like/": {
+  "hash": "f09d1663f33257aa",
+  "date": "2026-09-29"
+ },
+ "/intel/why-people-freeze-during-ufo-sightings/": {
+  "hash": "44db1d77cea9ead3",
+  "date": "2026-09-29"
+ },
+ "/intel/why-ufo-witnesses-stay-silent/": {
+  "hash": "abf5195f7255571e",
+  "date": "2026-09-29"
+ },
+ "/intel/zeta-reticuli-grey-aliens/": {
+  "hash": "577fd30e7cd55ddf",
+  "date": "2026-09-29"
+ },
+ "/intel/zoo-hypothesis-explained/": {
+  "hash": "d3deb4e173228461",
+  "date": "2026-09-29"
+ },
+ "/privacy/": {
+  "hash": "580c2852bdb4f7b6",
+  "date": "2026-09-28"
+ },
+ "/quiz/": {
+  "hash": "17cb47b6cc7d7492",
+  "date": "2026-09-29"
+ },
+ "/readiness/": {
+  "hash": "5665377b15402bd6",
+  "date": "2026-09-29"
+ },
+ "/record/": {
+  "hash": "24c4976f30e09608",
+  "date": "2026-09-29"
+ },
+ "/record/pursue/": {
+  "hash": "9f96550a01886146",
+  "date": "2026-09-29"
+ },
+ "/terms/": {
+  "hash": "be09a74fc71eb4f7",
+  "date": "2026-09-28"
+ },
+ "/tools/drake/": {
+  "hash": "2a20752653ee34cd",
+  "date": "2026-09-29"
+ },
+ "/tools/": {
+  "hash": "a9df3da3366944d0",
+  "date": "2026-09-29"
+ },
+ "/tools/report/": {
+  "hash": "272250c5ba337237",
+  "date": "2026-09-29"
+ },
+ "/tools/what-did-i-see/": {
+  "hash": "16408f28672d17c7",
+  "date": "2026-09-29"
+ },
+ "/cases/betty-and-barney-hill/": {
+  "hash": "04da367676e36a35",
+  "date": "2026-09-29"
+ },
+ "/cases/falcon-lake-ufo-1967/": {
+  "hash": "82a6031fb2462712",
+  "date": "2026-09-29"
+ },
+ "/cases/westall-ufo-1966/": {
+  "hash": "d17e20d307a7f1b4",
+  "date": "2026-09-29"
+ },
+ "/intel/aaro-annual-report-2025-explained/": {
+  "hash": "cf94d06f34df5a11",
+  "date": "2026-09-29"
+ },
+ "/intel/did-the-ufo-files-confirm-aliens/": {
+  "hash": "24ae74ae613a7dd4",
+  "date": "2026-09-29"
+ },
+ "/intel/fireball-in-the-sky/": {
+  "hash": "4ee45cc385725153",
+  "date": "2026-09-29"
+ },
+ "/intel/flashing-light-in-the-sky/": {
+  "hash": "cd398786daa481c5",
+  "date": "2026-09-29"
+ },
+ "/intel/green-light-in-the-sky/": {
+  "hash": "fcf22e2eb1868b02",
+  "date": "2026-09-29"
+ },
+ "/intel/orange-lights-in-the-sky/": {
+  "hash": "63bbc33a76cb9998",
+  "date": "2026-09-29"
+ },
+ "/record/pursue/release-1/": {
+  "hash": "f8f42502eda85958",
+  "date": "2026-09-29"
+ },
+ "/record/pursue/release-2/": {
+  "hash": "2bf5f87f91e21645",
+  "date": "2026-09-29"
+ },
+ "/record/pursue/release-3/": {
+  "hash": "716245c0607be734",
+  "date": "2026-09-29"
+ },
+ "/record/pursue/release-4/": {
+  "hash": "0d48470c0c29fe46",
+  "date": "2026-09-29"
+ },
+ "/record/pursue/release-5/": {
+  "hash": "57db4bb6943b510d",
+  "date": "2026-09-29"
+ },
+ "/record/pursue/release-6/": {
+  "hash": "ca31082c4d9d1371",
+  "date": "2026-09-29"
+ }
+}

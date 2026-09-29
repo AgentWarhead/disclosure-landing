@@ -28,7 +28,7 @@
       "officialFindingSource": "https://www.aaro.mil/Portals/136/PDFs/case_resolution_reports/AARO_GoFast_Case_Resolution_Card_Methodology_Final.pdf",
       "status": "disputed",
       "statusReason": "AARO resolved GoFast as ordinary in 2025. FLIR1 and Gimbal are still listed as unresolved, and the aircrews reject the leading explanations.",
-      "verdict": "The three Navy videos are genuine military footage, and the Pentagon officially released them in April 2020. None of them is proof of an alien craft. In 2025 AARO found that GoFast showed an ordinary object at about 13,000 feet. FLIR1 and Gimbal are still listed as unresolved, and analysts argue both show distant jets.",
+      "verdict": "The three Navy videos are genuine military footage, officially released in April 2020, and none is proof of an alien craft. AARO resolved GoFast in 2025, while FLIR1 and Gimbal are still listed as unresolved.",
       "explanations": [
         {
           "name": "GoFast: an ordinary object made fast by parallax",
@@ -225,7 +225,7 @@
       "officialFindingSource": "https://www.aaro.mil/Portals/136/PDFs/case_resolution_reports/AARO_Al_Taqaddam_Case_Resolution_Final.pdf",
       "status": "explained",
       "statusReason": "AARO matched the object to a balloon cluster moving with the wind and released the full video. The water claim has no support in it.",
-      "verdict": "The Jellyfish video was filmed over Al Taqaddum Air Base in Iraq in October 2017 and leaked in January 2024. In September 2025 the Pentagon’s UAP office, AARO, concluded with high confidence that it shows a cluster of balloons drifting with the wind. The claim that it went into the water is not shown in the full video.",
+      "verdict": "AARO concluded with high confidence that the Jellyfish video, filmed over Al Taqaddum Air Base in Iraq in October 2017 and leaked in January 2024, shows a cluster of balloons drifting with the wind. The full video does not show it entering water.",
       "explanations": [
         {
           "name": "A cluster of balloons",
@@ -323,7 +323,7 @@
       "officialFindingSource": "https://www.faa.gov/newsroom/dhs-fbi-faa-dod-joint-statement-ongoing-response-reported-drone-sightings",
       "status": "explained",
       "statusReason": "Federal agencies matched the reports to drones, aircraft and stars. The operators of drones confirmed over two bases were never publicly named.",
-      "verdict": "Federal agencies traced the New Jersey drone reports of late 2024 to lawful drones, manned aircraft and even stars, and found nothing anomalous. In January 2025 the White House said the drones had been authorized by the FAA for research. Drones confirmed over two military bases were never publicly traced to an operator.",
+      "verdict": "Federal agencies traced the New Jersey drone reports of late 2024 to lawful drones, manned aircraft and stars, and found nothing anomalous. Drones confirmed over two military bases were never publicly traced to an operator.",
       "explanations": [
         {
           "name": "Manned aircraft mistaken for drones",
@@ -499,7 +499,7 @@
       "officialFindingSource": null,
       "status": "disputed",
       "statusReason": "Many former pupils stand by their accounts. Skeptics argue suggestion shaped them, and no physical trace or adult witness exists.",
-      "verdict": "On 16 September 1994, about sixty children at Ariel School in Ruwa, Zimbabwe, reported a craft and a small figure beyond their playing field. No adult saw it and no physical trace was found. Many of those children, now adults, still stand by what they reported. Skeptics point to suggestion, group dynamics and a fireball seen two nights earlier.",
+      "verdict": "About sixty children at Ariel School in Zimbabwe reported a craft and a small figure on 16 September 1994. No adult saw it, no trace was found, and skeptics point to suggestion, though many of the children still stand by what they reported.",
       "explanations": [
         {
           "name": "Something physical that the children saw",
@@ -626,7 +626,7 @@
       "officialFindingSource": null,
       "status": "disputed",
       "statusReason": "Walton and his crew stood by the account for decades. A skeptic argued it was a hoax to escape a work contract, and the lie-detector results conflict.",
-      "verdict": "Travis Walton says a craft took him from an Arizona forest on 5 November 1975 and that he woke aboard it. He was missing for about five days. Six co-workers say they saw a beam strike him. No physical evidence was ever produced, and the polygraph record cuts both ways. No official body issued a finding.",
+      "verdict": "No official body ever issued a finding on Travis Walton’s claim that a craft took him from an Arizona forest on 5 November 1975. He was missing about five days, no physical evidence was produced, and the polygraph record cuts both ways.",
       "explanations": [
         {
           "name": "An abduction, as Walton describes it",
@@ -737,12 +737,12 @@
       "coordsNote": "Approximate: the village of Shag Harbour. The object was reported entering the water a short distance offshore.",
       "witnesses": "An RCMP corporal and six other witnesses, per the National Defence memo. Later accounts count about a dozen people at the shore, plus fishermen. RCMP Const. Ron O’Brien has spoken publicly.",
       "duration": "Minutes in the air. A light stayed on the water before it disappeared. The sea search ran through the night, and the navy dive search lasted about three days.",
-      "evidence": "Police and National Defence records, witness statements, and a trail of yellowish foam that searchers reported on the water. No debris was recovered.",
+      "evidence": "Police and National Defence records, witness statements, and a trail of yellowish foam that search crews reported on the water. No debris was recovered.",
       "officialFinding": "National Defence memo: divers failed to locate any tangible evidence. (Library and Archives Canada) The archives’ exhibition adds that National Defence identified this sighting as unsolved.",
       "officialFindingSource": "https://web.archive.org/web/20110519132147/http://www.collectionscanada.gc.ca/ufo/002029-1500.01-e.html",
       "status": "unexplained",
       "statusReason": "National Defence classed it as unsolved. Rescue officials ruled out a missing aircraft and flares, and the dive search found no debris.",
-      "verdict": "On the night of 4 October 1967, witnesses including an RCMP corporal saw a lit object come down into the sea off Shag Harbour, Nova Scotia. No aircraft was missing, and navy divers found nothing. National Defence classed the sighting as unsolved. It is one of the few UFO cases with Canadian government records behind it.",
+      "verdict": "National Defence classed the Shag Harbour sighting of 4 October 1967 as unsolved. Witnesses, including an RCMP corporal, saw a lit object come down into the sea off Nova Scotia, and navy divers found nothing.",
       "explanations": [
         {
           "name": "A plane crash",
@@ -852,6 +852,303 @@
           "domain": "shagharbourincident.ca",
           "published": null,
           "accessed": "2026-09-28"
+        }
+      ]
+    },
+    {
+      "slug": "falcon-lake-ufo-1967",
+      "url": "/cases/falcon-lake-ufo-1967/",
+      "no": "007",
+      "name": "Falcon Lake incident",
+      "title": "The Falcon Lake incident",
+      "date": "1967-05-20",
+      "dateDisplay": "20 May 1967, around midday by Michalak’s accounts. He flagged down an RCMP highway patrol car on the Trans-Canada Highway at about 3:00 pm.",
+      "year": "1967",
+      "place": "Falcon Lake, Whiteshell Provincial Park, Manitoba, Canada",
+      "country": "Canada",
+      "lat": 49.7,
+      "lng": -95.3,
+      "coordsNote": "Approximate: the Falcon Lake area. The RCMP placed the site about 2.5 miles due north of the Trans-Canada Highway at Falcon Beach.",
+      "witnesses": "One: Stefan Michalak, 51, an industrial mechanic and weekend prospector. The University of Colorado investigator found that a nearby fire tower lookout saw nothing unusual.",
+      "duration": "About half an hour or more on the ground by his accounts, then a sudden takeoff. The RCMP inquiry ran from 23 May to August 1967.",
+      "evidence": "Burns to his chest and abdomen, a burned undershirt and melted cap, a 15-foot circle on the rock where moss was missing, and soil from a rock crack that tested radioactive.",
+      "officialFinding": "RCMP, August 1967: some facts cannot be denied and cannot be accounted for or explained away, and the inconsistencies were never resolved. (RCMP file, Library and Archives Canada) The archives’ exhibition says National Defence identifies the Falcon Lake case as unsolved.",
+      "officialFindingSource": "https://web.archive.org/web/20110519203417/http://www.collectionscanada.gc.ca/ufo/002029-1300.01-e.html",
+      "status": "disputed",
+      "statusReason": "National Defence lists it as unsolved. The RCMP could not account for the burns, and it also recorded discrepancies it never resolved. There is no second witness.",
+      "verdict": "The Falcon Lake incident is the case of Stefan Michalak, a Winnipeg mechanic who said a landed craft burned his chest near Falcon Lake, Manitoba, on 20 May 1967. The RCMP could not account for his burns or resolve the gaps in his story. National Defence lists the case as unsolved.",
+      "explanations": [
+        {
+          "name": "A craft nobody has identified",
+          "source": "https://www.cbc.ca/news/canada/manitoba/falcon-lake-incident-book-anniversary-1.4121639"
+        },
+        {
+          "name": "A secret military aircraft",
+          "source": "https://www.cbc.ca/news/canada/manitoba/falcon-lake-incident-book-anniversary-1.4121639"
+        },
+        {
+          "name": "A story he made up",
+          "source": "http://www.theironskeptic.com/articles/michalak/michalak.htm"
+        },
+        {
+          "name": "Radioactive waste in the bush",
+          "source": "https://web.archive.org/web/20250824094029/https://www.bac-lac.gc.ca/eng/discover/unusual/ufo/Documents/1967-08-10.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "title": "RCMP report, Stefan Michalak, report of unidentified flying object, Falcon Beach, 26 May 1967 (Library and Archives Canada, archived copy)",
+          "url": "https://web.archive.org/web/20260525015727/https://www.bac-lac.gc.ca/eng/discover/unusual/ufo/Documents/1967-05-26.pdf",
+          "domain": "bac-lac.gc.ca",
+          "published": "26 May 1967",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "RCMP report, 10 August 1967, with Ottawa memoranda of 25 July 1967 (Library and Archives Canada, archived copy)",
+          "url": "https://web.archive.org/web/20250824094029/https://www.bac-lac.gc.ca/eng/discover/unusual/ufo/Documents/1967-08-10.pdf",
+          "domain": "bac-lac.gc.ca",
+          "published": "10 August 1967",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Library and Archives Canada, Falcon Lake, Manitoba, May 20, 1967 (archived copy)",
+          "url": "https://web.archive.org/web/20110519203417/http://www.collectionscanada.gc.ca/ufo/002029-1300.01-e.html",
+          "domain": "collectionscanada.gc.ca",
+          "published": "2005, updated 2007",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "University of Colorado UFO study (Condon report), Case 22, text copy",
+          "url": "http://files.ncas.org/condon/text/case22.htm",
+          "domain": "files.ncas.org",
+          "published": null,
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Falcon Lake incident is Canada’s \"best-documented UFO case,\" even 50 years later",
+          "url": "https://www.cbc.ca/news/canada/manitoba/falcon-lake-incident-book-anniversary-1.4121639",
+          "domain": "cbc.ca",
+          "published": "19 May 2017",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Mint’s newest coin showcases famous Falcon Lake UFO encounter in Manitoba",
+          "url": "https://www.cbc.ca/news/canada/manitoba/falcon-lake-ufo-coin-royal-canadian-mint-1.4602786",
+          "domain": "cbc.ca",
+          "published": "3 April 2018",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "The Iron Skeptic, Stefan Michalak’s story: no aliens required",
+          "url": "http://www.theironskeptic.com/articles/michalak/michalak.htm",
+          "domain": "theironskeptic.com",
+          "published": null,
+          "accessed": "2026-09-29"
+        }
+      ]
+    },
+    {
+      "slug": "betty-and-barney-hill",
+      "url": "/cases/betty-and-barney-hill/",
+      "no": "008",
+      "name": "Betty and Barney Hill incident",
+      "title": "The Betty and Barney Hill abduction",
+      "date": "1961-09-19",
+      "dateDisplay": "Night of 19 to 20 September 1961. The Hills reached home in Portsmouth around 5:00 am, later than the drive should have taken.",
+      "year": "1961",
+      "place": "US Route 3 near Lincoln, New Hampshire, United States",
+      "country": "United States",
+      "lat": 44.085,
+      "lng": -71.684,
+      "coordsNote": "The state historical marker on Route 3 in Lincoln, near Indian Head. The drive covered many miles of the White Mountains.",
+      "witnesses": "Two: Betty Hill, a social worker for the state, and Barney Hill, who worked nights at a Boston post office.",
+      "duration": "The light was watched over part of the drive. The state marker speaks of two hours of lost time. The abduction account came out in hypnosis sessions in 1964.",
+      "evidence": "An Air Force report filed the next day, Betty’s written dreams, recorded hypnosis sessions, a star map Betty drew, and the dress she wore that night.",
+      "officialFinding": "Project Blue Book first logged the sighting as an optical condition, then as an inversion, and finally as insufficient data. (Blue Book record card, as transcribed by NICAP) No government body has ever ruled on the abduction.",
+      "officialFindingSource": "https://www.nicap.org/reports/0450-74.htm",
+      "status": "disputed",
+      "statusReason": "The Air Force never identified the light. The psychiatrist who hypnotized the Hills believed the abduction came from Betty’s dreams, and a researcher has matched the light to a mountain beacon.",
+      "verdict": "Betty and Barney Hill were a New Hampshire couple who said that on the night of 19 to 20 September 1961, beings stopped their car on a mountain road and examined them aboard a craft. The abduction story emerged under hypnosis in 1964. The Air Force filed the sighting as insufficient data, and their psychiatrist did not accept the abduction.",
+      "explanations": [
+        {
+          "name": "An abduction by non-human beings",
+          "source": "https://www.hmdb.org/m.asp?m=74571"
+        },
+        {
+          "name": "A sighting, then a dream retold under hypnosis",
+          "source": "https://badufos.blogspot.com/2015/12/dr-simon-reveals-his-real-thoughts-on.html"
+        },
+        {
+          "name": "A beacon on Cannon Mountain",
+          "source": "https://nielsenhayden.com/makinglight/archives/009378.html"
+        },
+        {
+          "name": "Culture in the room",
+          "source": "https://skeptoid.com/episodes/124"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Project Blue Book record card and radar reports for the Hill sighting, NICAP transcription",
+          "url": "https://www.nicap.org/reports/0450-74.htm",
+          "domain": "nicap.org",
+          "published": null,
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Betty and Barney Hill Incident, New Hampshire historical marker 224",
+          "url": "https://www.hmdb.org/m.asp?m=74571",
+          "domain": "hmdb.org",
+          "published": "erected 2011",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Using the Betty and Barney Hill Collection, Milne Special Collections",
+          "url": "https://library.unh.edu/find/archives/collections/using-materials/using-betty-barney-hill-collection",
+          "domain": "library.unh.edu",
+          "published": null,
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Marking History: The Betty and Barney Hill Incident in Lincoln",
+          "url": "https://www.nhpr.org/nh-news/2014-03-28/marking-history-the-betty-and-barney-hill-incident-in-lincoln",
+          "domain": "nhpr.org",
+          "published": "28 March 2014",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Betty Hill, 85, gained fame with alien-abduction tale (Associated Press)",
+          "url": "https://archive.seattletimes.com/archive/20041019/alienobit19/betty-hill-85-gained-fame-with-alien-abduction-tale",
+          "domain": "seattletimes.com",
+          "published": "19 October 2004",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "David Halperin, The moment the myth of alien abduction was born (excerpt from Intimate Alien)",
+          "url": "https://lithub.com/the-moment-the-myth-of-alien-abduction-was-born/",
+          "domain": "lithub.com",
+          "published": "26 March 2020",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Brian Dunning, Skeptoid episode 124",
+          "url": "https://skeptoid.com/episodes/124",
+          "domain": "skeptoid.com",
+          "published": "21 October 2008",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Robert Sheaffer, Dr. Simon reveals his real thoughts on the Hill case",
+          "url": "https://badufos.blogspot.com/2015/12/dr-simon-reveals-his-real-thoughts-on.html",
+          "domain": "badufos.blogspot.com",
+          "published": "23 December 2015",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Jim Macdonald, Alien abduction: Betty and Barney Hill",
+          "url": "https://nielsenhayden.com/makinglight/archives/009378.html",
+          "domain": "nielsenhayden.com",
+          "published": "19 September 2007",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Colin Johnston, The truth about Betty Hill’s UFO star map",
+          "url": "https://armaghplanet.com/betty-hills-ufo-star-map-the-truth.html",
+          "domain": "armaghplanet.com",
+          "published": "19 August 2011",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Brett Holman, Goodbye, Zeta Reticuli",
+          "url": "https://airminded.org/2008/11/05/goodbye-zeta-reticuli/",
+          "domain": "airminded.org",
+          "published": "5 November 2008",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Analysis of the dress worn by Betty Hill",
+          "url": "https://www.theblackvault.com/casefiles/analysis-dress-worn-betty-hill-september-19-1961-abduction-new-hampshire/",
+          "domain": "theblackvault.com",
+          "published": "1 November 2016, updated 10 June 2020",
+          "accessed": "2026-09-29"
+        }
+      ]
+    },
+    {
+      "slug": "westall-ufo-1966",
+      "url": "/cases/westall-ufo-1966/",
+      "no": "009",
+      "name": "Westall UFO sighting",
+      "title": "The Westall UFO sighting",
+      "date": "1966-04-06",
+      "dateDisplay": "Wednesday 6 April 1966, mid-morning, during physical education classes and the recess that followed. Shane Ryan puts it at about 10:15 am, and other accounts say about 11:00 am.",
+      "year": "1966",
+      "place": "Westall, Clayton South, Melbourne, Victoria, Australia",
+      "country": "Australia",
+      "lat": -37.94,
+      "lng": 145.13,
+      "coordsNote": "Approximate: Westall, in Clayton South. The Grange paddock was about 400 m from the high school.",
+      "witnesses": "About fifty students and two teachers at first, then hundreds as recess began. Researcher Shane Ryan says he has spoken with 142 people who saw the object or objects and 197 who saw the ground marks.",
+      "duration": "Minutes. Accounts describe the object crossing the oval, dropping behind pine trees at The Grange, then rising and leaving at speed.",
+      "evidence": "Witness accounts, most recorded decades later, and 1966 press coverage. Students described a swirled circle of flattened grass. The TV film and any photos of the circle have not been found.",
+      "officialFinding": "None. The Age reported at the time that the object might have been a weather balloon released at Laverton. Witnesses ask why no government records have surfaced. (ABC News, 2026)",
+      "officialFindingSource": null,
+      "status": "disputed",
+      "statusReason": "No official finding exists. Balloons and a towed target have real support, and many witnesses reject both and still describe a craft.",
+      "verdict": "The Westall UFO sighting took place on the morning of 6 April 1966, when students and teachers at two schools in Clayton South, Melbourne, reported a silver disc that flew low over the grounds and seemed to come down in a nearby paddock. No official finding exists. Skeptics favour a balloon or a towed target.",
+      "explanations": [
+        {
+          "name": "A weather balloon from Laverton",
+          "source": "https://www.skeptics.com.au/the-westall-ufo-of-1966/"
+        },
+        {
+          "name": "A runaway HIBAL research balloon",
+          "source": "http://theozfiles.blogspot.com/2014/08/westall-66-ufo-or-hibal-answer-is.html"
+        },
+        {
+          "name": "A target drogue towed by an aircraft",
+          "source": "https://skeptoid.com/episodes/208"
+        },
+        {
+          "name": "A secret military project",
+          "source": "https://www.abc.net.au/news/2026-04-06/westall-ufo-mystery-witnesses-want-answers/106126614"
+        }
+      ],
+      "sources": [
+        {
+          "title": "After 60 years, witnesses to Australia’s biggest UFO sighting at Westall High School say it’s time for answers",
+          "url": "https://www.abc.net.au/news/2026-04-06/westall-ufo-mystery-witnesses-want-answers/106126614",
+          "domain": "abc.net.au",
+          "published": "6 April 2026",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Shane Ryan, An ongoing mystery: the Westall flying saucer incident",
+          "url": "https://localhistory.kingston.vic.gov.au/articles/528",
+          "domain": "localhistory.kingston.vic.gov.au",
+          "published": "11 June 2012",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Bill Chalker, Westall ’66: UFO or HIBAL?",
+          "url": "http://theozfiles.blogspot.com/2014/08/westall-66-ufo-or-hibal-answer-is.html",
+          "domain": "theozfiles.blogspot.com",
+          "published": "10 August 2014",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Richard Saunders, The Westall UFO of 1966",
+          "url": "https://www.skeptics.com.au/the-westall-ufo-of-1966/",
+          "domain": "skeptics.com.au",
+          "published": "21 April 2026",
+          "accessed": "2026-09-29"
+        },
+        {
+          "title": "Brian Dunning, Skeptoid episode 208: The Westall ’66 UFO",
+          "url": "https://skeptoid.com/episodes/208",
+          "domain": "skeptoid.com",
+          "published": "1 June 2010",
+          "accessed": "2026-09-29"
         }
       ]
     }

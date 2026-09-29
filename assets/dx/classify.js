@@ -54,17 +54,23 @@
   function save() { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch (e) {} }
 
   /* ---------- state ---------- */
-  var state = load();
-  if (!state || !Array.isArray(state.answers)) state = { answers: [], order: null, salt: randId(8), serial: null, archetype: null, claimed: false, issued: null };
-  if (!state.order) {
-    var r = mulberry(fnv(state.salt));
-    state.order = Q.map(function () {
+  function shuffleOrder(salt) {
+    var r = mulberry(fnv(salt));
+    return Q.map(function () {
       var o = [0, 1, 2, 3];
       for (var i = 3; i > 0; i--) { var j = Math.floor(r() * (i + 1)); var t = o[i]; o[i] = o[j]; o[j] = t; }
       return o;
     });
-    save();
   }
+  /* entered: this device has put a card into the record before. It survives a retake, so the form can tell the truth. */
+  function freshState(entered) {
+    return { answers: [], order: null, salt: randId(8), serial: null, archetype: null, claimed: false, issued: null, entered: !!entered };
+  }
+  var state = load();
+  if (!state || !Array.isArray(state.answers) || typeof state.salt !== 'string') state = freshState(false);
+  state.answers = state.answers.filter(function (a) { return a === 0 || a === 1 || a === 2 || a === 3; }).slice(0, 10);
+  if (state.claimed) state.entered = true;
+  if (!state.order || state.order.length !== Q.length) { state.order = shuffleOrder(state.salt); save(); }
 
   var decide = IR.decide;
 
@@ -75,18 +81,30 @@
   var elLive = $('.cx-live');
   var elCaption = $('.cx-caption');
   var elTicks = $('.cx-ticks');
+  var elEye = $('.cx-eyecol');
   var canvas = $('.cx-iris');
   var ctx = canvas.getContext('2d');
+  var mqNarrow = window.matchMedia('(max-width: 900px)');
 
   for (var t = 0; t < 10; t++) { var i = doc.createElement('i'); elTicks.appendChild(i); }
 
-  /* ---------- the iris ---------- */
+  /* On a page that hosts the classification, the header "Find your role" link stays on this page. */
+  if (location.pathname !== '/') {
+    [].forEach.call(doc.querySelectorAll('a[href="/#classify"]'), function (a) { a.setAttribute('href', '#classify'); });
+  }
+
+  /* ---------- the iris ----------
+     Each answer draws the full iris once, off screen. The growth between two answers is a scaled
+     cross-fade of the two finished bitmaps, and the last frame is a direct IR.draw, so the iris
+     that stays on screen is exactly the one the engine draws for those answers. */
   var SIZE = 0, DPR = 1;
   var fibres = [];
-  var growth = 0, growthTarget = 0, anim = 0, dilation = 0, dilationTarget = 0;
+  var growth = 0, growthTarget = 0, dilation = 0, dilationTarget = 0;
+  var anim = 0, tw = null, TWEEN_MS = 700;
+  var bmpFrom = doc.createElement('canvas'), bmpTo = doc.createElement('canvas');
 
   function sizeCanvas() {
-    var css = canvas.getBoundingClientRect().width || 360;
+    var css = canvas.clientWidth || canvas.getBoundingClientRect().width || 360; /* layout width, so the breathing scale never changes the bitmap size */
     DPR = Math.min(window.devicePixelRatio || 1, 2);
     var next = Math.round(css * DPR);
     if (next === SIZE && canvas.width === next) return false;
@@ -95,24 +113,48 @@
     return true;
   }
   function buildFibres() { fibres = IR.buildFibres(state.salt); }
-  function draw() {
-    IR.draw(ctx, { size: SIZE, dpr: DPR, answers: state.answers, salt: state.salt, archetype: state.archetype, growth: growth, dilation: dilation, fibres: fibres });
+  function irisOpts(g, d) {
+    return { size: SIZE, dpr: DPR, answers: state.answers, salt: state.salt, archetype: state.archetype, growth: g, dilation: d, fibres: fibres };
   }
-
-  function frame(ts) {
-    var done = true;
-    growth += (growthTarget - growth) * 0.09;
-    dilation += (dilationTarget - dilation) * 0.08;
-    if (Math.abs(growthTarget - growth) > 0.002 || Math.abs(dilationTarget - dilation) > 0.002) done = false;
-    else { growth = growthTarget; dilation = dilationTarget; }
-    draw();
-    anim = done ? 0 : requestAnimationFrame(frame);
+  function resetCtx(c) { c.globalAlpha = 1; c.globalCompositeOperation = 'source-over'; }
+  function stopTween() { if (anim) cancelAnimationFrame(anim); anim = 0; tw = null; }
+  function drawFinal() {
+    stopTween();
+    growth = growthTarget; dilation = dilationTarget;
+    resetCtx(ctx);
+    IR.draw(ctx, irisOpts(growth, dilation));
+  }
+  function frame(now) {
+    if (!tw) { anim = 0; return; }
+    var k = Math.min(1, (now - tw.t0) / TWEEN_MS);
+    if (k >= 1) { drawFinal(); return; }
+    var e = 1 - Math.pow(1 - k, 3);
+    growth = tw.g0 + (growthTarget - tw.g0) * e;
+    dilation = tw.d0 + (dilationTarget - tw.d0) * e;
+    var s = tw.s0 + (1 - tw.s0) * e, off = SIZE * (1 - s) / 2;
+    resetCtx(ctx);
+    ctx.clearRect(0, 0, SIZE, SIZE);
+    ctx.globalAlpha = 1 - e;
+    ctx.drawImage(bmpFrom, 0, 0, SIZE, SIZE);
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.globalAlpha = e;
+    ctx.drawImage(bmpTo, off, off, SIZE * s, SIZE * s);
+    resetCtx(ctx);
+    anim = requestAnimationFrame(frame);
   }
   function render() {
     growthTarget = state.answers.length / 10;
     dilationTarget = state.archetype ? 0.35 : 0;
-    if (reduce) { growth = growthTarget; dilation = dilationTarget; draw(); return; }
-    if (!anim) anim = requestAnimationFrame(frame);
+    if (reduce || !SIZE) { drawFinal(); return; }
+    var g0 = growth, d0 = dilation;
+    stopTween();
+    bmpFrom.width = bmpFrom.height = SIZE;
+    bmpFrom.getContext('2d').drawImage(canvas, 0, 0);
+    bmpTo.width = bmpTo.height = SIZE;
+    IR.draw(bmpTo.getContext('2d'), irisOpts(growthTarget, dilationTarget));
+    /* the new iris starts at the size of the one on screen and opens out to its own */
+    tw = { t0: performance.now(), g0: g0, d0: d0, s0: Math.min(1, (0.3 + 0.7 * g0) / (0.3 + 0.7 * growthTarget)) };
+    anim = requestAnimationFrame(frame);
   }
 
   /* ---------- questions ---------- */
@@ -129,6 +171,56 @@
     if (state.archetype) elCaption.textContent = 'Iris print ' + state.serial + '. Built from your ten answers.';
     else if (!n) elCaption.textContent = 'Unformed. It grows with every answer.';
     else elCaption.textContent = 'Forming. ' + n + ' of 10 answers read.';
+  }
+  /* on narrow screens the band tightens once the first answer is in (classify.css, data-band) */
+  function setBand() {
+    if (state.answers.length && !state.archetype) host.setAttribute('data-band', 'compact');
+    else host.removeAttribute('data-band');
+  }
+
+  /* where the fixed header ends, read from the sticky offsets the stylesheet already sets */
+  var navH = 86;
+  function readNav() {
+    var eyeTop = parseFloat(getComputedStyle(elEye).top);
+    if (getComputedStyle(elEye).position === 'sticky' && !isNaN(eyeTop)) navH = mqNarrow.matches ? eyeTop : eyeTop - 24;
+    return navH;
+  }
+  function jump(y) {
+    y = Math.max(0, Math.round(y));
+    try { window.scrollTo({ top: y, behavior: 'instant' }); } catch (e) { window.scrollTo(0, y); }
+  }
+  /* put the counter and the prompt just under the sticky iris band (or the header on wide screens) */
+  function alignQuestion() {
+    var count = elQ.querySelector('.cx-count');
+    if (!count) return;
+    var cs = getComputedStyle(elEye), narrow = mqNarrow.matches, sticky = cs.position === 'sticky';
+    var want = readNav() + 12;
+    if (narrow && sticky) want += elEye.getBoundingClientRect().height;
+    var top = count.getBoundingClientRect().top;
+    if (narrow) { if (Math.abs(top - want) > 2) jump(window.scrollY + top - want); return; }
+    var prompt = elQ.querySelector('.cx-prompt');
+    if (top < want || prompt.getBoundingClientRect().bottom > window.innerHeight) jump(window.scrollY + top - want);
+  }
+  /* the reveal: the iris and the designation arrive in view together */
+  function alignResult() {
+    var want = readNav() + 12;
+    var target = mqNarrow.matches ? elEye : $('.cx-body');
+    jump(window.scrollY + target.getBoundingClientRect().top - want);
+  }
+
+  var elBack = null;
+  function dropWelcome() { if (elBack) { elBack.remove(); elBack = null; } }
+  function showWelcome(n) {
+    dropWelcome();
+    elBack = doc.createElement('p');
+    elBack.className = 'cx-back';
+    var s = doc.createElement('span');
+    s.textContent = 'Welcome back. Question ' + (n + 1) + ' of 10.';
+    var b = doc.createElement('button');
+    b.type = 'button'; b.className = 'link cx-restart'; b.textContent = 'Start over';
+    b.addEventListener('click', retake);
+    elBack.appendChild(s); elBack.appendChild(b);
+    elStage.insertBefore(elBack, elQ);
   }
 
   var busy = false;
@@ -157,7 +249,7 @@
     });
     elQ.appendChild(head); elQ.appendChild(h); elQ.appendChild(list);
     if (!reduce) { elQ.classList.remove('cx-enter'); void elQ.offsetWidth; elQ.classList.add('cx-enter'); }
-    if (focus) h.focus({ preventScroll: true });
+    if (focus) { alignQuestion(); h.focus({ preventScroll: true }); }
   }
 
   function choose(qi, oi, btn) {
@@ -170,31 +262,67 @@
     if (qi === 0) DX.track('classify_start');
     DX.tick(330 + qi * 44, 0.3);
     paintTicks(); caption(); render();
+    /* the swap lands inside the 500 ms input window, so the layout change reads as a response, not a jump */
     setTimeout(function () {
       busy = false;
+      dropWelcome();
       if (state.answers.length < 10) {
-        announce('Answer read. Question ' + (qi + 2) + ' of 10.');
+        setBand();
         showQuestion(qi + 1, true);
+        announce('Answer read. Question ' + (qi + 2) + ' of 10.');
       } else {
-        finish();
+        finish(true);
       }
-    }, reduce ? 120 : 520);
+    }, reduce ? 120 : 420);
   }
 
-  function finish() {
+  function finish(live) {
+    state.answers = state.answers.slice(0, 10);
     state.archetype = decide(state.answers);
     if (!state.serial) state.serial = (state.archetype === 'first-contact' ? 'FC-' : 'DSC-') + randId(4) + '-' + randId(4);
     if (!state.issued) state.issued = new Date().toLocaleDateString('en-CA');
     save();
     DX.track('classify_complete', { archetype: state.archetype });
-    DX.tick(state.archetype === 'first-contact' ? 196 : 110, 1.4);
-    if (window.DX && DX.blink) DX.blink();
-    render(); caption();
-    showResult(true);
+    if (live) {
+      DX.tick(state.archetype === 'first-contact' ? 196 : 110, 1.4);
+      if (window.DX && DX.blink) DX.blink();
+    }
+    setBand(); render(); caption();
+    showResult(live);
   }
 
   /* ---------- result + capture ---------- */
-  function showResult(focus) {
+  function roleShort(k) { return ROLES[k].name.replace('The ', ''); }
+  /* your own answer count per role, and the runner-up. Never for the sealed designation. */
+  function explain() {
+    var el = $('.cx-r-why'), a = state.archetype;
+    if (!el) return;
+    if (a === 'first-contact') { el.textContent = ''; el.hidden = true; return; }
+    var count = { sentinel: 0, diplomat: 0, scholar: 0, survivor: 0 };
+    state.answers.forEach(function (x) { count[ORDER[x]] += 1; });
+    var sc = IR.scores(state.answers);
+    var ranked = ORDER.slice().sort(function (x, y) { return sc[y] - sc[x]; });
+    if (ranked[0] !== a) { ranked.splice(ranked.indexOf(a), 1); ranked.unshift(a); }
+    var parts = ranked.filter(function (k) { return count[k] > 0; }).map(function (k) { return roleShort(k) + ' ' + count[k]; });
+    var second = ranked[1], out = 'Your answers: ' + parts.join(', ') + '. ';
+    if (!count[second]) out += 'No runner-up. Every answer pointed the same way.';
+    else {
+      out += 'Runner-up: ' + ROLES[second].name + '.';
+      if (count[second] === count[a]) out += ' Tied at ' + count[a] + ', and your later answers settled it.';
+    }
+    el.textContent = out;
+    el.hidden = false;
+  }
+
+  function showClaimPanel() {
+    var form = $('.cx-form'), box = $('.cx-claimed'), stands = $('.cx-stands');
+    if (state.claimed) { markClaimed(null); return; }
+    box.hidden = true;
+    if (state.entered && stands) { form.hidden = true; stands.hidden = false; }
+    else { form.hidden = false; if (stands) stands.hidden = true; }
+  }
+
+  function showResult(live) {
     var a = state.archetype, role = ROLES[a];
     host.setAttribute('data-state', 'result');
     host.style.setProperty('--role', COLORS[a]);
@@ -203,39 +331,49 @@
     $('.cx-r-role').textContent = role.role;
     $('.cx-r-name').textContent = role.name;
     $('.cx-r-line').textContent = role.line;
+    explain();
     $('.cx-r-first').textContent = role.first;
     $('.cx-r-serial').textContent = state.serial;
     $('.cx-r-dossier').setAttribute('href', role.url);
-    $('.cx-r-dossier').textContent = 'Read the ' + (a === 'first-contact' ? 'sealed file' : role.name.replace('The ', '') + ' dossier');
-    if (state.claimed) markClaimed(null);
+    $('.cx-r-dossier').textContent = 'Read the ' + (a === 'first-contact' ? 'sealed file' : roleShort(a) + ' dossier');
+    showClaimPanel();
     announce('Classification complete. Your designation is ' + role.name + '.');
-    if (focus) { var h = $('.cx-r-name'); h.tabIndex = -1; h.focus({ preventScroll: false }); }
+    if (live) {
+      if (!reduce) { elResult.classList.remove('cx-enter'); void elResult.offsetWidth; elResult.classList.add('cx-enter'); }
+      alignResult();
+      var h = $('.cx-r-name'); h.tabIndex = -1; h.focus({ preventScroll: true });
+    }
+    primeCard();
   }
 
   function retake() {
-    state = { answers: [], order: null, salt: randId(8), serial: null, archetype: null, claimed: false, issued: null };
-    var r = mulberry(fnv(state.salt));
-    state.order = Q.map(function () {
-      var o = [0, 1, 2, 3];
-      for (var i = 3; i > 0; i--) { var j = Math.floor(r() * (i + 1)); var t = o[i]; o[i] = o[j]; o[j] = t; }
-      return o;
-    });
+    state = freshState(state.entered || state.claimed);
+    state.order = shuffleOrder(state.salt);
     save();
+    card = null;
     host.setAttribute('data-state', 'asking');
     host.style.removeProperty('--role');
     elResult.hidden = true;
     elStage.hidden = false;
     var form = $('.cx-form'); form.hidden = false; form.reset();
     $('.cx-claimed').hidden = true;
+    if ($('.cx-stands')) $('.cx-stands').hidden = true;
     $('.cx-form-msg').textContent = '';
-    buildFibres(); growth = 0; paintTicks(); caption(); render();
+    $('.cx-share-msg').textContent = '';
+    dropWelcome(); setBand();
+    buildFibres(); growth = 0; dilation = 0; paintTicks(); caption(); render();
     showQuestion(0, true);
     announce('File cleared. Question 1 of 10.');
   }
 
   function markClaimed(count) {
     $('.cx-form').hidden = true;
+    if ($('.cx-stands')) $('.cx-stands').hidden = true;
     var box = $('.cx-claimed');
+    var head = $('.cx-claimed-head'), body = $('.cx-claimed-body');
+    /* restored from this device: the send message is gone, so say what is still true */
+    if (!head.textContent) head.textContent = 'Your card is in the record.';
+    if (!body.textContent) body.textContent = 'This device entered it earlier. Launch access follows when the app opens.';
     box.hidden = false;
     if (count) $('.cx-claimed-count').textContent = count.toLocaleString('en-CA') + ' civilians are in the record.';
   }
@@ -280,7 +418,8 @@
           }).catch(function () {});
           DX.track('sign_up', { method: 'email', archetype: state.archetype });
         }
-        state.claimed = true; save();
+        state.claimed = true; state.entered = true; save();
+        btn.disabled = false; btn.textContent = label;
         $('.cx-claimed-head').textContent = kind === 'new' ? 'Entered into the record.' : 'This address is already in the record.';
         $('.cx-claimed-body').textContent = kind === 'new'
           ? 'Your card is on its way to ' + email + '. Launch access follows when the app opens.'
@@ -315,49 +454,99 @@
   function cardUrl() { return 'https://www.getdisclosure.app/card/' + encodeURIComponent(IR.encodeToken(state)); }
   function fileName() { return 'disclosure-' + state.archetype + '-' + state.serial + '.png'; }
 
-  $('.cx-save').addEventListener('click', function () {
-    makeCard().then(function (blob) {
-      if (!blob) return;
-      var url = URL.createObjectURL(blob), a = doc.createElement('a');
+  /* the card is drawn once, as soon as the result exists, so Share can hand it over inside the tap */
+  var card = null;
+  function cardFor() {
+    if (card && card.serial === state.serial) return card;
+    var c = card = { serial: state.serial, blob: null, file: null, ready: null };
+    c.ready = makeCard().then(function (blob) {
+      c.blob = blob || null;
+      try { if (blob && typeof File === 'function') c.file = new File([blob], fileName(), { type: 'image/png' }); } catch (e) {}
+      return c;
+    }).catch(function () { return c; });
+    return c;
+  }
+  function primeCard() {
+    var go = function () { if (state.archetype) cardFor(); };
+    if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 1500 }); else setTimeout(go, 800);
+  }
+
+  function saveCard() {
+    cardFor().ready.then(function (c) {
+      if (!c.blob) return;
+      var url = URL.createObjectURL(c.blob), a = doc.createElement('a');
       a.href = url; a.download = fileName(); doc.body.appendChild(a); a.click(); a.remove();
       setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
       DX.track('card_download', { archetype: state.archetype });
     });
-  });
+  }
+  $('.cx-save').addEventListener('click', saveCard);
+
+  function shareMsg(parts) {
+    var el = $('.cx-share-msg');
+    el.textContent = '';
+    setTimeout(function () {
+      parts.forEach(function (p) {
+        if (typeof p === 'string') { el.appendChild(doc.createTextNode(p)); return; }
+        var a = doc.createElement('a'); a.href = p.href; a.textContent = p.href; a.className = 'cx-share-link'; el.appendChild(a);
+      });
+    }, 30);
+  }
+  function copyLink(link) {
+    var shown = function () { shareMsg(['Sharing did not open here. Your card link: ', { href: link }]); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(link).then(function () {
+        shareMsg(['Sharing did not open here, so the link to your card was copied. Paste it anywhere.']);
+        DX.track('share', { method: 'copy', archetype: state.archetype });
+      }, shown);
+    } else shown();
+  }
   $('.cx-share').addEventListener('click', function () {
-    var role = ROLES[state.archetype];
-    var link = cardUrl();
-    var text = 'I was classified ' + role.name + ' (' + role.role.toLowerCase() + '). Find out what you would do: ' + link;
-    var fallback = function () {
-      if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { $('.cx-share-msg').textContent = 'Copied. Paste it anywhere.'; }).catch(function () {});
-    };
-    makeCard().then(function (blob) {
-      var file = blob ? new File([blob], fileName(), { type: 'image/png' }) : null;
-      if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
-        return navigator.share({ files: [file], text: text, title: 'My DISCLOSURE designation' });
-      }
-      if (navigator.share) return navigator.share({ text: text, title: 'My DISCLOSURE designation', url: link });
-      fallback();
-    }).then(function () { DX.track('share', { method: 'card', archetype: state.archetype }); }).catch(function () {});
+    var role = ROLES[state.archetype], link = cardUrl();
+    var line = 'I was classified ' + role.name + ' (' + role.role.toLowerCase() + '). Find out what you would do';
+    var title = 'My DISCLOSURE designation';
+    $('.cx-share-msg').textContent = '';
+    if (typeof navigator.share !== 'function') { copyLink(link); return; }
+    var c = cardFor(), data = { title: title, text: line + '.', url: link };
+    try { if (c.file && navigator.canShare && navigator.canShare({ files: [c.file] })) data = { files: [c.file], title: title, text: line + ': ' + link }; } catch (e) {}
+    var p;
+    try { p = navigator.share(data); } catch (e) { p = Promise.reject(e); }
+    Promise.resolve(p).then(function () { DX.track('share', { method: data.files ? 'card' : 'link', archetype: state.archetype }); }, function (err) {
+      if (err && err.name === 'AbortError') return;
+      copyLink(link);
+    });
   });
   $('.cx-retake').addEventListener('click', retake);
+  if ($('.cx-save2')) $('.cx-save2').addEventListener('click', saveCard);
+  if ($('.cx-other')) $('.cx-other').addEventListener('click', function () {
+    $('.cx-stands').hidden = true;
+    var form = $('.cx-form'); form.hidden = false;
+    form.querySelector('input[type=email]').focus();
+  });
 
   /* ---------- boot ---------- */
   sizeCanvas(); buildFibres();
-  paintTicks(); caption();
   host.setAttribute('data-ready', 'true');
-  if (state.archetype && state.answers.length === 10) {
-    growth = growthTarget = 1; dilation = dilationTarget = 0.35; draw();
+  var n0 = state.answers.length;
+  if (n0 === 10 && state.archetype) {
+    growth = growthTarget = 1; dilation = dilationTarget = 0.35;
+    paintTicks(); caption(); setBand(); drawFinal();
     showResult(false);
+  } else if (n0 === 10) {
+    /* ten answers read but the page closed before the result: finish it now */
+    growth = growthTarget = 1; dilation = dilationTarget = 0.35;
+    paintTicks(); finish(false); drawFinal();
   } else {
-    if (state.archetype) { state.archetype = null; }
-    growth = growthTarget = state.answers.length / 10; draw();
-    showQuestion(Math.min(state.answers.length, 9), false);
+    if (state.archetype) { state.archetype = null; state.serial = null; save(); }
+    growth = growthTarget = n0 / 10;
+    paintTicks(); caption(); setBand(); drawFinal();
+    if (n0) showWelcome(n0);
+    showQuestion(n0, false);
   }
   var rs = 0;
   var onResize = function () {
     clearTimeout(rs);
-    rs = setTimeout(function () { if (sizeCanvas()) draw(); }, 80);
+    rs = setTimeout(function () { if (sizeCanvas() && !tw) drawFinal(); }, 80);
   };
   if ('ResizeObserver' in window) new ResizeObserver(onResize).observe(canvas);
   else window.addEventListener('resize', onResize);

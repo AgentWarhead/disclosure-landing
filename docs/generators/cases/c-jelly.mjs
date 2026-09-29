@@ -15,14 +15,14 @@ export default {
   crumb: 'The Jellyfish UFO',
   title: 'The Jellyfish UFO Video From Iraq Explained',
   h1: 'The Jellyfish UFO video explained',
-  desc: 'The Jellyfish UFO video from Iraq explained: when it was filmed, who released it in 2024, the water claim, and why AARO concluded it was a cluster of balloons.',
-  ogDesc: 'A thermal video from an Iraqi air base, a claim that it went into the water, and an AARO report that says balloons.',
+  desc: 'AARO says the Jellyfish video from Iraq shows balloons drifting with the wind. When it was filmed, who leaked it in 2024, and why the water claim fails.',
+  og: '/og/share/orbs-in-the-sky.jpg', ogAlt: "Several lights in a night sky over a rooftop, with a balloon silhouette at the left.",
   eventName: 'Al Taqaddum object ("Jellyfish UFO")', dateISO: '2017-10-23',
   placeFull: 'Al Taqaddum Air Base, Iraq', country: 'Iraq',
   lat: 33.34, lng: 43.60, coordsNote: 'Approximate: Al Taqaddum Air Base, west of Baghdad.',
   cardTitle: 'The Jellyfish UFO', cardLine: 'A thermal video from Iraq, a water claim, and an AARO balloon finding.',
   cardDate: 'Oct 2017', cardPlace: 'Al Taqaddum, Iraq', status: 'explained',
-  lede: 'The Jellyfish video was filmed over Al Taqaddum Air Base in Iraq in October 2017 and leaked in January 2024. In September 2025 the Pentagon&rsquo;s UAP office, AARO, concluded with high confidence that it shows a cluster of balloons drifting with the wind. The claim that it went into the water is not shown in the full video.',
+  lede: 'AARO concluded with high confidence that the Jellyfish video, filmed over Al Taqaddum Air Base in Iraq in October 2017 and leaked in January 2024, shows a cluster of balloons drifting with the wind. The full video does not show it entering water.',
   statusReason: 'AARO matched the object to a balloon cluster moving with the wind and released the full video. The water claim has no support in it.',
   findingSource: AARO,
   sheet: {
@@ -56,7 +56,8 @@ export default {
 </ul>`,
   learn: `<p><strong>A leak is not the whole record.</strong> The clip that went viral was a slice. The full 17 minutes, released later, told a plainer story. If you film something, keep the whole file, from before it appears to after it leaves.</p>
 <p><strong>Cameras change the picture.</strong> Thermal and night modes readjust brightness on their own, so a target can seem to glow, fade or flip colour. Note your camera settings with your clip. The ${a('/intel/how-to-film-a-ufo-at-night/', 'night filming file')} covers the settings that matter.</p>
-<p><strong>Balloons fool trained people.</strong> They drift, tumble and hang strings that look like limbs. The ${a('/intel/airplane-satellite-balloon-ufo-misidentification/', 'misidentification filter')} starts with the wind.</p>`,
+<p><strong>Balloons fool trained people.</strong> They drift, tumble and hang strings that look like limbs. The ${a('/intel/airplane-satellite-balloon-ufo-misidentification/', 'misidentification filter')} starts with the wind.</p>
+<p>The same office found that GoFast, one of <a href="/cases/navy-ufo-videos-gimbal-gofast-flir/">the Navy&rsquo;s Gimbal, GoFast and FLIR videos</a>, showed an ordinary object, and federal agencies matched most of <a href="/cases/new-jersey-drones-2024/">the 2024 New Jersey drone reports</a> to drones, aircraft and stars.</p>`,
   ledgerLine: 'AARO&rsquo;s April 2025 announcement and its September 2025 case resolution are both official events.',
   fieldNote: 'The full video told a plainer story than the leak. Know your job before you hit record.',
   related: ['aaro-explained', 'airplane-satellite-balloon-ufo-misidentification', 'how-to-film-a-ufo-at-night', 'ufo-evidence-checklist'],

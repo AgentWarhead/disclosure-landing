@@ -4,11 +4,20 @@
 // Usage: node scripts/dx-sitemap.mjs
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const root = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 const HOST = 'https://www.getdisclosure.app';
-const LASTMOD = '2026-09-28';
+/* lastmod is real per page: scripts/lastmod.json keeps a hash of each page's <main> text and the
+   local date it last changed. A page's date moves only when its content does, and each Article's
+   dateModified is kept in step. The ledger was seeded 2026-09-28, the day the overhaul went live. */
+const LEDGER_FILE = join(root, 'scripts', 'lastmod.json');
+const SEED = '2026-09-28';
+const TODAY = new Date().toLocaleDateString('en-CA');
+let ledger = {};
+try { ledger = JSON.parse(readFileSync(LEDGER_FILE, 'utf8')); } catch (e) { ledger = {}; }
+const seeding = Object.keys(ledger).length === 0;
 const SKIP = new Set(['.git', '.claude', 'node_modules', 'docs', 'scripts', 'supabase', 'api', 'frames', 'og']);
 
 function walk(dir) {
@@ -47,7 +56,15 @@ const pages = walk(root).map((file) => {
   const h1 = (src.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || [])[1] || '';
   const fromTitle = clean(t).split(' | ')[0].trim();
   const title = fromTitle && !/^DISCLOSURE$/i.test(fromTitle) ? fromTitle : clean(h1);
-  return { path, url: HOST + path, title, noindex };
+  const main = (src.match(/<main[\s\S]*?<\/main>/i) || [src])[0];
+  const hash = createHash('sha256').update(clean(main)).digest('hex').slice(0, 16);
+  const prev = ledger[path];
+  const date = prev && prev.hash === hash ? prev.date : (seeding ? SEED : TODAY);
+  ledger[path] = { hash, date };
+  if (/"dateModified":\s*"[^"]*"/.test(src) && !src.includes('"dateModified": "' + date + '"')) {
+    writeFileSync(file, src.replace(/("dateModified":\s*")[^"]*(")/, '$1' + date + '$2'));
+  }
+  return { path, url: HOST + path, title, noindex, date };
 }).filter((p) => !p.noindex);
 
 /* ---------- ordering ---------- */
@@ -76,6 +93,7 @@ const used = new Set();
 const pick = (list) => list.filter(([p]) => byPath.has(p)).map(([p, label]) => { used.add(p); return { ...byPath.get(p), label }; });
 const core = pick(CORE);
 const dossiers = pick(DOSSIERS);
+const INTEL_HUBS = new Set(['/intel/protocol/', '/intel/field-guide/', '/intel/psychology/', '/intel/species/', '/intel/public-record/', '/intel/theory/']);
 const intel = pages.filter((p) => p.path.startsWith('/intel/') && p.path !== '/intel/').sort((a, b) => a.path.localeCompare(b.path));
 intel.forEach((p) => used.add(p.path));
 const other = pages.filter((p) => !used.has(p.path)).sort((a, b) => a.path.localeCompare(b.path));
@@ -85,11 +103,12 @@ const ordered = [...core, ...dossiers, ...other, ...intel];
 const sitemap = [
   '<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-  ...ordered.map((p) => `  <url><loc>${p.url}</loc><lastmod>${LASTMOD}</lastmod></url>`),
+  ...ordered.map((p) => `  <url><loc>${p.url}</loc><lastmod>${p.date}</lastmod></url>`),
   '</urlset>',
   '',
 ].join('\n');
 writeFileSync(join(root, 'sitemap.xml'), sitemap);
+writeFileSync(LEDGER_FILE, JSON.stringify(ledger, null, 1) + '\n');
 
 /* ---------- llms.txt ---------- */
 const line = (p, label) => `- [${label || p.title}](${p.url})`;
@@ -139,7 +158,7 @@ ${core.map((p) => line(p, p.label)).join('\n')}
 
 ${dossiers.map((p) => line(p, p.label)).join('\n')}
 ${other.length ? `\n## Other pages\n\n${other.map((p) => line(p)).join('\n')}\n` : ''}
-## Intel files (${intel.length})
+## Intel files (${intel.filter((p) => !INTEL_HUBS.has(p.path)).length} files and ${intel.filter((p) => INTEL_HUBS.has(p.path)).length} category hubs)
 
 ${intel.map((p) => line(p)).join('\n')}
 `;

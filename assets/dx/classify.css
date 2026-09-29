@@ -35,19 +35,23 @@
   content: ""; position: absolute; left: 1.15rem; top: 50%; width: 10px; height: 10px; margin-top: -5px;
   border: 1px solid var(--bone-faint); border-radius: 50%; transition: all 160ms var(--ease-out);
 }
-.cx-opt:hover:not(:disabled) { border-color: var(--bone-dim); background: var(--void-2); }
-.cx-opt:hover:not(:disabled)::before { border-color: var(--signal); }
+@media (hover: hover) {
+  .cx-opt:hover:not(:disabled) { border-color: var(--bone-dim); background: var(--void-2); }
+  .cx-opt:hover:not(:disabled)::before { border-color: var(--signal); }
+}
 .cx-opt.picked { border-color: var(--signal); background: rgba(74, 246, 38, 0.07); }
 .cx-opt.picked::before { background: var(--signal); border-color: var(--signal); box-shadow: 0 0 12px var(--signal-glow); }
 .cx-opt:disabled:not(.picked) { opacity: 0.45; cursor: default; }
 .cx-enter { animation: cx-in 520ms var(--ease-out) both; }
 @keyframes cx-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.cx-back { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-4); margin: 0 0 var(--space-4); color: var(--bone-dim); font-size: var(--step--1); }
 .cx-noscript { border: 1px solid var(--rule-strong); padding: var(--space-5); color: var(--bone-dim); }
 
 .cx-result { outline: none; }
 .cx-r-role { color: var(--role, var(--signal)); }
 .cx-r-name { font-size: var(--step-5); letter-spacing: -0.04em; line-height: 0.95; margin-top: var(--space-3); outline: none; }
 .cx-r-line { font-size: var(--step-1); line-height: 1.4; margin-top: var(--space-5); max-width: 30ch; color: var(--bone); }
+.cx-r-why { color: var(--bone-dim); max-width: 48ch; margin-top: var(--space-4); font-size: var(--step--1); }
 .cx-r-first { color: var(--bone-dim); max-width: 48ch; margin-top: var(--space-4); }
 .cx-r-meta { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: var(--space-4); color: var(--bone-faint); }
 .cx-claim { margin-top: var(--space-6); padding: var(--space-5); border: 1px solid var(--rule-strong); background: var(--void-0); max-width: 560px; }
@@ -66,9 +70,17 @@
 .cx-form-msg { color: #ff8a8a; font-size: var(--step--1); margin: var(--space-2) 0 0; min-height: 1.2em; }
 .cx-claimed h3 { outline: none; color: var(--signal); }
 .cx-claimed p { color: var(--bone-dim); margin: var(--space-2) 0 0; }
+.cx-claimed-count:empty { display: none; }
+.cx-stands h3 { outline: none; }
+.cx-stands > p { color: var(--bone-dim); margin: var(--space-2) 0 var(--space-4); font-size: var(--step--1); }
+.cx-stands .cx-field { align-items: center; gap: var(--space-2) var(--space-5); }
 .cx-tools { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); align-items: center; }
 .cx-tools .btn { min-height: 44px; }
-.cx-share-msg { color: var(--bone-faint); font-size: var(--step--1); min-height: 1.2em; margin-top: var(--space-2); }
+.cx-share-msg { color: var(--bone-dim); font-size: var(--step--1); min-height: 1.2em; margin-top: var(--space-2); overflow-wrap: anywhere; }
+.cx-share-msg a { color: var(--bone); }
+.cx-onward { margin-top: var(--space-4); color: var(--bone-faint); font-size: var(--step--1); }
+.cx-onward a { display: inline-block; min-height: 24px; padding-block: 2px; color: var(--bone-dim); text-underline-offset: 3px; }
+@media (hover: hover) { .cx-onward a:hover { color: var(--bone); } }
 .classify[data-state="result"] .cx-caption { color: var(--bone-dim); }
 
 @media (max-width: 900px) {
@@ -90,12 +102,23 @@
   .classify[data-state="result"] .cx-caption { text-align: center; margin-top: var(--space-3); }
 }
 
+/* phones: once the first answer is in, the band tightens to a small iris and the ticks (about 64px) */
+@media (max-width: 639.98px) {
+  .classify[data-band="compact"] .cx-eyecol { grid-template-columns: 44px minmax(0, 1fr); grid-template-rows: auto; padding-block: 10px; }
+  .classify[data-band="compact"] .cx-iris-wrap { grid-row: 1; width: 44px; }
+  .classify[data-band="compact"] .cx-eyecol .cx-ticks { align-self: center; }
+  .classify[data-band="compact"] .cx-caption { display: none; }
+}
+
 /* keyboard focus never lands under the sticky iris band on phones (2.4.11) */
 @media (max-width: 900px) {
-  .classify .cx-opt, .classify .cx-prompt { scroll-margin-top: calc(var(--nav-h) + 150px); }
+  .classify .cx-opt, .classify .cx-prompt, .classify .cx-count { scroll-margin-top: calc(var(--nav-h) + 150px); }
+}
+@media (max-width: 639.98px) {
+  .classify[data-band="compact"] .cx-opt, .classify[data-band="compact"] .cx-prompt, .classify[data-band="compact"] .cx-count { scroll-margin-top: calc(var(--nav-h) + 84px); }
 }
 /* short landscape screens: the band would eat half the view, so it scrolls away */
 @media (max-width: 900px) and (max-height: 560px) {
   .cx-eyecol { position: relative; top: auto; }
-  .classify .cx-opt, .classify .cx-prompt { scroll-margin-top: calc(var(--nav-h) + 24px); }
+  .classify .cx-opt, .classify .cx-prompt, .classify .cx-count, .classify[data-band="compact"] .cx-opt, .classify[data-band="compact"] .cx-prompt { scroll-margin-top: calc(var(--nav-h) + 24px); }
 }

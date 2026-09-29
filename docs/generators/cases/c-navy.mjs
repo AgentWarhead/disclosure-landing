@@ -28,14 +28,14 @@ export default {
   crumb: 'The Navy UFO videos',
   title: 'Gimbal, GoFast and FLIR UFO Videos Explained',
   h1: 'The Gimbal, GoFast and FLIR UFO videos explained',
-  desc: 'The Gimbal, GoFast and FLIR Navy UFO videos explained: how they got out, what the Pentagon and AARO found, and the case for glare, parallax and distant jets.',
-  ogDesc: 'Three Navy clips, one official release, one AARO resolution and two cases still listed as unresolved.',
+  desc: 'The Gimbal, GoFast and FLIR clips are real Navy footage. AARO resolved GoFast in 2025, two stay unresolved, and the case for glare, parallax and jets.',
+  og: '/og/share/nimitz-tic-tac.jpg', ogAlt: "A white oval object over the sea, seen from a warship's bridge.",
   eventName: 'US Navy UAP videos (FLIR1, Gimbal, GoFast)', dateISO: '2004-11-14',
   placeFull: 'Pacific Ocean southwest of San Diego (FLIR1); off the US East Coast (Gimbal, GoFast)', country: 'United States',
   lat: 31.6, lng: -118.3, coordsNote: 'Approximate. FLIR1 only: about 100 miles southwest of San Diego per CBS News. Gimbal and GoFast were off the US East Coast; AARO gives the eastern coast of Florida for GoFast.',
   cardTitle: 'The Navy UFO videos', cardLine: 'FLIR1, Gimbal and GoFast: one resolved by AARO, two still listed as unresolved.',
   cardDate: 'Nov 2004 and Jan 2015', cardPlace: 'Pacific and Atlantic', status: 'disputed',
-  lede: 'The three Navy videos are genuine military footage, and the Pentagon officially released them in April 2020. None of them is proof of an alien craft. In 2025 AARO found that GoFast showed an ordinary object at about 13,000 feet. FLIR1 and Gimbal are still listed as unresolved, and analysts argue both show distant jets.',
+  lede: 'The three Navy videos are genuine military footage, officially released in April 2020, and none is proof of an alien craft. AARO resolved GoFast in 2025, while FLIR1 and Gimbal are still listed as unresolved.',
   statusReason: 'AARO resolved GoFast as ordinary in 2025. FLIR1 and Gimbal are still listed as unresolved, and the aircrews reject the leading explanations.',
   findingSource: GOFAST,
   sheet: {
@@ -75,7 +75,8 @@ export default {
 </ul>`,
   learn: `<p><strong>Keep the numbers.</strong> GoFast was solved because the flight data stayed burned into the frame. A phone clip with its original file and metadata carries the same kind of data. Never crop, filter or re-export before you save the original. The ${a('/intel/how-to-film-a-ufo-at-night/', 'night filming file')} covers the settings.</p>
 <p><strong>Distance is the hardest judgment.</strong> Without a landmark, a slow object far away can look close and fast. Before you decide it moved impossibly, ask how you know how far away it was. The ${a('/intel/airplane-satellite-balloon-ufo-misidentification/', 'misidentification filter')} runs that check.</p>
-<p><strong>Your memory and your video are separate records.</strong> The pilots&rsquo; accounts and the clips do not cover the same minutes. Write down what you saw before you watch your own footage or anyone else&rsquo;s. The ${a('/intel/how-to-evaluate-ufo-memory/', 'memory file')} explains why the order matters.</p>`,
+<p><strong>Your memory and your video are separate records.</strong> The pilots&rsquo; accounts and the clips do not cover the same minutes. Write down what you saw before you watch your own footage or anyone else&rsquo;s. The ${a('/intel/how-to-evaluate-ufo-memory/', 'memory file')} explains why the order matters.</p>
+<p>For contrast, AARO matched <a href="/cases/jellyfish-ufo-iraq/">the Jellyfish video from Iraq</a> to a cluster of balloons, while Canada&rsquo;s <a href="/cases/shag-harbour-ufo-1967/">Shag Harbour file</a>, with its navy dive search, is still classed as unsolved.</p>`,
   ledgerLine: 'The 2020 video release and AARO&rsquo;s 2025 GoFast resolution are both official events with dates and documents.',
   fieldNote: 'GoFast was solved by the numbers on the screen. Know your job before you need a camera.',
   related: ['nimitz-tic-tac-ufo-explained', 'aaro-explained', 'nasa-uap-report-explained', 'how-to-film-a-ufo-at-night'],

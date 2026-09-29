@@ -8,9 +8,9 @@ Case files
 
 Famous UFO cases on the record.
 
-Six cases people still argue about. Each file gives the verdict first, then the summary sheet, the evidence, every explanation with its best source, and what is still open.
+Nine cases people still argue about. Each file gives the verdict first, then the summary sheet, the evidence, every explanation with its best source, and what is still open.
 
-6 case files · 4 more in the archive
+9 case files · 4 more in the archive
 
 How each case is labeled
 
@@ -30,7 +30,7 @@ No explanation fits the record yet. The label says nobody has shown what it was,
 
 The case files
 
-6 files: 2 explained, 3 disputed, 1 unexplained
+9 files: 2 explained, 6 disputed, 1 unexplained
 
 Also in the archive
 

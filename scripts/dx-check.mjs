@@ -38,7 +38,11 @@ const BANNED = [
   [/\b(available now|download (it )?now|get it on the app store)\b/i, 'store claim'],
   [/\b(funnel|conversion|viral loop|search intent|seo)\b/i, 'internal language'],
   [/\b(unleash\w*|elevate[sd]? (your|the|every)|seamless\w*|game-?changer|empower\w*)\b/i, 'kill-list word'],
+  [/\b(if you (search|google)(ed)?|people (search|searching) for|searchers)\b/i, 'search-speak in copy'],
 ];
+const dec = (v) => v.replace(/&amp;/g, '&').replace(/&#39;|&rsquo;|&apos;/g, "'").replace(/&quot;/g, '"');
+const seenTitle = new Map();
+const seenDesc = new Map();
 
 const pages = walk(root);
 const failures = [];
@@ -57,15 +61,22 @@ for (const file of pages) {
   const h1s = (html.match(/<h1[\s>]/g) || []).length;
 
   if (!title) f.push('no title');
-  else if (title.replace(/&amp;/g, '&').length > 65) f.push(`title ${title.length} chars`);
+  else if (dec(title).length > 60) f.push(`title ${dec(title).length} chars (max 60)`);
   if (!is404) {
-    if (desc.length < 110 || desc.length > 170) f.push(`description ${desc.length} chars`);
+    if (dec(desc).length < 110 || dec(desc).length > 160) f.push(`description ${dec(desc).length} chars (110 to 160)`);
+    if (!/noindex/.test((html.match(/<meta name="robots" content="([^"]*)"/) || [])[1] || '')) {
+      if (seenTitle.has(title)) f.push(`duplicate title with ${seenTitle.get(title)}`); else seenTitle.set(title, path);
+      if (seenDesc.has(desc)) f.push(`duplicate description with ${seenDesc.get(desc)}`); else seenDesc.set(desc, path);
+    }
+    const lede = (html.match(/<p class="lede">([\s\S]*?)<\/p>/) || [])[1];
+    if (lede && strip(lede).trim() === strip(desc).trim()) f.push('lede repeats the meta description');
     const want = path === '/' ? HOST + '/' : HOST + path;
     if (canon !== want) f.push(`canonical "${canon}" want "${want}"`);
     if (!og) f.push('no og:image');
     else {
       const local = og.replace(HOST, '').replace(/^https:\/\/getdisclosure\.app/, '');
       if (!existsSync(join(root, decodeURIComponent(local)))) f.push(`og:image missing on disk ${local}`);
+      if (/\.webp$/i.test(local)) f.push('og:image is WebP (use a 1200x630 JPG)');
     }
   }
   if (h1s !== 1) f.push(`${h1s} h1`);
@@ -98,7 +109,7 @@ for (const file of pages) {
 
   for (const m of html.matchAll(/href="(\/[^"#?]*)(#[^"]*)?"/g)) {
     const href = m[1];
-    if (/\.(png|jpe?g|webp|svg|ico|xml|txt|webmanifest|css|js|pdf)$/.test(href)) { if (!existsSync(join(root, href))) f.push(`missing file ${href}`); continue; }
+    if (/\.(png|jpe?g|webp|svg|ico|xml|txt|webmanifest|css|js|pdf|json|csv)$/.test(href)) { if (!existsSync(join(root, href))) f.push(`missing file ${href}`); continue; }
     const target = href.endsWith('/') ? join(root, href, 'index.html') : null;
     if (!target) { f.push(`link without trailing slash ${href}`); continue; }
     if (!existsSync(target)) f.push(`broken link ${href}`);

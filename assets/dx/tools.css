@@ -42,7 +42,16 @@
 .rp-form { --tilt: -0.3deg; color-scheme: light; }
 .rp-form .paper-head { margin-bottom: var(--space-4); }
 .rp-mini { display: none; margin: 0 0 var(--space-5); font-family: var(--mono); font-size: var(--step--1); font-weight: 700; }
+.rp-mini p { margin: 0; }
 .rp-mini a { display: inline-flex; align-items: center; min-height: 24px; }
+.rp-mini-hint { font-family: var(--body); font-weight: 500; color: var(--toner-dim); line-height: 1.35; }
+.rp-import { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3) var(--space-4); margin: 0 0 var(--space-5); padding: var(--space-3) var(--space-4); border: 2px solid var(--toner); background: rgba(255, 255, 255, 0.3); }
+.rp-import:focus { outline: 2px solid var(--toner); outline-offset: 3px; }
+.rp-import p { margin: 0; max-width: 60ch; font-size: var(--step--1); line-height: 1.45; }
+.rp-old { margin: 0 0 var(--space-5); font-size: var(--step--1); color: var(--toner-dim); }
+.rp-err { margin: 0; font-size: var(--step--1); font-weight: 700; color: var(--stamp); }
+.rp-err:empty { display: none; }
+.rp-form [aria-invalid="true"] { border-bottom-color: var(--stamp); box-shadow: inset 0 -2px 0 var(--stamp); }
 .rp-intro { margin: 0 0 var(--space-5); max-width: 58ch; color: var(--toner-dim); font-size: var(--step--1); }
 
 .rp-form fieldset { border: 0; margin: 0; padding: var(--space-5) 0 var(--space-6); border-top: 2px solid var(--toner); min-width: 0; }
@@ -88,11 +97,11 @@
 .rp-compass { display: grid; grid-template-columns: repeat(3, 48px); grid-auto-rows: 48px; gap: 6px; margin-top: 4px; }
 .cp { position: relative; display: block; cursor: pointer; }
 .cp input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
-.cp span {
+.cp > span {
   display: grid; place-items: center; width: 100%; height: 100%; border: 2px solid var(--toner); border-radius: var(--radius);
   font-family: var(--mono); font-weight: 700; font-size: var(--step--1); color: var(--toner); background: rgba(255, 255, 255, 0.2);
 }
-.cp-c span { font-size: 0.62rem; letter-spacing: 0.02em; text-align: center; line-height: 1.1; }
+.cp-c > span { font-size: 0.62rem; letter-spacing: 0.02em; text-align: center; line-height: 1.1; }
 .cp input:checked + span { background: var(--toner); color: var(--paper); }
 .cp:hover span { background: rgba(18, 20, 18, 0.12); }
 .cp:hover input:checked + span { background: var(--toner); }
@@ -117,6 +126,7 @@
 .rp-hints li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-3); padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: var(--step--1); line-height: 1.45; color: var(--bone); }
 .rp-hints li b { font-family: var(--mono); font-weight: 700; color: var(--bone-dim); white-space: nowrap; }
 .rp-hints li.done { color: var(--bone-dim); grid-template-columns: 1fr; }
+.rp-hints li.key { grid-template-columns: 1fr; color: var(--bone); font-weight: 650; }
 .rp-parts { list-style: none; margin: var(--space-4) 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px var(--space-4); }
 .rp-parts li { display: grid; grid-template-columns: minmax(0, 1fr) auto; white-space: nowrap; gap: var(--space-3); font-size: var(--step--2); font-family: var(--mono); letter-spacing: 0.04em; color: var(--bone-faint); text-transform: uppercase; }
 .rp-parts li span:last-child { text-align: right; color: var(--bone-dim); }
@@ -124,14 +134,21 @@
 @media (max-width: 960px) {
   .rp-grid { grid-template-columns: 1fr; gap: var(--space-6); }
   .rp-meter { position: static; }
-  .rp-mini { display: block; }
+  /* the score line rides under the nav while the form scrolls, with the next thing to add */
+  .rp-mini {
+    display: block; position: sticky; top: var(--nav-h); z-index: 5;
+    margin: 0 calc(clamp(1.25rem, 0.8rem + 2.5vw, 3rem) * -1) var(--space-5); padding: 8px clamp(1.25rem, 0.8rem + 2.5vw, 3rem);
+    background: var(--paper); border-bottom: 2px solid var(--toner); box-shadow: 0 6px 12px -8px rgba(0, 0, 0, 0.5);
+  }
   .rp-form { --tilt: 0deg; margin-inline: calc(var(--gutter) * -0.4); }
+  html:has(#rp-form) { scroll-padding-top: calc(var(--nav-h) + 130px); }
 }
 
 /* ---------- the output ---------- */
 .rp-out-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--space-7); align-items: start; }
 .rp-out-side p { color: var(--bone-dim); max-width: 40ch; }
 .rp-actions { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); margin-top: var(--space-5); }
+.rp-keep { color: var(--bone-faint); font-size: var(--step--1); max-width: 40ch; margin-top: var(--space-3); }
 .rp-status { min-height: 1.5em; font-family: var(--mono); font-size: var(--step--1); color: var(--bone); margin-top: var(--space-4); }
 .rp-sheet { border: 1px solid var(--rule-strong); background: var(--void-0); padding: clamp(1rem, 0.6rem + 2vw, 2.2rem); font-size: var(--step--1); line-height: 1.55; overflow-wrap: anywhere; }
 .rp-sheet .rs-head { display: flex; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; align-items: baseline; padding-bottom: var(--space-3); border-bottom: 2px solid var(--bone); margin-bottom: var(--space-4); }
@@ -150,6 +167,14 @@
 @media (max-width: 520px) { .rp-sheet dl { grid-template-columns: 1fr; gap: 0; } .rp-sheet dd { margin-bottom: 6px; } }
 
 /* where to send it */
+.rp-route { margin: 0 0 var(--space-6); padding: var(--space-4) var(--space-5); border: 1px solid var(--rule-strong); border-left: 3px solid var(--signal); background: var(--void-0); max-width: 76ch; }
+.rp-route h3 { color: var(--bone-faint); margin: 0 0 var(--space-2); }
+.rp-route ul { list-style: none; margin: 0; padding: 0; }
+.rp-route li { padding: 6px 0; color: var(--bone-dim); line-height: 1.5; }
+.rp-route li + li { border-top: 1px solid var(--rule); }
+.rp-route strong { color: var(--bone); }
+.rp-route a { color: var(--bone); text-decoration-color: var(--signal); text-decoration-thickness: 1.5px; }
+.rp-route a:hover { color: var(--signal-soft); }
 .rp-send { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule-strong); }
 .rp-send li { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr) minmax(0, 2fr); gap: var(--space-5); align-items: baseline; padding: var(--space-5) 0; border-bottom: 1px solid var(--rule); }
 .rp-send h3 { font-size: var(--step-1); letter-spacing: -0.01em; }
@@ -261,7 +286,7 @@ html.motion-off .rp-bar i, html.motion-off .dk-fill, html.motion-off .dk-mark { 
   @page { margin: 14mm 14mm 16mm; }
   :root { color-scheme: light; }
   html, body { background: #fff !important; color: #000 !important; }
-  body::after, .skip-link, .dx-nav, .dx-sheet, .dx-scrim, .dx-foot, .strip, .page-head, .ask, main > section:not(.rp-out), .rp-out-side, .tl-sh { display: none !important; }
+  body::after, .skip-link, .dx-nav, .dx-sheet, .dx-scrim, .dx-foot, .strip, .page-head, .ask, main > section:not(.rp-out), .rp-out-side, .tl-sh, .rp-route { display: none !important; }
   main > section.rp-out { padding: 0 !important; border: 0 !important; }
   .rp-out .wrap { padding: 0; max-width: none; }
   .rp-out-grid { display: block; }

@@ -1,0 +1,89 @@
+# Tell Bing which pages changed, after every production deploy.
+# The script and its reasoning: scripts/indexnow.mjs.
+#
+# Vercel reports each deployment back to GitHub as a deployment status. This
+# runs when a production deployment succeeds, so the live sitemap it reads is
+# the one that just shipped. Vercel names the environment "Production", or
+# "Production" followed by the project name when one repo feeds several
+# projects, so the check is startsWith, and previews never match.
+#
+# The state file that remembers the previous run is kept as a workflow
+# artifact: each run downloads the newest one (dry runs upload nothing) and
+# uploads its own. (The Actions cache cannot be used: it refuses to save on
+# deployment_status events, which are not tied to a branch or tag ref, so
+# every deploy resent the whole sitemap until 2026-09-28.) Artifacts expire
+# after 90 days, and a lost state file means the next run resends every URL,
+# so a twice-weekly run keeps a fresh copy. That run sends only what changed,
+# which between deploys is normally nothing.
+name: IndexNow
+
+on:
+  deployment_status:
+  schedule:
+    - cron: '23 10 * * 1,4'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Show what would be sent, send nothing
+        type: boolean
+        default: false
+      all:
+        description: Send every sitemap URL, not only the changed ones (use rarely)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'schedule' ||
+      (github.event.deployment_status.state == 'success' &&
+       startsWith(github.event.deployment.environment, 'Production'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/indexnow.mjs
+            735194b4bbbc54d8e7d7246b3eda3961.txt
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Restore the previous run's state
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          prev=$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=indexnow-state&per_page=1" --jq '.artifacts[0].workflow_run.id // empty')
+          if [ -n "$prev" ] && gh run download "$prev" --repo "$GITHUB_REPOSITORY" --name indexnow-state --dir .; then
+            echo "state restored from run $prev"
+          else
+            echo "no previous state artifact; this run sends every URL once"
+          fi
+
+      - name: Submit changed URLs
+        run: >-
+          node scripts/indexnow.mjs --state=.indexnow-state.json
+          ${{ inputs.dry_run && '--dry-run' || '' }}
+          ${{ inputs.all && '--all' || '' }}
+
+      - name: Keep this run's state for the next run
+        if: success() && !inputs.dry_run
+        uses: actions/upload-artifact@v4
+        with:
+          name: indexnow-state
+          path: .indexnow-state.json
+          include-hidden-files: true
+          retention-days: 90
+          if-no-files-found: error

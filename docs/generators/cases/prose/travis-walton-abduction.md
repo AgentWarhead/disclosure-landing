@@ -10,7 +10,7 @@ Travis Walton
 
 The Travis Walton abduction story
 
-Travis Walton says a craft took him from an Arizona forest on 5 November 1975 and that he woke aboard it. He was missing for about five days. Six co-workers say they saw a beam strike him. No physical evidence was ever produced, and the polygraph record cuts both ways. No official body issued a finding.
+No official body ever issued a finding on Travis Walton’s claim that a craft took him from an Arizona forest on 5 November 1975. He was missing about five days, no physical evidence was produced, and the polygraph record cuts both ways.
 
 Case 005Nov 1975Heber, ArizonaDisputed
 
@@ -109,6 +109,8 @@ A test is not a witness. This case has more polygraphs than evidence. A clean re
 Write it down before anyone pays for it. Walton’s account was shaped by interviews, a newspaper deal, a book and a film. Your first written notes are the version nobody else touched. The memory file shows how to separate what you saw from what you added later.
 
 Lost time needs care, not a story. If you or someone near you loses track of hours after a strange event, get safe, write down the gap, and talk to someone you trust. The missing time file covers the first steps.
+
+Walton’s story came fourteen years after the Betty and Barney Hill case, which also turns on missing time. Compare the Ariel School case, where about sixty children reported a craft and a small figure and no trace was found, and the Shag Harbour incident, which Canada’s National Defence classed as unsolved.
 
 Where this sits on the record
 

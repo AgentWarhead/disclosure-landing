@@ -17,14 +17,14 @@ export default {
   crumb: 'Travis Walton',
   title: 'Travis Walton Abduction Story: The Case File',
   h1: 'The Travis Walton abduction story',
-  desc: 'The Travis Walton abduction story, checked: the 1975 Arizona claim, the crew, every polygraph and why each is disputed, the film, and what the record shows.',
-  ogDesc: 'A forest crew, a man missing for five days, and fifty years of polygraphs that never settled it.',
+  desc: 'No official body ruled on Travis Walton’s 1975 abduction claim. The crew, every polygraph and why each is disputed, the film, and what the record shows.',
+  og: '/og/share/missing-time-ufo.jpg', ogAlt: "A bedside clock and an open notebook by a window, with a streak of light outside.",
   eventName: 'Travis Walton abduction claim', dateISO: '1975-11-05',
   placeFull: 'Apache-Sitgreaves National Forest near Heber, Arizona', country: 'United States',
   lat: 34.43, lng: -110.59, coordsNote: 'Approximate: the town of Heber, Arizona. The Turkey Springs work site was in the forest nearby.',
   cardTitle: 'The Travis Walton abduction', cardLine: 'Five days missing, six co-workers, and polygraphs on both sides.',
   cardDate: 'Nov 1975', cardPlace: 'Heber, Arizona', status: 'disputed',
-  lede: 'Travis Walton says a craft took him from an Arizona forest on 5 November 1975 and that he woke aboard it. He was missing for about five days. Six co-workers say they saw a beam strike him. No physical evidence was ever produced, and the polygraph record cuts both ways. No official body issued a finding.',
+  lede: 'No official body ever issued a finding on Travis Walton’s claim that a craft took him from an Arizona forest on 5 November 1975. He was missing about five days, no physical evidence was produced, and the polygraph record cuts both ways.',
   statusReason: 'Walton and his crew stood by the account for decades. A skeptic argued it was a hoax to escape a work contract, and the lie-detector results conflict.',
   findingSource: null,
   sheet: {
@@ -66,7 +66,8 @@ export default {
 </ul>`,
   learn: `<p><strong>A test is not a witness.</strong> This case has more polygraphs than evidence. A clean record needs things that can be checked: times, places, photos, and statements written down the same night.</p>
 <p><strong>Write it down before anyone pays for it.</strong> Walton&rsquo;s account was shaped by interviews, a newspaper deal, a book and a film. Your first written notes are the version nobody else touched. The ${a('/intel/how-to-evaluate-ufo-memory/', 'memory file')} shows how to separate what you saw from what you added later.</p>
-<p><strong>Lost time needs care, not a story.</strong> If you or someone near you loses track of hours after a strange event, get safe, write down the gap, and talk to someone you trust. The ${a('/intel/missing-time-after-ufo-sighting/', 'missing time file')} covers the first steps.</p>`,
+<p><strong>Lost time needs care, not a story.</strong> If you or someone near you loses track of hours after a strange event, get safe, write down the gap, and talk to someone you trust. The ${a('/intel/missing-time-after-ufo-sighting/', 'missing time file')} covers the first steps.</p>
+<p>Walton&rsquo;s story came fourteen years after <a href="/cases/betty-and-barney-hill/">the Betty and Barney Hill case</a>, which also turns on missing time. Compare <a href="/cases/ariel-school-ufo-1994/">the Ariel School case</a>, where about sixty children reported a craft and a small figure and no trace was found, and <a href="/cases/shag-harbour-ufo-1967/">the Shag Harbour incident</a>, which Canada&rsquo;s National Defence classed as unsolved.</p>`,
   ledgerLine: 'This case has no official finding. The ledger tracks what government bodies have actually said about UAP.',
   fieldNote: 'Polygraphs split this case for fifty years. Notes written the same night would not have.',
   related: ['missing-time-after-ufo-sighting', 'how-to-evaluate-ufo-memory', 'sleep-paralysis-vs-alien-abduction', 'close-encounter-types-explained'],

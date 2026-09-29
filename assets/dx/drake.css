@@ -1,0 +1,63 @@
+/* Drake calculator additions (/tools/drake/): field errors, link notice, neighbour line,
+   share card buttons, the sticky N bar on small screens, and the uncertainty model. */
+
+/* ---------- field messages ---------- */
+.dk-err { margin: var(--space-2) 0 0; min-height: 0; font-family: var(--mono); font-size: var(--step--1); line-height: 1.45; color: var(--bone-dim); }
+.dk-err:empty { display: none; }
+.dk-err.is-error { color: #ffb4a8; }
+.dk-num[aria-invalid="true"] { border-color: #ffb4a8; box-shadow: 0 0 0 1px #ffb4a8; }
+
+/* ---------- shared-link notice ---------- */
+.dk-notice { margin: 0 0 var(--space-6); padding: var(--space-4) var(--space-5); border: 1px solid var(--rule-strong); border-left: 3px solid #f2b33d; background: var(--void-0); color: var(--bone); max-width: 72ch; }
+.dk-notice[hidden] { display: none; }
+
+/* ---------- result additions ---------- */
+.dk-result.is-pending .dk-n { color: var(--bone-faint); text-shadow: none; }
+.dk-near { margin: 0 0 var(--space-4); color: var(--bone-dim); font-size: var(--step--1); line-height: 1.55; }
+.dk-model { display: inline-block; font-family: var(--mono); font-weight: 700; font-size: var(--step--2); letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone); border: 1px solid var(--rule-strong); padding: 1px 6px; margin-right: 6px; vertical-align: 1px; }
+.dk-share-btns { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.dk-share-btns .btn { min-height: 44px; }
+.dk-share-note { margin: var(--space-3) 0 0; color: var(--bone-faint); font-size: var(--step--1); line-height: 1.5; }
+
+/* ---------- sticky N bar: small screens only, shown while the sliders are on screen ---------- */
+.dk-mini { display: none; }
+@media (max-width: 960px) {
+  html { scroll-padding-bottom: 88px; }
+  .dk-mini {
+    display: flex; align-items: baseline; gap: var(--space-3);
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+    padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+    background: var(--void-0); border-top: 1px solid var(--rule-strong); box-shadow: 0 -12px 24px rgba(0, 0, 0, 0.6);
+    transform: translateY(110%); transition: transform 200ms var(--ease-out);
+    pointer-events: none;
+  }
+  .dk-mini.is-on { transform: none; }
+  .dk-mini-l { font-family: var(--mono); font-weight: 700; font-size: var(--step--1); color: var(--bone-faint); }
+  .dk-mini-n { font-family: var(--poster); font-weight: 900; font-size: var(--step-2); letter-spacing: -0.03em; color: var(--signal); font-variant-numeric: tabular-nums; }
+  .dk-mini-p { margin-left: auto; font-family: var(--mono); font-size: var(--step--2); letter-spacing: 0.08em; text-transform: uppercase; color: var(--bone-dim); }
+}
+@media (prefers-reduced-motion: reduce) { .dk-mini { transition: none; } }
+html.motion-off .dk-mini { transition: none; }
+
+/* ---------- uncertainty ---------- */
+.dk-unc { border-top: 1px solid var(--rule); }
+.dk-unc-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-7); align-items: start; }
+.dk-unc-copy p { max-width: 62ch; }
+.dk-unc-copy a, .dk-more a, .dk-mc a { color: var(--bone); text-decoration-color: var(--signal); text-decoration-thickness: 1.5px; }
+.dk-unc-copy a:hover, .dk-more a:hover { color: var(--signal-soft); }
+.dk-mc { border: 1px solid var(--rule-strong); background: var(--void-0); padding: var(--space-5); }
+.dk-mc .label { color: var(--bone-faint); margin: 0 0 var(--space-3); }
+.dk-mc-how { color: var(--bone-dim); font-size: var(--step--1); line-height: 1.55; margin: 0 0 var(--space-4); }
+.dk-mc-out { font-size: var(--step-1); line-height: 1.4; color: var(--bone); margin: 0 0 var(--space-4); }
+.dk-mc-tag { color: var(--bone-faint); font-size: var(--step--1); line-height: 1.5; margin: 0; border-top: 1px solid var(--rule); padding-top: var(--space-3); }
+@media (max-width: 960px) { .dk-unc-grid { grid-template-columns: 1fr; gap: var(--space-6); } }
+
+/* ---------- Kardashev answer + onward links ---------- */
+.dk-kard-answer { max-width: 60ch; margin: 0 0 var(--space-4); }
+.dk-more { margin: var(--space-5) 0 0; color: var(--bone-dim); }
+.dk-more a { display: inline-block; min-height: 24px; }
+
+@media (forced-colors: active) {
+  .dk-mini, .dk-mc, .dk-notice { border: 1px solid CanvasText; }
+}
+@media print { .dk-mini { display: none !important; } }

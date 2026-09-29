@@ -10,7 +10,7 @@ The Jellyfish UFO
 
 The Jellyfish UFO video explained
 
-The Jellyfish video was filmed over Al Taqaddum Air Base in Iraq in October 2017 and leaked in January 2024. In September 2025 the Pentagon’s UAP office, AARO, concluded with high confidence that it shows a cluster of balloons drifting with the wind. The claim that it went into the water is not shown in the full video.
+AARO concluded with high confidence that the Jellyfish video, filmed over Al Taqaddum Air Base in Iraq in October 2017 and leaked in January 2024, shows a cluster of balloons drifting with the wind. The full video does not show it entering water.
 
 Case 002Oct 2017Al Taqaddum, IraqExplained
 
@@ -97,6 +97,8 @@ A leak is not the whole record. The clip that went viral was a slice. The full 1
 Cameras change the picture. Thermal and night modes readjust brightness on their own, so a target can seem to glow, fade or flip colour. Note your camera settings with your clip. The night filming file covers the settings that matter.
 
 Balloons fool trained people. They drift, tumble and hang strings that look like limbs. The misidentification filter starts with the wind.
+
+The same office found that GoFast, one of the Navy’s Gimbal, GoFast and FLIR videos, showed an ordinary object, and federal agencies matched most of the 2024 New Jersey drone reports to drones, aircraft and stars.
 
 Where this sits on the record
 
