@@ -151,7 +151,7 @@ How often each role comes up is not measured, so no role percentages are publish
 
 ## Planned app features
 
-The app is in development and details may change. The planned features are: the classification and a six-second video of your iris; a First Contact Card that grows with every drill; Crew (roles across a household or friend group, with crew drills); Don't Flinch (holding still through sudden sound and light while the front camera films you); the Open Hand (an open-palm sign and slow gestures checked by on-device hand tracking); Message to the Stars (a personal message built like the 1974 Arecibo message); Tonight's Sky (what is overhead from your town each night); verdict alerts on new UFO file releases; Incident Reports; a Field Card widget; Mental Fortitude (breathing paced by haptics); and an Offline Kit.
+The app is in development and details may change. It launches with five features, free to start: the classification with a six-second video of your iris; a First Contact Card that grows with every drill; Don't Flinch (holding still through sudden sound and light while the front camera films you, with optional haptic-paced breathing first); the Open Hand (an open-palm sign checked by on-device hand tracking); and Crew (roles across a household or friend group, with crew drills). Planned after launch: Message to the Stars (a personal message built like the 1974 Arecibo message) and Tonight's Sky. The sky identifier and the sighting report live on this website.
 
 ## Core pages
 

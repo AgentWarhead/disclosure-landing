@@ -91,6 +91,7 @@
 - **North star metric:** Quiz completions per day
 
 ## App features (approved 2026-09-29, disclosure-app/docs/FEATURE-AUDIT.md)
-Free core: the Classification (with the iris video), the First Contact Card (grows with every drill), Crew, Don't Flinch.
-Depth: the Open Hand (on-device hand tracking), Message to the Stars (an Arecibo-style personal message), crew drills, Tonight's Sky, verdict alerts, Incident Reports (redactable), the Field Card widget, Mental Fortitude (haptic breathing), the Offline Kit.
-Cut: the Liaison's Creed, the Global Liaison Map, Blackout Mode as "emergency transmission". No Wallet claim until a Wallet pass exists.
+Launch (five, free to start): the Classification (with the iris video), the First Contact Card (grows with every drill), Don't Flinch (with optional haptic breathing first), the Open Hand, Crew.
+Paid layer: Don't Flinch's full drill library and multi-phone crew drills (price is Brett's call).
+After launch: Message to the Stars, Tonight's Sky. Website only: the sky identifier, the sighting report, verdicts (the ledger).
+Cut: the Liaison's Creed, the Global Liaison Map, Blackout Mode, the Offline Kit, the Field Card widget. No Wallet claim until a Wallet pass exists.
