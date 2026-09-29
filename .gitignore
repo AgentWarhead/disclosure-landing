@@ -1,7 +1,7 @@
-deploy.sh
 
 .env
 .env.*
 .env.local
-
 artifacts/
+deploy.sh
+node_modules/

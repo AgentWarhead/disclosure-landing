@@ -1,7 +1,9 @@
-// POST /api/send-card  {email, archetype, serial}
+// POST /api/send-card  {email, archetype, serial, salt?, answers?, issued?}
+// With salt, answers and issued the email carries the rendered card (api/card.js) and links to /card/<token>/.
 // Sends the First Contact Card email through Resend (env RESEND_KEY, read at call time).
 // Responses: {ok:true} or {ok:false, error}. Upstream errors and the key never reach the caller or the log.
 const crypto = require("crypto");
+const IR = require("../assets/dx/iris.js");
 
 const SITE = "https://www.getdisclosure.app";
 const FROM_EMAIL = "DISCLOSURE <team@getdisclosure.app>";
@@ -130,27 +132,54 @@ function validEmail(v) {
   return EMAIL_RE.test(v);
 }
 
-function links(key) {
+function links(key, token) {
   const r = ROLES[key];
+  const card = token ? SITE + "/card/" + encodeURIComponent(token) + "/" : "";
+  const shareUrl = card || SITE + "/";
   return {
     home: SITE + "/",
+    card,
+    image: token ? SITE + "/api/card/?f=" + encodeURIComponent(token) + "&kind=card&fmt=jpg" : "",
     dossier: SITE + "/archetype/" + encodeURIComponent(key) + "/",
-    share: SITE + "/?share=x&text=" + encodeURIComponent(r.share + " " + SITE + "/"),
+    share: "https://x.com/intent/post?text=" + encodeURIComponent(r.share) + "&url=" + encodeURIComponent(shareUrl),
   };
 }
 
-/* ---------- the email ---------- */
+/* ---------- the email ----------
+   The site's own furniture: the black banner marking, the wordmark, one role-coloured keyline,
+   the card itself as the centrepiece, and the first minute on a paper slip. */
 const SANS = "'Public Sans',Arial,Helvetica,sans-serif";
 const MONO = "'Space Mono','Courier New',Courier,monospace";
-const C = { void: "#030504", panel: "#070b09", rule: "#1d2722", bone: "#d8dfda", dim: "#a3aea7", faint: "#7d8983", signal: "#4af626", ink: "#031002" };
+const C = {
+  black: "#000000", void: "#030504", panel: "#070b09", rule: "#1d2722", bone: "#d8dfda", dim: "#a3aea7", faint: "#7d8983",
+  signal: "#4af626", ink: "#031002", paper: "#c9ccc3", paperEdge: "#a9ada3", toner: "#121412", tonerDim: "#3b403b",
+};
+const ROLE_COLOR = { sentinel: "#ef4444", diplomat: "#22c55e", scholar: "#60a5fa", survivor: "#f97316", "first-contact": "#ffd700" };
 
-function buildHtml(key, serial) {
+function buildHtml(key, serial, token, issued) {
   const r = ROLES[key];
-  const u = links(key);
+  const u = links(key, token);
   const sealed = key === "first-contact";
-  const label = (t, color) => `<p style="margin:0 0 10px;font-family:${MONO};font-size:12px;line-height:1.4;letter-spacing:2px;text-transform:uppercase;color:${color || C.faint};">${t}</p>`;
-  const row = (k, v) => `<tr><td style="padding:12px 0;border-top:1px solid ${C.rule};font-family:${MONO};font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:${C.faint};">${k}</td><td align="right" style="padding:12px 0;border-top:1px solid ${C.rule};font-family:${MONO};font-size:13px;letter-spacing:1px;color:${C.bone};">${v}</td></tr>`;
+  const accent = ROLE_COLOR[key];
+  const label = (t, color, extra) => `<p style="margin:0 0 10px;font-family:${MONO};font-size:12px;line-height:1.4;letter-spacing:2px;text-transform:uppercase;color:${color || C.faint};${extra || ""}">${t}</p>`;
+  const row = (k, v) => `<tr><td style="padding:11px 0;border-top:1px solid ${C.rule};font-family:${MONO};font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:${C.faint};">${k}</td><td align="right" style="padding:11px 0;border-top:1px solid ${C.rule};font-family:${MONO};font-size:13px;letter-spacing:1px;color:${C.bone};">${v}</td></tr>`;
+  const button = (href, text) => `<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td style="background:${C.signal};border-radius:2px;"><a href="${esc(href)}" style="display:inline-block;padding:15px 26px;font-family:${SANS};font-size:16px;font-weight:800;color:${C.ink};text-decoration:none;">${text} &rarr;</a></td></tr></table>`;
   const address = MAILING_ADDRESS ? `<p style="margin:0 0 8px;">${esc(MAILING_ADDRESS)}</p>` : "";
+  const cardAlt = `First Contact Card for ${r.name}, serial ${serial}, with an iris print grown from your ten answers.`;
+
+  const cardBlock = token ? `
+<tr><td style="padding:30px 0 6px;" align="center">
+  <a href="${esc(u.card)}" style="color:${C.bone};text-decoration:none;display:block;"><img src="${esc(u.image)}" width="440" alt="${esc(cardAlt)}" style="display:block;width:100%;max-width:440px;height:auto;border:1px solid ${C.rule};background:${C.void};color:${C.bone};font-family:${SANS};font-size:15px;line-height:1.5;"></a>
+  <p style="margin:12px 0 0;font-family:${MONO};font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:${C.faint};">Iris print ${esc(serial)}. No two sets of answers grow the same eye.</p>
+</td></tr>
+<tr><td style="padding:22px 0 4px;" align="center">
+  ${button(u.card, "Open your card")}
+  <p style="margin:14px 0 0;font-family:${SANS};font-size:14px;line-height:1.5;color:${C.dim};">Save it as an image or share the link. It unfurls with your eye.</p>
+</td></tr>` : "";
+
+  const ctaBlock = token
+    ? `<p style="margin:0;font-family:${MONO};font-size:13px;letter-spacing:1px;"><a href="${esc(u.dossier)}" style="color:${C.bone};text-decoration:underline;">${esc(r.dossierLabel)}</a> <span style="color:${C.faint};">&middot;</span> <a href="${esc(u.share)}" style="color:${C.bone};text-decoration:underline;">Share on X</a></p>`
+    : `${button(u.dossier, esc(r.dossierLabel))}<p style="margin:18px 0 0;font-family:${MONO};font-size:13px;letter-spacing:1px;"><a href="${esc(u.share)}" style="color:${C.bone};text-decoration:underline;">Share your role on X</a></p>`;
 
   return `<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><meta name="supported-color-schemes" content="dark">
@@ -159,47 +188,47 @@ function buildHtml(key, serial) {
 </head>
 <body style="margin:0;padding:0;background:${C.void};color:${C.bone};font-family:${SANS};font-size:16px;line-height:1.6;">
 <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">${esc(r.line)}</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${C.void};"><tr><td align="center" style="padding:28px 16px 40px;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:580px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${C.void};">
+<tr><td align="center" style="background:${C.black};border-bottom:1px solid ${C.rule};padding:7px 16px;font-family:${MONO};font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:${C.signal};">Unclassified &middot; Civilian copy</td></tr>
+<tr><td align="center" style="padding:26px 16px 40px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;">
 
 <tr><td style="padding:0 0 18px;border-bottom:1px solid ${C.rule};">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-    <td style="font-family:${SANS};font-size:15px;font-weight:900;letter-spacing:6px;color:${C.bone};"><a href="${u.home}" style="color:${C.bone};text-decoration:none;">DISCLOSURE</a></td>
-    <td align="right" style="font-family:${MONO};font-size:12px;letter-spacing:1.5px;color:${C.faint};">SERIAL ${esc(serial)}</td>
+    <td valign="middle"><a href="${u.home}" style="color:${C.bone};text-decoration:none;font-family:${SANS};font-size:16px;font-weight:900;letter-spacing:6px;"><img src="${SITE}/assets/brand/disclosure-wordmark.png" width="170" height="34" alt="DISCLOSURE" style="display:block;border:0;color:${C.bone};font-family:${SANS};font-size:16px;font-weight:900;letter-spacing:6px;"></a></td>
+    <td align="right" valign="middle" style="font-family:${MONO};font-size:12px;letter-spacing:1.5px;color:${C.faint};">FILE ${esc(serial)}</td>
   </tr></table>
 </td></tr>
 
-<tr><td style="padding:40px 0 8px;">
+<tr><td style="padding:34px 0 0;">
   ${label(sealed ? "First Contact Card &middot; Designation not issued" : "First Contact Card &middot; Designation issued")}
-  <h1 style="margin:0;font-family:${SANS};font-size:46px;line-height:1.02;font-weight:800;letter-spacing:-1px;color:${C.bone};">${esc(r.name)}</h1>
-  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:18px 0 14px;"><tr><td style="width:56px;height:2px;background:${C.signal};font-size:0;line-height:0;">&nbsp;</td></tr></table>
-  <p style="margin:0 0 18px;font-family:${MONO};font-size:13px;letter-spacing:2px;text-transform:uppercase;color:${C.dim};">${esc(r.role)}</p>
-  <p style="margin:0;font-family:${SANS};font-size:21px;line-height:1.45;font-weight:400;color:${C.bone};">${esc(r.line)}</p>
+  <h1 style="margin:0;font-family:${SANS};font-size:44px;line-height:1.02;font-weight:900;letter-spacing:-1px;color:${C.bone};">${esc(r.name)}</h1>
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:16px 0 12px;"><tr><td style="width:56px;height:3px;background:${accent};font-size:0;line-height:0;">&nbsp;</td></tr></table>
+  <p style="margin:0 0 14px;font-family:${MONO};font-size:13px;letter-spacing:2px;text-transform:uppercase;color:${C.dim};">${esc(r.role)}</p>
+  <p style="margin:0;font-family:${SANS};font-size:20px;line-height:1.45;color:${C.bone};">${esc(r.line)}</p>
 </td></tr>
-
-<tr><td style="padding:28px 0 8px;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${C.panel};border:1px solid ${C.rule};"><tr><td style="padding:22px 22px 20px;">
-    ${label(sealed ? "The record" : "The first minute")}
-    <p style="margin:0;font-family:${SANS};font-size:17px;line-height:1.6;color:${C.bone};">${esc(r.first)}</p>
+${cardBlock}
+<tr><td style="padding:30px 0 6px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${C.paper};border:1px solid ${C.paperEdge};"><tr><td style="padding:20px 22px 20px;border-left:4px solid ${accent};">
+    ${label(sealed ? "The record" : "The first minute", C.tonerDim)}
+    <p style="margin:0;font-family:${SANS};font-size:17px;line-height:1.6;color:${C.toner};">${esc(r.first)}</p>
   </td></tr></table>
 </td></tr>
 
-<tr><td style="padding:20px 0 4px;">
+<tr><td style="padding:18px 0 4px;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
     ${row("Serial", esc(serial))}
     ${row("Designation", esc(r.name))}
+    ${issued ? row("Issued", esc(issued)) : ""}
     ${row("App status", "In development")}
   </table>
 </td></tr>
 
-<tr><td style="padding:26px 0 8px;">
-  <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td style="background:${C.signal};border-radius:2px;">
-    <a href="${esc(u.dossier)}" style="display:inline-block;padding:15px 24px;font-family:${SANS};font-size:16px;font-weight:800;color:${C.ink};text-decoration:none;">${esc(r.dossierLabel)} &rarr;</a>
-  </td></tr></table>
-  <p style="margin:18px 0 0;font-family:${MONO};font-size:13px;letter-spacing:1px;"><a href="${esc(u.share)}" style="color:${C.bone};text-decoration:underline;">Share your role on X</a></p>
+<tr><td style="padding:24px 0 6px;">
+  ${ctaBlock}
 </td></tr>
 
-<tr><td style="padding:30px 0 30px;">
+<tr><td style="padding:28px 0 30px;">
   ${label("What happens next")}
   <p style="margin:0;font-family:${SANS};font-size:16px;line-height:1.6;color:${C.dim};">DISCLOSURE is an app in development for iOS and Android. When it opens, this address hears first. Until then, nothing else arrives from us.</p>
 </td></tr>
@@ -214,9 +243,9 @@ function buildHtml(key, serial) {
 </body></html>`;
 }
 
-function buildText(key, serial) {
+function buildText(key, serial, token, issued) {
   const r = ROLES[key];
-  const u = links(key);
+  const u = links(key, token);
   const sealed = key === "first-contact";
   return [
     "DISCLOSURE",
@@ -227,15 +256,17 @@ function buildText(key, serial) {
     "",
     r.line,
     "",
+    ...(u.card ? ["Your card, with the iris grown from your answers: " + u.card, ""] : []),
     sealed ? "THE RECORD" : "THE FIRST MINUTE",
     r.first,
     "",
     "Serial: " + serial,
     "Designation: " + r.name,
+    ...(issued ? ["Issued: " + issued] : []),
     "App status: In development",
     "",
     r.dossierLabel + ": " + u.dossier,
-    "Share your role on X: " + u.share,
+    "Share on X: " + u.share,
     "",
     "WHAT HAPPENS NEXT",
     "DISCLOSURE is an app in development for iOS and Android. When it opens, this address hears first. Until then, nothing else arrives from us.",
@@ -247,6 +278,19 @@ function buildText(key, serial) {
     ...(MAILING_ADDRESS ? [MAILING_ADDRESS] : []),
     "Not affiliated with any government agency.",
   ].join("\n");
+}
+
+/* The card token, when the quiz sent its answers. The role comes from the answers, never from the
+   caller, so the email always matches the card it links to. Anything malformed means no card image,
+   not a failed send. */
+function cardFile(body, serial) {
+  const salt = typeof body.salt === "string" ? body.salt.trim() : "";
+  const answers = typeof body.answers === "string" ? body.answers.trim() : "";
+  const issued = typeof body.issued === "string" ? body.issued.trim() : "";
+  if (!salt || !/^[0-3]{10}$/.test(answers) || !/^\d{4}-\d{2}-\d{2}$/.test(issued)) return null;
+  const token = IR.encodeToken({ salt, answers: answers.split("").map(Number), serial, issued });
+  const file = IR.decodeToken(token);
+  return file ? { token, file } : null;
 }
 
 /* ---------- handler ---------- */
@@ -285,6 +329,11 @@ async function handler(req, res) {
   if (!Object.prototype.hasOwnProperty.call(ROLES, key)) return send(res, 400, { ok: false, error: "invalid_archetype" });
   if (!SERIAL_RE.test(serial)) return send(res, 400, { ok: false, error: "invalid_serial" });
 
+  const card = cardFile(body, serial);
+  const role = card ? card.file.archetype : key;
+  const token = card ? card.token : "";
+  const issued = card ? card.file.issued : "";
+
   const ek = emailKey(email);
   const last = emailSent.get(ek);
   if (last && now - last < EMAIL_WINDOW_MS) return send(res, 429, { ok: false, error: "too_many_requests" });
@@ -308,9 +357,9 @@ async function handler(req, res) {
         from: FROM_EMAIL,
         to: [email],
         reply_to: REPLY_TO,
-        subject: ROLES[key].subject,
-        html: buildHtml(key, serial),
-        text: buildText(key, serial),
+        subject: ROLES[role].subject,
+        html: buildHtml(role, serial, token, issued),
+        text: buildText(role, serial, token, issued),
         headers: { "List-Unsubscribe": "<" + UNSUB_MAILTO + ">, <" + UNSUB_PAGE + ">" },
       }),
     });
@@ -319,7 +368,7 @@ async function handler(req, res) {
       return send(res, 502, { ok: false, error: "send_failed" });
     }
     emailSent.set(ek, now);
-    console.log("send-card: sent, role " + key);
+    console.log("send-card: sent, role " + role + (token ? ", with card" : ""));
     return send(res, 200, { ok: true });
   } catch (_) {
     console.error("send-card: upstream unreachable");
@@ -328,4 +377,4 @@ async function handler(req, res) {
 }
 
 module.exports = handler;
-module.exports._internal = { buildHtml, buildText, ROLES, validEmail, reset: () => { ipHits.clear(); emailSent.clear(); } };
+module.exports._internal = { buildHtml, buildText, cardFile, ROLES, validEmail, reset: () => { ipHits.clear(); emailSent.clear(); } };

@@ -14,8 +14,9 @@
   var SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJleGpib3picmhpanRqb21ieGttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1NzEyNTQsImV4cCI6MjA4NzE0NzI1NH0.h3TJJ599oOoKv3RA8QfELmwzvsYi1hhuxGau842P6hs';
   var STORE = 'dx-file-v2';
 
-  var ORDER = ['sentinel', 'diplomat', 'scholar', 'survivor'];
-  var COLORS = { sentinel: '#ef4444', diplomat: '#22c55e', scholar: '#60a5fa', survivor: '#f97316', 'first-contact': '#ffd700' };
+  var IR = window.DXIris;
+  if (!IR) return;
+  var ORDER = IR.ORDER, COLORS = IR.COLORS, ROLES = IR.ROLES;
 
   /* Option order is always sentinel, diplomat, scholar, survivor. The screen order is shuffled. */
   var Q = [
@@ -41,37 +42,7 @@
       ['Give names of anyone injured, missing, or still in danger first.', 'Tell the truth plainly so people understand without panicking.', 'Hand over the timeline, recordings, and what you can prove versus guess.', 'Protect your people\u2019s names and location until you know who can be trusted.']]
   ];
 
-  var ROLES = {
-    sentinel: {
-      name: 'The Sentinel', role: 'Primary protector', url: '/archetype/sentinel/',
-      line: 'You put yourself between the unknown and everyone else, and you do it before anyone asks.',
-      first: 'In the first minute you count heads, find the gap, and stand in it. Your training is restraint: holding the line without starting a fight you cannot finish.'
-    },
-    diplomat: {
-      name: 'The Diplomat', role: 'De-escalation lead', url: '/archetype/diplomat/',
-      line: 'You lower the temperature of every room you stand in, including this one.',
-      first: 'In the first minute you slow your breathing so others copy it. Your training is signal discipline: open hands, a quiet voice, and no sudden moves.'
-    },
-    scholar: {
-      name: 'The Scholar', role: 'Field analyst', url: '/archetype/scholar/',
-      line: 'While everyone else reacts, you record. Your account is the one that survives.',
-      first: 'In the first minute you note the time, the direction and the light. Your training is evidence: what you can prove, what you only saw, and the difference.'
-    },
-    survivor: {
-      name: 'The Survivor', role: 'Self-preservation specialist', url: '/archetype/survivor/',
-      line: 'You read the exit before you read the room, and your people are already moving.',
-      first: 'In the first minute you find cover and a way out. Your training is timing: knowing when leaving is the calm choice and not the panicked one.'
-    },
-    'first-contact': {
-      name: 'First Contact', role: 'Designation not issued', url: '/archetype/first-contact/',
-      line: 'This designation is not assigned. It appears. You should not be seeing this.',
-      first: 'Your answers did not fit the four. The record has no instructions for you, only a serial.'
-    }
-  };
-
-  /* ---------- tiny utils ---------- */
-  function fnv(s) { var h = 0x811c9dc5; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h; }
-  function mulberry(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  var fnv = IR.fnv, mulberry = IR.mulberry;
   function $(sel, el) { return (el || host).querySelector(sel); }
   function randId(n) {
     var abc = '0123456789ABCDEFGHJKMNPQRSTVWXYZ', out = '', buf = new Uint32Array(n);
@@ -95,18 +66,7 @@
     save();
   }
 
-  function scores(answers) {
-    var s = { sentinel: 0, diplomat: 0, scholar: 0, survivor: 0 };
-    answers.forEach(function (a, qi) { s[ORDER[a]] += 1 + qi * 0.01; }); /* later answers break ties */
-    return s;
-  }
-  function decide(answers) {
-    var seq = answers.slice(0, 4).map(function (a) { return a + 1; }).join('');
-    if (fnv('dx-watch:' + seq).toString(36) === 'q6w5g1') return 'first-contact';
-    var s = scores(answers), best = 'diplomat', top = -1;
-    ORDER.forEach(function (k) { if (s[k] > top) { top = s[k]; best = k; } });
-    return best;
-  }
+  var decide = IR.decide;
 
   /* ---------- DOM ---------- */
   var elStage = $('.cx-stage');
@@ -134,154 +94,9 @@
     canvas.width = SIZE; canvas.height = SIZE; /* resizing clears the bitmap, so the caller redraws */
     return true;
   }
-  function buildFibres() {
-    var r = mulberry(fnv('fibres:' + state.salt));
-    fibres = [];
-    var N = 1300;
-    for (var k = 0; k < N; k++) {
-      fibres.push({
-        a: (k / N) * Math.PI * 2 + (r() - 0.5) * 0.02,
-        reach: 0.78 + r() * 0.22,
-        start: r() * 0.06,
-        wob: 0.6 + r() * 1.6,
-        ph: r() * Math.PI * 2,
-        ticket: r(),
-        alpha: 0.16 + r() * 0.34,
-        w: 0.5 + r() * 1.1,
-        lit: r()
-      });
-    }
-  }
-  function mixWeights(answers) {
-    var s = scores(answers), total = 0, w = {};
-    ORDER.forEach(function (k) { total += s[k]; });
-    ORDER.forEach(function (k) { w[k] = total ? s[k] / total : 0.25; });
-    return w;
-  }
-  function colorFor(ticket, w, fc) {
-    if (fc) return ticket < 0.72 ? '#ffd700' : '#fff3b0';
-    /* the living tissue is the watcher's own green and gold; your roles tint it */
-    var BASE = ['#6fc47f', '#9cc267', '#3f8a58', '#c9b25a'];
-    var baseShare = state.answers.length ? 0.42 : 1;
-    if (ticket < baseShare) return BASE[Math.floor((ticket / baseShare) * 4) % 4];
-    var u = (ticket - baseShare) / (1 - baseShare), acc = 0, sum = 0, sq = {};
-    for (var i = 0; i < 4; i++) { sq[ORDER[i]] = Math.pow(w[ORDER[i]], 2.2); sum += sq[ORDER[i]]; }
-    for (var j = 0; j < 4; j++) { acc += sq[ORDER[j]] / sum; if (u <= acc) return MUTED[ORDER[j]]; }
-    return MUTED[ORDER[3]];
-  }
-  var MUTED = { sentinel: '#e0605a', diplomat: '#58c982', scholar: '#7eaee6', survivor: '#e58d4c' };
-
+  function buildFibres() { fibres = IR.buildFibres(state.salt); }
   function draw() {
-    var S = SIZE, c = S / 2, R = S * 0.44;
-    var answers = state.answers, n = answers.length;
-    var fc = state.archetype === 'first-contact';
-    var w = mixWeights(answers);
-    var s = scores(answers);
-    var r = mulberry(fnv('rings:' + state.salt + answers.join('')));
-    ctx.clearRect(0, 0, S, S);
-
-    /* sclera shadow + limbus glow */
-    var glow = ctx.createRadialGradient(c, c, R * 0.6, c, c, R * 1.25);
-    glow.addColorStop(0, 'rgba(74,246,38,0.10)');
-    glow.addColorStop(0.55, 'rgba(74,246,38,0.04)');
-    glow.addColorStop(1, 'rgba(74,246,38,0)');
-    ctx.fillStyle = glow; ctx.fillRect(0, 0, S, S);
-
-    var pupilRx = R * (0.07 + 0.05 * (w.diplomat - w.sentinel + 0.25) + dilation * 0.1);
-    pupilRx = Math.max(R * 0.04, pupilRx);
-    var pupilRy = R * 0.6;
-    var g = growth;
-    var outer = R * (0.3 + 0.7 * g);
-
-    /* base stroma */
-    var base = ctx.createRadialGradient(c, c, R * 0.05, c, c, outer);
-    base.addColorStop(0, 'rgba(10,16,13,1)');
-    base.addColorStop(0.6, fc ? 'rgba(60,48,8,0.85)' : 'rgba(18,34,26,0.9)');
-    base.addColorStop(1, 'rgba(6,10,8,0.95)');
-    ctx.beginPath(); ctx.arc(c, c, outer, 0, Math.PI * 2); ctx.fillStyle = base; ctx.fill();
-
-    /* fibres, batched by colour */
-    var buckets = {};
-    var freq = 5 + (s.scholar * 1.3), amp = 0.012 + s.survivor * 0.004;
-    for (var k = 0; k < fibres.length; k++) {
-      var f = fibres[k];
-      if (f.lit > 0.35 + 0.65 * g && n < 10) continue;
-      var col = colorFor(f.ticket, w, fc);
-      var key = col + '|' + (f.alpha > 0.33 ? 'h' : 'l');
-      var p = buckets[key] || (buckets[key] = new Path2D());
-      var r0 = R * (0.12 + f.start), r1 = outer * f.reach;
-      var steps = 10;
-      for (var st = 0; st <= steps; st++) {
-        var rr = r0 + (r1 - r0) * (st / steps);
-        var aa = f.a + Math.sin(rr / R * freq * f.wob + f.ph) * amp * f.wob;
-        var x = c + Math.cos(aa) * rr, y = c + Math.sin(aa) * rr;
-        if (st === 0) p.moveTo(x, y); else p.lineTo(x, y);
-      }
-    }
-    ctx.save();
-    ctx.globalCompositeOperation = 'lighter';
-    ctx.lineCap = 'round';
-    Object.keys(buckets).forEach(function (key) {
-      var parts = key.split('|');
-      ctx.strokeStyle = parts[0];
-      ctx.globalAlpha = parts[1] === 'h' ? 0.42 : 0.2;
-      ctx.lineWidth = (parts[1] === 'h' ? 1.1 : 0.7) * DPR;
-      ctx.stroke(buckets[key]);
-    });
-    ctx.restore();
-    ctx.globalAlpha = 1;
-
-    /* collarette: from question 3 */
-    if (n >= 3) {
-      var cr = R * 0.4 * Math.min(1, 0.55 + g * 0.5);
-      ctx.beginPath();
-      var teeth = 40 + Math.round(s.sentinel * 4);
-      for (var z = 0; z <= teeth * 2; z++) {
-        var az = (z / (teeth * 2)) * Math.PI * 2;
-        var rz = cr * (z % 2 ? 1.07 : 0.95) * (1 + (r() - 0.5) * 0.05);
-        var xz = c + Math.cos(az) * rz, yz = c + Math.sin(az) * rz;
-        if (z === 0) ctx.moveTo(xz, yz); else ctx.lineTo(xz, yz);
-      }
-      ctx.closePath();
-      ctx.strokeStyle = fc ? 'rgba(255,230,120,0.5)' : 'rgba(215,235,220,0.28)';
-      ctx.lineWidth = 1.2 * DPR;
-      ctx.stroke();
-    }
-    /* crypts: from question 5, count follows the scholar answers */
-    if (n >= 5) {
-      var crypts = 5 + Math.round(s.scholar * 2.5);
-      for (var q = 0; q < crypts; q++) {
-        var ac = r() * Math.PI * 2, rc = R * (0.46 + r() * 0.34) * (0.5 + g * 0.5);
-        ctx.beginPath();
-        ctx.ellipse(c + Math.cos(ac) * rc, c + Math.sin(ac) * rc, R * (0.018 + r() * 0.03), R * (0.008 + r() * 0.014), ac, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(2,5,3,0.75)'; ctx.fill();
-      }
-    }
-    /* contraction furrows: from question 7, count follows the survivor answers */
-    if (n >= 7) {
-      var furrows = 1 + Math.round(s.survivor);
-      for (var fu = 0; fu < furrows; fu++) {
-        var rf = outer * (0.72 + fu * (0.22 / Math.max(1, furrows)));
-        var a0 = r() * Math.PI * 2, span = Math.PI * (0.5 + r() * 0.9);
-        ctx.beginPath(); ctx.arc(c, c, rf, a0, a0 + span);
-        ctx.strokeStyle = 'rgba(0,0,0,0.55)'; ctx.lineWidth = 1.6 * DPR; ctx.stroke();
-      }
-    }
-    /* limbal ring: thickness follows the sentinel answers */
-    ctx.beginPath(); ctx.arc(c, c, outer, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(0,0,0,0.85)'; ctx.lineWidth = (R * 0.03 + s.sentinel * R * 0.006) * g + DPR; ctx.stroke();
-
-    /* the slit */
-    ctx.beginPath(); ctx.ellipse(c, c, pupilRx, pupilRy * (0.35 + 0.65 * Math.max(0.15, g)), 0, 0, Math.PI * 2);
-    ctx.fillStyle = '#010201'; ctx.fill();
-    ctx.strokeStyle = fc ? 'rgba(255,215,0,0.55)' : 'rgba(141,255,115,0.28)';
-    ctx.lineWidth = 1 * DPR; ctx.stroke();
-
-    /* the glint, same light as the eye in the hero */
-    if (g > 0.05) {
-      ctx.beginPath(); ctx.ellipse(c - R * 0.34, c - R * 0.46, R * 0.07, R * 0.04, -0.5, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(235,245,240,' + (0.5 * g).toFixed(3) + ')'; ctx.fill();
-    }
+    IR.draw(ctx, { size: SIZE, dpr: DPR, answers: state.answers, salt: state.salt, archetype: state.archetype, growth: growth, dilation: dilation, fibres: fibres });
   }
 
   function frame(ts) {
@@ -459,9 +274,9 @@
       })
       .then(function (kind) {
         if (kind === 'new') {
-          fetch('/api/send-card', {
+          fetch('/api/send-card/', {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: email, archetype: state.archetype, serial: state.serial })
+            body: JSON.stringify({ email: email, archetype: state.archetype, serial: state.serial, salt: state.salt, answers: state.answers.join(''), issued: state.issued })
           }).catch(function () {});
           DX.track('sign_up', { method: 'email', archetype: state.archetype });
         }
@@ -483,16 +298,6 @@
   });
 
   /* ---------- the card (PNG) ---------- */
-  function wrapText(c2, text, x, y, maxW, lh) {
-    var words = text.split(' '), line = '', lines = [];
-    words.forEach(function (w) {
-      var test = line ? line + ' ' + w : w;
-      if (c2.measureText(test).width > maxW && line) { lines.push(line); line = w; } else line = test;
-    });
-    if (line) lines.push(line);
-    lines.forEach(function (l, i) { c2.fillText(l, x, y + i * lh); });
-    return y + lines.length * lh;
-  }
   function makeCard() {
     var fontsReady = doc.fonts && doc.fonts.load
       ? Promise.all([doc.fonts.load('800 80px "Public Sans"'), doc.fonts.load('700 24px "Space Mono"'), doc.fonts.load('400 30px "Public Sans"')]).catch(function () {})
@@ -500,40 +305,14 @@
     var mark = new Image(); mark.src = '/assets/brand/disclosure-wordmark.webp';
     var markReady = mark.decode ? mark.decode().catch(function () {}) : Promise.resolve();
     return Promise.all([fontsReady, markReady]).then(function () {
-      var W = 1080, H = 1350, cv = doc.createElement('canvas'); cv.width = W; cv.height = H;
-      var c2 = cv.getContext('2d');
-      var a = state.archetype, role = ROLES[a], col = COLORS[a];
-      c2.fillStyle = '#030504'; c2.fillRect(0, 0, W, H);
-      var vg = c2.createRadialGradient(W / 2, 560, 100, W / 2, 560, 760);
-      vg.addColorStop(0, 'rgba(74,246,38,0.08)'); vg.addColorStop(1, 'rgba(0,0,0,0)');
-      c2.fillStyle = vg; c2.fillRect(0, 0, W, H);
-      c2.strokeStyle = 'rgba(214,224,217,0.22)'; c2.lineWidth = 2; c2.strokeRect(40, 40, W - 80, H - 80);
-      c2.textBaseline = 'alphabetic';
-      if (mark.naturalWidth) c2.drawImage(mark, 84, 88, 250, 50);
-      else { c2.fillStyle = '#d8dfda'; c2.font = '900 34px "Public Sans", Arial, sans-serif'; c2.fillText('DISCLOSURE', 88, 128); }
-      c2.font = '700 22px "Space Mono", monospace'; c2.fillStyle = '#a3aea7';
-      c2.textAlign = 'right'; c2.fillText('FIRST CONTACT CARD', W - 88, 126); c2.textAlign = 'left';
-      c2.fillStyle = col; c2.fillRect(88, 158, W - 176, 4);
-      /* iris */
-      var big = doc.createElement('canvas'); var keep = [canvas, ctx, SIZE, DPR, growth, dilation];
-      big.width = big.height = 620; canvas = big; ctx = big.getContext('2d'); SIZE = 620; DPR = 1.7; growth = 1; dilation = 0.35;
-      draw();
-      canvas = keep[0]; ctx = keep[1]; SIZE = keep[2]; DPR = keep[3]; growth = keep[4]; dilation = keep[5];
-      c2.drawImage(big, (W - 620) / 2, 200);
-      c2.font = '700 22px "Space Mono", monospace'; c2.fillStyle = '#a3aea7';
-      c2.fillText(role.role.toUpperCase(), 88, 900);
-      c2.font = '800 96px "Public Sans", Arial, sans-serif'; c2.fillStyle = '#eef2ef';
-      c2.fillText(role.name, 84, 1000);
-      c2.font = '400 32px "Public Sans", Arial, sans-serif'; c2.fillStyle = '#c3ccc6';
-      wrapText(c2, role.line, 88, 1062, W - 176, 44);
-      c2.strokeStyle = 'rgba(214,224,217,0.22)'; c2.beginPath(); c2.moveTo(88, 1190); c2.lineTo(W - 88, 1190); c2.stroke();
-      c2.font = '700 22px "Space Mono", monospace'; c2.fillStyle = '#d8dfda';
-      c2.fillText('SERIAL ' + state.serial, 88, 1236);
-      c2.fillText('ISSUED ' + state.issued, 88, 1272);
-      c2.textAlign = 'right'; c2.fillStyle = col; c2.fillText('GETDISCLOSURE.APP', W - 88, 1272); c2.textAlign = 'left';
+      var kindW = 1080, kindH = 1350, cv = doc.createElement('canvas'); cv.width = kindW; cv.height = kindH;
+      var big = doc.createElement('canvas'); big.width = big.height = 620;
+      IR.draw(big.getContext('2d'), { size: 620, dpr: 1.7, answers: state.answers, salt: state.salt, archetype: state.archetype, growth: 1, dilation: 0.35, fibres: fibres });
+      IR.drawCard(cv.getContext('2d'), 'card', state, big, mark.naturalWidth ? mark : null);
       return new Promise(function (res) { cv.toBlob(function (b) { res(b); }, 'image/png'); });
     });
   }
+  function cardUrl() { return 'https://www.getdisclosure.app/card/' + encodeURIComponent(IR.encodeToken(state)) + '/'; }
   function fileName() { return 'disclosure-' + state.archetype + '-' + state.serial + '.png'; }
 
   $('.cx-save').addEventListener('click', function () {
@@ -547,7 +326,8 @@
   });
   $('.cx-share').addEventListener('click', function () {
     var role = ROLES[state.archetype];
-    var text = 'I was classified ' + role.name + ' (' + role.role.toLowerCase() + '). Find out what you would do: https://www.getdisclosure.app/';
+    var link = cardUrl();
+    var text = 'I was classified ' + role.name + ' (' + role.role.toLowerCase() + '). Find out what you would do: ' + link;
     var fallback = function () {
       if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { $('.cx-share-msg').textContent = 'Copied. Paste it anywhere.'; }).catch(function () {});
     };
@@ -556,7 +336,7 @@
       if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
         return navigator.share({ files: [file], text: text, title: 'My DISCLOSURE designation' });
       }
-      if (navigator.share) return navigator.share({ text: text, title: 'My DISCLOSURE designation', url: 'https://www.getdisclosure.app/' });
+      if (navigator.share) return navigator.share({ text: text, title: 'My DISCLOSURE designation', url: link });
       fallback();
     }).then(function () { DX.track('share', { method: 'card', archetype: state.archetype }); }).catch(function () {});
   });

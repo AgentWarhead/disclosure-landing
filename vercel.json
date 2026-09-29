@@ -1,6 +1,14 @@
 {
   "version": 2,
   "trailingSlash": true,
+  "functions": {
+    "api/card.js": { "includeFiles": "{api/_fonts/**,assets/brand/disclosure-wordmark.png}", "memory": 1024 },
+    "api/card-page.js": { "includeFiles": "card/index.html" }
+  },
+  "rewrites": [
+    { "source": "/card/:f/", "destination": "/api/card-page/?f=:f" },
+    { "source": "/card/:f", "destination": "/api/card-page/?f=:f" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -15,16 +23,22 @@
       ]
     },
     {
-      "source": "/((?!api/).*)",
+      "source": "/((?!api/|card/).*)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "https://www.getdisclosure.app" },
         { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
       ]
     },
     {
-      "source": "/api/(.*)",
+      "source": "/api/((?!card).*)",
       "headers": [
         { "key": "Cache-Control", "value": "no-store, max-age=0" },
+        { "key": "X-Robots-Tag", "value": "noindex" }
+      ]
+    },
+    {
+      "source": "/api/card(.*)",
+      "headers": [
         { "key": "X-Robots-Tag", "value": "noindex" }
       ]
     },
