@@ -100,7 +100,7 @@
   /* ---------- the watcher ---------- */
   /* interior pages carry a larger, fainter echo of the eye in their header */
   var head = doc.querySelector('.page-head, .plate[data-watch]');
-  if (head && !doc.querySelector('.eye') && window.matchMedia('(min-width: 900px)').matches) {
+  if (head && !doc.querySelector('.eye') && !doc.querySelector('.lens') && window.matchMedia('(min-width: 900px)').matches) {
     var big = doc.createElementNS('http://www.w3.org/2000/svg', 'svg');
     big.setAttribute('class', 'watcher watcher-lg');
     big.setAttribute('viewBox', '0 0 34 20');
@@ -179,6 +179,22 @@
       }, { rootMargin: '0px 0px -22% 0px', threshold: 1 });
       rxs.forEach(function (el) { rxIO.observe(el); });
     }
+  }
+
+  /* ---------- declassified headings: a black bar retracts once as each section heading arrives ---------- */
+  if (!reduce.matches && !DX.motionOff && 'IntersectionObserver' in window) {
+    var heads = [].slice.call(doc.querySelectorAll('main h2')).filter(function (h) {
+      return !h.closest('.visually-hidden, .toc, nav, .cx-result') && !h.classList.contains('label') && h.getBoundingClientRect().top > window.innerHeight * 0.9;
+    });
+    heads.forEach(function (h) { h.classList.add('dq'); });
+    var dqIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        dqIO.unobserve(en.target);
+        setTimeout(function () { en.target.classList.add('dq-open'); }, 180);
+      });
+    }, { rootMargin: '0px 0px -18% 0px', threshold: 0.6 });
+    heads.forEach(function (h) { dqIO.observe(h); });
   }
 
   /* ---------- reveal ---------- */

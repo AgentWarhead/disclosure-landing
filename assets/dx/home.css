@@ -186,3 +186,21 @@
 
 .eye-mark { display: block; width: min(78vw, 520px); height: auto; margin: 0 0 var(--space-5) -4px; filter: drop-shadow(0 0 24px rgba(74, 246, 38, 0.35)); }
 @media (max-height: 560px) and (orientation: landscape) { .eye-mark { width: min(50vw, 320px); margin-bottom: var(--space-3); } }
+
+/* ---------- 4b. the home exhibit: three witness sketches, fanned ---------- */
+.exhibit-home { padding-block: var(--space-10); }
+.exhibit-fan { position: relative; height: clamp(360px, 38vw, 560px); }
+.exhibit-fan .exhibit-doc { position: absolute; width: 56%; max-width: 320px; }
+.exhibit-fan .fan-1 { left: 0; top: 8%; transform: rotate(-9deg); }
+.exhibit-fan .fan-2 { left: 24%; top: 0; transform: rotate(2deg); z-index: 2; }
+.exhibit-fan .fan-3 { left: 46%; top: 12%; transform: rotate(10deg); }
+.exhibit-home .link { border-bottom-color: var(--toner); }
+@media (prefers-reduced-motion: no-preference) {
+  .exhibit-fan .exhibit-doc { transition: transform 700ms var(--ease-out); }
+  .exhibit-home:hover .fan-1 { transform: rotate(-13deg) translateX(-12px); }
+  .exhibit-home:hover .fan-3 { transform: rotate(14deg) translateX(12px); }
+}
+@media (max-width: 860px) {
+  .exhibit-fan { height: 84vw; max-height: 460px; }
+  .exhibit-fan .exhibit-doc { width: 52%; }
+}

@@ -37,9 +37,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="/frames/f001.webp" fetchpriority="high">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300..900&amp;family=Space+Mono:wght@400;700&amp;display=swap">
-<link rel="stylesheet" href="/assets/dx/dx.css?v=2">
-<link rel="stylesheet" href="/assets/dx/home.css?v=2">
-<link rel="stylesheet" href="/assets/dx/classify.css?v=2">
+<link rel="stylesheet" href="/assets/dx/dx.css?v=3">
+<link rel="stylesheet" href="/assets/dx/kit.css?v=3">
+<link rel="stylesheet" href="/assets/dx/home.css?v=3">
+<link rel="stylesheet" href="/assets/dx/classify.css?v=3">
 
 <script>
 /* links from card emails: ?share=x|wa|fb&text=... and ?unsub=1 */
@@ -245,6 +246,24 @@
     </div>
   </section>
 
+  <!-- 4b. The exhibit: the light interlude -->
+  <section class="exhibit exhibit-home" aria-labelledby="ex-home-h">
+    <div class="wrap exhibit-grid">
+      <div class="exhibit-fan" aria-hidden="true">
+        <figure class="exhibit-doc fan-1"><img src="/assets/evidence/sketch-grey.webp" alt="" loading="lazy" decoding="async" width="720" height="964"></figure>
+        <figure class="exhibit-doc fan-2"><img src="/assets/evidence/sketch-mantid.webp" alt="" loading="lazy" decoding="async" width="720" height="965"></figure>
+        <figure class="exhibit-doc fan-3"><img src="/assets/evidence/sketch-nordic.webp" alt="" loading="lazy" decoding="async" width="720" height="965"></figure>
+      </div>
+      <div class="exhibit-text">
+        <p class="exhibit-no">Exhibits 01 to 06 &middot; Witness sketches</p>
+        <h2 class="exhibit-line" id="ex-home-h">Every file starts with someone who saw something and was not believed.</h2>
+        <p>Six sketches sit in the archive, drawn from what witnesses described. Each species file keeps what was reported apart from what anyone can prove.</p>
+        <p><a class="link" href="#species">Open the specimen files <span aria-hidden="true">&darr;</span></a></p>
+        <span class="stamp">Released in part</span>
+      </div>
+    </div>
+  </section>
+
   <!-- 5. The specimens -->
   <section class="section specimens" id="species" aria-labelledby="spec-h">
     <div class="wrap">
@@ -339,12 +358,12 @@
         <p>Plain answers to the questions people type at 2 am: what they saw, what to do next, and what the government has actually said.</p>
         <a class="link" href="/intel/">Open the archive <span aria-hidden="true">&rarr;</span></a>
       </div>
-      <ol class="file-index">
-        <li><a href="/intel/what-to-do-if-you-see-a-ufo/"><span class="no">File 001</span><span class="t">What to do if you see a UFO<span class="d">Stay calm, record the right details, keep your distance.</span></span><span class="cat">Protocol</span></a></li>
-        <li><a href="/intel/starlink-vs-ufo/"><span class="no">File 012</span><span class="t">Starlink or UFO: how to tell<span class="d">Satellite trains fool thousands of people a night. Here is the test.</span></span><span class="cat">Field guide</span></a></li>
-        <li><a href="/intel/sleep-paralysis-vs-alien-abduction/"><span class="no">File 024</span><span class="t">Sleep paralysis or abduction<span class="d">Why it feels real, and when to talk to a professional.</span></span><span class="cat">Psychology</span></a></li>
-        <li><a href="/intel/how-to-report-a-ufo-sighting/"><span class="no">File 002</span><span class="t">How to report a sighting<span class="d">A clean witness packet that someone will actually read.</span></span><span class="cat">Protocol</span></a></li>
-        <li><a href="/intel/types-of-alien-species-ranked-threat/"><span class="no">File 032</span><span class="t">Reported species, ranked by threat<span class="d">The field guide behind the six specimen files.</span></span><span class="cat">Species</span></a></li>
+      <ol class="file-index file-cards">
+        <li class="feat"><a href="/intel/what-to-do-if-you-see-a-ufo/"><span class="fc-img"><img src="/intel/images/ufo-sighting-768.webp" alt="" loading="lazy" decoding="async" width="768" height="429"></span><span class="no">File 001</span><span class="t">What to do if you see a UFO<span class="d">Stay calm, record the right details, keep your distance.</span></span><span class="cat">Protocol</span></a></li>
+        <li><a href="/intel/starlink-vs-ufo/"><span class="fc-img"><img src="/intel/images/starlink-vs-ufo-768.webp" alt="" loading="lazy" decoding="async" width="768" height="429"></span><span class="no">File 012</span><span class="t">Starlink or UFO: how to tell<span class="d">Satellite trains fool thousands of people a night. Here is the test.</span></span><span class="cat">Field guide</span></a></li>
+        <li><a href="/intel/sleep-paralysis-vs-alien-abduction/"><span class="fc-img"><img src="/intel/images/sleep-paralysis-abduction-768.webp" alt="" loading="lazy" decoding="async" width="768" height="429"></span><span class="no">File 024</span><span class="t">Sleep paralysis or abduction<span class="d">Why it feels real, and when to talk to a professional.</span></span><span class="cat">Psychology</span></a></li>
+        <li><a href="/intel/how-to-report-a-ufo-sighting/"><span class="fc-img"><img src="/intel/images/report-ufo-sighting-768.webp" alt="" loading="lazy" decoding="async" width="768" height="429"></span><span class="no">File 002</span><span class="t">How to report a sighting<span class="d">A clean witness packet that someone will actually read.</span></span><span class="cat">Protocol</span></a></li>
+        <li><a href="/intel/types-of-alien-species-ranked-threat/"><span class="fc-img"><img src="/intel/images/alien-species-ranked-threat-768.webp" alt="" loading="lazy" decoding="async" width="768" height="429"></span><span class="no">File 032</span><span class="t">Reported species, ranked by threat<span class="d">The field guide behind the six specimen files.</span></span><span class="cat">Species</span></a></li>
       </ol>
     </div>
   </section>
@@ -408,8 +427,8 @@
 </footer>
 <!-- /dx:footer -->
 
-<script src="/assets/dx/dx.js?v=2" defer></script>
-<script src="/assets/dx/home.js?v=2" defer></script>
-<script src="/assets/dx/classify.js?v=2" defer></script>
+<script src="/assets/dx/dx.js?v=3" defer></script>
+<script src="/assets/dx/home.js?v=3" defer></script>
+<script src="/assets/dx/classify.js?v=3" defer></script>
 </body>
 </html>

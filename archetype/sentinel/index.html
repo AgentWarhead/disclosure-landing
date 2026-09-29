@@ -31,8 +31,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300..900&amp;family=Space+Mono:wght@400;700&amp;display=swap">
-<link rel="stylesheet" href="/assets/dx/dx.css?v=2">
-<link rel="stylesheet" href="/assets/dx/dossier.css?v=2">
+<link rel="stylesheet" href="/assets/dx/dx.css?v=3">
+<link rel="stylesheet" href="/assets/dx/kit.css?v=3">
+<link rel="stylesheet" href="/assets/dx/dossier.css?v=3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -161,6 +162,7 @@
 <main id="main">
 
   <header class="page-head r-sentinel">
+<!-- dx:lens --><div class="lens lens-iris" aria-hidden="true" style="--lens-glow:rgba(239,68,68,.32)"><img src="/assets/brand/iris-sentinel.webp" alt="" decoding="async" fetchpriority="high"></div><!-- /dx:lens -->
     <div class="wrap">
       <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/archetypes/">Roles</a></li><li><span aria-current="page">Sentinel</span></li></ol></nav>
       <p class="label role-tag"><span class="role-dot" aria-hidden="true"></span>Designation 01 &middot; Primary protector</p>
@@ -169,6 +171,7 @@
       <hr class="role-rule">
     </div>
   </header>
+<!-- dx:strip --><div class="strip" aria-hidden="true"><i style="width:64px"></i><span>File DSC-R01 <b>/</b> Sentinel dossier <b>/</b> Released in part</span><i style="width:140px"></i><span>Released in part</span><i style="width:38px"></i><span>Civilian copy</span><i style="width:220px"></i><i style="width:90px"></i></div><!-- /dx:strip -->
 
   <section class="section" aria-labelledby="what-h">
     <div class="wrap split">
@@ -248,7 +251,22 @@
       </ul>
     </div>
   </section>
-
+  <!-- dx:exhibit -->
+  <section class="exhibit" aria-labelledby="exhibit-h">
+    <div class="wrap exhibit-grid">
+      <figure class="exhibit-doc">
+        <img src="/asset-stone-cold-v3-640.webp" alt="A man holding still under hard green light while a monitor beside him tracks his heart rate." loading="lazy" decoding="async">
+        <figcaption>Composure trial, still frame</figcaption>
+      </figure>
+      <div class="exhibit-text">
+        <p class="exhibit-no">Exhibit S1 &middot; Field photograph</p>
+        <h2 class="exhibit-line" id="exhibit-h">The first one between them and everyone else.</h2>
+        <p>Sentinels never wait to be asked. The training is learning when not to step forward.</p>
+        <span class="stamp">Released in part</span>
+      </div>
+    </div>
+  </section>
+  <!-- /dx:exhibit -->
   <section class="section" aria-labelledby="kit-h">
     <div class="wrap split">
       <div class="split-head">
@@ -366,6 +384,6 @@
   </div>
 </footer>
 <!-- /dx:footer -->
-<script src="/assets/dx/dx.js?v=2" defer></script>
+<script src="/assets/dx/dx.js?v=3" defer></script>
 </body>
 </html>

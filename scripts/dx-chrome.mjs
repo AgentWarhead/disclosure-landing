@@ -30,6 +30,26 @@ function urlPath(file) {
   return '/' + rel.replace(/index\.html$/, '');
 }
 
+const GLOW = { sentinel: 'rgba(239,68,68,.32)', diplomat: 'rgba(34,197,94,.32)', scholar: 'rgba(96,165,250,.32)', survivor: 'rgba(249,115,22,.32)', 'first-contact': 'rgba(255,215,0,.32)' };
+function lensFor(path) {
+  let m;
+  if ((m = path.match(/^\/archetype\/(sentinel|diplomat|scholar|survivor|first-contact)\/$/))) return { src: '/assets/brand/iris-' + m[1] + '.webp', kind: 'iris', glow: GLOW[m[1]] };
+  const map = {
+    '/archetypes/': { src: '/assets/species-hangar/hangar-bg.webp', kind: 'wide' },
+    '/intel/': { src: '/asset-bg-alien.webp', kind: 'wide' },
+    '/first-contact/': { src: '/frames/f140.webp' },
+    '/readiness/': { src: '/frames/f090.webp' },
+    '/quiz/': { src: '/frames/f188.webp' },
+    '/faq/': { src: '/frames/f060.webp' },
+    '/about/': { src: '/frames/f001.webp' },
+    '/privacy/': { src: '/frames/f075.webp' },
+    '/terms/': { src: '/frames/f075.webp' },
+    '/accessibility/': { src: '/frames/f075.webp' },
+    '/404': { src: '/frames/f075.webp' },
+  };
+  return map[path] || null;
+}
+
 let changed = 0, missing = [];
 for (const file of pages(root)) {
   const src = readFileSync(file, 'utf8');
@@ -48,6 +68,15 @@ for (const file of pages(root)) {
   });
   const control = (out.match(/<meta name="dx:control" content="([^"]*)"/) || [])[1] || 'Released in part';
   const ftr = footer.replace('{{CONTROL}}', control);
+
+  // ---- the kit: kit.css, the lens, the control strip (docs/SCROLL-SCORE.md) ----
+  if (!out.includes('/assets/dx/kit.css')) out = out.replace(/(<link rel="stylesheet" href="\/assets\/dx\/dx\.css\?v=\d+">)/, '$1\n<link rel="stylesheet" href="/assets/dx/kit.css?v=1">');
+  out = out.replace(/\n?<!-- dx:lens -->[\s\S]*?<!-- \/dx:lens -->/g, '');
+  out = out.replace(/\n?<!-- dx:strip -->[\s\S]*?<!-- \/dx:strip -->/g, '');
+  const lens = lensFor(path);
+  if (lens) out = out.replace(/(<header class="page-head[^"]*"[^>]*>)/, `$1\n<!-- dx:lens --><div class="lens${lens.kind ? ' lens-' + lens.kind : ''}" aria-hidden="true"${lens.glow ? ` style="--lens-glow:${lens.glow}"` : ''}><img src="${lens.src}" alt="" decoding="async" fetchpriority="high"></div><!-- /dx:lens -->`);
+  const strip = `<!-- dx:strip --><div class="strip" aria-hidden="true"><i style="width:64px"></i><span>${control.replace(/&middot;/g, '<b>/</b>')}</span><i style="width:140px"></i><span>Released in part</span><i style="width:38px"></i><span>Civilian copy</span><i style="width:220px"></i><i style="width:90px"></i></div><!-- /dx:strip -->`;
+  out = out.replace(/(<header class="(?:page-head|plate)[^"]*"[^>]*>[\s\S]*?<\/header>)/, `$1\n${strip}`);
 
   out = out.replace(h[0], `<!-- dx:header${h[1] || ''} -->\n${hdr}\n<!-- /dx:header -->`);
   out = out.replace(f[0], `<!-- dx:footer -->\n${ftr}\n<!-- /dx:footer -->`);
