@@ -134,7 +134,7 @@ function validEmail(v) {
 
 function links(key, token) {
   const r = ROLES[key];
-  const card = token ? SITE + "/card/" + encodeURIComponent(token) + "/" : "";
+  const card = token ? SITE + "/card/" + encodeURIComponent(token) : ""; // no trailing slash: Vercel reads the dotted token as a file name
   const shareUrl = card || SITE + "/";
   return {
     home: SITE + "/",

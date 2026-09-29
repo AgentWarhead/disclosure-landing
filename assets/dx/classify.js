@@ -312,7 +312,7 @@
       return new Promise(function (res) { cv.toBlob(function (b) { res(b); }, 'image/png'); });
     });
   }
-  function cardUrl() { return 'https://www.getdisclosure.app/card/' + encodeURIComponent(IR.encodeToken(state)) + '/'; }
+  function cardUrl() { return 'https://www.getdisclosure.app/card/' + encodeURIComponent(IR.encodeToken(state)); }
   function fileName() { return 'disclosure-' + state.archetype + '-' + state.serial + '.png'; }
 
   $('.cx-save').addEventListener('click', function () {

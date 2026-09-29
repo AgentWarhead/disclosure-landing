@@ -1,4 +1,4 @@
-// GET /card/<token>/  (vercel.json rewrites it here as ?f=<token>)
+// GET /card/<token>  (no trailing slash; vercel.json rewrites it here as ?f=<token>)
 // Serves card/index.html with this card filled in: the image, the role, and share tags that point
 // at this card's own preview image, so a pasted link unfurls with the person's iris.
 const path = require("path");
@@ -23,7 +23,7 @@ function fill(file, token) {
   const role = IR.ROLES[file.archetype];
   const color = IR.COLORS[file.archetype];
   const q = "f=" + encodeURIComponent(token);
-  const pageUrl = `${SITE}/card/${encodeURIComponent(token)}/`;
+  const pageUrl = `${SITE}/card/${encodeURIComponent(token)}`;
   const img = `/api/card/?${q}&kind=card`;
   const og = `${SITE}/api/card/?${q}&kind=og`;
   const sealed = file.archetype === "first-contact";
