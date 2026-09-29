@@ -25,3 +25,7 @@ Shared exclusion: Exclude: text, letters, numbers, logos, user interface, overla
 - Don't Flinch: a young man on a stool in a dark room at the moment a sudden intense green light floods in from the right, throwing his shadow on the back wall; eyes wide, jaw set, shoulders and hands flat on his knees perfectly still; a phone on a small tripod in the left foreground facing him, back to the viewer, its screen glow faint on his knees.
 - The Open Hand: a young woman on a quiet street at night filming herself, phone at arm's length lighting her face green, the other hand raised beside her face, palm open, fingers together and straight, a small calm smile, dark houses and one distant street lamp.
 - First Contact Card: a hand holds a phone upright facing the viewer in the centre; the screen flat, evenly lit dim deep green, nothing on it; faint green spill on the fingers and on the out-of-focus face behind; dark field, stars, a line of trees.
+
+## asset-open-hand-v2 (2026-09-29)
+
+Replaces v1 after Court 0 (second sitting): the sign rule puts the hand at chest height or lower, never raised at face height. An edit of p3 (job c6638b82) on gpt_image_2_5 sunburst medium, job 5fbaa3db-aa0d-48d2-a2ec-cfeb411c986c, changing only the free hand (to the middle of the chest, open, palm out) and naming everything that stays. 1 credit.
