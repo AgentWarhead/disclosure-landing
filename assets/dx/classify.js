@@ -494,7 +494,9 @@
     var fontsReady = doc.fonts && doc.fonts.load
       ? Promise.all([doc.fonts.load('800 80px "Public Sans"'), doc.fonts.load('700 24px "Space Mono"'), doc.fonts.load('400 30px "Public Sans"')]).catch(function () {})
       : Promise.resolve();
-    return fontsReady.then(function () {
+    var mark = new Image(); mark.src = '/assets/brand/disclosure-wordmark.webp';
+    var markReady = mark.decode ? mark.decode().catch(function () {}) : Promise.resolve();
+    return Promise.all([fontsReady, markReady]).then(function () {
       var W = 1080, H = 1350, cv = doc.createElement('canvas'); cv.width = W; cv.height = H;
       var c2 = cv.getContext('2d');
       var a = state.archetype, role = ROLES[a], col = COLORS[a];
@@ -503,9 +505,9 @@
       vg.addColorStop(0, 'rgba(74,246,38,0.08)'); vg.addColorStop(1, 'rgba(0,0,0,0)');
       c2.fillStyle = vg; c2.fillRect(0, 0, W, H);
       c2.strokeStyle = 'rgba(214,224,217,0.22)'; c2.lineWidth = 2; c2.strokeRect(40, 40, W - 80, H - 80);
-      c2.fillStyle = '#d8dfda'; c2.font = '900 34px "Public Sans", Arial, sans-serif';
       c2.textBaseline = 'alphabetic';
-      c2.fillText('D I S C L O S U R E', 88, 128);
+      if (mark.naturalWidth) c2.drawImage(mark, 84, 88, 250, 50);
+      else { c2.fillStyle = '#d8dfda'; c2.font = '900 34px "Public Sans", Arial, sans-serif'; c2.fillText('DISCLOSURE', 88, 128); }
       c2.font = '700 22px "Space Mono", monospace'; c2.fillStyle = '#a3aea7';
       c2.textAlign = 'right'; c2.fillText('FIRST CONTACT CARD', W - 88, 126); c2.textAlign = 'left';
       c2.fillStyle = col; c2.fillRect(88, 158, W - 176, 4);

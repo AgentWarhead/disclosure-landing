@@ -89,3 +89,13 @@
   .classify[data-state="result"] .cx-eyecol .cx-ticks { margin-top: var(--space-4); }
   .classify[data-state="result"] .cx-caption { text-align: center; margin-top: var(--space-3); }
 }
+
+/* keyboard focus never lands under the sticky iris band on phones (2.4.11) */
+@media (max-width: 900px) {
+  .classify .cx-opt, .classify .cx-prompt { scroll-margin-top: calc(var(--nav-h) + 150px); }
+}
+/* short landscape screens: the band would eat half the view, so it scrolls away */
+@media (max-width: 900px) and (max-height: 560px) {
+  .cx-eyecol { position: relative; top: auto; }
+  .classify .cx-opt, .classify .cx-prompt { scroll-margin-top: calc(var(--nav-h) + 24px); }
+}

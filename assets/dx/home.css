@@ -106,12 +106,12 @@
 @media (min-width: 1240px) { .spec-rail { padding-inline: calc((100vw - var(--max)) / 2 + var(--gutter)); scroll-padding-inline: calc((100vw - var(--max)) / 2 + var(--gutter)); } }
 .spec-rail li { scroll-snap-align: start; }
 .spec {
-  display: block; position: relative; aspect-ratio: 3 / 4.1; overflow: hidden; text-decoration: none; color: var(--bone);
+  display: block; position: relative; aspect-ratio: 3 / 4.1; overflow: clip; overflow-clip-margin: 0; text-decoration: none; color: var(--bone);
   background: var(--void-2); border: 1px solid var(--rule);
 }
 .spec img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: saturate(0.55) contrast(1.05) brightness(0.8); transition: transform 1200ms var(--ease-out), filter 600ms var(--ease-out); }
 .spec::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.35) 42%, rgba(0, 0, 0, 0) 65%); }
-.spec:hover img { transform: scale(1.04); filter: saturate(0.8) contrast(1.05) brightness(0.9); }
+.spec:hover img { transform: none; filter: saturate(0.8) contrast(1.05) brightness(0.9); }
 .spec:hover { color: var(--bone); }
 .spec-body { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; padding: var(--space-5); }
 .spec-code, .spec-name, .spec-line { display: block; }
@@ -165,3 +165,24 @@
 .intel-grid .intro p { color: var(--bone-dim); margin-top: var(--space-5); max-width: 34ch; }
 .intel-grid .intro .link { margin-top: var(--space-4); }
 @media (max-width: 900px) { .intel-grid { grid-template-columns: 1fr; gap: var(--space-6); } }
+
+
+/* specimen cards grow with their text instead of clipping it (1.4.12) */
+.spec { display: flex; flex-direction: column; justify-content: flex-end; overflow: visible; min-height: 0; }
+.spec img { clip-path: inset(0); }
+.spec-body { position: relative; }
+.spec::after { z-index: 0; }
+.spec-body, .spec-threat { z-index: 1; }
+
+/* landscape phones and short windows: the hero stops pinning so nothing is cut off */
+@media (max-height: 560px) and (orientation: landscape) {
+  .eye { height: auto; }
+  .eye-pin { position: relative; height: auto; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; }
+  .eye-copy { position: relative; padding-top: calc(var(--nav-h) + var(--space-6)); }
+  .eye-copy h1 { font-size: clamp(2rem, 1rem + 4vw, 3rem); }
+  .eye-after { display: none; }
+  .kit-step { min-height: 0; }
+}
+
+.eye-mark { display: block; width: min(78vw, 520px); height: auto; margin: 0 0 var(--space-5) -4px; filter: drop-shadow(0 0 24px rgba(74, 246, 38, 0.35)); }
+@media (max-height: 560px) and (orientation: landscape) { .eye-mark { width: min(50vw, 320px); margin-bottom: var(--space-3); } }

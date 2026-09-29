@@ -91,6 +91,7 @@
   function $(sel) { return host.querySelector(sel); }
   var elBeat = $('.dr-beat'), elSecs = $('.dr-secs'), elBar = $('.dr-timebar i'), elAlert = $('.dr-alert');
   var elScene = $('.dr-scene'), elOpts = $('.dr-options'), elFeedback = $('.dr-feedback');
+  var untimedInput = $('.dr-untimed-input'), untimedLabel = $('.dr-untimed');
   var btnStart = $('.dr-start'), btnNext = $('.dr-next'), btnPause = $('.dr-pause'), btnStop = $('.dr-stop');
   var elConsole = $('.dr-console'), elReport = $('.dr-report'), elAfter = $('.dr-after');
   var elLive = $('.dr-live'), btnAgain = $('.dr-again');
@@ -132,6 +133,7 @@
     });
   }
   function paintClock() {
+    if (s.untimed) { elSecs.textContent = '--'; elBar.style.transform = 'scaleX(1)'; host.setAttribute('data-urgent', 'false'); return; }
     var secs = Math.ceil(s.left / 1000);
     elSecs.textContent = secs < 10 ? '0' + secs : String(secs);
     elBar.style.transform = 'scaleX(' + (s.left / BEAT_MS).toFixed(4) + ')';
@@ -142,7 +144,7 @@
   function stopClock() { if (tickId) { clearInterval(tickId); tickId = 0; } }
   function startClock() {
     stopClock();
-    if (s.phase !== 'asking' || s.paused) return;
+    if (s.phase !== 'asking' || s.paused || s.untimed) return;
     last = performance.now();
     tickId = setInterval(function () {
       var now = performance.now();
@@ -178,6 +180,7 @@
     host.setAttribute('data-paused', 'false');
     btnPause.hidden = true; btnStop.hidden = true;
     btnStart.hidden = false;
+    if (untimedLabel) untimedLabel.hidden = false;
     btnNext.hidden = true;
     elOpts.innerHTML = '';
     elBeat.textContent = 'Ready room';
@@ -192,12 +195,14 @@
   function start() {
     stopClock();
     s = fresh();
+    s.untimed = !!(untimedInput && untimedInput.checked);
+    if (untimedLabel) untimedLabel.hidden = true;
     elReport.hidden = true;
     elAfter.hidden = true;
     elConsole.hidden = false;
     btnStart.hidden = true;
-    btnPause.hidden = false; btnStop.hidden = false;
-    DX.track('drill_start');
+    btnPause.hidden = s.untimed; btnStop.hidden = false;
+    DX.track('drill_start', { untimed: s.untimed });
     renderBeat();
   }
 
@@ -212,7 +217,7 @@
     elBeat.textContent = 'Scene ' + (s.step + 1) + ' of 6 · ' + b.name;
     elAlert.textContent = b.alert;
     elScene.textContent = b.scene;
-    elFeedback.textContent = 'Choose. The clock is running.';
+    elFeedback.textContent = s.untimed ? 'Choose when you are ready. No clock on this run.' : 'Choose. The clock is running.';
     elFeedback.removeAttribute('data-verdict');
     elOpts.innerHTML = '';
     s.order = shuffle(b.options.length);
@@ -294,7 +299,7 @@
     $('.dr-r-time').textContent = 'Filed ' + String(t.getHours()).padStart(2, '0') + ':' + String(t.getMinutes()).padStart(2, '0');
     $('.dr-r-grade').textContent = g.name + '.';
     $('.dr-r-score').textContent = String(avg);
-    $('.dr-r-line').textContent = g.line;
+    $('.dr-r-line').textContent = g.line + (s.untimed ? ' This was an untimed run, so the clock did not count.' : '');
     ['calm', 'safety', 'evidence'].forEach(function (k) {
       var row = elReport.querySelector('[data-meter="' + k + '"]');
       row.querySelector('.dr-val').textContent = s[k];

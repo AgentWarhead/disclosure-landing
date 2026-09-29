@@ -20,7 +20,7 @@ function pages(dir) {
     const p = join(dir, name);
     const st = statSync(p);
     if (st.isDirectory()) out.push(...pages(p));
-    else if (name === 'index.html') out.push(p);
+    else if (name === 'index.html' || (dir === root && name === '404.html')) out.push(p);
   }
   return out;
 }

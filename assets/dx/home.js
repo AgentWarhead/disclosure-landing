@@ -109,7 +109,7 @@
 
     /* it blinks when you stop moving */
     setInterval(function () {
-      if (doc.hidden || blinking || progress > 0.005) return;
+      if (doc.hidden || blinking || progress > 0.005 || (window.DX && DX.motionOff)) return;
       if (performance.now() - lastInput < 6500) return;
       if (!ready[34] || !ready[96]) return;
       blinking = { t0: performance.now(), dur: 1500, from: 0, to: 96 };

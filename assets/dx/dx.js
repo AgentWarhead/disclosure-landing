@@ -31,6 +31,25 @@
     if ('requestIdleCallback' in window) requestIdleCallback(go, { timeout: 4000 }); else go();
   });
 
+  /* ---------- motion switch (WCAG 2.2.2): one press stills every loop, remembered ---------- */
+  var motionBtns = [].slice.call(doc.querySelectorAll('.dx-motion'));
+  DX.motionOff = false;
+  try { DX.motionOff = localStorage.getItem('dx-motion') === 'off'; } catch (e) {}
+  function applyMotion() {
+    root.classList.toggle('motion-off', DX.motionOff);
+    motionBtns.forEach(function (b) { b.setAttribute('aria-pressed', DX.motionOff ? 'true' : 'false'); });
+    if (DX.motionOff) [].forEach.call(doc.querySelectorAll('.rx:not(.rx-fixed)'), function (el) { el.classList.add('lifted'); });
+  }
+  motionBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      DX.motionOff = !DX.motionOff;
+      try { localStorage.setItem('dx-motion', DX.motionOff ? 'off' : 'on'); } catch (e) {}
+      applyMotion();
+      DX.track('motion_toggle', { off: DX.motionOff });
+    });
+  });
+  applyMotion();
+
   /* ---------- nav ---------- */
   var nav = doc.querySelector('.dx-nav');
   var sheet = doc.getElementById('dx-sheet');
@@ -46,8 +65,15 @@
     window.addEventListener('resize', function () { limit = overLimit(); setMode(); });
     setMode();
   }
+  function setInert(on) {
+    [doc.getElementById('main'), doc.querySelector('.dx-foot'), doc.querySelector('.skip-link')].forEach(function (el) {
+      if (!el) return;
+      if (on) el.setAttribute('inert', ''); else el.removeAttribute('inert');
+    });
+  }
   function closeSheet(focusBtn) {
     if (!sheet) return;
+    setInert(false);
     sheet.setAttribute('data-open', 'false');
     menuBtn.setAttribute('aria-expanded', 'false');
     menuBtn.querySelector('.t').textContent = 'Menu';
@@ -59,6 +85,7 @@
       var open = sheet.getAttribute('data-open') === 'true';
       if (open) { closeSheet(false); return; }
       sheet.setAttribute('data-open', 'true');
+      setInert(true);
       menuBtn.setAttribute('aria-expanded', 'true');
       menuBtn.querySelector('.t').textContent = 'Close';
       doc.body.style.overflow = 'hidden';
@@ -93,7 +120,7 @@
       setTimeout(function () { watchers.forEach(function (w) { w.classList.remove('blink'); }); }, 150);
     };
     var schedule = function () {
-      setTimeout(function () { if (!doc.hidden) blink(); schedule(); }, 5000 + Math.random() * 14000);
+      setTimeout(function () { if (!doc.hidden && !DX.motionOff) blink(); schedule(); }, 5000 + Math.random() * 14000);
     };
     if (!reduce.matches) schedule();
     var look = function (x, y) {
@@ -115,7 +142,7 @@
     } else if (!reduce.matches) {
       /* touch: it glances around on its own */
       setInterval(function () {
-        if (doc.hidden) return;
+        if (doc.hidden || DX.motionOff) return;
         look(Math.random() * window.innerWidth, Math.random() * window.innerHeight * 0.6 + 80);
       }, 4200);
     }

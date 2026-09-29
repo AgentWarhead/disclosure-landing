@@ -47,7 +47,7 @@
   --paper-edge: #a9ada3;
   --toner: #121412;
   --toner-dim: #3b403b;
-  --stamp: #9c261f;
+  --stamp: #74140f;
 
   /* roles */
   --sentinel: #ef4444;
@@ -204,12 +204,12 @@ button.link { background: none; border: 0; border-bottom: 1px solid var(--rule-s
   position: fixed; inset: 0 0 auto 0; z-index: 100;
   height: var(--nav-h);
   display: flex; align-items: center;
-  background: linear-gradient(to bottom, rgba(3, 5, 4, 0.92), rgba(3, 5, 4, 0.72));
+  background-color: rgba(3, 5, 4, 0.9);
   -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--rule);
   transition: transform 360ms var(--ease-out), background 360ms var(--ease-out), border-color 360ms var(--ease-out);
 }
-.dx-nav[data-mode="over"] { background: linear-gradient(to bottom, rgba(3, 5, 4, 0.7), rgba(3, 5, 4, 0)); border-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.dx-nav[data-mode="over"] { background-color: rgba(3, 5, 4, 0.55); border-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
 .dx-nav .wrap { display: flex; align-items: center; gap: var(--space-5); max-width: none; }
 .dx-brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--bone); flex: none; }
 .dx-brand:hover { color: var(--bone); }
@@ -222,12 +222,15 @@ button.link { background: none; border: 0; border-bottom: 1px solid var(--rule-s
 .dx-links a:hover, .dx-links a[aria-current="page"] { color: var(--bone); }
 .dx-links a[aria-current="page"] { box-shadow: inset 0 -1px 0 var(--signal); }
 .dx-tools { display: flex; align-items: center; gap: var(--space-3); }
-.dx-sound {
+.dx-sound, .dx-motion {
   display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 10px;
   background: none; border: 1px solid var(--rule); border-radius: var(--radius); cursor: pointer;
   font-family: var(--mono); font-size: var(--step--2); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-dim);
 }
-.dx-sound:hover { color: var(--bone); border-color: var(--rule-strong); }
+.dx-sound:hover, .dx-motion:hover { color: var(--bone); border-color: var(--rule-strong); }
+.dx-motion svg { width: 11px; height: 11px; fill: currentColor; }
+.dx-motion[aria-pressed="true"] { color: var(--signal); border-color: rgba(74, 246, 38, 0.4); }
+@media (prefers-reduced-motion: reduce) { .dx-motion { display: none; } }
 .dx-sound .bars { display: inline-flex; gap: 2px; align-items: flex-end; height: 12px; }
 .dx-sound .bars i { width: 2px; height: 4px; background: currentColor; display: block; }
 .dx-sound[aria-pressed="true"] { color: var(--signal); border-color: rgba(74, 246, 38, 0.4); }
@@ -247,6 +250,8 @@ button.link { background: none; border: 0; border-bottom: 1px solid var(--rule-s
     background: none; border: 1px solid var(--rule-strong); border-radius: var(--radius); cursor: pointer;
     font-family: var(--mono); font-size: var(--step--2); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
   }
+  .dx-sound, .dx-motion { min-width: 44px; min-height: 44px; justify-content: center; }
+  .dx-motion .txt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .dx-sound .txt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
 .dx-sheet {
@@ -354,7 +359,7 @@ button.link { background: none; border: 0; border-bottom: 1px solid var(--rule-s
   display: inline-block;
   font-family: var(--mono); font-weight: 700; font-size: var(--step--1); letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--stamp); border: 2px solid var(--stamp); padding: 0.3em 0.7em; border-radius: 3px;
-  transform: rotate(-6deg); opacity: 0.85; mix-blend-mode: multiply;
+  transform: rotate(-6deg);
 }
 .exempt { font-family: var(--mono); font-size: var(--step--2); color: var(--toner-dim); letter-spacing: 0.04em; }
 
@@ -426,9 +431,7 @@ button.link { background: none; border: 0; border-bottom: 1px solid var(--rule-s
 .ask {
   padding-block: var(--space-9);
   border-top: 1px solid var(--rule);
-  background:
-    radial-gradient(60% 120% at 85% 50%, rgba(74, 246, 38, 0.07), rgba(74, 246, 38, 0) 60%),
-    var(--void-0);
+  background-color: var(--void-1);
 }
 .ask-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: var(--space-7); align-items: end; }
 .ask h2 { font-size: var(--step-4); max-width: 16ch; }
@@ -482,3 +485,60 @@ button.link { background: none; border: 0; border-bottom: 1px solid var(--rule-s
   .dx-nav, .dx-sheet, .dx-sound, body::after { display: none !important; }
   body { background: #fff; color: #000; }
 }
+
+
+/* ---------- accessibility and scaling layer (WCAG 2.2 AA pass, 2026-09-28) ---------- */
+
+/* one switch stills every loop */
+html.motion-off .cx-iris, html.motion-off .dx-sound .bars i { animation: none !important; }
+html.motion-off .watcher .eyeball, html.motion-off .watcher .iris { transition: none; }
+
+/* scale up on big screens, respecting the visitor's own base size */
+@media (min-width: 1800px) { html { font-size: 112.5%; } :root { --max: 1440px; } }
+@media (min-width: 2400px) { html { font-size: 125%; } :root { --max: 1640px; } }
+
+/* small tap targets get room (2.5.8) */
+.crumbs a { display: inline-flex; align-items: center; min-height: 24px; }
+.dx-foot-cols a { min-height: 32px; display: inline-flex; align-items: center; }
+.control-line a { display: inline-flex; min-height: 24px; align-items: center; }
+
+/* focus is never hidden under the fixed nav (2.4.11) */
+:focus { scroll-margin-top: calc(var(--nav-h) + 24px); scroll-margin-bottom: 24px; }
+
+/* two-colour focus ring so it holds on paper and on the void (1.4.11) */
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; box-shadow: 0 0 0 5px #000; }
+.paper :focus-visible { outline-color: #000; box-shadow: 0 0 0 5px var(--paper); }
+
+/* forced colours (Windows high contrast): keep every word readable */
+@media (forced-colors: active) {
+  .rx { color: CanvasText !important; background: none !important; border-bottom: 2px solid CanvasText; }
+  .rx.rx-fixed { background: CanvasText !important; forced-color-adjust: none; color: transparent !important; }
+  .paper, .field-note, .cx-claim, .ask { border: 1px solid CanvasText; }
+  .btn { border: 2px solid ButtonText; }
+  .watcher .iris { fill: CanvasText; }
+  .stamp { border-color: CanvasText; color: CanvasText; }
+  body::after { display: none; }
+}
+
+/* text spacing and zoom: nothing clips (1.4.12, 1.4.10) */
+.page-head h1, .h-hero, .h-1 { overflow-wrap: anywhere; hyphens: manual; }
+@media (max-width: 360px) {
+  .dx-word { font-size: 0.92rem; letter-spacing: 0.16em; }
+  .dx-nav .wrap { gap: var(--space-3); }
+  .dx-tools { gap: 6px; }
+}
+
+/* margin codes sit outside the paper only when the page has room for them */
+@media (max-width: 1320px) { .record-paper .exempt, .protocol-sheet .exempt { display: none; } }
+
+
+/* ---------- the brand: emblem + stencil wordmark ---------- */
+.dx-brand { gap: 10px; }
+.dx-emblem { width: 38px; height: 38px; flex: none; filter: drop-shadow(0 0 10px rgba(74, 246, 38, 0.35)); }
+.dx-wordmark { height: 26px; width: auto; flex: none; }
+.dx-brand:hover .dx-emblem { filter: drop-shadow(0 0 16px rgba(74, 246, 38, 0.6)); }
+@media (max-width: 480px) { .dx-emblem { width: 32px; height: 32px; } .dx-wordmark { height: 20px; } }
+@media (max-width: 340px) { .dx-wordmark { height: 17px; } }
+@media (min-width: 1800px) { .dx-emblem { width: 44px; height: 44px; } .dx-wordmark { height: 30px; } }
+.dx-foot-mark { display: block; width: min(100%, 520px); height: auto; margin-bottom: var(--space-6); }
+@media (forced-colors: active) { .dx-emblem, .dx-wordmark, .dx-foot-mark { forced-color-adjust: none; } }

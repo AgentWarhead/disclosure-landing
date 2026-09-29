@@ -130,3 +130,9 @@
   .dr-timebar i, .dr-bar i, .dr-opt { transition: none; }
 }
 .dr-r-foot .rx { white-space: nowrap; }
+
+/* the clock is optional (WCAG 2.2.1) */
+.dr-untimed { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-right: var(--space-4); cursor: pointer;
+  font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.04em; color: var(--bone-dim); }
+.dr-untimed input { width: 20px; height: 20px; margin: 0; accent-color: var(--signal); cursor: pointer; }
+.dr-untimed[hidden] { display: none; }

@@ -57,6 +57,10 @@ The app is in development and details may change. The planned features are: the 
 - [Survivor dossier: self-preservation specialist](https://www.getdisclosure.app/archetype/survivor/)
 - [First Contact: the sealed file](https://www.getdisclosure.app/archetype/first-contact/)
 
+## Other pages
+
+- [Accessibility Statement](https://www.getdisclosure.app/accessibility/)
+
 ## Intel files (64)
 
 - [What Is AARO?](https://www.getdisclosure.app/intel/aaro-explained/)
