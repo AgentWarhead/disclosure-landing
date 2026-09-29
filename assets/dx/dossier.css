@@ -1,0 +1,126 @@
+/* DISCLOSURE roles family: the hub (/archetypes/), the four dossiers, the sealed file.
+   Builds on dx.css. Role colour stays small: the dot, one hairline, a hover wash. */
+
+/* ---------- page head extras ---------- */
+.role-tag { display: flex; align-items: center; gap: 0.6em; color: var(--bone-faint); margin: 0 0 var(--space-5); }
+.role-tag .role-dot { width: 0.75em; height: 0.75em; vertical-align: 0; }
+.role-rule { display: block; width: 64px; border: 0; border-top: 2px solid var(--c, var(--bone-faint)); margin: var(--space-7) 0 0; }
+.page-head .lede { max-width: 50ch; }
+.page-head { padding-bottom: var(--space-7); }
+.page-head + .section { padding-top: var(--space-6); }
+
+/* ---------- section heads ---------- */
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-7); }
+.sec-head h2 { font-size: var(--step-4); max-width: 14ch; }
+.sec-head p { color: var(--bone-dim); max-width: 42ch; margin: 0; }
+
+.split { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--space-8); align-items: start; }
+.split-head h2 { font-size: var(--step-4); max-width: 12ch; }
+.split-head p { color: var(--bone-dim); margin-top: var(--space-5); max-width: 38ch; }
+.split-head p + p { margin-top: 0; }
+@media (min-width: 901px) { .split-head.stick { position: sticky; top: calc(var(--nav-h) + var(--space-6)); } }
+@media (max-width: 900px) { .split { grid-template-columns: 1fr; gap: var(--space-6); } }
+
+/* ---------- role ledger (hub) and pairing ledger (dossiers) ---------- */
+.role-row a {
+  display: grid; grid-template-columns: minmax(0, 3.2fr) minmax(0, 2.2fr) minmax(0, 5fr) auto; gap: var(--space-5); align-items: baseline;
+  padding: var(--space-5) 0; text-decoration: none; color: var(--bone); position: relative;
+  transition: padding 260ms var(--ease-out), background 260ms var(--ease-out);
+}
+.role-row a:hover { padding-inline: var(--space-4); background: linear-gradient(90deg, color-mix(in srgb, var(--c) 10%, transparent), transparent 70%); color: var(--bone); }
+.role-name { font-family: var(--poster); font-weight: 800; font-size: var(--step-3); letter-spacing: -0.03em; line-height: 1; display: flex; align-items: center; gap: 0.45em; }
+.role-name .role-dot { width: 0.32em; height: 0.32em; flex: none; }
+.role-kind { color: var(--bone-faint); }
+.role-desc { color: var(--bone-dim); margin: 0; }
+.role-go { font-family: var(--mono); font-size: var(--step--2); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-faint); white-space: nowrap; }
+.role-row a:hover .role-go { color: var(--c); }
+.role-row.sealed .role-name .rx { font-size: 0.8em; }
+.pairs .role-row a { grid-template-columns: minmax(0, 3fr) minmax(0, 7fr) auto; }
+.pairs .role-name { font-size: var(--step-2); }
+@media (max-width: 860px) {
+  .role-row a, .pairs .role-row a { grid-template-columns: 1fr auto; gap: 6px var(--space-4); }
+  .role-kind { grid-column: 1; }
+  .role-desc { grid-column: 1 / -1; }
+  .role-go { grid-row: 1; grid-column: 2; }
+}
+
+/* ---------- the dossier sheet (the one paper artifact) ---------- */
+.sheet { --tilt: 0.5deg; max-width: 780px; }
+.sheet-title { font-size: var(--step-5); letter-spacing: -0.04em; line-height: 0.95; color: var(--toner); margin: 0 0 var(--space-4); }
+.sheet-sum { font-size: var(--step-1); line-height: 1.45; max-width: 46ch; margin: 0 0 var(--space-6); font-weight: 450; }
+.sheet-fields { margin: 0; border-top: 2px solid var(--toner); }
+.sheet-fields > div { display: grid; grid-template-columns: 17ch minmax(0, 1fr); gap: var(--space-4); padding: var(--space-3) 0; border-bottom: 1px solid rgba(18, 20, 18, 0.2); }
+.sheet-fields dt { font-family: var(--mono); font-size: var(--step--2); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--toner-dim); padding-top: 0.3em; }
+.sheet-fields dd { margin: 0; font-weight: 500; line-height: 1.45; }
+.sheet-fields .role-dot { margin-right: 0.45em; }
+.sheet-note { margin: var(--space-5) 0 0; font-family: var(--mono); font-size: var(--step--1); font-weight: 700; line-height: 1.6; }
+.sheet-foot { display: flex; justify-content: space-between; align-items: center; gap: var(--space-5); flex-wrap: wrap; margin-top: var(--space-6); padding-top: var(--space-4); border-top: 2px solid var(--toner); }
+.sheet-foot p { margin: 0; }
+@media (max-width: 900px) { .page-head + .section .split > .sheet { order: -1; } }
+@media (max-width: 900px) { .sheet { --tilt: 0deg; margin-inline: calc(var(--gutter) * -0.4); max-width: none; } }
+@media (max-width: 520px) { .sheet-fields > div { grid-template-columns: 1fr; gap: 2px; } }
+
+/* sealed variant: most of the sheet is withheld */
+.sheet-sealed .sheet-line { font-size: var(--step-2); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; max-width: 22ch; margin: 0 0 var(--space-6); }
+.sheet-sealed .rx-block { margin: var(--space-6) 0 0; line-height: 1.9; font-weight: 500; }
+.sheet-sealed .sheet-after { margin: var(--space-6) 0 0; font-weight: 600; max-width: 44ch; }
+
+/* ---------- the first minute: numbered strip ---------- */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--rule-strong); counter-reset: s; }
+.steps > li { counter-increment: s; padding: var(--space-5) var(--space-4); border-right: 1px solid var(--rule); }
+.steps > li:first-child { padding-left: 0; }
+.steps > li:last-child { border-right: 0; padding-right: 0; }
+.steps > li::before { content: counter(s, decimal-leading-zero); display: block; font-family: var(--mono); font-size: var(--step--1); font-weight: 700; color: var(--bone-faint); margin-bottom: var(--space-5); }
+.steps strong { display: block; font-size: var(--step-1); font-weight: 750; letter-spacing: -0.01em; line-height: 1.2; color: var(--bone); margin-bottom: var(--space-2); }
+.steps p { color: var(--bone-dim); font-size: var(--step--1); line-height: 1.55; margin: 0; }
+@media (max-width: 1000px) {
+  .steps { grid-template-columns: 1fr; }
+  .steps > li, .steps > li:first-child, .steps > li:last-child { display: grid; grid-template-columns: 4ch minmax(0, 1fr); gap: var(--space-4); border-right: 0; border-bottom: 1px solid var(--rule); padding: var(--space-5) 0; }
+  .steps > li::before { margin: 0; padding-top: 0.2em; }
+}
+
+/* ---------- strengths and the blind spot ---------- */
+.traits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); align-items: start; }
+.traits h2 { font-size: var(--step-3); margin-bottom: var(--space-5); max-width: 16ch; }
+.tick-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule-strong); }
+.tick-list li { position: relative; padding: var(--space-3) 0 var(--space-3) 1.8em; border-bottom: 1px solid var(--rule); }
+.tick-list li::before { content: "+"; position: absolute; left: 0; top: var(--space-3); font-family: var(--mono); color: var(--bone-faint); }
+.blind > p { color: var(--bone-dim); max-width: 48ch; }
+.blind .field-note { margin-top: var(--space-5); }
+.blind .field-note p { color: var(--bone); }
+@media (max-width: 900px) { .traits { grid-template-columns: 1fr; gap: var(--space-7); } }
+
+/* ---------- what the app will train ---------- */
+.kit-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--space-7); border-top: 1px solid var(--rule-strong); }
+.kit-grid li { padding: var(--space-4) 0; border-bottom: 1px solid var(--rule); }
+.kit-grid strong { display: block; font-weight: 700; margin-bottom: 2px; }
+.kit-grid span { color: var(--bone-dim); font-size: var(--step--1); }
+.dev-note { margin: var(--space-5) 0 0; color: var(--bone-faint); font-size: var(--step--1); max-width: 60ch; }
+@media (max-width: 700px) { .kit-grid { grid-template-columns: 1fr; } }
+
+/* ---------- plain explainer (hub) ---------- */
+.plain { max-width: 60ch; }
+.plain p { color: var(--bone-dim); }
+.plain p:first-child { color: var(--bone); font-size: var(--step-1); line-height: 1.45; }
+
+/* ---------- the unit roster (hub paper) ---------- */
+.roster-paper { --tilt: -0.4deg; }
+.roster { width: 100%; border-collapse: collapse; font-size: var(--step-0); }
+.roster caption { text-align: left; font-family: var(--mono); font-size: var(--step--2); letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: var(--space-3); color: var(--toner-dim); }
+.roster th, .roster td { text-align: left; vertical-align: top; padding: var(--space-3) var(--space-4) var(--space-3) 0; border-bottom: 1px solid rgba(18, 20, 18, 0.2); line-height: 1.45; }
+.roster thead th { font-family: var(--mono); font-size: var(--step--2); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--toner-dim); border-bottom: 2px solid var(--toner); }
+.roster tbody th { font-weight: 800; white-space: nowrap; }
+.roster tbody th .role-dot { margin-right: 0.4em; }
+.roster td:last-child { font-weight: 600; }
+@media (max-width: 640px) {
+  .roster thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .roster tr { display: block; padding: var(--space-3) 0; border-bottom: 1px solid rgba(18, 20, 18, 0.2); }
+  .roster th, .roster td { display: block; border: 0; padding: 2px 0; }
+  .roster td::before { content: attr(data-label) ": "; font-family: var(--mono); font-size: var(--step--2); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--toner-dim); }
+}
+
+/* ---------- sealed file: what can be said ---------- */
+.said { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule-strong); max-width: 62ch; }
+.said li { padding: var(--space-4) 0; border-bottom: 1px solid var(--rule); color: var(--bone-dim); }
+.said li strong { color: var(--bone); font-weight: 700; }
+.split-head .said { margin-top: var(--space-5); }

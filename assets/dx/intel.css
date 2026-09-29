@@ -1,0 +1,58 @@
+/* Intel archive: the article plate, the reading column with its side rail, and the hub filter. */
+
+/* article plate */
+.intel-plate { min-height: min(72vh, 660px); display: flex; align-items: flex-end; padding-top: calc(var(--nav-h) + var(--space-8)); padding-bottom: var(--space-7); }
+.intel-plate h1 { font-size: var(--step-5); max-width: 19ch; letter-spacing: -0.035em; line-height: 0.98; }
+.intel-plate .lede { margin-top: var(--space-5); color: var(--bone-dim); }
+.intel-plate .crumbs li[aria-current] { color: var(--bone-dim); }
+.intel-meta { margin: var(--space-5) 0 0; color: var(--bone-faint); }
+
+/* reading column + side rail */
+.intel-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-7); padding-block: var(--space-8) var(--space-9); }
+@media (min-width: 1040px) {
+  .intel-body { grid-template-columns: minmax(0, var(--measure)) minmax(220px, 272px); justify-content: space-between; }
+  .intel-side { position: sticky; top: calc(var(--nav-h) + var(--space-5)); align-self: start; max-height: calc(100vh - var(--nav-h) - var(--space-6)); overflow-y: auto; }
+}
+@media (max-width: 1039px) { .toc { display: none; } }
+.toc .label { color: var(--bone-faint); margin: 0; }
+.toc ol { list-style: none; margin: var(--space-3) 0 0; padding: 0; border-left: 1px solid var(--rule); }
+.toc a { display: block; padding: 6px 0 6px var(--space-4); font-size: var(--step--1); line-height: 1.35; color: var(--bone-dim); text-decoration: none; }
+.toc a:hover { color: var(--bone); box-shadow: inset 2px 0 0 var(--signal); }
+.intel-side .field-note { margin-top: var(--space-6); }
+.intel-side .field-note p { font-size: var(--step--1); color: var(--bone); }
+
+/* prose parts the legacy files needed */
+.prose .callout { border: 1px solid var(--rule); background: var(--void-1); padding: var(--space-5); }
+.prose .callout-warn { border-left: 3px solid var(--survivor); }
+.prose .callout > * + * { margin-top: 0.7em; }
+.prose .callout-h { font-weight: 750; color: var(--bone); font-size: var(--step-0); letter-spacing: -0.005em; }
+.prose .steps { list-style: none; padding: 0; border-top: 1px solid var(--rule); }
+.prose .steps li { display: grid; grid-template-columns: minmax(7ch, 12ch) minmax(0, 1fr); gap: var(--space-4); margin: 0; padding: 0.75em 0; border-bottom: 1px solid var(--rule); }
+.prose .steps .k { font-family: var(--mono); font-size: var(--step--1); font-weight: 700; letter-spacing: 0.02em; color: var(--bone); padding-top: 0.2em; }
+.prose .steps .src { font-family: var(--mono); font-size: var(--step--2); letter-spacing: 0.04em; color: var(--bone-dim); margin-left: 0.3em; }
+.prose .threat { color: var(--bone-faint); margin-top: 1.4em; }
+.prose .field-note .link { margin-top: var(--space-3); }
+.prose .transcript summary { font-size: var(--step-0); }
+@media (max-width: 560px) { .prose .steps li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* related files */
+.intel-related-h { font-size: var(--step-3); margin-bottom: var(--space-5); }
+
+/* hub */
+.intel-archive { padding-top: var(--space-6); }
+.intel-filter { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); }
+.intel-filter[hidden] { display: none; }
+.intel-filter button {
+  min-height: 44px; padding: 0 var(--space-4); background: none; cursor: pointer;
+  border: 1px solid var(--rule-strong); border-radius: var(--radius); color: var(--bone-dim);
+  font-family: var(--mono); font-size: var(--step--2); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.intel-filter button:hover { color: var(--bone); border-color: var(--bone-dim); }
+.intel-filter button[aria-pressed="true"] { color: var(--signal); border-color: rgba(74, 246, 38, 0.5); }
+.intel-count { color: var(--bone-faint); margin-bottom: var(--space-7); }
+.intel-group[hidden] { display: none; }
+.intel-group + .intel-group { margin-top: var(--space-9); }
+.intel-group-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: var(--space-5); align-items: end; margin-bottom: var(--space-5); }
+.intel-group-head h2 { font-size: var(--step-4); }
+.intel-group-head p { color: var(--bone-dim); margin: 0; max-width: 52ch; }
+@media (max-width: 760px) { .intel-group-head { grid-template-columns: 1fr; gap: var(--space-3); } }

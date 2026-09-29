@@ -1,0 +1,67 @@
+/* DISCLOSURE page family: FAQ, about, privacy, terms.
+   Sits on top of dx.css. Uses only its tokens. */
+
+/* ---------- FAQ: grouped transcript ---------- */
+.qa { padding-block: var(--space-8); border-top: 1px solid var(--rule); }
+.qa-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.3fr); gap: var(--space-7); align-items: start; }
+.qa-intro { position: sticky; top: calc(var(--nav-h) + var(--space-5)); }
+.qa-intro h2 { font-size: var(--step-3); max-width: 12ch; }
+.qa-intro p { margin-top: var(--space-4); color: var(--bone-dim); font-size: var(--step--1); max-width: 30ch; }
+.transcript .a a { color: var(--bone); text-decoration-color: var(--signal); text-decoration-thickness: 1.5px; }
+.transcript .a a:hover { color: var(--signal-soft); }
+.transcript summary { min-height: 44px; }
+@media (max-width: 860px) {
+  .qa-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+  .qa-intro { position: static; }
+  .qa-intro h2 { max-width: none; }
+}
+
+/* ---------- about ---------- */
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); gap: var(--space-7); align-items: start; }
+.split h2 { font-size: var(--step-4); max-width: 13ch; }
+.split-body { max-width: 62ch; }
+.split-body p { color: var(--bone-dim); }
+.split-body p:last-child { margin-bottom: 0; }
+.split-body strong { color: var(--bone); font-weight: 650; }
+.split-body a { color: var(--bone); text-decoration-color: var(--signal); text-decoration-thickness: 1.5px; }
+.split-body a:hover { color: var(--signal-soft); }
+.split-body .ledger { margin-top: var(--space-5); }
+.split-body .ledger li { display: grid; grid-template-columns: minmax(0, 11ch) minmax(0, 1fr); gap: var(--space-4); padding: var(--space-4) 0; }
+.split-body .ledger .k { font-weight: 650; color: var(--bone); }
+.split-body .ledger .v { color: var(--bone-dim); }
+@media (max-width: 860px) {
+  .split { grid-template-columns: 1fr; gap: var(--space-5); }
+  .split-body .ledger li { grid-template-columns: 1fr; gap: 2px; }
+}
+
+.purpose-wrap { max-width: 780px; margin-inline: auto; }
+.purpose { --tilt: 0.4deg; }
+.purpose h2 { font-size: var(--step-3); color: var(--toner); max-width: 20ch; margin-bottom: var(--space-5); }
+.purpose ol { margin: 0; padding: 0; list-style: none; counter-reset: p; }
+.purpose ol li { counter-increment: p; display: grid; grid-template-columns: 4ch minmax(0, 1fr); gap: var(--space-3); padding-block: var(--space-3); border-top: 1px solid rgba(18, 20, 18, 0.18); line-height: 1.55; }
+.purpose ol li::before { content: counter(p, decimal-leading-zero); font-family: var(--mono); font-size: var(--step--1); color: var(--toner-dim); padding-top: 0.15em; }
+.purpose ol li strong { font-weight: 750; }
+.purpose-foot { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-5); flex-wrap: wrap; margin-top: var(--space-6); padding-top: var(--space-4); border-top: 2px solid var(--toner); font-family: var(--mono); font-size: var(--step--2); letter-spacing: 0.06em; text-transform: uppercase; }
+.purpose-foot p { margin: 0; }
+.purpose-after { margin-top: var(--space-6); color: var(--bone-dim); text-align: center; font-size: var(--step--1); }
+
+/* ---------- legal pages ---------- */
+.legal { padding-bottom: var(--space-9); }
+.legal-updated { margin-top: var(--space-5); color: var(--bone-faint); }
+.legal .field-note { max-width: var(--measure); margin-bottom: var(--space-7); }
+.legal .field-note ul { margin: 0; padding-left: 1.15em; color: var(--bone-dim); }
+.legal .field-note li + li { margin-top: 0.5em; }
+.legal .field-note li::marker { color: var(--signal); }
+.toc { max-width: var(--measure); margin-bottom: var(--space-8); }
+.toc h2 { color: var(--bone-faint); margin-bottom: var(--space-3); }
+.toc ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-6); border-top: 1px solid var(--rule-strong); counter-reset: t; }
+.toc li { counter-increment: t; border-bottom: 1px solid var(--rule); }
+.toc a { display: flex; gap: var(--space-3); align-items: baseline; min-height: 44px; padding-block: 0.7em; text-decoration: none; color: var(--bone-dim); font-size: var(--step--1); line-height: 1.35; }
+.toc a::before { content: counter(t, decimal-leading-zero); font-family: var(--mono); font-size: var(--step--2); color: var(--bone-faint); flex: none; }
+.toc a:hover { color: var(--bone); }
+@media (max-width: 640px) { .toc ol { grid-template-columns: 1fr; } }
+.legal .prose > h2:first-child { margin-top: 0; }
+/* dx.css ".prose p { margin: 0 }" outranks ".prose > * + *", so sibling paragraphs touch. Restore the rhythm here. */
+.legal .prose > :not(h2, h3) + :not(h2, h3) { margin-top: 1.1em; }
+.legal .prose > blockquote { margin-block: 1.4em; }
+.prose .fine { color: var(--bone); border-left: 3px solid var(--rule-strong); padding-left: 1em; }

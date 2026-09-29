@@ -1,0 +1,8 @@
+﻿.claude
+docs
+scripts
+supabase
+schema.sql
+*.md
+*.pre-enhancements
+deploy.sh

@@ -1,0 +1,91 @@
+/* DISCLOSURE classification + The Iris Print (home and /quiz/). */
+
+/* ---------- 3. the classification ---------- */
+.classify { background: var(--void-1); border-top: 1px solid var(--rule); overflow: clip; }
+.classify::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(45% 55% at 78% 45%, color-mix(in srgb, var(--role, #4af626) 12%, transparent), transparent 70%);
+  transition: background 900ms var(--ease-out);
+}
+.cx-head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-7); align-items: end; margin-bottom: var(--space-8); }
+.cx-head h2 { font-size: var(--step-5); max-width: 12ch; }
+.cx-head p { color: var(--bone-dim); max-width: 42ch; margin: 0; }
+.cx-body { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-8); align-items: start; position: relative; }
+.cx-eyecol { position: sticky; top: calc(var(--nav-h) + var(--space-5)); }
+.cx-iris-wrap { position: relative; aspect-ratio: 1; width: min(100%, 460px); margin-inline: auto; }
+.cx-iris { width: 100%; height: 100%; border-radius: 50%; }
+@media (prefers-reduced-motion: no-preference) {
+  .cx-iris { animation: cx-breathe 7s var(--ease-io) infinite alternate; }
+}
+@keyframes cx-breathe { from { transform: scale(1); } to { transform: scale(1.018); } }
+.cx-iris-wrap::after { content: ""; position: absolute; inset: -1px; border-radius: 50%; border: 1px solid var(--rule); pointer-events: none; }
+.cx-caption { text-align: center; margin-top: var(--space-4); color: var(--bone-faint); min-height: 2.8em; }
+.cx-ticks { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; margin-top: var(--space-4); max-width: 460px; margin-inline: auto; }
+.cx-ticks i { height: 3px; background: var(--void-4); display: block; transition: background 400ms var(--ease-out); }
+.cx-count { color: var(--bone-faint); margin-bottom: var(--space-4); }
+.cx-prompt { font-size: var(--step-3); letter-spacing: -0.02em; line-height: 1.12; font-weight: 750; max-width: 24ch; outline: none; }
+.cx-options { display: grid; gap: var(--space-3); margin-top: var(--space-6); }
+.cx-opt {
+  text-align: left; width: 100%; min-height: 56px; padding: 1rem 1.2rem 1rem 3rem; position: relative;
+  background: var(--void-0); color: var(--bone); border: 1px solid var(--rule-strong); border-radius: var(--radius);
+  font-size: var(--step-0); font-weight: 480; line-height: 1.4; cursor: pointer;
+  transition: border-color 160ms var(--ease-out), background 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+.cx-opt::before {
+  content: ""; position: absolute; left: 1.15rem; top: 50%; width: 10px; height: 10px; margin-top: -5px;
+  border: 1px solid var(--bone-faint); border-radius: 50%; transition: all 160ms var(--ease-out);
+}
+.cx-opt:hover:not(:disabled) { border-color: var(--bone-dim); background: var(--void-2); }
+.cx-opt:hover:not(:disabled)::before { border-color: var(--signal); }
+.cx-opt.picked { border-color: var(--signal); background: rgba(74, 246, 38, 0.07); }
+.cx-opt.picked::before { background: var(--signal); border-color: var(--signal); box-shadow: 0 0 12px var(--signal-glow); }
+.cx-opt:disabled:not(.picked) { opacity: 0.45; cursor: default; }
+.cx-enter { animation: cx-in 520ms var(--ease-out) both; }
+@keyframes cx-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.cx-noscript { border: 1px solid var(--rule-strong); padding: var(--space-5); color: var(--bone-dim); }
+
+.cx-result { outline: none; }
+.cx-r-role { color: var(--role, var(--signal)); }
+.cx-r-name { font-size: var(--step-5); letter-spacing: -0.04em; line-height: 0.95; margin-top: var(--space-3); outline: none; }
+.cx-r-line { font-size: var(--step-1); line-height: 1.4; margin-top: var(--space-5); max-width: 30ch; color: var(--bone); }
+.cx-r-first { color: var(--bone-dim); max-width: 48ch; margin-top: var(--space-4); }
+.cx-r-meta { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: var(--space-4); color: var(--bone-faint); }
+.cx-claim { margin-top: var(--space-6); padding: var(--space-5); border: 1px solid var(--rule-strong); background: var(--void-0); max-width: 560px; }
+.cx-claim h3 { font-size: var(--step-1); letter-spacing: -0.01em; font-weight: 750; }
+.cx-claim > p { color: var(--bone-dim); margin: var(--space-2) 0 var(--space-4); font-size: var(--step--1); }
+.cx-form label { display: block; margin-bottom: var(--space-2); color: var(--bone-dim); }
+.cx-field { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.cx-field input {
+  flex: 1 1 220px; min-height: 48px; padding: 0 1rem; background: var(--void-1); color: var(--bone);
+  border: 1px solid var(--rule-strong); border-radius: var(--radius); font: inherit; font-size: 1rem;
+}
+.cx-field input:focus { outline: 2px solid var(--signal); outline-offset: 1px; border-color: transparent; }
+.cx-field input[aria-invalid="true"] { border-color: var(--sentinel); }
+.cx-consent { font-size: var(--step--2); color: var(--bone-faint); margin: var(--space-3) 0 0; line-height: 1.5; }
+.cx-consent a { color: var(--bone-dim); }
+.cx-form-msg { color: #ff8a8a; font-size: var(--step--1); margin: var(--space-2) 0 0; min-height: 1.2em; }
+.cx-claimed h3 { outline: none; color: var(--signal); }
+.cx-claimed p { color: var(--bone-dim); margin: var(--space-2) 0 0; }
+.cx-tools { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); align-items: center; }
+.cx-tools .btn { min-height: 44px; }
+.cx-share-msg { color: var(--bone-faint); font-size: var(--step--1); min-height: 1.2em; margin-top: var(--space-2); }
+.classify[data-state="result"] .cx-caption { color: var(--bone-dim); }
+
+@media (max-width: 900px) {
+  .cx-head { grid-template-columns: 1fr; gap: var(--space-4); margin-bottom: var(--space-5); }
+  .cx-body { grid-template-columns: 1fr; gap: var(--space-4); }
+  /* the iris stays with you while you answer */
+  .cx-eyecol {
+    position: sticky; top: var(--nav-h); z-index: 3; order: -1;
+    display: grid; grid-template-columns: 96px minmax(0, 1fr); grid-template-rows: auto auto; column-gap: var(--space-4); align-items: center;
+    margin-inline: calc(var(--gutter) * -1); padding: 10px var(--gutter) 14px;
+    background: linear-gradient(to bottom, var(--void-1) 78%, rgba(7, 11, 9, 0));
+  }
+  .cx-iris-wrap { grid-row: 1 / span 2; width: 96px; margin: 0; }
+  .cx-eyecol .cx-ticks { margin: 0; max-width: none; align-self: end; }
+  .cx-caption { text-align: left; margin: 6px 0 0; min-height: 0; align-self: start; }
+  .classify[data-state="result"] .cx-eyecol { position: relative; top: auto; display: block; background: none; margin: 0; padding: 0; }
+  .classify[data-state="result"] .cx-iris-wrap { width: min(74vw, 320px); margin-inline: auto; }
+  .classify[data-state="result"] .cx-eyecol .cx-ticks { margin-top: var(--space-4); }
+  .classify[data-state="result"] .cx-caption { text-align: center; margin-top: var(--space-3); }
+}

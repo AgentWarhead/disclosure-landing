@@ -2,6 +2,39 @@ const SMTP_HOST = "smtp.hostinger.com";
 const SMTP_PORT = 465;
 const SMTP_USER = "team@getdisclosure.app";
 const SMTP_PASS = Deno.env.get("SMTP_PASS") ?? "";
+// Optional shared secret. When set, callers (the database webhook) must send it in the
+// x-webhook-secret header. Set it in the function's secrets and in the webhook's headers.
+const WEBHOOK_SECRET = Deno.env.get("WEBHOOK_SECRET") ?? "";
+
+// NOTE: this function duplicates api/send-card.js (Resend, deployed with the site). If both are wired,
+// a signup gets two emails. Keep one sender. This file is not deployed from the site repo; deploy by hand.
+// TODO(boss): CASL needs the sender's mailing address in every commercial email. Add it before use.
+
+const EMAIL_RE = /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]{1,64}@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*\.[A-Za-z]{2,63}$/;
+const SERIAL_RE = /^[A-Z0-9-]{4,24}$/;
+const UNSUB_MAILTO = "mailto:team@getdisclosure.app?subject=unsubscribe";
+const UNSUB_PAGE = "https://www.getdisclosure.app/privacy/#unsubscribe";
+
+/** Removes CR, LF and other control characters so a value can never start a new SMTP line or header. */
+function headerSafe(value: string): string {
+  return String(value).replace(/[\r\n\x00-\x1f\x7f]/g, "");
+}
+
+function validEmail(value: unknown): value is string {
+  if (typeof value !== "string") return false;
+  if (value.length < 6 || value.length > 254) return false;
+  if (/[\s\x00-\x1f\x7f]/.test(value)) return false;
+  if ((value.match(/@/g) || []).length !== 1) return false;
+  if (value.includes("..")) return false;
+  return EMAIL_RE.test(value);
+}
+
+function safeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
 
 type ArchetypeEmail = {
   name: string;
@@ -19,9 +52,6 @@ type ArchetypeEmail = {
   stat1: [string, string];
   stat2: [string, string];
   stat3: [string, string];
-  bar_lbl: string;
-  bar_pct: string;
-  bar_w: string;
   status: string;
   modules: [string, string, string];
   share: string;
@@ -44,9 +74,6 @@ const ARCHETYPES: Record<string, ArchetypeEmail> = {
     stat1: ["THREAT READ", "ACTIVE"],
     stat2: ["ROLE ONSET", "IMMEDIATE"],
     stat3: ["PRIMARY RISK", "OVERESCALATION"],
-    bar_lbl: "FIELD READINESS",
-    bar_pct: "87%",
-    bar_w: "87%",
     status: "PERIMETER INSTINCT CONFIRMED",
     modules: ["30-foot buffer", "Light discipline", "Contact ROE"],
     share: "I was classified as a Sentinel. If the sky opens, I am apparently the perimeter. Get your First Contact file: getdisclosure.app",
@@ -67,9 +94,6 @@ const ARCHETYPES: Record<string, ArchetypeEmail> = {
     stat1: ["PROTOCOL", "ACTIVE"],
     stat2: ["THREAT RESPONSE", "DE-ESCALATE"],
     stat3: ["PRIMARY RISK", "EARLY CONTACT"],
-    bar_lbl: "DIPLOMATIC RATING",
-    bar_pct: "91%",
-    bar_w: "91%",
     status: "CALM SIGNAL READY",
     modules: ["Liaison standard", "Tone calibration", "First signal timing"],
     share: "I was classified as a Diplomat. Apparently I am the person who speaks when everyone else forgets language. Get your First Contact file: getdisclosure.app",
@@ -90,9 +114,6 @@ const ARCHETYPES: Record<string, ArchetypeEmail> = {
     stat1: ["ANALYSIS MODE", "CONTINUOUS"],
     stat2: ["DATA RETENTION", "TOTAL"],
     stat3: ["PRIMARY RISK", "TUNNEL VISION"],
-    bar_lbl: "ANALYTICAL RATING",
-    bar_pct: "94%",
-    bar_w: "94%",
     status: "OBSERVATION THREAD OPEN",
     modules: ["Incident reports", "Evidence protocol", "Pattern anomaly log"],
     share: "I was classified as a Scholar. If contact happens, I am apparently the one making sure history does not become rumor. Get your First Contact file: getdisclosure.app",
@@ -113,9 +134,6 @@ const ARCHETYPES: Record<string, ArchetypeEmail> = {
     stat1: ["ESCAPE VECTOR", "CALCULATED"],
     stat2: ["FAMILY PROTOCOL", "ACTIVE"],
     stat3: ["PRIMARY RISK", "PANIC SPREAD"],
-    bar_lbl: "SURVIVAL RATING",
-    bar_pct: "79%",
-    bar_w: "79%",
     status: "EVACUATION VECTOR READY",
     modules: ["Family drill mode", "Exit mapping", "Blackout movement"],
     share: "I was classified as a Survivor. Translation: I already know where the exits are. Get your First Contact file: getdisclosure.app",
@@ -129,16 +147,13 @@ const ARCHETYPES: Record<string, ArchetypeEmail> = {
     glow: "rgba(255,215,0,0.46)",
     subject: "Your Disclosure file is active",
     preheader: "Your rare First Contact designation surfaced. Open the field packet.",
-    tagline: "Less than 0.1% carry this designation. You know why.",
+    tagline: "This designation is not assigned. It appears.",
     reveal: "This is not a normal result. The system flagged a signal anomaly and moved your file outside the standard civilian classification stack.",
     directive: "Do not treat this as a trophy. Treat it as a locked door noticing you first.",
     protocol: "Your training path remains restricted until launch. The app will expose the next layer when the black channel opens.",
     stat1: ["ARCHETYPE", "CLASSIFIED"],
     stat2: ["FIELD CONF", "ANOMALY"],
     stat3: ["PRIMARY RISK", "UNKNOWN"],
-    bar_lbl: "UNLOCK STATUS",
-    bar_pct: "&lt;0.1%",
-    bar_w: "3%",
     status: "SIGNAL ANOMALY DETECTED",
     modules: ["Restricted file", "Level 5 protocol", "Black channel watch"],
     share: "My Disclosure file returned a black-channel First Contact anomaly. Standard classification failed, which is either bad or extremely interesting. Open yours: getdisclosure.app",
@@ -206,7 +221,6 @@ function buildEmail(archetype: string, serial: string): string {
         <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.08);"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:rgba(255,255,255,0.96);">${esc(a.stat3[0])}</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:#FFD66B;font-weight:900;">${esc(a.stat3[1])}</td></tr></table></td></tr>
         <tr><td style="padding:10px 0;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:rgba(255,255,255,0.96);">ISSUED</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:#ffffff;">${issued}</td></tr></table></td></tr>
       </table>
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="margin:16px 0 14px;"><tr><td style="padding-bottom:7px;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:#ffffff;">${esc(a.bar_lbl)}</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:${a.color};font-weight:900;">${a.bar_pct}</td></tr></table></td></tr><tr><td style="background:rgba(255,255,255,0.11);height:9px;border-radius:999px;overflow:hidden;"><table width="${a.bar_w}" cellpadding="0" cellspacing="0" border="0"><tr><td style="background:linear-gradient(90deg,${a.color},#FFD700);height:9px;box-shadow:0 0 20px ${a.glow};">&nbsp;</td></tr></table></td></tr></table>
       <div style="border:1px solid rgba(216,255,155,0.28);border-radius:16px;padding:12px;text-align:center;font-family:'Courier New',Courier,monospace;font-size:20px;letter-spacing:2px;color:${a.color};font-weight:900;background:rgba(74,246,38,0.06);">${esc(a.status)}</div>
     </td></tr>
   </table>
@@ -268,7 +282,8 @@ function buildEmail(archetype: string, serial: string): string {
 
 <tr><td style="padding:22px 0 0;text-align:center;border-top:1px solid rgba(255,255,255,0.08);">
   <p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:rgba(255,255,255,0.95);">BLACK CHANNEL FIELD PACKET // DO NOT IGNORE SKYBORNE ANOMALIES</p>
-  <p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:rgba(255,255,255,0.96);">getdisclosure.app</p>
+  <p style="margin:0 0 10px;font-family:'Courier New',Courier,monospace;font-size:17px;letter-spacing:2px;color:rgba(255,255,255,0.96);">getdisclosure.app</p>
+  <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:rgba(255,255,255,0.8);">You are getting this because this address was entered at getdisclosure.app. To stop all email from DISCLOSURE, reply with the word unsubscribe or <a href="${UNSUB_MAILTO}" style="color:#ffffff;">email team@getdisclosure.app</a>. Not affiliated with any government agency.</p>
 </td></tr>
 </table>
 </td></tr></table>
@@ -278,7 +293,10 @@ function buildEmail(archetype: string, serial: string): string {
 const enc = new TextEncoder();
 const dec = new TextDecoder();
 
-async function smtpSend(to: string, subject: string, html: string) {
+async function smtpSend(toRaw: string, subjectRaw: string, html: string) {
+  const to = headerSafe(toRaw);
+  const subject = headerSafe(subjectRaw);
+  if (!validEmail(to)) throw new Error("invalid recipient");
   const conn = await Deno.connectTls({ hostname: SMTP_HOST, port: SMTP_PORT });
 
   const write = async (data: string) => {
@@ -294,37 +312,34 @@ async function smtpSend(to: string, subject: string, html: string) {
   };
 
   // Read greeting
-  const greeting = await read();
-  console.log("SMTP greeting:", greeting.trim());
+  await read();
 
   // EHLO
   await write("EHLO getdisclosure.app");
-  const ehlo = await read();
-  console.log("EHLO resp:", ehlo.substring(0, 100));
+  await read();
 
   // AUTH PLAIN (single step, more reliable than AUTH LOGIN)
   const authStr = btoa(`\0${SMTP_USER}\0${SMTP_PASS}`);
   await write(`AUTH PLAIN ${authStr}`);
   const authResp = await read();
-  console.log("AUTH resp:", authResp.trim());
   if (!authResp.startsWith("235")) {
-    throw new Error("SMTP auth failed: " + authResp.trim());
+    throw new Error("SMTP auth failed: " + authResp.slice(0, 3));
   }
 
   // MAIL FROM
   await write(`MAIL FROM:<${SMTP_USER}>`);
   const fromResp = await read();
-  console.log("MAIL FROM resp:", fromResp.trim());
+  if (!fromResp.startsWith("250")) throw new Error("SMTP MAIL FROM " + fromResp.slice(0, 3));
 
   // RCPT TO
   await write(`RCPT TO:<${to}>`);
   const rcptResp = await read();
-  console.log("RCPT TO resp:", rcptResp.trim());
+  if (!rcptResp.startsWith("25")) throw new Error("SMTP RCPT " + rcptResp.slice(0, 3));
 
   // DATA
   await write("DATA");
   const dataResp = await read();
-  console.log("DATA resp:", dataResp.trim());
+  if (!dataResp.startsWith("354")) throw new Error("SMTP DATA " + dataResp.slice(0, 3));
 
   // Send message content
   const msgId = `<${Date.now()}.${Math.random().toString(36).slice(2)}@getdisclosure.app>`;
@@ -334,6 +349,7 @@ async function smtpSend(to: string, subject: string, html: string) {
     `From: Disclosure Protocol <${SMTP_USER}>`,
     `To: ${to}`,
     `Subject: ${subject}`,
+    `List-Unsubscribe: <${UNSUB_MAILTO}>, <${UNSUB_PAGE}>`,
     `MIME-Version: 1.0`,
     `Content-Type: text/html; charset=UTF-8`,
     `Content-Transfer-Encoding: 8bit`,
@@ -348,9 +364,8 @@ async function smtpSend(to: string, subject: string, html: string) {
   w.releaseLock();
 
   const sendResp = await read();
-  console.log("SEND resp:", sendResp.trim());
   if (!sendResp.startsWith("250")) {
-    throw new Error("SMTP send failed: " + sendResp.trim());
+    throw new Error("SMTP send failed: " + sendResp.slice(0, 3));
   }
 
   // QUIT
@@ -360,25 +375,37 @@ async function smtpSend(to: string, subject: string, html: string) {
 }
 
 Deno.serve(async (req: Request) => {
-  if (req.method === "OPTIONS") {
-    return new Response("ok", { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "authorization, content-type" } });
+  const json = (status: number, body: Record<string, unknown>) =>
+    new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
+
+  if (req.method !== "POST") return json(405, { ok: false, error: "method_not_allowed" });
+  if (WEBHOOK_SECRET && !safeEqual(req.headers.get("x-webhook-secret") ?? "", WEBHOOK_SECRET)) {
+    return json(401, { ok: false, error: "unauthorized" });
   }
 
+  let record: Record<string, unknown> | undefined;
   try {
-    const { record } = await req.json();
-    const { email, archetype, serial_number } = record;
-    if (!email || !archetype || !serial_number) {
-      return new Response(JSON.stringify({ error: "missing fields" }), { status: 400 });
-    }
+    record = (await req.json())?.record;
+  } catch (_) {
+    return json(400, { ok: false, error: "invalid_body" });
+  }
+  if (!record || typeof record !== "object") return json(400, { ok: false, error: "invalid_body" });
 
-    const a = ARCHETYPES[archetype.toLowerCase()] ?? ARCHETYPES["diplomat"];
-    const html = buildEmail(archetype.toLowerCase(), serial_number);
-    await smtpSend(email, a.subject, html);
+  const email = typeof record.email === "string" ? record.email.trim() : "";
+  const archetype = typeof record.archetype === "string" ? record.archetype.trim().toLowerCase() : "";
+  const serial = typeof record.serial_number === "string" ? record.serial_number.trim() : "";
 
-    console.log(`Card sent: ${email} | ${archetype} | ${serial_number}`);
-    return new Response(JSON.stringify({ ok: true }), { status: 200 });
+  // Validate before the address goes anywhere near an SMTP command or header.
+  if (!validEmail(email)) return json(400, { ok: false, error: "invalid_email" });
+  if (!Object.prototype.hasOwnProperty.call(ARCHETYPES, archetype)) return json(400, { ok: false, error: "invalid_archetype" });
+  if (!SERIAL_RE.test(serial)) return json(400, { ok: false, error: "invalid_serial" });
+
+  try {
+    await smtpSend(email, ARCHETYPES[archetype].subject, buildEmail(archetype, serial));
+    console.log("Card sent: role " + archetype); // never log the address
+    return json(200, { ok: true });
   } catch (err) {
-    console.error("Send failed:", err);
-    return new Response(JSON.stringify({ error: String(err) }), { status: 500 });
+    console.error("Send failed:", err instanceof Error ? err.message : "unknown");
+    return json(500, { ok: false, error: "send_failed" });
   }
 });

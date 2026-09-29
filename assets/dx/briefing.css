@@ -1,0 +1,116 @@
+/* DISCLOSURE briefing family: /quiz/, /first-contact/, /readiness/.
+   The role roster, the direct answer, the protocol sheet, the axes. */
+
+/* ---------- section heads ---------- */
+.bf-head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-7); align-items: end; margin-bottom: var(--space-7); }
+.bf-head h2 { font-size: var(--step-4); max-width: 16ch; }
+.bf-head p { color: var(--bone-dim); max-width: 42ch; margin: 0; }
+@media (max-width: 860px) { .bf-head { grid-template-columns: 1fr; gap: var(--space-4); margin-bottom: var(--space-6); } }
+
+/* ---------- the roster: four roles, one ledger ---------- */
+.role-row a {
+  display: grid; grid-template-columns: minmax(0, 3.2fr) minmax(0, 2.2fr) minmax(0, 5fr) auto; gap: var(--space-5); align-items: baseline;
+  padding: var(--space-5) 0; text-decoration: none; color: var(--bone); position: relative;
+  transition: padding 260ms var(--ease-out), background 260ms var(--ease-out);
+}
+.role-row a:hover { padding-inline: var(--space-4); background: linear-gradient(90deg, color-mix(in srgb, var(--c) 10%, transparent), transparent 70%); color: var(--bone); }
+.role-name { font-family: var(--poster); font-weight: 800; font-size: var(--step-3); letter-spacing: -0.03em; line-height: 1; display: flex; align-items: center; gap: 0.45em; }
+.role-name .role-dot { width: 0.32em; height: 0.32em; }
+.role-kind { color: var(--bone-faint); }
+.role-desc { color: var(--bone-dim); margin: 0; }
+.role-go { font-family: var(--mono); font-size: var(--step--2); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-faint); white-space: nowrap; }
+.role-row a:hover .role-go { color: var(--c); }
+.roster { margin-top: var(--space-8); }
+.roster-after { margin: var(--space-5) 0 0; color: var(--bone-faint); font-family: var(--mono); font-size: var(--step--1); }
+.roster-after a { color: var(--bone-dim); }
+@media (max-width: 860px) {
+  .role-row a { grid-template-columns: 1fr auto; gap: 6px var(--space-4); }
+  .role-kind { grid-column: 1; }
+  .role-desc { grid-column: 1 / -1; }
+  .role-go { grid-row: 1; grid-column: 2; }
+}
+
+/* ---------- quiz: what the ten questions measure ---------- */
+.measure-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-8); align-items: start; }
+.measure-grid h2 { font-size: var(--step-4); max-width: 13ch; }
+.measure-grid .prose { max-width: 60ch; }
+.pulls { list-style: none; margin: var(--space-6) 0 0; padding: 0; border-top: 1px solid var(--rule-strong); }
+.pulls li { display: grid; grid-template-columns: 10ch minmax(0, 1fr); gap: var(--space-4); padding: var(--space-4) 0; border-bottom: 1px solid var(--rule); }
+.pulls .label { color: var(--bone-faint); padding-top: 0.3em; }
+.pulls p { margin: 0; color: var(--bone-dim); }
+@media (max-width: 860px) { .measure-grid { grid-template-columns: 1fr; gap: var(--space-6); } }
+@media (max-width: 520px) { .pulls li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* ---------- briefing: the direct answer ---------- */
+.answer { padding-top: 0; }
+.answer-copy { max-width: 62ch; }
+.answer-copy p { font-size: var(--step-1); line-height: 1.5; color: var(--bone); font-weight: 400; }
+.answer-copy p + p { color: var(--bone-dim); font-size: var(--step-0); line-height: 1.65; }
+
+/* ---------- briefing: the protocol sheet (the one paper artifact) ---------- */
+.protocol-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--space-8); align-items: start; }
+.protocol-intro { position: sticky; top: calc(var(--nav-h) + var(--space-6)); }
+.protocol-intro h2 { font-size: var(--step-4); max-width: 11ch; }
+.protocol-intro p { color: var(--bone-dim); margin-top: var(--space-5); max-width: 34ch; }
+.protocol-sheet { --tilt: -0.45deg; }
+.protocol-sheet h3 { font-size: var(--step-2); letter-spacing: -0.02em; margin-bottom: var(--space-4); }
+.steps-list { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.steps-list li { counter-increment: step; display: grid; grid-template-columns: 4ch minmax(0, 1fr); gap: var(--space-4); padding: var(--space-4) 0; border-bottom: 1px solid rgba(18, 20, 18, 0.18); }
+.steps-list li::before { content: counter(step, decimal-leading-zero); font-family: var(--mono); font-weight: 700; font-size: var(--step--1); padding-top: 0.2em; }
+.steps-list li:last-child { border-bottom: 0; }
+.steps-list strong { display: block; font-weight: 800; font-size: var(--step-1); letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 4px; }
+.steps-list p { margin: 0; line-height: 1.55; }
+.sheet-foot { display: flex; justify-content: space-between; align-items: center; gap: var(--space-5); flex-wrap: wrap; margin-top: var(--space-5); padding-top: var(--space-4); border-top: 2px solid var(--toner); }
+.sheet-foot p { margin: 0; font-family: var(--mono); font-size: var(--step--1); font-weight: 700; max-width: 40ch; }
+.protocol-sheet .exempt { position: absolute; right: -3.2rem; top: 40%; writing-mode: vertical-rl; color: var(--bone-faint); }
+.sheet-emergency { margin-top: var(--space-6); max-width: 46ch; }
+@media (max-width: 960px) {
+  .protocol-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+  .protocol-intro { position: static; }
+  .protocol-sheet { --tilt: 0deg; }
+  .protocol-sheet .exempt { display: none; }
+}
+@media (max-width: 520px) { .steps-list li { grid-template-columns: 1fr; gap: 4px; } }
+
+/* ---------- prose column beside a short aside ---------- */
+.reading { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--space-8); }
+.reading .aside { position: sticky; top: calc(var(--nav-h) + var(--space-6)); align-self: start; }
+.reading .aside ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule-strong); }
+.reading .aside li { border-bottom: 1px solid var(--rule); }
+.reading .aside a { display: block; padding: 10px 0; text-decoration: none; color: var(--bone-dim); font-size: var(--step--1); }
+.reading .aside a:hover { color: var(--bone); }
+.reading .prose > h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+@media (max-width: 960px) { .reading { grid-template-columns: 1fr; gap: var(--space-5); } .reading .aside { display: none; } }
+
+/* ---------- readiness: the axes ---------- */
+.axes { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule-strong); }
+.axes li { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 6fr) minmax(0, 3fr); gap: var(--space-5); align-items: baseline; padding: var(--space-5) 0; border-bottom: 1px solid var(--rule); }
+.axes h3 { font-size: var(--step-2); letter-spacing: -0.02em; }
+.axes p { margin: 0; color: var(--bone-dim); }
+.axes .label { color: var(--bone-faint); text-align: right; }
+@media (max-width: 760px) {
+  .axes li { grid-template-columns: 1fr; gap: 6px; }
+  .axes .label { text-align: left; order: -1; }
+}
+
+/* grade bands */
+.bands { width: 100%; border-collapse: collapse; margin-top: var(--space-6); font-size: var(--step-0); }
+.bands th, .bands td { text-align: left; padding: var(--space-3) var(--space-4) var(--space-3) 0; border-bottom: 1px solid var(--rule); vertical-align: baseline; }
+.bands th { font-family: var(--mono); font-size: var(--step--2); letter-spacing: 0.08em; text-transform: uppercase; color: var(--bone-faint); font-weight: 700; }
+.bands td:first-child { font-family: var(--mono); font-size: var(--step--1); white-space: nowrap; color: var(--bone-dim); }
+.bands td:nth-child(2) { font-weight: 700; color: var(--bone); white-space: nowrap; }
+.bands td:last-child { color: var(--bone-dim); }
+@media (max-width: 560px) {
+  .bands, .bands tbody, .bands tr, .bands td { display: block; }
+  .bands thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .bands tr { padding: var(--space-3) 0; border-bottom: 1px solid var(--rule); }
+  .bands td { border: 0; padding: 2px 0; white-space: normal !important; }
+}
+
+/* ---------- FAQ block ---------- */
+.faq-block .transcript { max-width: 920px; }
+
+/* spacing between prose blocks: dx.css zeroes p/ul margins after the sibling rule, so restate it here */
+.prose > * + p, .prose > * + ul, .prose > * + ol { margin-top: 1.1em; }
+.prose > h2 + p, .prose > h3 + p, .prose > h2 + ul, .prose > h3 + ul { margin-top: 0.7em; }
+.sheet-foot .rx, .dr-r-foot .rx { white-space: nowrap; }

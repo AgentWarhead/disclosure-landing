@@ -1,307 +1,331 @@
-const RESEND_KEY = process.env.RESEND_KEY || "";
-const FROM_EMAIL = "Disclosure Protocol <team@getdisclosure.app>";
+// POST /api/send-card  {email, archetype, serial}
+// Sends the First Contact Card email through Resend (env RESEND_KEY, read at call time).
+// Responses: {ok:true} or {ok:false, error}. Upstream errors and the key never reach the caller or the log.
+const crypto = require("crypto");
 
-const ARCHETYPES = {
+const SITE = "https://www.getdisclosure.app";
+const FROM_EMAIL = "DISCLOSURE <team@getdisclosure.app>";
+const REPLY_TO = "team@getdisclosure.app";
+const RESEND_URL = "https://api.resend.com/emails";
+const UNSUB_MAILTO = "mailto:team@getdisclosure.app?subject=unsubscribe";
+const UNSUB_PAGE = SITE + "/privacy/#unsubscribe";
+const PRIVACY_PAGE = SITE + "/privacy/";
+
+// TODO(boss): CASL requires a valid mailing address for the sender in every commercial email.
+// Add it to MAILING_ADDRESS below (one line, plain text) before any launch or batch mail goes out.
+// Left empty on purpose: never invent one.
+const MAILING_ADDRESS = "";
+
+const ALLOWED_ORIGINS = new Set([
+  "https://www.getdisclosure.app",
+  "https://getdisclosure.app",
+  "http://127.0.0.1:5177",
+]);
+const LOCALHOST_ORIGIN = /^http:\/\/localhost(:\d{1,5})?$/;
+
+const EMAIL_RE = /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]{1,64}@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*\.[A-Za-z]{2,63}$/;
+const SERIAL_RE = /^(DSC|FC|DS)-[A-Z0-9-]{4,16}$/;
+
+// Copy mirrors ROLES in assets/dx/classify.js. No percentages, no store or Wallet claims.
+const ROLES = {
   sentinel: {
-    name: "SENTINEL", icon: "🛡️", role: "PRIMARY PROTECTOR", code: "ARCHETYPE 001",
-    color: "#FA3E3E", glow: "rgba(250,62,62,0.42)", subject: "Your Sentinel file is active",
-    preheader: "Classification issued. First Contact Card attached. The perimeter starts with you.",
-    tagline: "You move before the crowd understands why movement is required.",
-    reveal: "Your nervous system does not wait for permission. It creates a line, places itself on that line, and dares the unknown to cross it.",
-    directive: "Hold position. Reduce civilian chaos. Do not escalate unless the contact event leaves you no other clean option.",
-    protocol: "Your training path prioritizes perimeter discipline, light control, group positioning, and rules of engagement under impossible pressure.",
-    stat1: ["THREAT READ", "ACTIVE"], stat2: ["ROLE ONSET", "IMMEDIATE"], stat3: ["PRIMARY RISK", "OVERESCALATION"],
-    bar_lbl: "FIELD READINESS", bar_pct: "87%", bar_w: "87%", status: "PERIMETER INSTINCT CONFIRMED",
-    modules: ["30-foot buffer", "Light discipline", "Contact ROE"], pct: "25%",
-    share_txt: "I was classified as a Sentinel. If the sky opens, I am apparently the perimeter. Get your First Contact file: getdisclosure.app",
+    name: "The Sentinel", role: "Primary protector",
+    subject: "The Sentinel: your First Contact Card",
+    line: "You put yourself between the unknown and everyone else, and you do it before anyone asks.",
+    first: "In the first minute you count heads, find the gap, and stand in it. Your training is restraint: holding the line without starting a fight you cannot finish.",
+    dossierLabel: "Read the Sentinel dossier",
+    share: "I got The Sentinel. If something lands, I am the one standing between it and everyone else. Find your role:",
   },
   diplomat: {
-    name: "DIPLOMAT", icon: "🤝", role: "DE-ESCALATION LEAD", code: "ARCHETYPE 002",
-    color: "#22C55E", glow: "rgba(34,197,94,0.42)", subject: "Your Diplomat file is active",
-    preheader: "Classification issued. First Contact Card attached. The first human signal may be yours.",
-    tagline: "The outcome depends on what you say in the first 30 seconds.",
-    reveal: "You read pressure before it turns into panic. Where other people raise volume, you search for timing, posture, and the one sentence that keeps contact human.",
-    directive: "Slow the room. Calibrate tone. Speak only after the perimeter is stable and the signal is worth sending.",
-    protocol: "Your training path prioritizes liaison timing, calming language, first-signal posture, and communication under anomalous pressure.",
-    stat1: ["PROTOCOL", "ACTIVE"], stat2: ["THREAT RESPONSE", "DE-ESCALATE"], stat3: ["PRIMARY RISK", "EARLY CONTACT"],
-    bar_lbl: "DIPLOMATIC RATING", bar_pct: "91%", bar_w: "91%", status: "CALM SIGNAL READY",
-    modules: ["Liaison standard", "Tone calibration", "First signal timing"], pct: "30%",
-    share_txt: "I was classified as a Diplomat. Apparently I am the person who speaks when everyone else forgets language. Get your First Contact file: getdisclosure.app",
+    name: "The Diplomat", role: "De-escalation lead",
+    subject: "The Diplomat: your First Contact Card",
+    line: "You lower the temperature of every room you stand in, including this one.",
+    first: "In the first minute you slow your breathing so others copy it. Your training is signal discipline: open hands, a quiet voice, and no sudden moves.",
+    dossierLabel: "Read the Diplomat dossier",
+    share: "I got The Diplomat. When the sky gets strange, I am the calm voice in the room. Find your role:",
   },
   scholar: {
-    name: "SCHOLAR", icon: "🔬", role: "FIELD ANALYST", code: "ARCHETYPE 003",
-    color: "#3B82F6", glow: "rgba(59,130,246,0.42)", subject: "Your Scholar file is active",
-    preheader: "Classification issued. First Contact Card attached. Your record may be the only one that survives.",
-    tagline: "Your records will be the only verifiable account that survives.",
-    reveal: "You do not just witness the event. You preserve it. Sequence, sound, shape, contradiction, timing: the details panic tries to delete.",
-    directive: "Observe without freezing. Document without contaminating. Convert the impossible into a record someone else can verify.",
-    protocol: "Your training path prioritizes incident reporting, evidence discipline, pattern recognition, and memory protection under stress.",
-    stat1: ["ANALYSIS MODE", "CONTINUOUS"], stat2: ["DATA RETENTION", "TOTAL"], stat3: ["PRIMARY RISK", "TUNNEL VISION"],
-    bar_lbl: "ANALYTICAL RATING", bar_pct: "94%", bar_w: "94%", status: "OBSERVATION THREAD OPEN",
-    modules: ["Incident reports", "Evidence protocol", "Pattern anomaly log"], pct: "15%",
-    share_txt: "I was classified as a Scholar. If contact happens, I am apparently the one making sure history does not become rumor. Get your First Contact file: getdisclosure.app",
+    name: "The Scholar", role: "Field analyst",
+    subject: "The Scholar: your First Contact Card",
+    line: "While everyone else reacts, you record. Your account is the one that survives.",
+    first: "In the first minute you note the time, the direction and the light. Your training is evidence: what you can prove, what you only saw, and the difference.",
+    dossierLabel: "Read the Scholar dossier",
+    share: "I got The Scholar. If it happens, I am the one writing down what actually happened. Find your role:",
   },
   survivor: {
-    name: "SURVIVOR", icon: "🏃", role: "EXTRACTION SPECIALIST", code: "ARCHETYPE 004",
-    color: "#F97316", glow: "rgba(249,115,22,0.42)", subject: "Your Survivor file is active",
-    preheader: "Classification issued. First Contact Card attached. You saw the exit before the room changed.",
-    tagline: "You read the exit before you read the room.",
-    reveal: "You are not running from the event. You are preserving continuity. You know who needs to move, where they move, and when waiting becomes negligence.",
-    directive: "Extract civilians. Keep the group coherent. Leave spectacle to people with worse priorities.",
-    protocol: "Your training path prioritizes family drills, route selection, blackout movement, and controlled withdrawal under uncertainty.",
-    stat1: ["ESCAPE VECTOR", "CALCULATED"], stat2: ["FAMILY PROTOCOL", "ACTIVE"], stat3: ["PRIMARY RISK", "PANIC SPREAD"],
-    bar_lbl: "SURVIVAL RATING", bar_pct: "79%", bar_w: "79%", status: "EVACUATION VECTOR READY",
-    modules: ["Family drill mode", "Exit mapping", "Blackout movement"], pct: "30%",
-    share_txt: "I was classified as a Survivor. Translation: I already know where the exits are. Get your First Contact file: getdisclosure.app",
+    name: "The Survivor", role: "Self-preservation specialist",
+    subject: "The Survivor: your First Contact Card",
+    line: "You read the exit before you read the room, and your people are already moving.",
+    first: "In the first minute you find cover and a way out. Your training is timing: knowing when leaving is the calm choice and not the panicked one.",
+    dossierLabel: "Read the Survivor dossier",
+    share: "I got The Survivor. I already know where the exits are. Find your role:",
   },
   "first-contact": {
-    name: "FIRST CONTACT", icon: "⭐", role: "OUTSIDE CLASSIFICATION", code: "BLACK CHANNEL",
-    color: "#FFD700", glow: "rgba(255,215,0,0.46)", subject: "Your Disclosure file is active",
-    preheader: "Your rare First Contact designation surfaced. Open the field packet.",
-    tagline: "Less than 0.1% carry this designation. You know why.",
-    reveal: "This is not a normal result. The system flagged a signal anomaly and moved your file outside the standard civilian classification stack.",
-    directive: "Do not treat this as a trophy. Treat it as a locked door noticing you first.",
-    protocol: "Your training path remains restricted until launch. The app will expose the next layer when the black channel opens.",
-    stat1: ["ARCHETYPE", "CLASSIFIED"], stat2: ["FIELD CONF", "ANOMALY"], stat3: ["PRIMARY RISK", "UNKNOWN"],
-    bar_lbl: "UNLOCK STATUS", bar_pct: "&lt;0.1%", bar_w: "3%", status: "SIGNAL ANOMALY DETECTED",
-    modules: ["Restricted file", "Level 5 protocol", "Black channel watch"], pct: "fewer than 0.1%",
-    share_txt: "My Disclosure file returned a black-channel First Contact anomaly. Standard classification failed, which is either bad or extremely interesting. Open yours: getdisclosure.app",
+    name: "First Contact", role: "Designation not issued",
+    subject: "Your file came back sealed",
+    line: "This designation is not assigned. It appears. You should not be seeing this.",
+    first: "Your answers did not fit the four. The record has no instructions for you, only a serial.",
+    dossierLabel: "Open the sealed file",
+    share: "My DISCLOSURE file came back sealed. Find your role:",
   },
 };
 
-function enc(s) { return encodeURIComponent(s); }
-function esc(value) {
-  return String(value).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[ch] || ch));
+/* ---------- best-effort rate limits ----------
+   In memory, so they hold per warm serverless instance only. A cold start or a second instance
+   starts fresh. They blunt casual abuse; they are not a hard guarantee.
+   Per IP (x-forwarded-for, first hop): 3 requests per 10 minutes.
+   Per email address: 1 sent card per 24 hours. */
+const IP_WINDOW_MS = 10 * 60 * 1000;
+const IP_MAX = 3;
+const EMAIL_WINDOW_MS = 24 * 60 * 60 * 1000;
+const ipHits = new Map();
+const emailSent = new Map();
+
+function sweep(now) {
+  if (ipHits.size + emailSent.size < 5000) return;
+  for (const [k, list] of ipHits) if (!list.some((t) => now - t < IP_WINDOW_MS)) ipHits.delete(k);
+  for (const [k, t] of emailSent) if (now - t >= EMAIL_WINDOW_MS) emailSent.delete(k);
+}
+function ipAllowed(ip, now) {
+  const list = (ipHits.get(ip) || []).filter((t) => now - t < IP_WINDOW_MS);
+  if (list.length >= IP_MAX) { ipHits.set(ip, list); return false; }
+  list.push(now);
+  ipHits.set(ip, list);
+  return true;
+}
+function emailKey(email) {
+  return crypto.createHash("sha256").update(email.toLowerCase()).digest("hex");
 }
 
-function urlsFor(archetype, shareText) {
-  const base = "https://getdisclosure.app";
-  const dossierPath = archetype === "first-contact" ? "first-contact" : archetype;
+/* ---------- helpers ---------- */
+function esc(value) {
+  return String(value).replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[ch]));
+}
+function clientIp(req) {
+  const xff = String((req.headers && req.headers["x-forwarded-for"]) || "");
+  const first = xff.split(",")[0].trim();
+  return first || (req.socket && req.socket.remoteAddress) || "unknown";
+}
+function originAllowed(origin) {
+  return ALLOWED_ORIGINS.has(origin) || LOCALHOST_ORIGIN.test(origin);
+}
+function send(res, status, body) {
+  res.statusCode = status;
+  res.setHeader("Content-Type", "application/json; charset=utf-8");
+  res.end(JSON.stringify(body));
+}
+function readBody(req) {
+  let b;
+  try { b = req.body; } catch (_) { return null; } // Vercel throws on malformed JSON
+  if (typeof b === "string") { try { b = JSON.parse(b); } catch (_) { return null; } }
+  if (Buffer.isBuffer(b)) { try { b = JSON.parse(b.toString("utf8")); } catch (_) { return null; } }
+  return b && typeof b === "object" && !Array.isArray(b) ? b : null;
+}
+function validEmail(v) {
+  if (typeof v !== "string") return false;
+  if (v.length < 6 || v.length > 254) return false;
+  if (/[\s\r\n\0]/.test(v)) return false;
+  if ((v.match(/@/g) || []).length !== 1) return false;
+  if (/\.\./.test(v)) return false;
+  return EMAIL_RE.test(v);
+}
+
+function links(key) {
+  const r = ROLES[key];
   return {
-    home: base,
-    quiz: `${base}/#quiz`,
-    access: `${base}/#access`,
-    fieldKit: `${base}/#classified-tools`,
-    simulator: `${base}/#protocol-simulator`,
-    packet: `${base}/#transmission-packet`,
-    archetypes: `${base}/archetypes`,
-    dossier: `${base}/archetype/${dossierPath}`,
-    intel: `${base}/intel`,
-    signal: `${base}/#transmission-packet`,
-    share: `${base}/?share=x&a=${archetype}&text=${enc(shareText)}`,
-    group: `${base}/?ref=group-chat#quiz`,
-    friend: `${base}/?ref=friend#quiz`,
+    home: SITE + "/",
+    dossier: SITE + "/archetype/" + encodeURIComponent(key) + "/",
+    share: SITE + "/?share=x&text=" + encodeURIComponent(r.share + " " + SITE + "/"),
   };
 }
 
-const EMAIL_COPY = {
-  sentinel: {
-    role: "THE ONE WHO MOVES FIRST",
-    oneLine: "If people freeze, you get them moving.",
-    directive: "Your job is to keep people back, spot the danger, and make the first safe move.",
-    modules: ["Spot danger fast", "Keep people back", "Move without panic"],
-    status: "YOU MOVE FIRST",
-    share: "I got Sentinel. Apparently I am the one dragging everyone away from the glowing thing."
-  },
-  diplomat: {
-    role: "THE ONE WHO KEEPS PEOPLE CALM",
-    oneLine: "If everyone panics, you become the calm voice in the room.",
-    directive: "Your job is to slow people down, choose the right words, and stop fear from taking over.",
-    modules: ["Calm people fast", "Say the first words", "Keep the room together"],
-    status: "STAY CALM. SPEAK CLEARLY.",
-    share: "I got Diplomat. Apparently I am the person who has to keep everyone calm when the sky gets weird."
-  },
-  scholar: {
-    role: "THE ONE WHO NOTICES DETAILS",
-    oneLine: "If the impossible happens, you remember what everyone else misses.",
-    directive: "Your job is to watch, record, and keep the facts straight while everyone else spirals.",
-    modules: ["Notice what matters", "Record the event", "Separate facts from panic"],
-    status: "REMEMBER WHAT HAPPENED",
-    share: "I got Scholar. If something impossible happens, I am the one taking notes while everyone else loses it."
-  },
-  survivor: {
-    role: "THE ONE WHO FINDS THE EXIT",
-    oneLine: "If the room turns chaotic, you already know the way out.",
-    directive: "Your job is to get yourself and your people away from danger before panic spreads.",
-    modules: ["Find the safest exit", "Move your people", "Leave before it gets worse"],
-    status: "GET OUT CLEAN",
-    share: "I got Survivor. Translation: I already know where the exits are."
-  },
-  "first-contact": {
-    role: "THE RARE ONE",
-    oneLine: "Your result was not supposed to be common.",
-    directive: "Your job is to stay sharp, pay attention, and be ready when the next layer opens.",
-    modules: ["Watch for the signal", "Read the hidden file", "Wait for the next unlock"],
-    status: "RARE RESULT FOUND",
-    share: "My Disclosure result was First Contact. Standard classification failed, which feels either bad or extremely interesting."
-  },
-};
+/* ---------- the email ---------- */
+const SANS = "'Public Sans',Arial,Helvetica,sans-serif";
+const MONO = "'Space Mono','Courier New',Courier,monospace";
+const C = { void: "#030504", panel: "#070b09", rule: "#1d2722", bone: "#d8dfda", dim: "#a3aea7", faint: "#7d8983", signal: "#4af626", ink: "#031002" };
 
-function emailCopyFor(archetype) {
-  return EMAIL_COPY[archetype] || EMAIL_COPY.diplomat;
+function buildHtml(key, serial) {
+  const r = ROLES[key];
+  const u = links(key);
+  const sealed = key === "first-contact";
+  const label = (t, color) => `<p style="margin:0 0 10px;font-family:${MONO};font-size:12px;line-height:1.4;letter-spacing:2px;text-transform:uppercase;color:${color || C.faint};">${t}</p>`;
+  const row = (k, v) => `<tr><td style="padding:12px 0;border-top:1px solid ${C.rule};font-family:${MONO};font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:${C.faint};">${k}</td><td align="right" style="padding:12px 0;border-top:1px solid ${C.rule};font-family:${MONO};font-size:13px;letter-spacing:1px;color:${C.bone};">${v}</td></tr>`;
+  const address = MAILING_ADDRESS ? `<p style="margin:0 0 8px;">${esc(MAILING_ADDRESS)}</p>` : "";
+
+  return `<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><meta name="supported-color-schemes" content="dark">
+<title>${esc(r.subject)}</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;800;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+</head>
+<body style="margin:0;padding:0;background:${C.void};color:${C.bone};font-family:${SANS};font-size:16px;line-height:1.6;">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">${esc(r.line)}</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${C.void};"><tr><td align="center" style="padding:28px 16px 40px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:580px;">
+
+<tr><td style="padding:0 0 18px;border-bottom:1px solid ${C.rule};">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td style="font-family:${SANS};font-size:15px;font-weight:900;letter-spacing:6px;color:${C.bone};"><a href="${u.home}" style="color:${C.bone};text-decoration:none;">DISCLOSURE</a></td>
+    <td align="right" style="font-family:${MONO};font-size:12px;letter-spacing:1.5px;color:${C.faint};">SERIAL ${esc(serial)}</td>
+  </tr></table>
+</td></tr>
+
+<tr><td style="padding:40px 0 8px;">
+  ${label(sealed ? "First Contact Card &middot; Designation not issued" : "First Contact Card &middot; Designation issued")}
+  <h1 style="margin:0;font-family:${SANS};font-size:46px;line-height:1.02;font-weight:800;letter-spacing:-1px;color:${C.bone};">${esc(r.name)}</h1>
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:18px 0 14px;"><tr><td style="width:56px;height:2px;background:${C.signal};font-size:0;line-height:0;">&nbsp;</td></tr></table>
+  <p style="margin:0 0 18px;font-family:${MONO};font-size:13px;letter-spacing:2px;text-transform:uppercase;color:${C.dim};">${esc(r.role)}</p>
+  <p style="margin:0;font-family:${SANS};font-size:21px;line-height:1.45;font-weight:400;color:${C.bone};">${esc(r.line)}</p>
+</td></tr>
+
+<tr><td style="padding:28px 0 8px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${C.panel};border:1px solid ${C.rule};"><tr><td style="padding:22px 22px 20px;">
+    ${label(sealed ? "The record" : "The first minute")}
+    <p style="margin:0;font-family:${SANS};font-size:17px;line-height:1.6;color:${C.bone};">${esc(r.first)}</p>
+  </td></tr></table>
+</td></tr>
+
+<tr><td style="padding:20px 0 4px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    ${row("Serial", esc(serial))}
+    ${row("Designation", esc(r.name))}
+    ${row("App status", "In development")}
+  </table>
+</td></tr>
+
+<tr><td style="padding:26px 0 8px;">
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td style="background:${C.signal};border-radius:2px;">
+    <a href="${esc(u.dossier)}" style="display:inline-block;padding:15px 24px;font-family:${SANS};font-size:16px;font-weight:800;color:${C.ink};text-decoration:none;">${esc(r.dossierLabel)} &rarr;</a>
+  </td></tr></table>
+  <p style="margin:18px 0 0;font-family:${MONO};font-size:13px;letter-spacing:1px;"><a href="${esc(u.share)}" style="color:${C.bone};text-decoration:underline;">Share your role on X</a></p>
+</td></tr>
+
+<tr><td style="padding:30px 0 30px;">
+  ${label("What happens next")}
+  <p style="margin:0;font-family:${SANS};font-size:16px;line-height:1.6;color:${C.dim};">DISCLOSURE is an app in development for iOS and Android. When it opens, this address hears first. Until then, nothing else arrives from us.</p>
+</td></tr>
+
+<tr><td style="padding:22px 0 0;border-top:1px solid ${C.rule};font-family:${SANS};font-size:13px;line-height:1.6;color:${C.faint};">
+  <p style="margin:0 0 8px;">You are getting this because this address was entered at getdisclosure.app to receive a First Contact Card. To stop all email from DISCLOSURE, reply with the word unsubscribe or <a href="${esc(UNSUB_MAILTO)}" style="color:${C.dim};text-decoration:underline;">email team@getdisclosure.app</a>. <a href="${esc(PRIVACY_PAGE)}" style="color:${C.dim};text-decoration:underline;">Privacy</a>.</p>
+  ${address}<p style="margin:0;font-family:${MONO};font-size:11px;letter-spacing:1.5px;text-transform:uppercase;">DISCLOSURE &middot; getdisclosure.app &middot; Not affiliated with any government agency.</p>
+</td></tr>
+
+</table>
+</td></tr></table>
+</body></html>`;
 }
 
-function buildPlainText(archetype, serial) {
-  const a = ARCHETYPES[archetype] || ARCHETYPES["diplomat"];
-  const e = emailCopyFor(archetype);
-  const u = urlsFor(archetype, a.share_txt);
+function buildText(key, serial) {
+  const r = ROLES[key];
+  const u = links(key);
+  const sealed = key === "first-contact";
   return [
-    `DISCLOSURE // YOUR ROLE IS READY`,
-    `Serial: ${serial || "DS-2026-ISSUED"}`,
-    `Result: ${a.name}`,
-    `Role: ${e.role}`,
-    ``,
-    e.oneLine,
-    ``,
-    `IF CONTACT HAPPENS`,
-    e.directive,
-    ``,
-    `YOU'RE ON THE LIST`,
-    `Good move. When Disclosure launches on iPhone and Android, you will hear from us first. Launch day, new features, strange updates, and the next steps all go to this email.`,
-    ``,
-    `WHAT COMES NEXT`,
-    `01 ${e.modules[0]}`,
-    `02 ${e.modules[1]}`,
-    `03 ${e.modules[2]}`,
-    ``,
-    `OPEN YOUR ${a.name} DOSSIER`,
-    u.dossier,
-    ``,
-    `YOU ARE ONE STEP CLOSER TO BEING READY`,
-    `Watch this inbox. We will send the launch signal when the app is ready.`,
-    ``,
-    `Challenge your group chat: ${u.share}`,
-    `getdisclosure.app`,
+    "DISCLOSURE",
+    sealed ? "First Contact Card. Designation not issued." : "First Contact Card. Designation issued.",
+    "",
+    r.name.toUpperCase(),
+    r.role,
+    "",
+    r.line,
+    "",
+    sealed ? "THE RECORD" : "THE FIRST MINUTE",
+    r.first,
+    "",
+    "Serial: " + serial,
+    "Designation: " + r.name,
+    "App status: In development",
+    "",
+    r.dossierLabel + ": " + u.dossier,
+    "Share your role on X: " + u.share,
+    "",
+    "WHAT HAPPENS NEXT",
+    "DISCLOSURE is an app in development for iOS and Android. When it opens, this address hears first. Until then, nothing else arrives from us.",
+    "",
+    "--",
+    "You are getting this because this address was entered at getdisclosure.app to receive a First Contact Card.",
+    "To stop all email from DISCLOSURE, reply with the word unsubscribe or email team@getdisclosure.app.",
+    "Privacy: " + PRIVACY_PAGE,
+    ...(MAILING_ADDRESS ? [MAILING_ADDRESS] : []),
+    "Not affiliated with any government agency.",
   ].join("\n");
 }
 
-function buildEmail(archetype, serial) {
-  const a = ARCHETYPES[archetype] || ARCHETYPES["diplomat"];
-  const e = emailCopyFor(archetype);
-  const issued = new Date().toISOString().slice(0, 10);
-  const serialSafe = esc(serial || "DS-2026-ISSUED");
-  const u = urlsFor(archetype, a.share_txt);
-  const c = a.color;
-  const glow = a.glow;
-  const button = (label, href, filled = false) => `<a href="${href}" style="display:inline-block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;border-radius:999px;padding:16px 18px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.15;letter-spacing:0.8px;font-weight:900;text-transform:uppercase;${filled ? `background:linear-gradient(90deg,#ecff7a,#4AF626);color:#020302;border:1px solid #ecff7a;box-shadow:0 0 38px rgba(74,246,38,0.42);` : `background:rgba(255,255,255,0.055);color:#ffffff;border:1px solid rgba(255,255,255,0.20);`}">${label}</a>`;
-  const moduleRows = e.modules.map((m, i) => `
-    <tr>
-      <td style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.09);">
-        <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation"><tr>
-          <td style="width:36px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:1.8px;color:${c};font-weight:900;">0${i + 1}</td>
-          <td style="font-family:Arial,Helvetica,sans-serif;font-size:17px;line-height:1.35;color:#ffffff;font-weight:900;">${esc(m)}</td>
-        </tr></table>
-      </td>
-    </tr>`).join("");
-
-  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>${esc(a.subject)}</title></head>
-<body style="margin:0;padding:0;background:#000000;font-family:Arial,Helvetica,sans-serif;color:#ffffff;font-size:16px;line-height:1.5;">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">${esc(a.preheader)}</div>
-<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="background:#000000;background-image:radial-gradient(circle at 50% 0,${glow},transparent 34%),radial-gradient(circle at 100% 16%,rgba(255,215,0,0.14),transparent 28%),linear-gradient(180deg,#020604 0%,#000000 62%,#030603 100%);"><tr><td align="center" style="padding:22px 12px 42px;">
-<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="max-width:640px;margin:0 auto;">
-<tr><td style="padding:14px 0 22px;text-align:center;border-bottom:1px solid rgba(74,246,38,0.24);">
-  <a href="${u.home}" style="text-decoration:none;"><img src="https://getdisclosure.app/logo-nav.png" width="210" alt="DISCLOSURE" style="display:block;margin:0 auto 12px;max-width:210px;height:auto;border:0;filter:drop-shadow(0 0 18px rgba(74,246,38,0.36));"/></a>
-  <div style="display:inline-block;padding:8px 13px;border:1px solid rgba(216,255,155,0.28);border-radius:999px;background:rgba(0,0,0,0.62);font-family:'Courier New',Courier,monospace;font-size:12px;line-height:1.2;letter-spacing:2px;color:#DFFF8C;font-weight:900;">YOUR ROLE IS READY // ${serialSafe}</div>
-</td></tr>
-<tr><td style="padding:32px 0 20px;text-align:center;">
-  <p style="margin:0 0 10px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.4px;color:${c};font-weight:900;">${esc(a.code)} // ${issued}</p>
-  <h1 style="margin:0;font-size:54px;line-height:0.92;letter-spacing:-2px;color:#ffffff;font-weight:900;text-transform:uppercase;text-shadow:0 0 30px rgba(255,255,255,0.12);">${esc(a.name)}</h1>
-  <p style="margin:15px auto 0;max-width:520px;font-size:23px;line-height:1.28;color:#ffffff;font-weight:900;">${esc(e.oneLine)}</p>
-</td></tr>
-<tr><td align="center" style="padding:8px 0 26px;">
-  <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="max-width:500px;border:1px solid ${c};border-radius:30px;background:#061006;background-image:radial-gradient(circle at 50% 0,${glow},transparent 38%),linear-gradient(145deg,rgba(8,22,9,0.98),rgba(0,0,0,0.84));box-shadow:0 0 0 1px rgba(255,255,255,0.05),0 26px 88px rgba(0,0,0,0.72),0 0 76px ${glow};overflow:hidden;">
-    <tr><td style="padding:22px 22px 0;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.9);font-weight:900;">RESULT CARD</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2px;color:#ffffff;">ACTIVE</td></tr></table></td></tr>
-    <tr><td align="center" style="padding:20px 24px 22px;"><div style="font-size:58px;line-height:1;margin-bottom:12px;">${a.icon}</div><div style="font-family:Arial,Helvetica,sans-serif;font-size:34px;font-weight:900;letter-spacing:1px;color:${c};text-shadow:0 0 24px ${glow};text-transform:uppercase;">${esc(a.name)}</div><div style="margin-top:8px;font-family:Arial,Helvetica,sans-serif;font-size:15px;letter-spacing:1.1px;color:#ffffff;font-weight:900;text-transform:uppercase;">${esc(e.role)}</div></td></tr>
-    <tr><td style="padding:0 24px 24px;">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid rgba(255,255,255,0.10);">
-        <tr><td style="padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.09);"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:1.6px;color:rgba(255,255,255,0.90);font-weight:900;">WHAT YOU DO</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:1.6px;color:${c};font-weight:900;">${esc(e.status)}</td></tr></table></td></tr>
-        <tr><td style="padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.09);"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:1.6px;color:rgba(255,255,255,0.90);font-weight:900;">APP STATUS</td><td align="right" style="font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:1.6px;color:#DFFF8C;font-weight:900;">COMING SOON</td></tr></table></td></tr>
-      </table>
-    </td></tr>
-  </table>
-</td></tr>
-<tr><td style="padding:0 0 20px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(216,255,155,0.20);border-radius:24px;background:rgba(0,0,0,0.56);box-shadow:inset 0 0 42px rgba(74,246,38,0.05);"><tr><td style="padding:22px 24px;"><p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.2px;color:${c};font-weight:900;">IF CONTACT HAPPENS</p><p style="margin:0;font-size:19px;line-height:1.45;color:#ffffff;font-weight:900;">${esc(e.directive)}</p></td></tr></table></td></tr>
-<tr><td style="padding:0 0 24px;">
-  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(74,246,38,0.40);border-radius:30px;background:#031006;background-image:radial-gradient(circle at 50% 0,rgba(74,246,38,0.30),transparent 42%),radial-gradient(circle at 92% 22%,${glow},transparent 32%),linear-gradient(145deg,rgba(7,28,11,0.98),rgba(0,0,0,0.82));box-shadow:0 0 82px rgba(74,246,38,0.20),inset 0 0 48px rgba(255,215,0,0.05);overflow:hidden;">
-    <tr><td style="padding:26px 24px 24px;text-align:center;">
-      <div style="display:inline-block;margin:0 0 12px;padding:7px 12px;border-radius:999px;background:rgba(74,246,38,0.12);border:1px solid rgba(74,246,38,0.36);font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2.3px;color:#4AF626;font-weight:900;">COMING SOON TO iPHONE + ANDROID</div>
-      <h2 style="margin:0 0 12px;font-size:40px;line-height:0.94;letter-spacing:-1.8px;color:#ffffff;font-weight:900;text-transform:uppercase;">You made the right call.</h2>
-      <p style="margin:0 auto 18px;max-width:530px;font-size:18px;line-height:1.48;color:#ffffff;font-weight:900;">Most people will wait until the sky gets weird. You are already one step closer to being ready. When Disclosure launches, this inbox gets the signal first.</p>
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 16px;"><tr>
-        <td style="padding:5px;"><div style="border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:13px 8px;text-align:center;background:rgba(0,0,0,0.48);font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:0.6px;color:#ffffff;font-weight:900;text-transform:uppercase;">iPhone<br/><span style="color:#DFFF8C;">you are on the list</span></div></td>
-        <td style="padding:5px;"><div style="border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:13px 8px;text-align:center;background:rgba(0,0,0,0.48);font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:0.6px;color:#ffffff;font-weight:900;text-transform:uppercase;">Android<br/><span style="color:#DFFF8C;">you are on the list</span></div></td>
-      </tr></table>
-      <div style="border:1px solid rgba(216,255,155,0.24);border-radius:18px;padding:13px 14px;background:rgba(74,246,38,0.07);font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.35;color:#DFFF8C;font-weight:900;">You are on the list. We will send launch day, app updates, and the next Disclosure drops here first.</div>
-    </td></tr>
-  </table>
-</td></tr>
-<tr><td style="padding:0 0 22px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid rgba(255,255,255,0.12);border-radius:24px;background:linear-gradient(135deg,rgba(7,18,9,0.95),rgba(0,0,0,0.72));"><tr><td style="padding:20px 24px 6px;"><p style="margin:0;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.2px;color:#DFFF8C;font-weight:900;">WHAT YOU GET FIRST</p></td></tr>${moduleRows}</table></td></tr>
-<tr><td align="center" style="padding:0 0 24px;">
-  <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding:6px;">${button(`OPEN MY ${a.name} DOSSIER`, u.dossier, true)}</td></tr><tr><td style="padding:6px;">${button('SEND THIS TO A FRIEND', u.share)}</td></tr></table>
-</td></tr>
-<tr><td style="padding:18px 20px;border:1px solid rgba(255,255,255,0.14);border-radius:22px;background:rgba(255,255,255,0.04);text-align:center;">
-  <p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:13px;letter-spacing:2.2px;color:#FFD66B;font-weight:900;">SEND THIS TO THE GROUP CHAT</p>
-  <p style="margin:0 0 14px;font-size:16px;line-height:1.45;color:#ffffff;font-weight:800;">Make them take the quiz. Someone gets calm voice. Someone gets exit plan. Someone gets the weird result.</p>
-  ${button('SHARE MY RESULT', u.share)}
-</td></tr>
-<tr><td style="padding:22px 0 0;text-align:center;border-top:1px solid rgba(255,255,255,0.08);"><p style="margin:0 0 8px;font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.95);">DISCLOSURE FIELD FILE</p><p style="margin:0 0 10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.45;color:rgba(255,255,255,0.88);">Most people wait until things get strange. You do not have to.</p><p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:rgba(255,255,255,0.82);"><a href="${u.home}" style="color:rgba(255,255,255,0.92);text-decoration:none;">getdisclosure.app</a> &nbsp;•&nbsp; <a href="https://getdisclosure.app?unsub=1" style="color:rgba(255,255,255,0.82);text-decoration:none;">unsubscribe</a></p></td></tr>
-</table></td></tr></table>
-</body></html>`;
-}
-module.exports = async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+/* ---------- handler ---------- */
+async function handler(req, res) {
+  const origin = String((req.headers && req.headers.origin) || "");
   res.setHeader("Cache-Control", "no-store, max-age=0");
-  if (req.method === "OPTIONS") return res.status(200).end();
-  if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
+  res.setHeader("Vary", "Origin");
+  res.setHeader("X-Content-Type-Options", "nosniff");
+
+  if (origin) {
+    if (!originAllowed(origin)) return send(res, 403, { ok: false, error: "forbidden" });
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Access-Control-Allow-Methods", "POST");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Max-Age", "600");
+  }
+  // Preflight from an allowed origin only (a disallowed one was refused above).
+  if (req.method === "OPTIONS" && origin) { res.statusCode = 204; return res.end(); }
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "POST");
+    return send(res, 405, { ok: false, error: "method_not_allowed" });
+  }
+
+  const now = Date.now();
+  sweep(now);
+  if (!ipAllowed(clientIp(req), now)) return send(res, 429, { ok: false, error: "too_many_requests" });
+
+  const body = readBody(req);
+  if (!body) return send(res, 400, { ok: false, error: "invalid_body" });
+
+  const email = typeof body.email === "string" ? body.email.trim() : body.email;
+  const key = typeof body.archetype === "string" ? body.archetype.trim().toLowerCase() : "";
+  const serial = typeof body.serial === "string" ? body.serial.trim() : "";
+
+  if (!validEmail(email)) return send(res, 400, { ok: false, error: "invalid_email" });
+  if (!Object.prototype.hasOwnProperty.call(ROLES, key)) return send(res, 400, { ok: false, error: "invalid_archetype" });
+  if (!SERIAL_RE.test(serial)) return send(res, 400, { ok: false, error: "invalid_serial" });
+
+  const ek = emailKey(email);
+  const last = emailSent.get(ek);
+  if (last && now - last < EMAIL_WINDOW_MS) return send(res, 429, { ok: false, error: "too_many_requests" });
+
+  const apiKey = process.env.RESEND_KEY || "";
+  if (!apiKey) {
+    console.error("send-card: RESEND_KEY missing");
+    return send(res, 503, { ok: false, error: "unavailable" });
+  }
 
   try {
-    const { email, archetype, serial } = req.body;
-    if (!email || !archetype || !serial) {
-      return res.status(400).json({ error: "missing fields" });
-    }
-
-    if (!RESEND_KEY) {
-      return res.status(500).json({ error: "RESEND_KEY not configured" });
-    }
-
-    const key = archetype.toLowerCase();
-    const a = ARCHETYPES[key] || ARCHETYPES["diplomat"];
-    const html = buildEmail(key, serial);
-    const text = buildPlainText(key, serial);
-
-    const resp = await fetch("https://api.resend.com/emails", {
+    const resp = await fetch(RESEND_URL, {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${RESEND_KEY}`,
+        Authorization: "Bearer " + apiKey,
         "Content-Type": "application/json",
+        // Resend drops a repeat of the same email and serial within 24 hours, across every instance.
+        "Idempotency-Key": "card-" + crypto.createHash("sha256").update(ek + "|" + serial).digest("hex").slice(0, 48),
       },
       body: JSON.stringify({
         from: FROM_EMAIL,
         to: [email],
-        subject: a.subject,
-        html: html,
-        text: text,
-        reply_to: "team@getdisclosure.app",
-        headers: {
-          "List-Unsubscribe": "<https://getdisclosure.app?unsub=1>",
-          "List-Unsubscribe-Post": "List-Unsubscribe=One-Click"
-        },
+        reply_to: REPLY_TO,
+        subject: ROLES[key].subject,
+        html: buildHtml(key, serial),
+        text: buildText(key, serial),
+        headers: { "List-Unsubscribe": "<" + UNSUB_MAILTO + ">, <" + UNSUB_PAGE + ">" },
       }),
     });
-
-    const detailText = await resp.text();
-    let detail = null;
-    try { detail = JSON.parse(detailText); } catch (_) { detail = detailText; }
-
     if (!resp.ok) {
-      return res.status(500).json({ error: "Resend failed", detail });
+      console.error("send-card: upstream status " + resp.status);
+      return send(res, 502, { ok: false, error: "send_failed" });
     }
-
-    return res.status(200).json({ ok: true, to: email, archetype: key, provider: "resend", detail });
-  } catch (err) {
-    console.error("Send failed:", err);
-    return res.status(500).json({ error: err.message });
+    emailSent.set(ek, now);
+    console.log("send-card: sent, role " + key);
+    return send(res, 200, { ok: true });
+  } catch (_) {
+    console.error("send-card: upstream unreachable");
+    return send(res, 502, { ok: false, error: "send_failed" });
   }
-};
+}
+
+module.exports = handler;
+module.exports._internal = { buildHtml, buildText, ROLES, validEmail, reset: () => { ipHits.clear(); emailSent.clear(); } };

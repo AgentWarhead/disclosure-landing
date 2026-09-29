@@ -4,6 +4,14 @@
 > Do NOT create competing docs. Update THIS file.
 > Last verified: 2026-02-27
 
+> **CORRECTIONS 2026-09-28 (overhaul, these override anything below):**
+> - Role percentages (34/41/23, <0.1%) were never measured. Do not publish them anywhere.
+> - There are four public roles (Sentinel, Diplomat, Scholar, Survivor #F97316) plus the sealed fifth, First Contact. Never publish how First Contact appears.
+> - There was NO Trump executive order. Feb 19, 2026 was a Truth Social statement directing agencies to release UAP files. Verified timeline: docs/research-timeline.md.
+> - The May 8, 2026 file release was the Department of War (PURSUE), not the National Archives.
+> - The app is pre-launch. No Apple or Google Wallet claims, no store claims, until they are real.
+> - Design and voice for the site now live in docs/CONCEPT.md and docs/BUILD-BRIEF.md.
+
 
 
 ## Product Overview

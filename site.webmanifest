@@ -1,11 +1,12 @@
 {
   "name": "DISCLOSURE",
   "short_name": "DISCLOSURE",
-  "description": "Four types of people will be in the room when it happens. Only one of them will be ready. Discover your archetype.",
+  "description": "A civilian first contact preparation app in development for iOS and Android. Ten questions find your role.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#030504",
+  "theme_color": "#030504",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -21,6 +22,5 @@
     }
   ],
   "categories": ["entertainment", "lifestyle"],
-  "lang": "en-US",
-  "orientation": "portrait"
+  "lang": "en-US"
 }
