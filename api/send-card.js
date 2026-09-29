@@ -146,13 +146,14 @@ function links(key, token) {
 }
 
 /* ---------- the email ----------
-   The site's own furniture: the black banner marking, the wordmark, one role-coloured keyline,
-   the card itself as the centrepiece, and the first minute on a paper slip. */
+   The site's own furniture: the black banner marking, the wordmark, one role-coloured keyline and
+   the card itself as the centrepiece. Every panel and button is light on dark on purpose: Gmail's
+   dark mode repaints dark text sitting on a light ground, and leaves light on dark alone. */
 const SANS = "'Public Sans',Arial,Helvetica,sans-serif";
 const MONO = "'Space Mono','Courier New',Courier,monospace";
 const C = {
   black: "#000000", void: "#030504", panel: "#070b09", rule: "#1d2722", bone: "#d8dfda", dim: "#a3aea7", faint: "#7d8983",
-  signal: "#4af626", ink: "#031002", paper: "#c9ccc3", paperEdge: "#a9ada3", toner: "#121412", tonerDim: "#3b403b",
+  signal: "#4af626",
 };
 const ROLE_COLOR = { sentinel: "#ef4444", diplomat: "#22c55e", scholar: "#60a5fa", survivor: "#f97316", "first-contact": "#ffd700" };
 
@@ -163,9 +164,9 @@ function buildHtml(key, serial, token, issued) {
   const accent = ROLE_COLOR[key];
   const label = (t, color, extra) => `<p style="margin:0 0 10px;font-family:${MONO};font-size:12px;line-height:1.4;letter-spacing:2px;text-transform:uppercase;color:${color || C.faint};${extra || ""}">${t}</p>`;
   const row = (k, v) => `<tr><td style="padding:11px 0;border-top:1px solid ${C.rule};font-family:${MONO};font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:${C.faint};">${k}</td><td align="right" style="padding:11px 0;border-top:1px solid ${C.rule};font-family:${MONO};font-size:13px;letter-spacing:1px;color:${C.bone};">${v}</td></tr>`;
-  const button = (href, text) => `<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td style="background:${C.signal};border-radius:2px;"><a href="${esc(href)}" style="display:inline-block;padding:15px 26px;font-family:${SANS};font-size:16px;font-weight:800;color:${C.ink};text-decoration:none;">${text} &rarr;</a></td></tr></table>`;
+  const button = (href, text) => `<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td bgcolor="${C.void}" style="background:${C.void};border:2px solid ${C.signal};border-radius:2px;"><a href="${esc(href)}" style="display:inline-block;padding:14px 26px;font-family:${MONO};font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:${C.signal};text-decoration:none;">${text} &rarr;</a></td></tr></table>`;
   const address = MAILING_ADDRESS ? `<p style="margin:0 0 8px;">${esc(MAILING_ADDRESS)}</p>` : "";
-  const cardAlt = `First Contact Card for ${r.name}, serial ${serial}, with an iris print grown from your ten answers.`;
+  const cardAlt = `Your First Contact Card: ${r.name}, serial ${serial}. ${r.line} The iris on it was grown from your ten answers.`;
 
   const cardBlock = token ? `
 <tr><td style="padding:30px 0 6px;" align="center">
@@ -174,7 +175,7 @@ function buildHtml(key, serial, token, issued) {
 </td></tr>
 <tr><td style="padding:22px 0 4px;" align="center">
   ${button(u.card, "Open your card")}
-  <p style="margin:14px 0 0;font-family:${SANS};font-size:14px;line-height:1.5;color:${C.dim};">Save it as an image or share the link. It unfurls with your eye.</p>
+  <p style="margin:14px 0 0;font-family:${SANS};font-size:14px;line-height:1.5;color:${C.dim};">Save it as an image, or share the link and your eye shows up in the preview.</p>
 </td></tr>` : "";
 
   const ctaBlock = token
@@ -205,13 +206,13 @@ function buildHtml(key, serial, token, issued) {
   <h1 style="margin:0;font-family:${SANS};font-size:44px;line-height:1.02;font-weight:900;letter-spacing:-1px;color:${C.bone};">${esc(r.name)}</h1>
   <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:16px 0 12px;"><tr><td style="width:56px;height:3px;background:${accent};font-size:0;line-height:0;">&nbsp;</td></tr></table>
   <p style="margin:0 0 14px;font-family:${MONO};font-size:13px;letter-spacing:2px;text-transform:uppercase;color:${C.dim};">${esc(r.role)}</p>
-  <p style="margin:0;font-family:${SANS};font-size:20px;line-height:1.45;color:${C.bone};">${esc(r.line)}</p>
+  ${token ? "" : `<p style="margin:0;font-family:${SANS};font-size:20px;line-height:1.45;color:${C.bone};">${esc(r.line)}</p>`}
 </td></tr>
 ${cardBlock}
 <tr><td style="padding:30px 0 6px;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${C.paper};border:1px solid ${C.paperEdge};"><tr><td style="padding:20px 22px 20px;border-left:4px solid ${accent};">
-    ${label(sealed ? "The record" : "The first minute", C.tonerDim)}
-    <p style="margin:0;font-family:${SANS};font-size:17px;line-height:1.6;color:${C.toner};">${esc(r.first)}</p>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${C.panel}" style="background:${C.panel};border:1px solid ${C.rule};"><tr><td bgcolor="${C.panel}" style="padding:20px 22px 20px;border-left:3px solid ${accent};background:${C.panel};">
+    ${label(sealed ? "The record" : "The first minute")}
+    <p style="margin:0;font-family:${SANS};font-size:17px;line-height:1.6;color:${C.bone};">${esc(r.first)}</p>
   </td></tr></table>
 </td></tr>
 
@@ -219,7 +220,7 @@ ${cardBlock}
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
     ${row("Serial", esc(serial))}
     ${row("Designation", esc(r.name))}
-    ${issued ? row("Issued", esc(issued)) : ""}
+    ${issued ? row("Issued", esc(issued).replace(/-/g, "-&zwnj;")) : ""}
     ${row("App status", "In development")}
   </table>
 </td></tr>
