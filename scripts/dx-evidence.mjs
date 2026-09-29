@@ -40,6 +40,21 @@ function cardify(html, featureFirst) {
   }).replace(/<ol class="file-index file-cards">([\s\S]*?)<\/ol>/g, (w) => w); // stable
 }
 
+// hand-set lines where the automatic pick reads badly
+const OVERRIDE = {
+  'aaro-explained': 'AARO is the official UAP office, not a disclosure oracle.',
+  'are-we-alone-in-the-universe': 'You do not need to believe every claim to take the question seriously.',
+  'nimitz-tic-tac-ufo-explained': 'Radar operators and fighter pilots described a smooth white object they could not explain.',
+  'starlink-vs-ufo': 'A straight line of evenly spaced lights is almost always a satellite train. Check before you call it anything else.',
+  'tall-white-alien-charles-hall': 'Some contact scenarios may judge your behavior before you understand the rules.',
+  'types-of-alien-species-ranked-threat': 'In encounter lore, the highest-risk reported categories are Reptilian, Grey and Mantid.',
+  'uap-records-collection-explained': 'If you want to know what governments actually documented, the records collection is where to look.',
+  'ufo-contact-emergency-kit': 'The kit is not about the sky. It is about the hours after the lights go out.',
+  'ufo-sighting-family-protocol': 'A strange light feels different when your children are watching it with you.',
+  'what-to-do-if-you-see-a-ufo': 'Stay calm, start recording, keep your distance, and write your notes before memory starts editing the event.',
+  'what-to-do-if-a-ufo-follows-your-car': 'If something follows your car, the rule that saves lives is boring: keep driving.',
+};
+
 function stripTags(s) { return s.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim(); }
 function firstSentence(t) {
   const m = t.match(/^(.{40,220}?[.!?])(\s|$)/);
@@ -64,7 +79,7 @@ for (const slug of slugs) {
       const sentences = [...seg.matchAll(/<p>([\s\S]*?)<\/p>/g)].map(m => stripTags(m[1]))
         .flatMap(t => t.match(/[^.!?]{30,200}[.!?](?=\s|$)/g) || [])
         .map(t => t.trim()).filter(t => !/[:;]$/.test(t) && !/^(This|That|It|These|Those)\b/.test(t) && t.split(' ').length >= 8);
-      const pick = sentences.find(t => /\b(you|your|do not|never|always|first|most|every)\b/i.test(t)) || sentences[0];
+      const pick = OVERRIDE[slug] || sentences.find(t => /\b(you|your|do not|never|always|first|most|every)\b/i.test(t)) || sentences[0];
       if (pick) {
         const line = pick.replace(/"/g, '&quot;');
         const no = (s.match(/File (\d{3})/) || [])[1] || '000';
