@@ -250,7 +250,7 @@
   }
   function loadSats() {
     if (!dataPromise) {
-      dataPromise = getJson('/api/tle', 7000)
+      dataPromise = getJson('/api/tle/', 7000)
         .then(function (d) { return { doc: d, snapshot: false }; })
         .catch(function () { return getJson('/assets/data/tle-snapshot.json', 7000).then(function (d) { return { doc: d, snapshot: true }; }); })
         .catch(function () { return { doc: null, snapshot: false }; })
