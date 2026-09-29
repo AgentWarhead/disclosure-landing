@@ -128,8 +128,11 @@
   function sizeCanvas() {
     var css = canvas.getBoundingClientRect().width || 360;
     DPR = Math.min(window.devicePixelRatio || 1, 2);
-    SIZE = Math.round(css * DPR);
-    canvas.width = SIZE; canvas.height = SIZE;
+    var next = Math.round(css * DPR);
+    if (next === SIZE && canvas.width === next) return false;
+    SIZE = next;
+    canvas.width = SIZE; canvas.height = SIZE; /* resizing clears the bitmap, so the caller redraws */
+    return true;
   }
   function buildFibres() {
     var r = mulberry(fnv('fibres:' + state.salt));
@@ -574,7 +577,7 @@
   var rs = 0;
   var onResize = function () {
     clearTimeout(rs);
-    rs = setTimeout(function () { var before = SIZE; sizeCanvas(); if (SIZE !== before) draw(); }, 80);
+    rs = setTimeout(function () { if (sizeCanvas()) draw(); }, 80);
   };
   if ('ResizeObserver' in window) new ResizeObserver(onResize).observe(canvas);
   else window.addEventListener('resize', onResize);
