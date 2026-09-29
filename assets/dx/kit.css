@@ -176,3 +176,6 @@ html.motion-off .dq::after { display: none; }
 @media (max-width: 520px) { .prose .pin:has(img) { grid-template-columns: 96px minmax(0, 1fr); } .prose .pin:has(img) img { width: 96px; } }
 
 .js .dq { width: fit-content; max-width: 100%; }
+
+.ask p a, .record-after a, .kit-status p a { color: var(--bone); text-decoration-color: var(--signal); text-decoration-thickness: 1.5px; }
+.ask p a:hover, .record-after a:hover, .kit-status p a:hover { color: var(--signal-soft); }

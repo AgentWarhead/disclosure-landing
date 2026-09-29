@@ -61,7 +61,7 @@ The app is in development and details may change. The planned features are: the 
 
 - [Accessibility Statement](https://www.getdisclosure.app/accessibility/)
 
-## Intel files (64)
+## Intel files (70)
 
 - [What Is AARO?](https://www.getdisclosure.app/intel/aaro-explained/)
 - [AI Probe Alien Theory](https://www.getdisclosure.app/intel/ai-probe-alien-theory/)
@@ -81,6 +81,7 @@ The app is in development and details may change. The planned features are: the 
 - [Drone vs UFO: Field Guide](https://www.getdisclosure.app/intel/drone-vs-ufo/)
 - [Experiencer Support After a UFO Encounter](https://www.getdisclosure.app/intel/experiencer-support-after-ufo-encounter/)
 - [Fermi Paradox Explained](https://www.getdisclosure.app/intel/fermi-paradox-explained/)
+- [How to Identify a UFO: Field Guide](https://www.getdisclosure.app/intel/field-guide/)
 - [Four Types of People During Alien Contact](https://www.getdisclosure.app/intel/four-types-of-people-alien-contact/)
 - [Government UFO Programs History](https://www.getdisclosure.app/intel/government-ufo-programs-history/)
 - [Grey Alien Encounter Survival Guide](https://www.getdisclosure.app/intel/grey-alien-encounter-survival-guide/)
@@ -101,7 +102,10 @@ The app is in development and details may change. The planned features are: the 
 - [Phoenix Lights Explained](https://www.getdisclosure.app/intel/phoenix-lights-explained/)
 - [Pleiadian Aliens Explained](https://www.getdisclosure.app/intel/pleiadian-aliens-explained/)
 - [Project Blue Book Explained](https://www.getdisclosure.app/intel/project-blue-book-explained/)
+- [UFO Encounter Protocols: What to Do](https://www.getdisclosure.app/intel/protocol/)
 - [UFO Encounter Psychology](https://www.getdisclosure.app/intel/psychology-of-ufo-encounters/)
+- [Psychology of UFO Encounters](https://www.getdisclosure.app/intel/psychology/)
+- [UAP Public Record: Hearings and Files](https://www.getdisclosure.app/intel/public-record/)
 - [Rendlesham Forest UFO Incident](https://www.getdisclosure.app/intel/rendlesham-forest-ufo-incident/)
 - [Reptilian Alien Threat Assessment](https://www.getdisclosure.app/intel/reptilian-alien-threat-assessment/)
 - [Rio Scale Explained](https://www.getdisclosure.app/intel/rio-scale-explained/)
@@ -109,8 +113,10 @@ The app is in development and details may change. The planned features are: the 
 - [SETI Post-Detection Protocol Explained](https://www.getdisclosure.app/intel/seti-post-detection-protocol/)
 - [Sirians Alien Lore Explained](https://www.getdisclosure.app/intel/sirians-alien-lore-explained/)
 - [Sleep Paralysis vs Alien Abduction](https://www.getdisclosure.app/intel/sleep-paralysis-vs-alien-abduction/)
+- [Types of Aliens: Reported Species Files](https://www.getdisclosure.app/intel/species/)
 - [Starlink vs UFO: How to Tell](https://www.getdisclosure.app/intel/starlink-vs-ufo/)
 - [Tall White Aliens and Charles Hall](https://www.getdisclosure.app/intel/tall-white-alien-charles-hall/)
+- [Alien Theories Explained: Fermi to Dark Forest](https://www.getdisclosure.app/intel/theory/)
 - [Types of Alien Species Ranked by Threat](https://www.getdisclosure.app/intel/types-of-alien-species-ranked-threat/)
 - [UAP Disclosure Act Timeline, 2023 to 2026](https://www.getdisclosure.app/intel/uap-disclosure-act-2026-timeline/)
 - [UAP Records Collection Explained](https://www.getdisclosure.app/intel/uap-records-collection-explained/)

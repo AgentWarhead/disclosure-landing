@@ -6,6 +6,7 @@
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { CATEGORIES } from './dx-data.mjs';
 
 const root = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 const header = readFileSync(join(root, 'docs/partials/header.html'), 'utf8').trim();
@@ -46,6 +47,7 @@ function lensFor(path) {
     '/terms/': { src: '/frames/f075.webp' },
     '/accessibility/': { src: '/frames/f075.webp' },
     '/404': { src: '/frames/f075.webp' },
+    ...Object.fromEntries(CATEGORIES.map(c => ['/intel/' + c.slug + '/', { src: c.lens, kind: 'wide' }])),
   };
   return map[path] || null;
 }
@@ -60,17 +62,22 @@ for (const file of pages(root)) {
   const f = out.match(/<!-- dx:footer -->[\s\S]*?<!-- \/dx:footer -->/);
   if (!h || !f) { missing.push(path); continue; }
 
-  let hdr = header.replace('{{NAV_ATTR}}', h[1] ? ' data-over data-mode="over"' : '');
-  hdr = hdr.replace(/<a href="([^"]+)">/g, (m, href) => {
-    const current = href !== '/' && (path === href || (href.length > 1 && path.startsWith(href))
-      || (href === '/archetypes/' && path.startsWith('/archetype/')));
-    return current ? `<a href="${href}" aria-current="page">` : m;
-  });
   const control = (out.match(/<meta name="dx:control" content="([^"]*)"/) || [])[1] || 'Released in part';
+  let hdr = header.replace('{{NAV_ATTR}}', h[1] ? ' data-over data-mode="over"' : '').replace('{{CONTROL}}', control);
+  // exact-page links get aria-current (panel lists, mobile sheet)
+  hdr = hdr.replace(/<a((?: class="[^"]*")?) href="([^"]+)">/g, (m, cls, href) => href === path && href !== '/' ? `<a${cls} href="${href}" aria-current="page">` : m);
+  // the section tab for this page gets marked
+  const section = /^\/(archetypes|archetype|quiz|about)\//.test(path) ? 'file'
+    : /^\/(first-contact|readiness)\/$/.test(path) || path === '/intel/protocol/' ? 'protocol'
+    : path.startsWith('/intel/') ? 'archive'
+    : path === '/faq/' ? 'faq' : '';
+  if (section === 'faq') hdr = hdr.replace('<a class="dx-tab dx-tab-link" href="/faq/">', '<a class="dx-tab dx-tab-link is-current" href="/faq/" aria-current="page">');
+  else if (section) hdr = hdr.replace(`class="dx-tab" type="button" aria-expanded="false" aria-controls="dx-p-${section}"`, `class="dx-tab is-current" type="button" aria-expanded="false" aria-controls="dx-p-${section}"`);
   const ftr = footer.replace('{{CONTROL}}', control);
 
   // ---- the kit: kit.css, the lens, the control strip (docs/SCROLL-SCORE.md) ----
-  if (!out.includes('/assets/dx/kit.css')) out = out.replace(/(<link rel="stylesheet" href="\/assets\/dx\/dx\.css\?v=\d+">)/, '$1\n<link rel="stylesheet" href="/assets/dx/kit.css?v=1">');
+  if (!out.includes('/assets/dx/kit.css')) out = out.replace(/(<link rel="stylesheet" href="\/assets\/dx\/dx\.css\?v=\d+">)/, '$1\n<link rel="stylesheet" href="/assets/dx/kit.css?v=5">');
+  if (!out.includes('/assets/dx/chrome.css')) out = out.replace(/(<link rel="stylesheet" href="\/assets\/dx\/kit\.css\?v=\d+">)/, '$1\n<link rel="stylesheet" href="/assets/dx/chrome.css?v=5">');
   out = out.replace(/\n?<!-- dx:lens -->[\s\S]*?<!-- \/dx:lens -->/g, '');
   out = out.replace(/\n?<!-- dx:strip -->[\s\S]*?<!-- \/dx:strip -->/g, '');
   const lens = lensFor(path);

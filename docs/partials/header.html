@@ -1,31 +1,146 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="dx-nav"{{NAV_ATTR}}>
-  <div class="wrap">
+  <p class="dx-banner" aria-hidden="true"><span>Unclassified</span><i></i><span>Civilian copy</span><i></i><span class="dx-banner-file">{{CONTROL}}</span></p>
+  <div class="dx-bar wrap">
     <a class="dx-brand" href="/">
       <img class="dx-emblem" src="/assets/brand/disclosure-emblem.webp" alt="" width="174" height="175" decoding="async">
       <img class="dx-wordmark" src="/assets/brand/disclosure-wordmark.webp" alt="DISCLOSURE, home" width="600" height="120" decoding="async">
     </a>
-    <nav class="dx-links" aria-label="Primary">
-      <a href="/archetypes/">Roles</a>
-      <a href="/first-contact/">Briefing</a>
-      <a href="/readiness/">Drill</a>
-      <a href="/intel/">Intel</a>
-      <a href="/faq/">FAQ</a>
+    <nav class="dx-primary" aria-label="Primary">
+      <ul class="dx-tabs">
+        <li><button class="dx-tab" type="button" aria-expanded="false" aria-controls="dx-p-file" data-panel="file"><span class="dx-tab-no" aria-hidden="true">01</span>The file</button></li>
+        <li><button class="dx-tab" type="button" aria-expanded="false" aria-controls="dx-p-protocol" data-panel="protocol"><span class="dx-tab-no" aria-hidden="true">02</span>Protocol</button></li>
+        <li><button class="dx-tab" type="button" aria-expanded="false" aria-controls="dx-p-archive" data-panel="archive"><span class="dx-tab-no" aria-hidden="true">03</span>Archive</button></li>
+        <li><a class="dx-tab dx-tab-link" href="/faq/"><span class="dx-tab-no" aria-hidden="true">04</span>FAQ</a></li>
+      </ul>
     </nav>
     <div class="dx-tools">
-      <button class="dx-sound" type="button" aria-pressed="false" title="Ambient sound"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="txt">Sound</span></button>
-      <button class="dx-motion" type="button" aria-pressed="false"><svg viewBox="0 0 12 12" aria-hidden="true" focusable="false"><rect x="2" y="2" width="3" height="8"/><rect x="7" y="2" width="3" height="8"/></svg><span class="txt"><span class="visually-hidden">Pause </span>Motion</span></button>
-      <a class="btn" href="/#classify">Find your role</a>
-      <button class="dx-menu-btn" type="button" aria-expanded="false" aria-controls="dx-sheet"><span class="t">Menu</span></button>
+      <button class="dx-sound dx-icon" type="button" aria-pressed="false" aria-label="Ambient sound" title="Ambient sound"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span></button>
+      <button class="dx-motion dx-icon" type="button" aria-pressed="false" aria-label="Pause motion" title="Pause motion"><svg viewBox="0 0 12 12" aria-hidden="true" focusable="false"><rect x="2" y="2" width="3" height="8"/><rect x="7" y="2" width="3" height="8"/></svg></button>
+      <a class="btn dx-cta" href="/#classify">Find your role</a>
+      <button class="dx-menu-btn" type="button" aria-expanded="false" aria-controls="dx-sheet"><span class="dx-burger" aria-hidden="true"><i></i><i></i></span><span class="t">Menu</span></button>
+    </div>
+  </div>
+
+  <div class="dx-panels">
+    <div class="dx-panel" id="dx-p-file" data-panel="file" hidden>
+      <div class="wrap dx-panel-grid">
+        <a class="dx-feature dx-feature-iris" href="/#classify">
+          <span class="dx-feature-img"><img src="/assets/brand/iris-diplomat.webp" alt="" loading="lazy" decoding="async" width="720" height="720"></span>
+          <span class="label">Start here</span>
+          <span class="dx-feature-t">Find your role</span>
+          <span class="dx-feature-d">Ten questions. One designation. An iris print nobody else carries.</span>
+        </a>
+        <div class="dx-col">
+          <p class="label dx-col-h">The four roles</p>
+          <ul class="dx-roles">
+            <li class="r-sentinel"><a href="/archetype/sentinel/"><span class="role-dot" aria-hidden="true"></span>Sentinel<span>Primary protector</span></a></li>
+            <li class="r-diplomat"><a href="/archetype/diplomat/"><span class="role-dot" aria-hidden="true"></span>Diplomat<span>De-escalation lead</span></a></li>
+            <li class="r-scholar"><a href="/archetype/scholar/"><span class="role-dot" aria-hidden="true"></span>Scholar<span>Field analyst</span></a></li>
+            <li class="r-survivor"><a href="/archetype/survivor/"><span class="role-dot" aria-hidden="true"></span>Survivor<span>Self-preservation</span></a></li>
+            <li class="r-first-contact"><a href="/archetype/first-contact/"><span class="role-dot" aria-hidden="true"></span>Sealed file<span>Not issued</span></a></li>
+          </ul>
+        </div>
+        <div class="dx-col">
+          <p class="label dx-col-h">The file</p>
+          <ul class="dx-list">
+            <li><a href="/archetypes/">How the four roles work together</a></li>
+            <li><a href="/quiz/">Alien encounter quiz</a></li>
+            <li><a href="/about/">What DISCLOSURE is</a></li>
+            <li><a href="/faq/">Questions, answered</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="dx-panel" id="dx-p-protocol" data-panel="protocol" hidden>
+      <div class="wrap dx-panel-grid">
+        <a class="dx-feature" href="/first-contact/">
+          <span class="dx-feature-img"><img src="/frames/f140.webp" alt="" loading="lazy" decoding="async" width="960" height="523"></span>
+          <span class="label">The briefing</span>
+          <span class="dx-feature-t">The first minutes of first contact</span>
+          <span class="dx-feature-d">Six steps for the civilian who gets there first.</span>
+        </a>
+        <a class="dx-feature" href="/readiness/">
+          <span class="dx-feature-img"><img src="/asset-stone-cold-v3-640.webp" alt="" loading="lazy" decoding="async" width="640" height="358"></span>
+          <span class="label">The drill</span>
+          <span class="dx-feature-t">Ten seconds a call</span>
+          <span class="dx-feature-d">Six scenes on a blackout night. Pause any time.</span>
+        </a>
+        <div class="dx-col">
+          <p class="label dx-col-h">If it happens</p>
+          <ul class="dx-list">
+            <li><a href="/intel/what-to-do-if-you-see-a-ufo/">If you see a UFO</a></li>
+            <li><a href="/intel/how-to-film-a-ufo-at-night/">How to film it at night</a></li>
+            <li><a href="/intel/how-to-report-a-ufo-sighting/">How to report a sighting</a></li>
+            <li><a href="/intel/ufo-sighting-family-protocol/">With your family</a></li>
+            <li><a href="/intel/what-to-do-if-a-ufo-follows-your-car/">If it follows your car</a></li>
+            <li><a class="dx-more" href="/intel/protocol/">All protocol files <span aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="dx-panel" id="dx-p-archive" data-panel="archive" hidden>
+      <div class="wrap dx-panel-grid dx-panel-archive">
+        <ul class="dx-cats">
+          <li><a href="/intel/protocol/"><span class="label">11 files</span><span class="dx-cat-t">Protocol</span><span class="dx-cat-d">What to do, in order</span></a></li>
+          <li><a href="/intel/field-guide/"><span class="label">7 files</span><span class="dx-cat-t">Field guide</span><span class="dx-cat-d">Satellite, drone or something else</span></a></li>
+          <li><a href="/intel/species/"><span class="label">13 files</span><span class="dx-cat-t">Species</span><span class="dx-cat-d">Reports and lore</span></a></li>
+          <li><a href="/intel/public-record/"><span class="label">12 files</span><span class="dx-cat-t">Public record</span><span class="dx-cat-d">Hearings, reports and files</span></a></li>
+          <li><a href="/intel/psychology/"><span class="label">13 files</span><span class="dx-cat-t">Psychology</span><span class="dx-cat-d">Fear, memory and silence</span></a></li>
+          <li><a href="/intel/theory/"><span class="label">8 files</span><span class="dx-cat-t">Theory</span><span class="dx-cat-d">Why the sky is quiet</span></a></li>
+        </ul>
+        <div class="dx-col">
+          <p class="label dx-col-h">Most opened</p>
+          <ul class="dx-list">
+            <li><a href="/intel/uap-disclosure-act-2026-timeline/">UAP disclosure timeline</a></li>
+            <li><a href="/intel/starlink-vs-ufo/">Starlink or UFO?</a></li>
+            <li><a href="/intel/types-of-alien-species-ranked-threat/">Reported species, ranked</a></li>
+            <li><a href="/intel/sleep-paralysis-vs-alien-abduction/">Sleep paralysis or abduction?</a></li>
+            <li><a class="dx-more" href="/intel/">All 64 intel files <span aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </header>
+
 <div class="dx-sheet" id="dx-sheet" data-open="false">
-  <a href="/archetypes/">Roles</a>
-  <a href="/first-contact/">Briefing</a>
-  <a href="/readiness/">Drill</a>
-  <a href="/intel/">Intel</a>
-  <a href="/faq/">FAQ</a>
-  <a href="/about/">About</a>
-  <a class="btn" href="/#classify">Find your role</a>
+  <a class="btn dx-sheet-cta" href="/#classify">Find your role <span class="arr" aria-hidden="true">&rarr;</span></a>
+  <nav aria-label="Mobile">
+    <section class="dx-sheet-group">
+      <h2 class="label">The file</h2>
+      <ul>
+        <li><a href="/archetypes/">The four roles</a></li>
+        <li><a href="/quiz/">Alien encounter quiz</a></li>
+        <li class="dx-sheet-roles"><a class="r-sentinel" href="/archetype/sentinel/"><span class="role-dot" aria-hidden="true"></span>Sentinel</a><a class="r-diplomat" href="/archetype/diplomat/"><span class="role-dot" aria-hidden="true"></span>Diplomat</a><a class="r-scholar" href="/archetype/scholar/"><span class="role-dot" aria-hidden="true"></span>Scholar</a><a class="r-survivor" href="/archetype/survivor/"><span class="role-dot" aria-hidden="true"></span>Survivor</a></li>
+      </ul>
+    </section>
+    <section class="dx-sheet-group">
+      <h2 class="label">Protocol</h2>
+      <ul>
+        <li><a href="/first-contact/">First contact briefing</a></li>
+        <li><a href="/readiness/">Ten-second drill</a></li>
+        <li><a href="/intel/what-to-do-if-you-see-a-ufo/">If you see a UFO</a></li>
+        <li><a href="/intel/protocol/">All protocol files</a></li>
+      </ul>
+    </section>
+    <section class="dx-sheet-group">
+      <h2 class="label">Archive</h2>
+      <ul class="dx-sheet-cats">
+        <li><a href="/intel/field-guide/">Field guide</a></li>
+        <li><a href="/intel/species/">Species</a></li>
+        <li><a href="/intel/public-record/">Public record</a></li>
+        <li><a href="/intel/psychology/">Psychology</a></li>
+        <li><a href="/intel/theory/">Theory</a></li>
+        <li><a href="/intel/">All 64 files</a></li>
+      </ul>
+    </section>
+    <ul class="dx-sheet-small">
+      <li><a href="/about/">About</a></li>
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/accessibility/">Accessibility</a></li>
+    </ul>
+  </nav>
 </div>

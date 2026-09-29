@@ -50,6 +50,45 @@
   });
   applyMotion();
 
+  /* ---------- dossier tabs: disclosure-pattern drawers (not ARIA menus) ---------- */
+  var tabs = [].slice.call(doc.querySelectorAll('button.dx-tab[aria-controls]'));
+  if (tabs.length) {
+    var navEl = doc.querySelector('.dx-nav');
+    var scrim = doc.createElement('div');
+    scrim.className = 'dx-scrim'; scrim.hidden = true;
+    doc.body.appendChild(scrim);
+    var openTab = null;
+    var closeAll = function (returnFocus) {
+      tabs.forEach(function (t) {
+        t.setAttribute('aria-expanded', 'false');
+        var p = doc.getElementById(t.getAttribute('aria-controls')); if (p) p.hidden = true;
+      });
+      scrim.hidden = true;
+      if (navEl) navEl.classList.remove('is-open');
+      if (returnFocus && openTab) openTab.focus();
+      openTab = null;
+    };
+    var open = function (t) {
+      closeAll(false);
+      t.setAttribute('aria-expanded', 'true');
+      var p = doc.getElementById(t.getAttribute('aria-controls')); if (p) p.hidden = false;
+      scrim.hidden = false;
+      if (navEl) { navEl.classList.add('is-open'); navEl.setAttribute('data-mode', 'solid'); }
+      openTab = t;
+      DX.track('nav_open', { panel: t.getAttribute('data-panel') });
+    };
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () { if (openTab === t) closeAll(false); else open(t); });
+    });
+    scrim.addEventListener('click', function () { closeAll(false); });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' && openTab) closeAll(true); });
+    if (navEl) navEl.addEventListener('focusout', function (e) {
+      if (openTab && e.relatedTarget && !navEl.contains(e.relatedTarget)) closeAll(false);
+    });
+    [].forEach.call(doc.querySelectorAll('.dx-panel a'), function (a) { a.addEventListener('click', function () { closeAll(false); }); });
+    window.addEventListener('resize', function () { if (openTab && window.innerWidth <= 960) closeAll(false); });
+  }
+
   /* ---------- nav ---------- */
   var nav = doc.querySelector('.dx-nav');
   var sheet = doc.getElementById('dx-sheet');
@@ -60,7 +99,7 @@
       return hero ? Math.max(120, hero.offsetHeight - window.innerHeight * 0.6) : window.innerHeight * 0.6;
     };
     var limit = overLimit();
-    var setMode = function () { nav.setAttribute('data-mode', window.scrollY < limit ? 'over' : 'solid'); };
+    var setMode = function () { nav.setAttribute('data-mode', window.scrollY < limit && !nav.classList.contains('is-open') ? 'over' : 'solid'); };
     window.addEventListener('scroll', setMode, { passive: true });
     window.addEventListener('resize', function () { limit = overLimit(); setMode(); });
     setMode();
