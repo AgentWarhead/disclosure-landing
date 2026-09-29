@@ -15,7 +15,7 @@
 
 
 ## Product Overview
-**One-liner:** The world's first civilian first contact preparation app — part ARG, part survival tool, 100% viral.
+**One-liner:** First contact survival training for civilians: a role quiz, drills your phone scores, and a crew. Never claim to be the first or the only one (verified 2026-09-29: CE5 Contact and Close Encounters Protocols exist).
 
 **Product name:** DISCLOSURE
 **URL:** getdisclosure.app
