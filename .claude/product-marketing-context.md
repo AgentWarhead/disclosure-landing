@@ -92,6 +92,7 @@
 
 ## App features (approved 2026-09-29, disclosure-app/docs/FEATURE-AUDIT.md)
 Launch (five, free to start): the Classification (with the iris video), the First Contact Card (grows with every drill), Don't Flinch (with optional haptic breathing first), the Open Hand, Crew.
-Paid layer: Don't Flinch's full drill library and multi-phone crew drills (price is Brett's call).
+Free: the classification, the iris video (watermarked), the basic card, the Open Hand, one Don't Flinch a day, joining a crew.
+Paid, "Clearance" (approved 2026-09-29): $9.99 monthly, $59.99 annual with a 14-day trial, $149.99 lifetime; Crew Clearance $99.99 a year for up to 6; cosmetic one-time drops $2.99 to $4.99. No weekly plans, no ads. The website names no prices until launch.
 After launch: Message to the Stars, Tonight's Sky. Website only: the sky identifier, the sighting report, verdicts (the ledger).
 Cut: the Liaison's Creed, the Global Liaison Map, Blackout Mode, the Offline Kit, the Field Card widget. No Wallet claim until a Wallet pass exists.
